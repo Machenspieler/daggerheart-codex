@@ -170,7 +170,10 @@ function renderToolbar() {
     <div class="toolbar">
       <div class="field search-field">
         <label>${t('search_placeholder')}</label>
-        <input type="text" id="f-search" placeholder="${t('search_placeholder')}" value="${escapeAttr(state.filters.search)}">
+        <div class="search-input-wrap">
+          <input type="text" id="f-search" placeholder="${t('search_placeholder')}" value="${escapeAttr(state.filters.search)}">
+          <button type="button" class="search-clear-btn" id="f-search-clear" aria-label="${t('clear_filters')}" style="${state.filters.search ? '' : 'display:none;'}">×</button>
+        </div>
       </div>
       <div class="field">
         <label>${t('filter_tier')}</label>
@@ -194,7 +197,20 @@ function renderToolbar() {
       <div class="toolbar-spacer"></div>
     </div>`;
 
-  document.getElementById('f-search').addEventListener('input', e => { state.filters.search = e.target.value; renderGrid(); });
+  const searchInput = document.getElementById('f-search');
+  const searchClearBtn = document.getElementById('f-search-clear');
+  searchInput.addEventListener('input', e => {
+    state.filters.search = e.target.value;
+    searchClearBtn.style.display = e.target.value ? '' : 'none';
+    renderGrid();
+  });
+  searchClearBtn.addEventListener('click', () => {
+    state.filters.search = '';
+    searchInput.value = '';
+    searchClearBtn.style.display = 'none';
+    searchInput.focus();
+    renderGrid();
+  });
   el.querySelectorAll('#f-tiers .pill').forEach(btn => btn.addEventListener('click', () => {
     const tier = Number(btn.dataset.tier);
     toggleSetValue(state.filters.tiers, tier);
