@@ -89,7 +89,6 @@ function renderHeader() {
           <button data-lang="en" class="${state.lang === 'en' ? 'active' : ''}">EN</button>
         </div>
         <button class="btn" id="btn-manage-tags">${t('manage_tags')}</button>
-        <button class="btn btn-primary" id="btn-add-env">+ ${t('add_environment')}</button>
       </div>
     </div>`;
   el.querySelectorAll('[data-lang]').forEach(btn => {
@@ -100,7 +99,6 @@ function renderHeader() {
     });
   });
   document.getElementById('btn-manage-tags').addEventListener('click', openTagManager);
-  document.getElementById('btn-add-env').addEventListener('click', () => openEditForm(null));
 }
 
 function diceMarkSVG() {

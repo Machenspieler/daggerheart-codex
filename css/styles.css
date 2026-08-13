@@ -95,8 +95,8 @@ a { color: var(--hope-soft); text-decoration: none; }
 }
 .btn:hover { border-color: var(--hope); background: #241d17; }
 .btn:active { transform: translateY(1px); }
-.btn-primary { background: var(--hope); color: #1c1408; border-color: var(--hope); font-weight: 600; }
-.btn-primary:hover { background: var(--hope-soft); border-color: var(--hope-soft); }
+.btn-primary { background: #1e5631; color: #eaf3ec; border-color: #1e5631; font-weight: 600; }
+.btn-primary:hover { background: #26703f; border-color: #26703f; }
 .btn-ghost { background: transparent; }
 .btn-danger { border-color: var(--fear); color: var(--fear-soft); background: transparent; }
 .btn-danger:hover { background: rgba(156,43,59,0.12); }
