@@ -585,11 +585,15 @@ function openDetail(envId) {
 
 const DICE_RE = /\b(\d{0,2})d(3|4|6|8|10|12|20|100)\b/gi;
 const COUNTDOWN_KEYWORD_RE = /(Countdown|Отсчёт\w*|Отсчет\w*|Счётчик\w*|Счетчик\w*)/gi;
-const COUNTDOWN_PAREN_RE = /\(\s*(\d+)\s*\)/g;
+const COUNTDOWN_PAREN_RE = /\(\s*(?:(?:Loop|Цикл)\s+)?(?:\d*d)?(\d+)\s*\)/gi;
 
 /** Finds "<...Countdown/Отсчёт...> (6)"-style spans in free text: scans for a
- * plain integer in parens, then walks back to the nearest sentence boundary and
- * takes the text from the closest preceding countdown keyword up to the parens. */
+ * plain integer, optionally prefixed by a "Loop"/"Цикл" qualifier and/or dice
+ * notation (e.g. "(6)", "(Loop 1d6)", "(Цикл d20)"), then walks back to the
+ * nearest sentence boundary and takes the text from the closest preceding
+ * countdown keyword up to the parens. A "Loop XdY" countdown starts at the
+ * die's max (Y), not a dice roll, so this is matched ahead of the plain
+ * dice-roll regex to keep it out of a roll button. */
 function findCountdownMatches(text) {
   const matches = [];
   COUNTDOWN_PAREN_RE.lastIndex = 0;
