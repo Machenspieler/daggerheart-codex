@@ -239,6 +239,7 @@ a { color: var(--hope-soft); text-decoration: none; }
 .feature-desc { margin: 6px 0 0; font-size: 14.5px; }
 .feature-prompt { margin: 8px 0 0; font-size: 13px; color: var(--muted); font-style: italic; }
 .feature-prompt::before { content: "❖ "; color: var(--hope); font-style: normal; }
+.feature-group-divider { border: none; border-top: 1px solid var(--line); margin: 18px 0; }
 
 .tag-editor { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
 .tag-toggle {
@@ -275,22 +276,16 @@ a { color: var(--hope-soft); text-decoration: none; }
 .dice-result-pop .breakdown { font-size: 10.5px; color: var(--parchment-dim); margin-top: 2px; }
 
 .dice-fly-layer { position: fixed; inset: 0; pointer-events: none; z-index: 250; overflow: hidden; }
-.die3d-wrap { position: absolute; top: 0; left: 0; width: 44px; height: 44px; perspective: 600px; will-change: transform, opacity; }
+.die3d-wrap { position: absolute; top: 0; left: 0; perspective: 700px; will-change: transform, opacity; }
 .die3d-cube { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; will-change: transform; }
 .die3d-face {
-  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
-  font-family: var(--font-mono); font-weight: 700; font-size: 18px; border-radius: 8px;
+  position: absolute; top: 50%; left: 50%; display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-mono); font-weight: 700; border-radius: 3px;
   background: linear-gradient(160deg, var(--ink-card), var(--ink-raised));
   border: 1.5px solid var(--hope); color: var(--hope-soft);
   box-shadow: inset 0 0 6px rgba(0,0,0,0.4), 0 4px 10px rgba(0,0,0,0.35);
   backface-visibility: hidden;
 }
-.die3d-front { transform: translateZ(22px); }
-.die3d-back { transform: rotateY(180deg) translateZ(22px); }
-.die3d-right { transform: rotateY(90deg) translateZ(22px); }
-.die3d-left { transform: rotateY(-90deg) translateZ(22px); }
-.die3d-top { transform: rotateX(90deg) translateZ(22px); }
-.die3d-bottom { transform: rotateX(-90deg) translateZ(22px); }
 
 /* ---------- forms ---------- */
 .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
@@ -316,6 +311,21 @@ a { color: var(--hope-soft); text-decoration: none; }
 .tag-color-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; margin-right: 8px; flex: none; }
 .new-tag-row { display: flex; gap: 8px; margin-top: 14px; }
 .new-tag-row input { flex: 1; }
+
+/* ---------- lists feature ---------- */
+.btn.active { border-color: var(--teal-soft); color: var(--teal-soft); }
+.list-context-bar { display: flex; align-items: center; gap: 14px; margin: 4px 0 6px; }
+.list-context-title { font-family: var(--font-display); font-size: 20px; color: var(--parchment); margin: 0; }
+.new-list-row { display: flex; gap: 8px; margin-bottom: 6px; }
+.new-list-row input { flex: 1; font-family: var(--font-body); font-size: 14px; background: var(--ink-raised); border: 1px solid var(--line); color: var(--parchment); padding: 9px 12px; border-radius: var(--radius); }
+.new-list-row input:focus { outline: none; border-color: var(--hope); }
+.list-cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; margin-top: 16px; }
+.list-card { background: var(--ink-card); border: 1px solid var(--line); border-radius: var(--radius); padding: 14px 16px; display: flex; flex-direction: column; gap: 10px; }
+.list-card-top { display: flex; align-items: center; gap: 8px; }
+.list-rename { flex: 1; min-width: 0; background: transparent; border: none; border-bottom: 1px solid transparent; color: var(--parchment); font-family: var(--font-body); font-size: 15px; padding: 2px 0; }
+.list-rename:focus { outline: none; border-bottom-color: var(--hope); }
+.list-card-count { font-size: 12px; color: var(--muted); font-family: var(--font-mono); }
+.atl-row { display: flex; align-items: center; gap: 8px; font-size: 14px; padding: 6px 0; cursor: pointer; }
 
 /* ---------- footer ---------- */
 .site-footer {

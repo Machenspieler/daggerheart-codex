@@ -73,7 +73,9 @@
     "back_to_lists": "← All lists",
     "add_to_list": "Add to list",
     "open_list": "Open",
-    "delete_list_confirm": "Delete this list? Its environments are not deleted, only the list itself."
+    "delete_list_confirm": "Delete this list? Its environments are not deleted, only the list itself.",
+    "list_empty": "This list is empty.",
+    "list_empty_hint": "Add environments to it from any environment's detail view, via “Add to list”."
   },
   "ru": {
     "app_title": "Атлас Daggerheart",
@@ -149,6 +151,8 @@
     "back_to_lists": "← Все списки",
     "add_to_list": "Добавить в список",
     "open_list": "Открыть",
-    "delete_list_confirm": "Удалить этот список? Окружения не удаляются, удаляется только список."
+    "delete_list_confirm": "Удалить этот список? Окружения не удаляются, удаляется только список.",
+    "list_empty": "В этом списке пока нет окружений.",
+    "list_empty_hint": "Добавляйте окружения через кнопку «Добавить в список» на карточке окружения."
   }
 }

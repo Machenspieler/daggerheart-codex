@@ -286,7 +286,9 @@ function renderGrid() {
   });
 
   if (!list.length) {
-    el.innerHTML = `<div class="empty-state"><p>${t('no_results')}</p><p>${t('no_results_hint')}</p></div>`;
+    el.innerHTML = (state.route.name === 'list' && total === 0)
+      ? `<div class="empty-state"><p>${t('list_empty')}</p><p>${t('list_empty_hint')}</p></div>`
+      : `<div class="empty-state"><p>${t('no_results')}</p><p>${t('no_results_hint')}</p></div>`;
     return;
   }
 
@@ -346,6 +348,135 @@ function renderFooter() {
   });
 }
 
+/* ---------------- lists ---------------- */
+
+function listEnvCount(listId) {
+  return Object.values(state.envLists).filter(ids => (ids || []).includes(listId)).length;
+}
+
+function renderListsHome() {
+  document.getElementById('toolbar').innerHTML = '';
+  document.getElementById('result-count').innerHTML = '';
+  const el = document.getElementById('grid-wrap');
+  el.innerHTML = `
+    <div class="lists-home-wrap" style="grid-column:1/-1">
+      <div class="new-list-row">
+        <input type="text" id="new-list-input" placeholder="${t('new_list_name')}">
+        <button class="btn btn-primary" id="new-list-btn">${t('create')}</button>
+      </div>
+      ${state.lists.length
+        ? `<div class="list-cards-grid">${state.lists.map(listCardHtml).join('')}</div>`
+        : `<div class="empty-state"><p>${t('no_lists_yet')}</p><p>${t('no_lists_hint')}</p></div>`}
+    </div>`;
+
+  document.getElementById('new-list-btn').addEventListener('click', () => {
+    const input = document.getElementById('new-list-input');
+    const name = input.value.trim();
+    if (!name) return;
+    state.lists.push({ id: 'list-' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6), name });
+    persist(LS_KEYS.lists, state.lists);
+    renderListsHome();
+  });
+
+  el.querySelectorAll('.list-rename').forEach(input => {
+    input.addEventListener('change', () => {
+      const id = input.closest('.list-card').dataset.list;
+      const list = state.lists.find(l => l.id === id);
+      if (list && input.value.trim()) { list.name = input.value.trim(); persist(LS_KEYS.lists, state.lists); }
+    });
+  });
+  el.querySelectorAll('[data-del-list]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const id = btn.dataset.delList;
+      if (!confirm(t('delete_list_confirm'))) return;
+      state.lists = state.lists.filter(l => l.id !== id);
+      Object.keys(state.envLists).forEach(envId => {
+        state.envLists[envId] = (state.envLists[envId] || []).filter(lid => lid !== id);
+      });
+      persist(LS_KEYS.lists, state.lists);
+      persist(LS_KEYS.envLists, state.envLists);
+      renderListsHome();
+    });
+  });
+  el.querySelectorAll('[data-open-list]').forEach(btn => {
+    btn.addEventListener('click', () => navigate('#/lists/' + encodeURIComponent(btn.dataset.openList)));
+  });
+}
+
+function listCardHtml(list) {
+  return `
+    <div class="list-card" data-list="${list.id}">
+      <div class="list-card-top">
+        <input type="text" value="${escapeAttr(list.name)}" class="list-rename">
+        <button class="btn btn-sm btn-danger" data-del-list="${list.id}">${t('delete')}</button>
+      </div>
+      <div class="list-card-count">${t('list_env_count').replace('{n}', listEnvCount(list.id))}</div>
+      <button class="btn btn-sm" data-open-list="${list.id}">${t('open_list')}</button>
+    </div>`;
+}
+
+function openAddToListPopup(envId) {
+  const overlay = document.createElement('div');
+  overlay.className = 'modal-overlay';
+
+  function listRowsHtml() {
+    const membership = new Set(state.envLists[envId] || []);
+    return state.lists.map(l => `
+      <label class="atl-row">
+        <input type="checkbox" data-list-toggle="${l.id}" ${membership.has(l.id) ? 'checked' : ''}>
+        ${escapeHtml(l.name)}
+      </label>`).join('') || `<p class="hint">${t('no_lists_yet')}</p>`;
+  }
+
+  overlay.innerHTML = `
+    <div class="modal" style="max-width:360px">
+      <div class="modal-header">
+        <h2 style="font-size:17px">${t('add_to_list')}</h2>
+        <button class="modal-close" aria-label="${t('close')}">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div id="atl-list">${listRowsHtml()}</div>
+        <div class="new-list-row" style="margin-top:14px">
+          <input type="text" id="atl-new-input" placeholder="${t('new_list_name')}">
+          <button class="btn btn-primary" id="atl-new-btn">${t('create')}</button>
+        </div>
+      </div>
+    </div>`;
+  document.body.appendChild(overlay);
+
+  function bindToggle(cb) {
+    cb.addEventListener('change', () => {
+      const listId = cb.dataset.listToggle;
+      const set = new Set(state.envLists[envId] || []);
+      if (cb.checked) set.add(listId); else set.delete(listId);
+      state.envLists[envId] = [...set];
+      persist(LS_KEYS.envLists, state.envLists);
+    });
+  }
+  overlay.querySelectorAll('[data-list-toggle]').forEach(bindToggle);
+
+  function close() { overlay.remove(); render(); }
+  overlay.querySelector('.modal-close').addEventListener('click', close);
+  overlay.addEventListener('click', e => { if (e.target === overlay) close(); });
+
+  overlay.querySelector('#atl-new-btn').addEventListener('click', () => {
+    const input = overlay.querySelector('#atl-new-input');
+    const name = input.value.trim();
+    if (!name) return;
+    const list = { id: 'list-' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6), name };
+    state.lists.push(list);
+    persist(LS_KEYS.lists, state.lists);
+    const set = new Set(state.envLists[envId] || []);
+    set.add(list.id);
+    state.envLists[envId] = [...set];
+    persist(LS_KEYS.envLists, state.envLists);
+    input.value = '';
+    const container = overlay.querySelector('#atl-list');
+    container.innerHTML = listRowsHtml();
+    container.querySelectorAll('[data-list-toggle]').forEach(bindToggle);
+  });
+}
+
 /* ---------------- detail modal ---------------- */
 
 function openDetail(envId) {
@@ -355,7 +486,7 @@ function openDetail(envId) {
   const adversaries = envField(env, 'potential_adversaries');
   const tagIds = new Set(state.envTags[env.id] || []);
 
-  const featuresHtml = (env.features || []).map(f => {
+  const featureHtml = f => {
     const fname = f.name[state.lang] || f.name.en || f.name.ru;
     const fdesc = f.description[state.lang] || f.description.en || f.description.ru || '';
     const fprompt = (f.prompt && (f.prompt[state.lang] || f.prompt.en || f.prompt.ru)) || '';
@@ -368,7 +499,12 @@ function openDetail(envId) {
         <p class="feature-desc" data-dice-text="${encodeURIComponent(fdesc)}"></p>
         ${fprompt ? `<p class="feature-prompt">${escapeHtml(fprompt)}</p>` : ''}
       </div>`;
-  }).join('');
+  };
+
+  const featuresHtml = ['passive', 'reaction', 'action']
+    .map(type => (env.features || []).filter(f => f.type === type).map(featureHtml).join(''))
+    .filter(Boolean)
+    .join('<hr class="feature-group-divider">');
 
   const rawHtml = env.rawText && (env.rawText.en || env.rawText.ru) ? `
     <span class="section-label">${t('raw_text_label')}</span>
@@ -404,6 +540,7 @@ function openDetail(envId) {
         </div>
 
         <div class="form-actions" style="margin-top:22px">
+          <button class="btn" id="detail-add-to-list">${t('add_to_list')}</button>
           ${!env.builtin ? `<button class="btn btn-danger" id="detail-delete">${t('delete')}</button>` : `<button class="btn btn-danger" id="detail-hide">${t('delete')}</button>`}
           ${!env.builtin ? `<button class="btn" id="detail-edit">${t('edit')}</button>` : ''}
         </div>
@@ -450,6 +587,8 @@ function openDetail(envId) {
   });
   const editBtn = overlay.querySelector('#detail-edit');
   if (editBtn) editBtn.addEventListener('click', () => { overlay.remove(); openEditForm(env.id); });
+
+  overlay.querySelector('#detail-add-to-list').addEventListener('click', () => openAddToListPopup(env.id));
 }
 
 /* ---------------- dice parsing + rolling ---------------- */
@@ -498,7 +637,7 @@ function rollDice(btn, count, sides, label) {
   const landX = rect.left + rect.width / 2;
   const landY = rect.top + rect.height / 2;
 
-  const flightMs = spawnFlyingDice(rolls, landX, landY);
+  const flightMs = spawnFlyingDice(rolls, sides, landX, landY);
 
   setTimeout(() => {
     btn.classList.remove('rolling');
@@ -506,22 +645,211 @@ function rollDice(btn, count, sides, label) {
   }, flightMs);
 }
 
-const DIE3D_SIZE = 44;
-const DIE3D_FACES = ['front', 'back', 'right', 'left', 'top', 'bottom'];
+/* ---------------- true 3D die geometry (generic convex-hull engine) ----------------
+ * Each die type is defined only by its vertex coordinates (standard Platonic-solid
+ * formulas, plus a dual-of-antiprism construction for the d10 pentagonal
+ * trapezohedron). A brute-force convex-hull face finder derives the actual polygon
+ * faces from those vertices, so no face lists are hand-authored/hard-coded. */
 
-function makeDie3D(value) {
+function v3sub(a, b) { return [a[0] - b[0], a[1] - b[1], a[2] - b[2]]; }
+function v3add(a, b) { return [a[0] + b[0], a[1] + b[1], a[2] + b[2]]; }
+function v3scale(a, s) { return [a[0] * s, a[1] * s, a[2] * s]; }
+function v3dot(a, b) { return a[0] * b[0] + a[1] * b[1] + a[2] * b[2]; }
+function v3cross(a, b) { return [a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0]]; }
+function v3len(a) { return Math.hypot(a[0], a[1], a[2]); }
+function v3norm(a) { const l = v3len(a) || 1; return [a[0] / l, a[1] / l, a[2] / l]; }
+
+/** Brute-force convex hull face finder for small point sets (n <= ~24). For every
+ * candidate plane through 3 points, if all other points lie on one side (within eps)
+ * it's a hull face; points exactly on that plane are grouped into one polygon and
+ * ordered by angle around its centroid. Works for triangular, square, pentagonal and
+ * kite-shaped faces alike — the face's vertex count falls out naturally. */
+function convexHullFaces(points, eps = 1e-4) {
+  const n = points.length;
+  const faces = [];
+  const seen = new Set();
+  for (let i = 0; i < n; i++) {
+    for (let j = i + 1; j < n; j++) {
+      for (let k = j + 1; k < n; k++) {
+        const a = points[i], b = points[j], c = points[k];
+        let normal = v3cross(v3sub(b, a), v3sub(c, a));
+        const len = v3len(normal);
+        if (len < eps) continue;
+        normal = v3scale(normal, 1 / len);
+        let pos = false, neg = false;
+        const onPlane = [];
+        for (let m = 0; m < n; m++) {
+          const d = v3dot(normal, v3sub(points[m], a));
+          if (d > eps) pos = true;
+          else if (d < -eps) neg = true;
+          else onPlane.push(m);
+        }
+        if (pos && neg) continue;
+        if (!pos && !neg) continue;
+        if (pos) normal = v3scale(normal, -1);
+        const idx = [...new Set(onPlane)];
+        if (idx.length < 3) continue;
+        const key = idx.slice().sort((x, y) => x - y).join(',');
+        if (seen.has(key)) continue;
+        seen.add(key);
+
+        const centroid = v3scale(idx.reduce((acc, ix) => v3add(acc, points[ix]), [0, 0, 0]), 1 / idx.length);
+        const ref = Math.abs(normal[0]) < 0.9 ? [1, 0, 0] : [0, 1, 0];
+        const u = v3norm(v3cross(ref, normal));
+        const vv = v3cross(normal, u);
+        const ordered = idx
+          .map((ix) => {
+            const p = v3sub(points[ix], centroid);
+            return { ix, ang: Math.atan2(v3dot(p, vv), v3dot(p, u)) };
+          })
+          .sort((x, y) => x.ang - y.ang)
+          .map((o) => o.ix);
+
+        faces.push({ indices: ordered, normal, centroid, u, v: vv });
+      }
+    }
+  }
+  return faces;
+}
+
+function scaleToCircumradius(points, targetR) {
+  const maxR = Math.max(...points.map((p) => v3len(p)));
+  const s = targetR / maxR;
+  return points.map((p) => v3scale(p, s));
+}
+
+function tetrahedronVerts() {
+  return [[1, 1, 1], [-1, -1, 1], [-1, 1, -1], [1, -1, -1]];
+}
+function cubeVerts() {
+  const v = [];
+  for (const x of [-1, 1]) for (const y of [-1, 1]) for (const z of [-1, 1]) v.push([x, y, z]);
+  return v;
+}
+function octahedronVerts() {
+  return [[1, 0, 0], [-1, 0, 0], [0, 1, 0], [0, -1, 0], [0, 0, 1], [0, 0, -1]];
+}
+function icosahedronVerts() {
+  const phi = (1 + Math.sqrt(5)) / 2;
+  const v = [];
+  for (const s1 of [1, -1]) for (const s2 of [1, -1]) {
+    v.push([0, s1, s2 * phi]);
+    v.push([s1, s2 * phi, 0]);
+    v.push([s1 * phi, 0, s2]);
+  }
+  return v;
+}
+function dodecahedronVerts() {
+  const phi = (1 + Math.sqrt(5)) / 2;
+  const inv = 1 / phi;
+  const v = [];
+  for (const x of [-1, 1]) for (const y of [-1, 1]) for (const z of [-1, 1]) v.push([x, y, z]);
+  for (const s1 of [1, -1]) for (const s2 of [1, -1]) {
+    v.push([0, s1 * inv, s2 * phi]);
+    v.push([s1 * inv, s2 * phi, 0]);
+    v.push([s1 * phi, 0, s2 * inv]);
+  }
+  return v;
+}
+/** A pentagonal trapezohedron (real d10 shape: 10 kite faces) is the polar dual of a
+ * uniform pentagonal antiprism. Build the antiprism, hull it, then reciprocate each
+ * of its 12 faces (2 pentagon caps + 10 triangles) into a dual vertex — the hull of
+ * those 12 dual vertices is exactly the 10-kite-face trapezohedron. */
+function pentagonalTrapezohedronVerts() {
+  const r = 1, h = 0.5;
+  const antiprism = [];
+  for (let k = 0; k < 5; k++) {
+    const a = (k * 2 * Math.PI) / 5;
+    antiprism.push([r * Math.cos(a), r * Math.sin(a), h]);
+  }
+  for (let k = 0; k < 5; k++) {
+    const a = Math.PI / 5 + (k * 2 * Math.PI) / 5;
+    antiprism.push([r * Math.cos(a), r * Math.sin(a), -h]);
+  }
+  const capFaces = convexHullFaces(antiprism);
+  return capFaces.map((f) => v3scale(f.normal, 1 / v3dot(f.normal, f.centroid)));
+}
+
+const DIE_VERT_BUILDERS = {
+  4: tetrahedronVerts,
+  6: cubeVerts,
+  8: octahedronVerts,
+  10: pentagonalTrapezohedronVerts,
+  12: dodecahedronVerts,
+  20: icosahedronVerts,
+};
+
+const dieMeshCache = new Map();
+
+/** Computes (once per die type, then cached) the CSS transform + clip-path needed
+ * for every face of a true 3D polyhedron matching `sides`. */
+function buildDieMesh(sides) {
+  if (dieMeshCache.has(sides)) return dieMeshCache.get(sides);
+  const builder = DIE_VERT_BUILDERS[sides] || cubeVerts;
+  const verts = scaleToCircumradius(builder(), 26);
+  const faces = convexHullFaces(verts);
+
+  let maxFaceExtent = 0;
+  const facesWithLocal = faces.map((f) => {
+    const local = f.indices.map((ix) => {
+      const p = v3sub(verts[ix], f.centroid);
+      return [v3dot(p, f.u), v3dot(p, f.v)];
+    });
+    maxFaceExtent = Math.max(maxFaceExtent, ...local.map(([x, y]) => Math.hypot(x, y)));
+    return { ...f, local };
+  });
+  const boxSize = maxFaceExtent * 2 * 1.15;
+
+  const meshFaces = facesWithLocal.map((f) => {
+    const inradius = v3dot(f.normal, f.centroid);
+    const z = [0, 0, 1];
+    let axis = v3cross(z, f.normal);
+    const axisLen = v3len(axis);
+    let axisUnit, angleDeg;
+    if (axisLen < 1e-6) {
+      axisUnit = [1, 0, 0];
+      angleDeg = f.normal[2] > 0 ? 0 : 180;
+    } else {
+      axisUnit = v3scale(axis, 1 / axisLen);
+      angleDeg = (Math.acos(Math.min(1, Math.max(-1, v3dot(z, f.normal)))) * 180) / Math.PI;
+    }
+    const clipPath = `polygon(${f.local
+      .map(([x, y]) => `${(((x + boxSize / 2) / boxSize) * 100).toFixed(2)}% ${(((-y + boxSize / 2) / boxSize) * 100).toFixed(2)}%`)
+      .join(', ')})`;
+    return {
+      boxSize,
+      clipPath,
+      transform: `translate(-50%, -50%) rotate3d(${axisUnit[0].toFixed(4)}, ${axisUnit[1].toFixed(4)}, ${axisUnit[2].toFixed(4)}, ${angleDeg.toFixed(3)}deg) translateZ(${inradius.toFixed(2)}px)`,
+      fontSize: Math.max(9, Math.min(19, boxSize * 0.26)),
+    };
+  });
+
+  const result = { faces: meshFaces, size: 26 * 2 + 16 };
+  dieMeshCache.set(sides, result);
+  return result;
+}
+
+function makeDie3D(value, sides) {
+  const mesh = buildDieMesh(sides);
   const wrap = document.createElement('div');
   wrap.className = 'die3d-wrap';
+  wrap.style.width = mesh.size + 'px';
+  wrap.style.height = mesh.size + 'px';
   const cube = document.createElement('div');
   cube.className = 'die3d-cube';
-  DIE3D_FACES.forEach((f) => {
+  mesh.faces.forEach((f) => {
     const face = document.createElement('div');
-    face.className = `die3d-face die3d-${f}`;
+    face.className = 'die3d-face';
+    face.style.width = f.boxSize + 'px';
+    face.style.height = f.boxSize + 'px';
+    face.style.transform = f.transform;
+    face.style.clipPath = f.clipPath;
+    face.style.fontSize = f.fontSize + 'px';
     face.textContent = value;
     cube.appendChild(face);
   });
   wrap.appendChild(cube);
-  return { wrap, cube };
+  return { wrap, cube, size: mesh.size };
 }
 
 /**
@@ -530,7 +858,7 @@ function makeDie3D(value) {
  * showing their real rolled values, then fades them out.
  * Returns the ms until the flight/landing settles (for scheduling the result bubble).
  */
-function spawnFlyingDice(rolls, landX, landY) {
+function spawnFlyingDice(rolls, sides, landX, landY) {
   let layer = document.querySelector('.dice-fly-layer');
   if (!layer) {
     layer = document.createElement('div');
@@ -539,7 +867,6 @@ function spawnFlyingDice(rolls, landX, landY) {
   }
 
   const diag = Math.hypot(window.innerWidth, window.innerHeight);
-  const half = DIE3D_SIZE / 2;
   let maxFinish = 0;
 
   rolls.forEach((value, i) => {
@@ -552,7 +879,8 @@ function spawnFlyingDice(rolls, landX, landY) {
     const endX = landX + Math.cos(clusterAngle) * clusterR + (Math.random() - 0.5) * 8;
     const endY = landY - 30 + Math.sin(clusterAngle) * clusterR + (Math.random() - 0.5) * 8;
 
-    const { wrap, cube } = makeDie3D(value);
+    const { wrap, cube, size } = makeDie3D(value, sides);
+    const half = size / 2;
     layer.appendChild(wrap);
 
     const delay = i * 70;
