@@ -547,15 +547,20 @@ function openDetail(envId) {
     </div>`;
   document.body.appendChild(overlay);
 
-  // render dice-enabled text
+  // render dice- and countdown-enabled text
   overlay.querySelectorAll('[data-dice-text]').forEach(node => {
     const text = decodeURIComponent(node.getAttribute('data-dice-text'));
     node.removeAttribute('data-dice-text');
-    renderDiceText(node, text);
+    renderRichText(node, text);
   });
 
-  overlay.querySelector('.modal-close').addEventListener('click', () => overlay.remove());
-  overlay.addEventListener('click', e => { if (e.target === overlay) overlay.remove(); });
+  function closeDetail() {
+    (overlay._countdownOverlays || []).slice().forEach(p => p.remove());
+    overlay.remove();
+  }
+
+  overlay.querySelector('.modal-close').addEventListener('click', closeDetail);
+  overlay.addEventListener('click', e => { if (e.target === overlay) closeDetail(); });
 
   overlay.querySelectorAll('#detail-tag-editor .tag-toggle').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -564,14 +569,14 @@ function openDetail(envId) {
       if (set.has(tagId)) set.delete(tagId); else set.add(tagId);
       state.envTags[env.id] = [...set];
       persist(LS_KEYS.envTags, state.envTags);
-      overlay.remove();
+      closeDetail();
       openDetail(envId);
       renderGrid();
     });
   });
 
   const editBtn = overlay.querySelector('#detail-edit');
-  if (editBtn) editBtn.addEventListener('click', () => { overlay.remove(); openEditForm(env.id); });
+  if (editBtn) editBtn.addEventListener('click', () => { closeDetail(); openEditForm(env.id); });
 
   overlay.querySelector('#detail-add-to-list').addEventListener('click', () => openAddToListPopup(env.id));
 }
@@ -579,18 +584,59 @@ function openDetail(envId) {
 /* ---------------- dice parsing + rolling ---------------- */
 
 const DICE_RE = /\b(\d{0,2})d(3|4|6|8|10|12|20|100)\b/gi;
+const COUNTDOWN_KEYWORD_RE = /(Countdown|Отсчёт\w*|Отсчет\w*|Счётчик\w*|Счетчик\w*)/gi;
+const COUNTDOWN_PAREN_RE = /\(\s*(\d+)\s*\)/g;
 
-function renderDiceText(container, text) {
-  container.textContent = '';
-  let lastIndex = 0;
-  let match;
+/** Finds "<...Countdown/Отсчёт...> (6)"-style spans in free text: scans for a
+ * plain integer in parens, then walks back to the nearest sentence boundary and
+ * takes the text from the closest preceding countdown keyword up to the parens. */
+function findCountdownMatches(text) {
+  const matches = [];
+  COUNTDOWN_PAREN_RE.lastIndex = 0;
+  let m;
+  while ((m = COUNTDOWN_PAREN_RE.exec(text))) {
+    const parenStart = m.index;
+    const parenEnd = m.index + m[0].length;
+    const before = text.slice(0, parenStart);
+    let boundary = -1;
+    for (let i = before.length - 1; i >= 0; i--) {
+      if ('.!?\n'.includes(before[i])) { boundary = i; break; }
+    }
+    const segmentStart = boundary + 1;
+    const segment = text.slice(segmentStart, parenStart);
+    let kwMatch = null, mm;
+    COUNTDOWN_KEYWORD_RE.lastIndex = 0;
+    while ((mm = COUNTDOWN_KEYWORD_RE.exec(segment))) kwMatch = mm;
+    if (!kwMatch) continue;
+    const labelStart = segmentStart + kwMatch.index;
+    matches.push({ start: labelStart, end: parenEnd, type: 'countdown', value: parseInt(m[1], 10), label: text.slice(labelStart, parenEnd) });
+  }
+  return matches;
+}
+
+function findDiceMatches(text) {
+  const matches = [];
   DICE_RE.lastIndex = 0;
-  while ((match = DICE_RE.exec(text))) {
-    if (match.index > lastIndex) container.appendChild(document.createTextNode(text.slice(lastIndex, match.index)));
-    const count = match[1] ? parseInt(match[1], 10) : 1;
-    const sides = parseInt(match[2], 10);
-    container.appendChild(makeDiceButton(count, sides, match[0]));
-    lastIndex = match.index + match[0].length;
+  let m;
+  while ((m = DICE_RE.exec(text))) {
+    const count = m[1] ? parseInt(m[1], 10) : 1;
+    const sides = parseInt(m[2], 10);
+    matches.push({ start: m.index, end: m.index + m[0].length, type: 'dice', count, sides, label: m[0] });
+  }
+  return matches;
+}
+
+function renderRichText(container, text) {
+  container.textContent = '';
+  const matches = [...findDiceMatches(text), ...findCountdownMatches(text)].sort((a, b) => a.start - b.start);
+
+  let lastIndex = 0;
+  for (const match of matches) {
+    if (match.start < lastIndex) continue; // skip overlapping match
+    if (match.start > lastIndex) container.appendChild(document.createTextNode(text.slice(lastIndex, match.start)));
+    if (match.type === 'dice') container.appendChild(makeDiceButton(match.count, match.sides, match.label));
+    else container.appendChild(makeCountdownButton(match.value, match.label));
+    lastIndex = match.end;
   }
   if (lastIndex < text.length) container.appendChild(document.createTextNode(text.slice(lastIndex)));
 }
@@ -609,6 +655,73 @@ function makeDiceButton(count, sides, label) {
 
 function diceIconSVG() {
   return `<svg viewBox="0 0 24 24" fill="none"><polygon points="12,2 21,8 21,16 12,22 3,16 3,8" stroke="currentColor" stroke-width="1.6"/></svg>`;
+}
+
+/* ---------------- countdown tracker ---------------- */
+
+function makeCountdownButton(value, label) {
+  const btn = document.createElement('button');
+  btn.className = 'countdown-btn';
+  btn.type = 'button';
+  btn.dataset.count = String(value);
+  btn.innerHTML = `${countdownIconSVG()}<span>${escapeHtml(label)}</span>`;
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    openCountdownOverlay(btn);
+  });
+  return btn;
+}
+
+function countdownIconSVG() {
+  return `<svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>`;
+}
+
+function openCountdownOverlay(btn) {
+  if (btn._countdownOverlay && document.body.contains(btn._countdownOverlay)) {
+    btn._countdownOverlay.querySelector('.countdown-overlay-close').focus();
+    return;
+  }
+
+  const panel = document.createElement('div');
+  panel.className = 'countdown-overlay';
+  panel.innerHTML = `
+    <button type="button" class="countdown-overlay-close" aria-label="${t('close')}">&times;</button>
+    <div class="countdown-overlay-value">${btn.dataset.count}</div>
+    <div class="countdown-overlay-actions">
+      <button type="button" class="countdown-overlay-btn" data-op="dec" aria-label="-">&minus;</button>
+      <button type="button" class="countdown-overlay-btn" data-op="inc" aria-label="+">+</button>
+    </div>`;
+  document.body.appendChild(panel);
+  btn._countdownOverlay = panel;
+
+  const stackIndex = document.querySelectorAll('.countdown-overlay').length - 1;
+  panel.style.bottom = (18 + stackIndex * 92) + 'px';
+
+  const valueEl = panel.querySelector('.countdown-overlay-value');
+  panel.querySelector('[data-op="inc"]').addEventListener('click', () => {
+    btn.dataset.count = String(Number(btn.dataset.count) + 1);
+    valueEl.textContent = btn.dataset.count;
+  });
+  panel.querySelector('[data-op="dec"]').addEventListener('click', () => {
+    btn.dataset.count = String(Number(btn.dataset.count) - 1);
+    valueEl.textContent = btn.dataset.count;
+  });
+
+  function closePanel() {
+    panel.remove();
+    btn._countdownOverlay = null;
+    const modalOverlay = btn.closest('.modal-overlay');
+    if (modalOverlay && modalOverlay._countdownOverlays) {
+      modalOverlay._countdownOverlays = modalOverlay._countdownOverlays.filter(p => p !== panel);
+    }
+  }
+  panel.querySelector('.countdown-overlay-close').addEventListener('click', closePanel);
+
+  const modalOverlay = btn.closest('.modal-overlay');
+  if (modalOverlay) {
+    if (!modalOverlay._countdownOverlays) modalOverlay._countdownOverlays = [];
+    modalOverlay._countdownOverlays.push(panel);
+  }
 }
 
 function rollDice(btn, count, sides, label) {
