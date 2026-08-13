@@ -510,7 +510,10 @@ function openDetail(envId) {
     <div class="modal">
       <div class="modal-header">
         <div>
-          <h2>${escapeHtml(envName(env))}</h2>
+          <div class="modal-title-row">
+            <h2>${escapeHtml(envName(env))}</h2>
+            <button type="button" class="card-add-btn" id="detail-add-to-list" aria-label="${t('add_to_list')}" title="${t('add_to_list')}">+</button>
+          </div>
           <div class="modal-sub">${t('type_' + env.type)} — ${t('tier_label')} ${env.tier}</div>
         </div>
         <button class="modal-close" aria-label="${t('close')}">&times;</button>
@@ -529,7 +532,7 @@ function openDetail(envId) {
         ${rawHtml}
 
         <div class="form-actions" style="margin-top:22px">
-          <button class="btn" id="detail-add-to-list">${t('add_to_list')}</button>
+          <button class="btn" id="detail-add-to-list-bottom">${t('add_to_list')}</button>
           ${!env.builtin ? `<button class="btn" id="detail-edit">${t('edit')}</button>` : ''}
         </div>
       </div>
@@ -561,6 +564,7 @@ function openDetail(envId) {
   if (editBtn) editBtn.addEventListener('click', () => { closeDetail(); openEditForm(env.id); });
 
   overlay.querySelector('#detail-add-to-list').addEventListener('click', () => openAddToListPopup(env.id));
+  overlay.querySelector('#detail-add-to-list-bottom').addEventListener('click', () => openAddToListPopup(env.id));
 }
 
 /* ---------------- dice parsing + rolling ---------------- */

@@ -226,7 +226,9 @@ a { color: var(--hope-soft); text-decoration: none; }
   display: flex; justify-content: space-between; align-items: flex-start; gap: 14px;
   padding: 22px 24px 14px; border-bottom: 1px solid var(--line);
 }
-.modal-header h2 { font-family: var(--font-display); font-size: 24px; margin: 0 0 6px; color: var(--parchment); }
+.modal-title-row { display: flex; align-items: center; gap: 10px; margin: 0 0 6px; }
+.modal-header h2 { font-family: var(--font-display); font-size: 24px; margin: 0; color: var(--parchment); }
+.modal-title-row .card-add-btn { width: 24px; height: 24px; font-size: 16px; }
 .modal-sub { font-size: 13px; color: var(--muted); }
 .modal-close { background: none; border: none; color: var(--muted); font-size: 22px; cursor: pointer; line-height: 1; }
 .modal-close:hover { color: var(--parchment); }
