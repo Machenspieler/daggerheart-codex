@@ -541,7 +541,6 @@ function openDetail(envId) {
 
         <div class="form-actions" style="margin-top:22px">
           <button class="btn" id="detail-add-to-list">${t('add_to_list')}</button>
-          ${!env.builtin ? `<button class="btn btn-danger" id="detail-delete">${t('delete')}</button>` : `<button class="btn btn-danger" id="detail-hide">${t('delete')}</button>`}
           ${!env.builtin ? `<button class="btn" id="detail-edit">${t('edit')}</button>` : ''}
         </div>
       </div>
@@ -571,20 +570,6 @@ function openDetail(envId) {
     });
   });
 
-  const delBtn = overlay.querySelector('#detail-delete');
-  if (delBtn) delBtn.addEventListener('click', () => {
-    if (!confirm(t('delete_confirm'))) return;
-    state.customEnvs = state.customEnvs.filter(e => e.id !== env.id);
-    persist(LS_KEYS.customEnvs, state.customEnvs);
-    overlay.remove(); renderGrid();
-  });
-  const hideBtn = overlay.querySelector('#detail-hide');
-  if (hideBtn) hideBtn.addEventListener('click', () => {
-    if (!confirm(t('delete_confirm'))) return;
-    state.hiddenBuiltin.push(env.id);
-    persist(LS_KEYS.hiddenBuiltin, state.hiddenBuiltin);
-    overlay.remove(); renderGrid();
-  });
   const editBtn = overlay.querySelector('#detail-edit');
   if (editBtn) editBtn.addEventListener('click', () => { overlay.remove(); openEditForm(env.id); });
 
@@ -593,7 +578,7 @@ function openDetail(envId) {
 
 /* ---------------- dice parsing + rolling ---------------- */
 
-const DICE_RE = /\b(\d{0,2})d(4|6|8|10|12|20|100)\b/gi;
+const DICE_RE = /\b(\d{0,2})d(3|4|6|8|10|12|20|100)\b/gi;
 
 function renderDiceText(container, text) {
   container.textContent = '';
