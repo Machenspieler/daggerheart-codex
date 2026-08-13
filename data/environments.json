@@ -15491,6 +15491,1887 @@
       "biomes": [
         "mountain"
       ]
+    },
+    {
+      "id": "raging-river",
+      "tier": 1,
+      "type": "traversal",
+      "difficulty": 10,
+      "name": {
+        "en": "Raging River",
+        "ru": "Бушующая река"
+      },
+      "impulses": {
+        "en": [
+          "Bar crossing",
+          "carry away the unready",
+          "divide the land"
+        ],
+        "ru": [
+          "Преградить путь",
+          "смыть неподготовленных",
+          "разделить землю"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Beasts (Bear, Glass Snake)",
+          "Jagged Knife Bandits (Hexer, Kneebreaker, Lackey, Lieutenant, Shadow, Sniper)"
+        ],
+        "ru": [
+          "Звери (Медведь, Стеклянная змея)",
+          "Бандиты «Зазубренного Ножа» (Колдун, Коленолом, Шестёрка, Лейтенант, Тень, Снайпер)"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Dangerous Crossing",
+            "ru": "Опасная переправа"
+          },
+          "description": {
+            "en": "Crossing the river requires the party to complete a Progress Countdown (4). A PC who rolls a failure with Fear is immediately targeted by the “Undertow” action without requiring a Fear to be spent on the feature.",
+            "ru": "Чтобы переправиться через реку, группе нужно завершить Отсчёт прогресса (4). Персонаж, который провалил бросок со Страхом, немедленно становится целью действия «Подводное течение», и для этого не требуется тратить Страх на это свойство."
+          },
+          "prompt": {
+            "en": "Have any of the PCs forded rivers like this before? Are any of them afraid of drowning?",
+            "ru": "Кто-нибудь из персонажей уже переправлялся через реку таким образом? Кто-нибудь из них боится утонуть?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Undertow",
+            "ru": "Подводное течение"
+          },
+          "description": {
+            "en": "Spend a Fear to catch a PC in the undertow. They must make an Agility Reaction Roll. On a failure, they take 1d6+1 physical damage and are moved a Close distance down the river, becoming Vulnerable until they get out of the river. On a success, they must mark a Stress.",
+            "ru": "Потратьте Страх, чтобы утащить персонажа течением. Он должен совершить Бросок Реакции на Проворность. При неудаче он получает 1d6+1 физического урона и перемещается на Среднюю дистанцию вниз по реке, становясь Уязвимым до тех пор, пока не выберется из реки. При успехе он должен отметить Стресс."
+          },
+          "prompt": {
+            "en": "What trinkets and baubles lie along the bottom of the riverbed? Do predators swim these rivers?",
+            "ru": "Какие безделушки и украшения лежат на дне реки? Плавают ли в этих реках хищники?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Patient Hunter",
+            "ru": "Терпеливый охотник"
+          },
+          "description": {
+            "en": "Spend a Fear to summon a Glass Snake within Close range of a chosen PC. The Snake appears in or near the river and immediately takes the spotlight to use their “Spinning Serpent” action.",
+            "ru": "Потратьте Страх, чтобы вызвать Стеклянную змею в пределах Средней дистанции от выбранного персонажа. Змея появляется в реке или рядом с целью и сразу же активирует действие «Вихрь Змеи»."
+          },
+          "prompt": {
+            "en": "What treasures does the beast have in their burrow? What travelers have already fallen victim to this predator?",
+            "ru": "Какие сокровища хранит зверь в своей норе? Какие путешественники уже стали жертвами этого хищника?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "aquatic"
+      ]
+    },
+    {
+      "id": "abandoned-grove",
+      "tier": 1,
+      "type": "exploration",
+      "difficulty": 11,
+      "name": {
+        "en": "Abandoned Grove",
+        "ru": "Заброшенная роща"
+      },
+      "impulses": {
+        "en": [
+          "Draw in the curious",
+          "echo the past"
+        ],
+        "ru": [
+          "Манить любопытных",
+          "хранить эхо прошлого"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Beasts (Bear, Dire Wolf, Glass Snake)",
+          "Grove Guardians (Minor Treant, Sylvan Soldier, Young Dryad)"
+        ],
+        "ru": [
+          "Звери (Медведь, Лютоволк, Стеклянная Змея)",
+          "Стражи Рощи (Молодой Трэнт, Лесной Солдат, Юная Дриада)"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Overgrown Battlefield",
+            "ru": "Заросшее поле битвы"
+          },
+          "description": {
+            "en": "There has been a battle here. A PC can make an Instinct Roll to identify evidence of that fight. On a success with Hope, learn all three pieces of information below. On a success with Fear, learn two. On a failure, a PC can mark a Stress to learn one and gain advantage on the next action roll to investigate this environment. A PC with an appropriate background or Experience can learn an additional detail and ask a follow-up question about the scene and get a truthful (if not always complete) answer.\n\n- Traces of a battle (broken weapons and branches, gouges in the ground) litter the ground.\n- A moss-covered tree trunk is actually the corpse of a treant.\n- Still-standing trees are twisted in strange ways, as if by powerful magic.",
+            "ru": "Здесь произошла битва. Персонаж может совершить Бросок Инстинкта, чтобы найти следы этой битвы. При успехе с Надеждой персонаж узнает все три фрагмента информации ниже. При успехе со Страхом - узнаёт две. При неудаче персонаж может отметить Стресс, чтобы узнать одну и получить Преимущество на следующий бросок Действия для исследования этого окружения. Персонаж с соответствующей Предысторией или Опытом может узнать дополнительную деталь и задать дополнительный вопрос о сцене, получив правдивый (хотя и не всегда полный) ответ.\n\n- На земле оставлены следы битвы (сломанное оружие и ветки, выбоины в земле).\n- Покрытый мхом ствол дерева на самом деле является трупом трэнта.\n- Стоящие деревья странно искривлены, как будто под воздействием мощной магии."
+          },
+          "prompt": {
+            "en": "Why did these groups come to blows? Why is the grove unused now?",
+            "ru": "Почему эти группы вступили в бой? Почему роща сейчас не используется?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Barbed Vines",
+            "ru": "Колючие лианы"
+          },
+          "description": {
+            "en": "Pick a point within the grove. All targets within Very Close range of that point must succeed on an Agility Reaction Roll or take 1d8+3 physical damage and become Restrained by barbed vines. Restrained creatures until they’re freed with a successful Finesse or Strength roll or by dealing at least 6 damage to the vines.",
+            "ru": "Выберите точку в роще. Все цели в пределах Близкой дистанции от этой точки должны успешно выполнить Бросок Реакции на Проворность или получить 1d8+3 физического урона и стать Обездвиженными из-за колючих лиан. Существа Обездвижены, пока не будут освобождены успешным броском на Искусность или Силу или нанеся лозам не менее 6 урона."
+          },
+          "prompt": {
+            "en": "How many vines are there? Where do they grab you? Do they pull you down or lift you off the ground?",
+            "ru": "Сколько там лоз? Где они хватают вас? Они тянут вас вниз или поднимают с земли?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "You Are Not Welcome Here",
+            "ru": "Вам здесь не рады"
+          },
+          "description": {
+            "en": "A Young Dryad, two Sylvan Soldiers, and a number of Minor Treants equal to the number of PCs appear to confront the party for their intrusion.",
+            "ru": "Юная Дриада, два Лесных Солдата и количество Молодых Трэнтов, равное количеству персонажей, появляются, чтобы противостоять группе за вторжение."
+          },
+          "prompt": {
+            "en": "What are the grove guardians concealing? What threat to the forest could the PCs confront to appease the Dryad?",
+            "ru": "Что скрывают стражи рощи? Какой угрозе лесу могут противостоять персонажи, чтобы умилостивить дриаду?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Defiler",
+            "ru": "Осквернитель"
+          },
+          "description": {
+            "en": "Spend a Fear to summon a Minor Chaos Elemental drawn to the echoes of violence and discord. They appear within Far range of a chosen PC and immediately take the spotlight.",
+            "ru": "Потратьте Страх, чтобы вызвать Малый Элементаль Хаоса, привлеченный эхом насилия и раздора. Он появляется в пределах Далекой дистанции от выбранного персонажа и немедленно активируется."
+          },
+          "prompt": {
+            "en": "What color does the grass turn as the elemental appears? How does the chaos warp insects and small wildlife within the grove?",
+            "ru": "Какого цвета становится трава при появлении элементаля? Как хаос искажает насекомых и мелких животных в роще?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "forest"
+      ]
+    },
+    {
+      "id": "ambushed",
+      "tier": 1,
+      "type": "event",
+      "difficulty": {
+        "en": "Special (see “Relative Strength”)",
+        "ru": "Особая (см. “Относительная Сила”)"
+      },
+      "name": {
+        "en": "Ambushed",
+        "ru": "Засада"
+      },
+      "impulses": {
+        "en": [
+          "Overwhelm",
+          "scatter",
+          "surround"
+        ],
+        "ru": [
+          "Подавить числом",
+          "Разделить",
+          "Окружить"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Any"
+        ],
+        "ru": [
+          "Любые"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Relative Strength",
+            "ru": "Соотношение сил"
+          },
+          "description": {
+            "en": "The Difficulty of this environment equals that of the adversary with the highest Difficulty.",
+            "ru": "Сложность этого окружения равна сложности противника с наиболее высоким показателем сложности."
+          },
+          "prompt": {
+            "en": "Who cues the ambush? What makes it clear they’re in charge?",
+            "ru": "Кто дает сигнал к засаде? По чему можно понять, что он главный?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Surprise!",
+            "ru": "Сюрприз!"
+          },
+          "description": {
+            "en": "The ambushers reveal themselves to the party, you gain 2 Fear, and the spotlight immediately shifts to one of the ambushing adversaries.",
+            "ru": "Засада раскрывается, вы получаете 2 Страха, и сразу же активируется один из противников в засаде."
+          },
+          "prompt": {
+            "en": "What do the ambushers want from the party? How do their tactics in the ambush reflect that?",
+            "ru": "Чего хотят участники засады от вашей группы? Как это отражается на их тактике?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "universal"
+      ]
+    },
+    {
+      "id": "local-tavern",
+      "tier": 1,
+      "type": "social",
+      "difficulty": 10,
+      "name": {
+        "en": "Local Tavern",
+        "ru": "Местная таверна"
+      },
+      "impulses": {
+        "en": [
+          "Provide opportunities for adventurers",
+          "nurture community"
+        ],
+        "ru": [
+          "Предоставить возможности",
+          "Поддерживать сообщество"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Guards (Bladed Guard, Head Guard)",
+          "Mercenaries (Harrier, Sellsword, Spellblade, Weaponmaster)",
+          "Merchant"
+        ],
+        "ru": [
+          "Стражники (Стражник-Мечник, Капитан Стражи)",
+          "Наёмники (Пикинёр, Наёмный Клинок, Заклинатель-мечник, Мастер Оружия)",
+          "Торговец"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "What’s the Talk of the Town?",
+            "ru": "О чём судачит народ?"
+          },
+          "description": {
+            "en": "A PC can ask the bartender, staff, or patrons about local events, rumors, and potential work with a Presence Roll. On a success, they can pick two of the below details to learn—or three if they critically succeed. On a failure, they can pick one and mark a Stress as the local carries on about something irrelevant.\n\n- A fascinating rumor with a connection to a PC’s background\n- A promising job for the party involving a nearby threat\n- Local folklore that relates to something they’ve seen\n- Town gossip that hints at a community problem",
+            "ru": "Игрок может спросить бармена, персонал или посетителей о местных событиях, слухах и потенциальной работе, выполнив бросок на Влияние. В случае успеха они могут выбрать две из перечисленных ниже подробностей, или три, если бросок имел критический успех. В случае неудачи они могут выбрать одну и отметить Стресс, пока местный житель продолжает говорить о чем-то не имеющем отношения к делу.\n\n- Интересный слух, имеющий связь с предысторией персонажа\n- Многообещающая работа для группы, связанная с ближайшей угрозой\n- Местный фольклор, связанный с тем, что они видели\n- Городские сплетни, намекающие на проблему сообщества"
+          },
+          "prompt": {
+            "en": "Who has what kind of information? What gossip do the locals start spreading about the PCs?",
+            "ru": "Кто обладает какой информацией? Какие сплетни местные жители начинают распространять о персонажах?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Sing for Your Supper",
+            "ru": "Пой за ужином"
+          },
+          "description": {
+            "en": "A PC can perform one time for the guests by making a Presence Roll. On a success, they earn 1d4 handfuls of gold (2d4 if they critically succeed). On a failure, they mark a Stress.",
+            "ru": "Персонаж может выступить перед гостями один раз, совершив бросок на Влияние. В случае успеха он получает 1d4 горсти золота (2d4 при критическом успехе). В случае неудачи он отмечает Стресс."
+          },
+          "prompt": {
+            "en": "What piece do you perform? What does that piece mean to you? When’s the last time you performed it for a crowd?",
+            "ru": "Какое произведение вы исполняете? Что это произведение значит для вас? Когда вы в последний раз исполняли его перед публикой?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Mysterious Stranger",
+            "ru": "Таинственный незнакомец"
+          },
+          "description": {
+            "en": "Reveal a stranger concealing their identity, lurking in a shaded booth.",
+            "ru": "Раскройте личность незнакомца, скрывающегося в тенистом углу."
+          },
+          "prompt": {
+            "en": "What do they want? What’s their impression of the PCs? What mannerisms or accessories do they have?",
+            "ru": "Что он хочет? Какое впечатление он производит на персонажей? Какие у него манеры или аксессуары?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Someone Comes to Town",
+            "ru": "Кто-то приехал в город"
+          },
+          "description": {
+            "en": "Introduce a significant NPC who wants to hire the party for something or who relates to a PC’s background.",
+            "ru": "Введите в игру важного персонажа, который хочет нанять группу для выполнения какого-то задания или имеет отношение к предыстории одного из персонажей."
+          },
+          "prompt": {
+            "en": "Did they know the PCs were here? What do they want in this town?",
+            "ru": "Знал ли он, что здесь находятся персонажи? Что ему нужно в этом городе?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Bar Fight!",
+            "ru": "Драка в таверне!"
+          },
+          "description": {
+            "en": "Spend a Fear to have a bar fight erupt in the tavern. When a PC tries to move through the tavern while the fight persists, they must succeed on an Agility or Presence Roll or take 1d6+2 physical damage from a wild swing or thrown object. A PC can try to activate this feature by succeeding on an action roll that would provoke tavern patrons.",
+            "ru": "Потратьте Страх, чтобы в таверне началась драка. Когда персонаж пытается пройти через таверну во время драки, он должен успешно пройти проверку на Проворность или Влияние, иначе получит 1d6+2 физического урона от удара или брошенного предмета. Игрок может попытаться активировать это свойство, успешно выполнив бросок действия, который спровоцирует посетителей таверны."
+          },
+          "prompt": {
+            "en": "Who started the fight? What will it take to stop it?",
+            "ru": "Кто начал драку? Что нужно сделать, чтобы ее остановить?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "settlement"
+      ]
+    },
+    {
+      "id": "ambushers",
+      "tier": 1,
+      "type": "event",
+      "difficulty": {
+        "en": "Special (see “Relative Strength”)",
+        "ru": "Особая (см. “Относительная Сила”)"
+      },
+      "name": {
+        "en": "Ambushers",
+        "ru": "Мы в засаде"
+      },
+      "impulses": {
+        "en": [
+          "Escape",
+          "group up",
+          "protect the most vulnerable"
+        ],
+        "ru": [
+          "Ускользнуть",
+          "Сплотиться",
+          "Защитить слабых"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Any"
+        ],
+        "ru": [
+          "Любые"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Relative Strength",
+            "ru": "Соотношение сил"
+          },
+          "description": {
+            "en": "The Difficulty of this environment equals that of the adversary with the highest Difficulty.",
+            "ru": "Сложность этого окружения равна сложности противника с наибольшей сложностью."
+          },
+          "prompt": {
+            "en": "Which adversary is the least prepared? Which one is the most?",
+            "ru": "Какой противник наименее подготовлен? А какой наиболее подготовлен?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Where Did They Come From?",
+            "ru": "Откуда они выскочили?"
+          },
+          "description": {
+            "en": "When a PC starts the ambush on unsuspecting adversaries, you lose 2 Fear and the first attack roll a PC makes has advantage.",
+            "ru": "Когда персонаж начинает засаду на ничего не подозревающих противников, вы теряете 2 Страха, а первый бросок Атаки, который совершает персонаж, получает Преимущество."
+          },
+          "prompt": {
+            "en": "What are the adversaries in the middle of doing when the ambush starts? How does this impact their approach to the fight?",
+            "ru": "Что делают противники в момент начала засады? Как это влияет на их подход к бою?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "universal"
+      ]
+    },
+    {
+      "id": "bustling-marketplace",
+      "tier": 1,
+      "type": "social",
+      "difficulty": 10,
+      "name": {
+        "en": "Bustling Marketplace",
+        "ru": "Оживлённый рынок"
+      },
+      "impulses": {
+        "en": [
+          "Buy low, and sell high",
+          "tempt and tantalize with wares from near and far"
+        ],
+        "ru": [
+          "Купить дёшево и продать дорого",
+          "Манить и соблазнять товарами отсюда и издалека"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Guards (Bladed Guard, Head Guard)",
+          "Masked Thief",
+          "Merchant"
+        ],
+        "ru": [
+          "Стражники (Стражник-Мечник, Капитан Стражи)",
+          "Вор в Маске",
+          "Торговец"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Tip the Scales",
+            "ru": "Склонить чашу весов"
+          },
+          "description": {
+            "en": "PCs can gain advantage on a Presence Roll by offering a handful of gold as part of the interaction.",
+            "ru": "Персонажи могут получить преимущество на бросок Влияния, предложив горсть золота в качестве части взаимодействия."
+          },
+          "prompt": {
+            "en": "Will any coin be accepted, or only local currency? How overt are the PCs in offering this bribe?",
+            "ru": "Принимаются ли любые монеты или только местная валюта? Насколько открыто персонажи предлагают взятку?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Unexpected Find",
+            "ru": "Неожиданная находка"
+          },
+          "description": {
+            "en": "Reveal to the PCs that one of the merchants has something they want or need, such as food from their home, a rare book, magical components, a dubious treasure map, or a magical key.",
+            "ru": "Раскройте персонажам, что у одного из торговцев есть то, что им нужно или что они хотят, например, еда из их родного края, редкая книга, магические компоненты, сомнительная карта сокровищ или магический ключ."
+          },
+          "prompt": {
+            "en": "What cost beyond gold will the merchant ask for in exchange for this rarity?",
+            "ru": "Какую цену, помимо золота, запросит торговец в обмен на эту редкость?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Sticky Fingers",
+            "ru": "Ловкие руки"
+          },
+          "description": {
+            "en": "A thief tries to steal something from a PC. The PC must succeed on an Instinct Roll to notice the thief or lose an item of the GM’s choice as the thief escapes to a Close distance. To retrieve the stolen item, the PCs must complete a Progress Countdown (6) to chase down the thief before the thief completes a Consequence Countdown (4) and escapes to their hideout.",
+            "ru": "Вор пытается украсть что-то у персонажа. Персонаж должен успешно пройти проверку Инстинкта, чтобы заметить вора, или потерять предмет, выбранный Мастером, пока вор убегает на Среднее расстояние. Чтобы вернуть украденный предмет, персонажи должны продвинуть Отсчёт прогресса (6), чтобы догнать вора, прежде чем тот завершит Отсчёт последствий (4) и сбежит в своё укрытие."
+          },
+          "prompt": {
+            "en": "What drove this person to pickpocketing? Where is the thief’s hideout and how has it avoided notice?",
+            "ru": "Что подтолкнуло этого человека к карманной краже? Где находится укрытие вора и как ему удалось избежать внимания?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Crowd Closes In",
+            "ru": "Толпа смыкается"
+          },
+          "description": {
+            "en": "When one of the PCs splits from the group, the crowds shift and cut them off from the party.",
+            "ru": "Когда один из персонажей отстает от группы, толпа сгущается и отрезает его от остальных."
+          },
+          "prompt": {
+            "en": "Where does the crowd’s movement carry them? How do they feel about being alone but surrounded?",
+            "ru": "Куда уносит толпа? Как он себя чувствует, оказавшись в одиночестве, но в окружении людей?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "settlement"
+      ]
+    },
+    {
+      "id": "outpost-town",
+      "tier": 1,
+      "type": "social",
+      "difficulty": 12,
+      "name": {
+        "en": "Outpost Town",
+        "ru": "Пограничный городок"
+      },
+      "impulses": {
+        "en": [
+          "Drive the desperate to certain doom",
+          "profit off of ragged hope"
+        ],
+        "ru": [
+          "Гнать отчаявшихся на гибель",
+          "Наживаться на надежде"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Jagged Knife Bandits (Hexer, Kneebreaker, Lackey, Lieutenant, Shadow, Sniper)",
+          "Masked Thief",
+          "Merchant"
+        ],
+        "ru": [
+          "Бандиты «Зазубренного Ножа» (Колдун, Коленолом, Шестёрка, Лейтенант, Тень, Снайпер)",
+          "Маскированный Вор",
+          "Торговец"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Rumors Abound",
+            "ru": "Слухи на вес золота"
+          },
+          "description": {
+            "en": "Gossip is the fastest-traveling currency in the realm. A PC can inquire about major events by making a Presence Roll. What they learn depends on the outcome of their roll, based on the following criteria:\n\nCritical Success: Learn about two major events. The PC can ask one follow-up question about one of the rumors and get a truthful (if not always complete) answer.\nSuccess with Hope: Learn about two events, at least one of which is relevant to the character’s background.\nSuccess with Fear: Learn an alarming rumor related to the character’s background.\nAny Failure: The locals respond poorly to their inquiries. The PC must mark a Stress to learn one relevant rumor.",
+            "ru": "Сплетни — самая быстро распространяющаяся валюта в королевстве. Персонаж может расспросить о важных событиях, совершив бросок Влияния. То, что он узнает, зависит от результата броска и следующих критериев:\n\nКритический успех: Узнает о двух значимых событиях. Персонаж может задать один дополнительный вопрос об одном из слухов и получить правдивый (хотя и не всегда полный) ответ.\nУспех с Надеждой: Узнает о двух событиях, по крайней мере одно из которых имеет отношение к предыстории персонажа.\nУспех со Страхом: Узнать тревожный слух, связанный с предысторией персонажа.\nЛюбая неудача: Местные жители плохо реагируют на их вопросы. Персонаж должен отметить Стресс, чтобы узнать один соответствующий слух."
+          },
+          "prompt": {
+            "en": "What news do the PCs have that they could pass along to curious travelers? What do the locals think about these events?",
+            "ru": "Какие новости есть у персонажей, которыми они могли бы поделиться с любопытными путешественниками? Что местные жители думают об этих событиях?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Society of the Broken Compass",
+            "ru": "Общество Сломанного Компаса"
+          },
+          "description": {
+            "en": "An adventuring society maintains a chapterhouse here, where heroes trade boasts and rumors, drink to their imagined successes, and scheme to undermine their rivals.",
+            "ru": "Общество искателей приключений имеет здесь свой зал, где герои обмениваются байками и слухами, пьют за свои воображаемые успехи и строят планы по уничтожению своих соперников."
+          },
+          "prompt": {
+            "en": "What boasts do the adventurers here make, and which do you think are true?",
+            "ru": "Какие байки рассказывают местные искатели приключений и какие из них, по вашему мнению, правдивы?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Rival Party",
+            "ru": "Соперничающая партия"
+          },
+          "description": {
+            "en": "Another adventuring party is here, seeking the same treasure or leads as the PCs.",
+            "ru": "Здесь появилась еще одна группа искателей приключений, которая ищет те же сокровища или зацепки, что и персонажи игроков."
+          },
+          "prompt": {
+            "en": "Which PC has a connection to one of the rival party members? Do they approach the PC first or do they wait for the PC to move?",
+            "ru": "У какого из персонажей игроков есть связь с одним из членов соперничающей группы? Они подойдут к персонажу первыми или будут ждать, пока он сделает первый шаг?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "It’d Be a Shame If Something Happened to Your Store",
+            "ru": "Было бы жаль, если бы..."
+          },
+          "description": {
+            "en": "The PCs witness as agents of a local crime boss shake down a general goods store.",
+            "ru": "Персонажи становятся свидетелями того, как агенты местного криминального авторитета грабят магазин товаров широкого потребления."
+          },
+          "prompt": {
+            "en": "What trouble does it cause if the PCs intervene?",
+            "ru": "Какие проблемы могут возникнуть, если персонажи вмешаются?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Wrong Place, Wrong Time",
+            "ru": "Не в том месте, не в то время"
+          },
+          "description": {
+            "en": "At night, or when the party is alone in a back alley, you can spend a Fear to introduce a group of thieves who try to rob them. The thieves appear at Close range of a chosen PC and include a Jagged Knife Kneebreaker, as many Lackeys as there are PCs, and a Lieutenant. For a larger party, add a Hexer or Sniper.",
+            "ru": "Ночью или когда группа находится в одиночестве в переулке, вы можете потратить Страх, чтобы появилась группа воров, которые попытаются ограбить их. Воры появляются на Среднем расстоянии от выбранного персонажа и включают в себя Коленолом из «Зазубренного Ножа», количество Шестёрок по количеству персонажей, и Лейтенанта. Для более крупной группы добавьте Колдуна или Снайпера."
+          },
+          "prompt": {
+            "en": "What details show the party that these people are desperate former adventurers?",
+            "ru": "Какие детали указывают группе на то, что эти люди — отчаянные бывшие искатели приключений?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "settlement"
+      ]
+    },
+    {
+      "id": "cliffside-ascent",
+      "tier": 1,
+      "type": "traversal",
+      "difficulty": 12,
+      "name": {
+        "en": "Cliffside Ascent",
+        "ru": "Подъём по утёсу"
+      },
+      "impulses": {
+        "en": [
+          "Cast the unready down to a rocky doom",
+          "draw people in with promise of what lies at the top"
+        ],
+        "ru": [
+          "Сбросить вниз неосторожных",
+          "манить неизвестным"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Construct",
+          "Deeproot Defender",
+          "Giant Scorpion",
+          "Glass Snake"
+        ],
+        "ru": [
+          "Конструкт",
+          "Защитник Корней",
+          "Гигантский Скорпион",
+          "Стеклянная Змея"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "The Climb",
+            "ru": "Восхождение"
+          },
+          "description": {
+            "en": "Climbing up the cliffside uses a Progress Countdown (12). It ticks down according to the following criteria when the PCs make an action roll to climb:\n\nCritical Success: Tick down 3\nSuccess with Hope: Tick down 2\nSuccess with Fear: Tick down 1\nFailure with Hope: No advancement\nFailure with Fear: Tick up 1\n\nWhen the countdown triggers, the party has made it to the top of the cliff.",
+            "ru": "Восхождение по скале использует Отсчёт прогресса (12). Он уменьшается в соответствии со следующими критериями, когда персонажи совершают бросок действия для восхождения:\n\nКритический успех: отсчитывает 3\nУспех с Надеждой: отсчитывает 2\nУспех со Страхом: отсчитывает 1\nНеудача с Надеждой: продвижения не происходит\nНеудача со Страхом: увеличивает значение отсчёта на 1\n\nКогда отсчёт закончится, группа достигнет вершины утеса."
+          },
+          "prompt": {
+            "en": "What strange formations are the stones arranged in? What ominous warnings did previous adventurers leave?",
+            "ru": "В какую странную форму сложены камни? Какие зловещие предупреждения оставили предыдущие искатели приключений?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Pitons Left Behind",
+            "ru": "Оставленные крючья"
+          },
+          "description": {
+            "en": "Previous climbers left behind large metal rods that climbers can use to aid their ascent. If a PC using the pitons fails an action roll to climb, they can mark a Stress instead of ticking the countdown up.",
+            "ru": "Предыдущие альпинисты оставили после себя большие металлические штыри, которые альпинисты могут использовать для облегчения восхождения. Если персонаж, использующий эти штыри, проваливает бросок Действия для восхождения, он может отметить Стресс вместо того, чтобы отмечать отсчёт."
+          },
+          "prompt": {
+            "en": "What do the shape and material of these pitons tell you about the previous climbers? How far apart are they from one another?",
+            "ru": "Что форма и материал этих штырей говорят вам о предыдущих альпинистах? Как далеко они находятся друг от друга?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Fall",
+            "ru": "Падение"
+          },
+          "description": {
+            "en": "Spend a Fear to have a PC’s handhold fail, plummeting them toward the ground. If they aren’t saved on the next action, they hit the ground and tick up the countdown by 2. The PC takes 1d12 physical damage if the countdown is between 8 and 12, 2d12 between 4 and 7, and 3d12 at 3 or lower.",
+            "ru": "Потратьте Страх, чтобы персонаж потерял опору и начал падать. Если его не спасут в следующем действии, он ударится о землю и отсчёт увеличится на 2. Персонаж получает 1d12 физического урона, если отсчёт между 8 и 12, 2d12 между 4 и 7 и 3d12 при 3 или ниже."
+          },
+          "prompt": {
+            "en": "How can you tell many others have fallen here before? What lives in these walls that might try to scare adventurers into falling for an easy meal?",
+            "ru": "Как можно понять, что здесь уже падали многие другие? Что живет в этих стенах, что может пытаться напугать приключенцев, чтобы они упали и стали легкой добычей?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "mountain"
+      ]
+    },
+    {
+      "id": "mountain-pass",
+      "tier": 2,
+      "type": "traversal",
+      "difficulty": 15,
+      "name": {
+        "en": "Mountain Pass",
+        "ru": "Горный перевал"
+      },
+      "impulses": {
+        "en": [
+          "Exact a chilling toll in supplies and stamina",
+          "reveal magical tampering",
+          "slow down travel"
+        ],
+        "ru": [
+          "Истощать припасы и выносливость",
+          "Обнажить магическое вмешательство",
+          "Замедлить продвижение"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Beasts (Bear, Giant Eagle, Glass Snake)",
+          "Chaos Skull",
+          "Minotaur Wrecker",
+          "Mortal Hunter"
+        ],
+        "ru": [
+          "Звери (Медведь, Огромный Орёл, Стеклянная Змея)",
+          "Череп Хаоса",
+          "Минотавр Крушитель",
+          "Охотник на Смертных"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Engraved Sigils",
+            "ru": "Начертанные сигилы"
+          },
+          "description": {
+            "en": "Large markings and engravings have been made in the mountainside. A PC with a relevant background or Experience identifies them as weather magic increasing the power of the icy winds. A PC who succeeds on a Knowledge Roll can recall information about the sigils, potential information about their creators, and the knowledge of how to dispel them. If a PC critically succeeds, they recognize that the sigils are of a style created by ridgeborne enchanters and they gain advantage on a roll to dispel the sigils.",
+            "ru": "На склоне горы нанесены большие знаки и надписи. Персонаж с соответствующей Предысторией или Опытом распознает их как магию погоды, усиливающую силу ледяных ветров. Персонаж, успешно выполнивший Проверку Знаний, может вспомнить информацию о знаках, потенциальную информацию об их создателях и знание о том, как их рассеять. Если персонаж проходит проверку критически успешно, он распознает, что знаки были созданы Горными чародеями, и получает преимущество при броске на рассеивание знаков."
+          },
+          "prompt": {
+            "en": "Who laid this enchantment? Are they nearby? Why did they want the weather to be more daunting?",
+            "ru": "Кто наложил это заклинание? Они рядом? Почему они хотели, чтобы погода была более угрожающей?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Avalanche",
+            "ru": "Лавина"
+          },
+          "description": {
+            "en": "Spend a Fear to carve the mountain with an icy torrent, causing an avalanche. All PCs in its path must succeed on an Agility or Strength Reaction Roll or be bowled over and carried down the mountain. A PC using rope, pitons, or other climbing gear gains advantage on this roll. Targets who fail are knocked down the mountain to Far range, take 2d20 physical damage, and must mark a Stress. Targets who succeed must mark a Stress.",
+            "ru": "Потратьте Страх, чтобы вырезать в горе ледяной поток, вызвав лавину. Все игроки на ее пути должны успешно выполнить Бросок Реакции на Проворность или Силу, иначе они будут сбиты с ног и унесены вниз по горе. Персонаж, использующий веревку, крюки или другое альпинистское снаряжение, получает Преимущество на этом броске. Цели, провалившие бросок, сбиваются с горы на Далекую дистанцию, получают 2d20 физического урона и должны отметить Стресс. Цели, прошедшие бросок, должны отметить Стресс."
+          },
+          "prompt": {
+            "en": "How do the PCs try to weather the avalanche? What approach do the characters take to find one another when their companions go hurtling down the mountainside?",
+            "ru": "Как персонажи пытаются пережить лавину? Какой подход используют персонажи, чтобы найти друг друга, когда их спутники мчатся вниз по склону горы?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Raptor Nest",
+            "ru": "Гнездо хищников"
+          },
+          "description": {
+            "en": "When the PCs enter the raptors’ hunting grounds, two Giant Eagles appear at Very Far range of a chosen PC, identifying the PCs as likely prey.",
+            "ru": "Когда персонажи входят на территорию охоты хищников, два гигантских орла появляются на Очень Далеком расстоянии от выбранного персонажа, находя его как вероятную добычу."
+          },
+          "prompt": {
+            "en": "How long has it been since the eagles last found prey? Do they have eggs in their nest, or unfledged young?",
+            "ru": "Как давно орлы в последний раз находили добычу? Есть ли у них яйца в гнезде или птенцы, которые еще не вылетели?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Icy Winds",
+            "ru": "Ледяные ветра"
+          },
+          "description": {
+            "en": "Countdown (Loop 4). When the PCs enter the mountain pass, activate the countdown. When it triggers, all characters traveling through the pass must succeed on a Strength Reaction Roll or mark a Stress. A PC wearing clothes appropriate for extreme cold gains advantage on these rolls.",
+            "ru": "Отсчёт (Цикл 4). Когда персонажи входят в горный перевал, активируйте отсчёт. Когда он срабатывает, все персонажи, путешествующие через перевал, должны успешно выполнить Бросок Реакции через Силу или отметить Стресс. Персонаж, одетый в одежду, подходящую для сильного холода, получает преимущество в этих бросках."
+          },
+          "prompt": {
+            "en": "What parts of the PC’s bodies go numb first? How do they try to keep warm as they press forward?",
+            "ru": "Какие части тела персонажей онемеют первыми? Как они пытаются согреться, продвигаясь вперед?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "mountain"
+      ]
+    },
+    {
+      "id": "haunted-city",
+      "tier": 2,
+      "type": "exploration",
+      "difficulty": 14,
+      "name": {
+        "en": "Haunted City",
+        "ru": "Город-призрак"
+      },
+      "impulses": {
+        "en": [
+          "Misdirect and disorient",
+          "replay apocalypses both public and personal"
+        ],
+        "ru": [
+          "Вводить в заблуждение и дезориентировать",
+          "Воспроизводить катастрофы — личные и глобальные"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Ghosts (Spectral Archer, Spectral Captain, Spectral Guardian)",
+          "ghostly versions of other adversaries (see “Ghostly Form”)"
+        ],
+        "ru": [
+          "Призраки (Призрачный Лучник, Призрачный Командующий, Призрачный Страж)",
+          "призрачная версия прочих противников (смотреть “Призрачная Форма”)"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Buried Knowledge",
+            "ru": "Погребенные знания"
+          },
+          "description": {
+            "en": "The city has countless mysteries to unfold. A PC who seeks knowledge about the fallen city can make an Instinct or Knowledge Roll to learn about this place and discover (potentially haunted) loot.\n\nCritical Success: Gain valuable information and a related useful item.\nSuccess with Hope: Gain valuable information.\nSuccess with Fear: Uncover vague or incomplete information.\nAny Failure: Mark a Stress to find a lead after an exhaustive search.",
+            "ru": "В городе скрыто множество тайн. Персонаж, стремящийся к знаниям о заброшенном городе, может совершить Бросок на Инстинкт или Знание, чтобы узнать об этом месте и обнаружить (возможно, проклятую) добычу.\n\nКритический успех: Получите ценную информацию и связанный с ней полезный предмет.\nУспех с Надеждой: Получите ценную информацию.\nУспех со Страхом: Раскрытие неясной или неполной информации.\nЛюбая неудача: Отметить Стресс, чтобы найти след после исчерпывающих поисков."
+          },
+          "prompt": {
+            "en": "What greater secrets does the city contain? Why have so many ghosts lingered here? What doomed adventurers have met a bad fate here already?",
+            "ru": "Какие еще тайны скрывает город? Почему здесь так много призраков? Какая печальная судьба постигла здесь предыдущих искателей приключений?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Ghostly Form",
+            "ru": "Призрачная форма"
+          },
+          "description": {
+            "en": "Adversaries who appear here are of a ghostly form. They have resistance to physical damage and can mark a Stress to move up to Close range through solid objects.",
+            "ru": "Противники, появляющиеся здесь, имеют призрачную форму. Они обладают сопротивлением к физическому урону и могут отметить Стресс, чтобы переместиться на дистанцию до Средней через твердые объекты."
+          },
+          "prompt": {
+            "en": "What injuries to their physical form speak to their cause of death? What unfulfilled purpose holds them in the Mortal Plane?",
+            "ru": "Какие повреждения их физической формы указывают на причину их смерти? Какая невыполненная цель удерживает их в Мире Смертных?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Dead Ends",
+            "ru": "Тупики прошлого"
+          },
+          "description": {
+            "en": "The ghosts of an earlier era manifest scenes from their bygone era, such as a street festival, a revolution, or a heist. These hauntings change the layout of the city around the PCs, blocking the way behind them, forcing a detour, or presenting them with a challenge, such as mistaking them for rival thieves during the heist.",
+            "ru": "Призраки прошлого воскрешают сцены из своей ушедшей эпохи, такие как уличный фестиваль, революция или ограбление. Эти призраки меняют облик города вокруг персонажей, преграждая им путь, заставляя их делать обходные маневры или ставя перед ними различные испытания, например, принимая их за соперников-воров во время ограбления."
+          },
+          "prompt": {
+            "en": "What do the ghosts want from you? What do you need from them?",
+            "ru": "Чего призраки хотят от вас? А что вам нужно от них?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Apocalypse Then",
+            "ru": "Апокалипсис прошлого"
+          },
+          "description": {
+            "en": "Spend a Fear to manifest the echo of a past disaster that ravaged the city. Activate a Progress Countdown (5) as the disaster replays around the PCs. To complete the countdown and escape the catastrophe, the PCs must overcome threats such as rampaging fires, stampeding civilians, collapsing buildings, or crumbling streets, while recalling history and finding clues to escape the inevitable.",
+            "ru": "Потратьте Страх, чтобы проявить эхо прошлого бедствия, которое опустошило город. Активируйте Отсчёт прогресса (5), пока бедствие повторяется вокруг персонажей. Чтобы завершить отсчёт и избежать катастрофы, персонажи должны преодолеть такие угрозы, как бушующие пожары, бегущие в панике жители, рушащиеся здания или разрушающиеся улицы, вспоминая историю и находя подсказки, чтобы избежать неизбежное."
+          },
+          "prompt": {
+            "en": "Is this the disaster that led the city to be abandoned? What is known about this disaster, and how could that help the PCs escape?",
+            "ru": "Это ли бедствие привело к заброшенности города? Что известно об этом бедствии и как это может помочь персонажам спастись?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "settlement"
+      ]
+    },
+    {
+      "id": "cult-ritual",
+      "tier": 2,
+      "type": "event",
+      "difficulty": 14,
+      "name": {
+        "en": "Cult Ritual",
+        "ru": "Ритуал Культа"
+      },
+      "impulses": {
+        "en": [
+          "Profane the land",
+          "unite the Mortal Realm with the Circles Below"
+        ],
+        "ru": [
+          "Осквернить землю",
+          "объединить Царство Смертных с Нижними Кругами"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Cult of the Fallen (Cult Adept, Cult Fang, Cult Initiate, Secret-Keeper)"
+        ],
+        "ru": [
+          "Культ Падших (Адепт Культа, Клык Культа, Посвящённый культа, Хранитель тайн)"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Desecrated Ground",
+            "ru": "Осквернённая земля"
+          },
+          "description": {
+            "en": "Cultists dedicated this place to the Fallen Gods, and their foul influence seeps into it. Reduce the PCs’ Hope Die to a d10 while in this environment. The desecration can be removed with a Progress Countdown (6).",
+            "ru": "Культисты посвятили это место Падшим Богам, и их злое влияние проникает в него. Уменьшите Кость Надежды персонажей до d10, пока они находятся в этом окружении. Осквернение можно снять с помощью Отсчёта прогресса (6)."
+          },
+          "prompt": {
+            "en": "How do the PCs first notice that something is wrong about this place? What fears resurface while hope is kept at bay?",
+            "ru": "Как персонажи впервые заметят, что с этим местом что-то не так? Какие страхи вновь пробуждаются, когда надежда угасает?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Blasphemous Might",
+            "ru": "Богохульная мощь"
+          },
+          "description": {
+            "en": "A portion of the ritual’s power is diverted into a cult member to fight off interlopers. Choose one adversary to become Imbued with terrible magic until the scene ends or they’re defeated. An Imbued adversary immediately takes the spotlight and gains one of the following benefits, or all three if you spend a Fear:\n\n- They gain advantage on all attacks.\n- They deal an extra 1d10 damage on a successful attack.\n- They gain the following feature: Relentless (2) - Passive. This adversary can be spotlighted up to two times per GM turn. Spend Fear as usual to spotlight them.",
+            "ru": "Часть силы ритуала перенаправляется на члена культа, чтобы он мог сражаться с посторонними. Выберите одного противника, который будет Наполнен ужасной магией до конца сцены или до своего поражения. Наполненный противник немедленно получает активацию и одно из следующих преимуществ, или все три, если вы потратите Страх:\n\n- Он получает преимущество ко всем атакам.\n- Он наносит дополнительный урон 1d10 при успешной атаке.\n- Он получает следующее свойство: Неумолимый (2) - Пассивное. Этот противник может быть активирован до двух раз за ход Мастера. Тратьте Страх как обычно, чтобы активировать его."
+          },
+          "prompt": {
+            "en": "How does the enemy change in appearance? What fears do their blows bring to the surface?",
+            "ru": "Как изменяется внешний вид врага? Какие страхи вызывают его удары?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "The Summoning",
+            "ru": "Призыв"
+          },
+          "description": {
+            "en": "Countdown (6). When the PCs enter the scene or the cult begins the ritual to summon a demon, activate the countdown. Designate one adversary to lead the ritual. The countdown ticks down when a PC rolls with Fear. When it triggers, summon a Minor Demon within Very Close range of the ritual’s leader. If the leader is defeated, the countdown ends with no effect as the ritual fails.",
+            "ru": "Отсчёт (6). Когда персонажи входят в сцену или культ начинает ритуал вызова демона, активируйте отсчёт. Определите одного противника, который будет вести ритуал. Отсчёт идёт, когда персонаж бросает кости со Страхом. Когда отсчёт срабатывает, вызовите Малого Демона в пределах Близкой дистанции от лидера ритуала. Если лидер побежден, отсчёт заканчивается без эффекта, так как ритуал провалился."
+          },
+          "prompt": {
+            "en": "What will the cult do with this leashed demon if they succeed? What will they try to summon next?",
+            "ru": "Что культ сделает с этим привязанным демоном, если ему удастся? Что он попытается вызвать следующим?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Complete the Ritual",
+            "ru": "Завершить ритуал"
+          },
+          "description": {
+            "en": "If the ritual’s leader is targeted by an attack or spell, an ally within Very Close range of them can mark a Stress to be targeted by that attack or spell instead.",
+            "ru": "Если лидер ритуала становится целью атаки или заклинания, союзник, находящийся в Близкой дистанции от него, может отметить Стресс, чтобы вместо него стать целью этой атаки или заклинания."
+          },
+          "prompt": {
+            "en": "What does it feel like to see such devotion turned to the pursuit of fear and domination?",
+            "ru": "Каково это — видеть, как такая преданность превращается в погоню за страхом и господством?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "universal"
+      ]
+    },
+    {
+      "id": "hallowed-temple",
+      "tier": 2,
+      "type": "social",
+      "difficulty": 13,
+      "name": {
+        "en": "Hallowed Temple",
+        "ru": "Священный Храм"
+      },
+      "impulses": {
+        "en": [
+          "Connect the Mortal Realm with the Hallows Above",
+          "display the power of the divine",
+          "provide aid and succor to the faithful"
+        ],
+        "ru": [
+          "Соединить мир смертных с Небесным Царством",
+          "Продемонстрировать силу божественного",
+          "Оказать помощь и поддержку верующим."
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Guards (Archer Guard, Bladed Guard, Head Guard)"
+        ],
+        "ru": [
+          "Стражники (Стражник-Лучник, Стражник-Мечник, Капитан Стражи)"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "A Place of Healing",
+            "ru": "Место исцеления"
+          },
+          "description": {
+            "en": "A PC who takes a rest in the Hallowed Temple automatically clears all HP.",
+            "ru": "Персонаж, отдыхающий в Священном Храме, автоматически очищает все Раны."
+          },
+          "prompt": {
+            "en": "What does the incense smell like? What kinds of songs do the acolytes sing?",
+            "ru": "Как пахнет ладан? Какие песни поют помощники священника?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Divine Guidance",
+            "ru": "Божественное руководство"
+          },
+          "description": {
+            "en": "A PC who prays to a deity while in the Hallowed Temple can make an Instinct Roll to receive answers. If the god they beseech isn’t welcome in this temple, the roll is made with disadvantage.\n\nCritical Success: The PC gains clear information. Additionally, they gain 1d4 Hope, which can be distributed between the party if they share the vision and guidance they receive.\nSuccess with Hope: The PC receives clear information.\nSuccess with Fear: The PC receives brief flashes of insight and an emotional impression conveying an answer.\nAny Failure: The PC receives only vague flashes. They can mark a Stress to receive one clear image without context.",
+            "ru": "Персонаж, молящийся божеству в Священном Храме, может совершить Бросок Инстинкта, чтобы получить ответ. Если божество, к которому он обращается, не приветствуется в этом храме, бросок совершается с помехой.\n\nКритический успех: Персонаж получает четкую информацию. Кроме того, он получает 1d4 Надежды, которую можно распределить между членами группы, если они разделяют полученное видение и руководство.\nУспех с Надеждой: Персонаж получает четкую информацию.\nУспех со Страхом: Персонаж получает краткие вспышки озарения и эмоциональное впечатление, передающее ответ.\nЛюбая неудача: Персонаж получает только смутные вспышки. Он может отметить Стресс, чтобы получить одно четкое изображение без контекста."
+          },
+          "prompt": {
+            "en": "What does it feel like as you are touched by this vision? What feeling lingers after the images have passed?",
+            "ru": "Каково это — быть тронутым этим видением? Какое чувство остается после того, как образы исчезают?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Relentless Hope",
+            "ru": "Несгибаемая надежда"
+          },
+          "description": {
+            "en": "Once per scene, each PC can mark a Stress to turn a result with Fear into a result with Hope.",
+            "ru": "Один раз за сцену каждый персонаж может отметить Стресс, чтобы превратить результат со Страхом в результат с Надеждой."
+          },
+          "prompt": {
+            "en": "What emotions or memories do you connect with when fear presses in?",
+            "ru": "С какими эмоциями или воспоминаниями вы ассоциируете себя, когда вас охватывает страх?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Divine Censure",
+            "ru": "Божественное наказание"
+          },
+          "description": {
+            "en": "When the PCs have trespassed, blasphemed, or offended the clergy, you can spend a Fear to summon a High Seraph and 1d4 Bladed Guards within Close range of the senior priest to reinforce their will.",
+            "ru": "Когда персонажи нарушили закон, богохульствовали или оскорбили духовенство, вы можете потратить Страх для вызова Высшего Серафима и 1d4 Стражников-Мечников в пределах Средней дистанции от старшего священника, чтобы укрепить их волю."
+          },
+          "prompt": {
+            "en": "What symbols or icons do they bear that signal they are anointed agents of the divinity? Who leads the group and what led them to this calling?",
+            "ru": "Какие символы или знаки они носят, указывающие на то, что они являются помазанными агентами божества? Кто возглавляет группу и что привело их к этому призванию?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "settlement"
+      ]
+    },
+    {
+      "id": "castle-siege",
+      "tier": 3,
+      "type": "event",
+      "difficulty": 17,
+      "name": {
+        "en": "Castle Siege",
+        "ru": "Осада замка"
+      },
+      "impulses": {
+        "en": [
+          "Bleed out the will to fight",
+          "breach the walls",
+          "build tension"
+        ],
+        "ru": [
+          "Истощать волю к бою",
+          "Проломить стены",
+          "Создавать напряжение"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Mercenaries (Harrier, Sellsword, Spellblade, Weaponmaster)",
+          "Noble Forces (Archer Squadron, Conscript, Elite Soldier, Knight of the Realm)"
+        ],
+        "ru": [
+          "Наёмники (Наёмный Клинок, Копьеметатель, Чародейский Клинок, Мастер Оружия)",
+          "Элитные Силы (Отряд Лучников, Призывник, Элитный Солдат, Рыцарь Королевства)"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Secret Entrance",
+            "ru": "Тайный вход"
+          },
+          "description": {
+            "en": "A PC can find or recall a secret way into the castle with a successful Instinct or Knowledge Roll.",
+            "ru": "Игрок может найти или вспомнить секретный путь в замок, успешно выполнив бросок на Инстинкт или Знание."
+          },
+          "prompt": {
+            "en": "How do they get in without revealing the pathway to the attackers? Are any of the defenders monitoring this path?",
+            "ru": "Как они проникнут внутрь, не раскрыв путь нападающим? Кто-нибудь из защитников следит за этим путем?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Siege Weapons (Environment Change)",
+            "ru": "Осадные орудия (изменение окружения)"
+          },
+          "description": {
+            "en": "Consequence Countdown (6). The attacking force deploys siege weapons to try to raze the defenders’ fortifications. Activate the countdown when the siege begins (for a protracted siege, make this a long-term countdown instead). When it triggers, the defenders’ fortifications have been breached and the attackers flood inside. You gain 2 Fear, then shift to the Pitched Battle environment and spotlight it.",
+            "ru": "Отсчёт последствий (6). Атакующие силы развертывают осадные орудия, чтобы разрушить укрепления защитников. Активируйте отсчёт, когда начинается осада (в случае длительной осады совершите долгосрочный отсчёт вместо этого). Когда отсчёт срабатывает, укрепления защитников прорваны, и атакующие врываются внутрь. Вы получаете 2 Страха, затем переходите к окружению Решающая Битва и активируйте его."
+          },
+          "prompt": {
+            "en": "What siege weapons are being deployed? Are they magical, mundane, or a mixture of both? What defenses must the characters overcome to storm the castle?",
+            "ru": "Какие осадные орудия используются? Магические, обычные или смешанные? Какие препятствия должны преодолеть персонажи, чтобы штурмовать замок?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Reinforcements!",
+            "ru": "Подкрепление!"
+          },
+          "description": {
+            "en": "Summon a Knight of the Realm, a number of Tier 3 Minions equal to the number of PCs, and two adversaries of your choice within Far range of a chosen PC as reinforcements. The Knight of the Realm immediately takes the spotlight.",
+            "ru": "Призовите Рыцаря Королевства, количество приспешников 3-го ранга равное количеству персонажей игроков, и двух противников по вашему выбору, в пределах дистанции Далеко от выбранного персонажа игрока в качестве подкрепления. Рыцарь Королевства немедленно активируется."
+          },
+          "prompt": {
+            "en": "Who are they targeting first? What formation do they take?",
+            "ru": "На кого они нацелятся в первую очередь? Какую формацию они примут?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Collateral Damage",
+            "ru": "Побочный урон"
+          },
+          "description": {
+            "en": "When an adversary is defeated, you can spend a Fear to have a stray attack from a siege weapon hit a point on the battlefield. All targets within Very Close range of that point must make an Agility Reaction Roll.\n\nTargets who fail take 3d8+3 physical or magic damage and must mark a Stress.\nTargets who succeed must mark a Stress.",
+            "ru": "Когда противник побежден, вы можете потратить Страх, чтобы случайный удар осадного оружия попал в точку на поле боя. Все цели в пределах Близкой Дистанции от этой точки должны совершить Бросок Реакции через Проворность.\n\nЦели, провалившие бросок, получают 3d8+3 физического или магического урона и должны отметить Стресс.\nЦели, прошедшие бросок, должны отметить Стресс."
+          },
+          "prompt": {
+            "en": "What debris is scattered by the attack? What is broken by the strike that can’t be easily mended?",
+            "ru": "Какие обломки разлетаются от атаки? Что разбито ударом, что не может быть легко починено?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "settlement"
+      ]
+    },
+    {
+      "id": "burning-heart-of-the-woods",
+      "tier": 3,
+      "type": "exploration",
+      "difficulty": 16,
+      "name": {
+        "en": "Burning Heart of the Woods",
+        "ru": "Пылающее сердце леса"
+      },
+      "impulses": {
+        "en": [
+          "Beat out an uncanny rhythm for all to follow",
+          "corrupt the woods"
+        ],
+        "ru": [
+          "Задавать ритм",
+          "которому подчиняется всё живое; Поглощать и искажать лес"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Beasts (Bear, Glass Snake)",
+          "Elementals (Elemental Spark)",
+          "Verdant Defenders (Dryad, Oak Treant, Stag Knight)"
+        ],
+        "ru": [
+          "Звери (Медведь, Стеклянная Змея)",
+          "Элементали (стихийная искра)",
+          "Защитники Леса (Дриада, Дубовый Трэнт, Рыцарь Олень)"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Chaos Magic Locus",
+            "ru": "Очаг хаоса"
+          },
+          "description": {
+            "en": "When a PC makes a Spellcast Roll, they must roll two Fear Dice and take the higher result.",
+            "ru": "Когда персонаж совершает Бросок Заклинания, он должен бросить два Кубика Страха и взять более высокий результат."
+          },
+          "prompt": {
+            "en": "What does it feel like to work magic in this chaos-touched place? What do you fear will happen if you lose control of the spell?",
+            "ru": "Каково это — творить магию в этом месте, охваченном хаосом? Чего ты боишься, если потеряешь контроль над заклинанием?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "The Indigo Flame",
+            "ru": "Тёмно-синее пламя"
+          },
+          "description": {
+            "en": "PCs who approach the central tree can make a Knowledge Roll to try to identify the magic that consumed this environment.\n\nOn a success: They learn three of the below details. On a success with Fear, they learn two.\nOn a failure: They can mark a Stress to learn one and gain advantage on the next action roll to investigate this environment.\nDetails: This is a result of Fallen magic. The corruption is spread through the ashen moss. It can be cleansed only by a ritual of nature magic with a Progress Countdown (8).",
+            "ru": "Персонажи, приблизившиеся к центральному дереву, могут совершить Бросок на Знание, чтобы попытаться определить магию, поглотившую это окружение.\n\nПри успехе: Они узнают три из перечисленных ниже деталей. При успехе со Страхом, они узнают две.\nПри неудаче: Они могут отметить Стресс, чтобы узнать одну и получить Преимущество на следующий бросок Действия, чтобы исследовать это окружение.\nДетали: Это результат действия запретной магии. Порча распространяется через пепельный мох. Её можно очистить только ритуалом природной магии с Отсчётом Прогресса (8)."
+          },
+          "prompt": {
+            "en": "What Fallen cult corrupted these woods? What have they already done with the cursed wood and sap from this tree?",
+            "ru": "Какой падший культ осквернил эти леса? Что они уже сделали с проклятым деревом и соком этого дерева?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Grasping Vines",
+            "ru": "Цепкие лозы"
+          },
+          "description": {
+            "en": "Animate vines bristling with thorns whip out from the underbrush to ensnare the PCs. A target must succeed on an Agility Reaction Roll or become Restrained and Vulnerable until they break free, clearing both conditions, with a successful Finesse or Strength Roll or by dealing 10 damage to the vines. When the target makes a roll to escape, they take 1d8+4 physical damage and lose a Hope.",
+            "ru": "Ожившие лианы, покрытые шипами, выскакивают из подлеска, чтобы опутать персонажей. Цель должна успешно выполнить Бросок Реакции на Проворность или стать Обездвиженной и Уязвимой до тех пор, пока не освободится, сняв оба состояния, с помощью успешного броска на Искусность или Силу или нанеся 10 урона лозам. Когда цель совершает бросок, чтобы вырваться, она получает 1d8+4 физического урона и теряет Надежду."
+          },
+          "prompt": {
+            "en": "What painful memories do the vines bring to the surface as they pierce flesh?",
+            "ru": "Какие болезненные воспоминания вызывают лозы, пронзая плоть?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Charcoal Constructs",
+            "ru": "Угольные создания"
+          },
+          "description": {
+            "en": "Warped animals wreathed in indigo flame trample through a point of your choice. All targets within Close range of that point must make an Agility Reaction Roll. Targets who fail take 3d12+3 physical damage. Targets who succeed take half damage instead.",
+            "ru": "Искаженные животные, окутанные тёмно-синим пламенем, проносятся через выбранную вами точку. Все цели в пределах Средней дистанции от этой точки должны совершить Бросок Реакции на Проворность. Цели, провалившие бросок, получают 3d12+3 единиц Физического урона. Цели, успешно прошедшие бросок, получают половину урона."
+          },
+          "prompt": {
+            "en": "Are these real animals consumed by the flame or merely constructs of the corrupting magic?",
+            "ru": "Эти животные действительно поглощены пламенем или это всего лишь творения порченной магии?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Choking Ash",
+            "ru": "Удушающий пепел"
+          },
+          "description": {
+            "en": "Countdown (Loop 6). When the PCs enter the Burning Heart of the Woods, activate the countdown. When it triggers, all characters must make a Strength or Instinct Reaction Roll. Targets who fail take 4d6+5 direct physical damage. Targets who succeed take half damage. Protective masks or clothes give advantage on the reaction roll.",
+            "ru": "Отсчёт (Цикл 6). Когда персонажи входят в Пылающее Сердце Леса, активируйте отсчёт. Когда он срабатывает, все персонажи должны совершить Бросок Реакции на Силу или Инстинкт. Цели, провалившие бросок, получают 4d6+5 прямого физического урона. Цели, прошедшие бросок, получают половину урона. Защитные маски или одежда дают Преимущество на Бросок Реакции."
+          },
+          "prompt": {
+            "en": "What hallucinations does the ash induce? What incongruous taste does it possess?",
+            "ru": "Какие галлюцинации вызывает пепел? Какой несоответствующий вкус он имеет?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "forest"
+      ]
+    },
+    {
+      "id": "pitched-battle",
+      "tier": 3,
+      "type": "event",
+      "difficulty": 17,
+      "name": {
+        "en": "Pitched Battle",
+        "ru": "Решающая битва"
+      },
+      "impulses": {
+        "en": [
+          "Seize people, land, and wealth",
+          "spill blood for greed and glory"
+        ],
+        "ru": [
+          "Захватить земли, богатства и людей",
+          "Проливать кровь во имя славы и жадности"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Mercenaries (Sellsword, Harrier, Spellblade, Weaponmaster)",
+          "Noble Forces (Archer Squadron, Conscript, Elite Soldier, Knight of the Realm)"
+        ],
+        "ru": [
+          "Наёмники (Наёмный Клинок, Копьеметатель, Чародейский Клинок, Мастер Оружия)",
+          "Элитные Силы (Отряд Лучников, Призывник, Элитный Солдат, Рыцарь Королевства)"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Adrift on a Sea of Steel",
+            "ru": "Дрейфуя в море стали"
+          },
+          "description": {
+            "en": "Traversing a battlefield during an active combat is extremely dangerous. A PC must succeed on an Agility Roll to move at all, and can only go up to Close range on a success. If an adversary is within Melee range of them, they must mark a Stress to make an Agility Roll to move.",
+            "ru": "Пересечение поля боя во время активного сражения чрезвычайно опасно. Персонаж должен успешно выполнить Проверку Проворности, чтобы вообще двигаться, и в случае успеха может переместиться только на Среднюю Дистанцию. Если какой-либо противник находится Вплотную к персонажу, он должен отметить Стресс, чтобы совершить бросок на Проворность для перемещения."
+          },
+          "prompt": {
+            "en": "Do the combatants mistake you for the enemy or consider you interlopers? Can you tell the difference between friend and foe in the fray?",
+            "ru": "Считают ли вас противники своим врагом или посторонним? Сможете ли вы в суматохе боя отличить друга от врага?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Raze and Pillage",
+            "ru": "Грабёж и разрушения"
+          },
+          "description": {
+            "en": "The attacking force raises the stakes by lighting a fire, stealing a valuable asset, kidnapping an important person, or killing the populace.",
+            "ru": "Нападающие повышают ставки, поджигая здания, крадя ценные вещи, похищая важных лиц или убивая мирных жителей."
+          },
+          "prompt": {
+            "en": "What is valuable here? Who is most vulnerable?",
+            "ru": "Что здесь является ценным? Кто наиболее уязвим?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "War Magic",
+            "ru": "Боевая магия"
+          },
+          "description": {
+            "en": "Spend a Fear as a mage from one side uses large-scale destructive magic. Pick a point on the battlefield within Very Far range of the mage. All targets within Close range of that point must make an Agility Reaction Roll. Targets who fail take 3d12+8 magic damage and must mark a Stress.",
+            "ru": "Потратьте Страх, пока маг с одной стороны использует масштабную разрушительную магию. Выберите точку на поле боя в пределах дистанции Очень Далеко от мага. Все цели в пределах Средней дистанции от этой точки должны совершить Бросок Реакции на Проворность. Цели, провалившие бросок, получают 3d12+8 урона от магии и должны Отметить Стресс."
+          },
+          "prompt": {
+            "en": "What form does the attack take—fireball, raining acid, a storm of blades? What tactical objective is this attack meant to accomplish, and what comes next?",
+            "ru": "В какой форме происходит атака — огненный шар, дождь из кислоты, шквал клинков? Какую тактическую цель преследует эта атака, и что будет дальше?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Reinforcements!",
+            "ru": "Подкрепление!"
+          },
+          "description": {
+            "en": "Summon a Knight of the Realm, a number of Tier 3 Minions equal to the number of PCs, and two adversaries of your choice within Far range of a chosen PC as reinforcements. The Knight of the Realm immediately takes the spotlight.",
+            "ru": "Призовите Рыцаря Королевства, количество приспешников 3-го ранга равное количеству персонажей игроков, и двух противников по вашему выбору, в пределах дистанции Далеко от выбранного персонажа игрока в качестве подкрепления. Рыцарь Королевства немедленно активируется."
+          },
+          "prompt": {
+            "en": "Who are they targeting first? What formation do they take?",
+            "ru": "На кого они нацелятся в первую очередь? Какую формацию они примут?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "universal"
+      ]
+    },
+    {
+      "id": "divine-usurpation",
+      "tier": 4,
+      "type": "event",
+      "difficulty": 20,
+      "name": {
+        "en": "Divine Usurpation",
+        "ru": "Божественное свержение"
+      },
+      "impulses": {
+        "en": [
+          "Collect power",
+          "overawe",
+          "silence dissent"
+        ],
+        "ru": [
+          "Собирать могущество",
+          "Внушать благоговейный ужас",
+          "Подавлять несогласие"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Arch-Necromancer",
+          "Fallen Shock Troops",
+          "Mortal Hunter",
+          "Oracle of Doom",
+          "Perfected Zombie"
+        ],
+        "ru": [
+          "Архинекромант",
+          "Штурмовой Отряд Падшего",
+          "Охотник за Смертными",
+          "Оракул Погибели",
+          "Совершенный Зомби"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Final Preparations",
+            "ru": "Последние приготовления"
+          },
+          "description": {
+            "en": "When the environment first takes the spotlight, designate one adversary as the Usurper seeking to overthrow the gods. Activate a Long-Term Countdown (8) as the Usurper assembles what they need to conduct the ritual. When it triggers, spotlight this environment to use the “Beginning of the End” feature. While this environment remains in play, you can hold up to 15 Fear.",
+            "ru": "Когда окружение впервые получает активацию, обозначьте одного противника в качестве Узурпатора, стремящегося свергнуть богов. Активируйте Долгосрочный отсчёт (8), пока Узурпатор собирает всё необходимое для проведения ритуала. Когда он срабатывает, активируйте это окружение, чтобы использовать свойство «Начало конца». Пока это окружение остается в игре, вы можете держать до 15 Страха."
+          },
+          "prompt": {
+            "en": "What does the Usurper still require: The heart of a High Seraph? The lodestone of an ancient waygate? The loyalty of two archenemies? The heartbroken tears of a pure soul?",
+            "ru": "Что еще требует Узурпатор? Сердце Высшего Серафима? Магнитный камень древнего портала? Верность двух заклятых врагов? Слёзы разбитого сердца чистой души?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Divine Blessing",
+            "ru": "Божественное благословение"
+          },
+          "description": {
+            "en": "When a PC critically succeeds, they can spend 2 Hope to refresh an ability normally limited by uses (such as once per rest, once per session).",
+            "ru": "Когда персонаж получает критический успех, он может потратить 2 Надежды, чтобы восстановить способность, которая обычно ограничена количеством использований (например, один раз за отдых, один раз за сессию)."
+          },
+          "prompt": {
+            "en": "What god favors you as you fight against this usurpation? How does your renewed power reflect their influence?",
+            "ru": "Какой бог благоволит к вам в борьбе с этим узурпатором? Как ваша обновленная сила отражает его влияние?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Defilers Abound",
+            "ru": "Осквернители повсюду"
+          },
+          "description": {
+            "en": "Spend 2 Fear to summon 1d4+2 Fallen Shock Troops that appear within Close range of the Usurper to assist their divine siege. Immediately spotlight the Shock Troops to use a “Group Attack” action.",
+            "ru": "Потратьте 2 Страха, чтобы вызвать 1d4+2 штурмовых отрядов Падшего, которые появляются в пределах Средней дистанции от Узурпатора, чтобы помочь ему в божественной осаде. Немедленно активируйте Штурмовиков, чтобы использовать действие «Групповая атака»."
+          },
+          "prompt": {
+            "en": "Which High Fallen do these troops serve? Which god’s flesh do they wish to feast upon?",
+            "ru": "Кому служат эти войска? Плоть какого бога они хотят полакомиться?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Godslayer",
+            "ru": "Убийца богов"
+          },
+          "description": {
+            "en": "If the Divine Siege Countdown (see “Beginning of the End”) has triggered, you can spend 3 Fear to describe the Usurper slaying one of the gods of the Hallows Above, feasting upon their power and growing stronger. The Usurper clears 2 HP. Increase their Difficulty, damage, attack modifier, or give them a new feature from the slain god.",
+            "ru": "Если сработала способность «Божественная осада» (см. «Начало конца»), вы можете потратить 3 Страха, чтобы описать, как Узурпатор убивает одного из богов Высших Сфер, поглощая его силу и становясь сильнее. Узурпатор очищает 2 Раны. Увеличьте его Сложность, урон, модификатор атаки или дайте ему новое свойство убитого бога."
+          },
+          "prompt": {
+            "en": "Which god meets their end? What are their last words? How does the Usurper’s new stolen power manifest?",
+            "ru": "Какой бог встречает свою гибель? Каковы его последние слова? Как проявляется новая украденная сила Узурпатора?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Beginning of the End",
+            "ru": "Начало конца"
+          },
+          "description": {
+            "en": "When the “Final Preparations” long-term countdown triggers, the Usurper begins hammering on the gates of the Hallows themselves. Activate a Divine Siege Countdown (10). Spotlight the Usurper to describe the Usurper’s assault and tick down this countdown by 1. If the Usurper takes Major or greater damage, tick up the countdown by 1. When it triggers, the Usurper shatters the barrier between the Mortal Realm and the Hallows Above to slay the gods and take their place. You gain a Fear for each unmarked HP the Usurper has. You can immediately use the “Godslayer” feature without spending Fear to make an additional GM move.",
+            "ru": "Когда запускается долгосрочный отсчёт «Последние приготовления», Узурпатор начинает бить в ворота Святынь. Активируйте отсчёт Божественной осады (10). Активируйте Узурпатора, чтобы описать его штурм, и уменьшите этот отсчёт на 1. Если Узурпатор получает Ощутимый или больше урона, увеличьте отсчёт на 1. Когда отсчёт завершён, Узурпатор разрушает барьер между Миром Смертных и Верхним Планом, чтобы убить богов и занять их место. Вы получаете Страх за каждую неотмеченную Рану Узурпатора. Вы можете немедленно использовать свойство «Убийца богов», не тратя Страх, чтобы совершить дополнительный ход Мастера."
+          },
+          "prompt": {
+            "en": "How does the Mortal Realm writhe as the natural order is violated? What mortals witness this blasphemy from afar?",
+            "ru": "Как извивается Мир Смертных, когда нарушается естественный порядок? Какие смертные из далека становятся свидетелями этого кощунства?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "universal"
+      ]
+    },
+    {
+      "id": "imperial-court",
+      "tier": 4,
+      "type": "social",
+      "difficulty": 20,
+      "name": {
+        "en": "Imperial Court",
+        "ru": "Императорский двор"
+      },
+      "impulses": {
+        "en": [
+          "Justify and perpetuate imperial rule",
+          "seduce rivals with promises of power and comfort"
+        ],
+        "ru": [
+          "Оправдать и увековечить власть",
+          "Искушать властью и комфортом"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Bladed Guard",
+          "Courtesan",
+          "Knight of the Realm",
+          "Monarch",
+          "Spy"
+        ],
+        "ru": [
+          "Стражник-Мечник",
+          "Куритзанка",
+          "Рыцарь Королевства",
+          "Монарх",
+          "Шпион"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "All Roads Lead Here",
+            "ru": "Все дороги ведут сюда"
+          },
+          "description": {
+            "en": "While in the Imperial Court, a PC has disadvantage on Presence Rolls made to take actions that don’t fit the imperial way of life or support the empire’s dominance.",
+            "ru": "Находясь при императорском дворе, персонаж получает помеху на Броски Влияния, совершаемые для действий, не соответствующих имперскому образу жизни или не поддерживающих господство империи."
+          },
+          "prompt": {
+            "en": "How does the way language is used make even discussing alternative ways of living difficult? What obvious benefits for loyalty create friction when you try to discuss alternatives?",
+            "ru": "Как использование языка затрудняет даже обсуждение альтернативных способов жизни? Какие очевидные преимущества для лояльности создают трения, когда вы пытаетесь обсудить альтернативы?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Rival Vassals",
+            "ru": "Соперничающие вассалы"
+          },
+          "description": {
+            "en": "The PCs can find imperial subjects, vassals, and supplicants in the court, each vying for favor, seeking proximity to power, exchanging favors for loyalty, and elevating their status above others’. Some might be desperate to undermine their rivals, while others might even be open to discussions that verge on sedition.",
+            "ru": "В дворе игроки могут встретить имперских подданных, вассалов и просителей, каждый из которых стремится завоевать благосклонность, приблизиться к власти, обменять услуги на лояльность и повысить свой статус. Некоторые из них могут быть готовы на все, чтобы подорвать позиции своих соперников, а другие могут даже вступить в дискуссии, граничащие с мятежом."
+          },
+          "prompt": {
+            "en": "How do they benefit from vassalage, and what has it cost them? What exploitation drives them to consider opposing the unstoppable?",
+            "ru": "Какую выгоду они получают от вассальной зависимости и чем она им обходится? Какая эксплуатация заставляет их думать о противостоянии непобедимым?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "The Gravity of Empire",
+            "ru": "Тяжесть империи"
+          },
+          "description": {
+            "en": "Spend a Fear to present a PC with a golden opportunity or offer to satisfy a major goal in exchange for obeying or supporting the empire. The target must make a Presence Reaction Roll. On a failure, they must mark all their Stress or accept the offer. If they have already marked all their Stress, they must accept the offer or exile themselves from the empire. On a success, they must mark 1d4 Stress as they’re taxed by temptation.",
+            "ru": "Потратьте Страх, чтобы предоставить персонажу уникальную возможность или предложение, которое поможет ему достичь ощутимой цели в обмен на послушание или поддержку империи. Цель должна совершить Бросок Реакции Влияние. При провале она должна отметить весь свой Стресс или принять предложение. Если он уже отметил весь свой Стресс, он должен принять предложение или быть изгнаным из империи. При успехе он должен отметить 1d4 Стресса, так как он подвергается искушению."
+          },
+          "prompt": {
+            "en": "What do the PCs want so desperately they might consider throwing in with this ruthless power? How did imperial agents learn the PC’s greatest desires?",
+            "ru": "Чего персонажи хотят настолько отчаянно, что могут пойти на сделку с этой безжалостной силой? Как имперские агенты узнали о самых сокровенных желаниях персонажей?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Imperial Decree",
+            "ru": "Императорский указ"
+          },
+          "description": {
+            "en": "Spend a Fear to tick down a long-term countdown related to the empire’s agenda by 1d4. If this triggers the countdown, a proclamation related to the agenda is announced at court as the plan is executed.",
+            "ru": "Потратьте Страх, чтобы уменьшить на 1d4 длительный отсчёт, связанный с планом империи. Если это запускает отсчёт, в суде объявляется прокламация, связанная с планом, и план приводится в исполнение."
+          },
+          "prompt": {
+            "en": "What display of power or transfer of wealth was needed to expedite this plan? Whose lives were disrupted or upended to make this happen?",
+            "ru": "Какое проявление силы или передача богатства были необходимы, чтобы ускорить этот план? Чья жизнь была разрушена или перевернута, чтобы это произошло?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Eyes Everywhere",
+            "ru": "Глаза повсюду"
+          },
+          "description": {
+            "en": "On a result with Fear, you can spend a Fear to have someone loyal to the empire overhear seditious talk within the court. A PC must succeed on an Instinct Reaction Roll to notice that the group has been overheard so they can try to intercept the witness before the PCs are exposed.",
+            "ru": "При результате со Страхом вы можете потратить Страх, чтобы кто-то, лояльный империи, подслушал мятежные разговоры при дворе. Персонаж должен успешно выполнить Бросок Реакции через Инстинкт, чтобы заметить, что за группой подслушивают, и попытаться перехватить свидетеля, прежде чем персонажи будут разоблачены."
+          },
+          "prompt": {
+            "en": "How has the empire compromised this witness? Why is their first impulse to protect the empire, even if doesn’t treat them well?",
+            "ru": "Как империя скомпрометировала этого свидетеля? Почему его первым импульсом является защита империи, даже если она плохо с ним обращается?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "settlement"
+      ]
+    },
+    {
+      "id": "necromancers-ossuary",
+      "tier": 4,
+      "type": "exploration",
+      "difficulty": 19,
+      "name": {
+        "en": "Necromancer’s Ossuary",
+        "ru": "Склеп некроманта"
+      },
+      "impulses": {
+        "en": [
+          "Confound intruders",
+          "delve into secrets best left buried",
+          "manifest unlife",
+          "unleash a tide of undead"
+        ],
+        "ru": [
+          "Сбивать с толку",
+          "Вскрывать забытое",
+          "Воплощать нежизнь",
+          "Обрушить волну нежити"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Arch-Necromancer’s Host (Perfected Zombie, Zombie Legion)"
+        ],
+        "ru": [
+          "Слуги Архинекроманта (Совершенный Зомби, Легион Зомби)"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "No Place for the Living",
+            "ru": "Нет места живым"
+          },
+          "description": {
+            "en": "A feature or action that clears HP requires spending a Hope to use. If it already costs Hope, a PC must spend an additional Hope.",
+            "ru": "Для использования свойства или действия, которое очищает Рану, необходимо потратить Надежду. Если оно уже стоит Надежду, персонаж должен потратить дополнительную Надежду."
+          },
+          "prompt": {
+            "en": "What does it feel like to try to heal in a place so antithetical to life?",
+            "ru": "Каково это — пытаться исцелиться в месте, столь враждебном жизни?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Centuries of Knowledge",
+            "ru": "Знания веков"
+          },
+          "description": {
+            "en": "A PC can investigate the library and laboratory and make a Knowledge Roll to learn information related to arcana, local history, and the Necromancer’s plans.",
+            "ru": "Персонаж может исследовать библиотеку и лабораторию и совершить бросок на Знание, чтобы узнать информацию, связанную с тайными знаниями, местной историей и планами Некроманта."
+          },
+          "prompt": {
+            "en": "What are the names of the tomes? What project is the necromancer working on and what does it communicate about their plans?",
+            "ru": "Как называются фолианты? Над каким проектом работает Некромант и что он говорит о его планах?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Skeletal Burst",
+            "ru": "Взрыв костей"
+          },
+          "description": {
+            "en": "All targets within Close range of a point you choose in this environment must succeed on an Agility Reaction Roll or take 4d8+8 physical damage from skeletal shrapnel as part of the ossuary detonates around them.",
+            "ru": "Все цели в пределах Средней дистанции от выбранной вами точки в этом окружении должны успешно выполнить Бросок Реакции на Проворность или получить 4d8+8 физического урона от осколков скелетов, когда часть костницы взрывается вокруг них."
+          },
+          "prompt": {
+            "en": "What ancient skeletal architecture is destroyed? What bones stick in your armor?",
+            "ru": "Какая древняя скелетная архитектура разрушена? Какие кости торчат из вашей брони?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Aura of Death",
+            "ru": "Аура смерти"
+          },
+          "description": {
+            "en": "Once per scene, roll a d4. Each undead within Far range of the Necromancer can clear HP and Stress equal to the result rolled. The undead can choose how that number is divided between HP and Stress.",
+            "ru": "Один раз за сцену бросьте d4. Каждая нежить в пределах Далекой дистанции от Некроманта может снять с себя Раны и Стресс равные выпавшему результату. Нежить может выбрать, как это число будет разделено между Ранами и Стрессом."
+          },
+          "prompt": {
+            "en": "How does their renewed vigor manifest? Do they look more lifelike or, paradoxically, are they more decayed but vigorous?",
+            "ru": "Как проявляется их обновленная энергия? Они выглядят более живыми или, наоборот, более разложившимися, но энергичными?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "They Just Keep Coming!",
+            "ru": "Их всё больше!"
+          },
+          "description": {
+            "en": "Spend a Fear to summon 1d6 Rotted Zombies, two Perfected Zombies, or a Zombie Legion, who appear at Close range of a chosen PC.",
+            "ru": "Потратьте Страх чтобы вызвать 1d6 Гнилых зомби, двух Совершенных зомби или Легион зомби, которые появляются на Средней дистанции от выбранного персонажа."
+          },
+          "prompt": {
+            "en": "Who were these people before they became the necromancer’s pawns? What vestiges of those lives remain for the heroes to see?",
+            "ru": "Кем были эти люди, прежде чем стали пешками некроманта? Какие следы их жизни остались для героев?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "underground"
+      ]
+    },
+    {
+      "id": "chaos-realm",
+      "tier": 4,
+      "type": "traversal",
+      "difficulty": 20,
+      "name": {
+        "en": "Chaos Realm",
+        "ru": "Царство Хаоса"
+      },
+      "impulses": {
+        "en": [
+          "Annihilate certainty",
+          "consume power",
+          "defy logic"
+        ],
+        "ru": [
+          "Уничтожить определённость",
+          "Поглотить силу",
+          "Бросить вызов логике"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Outer Realms Monstrosities (Abomination, Corrupter, Thrall)"
+        ],
+        "ru": [
+          "Чудовища Иного мира (Мерзость, Искуситель, Прислужник)"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Impossible Architecture",
+            "ru": "Невозможная архитектура"
+          },
+          "description": {
+            "en": "Up is down, down is right, right is starward. Gravity and directionality themselves are in flux, and any attempt to move through this realm is an odyssey unto itself, requiring a Progress Countdown (8). On a failure, a PC must mark a Stress in addition to the roll’s other consequences.",
+            "ru": "Вверх — это вниз, вниз — это вправо, вправо — это к звезде. Сила тяжести и направления движения меняются, и любая попытка переместиться в этом мире — это целая одиссея, требующая Отсчёт прогресса (8). В случае неудачи персонаж должен отметить Стресс в дополнение к другим последствиям броска."
+          },
+          "prompt": {
+            "en": "What does it feel like to move in a space so alien to the Mortal Realm? What landmark or point do you fixate on to maintain your balance? What bizarre landmarks do you traverse on your journey?",
+            "ru": "Каково это — двигаться в пространстве, столь чуждом миру смертных? На какую ориентир или точку вы фиксируете взгляд, чтобы сохранить равновесие? Какие причудливые ориентиры вы пересекаете в своем путешествии?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Everything You Are This Place Will Take From You",
+            "ru": "Всё, чем ты был, это место отнимет"
+          },
+          "description": {
+            "en": "Countdown (Loop 1d4). Activate the countdown. When it triggers, all PCs must succeed on a Presence Reaction Roll or their highest trait is temporarily reduced by 1d4 unless they mark a number of Stress equal to its value. Any lost trait points are regained if the PC critically succeeds or escapes the Chaos Realm.",
+            "ru": "Отсчёт (Цикл 1d4). Активируйте отсчёт. Когда он срабатывает, все персонажи должны успешно выполнить Бросок Реакции на Влияние, или их самая высокая характеристика временно уменьшается на 1d4, если они не отметят количество Стресса, равное выпавшему значению. Любые потерянные очки характеристик восстанавливаются, если персонаж критически успешно бросит в проверках или сбегает из Царства Хаоса."
+          },
+          "prompt": {
+            "en": "How does this place try to steal from you that which makes you legendary? What does it feel to have this power taken from you?",
+            "ru": "Как это место пытается украсть у вас то, что делает вас легендарным? Каково это — лишиться такой силы?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Unmaking",
+            "ru": "Разрушение"
+          },
+          "description": {
+            "en": "Spend a Fear to force a PC to make a Strength Reaction Roll. On a failure, they take 4d10 direct magic damage. On a success, they must mark a Stress.",
+            "ru": "Потратьте Страх, чтобы заставить персонажа совершить Бросок Реакции через Силу. При провале он получает 4d10 прямого магического урона. При успехе он должен отметить Стресс."
+          },
+          "prompt": {
+            "en": "What glimpse of other worlds do you catch while this place tries to unmake you? What core facet of your personality does the unmaking try to erase?",
+            "ru": "Какие проблески других миров вы улавливаете, пока это место пытается уничтожить вас? Какую основную черту вашей личности пытается стереть это уничтожение?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Outer Realms Predators",
+            "ru": "Хищники из других миров"
+          },
+          "description": {
+            "en": "Spend a Fear to summon an Outer Realms Abomination, an Outer Realms Corrupter, and 2d6 Outer Realms Thralls, who appear at Close range of a chosen PC in defiance of logic and causality. Immediately spotlight one of these adversaries, and you can spend an additional Fear to automatically succeed on that adversary’s standard attack.",
+            "ru": "Потратьте Страх, чтобы вызвать Мерзости из Внешних Миров, Искусителя из Внешних Миров и 2d6 Прислужников из Внешних Миров, которые появятся на Средней дистанции от выбранного персонажа, вопреки логике и причинно-следственной связи. Немедленно активируйте одного из этих противников, и вы можете потратить дополнительный Страх, чтобы автоматически преуспеть в стандартной атаке этого противника."
+          },
+          "prompt": {
+            "en": "What half-consumed remnants of the shattered world do these monstrosities cast aside in pursuit of living flesh? What jagged reflections of former personhood do you catch between moments of unquestioning malice?",
+            "ru": "Какие полусъеденные остатки разрушенного мира отбрасывают эти чудовища в погоне за живым мясом? Какие обрывочные отражения прежней личности вы улавливаете между моментами беспрекословной злобы?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Disorienting Reality",
+            "ru": "Дезориентирующая реальность"
+          },
+          "description": {
+            "en": "On a result with Fear, you can ask the PC to describe which of their fears the Chaos Realm evokes as a vision of reality unmakes and reconstitutes itself to the PC. The PC loses a Hope. If it is their last Hope, you gain a Fear.",
+            "ru": "При результате со страхом, вы можете попросить игрока описать, какой из своих страхов персонаж ощущает, когда Хаотическое Измерение проявляется перед ним, и сама реальность вокруг расслаивается и заново складывается на его глазах. Игрок теряет надежду. Если это его последняя надежда, вы получаете страх."
+          },
+          "prompt": {
+            "en": "What moment do they see? If it’s a memory, how is it warped by this place? How hard will it be to hold on to the real memory?",
+            "ru": "Какой момент они видят? Если это воспоминание, как оно искажено этим местом? Насколько сложно будет удержать реальное воспоминание?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "universal"
+      ]
     }
   ]
 }
