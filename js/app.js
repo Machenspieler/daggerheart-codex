@@ -26,7 +26,6 @@ const state = {
   lists: JSON.parse(localStorage.getItem(LS_KEYS.lists) || '[]'),
   envLists: JSON.parse(localStorage.getItem(LS_KEYS.envLists) || '{}'),
   filters: { search: '', tiers: new Set(), types: new Set(), biomes: new Set() },
-  sort: { key: 'name', dir: 'asc' },
   editingEnvId: null,
   route: parseRoute(),
 };
@@ -193,21 +192,6 @@ function renderToolbar() {
         </select>
       </div>
       <div class="toolbar-spacer"></div>
-      <div class="field">
-        <label>${t('sort_by')}</label>
-        <select id="f-sort-key">
-          <option value="name" ${state.sort.key === 'name' ? 'selected' : ''}>${t('sort_name')}</option>
-          <option value="tier" ${state.sort.key === 'tier' ? 'selected' : ''}>${t('sort_tier')}</option>
-          <option value="difficulty" ${state.sort.key === 'difficulty' ? 'selected' : ''}>${t('sort_difficulty')}</option>
-        </select>
-      </div>
-      <div class="field">
-        <label>&nbsp;</label>
-        <select id="f-sort-dir">
-          <option value="asc" ${state.sort.dir === 'asc' ? 'selected' : ''}>${t('asc')}</option>
-          <option value="desc" ${state.sort.dir === 'desc' ? 'selected' : ''}>${t('desc')}</option>
-        </select>
-      </div>
     </div>`;
 
   document.getElementById('f-search').addEventListener('input', e => { state.filters.search = e.target.value; renderGrid(); });
@@ -224,9 +208,6 @@ function renderToolbar() {
     state.filters.biomes = new Set(e.target.value ? [e.target.value] : []);
     renderGrid();
   });
-  document.getElementById('f-sort-key').addEventListener('change', e => { state.sort.key = e.target.value; renderGrid(); });
-  document.getElementById('f-sort-dir').addEventListener('change', e => { state.sort.dir = e.target.value; renderGrid(); });
-
   const backBtn = document.getElementById('btn-back-to-lists');
   if (backBtn) backBtn.addEventListener('click', () => navigate('#/lists'));
 }
@@ -260,17 +241,7 @@ function envMatchesFilters(env) {
 }
 
 function sortedFilteredEnvs() {
-  const list = currentEnvs().filter(envMatchesFilters);
-  const { key, dir } = state.sort;
-  list.sort((a, b) => {
-    let av, bv;
-    if (key === 'name') { av = envName(a).toLowerCase(); bv = envName(b).toLowerCase(); }
-    else { av = a[key]; bv = b[key]; }
-    if (av < bv) return dir === 'asc' ? -1 : 1;
-    if (av > bv) return dir === 'asc' ? 1 : -1;
-    return 0;
-  });
-  return list;
+  return currentEnvs().filter(envMatchesFilters);
 }
 
 function renderGrid() {
@@ -339,17 +310,20 @@ function cardHtml(env) {
 
 function renderFooter() {
   const el = document.getElementById('footer');
+  const showReset = state.route.name === 'lists';
   el.innerHTML = `
     <span>${t('footer_note')}</span>
-    <button class="btn btn-sm btn-ghost" id="btn-reset">${t('reset_data')}</button>`;
-  document.getElementById('btn-reset').addEventListener('click', () => {
-    if (confirm(t('reset_confirm'))) {
-      localStorage.removeItem(LS_KEYS.customEnvs);
-      localStorage.removeItem(LS_KEYS.hiddenBuiltin);
-      state.customEnvs = []; state.hiddenBuiltin = [];
-      render();
-    }
-  });
+    ${showReset ? `<button class="btn btn-sm btn-ghost" id="btn-reset">${t('reset_data')}</button>` : ''}`;
+  if (showReset) {
+    document.getElementById('btn-reset').addEventListener('click', () => {
+      if (confirm(t('reset_confirm'))) {
+        localStorage.removeItem(LS_KEYS.customEnvs);
+        localStorage.removeItem(LS_KEYS.hiddenBuiltin);
+        state.customEnvs = []; state.hiddenBuiltin = [];
+        render();
+      }
+    });
+  }
 }
 
 /* ---------------- lists ---------------- */
