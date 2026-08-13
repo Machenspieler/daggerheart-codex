@@ -292,8 +292,12 @@ a { color: var(--hope-soft); text-decoration: none; }
 .countdown-btn:hover { background: rgba(63,123,116,0.18); }
 .countdown-btn:active { transform: scale(0.95); }
 
+.countdown-stack {
+  position: fixed; right: 18px; bottom: 18px; z-index: 220;
+  display: flex; flex-direction: column-reverse; align-items: flex-end; gap: 12px;
+}
 .countdown-overlay {
-  position: fixed; right: 18px; z-index: 220; background: var(--ink-card); border: 1px solid var(--teal);
+  background: var(--ink-card); border: 1px solid var(--teal);
   border-radius: var(--radius); padding: 14px 16px 12px; box-shadow: var(--shadow-deep);
   text-align: center; min-width: 128px; animation: pop-in 0.15s ease-out;
 }
@@ -316,15 +320,16 @@ a { color: var(--hope-soft); text-decoration: none; }
 .countdown-overlay-btn:active { transform: scale(0.9); }
 
 .dice-fly-layer { position: fixed; inset: 0; pointer-events: none; z-index: 250; overflow: hidden; }
-.die3d-wrap { position: absolute; top: 0; left: 0; perspective: 700px; will-change: transform, opacity; }
-.die3d-cube { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; will-change: transform; }
-.die3d-face {
-  position: absolute; top: 50%; left: 50%; display: flex; align-items: center; justify-content: center;
-  font-family: var(--font-mono); font-weight: 700; border-radius: 3px;
+.die2d-wrap { position: absolute; top: 0; left: 0; will-change: transform, opacity; }
+.die2d-outer {
+  position: relative; width: 100%; height: 100%; background: var(--hope);
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.4));
+  will-change: transform;
+}
+.die2d-inner {
+  position: absolute; display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-mono); font-weight: 700; color: var(--hope-soft);
   background: linear-gradient(160deg, var(--ink-card), var(--ink-raised));
-  border: 1.5px solid var(--hope); color: var(--hope-soft);
-  box-shadow: inset 0 0 6px rgba(0,0,0,0.4), 0 4px 10px rgba(0,0,0,0.35);
-  backface-visibility: hidden;
 }
 
 /* ---------- forms ---------- */

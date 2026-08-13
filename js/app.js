@@ -732,11 +732,15 @@ function openCountdownOverlay(btn) {
       <button type="button" class="countdown-overlay-btn" data-op="dec" aria-label="-">&minus;</button>
       <button type="button" class="countdown-overlay-btn" data-op="inc" aria-label="+">+</button>
     </div>`;
-  document.body.appendChild(panel);
+  let stack = document.getElementById('countdown-stack');
+  if (!stack) {
+    stack = document.createElement('div');
+    stack.id = 'countdown-stack';
+    stack.className = 'countdown-stack';
+    document.body.appendChild(stack);
+  }
+  stack.appendChild(panel);
   btn._countdownOverlay = panel;
-
-  const stackIndex = document.querySelectorAll('.countdown-overlay').length - 1;
-  panel.style.bottom = (18 + stackIndex * 92) + 'px';
 
   const valueEl = panel.querySelector('.countdown-overlay-value');
   panel.querySelector('[data-op="inc"]').addEventListener('click', () => {
@@ -744,7 +748,7 @@ function openCountdownOverlay(btn) {
     valueEl.textContent = btn.dataset.count;
   });
   panel.querySelector('[data-op="dec"]').addEventListener('click', () => {
-    btn.dataset.count = String(Number(btn.dataset.count) - 1);
+    btn.dataset.count = String(Math.max(0, Number(btn.dataset.count) - 1));
     valueEl.textContent = btn.dataset.count;
   });
 
@@ -792,218 +796,86 @@ function rollDice(btn, count, sides, label) {
   }, flightMs);
 }
 
-/* ---------------- true 3D die geometry (generic convex-hull engine) ----------------
- * Each die type is defined only by its vertex coordinates (standard Platonic-solid
- * formulas, plus a dual-of-antiprism construction for the d10 pentagonal
- * trapezohedron). A brute-force convex-hull face finder derives the actual polygon
- * faces from those vertices, so no face lists are hand-authored/hard-coded. */
+/* ---------------- flat 2D die icon + flight tuning ----------------
+ * Earlier this used real 3D polyhedra built from per-face CSS transforms, but
+ * that had no control over each face's in-plane rotation (digits could land
+ * sideways/upside-down), tiny cramped faces on d12/d20, and was heavy enough
+ * to visibly stutter mid-animation. A flat silhouette per die type is cheap,
+ * always legible, and still flies/spins/lands with real motion. Every timing
+ * and motion knob lives in DICE_TUNE so the feel can be retuned in one place. */
 
-function v3sub(a, b) { return [a[0] - b[0], a[1] - b[1], a[2] - b[2]]; }
-function v3add(a, b) { return [a[0] + b[0], a[1] + b[1], a[2] + b[2]]; }
-function v3scale(a, s) { return [a[0] * s, a[1] * s, a[2] * s]; }
-function v3dot(a, b) { return a[0] * b[0] + a[1] * b[1] + a[2] * b[2]; }
-function v3cross(a, b) { return [a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0]]; }
-function v3len(a) { return Math.hypot(a[0], a[1], a[2]); }
-function v3norm(a) { const l = v3len(a) || 1; return [a[0] / l, a[1] / l, a[2] / l]; }
-
-/** Brute-force convex hull face finder for small point sets (n <= ~24). For every
- * candidate plane through 3 points, if all other points lie on one side (within eps)
- * it's a hull face; points exactly on that plane are grouped into one polygon and
- * ordered by angle around its centroid. Works for triangular, square, pentagonal and
- * kite-shaped faces alike — the face's vertex count falls out naturally. */
-function convexHullFaces(points, eps = 1e-4) {
-  const n = points.length;
-  const faces = [];
-  const seen = new Set();
-  for (let i = 0; i < n; i++) {
-    for (let j = i + 1; j < n; j++) {
-      for (let k = j + 1; k < n; k++) {
-        const a = points[i], b = points[j], c = points[k];
-        let normal = v3cross(v3sub(b, a), v3sub(c, a));
-        const len = v3len(normal);
-        if (len < eps) continue;
-        normal = v3scale(normal, 1 / len);
-        let pos = false, neg = false;
-        const onPlane = [];
-        for (let m = 0; m < n; m++) {
-          const d = v3dot(normal, v3sub(points[m], a));
-          if (d > eps) pos = true;
-          else if (d < -eps) neg = true;
-          else onPlane.push(m);
-        }
-        if (pos && neg) continue;
-        if (!pos && !neg) continue;
-        if (pos) normal = v3scale(normal, -1);
-        const idx = [...new Set(onPlane)];
-        if (idx.length < 3) continue;
-        const key = idx.slice().sort((x, y) => x - y).join(',');
-        if (seen.has(key)) continue;
-        seen.add(key);
-
-        const centroid = v3scale(idx.reduce((acc, ix) => v3add(acc, points[ix]), [0, 0, 0]), 1 / idx.length);
-        const ref = Math.abs(normal[0]) < 0.9 ? [1, 0, 0] : [0, 1, 0];
-        const u = v3norm(v3cross(ref, normal));
-        const vv = v3cross(normal, u);
-        const ordered = idx
-          .map((ix) => {
-            const p = v3sub(points[ix], centroid);
-            return { ix, ang: Math.atan2(v3dot(p, vv), v3dot(p, u)) };
-          })
-          .sort((x, y) => x.ang - y.ang)
-          .map((o) => o.ix);
-
-        faces.push({ indices: ordered, normal, centroid, u, v: vv });
-      }
-    }
-  }
-  return faces;
-}
-
-function scaleToCircumradius(points, targetR) {
-  const maxR = Math.max(...points.map((p) => v3len(p)));
-  const s = targetR / maxR;
-  return points.map((p) => v3scale(p, s));
-}
-
-function tetrahedronVerts() {
-  return [[1, 1, 1], [-1, -1, 1], [-1, 1, -1], [1, -1, -1]];
-}
-function cubeVerts() {
-  const v = [];
-  for (const x of [-1, 1]) for (const y of [-1, 1]) for (const z of [-1, 1]) v.push([x, y, z]);
-  return v;
-}
-function octahedronVerts() {
-  return [[1, 0, 0], [-1, 0, 0], [0, 1, 0], [0, -1, 0], [0, 0, 1], [0, 0, -1]];
-}
-function icosahedronVerts() {
-  const phi = (1 + Math.sqrt(5)) / 2;
-  const v = [];
-  for (const s1 of [1, -1]) for (const s2 of [1, -1]) {
-    v.push([0, s1, s2 * phi]);
-    v.push([s1, s2 * phi, 0]);
-    v.push([s1 * phi, 0, s2]);
-  }
-  return v;
-}
-function dodecahedronVerts() {
-  const phi = (1 + Math.sqrt(5)) / 2;
-  const inv = 1 / phi;
-  const v = [];
-  for (const x of [-1, 1]) for (const y of [-1, 1]) for (const z of [-1, 1]) v.push([x, y, z]);
-  for (const s1 of [1, -1]) for (const s2 of [1, -1]) {
-    v.push([0, s1 * inv, s2 * phi]);
-    v.push([s1 * inv, s2 * phi, 0]);
-    v.push([s1 * phi, 0, s2 * inv]);
-  }
-  return v;
-}
-/** A pentagonal trapezohedron (real d10 shape: 10 kite faces) is the polar dual of a
- * uniform pentagonal antiprism. Build the antiprism, hull it, then reciprocate each
- * of its 12 faces (2 pentagon caps + 10 triangles) into a dual vertex — the hull of
- * those 12 dual vertices is exactly the 10-kite-face trapezohedron. */
-function pentagonalTrapezohedronVerts() {
-  const r = 1, h = 0.5;
-  const antiprism = [];
-  for (let k = 0; k < 5; k++) {
-    const a = (k * 2 * Math.PI) / 5;
-    antiprism.push([r * Math.cos(a), r * Math.sin(a), h]);
-  }
-  for (let k = 0; k < 5; k++) {
-    const a = Math.PI / 5 + (k * 2 * Math.PI) / 5;
-    antiprism.push([r * Math.cos(a), r * Math.sin(a), -h]);
-  }
-  const capFaces = convexHullFaces(antiprism);
-  return capFaces.map((f) => v3scale(f.normal, 1 / v3dot(f.normal, f.centroid)));
-}
-
-const DIE_VERT_BUILDERS = {
-  4: tetrahedronVerts,
-  6: cubeVerts,
-  8: octahedronVerts,
-  10: pentagonalTrapezohedronVerts,
-  12: dodecahedronVerts,
-  20: icosahedronVerts,
+const DICE_TUNE = {
+  sizePx: 46,                     // die icon footprint
+  strokePx: 2.5,                  // colored outline thickness
+  flightDurationMs: [650, 850],   // [min, max] random flight duration per die
+  staggerMs: 70,                  // extra start delay per die index (multi-die rolls)
+  spinTurnsDeg: [420, 760],       // [min, max] total rotation during flight
+  restTiltDeg: 12,                // max random tilt (±) once landed, for a natural look
+  clusterRadiusPx: 26,            // spread when several dice land together
+  liftYPx: 30,                    // how far above the button the landing point sits
+  holdMs: 900,                    // time a landed die stays fully visible before fading
+  fadeMs: 260,                    // fade-out duration before removal
+  landEasing: 'cubic-bezier(0.18,0.62,0.25,1)',
 };
 
-const dieMeshCache = new Map();
+/** Flat silhouette per die type: `n` = polygon side count (null = circle), `rot`
+ * = starting angle in degrees so the shape reads in a sensible orientation. */
+const DIE_SHAPES = {
+  4: { n: 3, rot: -90 },   // triangle, point up
+  6: { n: 4, rot: -45 },   // axis-aligned square
+  8: { n: 4, rot: 0 },     // diamond
+  10: { n: 5, rot: -90 },  // pentagon
+  12: { n: 8, rot: -90 },  // octagon
+  20: { n: null, rot: 0 }, // circle
+};
 
-/** Computes (once per die type, then cached) the CSS transform + clip-path needed
- * for every face of a true 3D polyhedron matching `sides`. */
-function buildDieMesh(sides) {
-  if (dieMeshCache.has(sides)) return dieMeshCache.get(sides);
-  const builder = DIE_VERT_BUILDERS[sides] || cubeVerts;
-  const verts = scaleToCircumradius(builder(), 26);
-  const faces = convexHullFaces(verts);
-
-  let maxFaceExtent = 0;
-  const facesWithLocal = faces.map((f) => {
-    const local = f.indices.map((ix) => {
-      const p = v3sub(verts[ix], f.centroid);
-      return [v3dot(p, f.u), v3dot(p, f.v)];
-    });
-    maxFaceExtent = Math.max(maxFaceExtent, ...local.map(([x, y]) => Math.hypot(x, y)));
-    return { ...f, local };
-  });
-  const boxSize = maxFaceExtent * 2 * 1.15;
-
-  const meshFaces = facesWithLocal.map((f) => {
-    const inradius = v3dot(f.normal, f.centroid);
-    const z = [0, 0, 1];
-    let axis = v3cross(z, f.normal);
-    const axisLen = v3len(axis);
-    let axisUnit, angleDeg;
-    if (axisLen < 1e-6) {
-      axisUnit = [1, 0, 0];
-      angleDeg = f.normal[2] > 0 ? 0 : 180;
-    } else {
-      axisUnit = v3scale(axis, 1 / axisLen);
-      angleDeg = (Math.acos(Math.min(1, Math.max(-1, v3dot(z, f.normal)))) * 180) / Math.PI;
-    }
-    const clipPath = `polygon(${f.local
-      .map(([x, y]) => `${(((x + boxSize / 2) / boxSize) * 100).toFixed(2)}% ${(((-y + boxSize / 2) / boxSize) * 100).toFixed(2)}%`)
-      .join(', ')})`;
-    return {
-      boxSize,
-      clipPath,
-      transform: `translate(-50%, -50%) rotate3d(${axisUnit[0].toFixed(4)}, ${axisUnit[1].toFixed(4)}, ${axisUnit[2].toFixed(4)}, ${angleDeg.toFixed(3)}deg) translateZ(${inradius.toFixed(2)}px)`,
-      fontSize: Math.max(9, Math.min(19, boxSize * 0.26)),
-    };
-  });
-
-  const result = { faces: meshFaces, size: 26 * 2 + 16 };
-  dieMeshCache.set(sides, result);
-  return result;
+function regularPolygonClipPath(n, rotationDeg, radiusPercent = 48) {
+  const pts = [];
+  for (let i = 0; i < n; i++) {
+    const a = ((rotationDeg + (360 * i) / n) * Math.PI) / 180;
+    pts.push(`${(50 + radiusPercent * Math.cos(a)).toFixed(2)}% ${(50 + radiusPercent * Math.sin(a)).toFixed(2)}%`);
+  }
+  return `polygon(${pts.join(', ')})`;
 }
 
-function makeDie3D(value, sides) {
-  const mesh = buildDieMesh(sides);
+/** Builds a flat die icon: an outer shape (the colored outline) with an inset
+ * inner shape (the fill + number) — a two-layer trick since `border` doesn't
+ * follow `clip-path`. Both layers share one clip-path/border-radius so the
+ * inner one reads as a uniform stroke once inset by `strokePx`. */
+function makeDie2D(value, sides) {
+  const shape = DIE_SHAPES[sides] || DIE_SHAPES[6];
   const wrap = document.createElement('div');
-  wrap.className = 'die3d-wrap';
-  wrap.style.width = mesh.size + 'px';
-  wrap.style.height = mesh.size + 'px';
-  const cube = document.createElement('div');
-  cube.className = 'die3d-cube';
-  mesh.faces.forEach((f) => {
-    const face = document.createElement('div');
-    face.className = 'die3d-face';
-    face.style.width = f.boxSize + 'px';
-    face.style.height = f.boxSize + 'px';
-    face.style.transform = f.transform;
-    face.style.clipPath = f.clipPath;
-    face.style.fontSize = f.fontSize + 'px';
-    face.textContent = value;
-    cube.appendChild(face);
-  });
-  wrap.appendChild(cube);
-  return { wrap, cube, size: mesh.size };
+  wrap.className = 'die2d-wrap';
+  wrap.style.width = wrap.style.height = DICE_TUNE.sizePx + 'px';
+
+  const outer = document.createElement('div');
+  outer.className = 'die2d-outer';
+  const inner = document.createElement('div');
+  inner.className = 'die2d-inner';
+  inner.style.inset = DICE_TUNE.strokePx + 'px';
+  inner.style.fontSize = (String(value).length > 1 ? 14 : 17) + 'px';
+  inner.textContent = value;
+
+  if (shape.n) {
+    const clip = regularPolygonClipPath(shape.n, shape.rot);
+    outer.style.clipPath = clip;
+    inner.style.clipPath = clip;
+  } else {
+    outer.style.borderRadius = '50%';
+    inner.style.borderRadius = '50%';
+  }
+
+  outer.appendChild(inner);
+  wrap.appendChild(outer);
+  return { wrap, face: outer };
 }
 
 /**
- * Flies `rolls.length` 3D dice in from independently-random compass
- * directions (each die picks its own edge, per-die) toward (landX, landY),
- * showing their real rolled values, then fades them out.
- * Returns the ms until the flight/landing settles (for scheduling the result bubble).
+ * Flies `rolls.length` flat die icons in from independently-random compass
+ * directions (each die picks its own edge) toward (landX, landY), spinning
+ * and settling on their real rolled values, then fades them out. All motion
+ * timing comes from DICE_TUNE. Returns the ms until the flight/landing
+ * settles (for scheduling the result bubble).
  */
 function spawnFlyingDice(rolls, sides, landX, landY) {
   let layer = document.querySelector('.dice-fly-layer');
@@ -1014,43 +886,44 @@ function spawnFlyingDice(rolls, sides, landX, landY) {
   }
 
   const diag = Math.hypot(window.innerWidth, window.innerHeight);
+  const half = DICE_TUNE.sizePx / 2;
+  const rand = (min, max) => min + Math.random() * (max - min);
   let maxFinish = 0;
 
   rolls.forEach((value, i) => {
-    const angle = Math.random() * 360 * (Math.PI / 180);
+    const angle = Math.random() * 2 * Math.PI;
     const startX = landX + Math.cos(angle) * diag;
     const startY = landY + Math.sin(angle) * diag;
 
     const clusterAngle = (i / rolls.length) * Math.PI * 2 + Math.random() * 0.6;
-    const clusterR = rolls.length > 1 ? 26 : 0;
+    const clusterR = rolls.length > 1 ? DICE_TUNE.clusterRadiusPx : 0;
     const endX = landX + Math.cos(clusterAngle) * clusterR + (Math.random() - 0.5) * 8;
-    const endY = landY - 30 + Math.sin(clusterAngle) * clusterR + (Math.random() - 0.5) * 8;
+    const endY = landY - DICE_TUNE.liftYPx + Math.sin(clusterAngle) * clusterR + (Math.random() - 0.5) * 8;
 
-    const { wrap, cube, size } = makeDie3D(value, sides);
-    const half = size / 2;
+    const { wrap, face } = makeDie2D(value, sides);
     layer.appendChild(wrap);
 
-    const delay = i * 70;
-    const duration = 720 + Math.random() * 180;
-    const spin = (base) => base * (720 + Math.random() * 360) * (Math.random() < 0.5 ? -1 : 1);
-    const restTilt = () => Math.random() * 20 - 10;
+    const delay = i * DICE_TUNE.staggerMs;
+    const duration = rand(...DICE_TUNE.flightDurationMs);
+    const spinDeg = rand(...DICE_TUNE.spinTurnsDeg) * (Math.random() < 0.5 ? -1 : 1);
+    const restTilt = rand(-DICE_TUNE.restTiltDeg, DICE_TUNE.restTiltDeg);
 
     wrap.animate([
       { transform: `translate3d(${startX - half}px, ${startY - half}px, 0) scale(0.55)`, opacity: 0 },
       { transform: `translate3d(${startX - half}px, ${startY - half}px, 0) scale(0.55)`, opacity: 1, offset: 0.06 },
       { transform: `translate3d(${endX - half}px, ${endY - half}px, 0) scale(1.08)`, offset: 0.85 },
       { transform: `translate3d(${endX - half}px, ${endY - half}px, 0) scale(1)`, offset: 1 },
-    ], { duration, delay, easing: 'cubic-bezier(0.18,0.62,0.25,1)', fill: 'forwards' });
+    ], { duration, delay, easing: DICE_TUNE.landEasing, fill: 'forwards' });
 
-    cube.animate([
-      { transform: 'rotateX(0deg) rotateY(0deg) rotateZ(0deg)' },
-      { transform: `rotateX(${spin(1) + restTilt()}deg) rotateY(${spin(1) + restTilt()}deg) rotateZ(${spin(0.6) + restTilt()}deg)` },
-    ], { duration, delay, easing: 'cubic-bezier(0.18,0.62,0.25,1)', fill: 'forwards' });
+    face.animate([
+      { transform: 'rotate(0deg)' },
+      { transform: `rotate(${spinDeg + restTilt}deg)` },
+    ], { duration, delay, easing: DICE_TUNE.landEasing, fill: 'forwards' });
 
-    const lifespan = delay + duration + 900;
+    const lifespan = delay + duration + DICE_TUNE.holdMs;
     maxFinish = Math.max(maxFinish, delay + duration);
     setTimeout(() => {
-      const fade = wrap.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 260, fill: 'forwards' });
+      const fade = wrap.animate([{ opacity: 1 }, { opacity: 0 }], { duration: DICE_TUNE.fadeMs, fill: 'forwards' });
       fade.onfinish = () => wrap.remove();
     }, lifespan);
   });
