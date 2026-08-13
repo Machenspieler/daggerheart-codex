@@ -178,12 +178,7 @@ a { color: var(--hope-soft); text-decoration: none; }
 .card-meta { font-size: 12.5px; color: var(--muted); display: flex; gap: 10px; flex-wrap: wrap; }
 .card-meta .diff { font-family: var(--font-mono); color: var(--fear-soft); }
 .card-impulses { font-size: 13px; color: var(--parchment-dim); font-style: italic; line-height: 1.4; }
-.card-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto; }
-.tag-chip {
-  font-family: var(--font-mono); font-size: 10.5px; padding: 3px 8px; border-radius: 3px;
-  border: 1px solid var(--line); color: var(--parchment-dim);
-}
-.card-biomes { display: flex; gap: 6px; flex-wrap: wrap; }
+.card-biomes { display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto; }
 .biome-chip {
   font-family: var(--font-mono); font-size: 10.5px; padding: 3px 8px; border-radius: 3px;
   border: 1px solid var(--teal-soft); color: var(--teal-soft);
@@ -257,13 +252,6 @@ a { color: var(--hope-soft); text-decoration: none; }
 .feature-prompt { margin: 8px 0 0; font-size: 13px; color: var(--muted); font-style: italic; }
 .feature-prompt::before { content: "❖ "; color: var(--hope); font-style: normal; }
 .feature-group-divider { border: none; border-top: 1px solid var(--line); margin: 18px 0; }
-
-.tag-editor { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
-.tag-toggle {
-  font-family: var(--font-mono); font-size: 11px; padding: 4px 9px; border-radius: 3px;
-  border: 1px solid var(--line); color: var(--muted); cursor: pointer; background: transparent;
-}
-.tag-toggle.on { border-color: var(--hope); color: var(--hope-soft); background: rgba(217,164,65,0.1); }
 
 /* ---------- dice button + animation ---------- */
 .dice-btn {
@@ -358,16 +346,6 @@ a { color: var(--hope-soft); text-decoration: none; }
 .form-field input:focus, .form-field select:focus, .form-field textarea:focus { outline: none; border-color: var(--hope); }
 .form-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 6px; }
 .hint { font-size: 12px; color: var(--muted); margin: -2px 0 0; }
-
-/* ---------- tag manager ---------- */
-.tag-manage-row {
-  display: flex; align-items: center; justify-content: space-between; gap: 10px;
-  padding: 9px 0; border-bottom: 1px solid var(--line);
-}
-.tag-manage-row:last-child { border-bottom: none; }
-.tag-color-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; margin-right: 8px; flex: none; }
-.new-tag-row { display: flex; gap: 8px; margin-top: 14px; }
-.new-tag-row input { flex: 1; }
 
 /* ---------- lists feature ---------- */
 .btn.active { border-color: var(--teal-soft); color: var(--teal-soft); }

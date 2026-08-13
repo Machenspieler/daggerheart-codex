@@ -8,14 +8,10 @@
 const LS_KEYS = {
   lang: 'dhcodex_lang',
   customEnvs: 'dhcodex_custom_envs',
-  tags: 'dhcodex_tags',
-  envTags: 'dhcodex_env_tags',
   hiddenBuiltin: 'dhcodex_hidden_builtin',
   lists: 'dhcodex_lists',
   envLists: 'dhcodex_env_lists',
 };
-
-const TAG_COLORS = ['#d9a441', '#9c2b3b', '#3f7b74', '#6a7fae', '#a15fb0', '#7a8a4a', '#c17a3d', '#5a8fae'];
 
 const BIOMES = ['underground', 'aquatic', 'wetland', 'grassland', 'tropical', 'forest', 'drylands', 'rolling', 'mountain', 'frozen', 'badlands', 'settlement', 'universal'];
 
@@ -26,12 +22,10 @@ const state = {
   i18n: null,
   builtinEnvs: [],
   customEnvs: JSON.parse(localStorage.getItem(LS_KEYS.customEnvs) || '[]'),
-  tags: JSON.parse(localStorage.getItem(LS_KEYS.tags) || '[]'),
-  envTags: JSON.parse(localStorage.getItem(LS_KEYS.envTags) || '{}'),
   hiddenBuiltin: JSON.parse(localStorage.getItem(LS_KEYS.hiddenBuiltin) || '[]'),
   lists: JSON.parse(localStorage.getItem(LS_KEYS.lists) || '[]'),
   envLists: JSON.parse(localStorage.getItem(LS_KEYS.envLists) || '{}'),
-  filters: { search: '', tiers: new Set(), types: new Set(), tags: new Set(), biomes: new Set() },
+  filters: { search: '', tiers: new Set(), types: new Set(), biomes: new Set() },
   sort: { key: 'name', dir: 'asc' },
   editingEnvId: null,
   route: parseRoute(),
@@ -137,7 +131,6 @@ function renderHeader() {
           <button data-lang="en" class="${state.lang === 'en' ? 'active' : ''}">EN</button>
         </div>
         <button class="btn ${onLists ? 'active' : ''}" id="btn-lists">${t('nav_lists')}</button>
-        <button class="btn" id="btn-manage-tags">${t('manage_tags')}</button>
       </div>
     </div>`;
   el.querySelectorAll('[data-lang]').forEach(btn => {
@@ -147,7 +140,6 @@ function renderHeader() {
       render();
     });
   });
-  document.getElementById('btn-manage-tags').addEventListener('click', openTagManager);
   document.getElementById('btn-lists').addEventListener('click', () => navigate('#/lists'));
   document.getElementById('brand-home').addEventListener('click', () => navigate(''));
 }
@@ -194,17 +186,11 @@ function renderToolbar() {
         </div>
       </div>
       <div class="field">
-        <label>${t('filter_tags')}</label>
-        <select id="f-tag">
-          <option value="">${t('all')}</option>
-          ${state.tags.map(tg => `<option value="${tg.id}" ${state.filters.tags.has(tg.id) ? 'selected' : ''}>${escapeHtml(tg.name)}</option>`).join('')}
-        </select>
-      </div>
-      <div class="field">
         <label>${t('filter_biome')}</label>
-        <div class="biome-pills" id="f-biomes">
-          ${BIOMES.map(biome => `<button class="pill ${state.filters.biomes.has(biome) ? 'active' : ''}" data-biome="${biome}">${t('biome_' + biome)}</button>`).join('')}
-        </div>
+        <select id="f-biome">
+          <option value="">${t('all')}</option>
+          ${BIOMES.map(biome => `<option value="${biome}" ${state.filters.biomes.has(biome) ? 'selected' : ''}>${t('biome_' + biome)}</option>`).join('')}
+        </select>
       </div>
       <div class="toolbar-spacer"></div>
       <div class="field">
@@ -234,14 +220,10 @@ function renderToolbar() {
     toggleSetValue(state.filters.types, btn.dataset.type);
     renderToolbar(); renderGrid();
   }));
-  document.getElementById('f-tag').addEventListener('change', e => {
-    state.filters.tags = new Set(e.target.value ? [e.target.value] : []);
+  document.getElementById('f-biome').addEventListener('change', e => {
+    state.filters.biomes = new Set(e.target.value ? [e.target.value] : []);
     renderGrid();
   });
-  el.querySelectorAll('#f-biomes .pill').forEach(btn => btn.addEventListener('click', () => {
-    toggleSetValue(state.filters.biomes, btn.dataset.biome);
-    renderToolbar(); renderGrid();
-  }));
   document.getElementById('f-sort-key').addEventListener('change', e => { state.sort.key = e.target.value; renderGrid(); });
   document.getElementById('f-sort-dir').addEventListener('change', e => { state.sort.dir = e.target.value; renderGrid(); });
 
@@ -263,18 +245,11 @@ function envMatchesFilters(env) {
       ...(env.impulses ? [...(env.impulses.en || []), ...(env.impulses.ru || [])] : []),
       ...(env.potential_adversaries ? [...(env.potential_adversaries.en || []), ...(env.potential_adversaries.ru || [])] : []),
       ...featureText, ...rawText,
-      ...(state.envTags[env.id] || []).map(tid => (state.tags.find(x => x.id === tid) || {}).name || ''),
     ].filter(Boolean).join(' ').toLowerCase();
     if (!hay.includes(f.search.toLowerCase())) return false;
   }
   if (f.tiers.size && !f.tiers.has(env.tier)) return false;
   if (f.types.size && !f.types.has(env.type)) return false;
-  if (f.tags.size) {
-    const envTagSet = new Set(state.envTags[env.id] || []);
-    let match = false;
-    for (const tg of f.tags) if (envTagSet.has(tg)) match = true;
-    if (!match) return false;
-  }
   if (f.biomes.size) {
     const envBiomeSet = new Set(env.biomes || []);
     let match = false;
@@ -308,7 +283,7 @@ function renderGrid() {
     (hasActiveFilters() ? `<button id="clear-filters-btn">${t('clear_filters')}</button>` : '');
   const clearBtn = document.getElementById('clear-filters-btn');
   if (clearBtn) clearBtn.addEventListener('click', () => {
-    state.filters = { search: '', tiers: new Set(), types: new Set(), tags: new Set(), biomes: new Set() };
+    state.filters = { search: '', tiers: new Set(), types: new Set(), biomes: new Set() };
     renderToolbar(); renderGrid();
   });
 
@@ -333,17 +308,11 @@ function renderGrid() {
 
 function hasActiveFilters() {
   const f = state.filters;
-  return f.search || f.tiers.size || f.types.size || f.tags.size || f.biomes.size;
+  return f.search || f.tiers.size || f.types.size || f.biomes.size;
 }
 
 function cardHtml(env) {
   const impulses = envField(env, 'impulses');
-  const tagIds = state.envTags[env.id] || [];
-  const tagChips = tagIds.map(tid => {
-    const tg = state.tags.find(x => x.id === tid);
-    if (!tg) return '';
-    return `<span class="tag-chip" style="border-color:${tg.color}55;color:${tg.color}">${escapeHtml(tg.name)}</span>`;
-  }).join('');
   const biomeChips = (env.biomes || []).map(b => `<span class="biome-chip">${t('biome_' + b)}</span>`).join('');
   const badges = [
     env.builtin ? '' : `<span class="badge custom">${t('custom_badge')}</span>`,
@@ -365,7 +334,6 @@ function cardHtml(env) {
       ${impulses.length ? `<div class="card-impulses">${escapeHtml(impulses.join(', '))}</div>` : ''}
       ${biomeChips ? `<div class="card-biomes">${biomeChips}</div>` : ''}
       ${badges}
-      <div class="card-tags">${tagChips}</div>
     </div>`;
 }
 
@@ -377,10 +345,8 @@ function renderFooter() {
   document.getElementById('btn-reset').addEventListener('click', () => {
     if (confirm(t('reset_confirm'))) {
       localStorage.removeItem(LS_KEYS.customEnvs);
-      localStorage.removeItem(LS_KEYS.tags);
-      localStorage.removeItem(LS_KEYS.envTags);
       localStorage.removeItem(LS_KEYS.hiddenBuiltin);
-      state.customEnvs = []; state.tags = []; state.envTags = {}; state.hiddenBuiltin = [];
+      state.customEnvs = []; state.hiddenBuiltin = [];
       render();
     }
   });
@@ -522,7 +488,6 @@ function openDetail(envId) {
   if (!env) return;
   const impulses = envField(env, 'impulses');
   const adversaries = envField(env, 'potential_adversaries');
-  const tagIds = new Set(state.envTags[env.id] || []);
 
   const featureHtml = f => {
     const fname = f.name[state.lang] || f.name.en || f.name.ru;
@@ -573,11 +538,6 @@ function openDetail(envId) {
         ${featuresHtml ? `<span class="section-label">${t('features_label')}</span>${featuresHtml}` : ''}
         ${rawHtml}
 
-        <span class="section-label">${t('filter_tags')}</span>
-        <div class="tag-editor" id="detail-tag-editor">
-          ${state.tags.map(tg => `<button class="tag-toggle ${tagIds.has(tg.id) ? 'on' : ''}" data-tag="${tg.id}" style="${tagIds.has(tg.id) ? `border-color:${tg.color};color:${tg.color}` : ''}">${escapeHtml(tg.name)}</button>`).join('') || `<span class="hint">${t('no_tags_yet')}</span>`}
-        </div>
-
         <div class="form-actions" style="margin-top:22px">
           <button class="btn" id="detail-add-to-list">${t('add_to_list')}</button>
           ${!env.builtin ? `<button class="btn" id="detail-edit">${t('edit')}</button>` : ''}
@@ -606,19 +566,6 @@ function openDetail(envId) {
 
   overlay.querySelector('.modal-close').addEventListener('click', closeDetail);
   overlay.addEventListener('click', e => { if (e.target === overlay) closeDetail(); });
-
-  overlay.querySelectorAll('#detail-tag-editor .tag-toggle').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const tagId = btn.dataset.tag;
-      const set = new Set(state.envTags[env.id] || []);
-      if (set.has(tagId)) set.delete(tagId); else set.add(tagId);
-      state.envTags[env.id] = [...set];
-      persist(LS_KEYS.envTags, state.envTags);
-      closeDetail();
-      openDetail(envId);
-      renderGrid();
-    });
-  });
 
   const editBtn = overlay.querySelector('#detail-edit');
   if (editBtn) editBtn.addEventListener('click', () => { closeDetail(); openEditForm(env.id); });
@@ -992,74 +939,6 @@ function showDiceResultPop(btn, label, rolls, total) {
   document.body.appendChild(pop);
   pop.addEventListener('click', () => pop.remove());
   setTimeout(() => pop.remove(), 2600);
-}
-
-/* ---------------- tag manager ---------------- */
-
-function openTagManager() {
-  const overlay = document.createElement('div');
-  overlay.className = 'modal-overlay';
-  overlay.innerHTML = `
-    <div class="modal" style="max-width:480px">
-      <div class="modal-header">
-        <h2 style="font-size:19px">${t('manage_tags')}</h2>
-        <button class="modal-close">&times;</button>
-      </div>
-      <div class="modal-body">
-        <div id="tag-list"></div>
-        <div class="new-tag-row">
-          <input type="text" id="new-tag-input" placeholder="${t('new_tag_name')}">
-          <button class="btn btn-primary" id="new-tag-btn">${t('create')}</button>
-        </div>
-      </div>
-    </div>`;
-  document.body.appendChild(overlay);
-  overlay.querySelector('.modal-close').addEventListener('click', () => overlay.remove());
-  overlay.addEventListener('click', e => { if (e.target === overlay) overlay.remove(); });
-
-  function renderTagList() {
-    const listEl = overlay.querySelector('#tag-list');
-    if (!state.tags.length) { listEl.innerHTML = `<p class="hint">${t('no_tags_yet')}</p>`; return; }
-    listEl.innerHTML = state.tags.map(tg => `
-      <div class="tag-manage-row" data-tag="${tg.id}">
-        <div style="display:flex;align-items:center;flex:1">
-          <span class="tag-color-dot" style="background:${tg.color}"></span>
-          <input type="text" value="${escapeAttr(tg.name)}" class="tag-rename" style="background:transparent;border:none;color:var(--parchment);font-family:var(--font-body);font-size:14px;width:100%">
-        </div>
-        <button class="btn btn-sm btn-danger" data-del="${tg.id}">${t('delete')}</button>
-      </div>`).join('');
-    listEl.querySelectorAll('.tag-rename').forEach(input => {
-      input.addEventListener('change', () => {
-        const id = input.closest('.tag-manage-row').dataset.tag;
-        const tg = state.tags.find(x => x.id === id);
-        if (tg && input.value.trim()) { tg.name = input.value.trim(); persist(LS_KEYS.tags, state.tags); renderGrid(); }
-      });
-    });
-    listEl.querySelectorAll('[data-del]').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const id = btn.dataset.del;
-        state.tags = state.tags.filter(x => x.id !== id);
-        Object.keys(state.envTags).forEach(envId => {
-          state.envTags[envId] = (state.envTags[envId] || []).filter(t2 => t2 !== id);
-        });
-        persist(LS_KEYS.tags, state.tags);
-        persist(LS_KEYS.envTags, state.envTags);
-        renderTagList(); renderGrid(); renderToolbar();
-      });
-    });
-  }
-  renderTagList();
-
-  overlay.querySelector('#new-tag-btn').addEventListener('click', () => {
-    const input = overlay.querySelector('#new-tag-input');
-    const name = input.value.trim();
-    if (!name) return;
-    const color = TAG_COLORS[state.tags.length % TAG_COLORS.length];
-    state.tags.push({ id: 'tag-' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6), name, color });
-    persist(LS_KEYS.tags, state.tags);
-    input.value = '';
-    renderTagList(); renderGrid(); renderToolbar();
-  });
 }
 
 /* ---------------- add / edit environment form ---------------- */
