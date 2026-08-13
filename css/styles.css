@@ -269,7 +269,7 @@ a { color: var(--hope-soft); text-decoration: none; }
 .feature-prompt::before { content: "❖ "; color: var(--hope); font-style: normal; }
 .feature-group-divider { border: none; border-top: 1px solid var(--line); margin: 18px 0; }
 
-/* ---------- dice button + animation ---------- */
+/* ---------- dice button ---------- */
 .dice-btn {
   display: inline-flex; align-items: center; gap: 5px;
   font-family: var(--font-mono); font-size: 12.5px; font-weight: 700;
@@ -280,10 +280,6 @@ a { color: var(--hope-soft); text-decoration: none; }
 .dice-btn svg { width: 13px; height: 13px; }
 .dice-btn:hover { background: rgba(217,164,65,0.16); }
 .dice-btn:active { transform: scale(0.95); }
-.dice-btn.rolling { animation: dice-shake 0.08s linear infinite; border-color: var(--fear-soft); color: var(--fear-soft); }
-@keyframes dice-shake {
-  0% { transform: rotate(-4deg); } 50% { transform: rotate(4deg); } 100% { transform: rotate(-4deg); }
-}
 .dice-result-pop {
   position: fixed; z-index: 200; background: var(--ink-card); border: 1px solid var(--hope);
   border-radius: var(--radius); padding: 10px 16px; box-shadow: var(--shadow-deep);
@@ -334,19 +330,6 @@ a { color: var(--hope-soft); text-decoration: none; }
 }
 .countdown-overlay-btn:hover { background: rgba(217,164,65,0.16); border-color: var(--hope); }
 .countdown-overlay-btn:active { transform: scale(0.9); }
-
-.dice-fly-layer { position: fixed; inset: 0; pointer-events: none; z-index: 250; overflow: hidden; }
-.die2d-wrap { position: absolute; top: 0; left: 0; will-change: transform, opacity; }
-.die2d-outer {
-  position: relative; width: 100%; height: 100%; background: var(--hope);
-  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.4));
-  will-change: transform;
-}
-.die2d-inner {
-  position: absolute; display: flex; align-items: center; justify-content: center;
-  font-family: var(--font-mono); font-weight: 700; color: var(--hope-soft);
-  background: linear-gradient(160deg, var(--ink-card), var(--ink-raised));
-}
 
 /* ---------- forms ---------- */
 .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
