@@ -61,10 +61,19 @@
     "result": "Result",
     "reset_data": "Reset custom data",
     "reset_confirm": "This removes all custom environments and tags you've added locally. Continue?",
-    "footer_note": "Environment data drawn from the Daggerheart SRD; Russian terminology follows daggerheart.su.",
+    "footer_note": "Environment data drawn from the Daggerheart SRD, Shalassa Desert.pdf and Dread GM Toolkit.pdf; Russian terminology follows daggerheart.su.",
     "count_showing": "Showing {n} of {total}",
     "clear_filters": "Clear filters",
-    "raw_text_label": "Notes / raw text"
+    "raw_text_label": "Notes / raw text",
+    "nav_lists": "Lists",
+    "new_list_name": "New list name",
+    "no_lists_yet": "You haven't created any lists yet.",
+    "no_lists_hint": "Create one here, or from the “Add to list” button on any environment.",
+    "list_env_count": "Environments: {n}",
+    "back_to_lists": "← All lists",
+    "add_to_list": "Add to list",
+    "open_list": "Open",
+    "delete_list_confirm": "Delete this list? Its environments are not deleted, only the list itself."
   },
   "ru": {
     "app_title": "Атлас Daggerheart",
@@ -128,9 +137,18 @@
     "result": "Результат",
     "reset_data": "Сбросить пользовательские данные",
     "reset_confirm": "Это удалит все добавленные вами окружения и теги, хранящиеся локально. Продолжить?",
-    "footer_note": "Данные окружений взяты из Daggerheart SRD; русская терминология — по стандарту daggerheart.su.",
+    "footer_note": "Данные окружений взяты из Daggerheart SRD, Shalassa Desert.pdf и Dread GM Toolkit.pdf; русская терминология — по стандарту daggerheart.su.",
     "count_showing": "Показано {n} из {total}",
     "clear_filters": "Сбросить фильтры",
-    "raw_text_label": "Заметки / исходный текст"
+    "raw_text_label": "Заметки / исходный текст",
+    "nav_lists": "Списки",
+    "new_list_name": "Название нового списка",
+    "no_lists_yet": "Пока нет ни одного списка.",
+    "no_lists_hint": "Создайте его здесь или через кнопку «Добавить в список» на карточке окружения.",
+    "list_env_count": "Окружений: {n}",
+    "back_to_lists": "← Все списки",
+    "add_to_list": "Добавить в список",
+    "open_list": "Открыть",
+    "delete_list_confirm": "Удалить этот список? Окружения не удаляются, удаляется только список."
   }
 }

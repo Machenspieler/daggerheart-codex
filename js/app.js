@@ -11,6 +11,8 @@ const LS_KEYS = {
   tags: 'dhcodex_tags',
   envTags: 'dhcodex_env_tags',
   hiddenBuiltin: 'dhcodex_hidden_builtin',
+  lists: 'dhcodex_lists',
+  envLists: 'dhcodex_env_lists',
 };
 
 const TAG_COLORS = ['#d9a441', '#9c2b3b', '#3f7b74', '#6a7fae', '#a15fb0', '#7a8a4a', '#c17a3d', '#5a8fae'];
@@ -25,10 +27,27 @@ const state = {
   tags: JSON.parse(localStorage.getItem(LS_KEYS.tags) || '[]'),
   envTags: JSON.parse(localStorage.getItem(LS_KEYS.envTags) || '{}'),
   hiddenBuiltin: JSON.parse(localStorage.getItem(LS_KEYS.hiddenBuiltin) || '[]'),
+  lists: JSON.parse(localStorage.getItem(LS_KEYS.lists) || '[]'),
+  envLists: JSON.parse(localStorage.getItem(LS_KEYS.envLists) || '{}'),
   filters: { search: '', tiers: new Set(), types: new Set(), tags: new Set() },
   sort: { key: 'name', dir: 'asc' },
   editingEnvId: null,
+  route: parseRoute(),
 };
+
+function parseRoute() {
+  const m = location.hash.match(/^#\/lists\/(.+)$/);
+  if (m) return { name: 'list', id: decodeURIComponent(m[1]) };
+  if (location.hash === '#/lists') return { name: 'lists' };
+  return { name: 'catalog' };
+}
+
+function navigate(hash) {
+  if (location.hash === hash) { state.route = parseRoute(); render(); }
+  else { location.hash = hash; }
+}
+
+window.addEventListener('hashchange', () => { state.route = parseRoute(); render(); });
 
 function persist(key, value) { localStorage.setItem(key, JSON.stringify(value)); }
 
@@ -40,6 +59,13 @@ function t(key) {
 function allEnvs() {
   const builtin = state.builtinEnvs.filter(e => !state.hiddenBuiltin.includes(e.id));
   return [...builtin, ...state.customEnvs];
+}
+
+function currentEnvs() {
+  if (state.route.name === 'list') {
+    return allEnvs().filter(e => (state.envLists[e.id] || []).includes(state.route.id));
+  }
+  return allEnvs();
 }
 
 function envName(env) { return env.name[state.lang] || env.name.en || env.name.ru || '(untitled)'; }
@@ -68,17 +94,26 @@ async function init() {
 
 function render() {
   document.documentElement.lang = state.lang;
+  if (state.route.name === 'list' && !state.lists.some(l => l.id === state.route.id)) {
+    state.route = { name: 'lists' };
+    if (location.hash !== '#/lists') location.hash = '#/lists';
+  }
   renderHeader();
-  renderToolbar();
-  renderGrid();
+  if (state.route.name === 'lists') {
+    renderListsHome();
+  } else {
+    renderToolbar();
+    renderGrid();
+  }
   renderFooter();
 }
 
 function renderHeader() {
   const el = document.getElementById('header');
+  const onLists = state.route.name !== 'catalog';
   el.innerHTML = `
     <div class="header-inner">
-      <div class="brand">
+      <div class="brand" id="brand-home" role="button" tabindex="0">
         ${diceMarkSVG()}
         <div class="brand-text">
           <h1>${t('app_title')}</h1>
@@ -90,6 +125,7 @@ function renderHeader() {
           <button data-lang="ru" class="${state.lang === 'ru' ? 'active' : ''}">RU</button>
           <button data-lang="en" class="${state.lang === 'en' ? 'active' : ''}">EN</button>
         </div>
+        <button class="btn ${onLists ? 'active' : ''}" id="btn-lists">${t('nav_lists')}</button>
         <button class="btn" id="btn-manage-tags">${t('manage_tags')}</button>
       </div>
     </div>`;
@@ -101,6 +137,8 @@ function renderHeader() {
     });
   });
   document.getElementById('btn-manage-tags').addEventListener('click', openTagManager);
+  document.getElementById('btn-lists').addEventListener('click', () => navigate('#/lists'));
+  document.getElementById('brand-home').addEventListener('click', () => navigate(''));
 }
 
 function diceMarkSVG() {
@@ -114,11 +152,19 @@ function diceMarkSVG() {
 
 function renderToolbar() {
   const el = document.getElementById('toolbar');
-  const envs = allEnvs();
+  const envs = currentEnvs();
   const usedTiers = [...new Set(envs.map(e => e.tier))].sort();
   const types = ['traversal', 'social', 'event', 'exploration'];
 
-  el.innerHTML = `
+  const listBar = state.route.name === 'list' ? (() => {
+    const list = state.lists.find(l => l.id === state.route.id);
+    return `<div class="list-context-bar">
+      <button class="btn btn-sm btn-ghost" id="btn-back-to-lists">${t('back_to_lists')}</button>
+      <h2 class="list-context-title">${escapeHtml(list ? list.name : '')}</h2>
+    </div>`;
+  })() : '';
+
+  el.innerHTML = listBar + `
     <div class="toolbar">
       <div class="field search-field">
         <label>${t('search_placeholder')}</label>
@@ -177,6 +223,9 @@ function renderToolbar() {
   });
   document.getElementById('f-sort-key').addEventListener('change', e => { state.sort.key = e.target.value; renderGrid(); });
   document.getElementById('f-sort-dir').addEventListener('change', e => { state.sort.dir = e.target.value; renderGrid(); });
+
+  const backBtn = document.getElementById('btn-back-to-lists');
+  if (backBtn) backBtn.addEventListener('click', () => navigate('#/lists'));
 }
 
 function toggleSetValue(set, value) { set.has(value) ? set.delete(value) : set.add(value); }
@@ -209,7 +258,7 @@ function envMatchesFilters(env) {
 }
 
 function sortedFilteredEnvs() {
-  const list = allEnvs().filter(envMatchesFilters);
+  const list = currentEnvs().filter(envMatchesFilters);
   const { key, dir } = state.sort;
   list.sort((a, b) => {
     let av, bv;
@@ -224,7 +273,7 @@ function sortedFilteredEnvs() {
 
 function renderGrid() {
   const el = document.getElementById('grid-wrap');
-  const total = allEnvs().length;
+  const total = currentEnvs().length;
   const list = sortedFilteredEnvs();
 
   const countBar = document.getElementById('result-count');
@@ -441,39 +490,115 @@ function diceIconSVG() {
 function rollDice(btn, count, sides, label) {
   if (btn.classList.contains('rolling')) return;
   btn.classList.add('rolling');
+
+  const rolls = Array.from({ length: count }, () => 1 + Math.floor(Math.random() * sides));
+  const total = rolls.reduce((a, b) => a + b, 0);
+
+  const rect = btn.getBoundingClientRect();
+  const landX = rect.left + rect.width / 2;
+  const landY = rect.top + rect.height / 2;
+
+  const flightMs = spawnFlyingDice(rolls, landX, landY);
+
+  setTimeout(() => {
+    btn.classList.remove('rolling');
+    showDiceResultPop(btn, label, rolls, total);
+  }, flightMs);
+}
+
+const DIE3D_SIZE = 44;
+const DIE3D_FACES = ['front', 'back', 'right', 'left', 'top', 'bottom'];
+
+function makeDie3D(value) {
+  const wrap = document.createElement('div');
+  wrap.className = 'die3d-wrap';
+  const cube = document.createElement('div');
+  cube.className = 'die3d-cube';
+  DIE3D_FACES.forEach((f) => {
+    const face = document.createElement('div');
+    face.className = `die3d-face die3d-${f}`;
+    face.textContent = value;
+    cube.appendChild(face);
+  });
+  wrap.appendChild(cube);
+  return { wrap, cube };
+}
+
+/**
+ * Flies `rolls.length` 3D dice in from independently-random compass
+ * directions (each die picks its own edge, per-die) toward (landX, landY),
+ * showing their real rolled values, then fades them out.
+ * Returns the ms until the flight/landing settles (for scheduling the result bubble).
+ */
+function spawnFlyingDice(rolls, landX, landY) {
+  let layer = document.querySelector('.dice-fly-layer');
+  if (!layer) {
+    layer = document.createElement('div');
+    layer.className = 'dice-fly-layer';
+    document.body.appendChild(layer);
+  }
+
+  const diag = Math.hypot(window.innerWidth, window.innerHeight);
+  const half = DIE3D_SIZE / 2;
+  let maxFinish = 0;
+
+  rolls.forEach((value, i) => {
+    const angle = Math.random() * 360 * (Math.PI / 180);
+    const startX = landX + Math.cos(angle) * diag;
+    const startY = landY + Math.sin(angle) * diag;
+
+    const clusterAngle = (i / rolls.length) * Math.PI * 2 + Math.random() * 0.6;
+    const clusterR = rolls.length > 1 ? 26 : 0;
+    const endX = landX + Math.cos(clusterAngle) * clusterR + (Math.random() - 0.5) * 8;
+    const endY = landY - 30 + Math.sin(clusterAngle) * clusterR + (Math.random() - 0.5) * 8;
+
+    const { wrap, cube } = makeDie3D(value);
+    layer.appendChild(wrap);
+
+    const delay = i * 70;
+    const duration = 720 + Math.random() * 180;
+    const spin = (base) => base * (720 + Math.random() * 360) * (Math.random() < 0.5 ? -1 : 1);
+    const restTilt = () => Math.random() * 20 - 10;
+
+    wrap.animate([
+      { transform: `translate3d(${startX - half}px, ${startY - half}px, 0) scale(0.55)`, opacity: 0 },
+      { transform: `translate3d(${startX - half}px, ${startY - half}px, 0) scale(0.55)`, opacity: 1, offset: 0.06 },
+      { transform: `translate3d(${endX - half}px, ${endY - half}px, 0) scale(1.08)`, offset: 0.85 },
+      { transform: `translate3d(${endX - half}px, ${endY - half}px, 0) scale(1)`, offset: 1 },
+    ], { duration, delay, easing: 'cubic-bezier(0.18,0.62,0.25,1)', fill: 'forwards' });
+
+    cube.animate([
+      { transform: 'rotateX(0deg) rotateY(0deg) rotateZ(0deg)' },
+      { transform: `rotateX(${spin(1) + restTilt()}deg) rotateY(${spin(1) + restTilt()}deg) rotateZ(${spin(0.6) + restTilt()}deg)` },
+    ], { duration, delay, easing: 'cubic-bezier(0.18,0.62,0.25,1)', fill: 'forwards' });
+
+    const lifespan = delay + duration + 900;
+    maxFinish = Math.max(maxFinish, delay + duration);
+    setTimeout(() => {
+      const fade = wrap.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 260, fill: 'forwards' });
+      fade.onfinish = () => wrap.remove();
+    }, lifespan);
+  });
+
+  return maxFinish + 40;
+}
+
+function showDiceResultPop(btn, label, rolls, total) {
   const rect = btn.getBoundingClientRect();
   const pop = document.createElement('div');
   pop.className = 'dice-result-pop';
-  pop.style.left = Math.max(8, rect.left) + 'px';
+  pop.style.left = Math.max(8, Math.min(rect.left, window.innerWidth - 110)) + 'px';
   pop.style.top = (rect.bottom + 8) + 'px';
-  pop.innerHTML = `<div class="notation">${label}</div><div class="value tumbling">–</div>`;
+  pop.innerHTML = `<div class="notation">${label}</div><div class="value">${total}</div>`;
+  if (rolls.length > 1) {
+    const bd = document.createElement('div');
+    bd.className = 'breakdown';
+    bd.textContent = rolls.join(' + ');
+    pop.appendChild(bd);
+  }
   document.body.appendChild(pop);
-
-  const valueEl = pop.querySelector('.value');
-  let ticks = 0;
-  const maxVal = count * sides;
-  const interval = setInterval(() => {
-    valueEl.textContent = Math.ceil(Math.random() * maxVal);
-    ticks++;
-  }, 55);
-
-  setTimeout(() => {
-    clearInterval(interval);
-    btn.classList.remove('rolling');
-    const rolls = Array.from({ length: count }, () => 1 + Math.floor(Math.random() * sides));
-    const total = rolls.reduce((a, b) => a + b, 0);
-    valueEl.classList.remove('tumbling');
-    valueEl.textContent = total;
-    if (count > 1) {
-      const bd = document.createElement('div');
-      bd.className = 'breakdown';
-      bd.textContent = rolls.join(' + ');
-      pop.appendChild(bd);
-    }
-    setTimeout(() => { pop.remove(); }, 2600);
-  }, 650);
-
   pop.addEventListener('click', () => pop.remove());
+  setTimeout(() => pop.remove(), 2600);
 }
 
 /* ---------------- tag manager ---------------- */
