@@ -726,10 +726,18 @@ function openCountdownOverlay(btn) {
 
 function rollDice(btn, count, sides, label) {
   if (btn.classList.contains('rolling')) return;
-  btn.classList.add('rolling');
 
   const rolls = Array.from({ length: count }, () => 1 + Math.floor(Math.random() * sides));
   const total = rolls.reduce((a, b) => a + b, 0);
+
+  // No physical d3 die exists to animate as a 3D shape, so skip the flying-dice
+  // animation for it and just show the result popup.
+  if (sides === 3) {
+    showDiceResultPop(btn, label, rolls, total);
+    return;
+  }
+
+  btn.classList.add('rolling');
 
   const rect = btn.getBoundingClientRect();
   const landX = rect.left + rect.width / 2;
