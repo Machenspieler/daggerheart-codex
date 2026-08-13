@@ -496,7 +496,7 @@ function openDetail(envId) {
           <span class="feature-name">${escapeHtml(fname)}</span>
           <span class="feature-type ${f.type}">${t('feature_' + f.type)}</span>
         </div>
-        <p class="feature-desc" data-dice-text="${encodeURIComponent(fdesc)}"></p>
+        <div class="feature-desc" data-rich-block="${encodeURIComponent(fdesc)}"></div>
         ${fprompt ? `<p class="feature-prompt">${escapeHtml(fprompt)}</p>` : ''}
       </div>`;
   };
@@ -508,7 +508,7 @@ function openDetail(envId) {
 
   const rawHtml = env.rawText && (env.rawText.en || env.rawText.ru) ? `
     <span class="section-label">${t('raw_text_label')}</span>
-    <p class="feature-desc" data-dice-text="${encodeURIComponent(env.rawText[state.lang] || env.rawText.en || env.rawText.ru || '')}"></p>
+    <div class="feature-desc" data-rich-block="${encodeURIComponent(env.rawText[state.lang] || env.rawText.en || env.rawText.ru || '')}"></div>
   ` : '';
 
   const overlay = document.createElement('div');
@@ -547,11 +547,11 @@ function openDetail(envId) {
     </div>`;
   document.body.appendChild(overlay);
 
-  // render dice- and countdown-enabled text
-  overlay.querySelectorAll('[data-dice-text]').forEach(node => {
-    const text = decodeURIComponent(node.getAttribute('data-dice-text'));
-    node.removeAttribute('data-dice-text');
-    renderRichText(node, text);
+  // render dice- and countdown-enabled text, with bullet-list support
+  overlay.querySelectorAll('[data-rich-block]').forEach(node => {
+    const text = decodeURIComponent(node.getAttribute('data-rich-block'));
+    node.removeAttribute('data-rich-block');
+    renderFeatureBody(node, text);
   });
 
   function closeDetail() {
@@ -639,6 +639,43 @@ function renderRichText(container, text) {
     lastIndex = match.end;
   }
   if (lastIndex < text.length) container.appendChild(document.createTextNode(text.slice(lastIndex)));
+}
+
+const BULLET_LINE_RE = /^[-•]\s+/;
+
+/** Splits feature/raw text into paragraphs and "- "/"• "-prefixed bullet lists,
+ * rendering dice/countdown spans within each line via renderRichText. */
+function renderFeatureBody(container, text) {
+  container.innerHTML = '';
+  const lines = text.split('\n');
+  let para = [];
+  const flushPara = () => {
+    if (!para.length) return;
+    const p = document.createElement('p');
+    renderRichText(p, para.join(' '));
+    container.appendChild(p);
+    para = [];
+  };
+  let i = 0;
+  while (i < lines.length) {
+    const line = lines[i].trim();
+    if (BULLET_LINE_RE.test(line)) {
+      flushPara();
+      const ul = document.createElement('ul');
+      ul.className = 'feature-bullets';
+      while (i < lines.length && BULLET_LINE_RE.test(lines[i].trim())) {
+        const li = document.createElement('li');
+        renderRichText(li, lines[i].trim().replace(BULLET_LINE_RE, ''));
+        ul.appendChild(li);
+        i++;
+      }
+      container.appendChild(ul);
+      continue;
+    }
+    if (line) para.push(line);
+    i++;
+  }
+  flushPara();
 }
 
 function makeDiceButton(count, sides, label) {
