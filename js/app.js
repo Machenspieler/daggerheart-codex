@@ -15,8 +15,10 @@ const LS_KEYS = {
 
 const TAG_COLORS = ['#d9a441', '#9c2b3b', '#3f7b74', '#6a7fae', '#a15fb0', '#7a8a4a', '#c17a3d', '#5a8fae'];
 
+function normalizeLang(v) { return v === 'en' ? 'en' : 'ru'; }
+
 const state = {
-  lang: localStorage.getItem(LS_KEYS.lang) || 'ru',
+  lang: normalizeLang(localStorage.getItem(LS_KEYS.lang)),
   i18n: null,
   builtinEnvs: [],
   customEnvs: JSON.parse(localStorage.getItem(LS_KEYS.customEnvs) || '[]'),
