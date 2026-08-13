@@ -78,6 +78,15 @@ function isTranslated(env) {
   return !!(env.name && env.name.ru && env.name.ru.trim());
 }
 
+/** Difficulty is usually a plain number, but a few environments (e.g. duel
+ * events whose difficulty depends on the chosen adversary) store a bilingual
+ * descriptive string instead: { en, ru }. */
+function envDifficulty(env) {
+  const d = env.difficulty;
+  if (d && typeof d === 'object') return d[state.lang] || d.en || d.ru || '';
+  return d;
+}
+
 /* ---------------- init ---------------- */
 
 async function init() {
@@ -323,7 +332,7 @@ function cardHtml(env) {
       </div>
       <div class="card-meta">
         <span>${t('type_' + env.type)}</span>
-        <span class="diff">${t('difficulty_label')} ${env.difficulty}</span>
+        <span class="diff">${t('difficulty_label')} ${escapeHtml(String(envDifficulty(env)))}</span>
       </div>
       ${impulses.length ? `<div class="card-impulses">${escapeHtml(impulses.join(', '))}</div>` : ''}
       ${badges}
@@ -525,7 +534,7 @@ function openDetail(envId) {
       <div class="modal-body">
         <div class="stat-row">
           <div class="stat-block-item"><span class="k">${t('tier_label')}</span><span class="v">${env.tier}</span></div>
-          <div class="stat-block-item"><span class="k">${t('difficulty_label')}</span><span class="v">${env.difficulty}</span></div>
+          <div class="stat-block-item"><span class="k">${t('difficulty_label')}</span><span class="v">${escapeHtml(String(envDifficulty(env)))}</span></div>
           <div class="stat-block-item"><span class="k">${t('filter_type')}</span><span class="v">${t('type_' + env.type)}</span></div>
         </div>
 

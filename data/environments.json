@@ -46,7 +46,7 @@
           },
           "description": {
             "en": "The party must adequately stock up on water and food for the journey, which could take multiple days. While resting in this environment, the PCs take one less Downtime move. A PC can gain a supply token for a handful of coins, which they place on their character sheet. If a PC rolls an action roll and does not have a supply token, they make their roll at disadvantage. They discard all their supply tokens when they leave this environment.",
-            "ru": "Отряд должен как следует запастись водой и едой на время странствия, которое может занять несколько дней. Отдыхая в этом окружении, персонажи получают на одно действие простоя меньше. Персонаж может получить жетон припасов за горсть монет и разместить его на листе персонажа. Если персонаж совершает бросок действия без жетона припасов, он бросает с помехой. Все жетоны припасов сбрасываются, когда персонажи покидают это окружение."
+            "ru": "Отряд должен как следует запастись водой и едой на время странствия, которое может занять несколько дней. Отдыхая в этом окружении, персонажи получают на один Ход Отдыха меньше. Персонаж может получить жетон припасов за горсть монет и разместить его на листе персонажа. Если персонаж совершает бросок действия без жетона припасов, он бросает с помехой. Все жетоны припасов сбрасываются, когда персонажи покидают это окружение."
           },
           "prompt": {
             "en": "What supplies might be helpful when crossing the dunes? What might happen to make a PC lose their token?",
@@ -130,7 +130,9 @@
         }
       ],
       "builtin": true,
-      "tags": []
+      "biomes": [
+        "drylands"
+      ]
     },
     {
       "id": "port-city",
@@ -168,7 +170,7 @@
           "Вор в маске",
           "Торговый Барон",
           "Шпион",
-          "Военный Волшебник"
+          "Боевой Маг"
         ]
       },
       "features": [
@@ -249,7 +251,10 @@
         }
       ],
       "builtin": true,
-      "tags": []
+      "biomes": [
+        "settlement",
+        "aquatic"
+      ]
     },
     {
       "id": "moonlight-temple",
@@ -332,7 +337,9 @@
         }
       ],
       "builtin": true,
-      "tags": []
+      "biomes": [
+        "drylands"
+      ]
     },
     {
       "id": "ancient-tomb",
@@ -364,7 +371,7 @@
         ],
         "ru": [
           "Узники гробницы (Четырёхрукий Скелет, Жалкий Лучник, Мумифицированный Кентавр, Костяной Рой, Костяной Колосс, Владыка Гробницы)",
-          "Хранители хранилища (Тюремщик, Часовой, Турель)",
+          "Стражи Хранилища (Тюремщик, Дозорный, Турель)",
           "Гидра",
           "Соперничающие отряды охотников за сокровищами или искателей приключений, сопровождающих учёных по руинам"
         ]
@@ -432,7 +439,9 @@
         }
       ],
       "builtin": true,
-      "tags": []
+      "biomes": [
+        "underground"
+      ]
     },
     {
       "id": "underground-chasm",
@@ -547,7 +556,9 @@
         }
       ],
       "builtin": true,
-      "tags": []
+      "biomes": [
+        "underground"
+      ]
     },
     {
       "id": "magic-city",
@@ -590,7 +601,7 @@
           "Культисты",
           "Торговый Барон",
           "Шпион",
-          "Военный Волшебник",
+          "Боевой Маг",
           "Охотник за головами"
         ]
       },
@@ -672,7 +683,9 @@
         }
       ],
       "builtin": true,
-      "tags": []
+      "biomes": [
+        "settlement"
+      ]
     },
     {
       "id": "ruined-castle",
@@ -780,7 +793,9 @@
         }
       ],
       "builtin": true,
-      "tags": []
+      "biomes": [
+        "universal"
+      ]
     },
     {
       "id": "arcane-magic-shop",
@@ -882,7 +897,9 @@
         }
       ],
       "builtin": true,
-      "tags": []
+      "biomes": [
+        "settlement"
+      ]
     },
     {
       "id": "jungle-path",
@@ -984,7 +1001,9 @@
         }
       ],
       "builtin": true,
-      "tags": []
+      "biomes": [
+        "tropical"
+      ]
     },
     {
       "id": "lizardfolk-village",
@@ -1078,7 +1097,10 @@
         }
       ],
       "builtin": true,
-      "tags": []
+      "biomes": [
+        "settlement",
+        "wetland"
+      ]
     },
     {
       "id": "civic-library",
@@ -1189,7 +1211,9 @@
         }
       ],
       "builtin": true,
-      "tags": []
+      "biomes": [
+        "settlement"
+      ]
     },
     {
       "id": "devouring-green",
@@ -1278,7 +1302,9 @@
         }
       ],
       "builtin": true,
-      "tags": []
+      "biomes": [
+        "forest"
+      ]
     },
     {
       "id": "devouring-green-ritual",
@@ -1380,7 +1406,9 @@
         }
       ],
       "builtin": true,
-      "tags": []
+      "biomes": [
+        "forest"
+      ]
     },
     {
       "id": "domain-of-dinosaurs",
@@ -1459,7 +1487,9 @@
         }
       ],
       "builtin": true,
-      "tags": []
+      "biomes": [
+        "tropical"
+      ]
     },
     {
       "id": "forgotten-temple-of-the-serpent",
@@ -1557,7 +1587,9 @@
         }
       ],
       "builtin": true,
-      "tags": []
+      "biomes": [
+        "tropical"
+      ]
     },
     {
       "id": "jungle-trek",
@@ -1678,7 +1710,9 @@
         }
       ],
       "builtin": true,
-      "tags": []
+      "biomes": [
+        "tropical"
+      ]
     },
     {
       "id": "tower-of-slime",
@@ -1789,7 +1823,9 @@
         }
       ],
       "builtin": true,
-      "tags": []
+      "biomes": [
+        "universal"
+      ]
     },
     {
       "id": "court-of-cats",
@@ -1939,7 +1975,10 @@
         }
       ],
       "builtin": true,
-      "tags": []
+      "biomes": [
+        "universal",
+        "forest"
+      ]
     },
     {
       "id": "court-of-hounds",
@@ -2057,7 +2096,10 @@
         }
       ],
       "builtin": true,
-      "tags": []
+      "biomes": [
+        "universal",
+        "forest"
+      ]
     },
     {
       "id": "deserted-moor",
@@ -2161,7 +2203,9 @@
         }
       ],
       "builtin": true,
-      "tags": []
+      "biomes": [
+        "rolling"
+      ]
     },
     {
       "id": "fey-lands",
@@ -2283,7 +2327,10 @@
         }
       ],
       "builtin": true,
-      "tags": []
+      "biomes": [
+        "universal",
+        "forest"
+      ]
     },
     {
       "id": "haunted-mountain-pass",
@@ -2379,7 +2426,9 @@
         }
       ],
       "builtin": true,
-      "tags": []
+      "biomes": [
+        "mountain"
+      ]
     },
     {
       "id": "mystic-ring",
@@ -2462,7 +2511,9 @@
         }
       ],
       "builtin": true,
-      "tags": []
+      "biomes": [
+        "rolling"
+      ]
     },
     {
       "id": "scorching-dungeon",
@@ -2669,7 +2720,10 @@
         }
       ],
       "builtin": true,
-      "tags": []
+      "biomes": [
+        "underground",
+        "badlands"
+      ]
     },
     {
       "id": "shadowfen",
@@ -2756,7 +2810,9 @@
         }
       ],
       "builtin": true,
-      "tags": []
+      "biomes": [
+        "wetland"
+      ]
     },
     {
       "id": "unhallowed-ground",
@@ -2875,7 +2931,9 @@
         }
       ],
       "builtin": true,
-      "tags": []
+      "biomes": [
+        "universal"
+      ]
     },
     {
       "id": "vampires-castle",
@@ -2994,7 +3052,9 @@
         }
       ],
       "builtin": true,
-      "tags": []
+      "biomes": [
+        "universal"
+      ]
     },
     {
       "id": "wispy-wasteland",
@@ -3075,7 +3135,9 @@
         }
       ],
       "builtin": true,
-      "tags": []
+      "biomes": [
+        "badlands"
+      ]
     },
     {
       "id": "city-out-of-time",
@@ -3239,7 +3301,10 @@
         }
       ],
       "builtin": true,
-      "tags": []
+      "biomes": [
+        "underground",
+        "universal"
+      ]
     },
     {
       "id": "deep-one-city",
@@ -3341,7 +3406,10 @@
         }
       ],
       "builtin": true,
-      "tags": []
+      "biomes": [
+        "aquatic",
+        "settlement"
+      ]
     },
     {
       "id": "dreamlands",
@@ -3455,7 +3523,2885 @@
         }
       ],
       "builtin": true,
-      "tags": []
+      "biomes": [
+        "universal"
+      ]
+    },
+    {
+      "id": "acid-burrows",
+      "tier": 1,
+      "type": "exploration",
+      "difficulty": 12,
+      "name": {
+        "en": "Acid Burrows",
+        "ru": "Кислотные норы"
+      },
+      "impulses": {
+        "en": [
+          "Dissolve in acid",
+          "hatch spawn",
+          "restrict movement"
+        ],
+        "ru": [
+          "Растворять в кислоте",
+          "выводить потомство",
+          "ограничивать передвижение"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Acid Burrower",
+          "Oozes (Green, Tiny Green)",
+          "Rotted Zombie (as Acid Burrower hatchlings)"
+        ],
+        "ru": [
+          "Кислотный Землекоп",
+          "Слизни (Зелёная, Крошечная Зелёная)",
+          "Гнилой Зомби (как детёныши Кислотного Землекопа)"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Lair",
+            "ru": "Логово"
+          },
+          "description": {
+            "en": "The burrows are the lair of an Acid Burrower and consist of a series of connected tunnels and chambers containing acid pits. The Burrower starts with a +1 bonus to their Difficulty while in their lair.",
+            "ru": "Эти норы — логово Кислотного Землекопа и представляют собой ряд соединённых туннелей и залов с кислотными ямами. Пока Землекоп находится в своём логове, он получает бонус +1 к Сложности."
+          },
+          "prompt": {
+            "en": "What foreshadows the burrower's appearance - partially dissolved remains, fresh tracks, or vibrations in the ground?",
+            "ru": "Что предвещает появление землекопа — частично растворённые останки, свежие следы или вибрации в земле?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Hatchlings",
+            "ru": "Детёныши"
+          },
+          "description": {
+            "en": "Summon 1d6 Acid Burrower Hatchlings (Rotted Zombies) within Close range of the Acid Burrower.",
+            "ru": "Призовите 1d6 детёнышей Кислотного Землекопа (Гнилых Зомби) в пределах Близкой дистанции от Кислотного Землекопа."
+          },
+          "prompt": {
+            "en": "Do the hatchlings emerge from eggs or the acid pits?",
+            "ru": "Вылупляются ли детёныши из яиц или появляются из кислотных ям?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Acid Surge",
+            "ru": "Кислотный Всплеск"
+          },
+          "description": {
+            "en": "Spend a Fear for acid to spread from an acid pit. All PCs within Very Close range of the pit must make an Agility Reaction Roll to move to higher ground. Targets who fail take 1d8+5 direct magic damage and must mark an armor slot without receiving its benefits. If they can't mark an Armor Slot, they must mark an additional HP.",
+            "ru": "Потратьте Страх, чтобы кислота хлынула из кислотной ямы. Все персонажи в пределах Очень Близкой дистанции от ямы должны совершить Бросок Реакции на Проворность, чтобы выбраться на возвышенность. Цели, провалившие бросок, получают 1d8+5 прямого магического урона и должны отметить Ячейку Брони, не получая её преимуществ. Если они не могут отметить Ячейку Брони, они должны отметить дополнительную Рану."
+          },
+          "prompt": {
+            "en": "How does the elevation change within the tunnels of the lair? Does this affect where the acid flows?",
+            "ru": "Как меняется рельеф внутри туннелей логова? Влияет ли это на то, куда течёт кислота?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Oozes",
+            "ru": "Слизни"
+          },
+          "description": {
+            "en": "When the PCs first enter the lair and encounter an acid pit, summon two Green Oozes who emerge from the pit.",
+            "ru": "Когда персонажи впервые входят в логово и сталкиваются с кислотной ямой, призовите двух Зелёных Слизней, выходящих из ямы."
+          },
+          "prompt": {
+            "en": "If the PCs bypass the oozes, do they show up during the boss fight, or block the exit afterwards?",
+            "ru": "Если персонажи обходят слизней стороной, появляются ли они во время финальной битвы или блокируют выход после неё?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Not Over Yet (Phase Change)",
+            "ru": "Ещё Не Всё Кончено (Смена Фазы)"
+          },
+          "description": {
+            "en": "When the Burrower marks their last HP for the first time, they regain HP equal to twice the number of PCs (maximum 10) and clear all Stress. The Burrower's Difficulty decreases by 1 and their damage increases by 2. Immediately spotlight the Burrower.",
+            "ru": "Когда Землекоп впервые отмечает своё последнее очко здоровья, он восстанавливает здоровье, равное удвоенному числу персонажей (максимум 10), и снимает весь Стресс. Сложность Землекопа уменьшается на 1, а его урон увеличивается на 2. Немедленно дайте Землекопу Активацию."
+          },
+          "prompt": {
+            "en": "How does the burrower change for this second phase?",
+            "ru": "Как землекоп меняется в этой второй фазе?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "underground"
+      ]
+    },
+    {
+      "id": "fighting-arena",
+      "tier": 1,
+      "type": "event",
+      "difficulty": {
+        "en": "Special (see \"Relative Strength\")",
+        "ru": "Особая (см. «Относительная сила»)"
+      },
+      "name": {
+        "en": "Fighting Arena",
+        "ru": "Бойцовская арена"
+      },
+      "impulses": {
+        "en": [
+          "Settle differences",
+          "put on a show",
+          "create legends"
+        ],
+        "ru": [
+          "Разрешать споры",
+          "устраивать представление",
+          "создавать легенды"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Tier 1: Drakona Berserker, Minotaur Bully",
+          "Tier 2: Elf Blade-Dancer, Giant Brawler, Ribbet Brute",
+          "Tier 3: Earth Giant, Elf Spellblade, Katari Pit Fighter",
+          "Tier 4: Fallen Warlord: Undefeated Champion, First Knight"
+        ],
+        "ru": [
+          "Ранг 1: Дракона Берсерк, Минотавр-Задира",
+          "Ранг 2: Эльф Танцор Клинка, Великан Боец, Риббет Драчун",
+          "Ранг 3: Земляной Великан, Эльф Заклинатель-Мечник, Катари Боец Ямы",
+          "Ранг 4: Падший Военачальник: Непобеждённый Чемпион, Первый Рыцарь"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Relative Strength",
+            "ru": "Относительная Сила"
+          },
+          "description": {
+            "en": "The Difficulty of the Environment equals that of the adversary.",
+            "ru": "Сложность этого Окружения равна Сложности противника."
+          },
+          "prompt": {
+            "en": "How confident does the adversary look?",
+            "ru": "Насколько уверенно выглядит противник?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Dueling Rules",
+            "ru": "Правила Дуэли"
+          },
+          "description": {
+            "en": "The rules for a duel are outlined below.\n- The GM sets aside their Fear pool and starts with 1 Fear. Any remaining Fear at the end of the duel is discarded.\n- The PC and adversary make an Agility Reaction Roll to determine who acts first.\n- The adversary gains the Relentless (2) feature (if they don't have a Relentless feature) and they can't summon other adversaries.\n- The PC can't use Armor Slots.\n- When the last HP is marked, the target only dies if there is intent to kill.",
+            "ru": "Ниже изложены правила дуэли.\n- Мастер откладывает свой запас Страха и начинает с 1 Страхом. Весь оставшийся Страх по окончании дуэли отбрасывается.\n- Персонаж и противник совершают Бросок Реакции на Проворность, чтобы определить, кто действует первым.\n- Противник получает свойство Неутомимый (2) (если у него ещё нет свойства Неутомимый) и не может призывать других противников.\n- Персонаж не может использовать Ячейки Брони.\n- Когда отмечено последнее очко здоровья, цель погибает, только если было намерение убить."
+          },
+          "prompt": {
+            "en": "Is there an instant-lose boundary, such as falling from a platform or exiting the ring?",
+            "ru": "Есть ли граница мгновенного проигрыша, например, падение с помоста или выход за пределы ринга?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Everyone is Watching",
+            "ru": "Все Смотрят"
+          },
+          "description": {
+            "en": "When a PC or adversary is dealt Major or greater damage, they must also mark a Stress.",
+            "ru": "Когда персонаж или противник получает Ощутимый или больший урон, он также должен отметить Стресс."
+          },
+          "prompt": {
+            "en": "Was there intent to kill with that move?",
+            "ru": "Было ли в этом ударе намерение убить?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Roaring Crowd",
+            "ru": "Ревущая Толпа"
+          },
+          "description": {
+            "en": "When a PC succeeds on a Presence Roll to please the audience, their next attack is made with advantage.",
+            "ru": "Когда персонаж преуспевает в броске Влияния, чтобы порадовать публику, его следующая атака совершается с преимуществом."
+          },
+          "prompt": {
+            "en": "Which loved ones might be watching? How do they feel about the duel?",
+            "ru": "Кто из близких может наблюдать за поединком? Что они думают о дуэли?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "settlement"
+      ]
+    },
+    {
+      "id": "gang-hideout",
+      "tier": 1,
+      "type": "social",
+      "difficulty": 10,
+      "name": {
+        "en": "Gang Hideout",
+        "ru": "Логово банды"
+      },
+      "impulses": {
+        "en": [
+          "Conduct illegal activities",
+          "hide away fugitives",
+          "hold secret meetings"
+        ],
+        "ru": [
+          "Вести незаконную деятельность",
+          "укрывать беглецов",
+          "проводить тайные встречи"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Canids (Jackal, Rover)",
+          "Giant Rat",
+          "Guards (Archer, Bladed, Head)",
+          "Jagged Knife Bandits (Hexer, Kneebreaker, Lackey, Sniper)",
+          "Merchant",
+          "Pirates (Captain, Raiders, Tough)"
+        ],
+        "ru": [
+          "Псовые (Шакал, Бродяга)",
+          "Гигантская Крыса",
+          "Стражники (Лучник, Мечник, Капитан)",
+          "Бандиты из «Зазубренного ножа» (Колдун, Коленолом, Шестёрка, Снайпер)",
+          "Торговец",
+          "Пираты (Капитан, Налётчики, Громила)"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Illegal Enterprise",
+            "ru": "Незаконное Предприятие"
+          },
+          "description": {
+            "en": "The illicit activities the gang is involved with are set up in the basement or back room of a legitimate business. A special pass phrase gains access to restricted areas.",
+            "ru": "Незаконная деятельность банды организована в подвале или подсобке легального заведения. Особая кодовая фраза открывает доступ в закрытые зоны."
+          },
+          "prompt": {
+            "en": "What is the illegal operation - drugs, smuggling, blood sports, or something else?",
+            "ru": "Чем занимается банда — наркотиками, контрабандой, кровавыми боями или чем-то ещё?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Gambling",
+            "ru": "Азартная Игра"
+          },
+          "description": {
+            "en": "A gambling game such as betting on a Giant Rat fight is in progress. A PC can place a bet on an outcome. Roll a d20 to determine the outcome. If the odds are equal, the PC wins double their bet on a roll of 11 or higher. If the PC bets on the favorite, they win their bet plus 50% on a roll of 6 or higher. If they bet on the underdog, they win quadruple their bet on a roll of 16 or higher.",
+            "ru": "Идёт азартная игра, например, ставки на бой Гигантских Крыс. Персонаж может поставить на исход. Бросьте d20, чтобы определить результат. Если шансы равны, персонаж выигрывает удвоенную ставку при результате 11 и выше. Если персонаж ставит на фаворита, он выигрывает ставку плюс 50% при результате 6 и выше. Если ставит на аутсайдера — учетверённую ставку при результате 16 и выше."
+          },
+          "prompt": {
+            "en": "What do the PCs gamble on? Are the real odds different from the presented odds?",
+            "ru": "На что делают ставки персонажи? Отличаются ли реальные шансы от объявленных?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Guard Raid",
+            "ru": "Облава Стражи"
+          },
+          "description": {
+            "en": "Spend a Fear to raid the hideout with a Head Guard, two Bladed Guards, and two Archer Guards. They take on NPC threats in addition to the PCs.",
+            "ru": "Потратьте Страх, чтобы устроить облаву на логово силами Капитана Стражи, двух Стражников-Мечников и двух Стражников-Лучников. Они противостоят и НПС-угрозам, и персонажам."
+          },
+          "prompt": {
+            "en": "How do the PCs feel being on the wrong side of the law? Are there secret means of escape?",
+            "ru": "Каково персонажам оказаться не на той стороне закона? Есть ли тайные пути отступления?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "We're Actually the Good Guys",
+            "ru": "На Самом Деле Мы Хорошие Парни"
+          },
+          "description": {
+            "en": "If the PCs put themselves at odds with the Gang, one of the adversaries in the room immediately takes the spotlight and makes an attack.",
+            "ru": "Если персонажи вступают в конфликт с бандой, один из противников в комнате немедленно получает Активацию и совершает атаку."
+          },
+          "prompt": {
+            "en": "How many adversaries are in the room? Will reinforcements join them?",
+            "ru": "Сколько противников в комнате? Присоединится ли к ним подкрепление?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "settlement"
+      ]
+    },
+    {
+      "id": "racetrack",
+      "tier": 1,
+      "type": "event",
+      "difficulty": 12,
+      "name": {
+        "en": "Racetrack",
+        "ru": "Гоночная трасса"
+      },
+      "impulses": {
+        "en": [
+          "Race for glory",
+          "present obstacles",
+          "put on a show"
+        ],
+        "ru": [
+          "Гнаться за славой",
+          "создавать препятствия",
+          "устраивать представление"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Clanker",
+          "Glass Snake",
+          "Jagged Knife Sniper",
+          "Tangle Bramble"
+        ],
+        "ru": [
+          "Лязгач",
+          "Стеклянная Змея",
+          "Снайпер из «Зазубренного ножа»",
+          "Спутанный Терновник"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Race",
+            "ru": "Гонка"
+          },
+          "description": {
+            "en": "Each racer begins with a d20 progress die to track their progress, set to 1. The first to reach 20 wins. For initiative, start with the highest progress die and work downwards, with PCs moving before NPCs for shared die values. Each turn, a racer makes an action roll, progressing as follows:\n- Tick up 1 on a Failure.\n- Tick up 2 on a Success.\n- Tick up 3 on a Critical Success. If a racer's action roll involves anything other than racing, the amount the racer's die ticks up is reduced by 1. If they target another racer, on a success the target's die might tick down by 1, or they may have disadvantage on their next action roll, depending on the effect.",
+            "ru": "Каждый гонщик начинает с d20-кости прогресса, отслеживающей его продвижение, установленной на 1. Первый, кто достигнет 20, побеждает. Для очерёдности начинайте с наибольшего значения кости прогресса и двигайтесь вниз, при равных значениях персонажи ходят раньше НПС. Каждый ход гонщик совершает бросок действия, продвигаясь следующим образом:\n- При Неудаче — +1.\n- При Успехе — +2.\n- При Критическом Успехе — +3. Если бросок действия гонщика связан не с самой гонкой, а с чем-то ещё, продвижение кости уменьшается на 1. Если он целится в другого гонщика, при успехе кость цели может уменьшиться на 1, либо цель получает помеху на следующий бросок действия, в зависимости от эффекта."
+          },
+          "prompt": {
+            "en": "How have the racers modified their vehicles for the race?",
+            "ru": "Как гонщики модифицировали свои машины для этой гонки?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Track Sections",
+            "ru": "Участки Трассы"
+          },
+          "description": {
+            "en": "The racetrack has 7 sections in a figure 8 shape with the following progress die values and suggested action rolls:\n- 1-2. Streets of the Town. Racers can make a Finesse Roll to navigate winding streets or a Knowledge Roll to find the shortest route.\n- 3-5. Outskirts of Town. Racers can make an Agility Roll to build speed or an Instinct Roll to drift.\n- 6-9. Tunnel. Racers can make an Instinct Roll to navigate in the dim light.\n- 10-12. Hillside Climb. Racers can make an Agility Roll to climb or a Strength Roll to boost the vehicle.\n- 13-15. Hillside Descent. Racers can make a Finesse Roll to control the descent or an Instinct Roll to wing it.\n- 16-18. Dried Riverbed. Racers can make an Agility Roll to build speed or a Presence Roll to take the racing lines.\n- 19-20. Streets of the Town. Racers can make a Finesse Roll to navigate winding streets or a Knowledge Roll to find shortest route.",
+            "ru": "Трасса состоит из 7 участков в форме восьмёрки со следующими значениями кости прогресса и рекомендуемыми бросками действия:\n- 1-2. Улицы Города. Гонщики могут совершить бросок Искусности, чтобы петлять по извилистым улицам, или бросок Знания, чтобы найти кратчайший путь.\n- 3-5. Окраины Города. Гонщики могут совершить бросок Проворности, чтобы набрать скорость, или бросок Инстинкта для дрифта.\n- 6-9. Тоннель. Гонщики могут совершить бросок Инстинкта, чтобы ориентироваться в тусклом свете.\n- 10-12. Подъём на Холм. Гонщики могут совершить бросок Проворности для подъёма или бросок Силы, чтобы разогнать машину.\n- 13-15. Спуск с Холма. Гонщики могут совершить бросок Искусности, чтобы контролировать спуск, или бросок Инстинкта, чтобы положиться на удачу.\n- 16-18. Пересохшее Русло Реки. Гонщики могут совершить бросок Проворности, чтобы набрать скорость, или бросок Влияния, чтобы выбрать гоночную траекторию.\n- 19-20. Улицы Города. Гонщики могут совершить бросок Искусности, чтобы петлять по извилистым улицам, или бросок Знания, чтобы найти кратчайший путь."
+          },
+          "prompt": {
+            "en": "Where are there obstacles on the track?",
+            "ru": "Где на трассе расположены препятствия?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Muddy Track",
+            "ru": "Грязный Участок"
+          },
+          "description": {
+            "en": "The section of track ahead of the lead racer is covered with mud, and action rolls to progress in this section of track have a Difficulty of 15. On a failure, a racer is stuck in mud and does not tick up their die.",
+            "ru": "Участок трассы впереди лидирующего гонщика покрыт грязью, и броски действия для продвижения на этом участке имеют Сложность 15. При неудаче гонщик застревает в грязи и не продвигает свою кость."
+          },
+          "prompt": {
+            "en": "What is the weather during the race?",
+            "ru": "Какая погода во время гонки?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Animal on the Track",
+            "ru": "Животное на Трассе"
+          },
+          "description": {
+            "en": "When a PC takes the spotlight, you can spend a Fear to make a Glass Snake appear on the track in front of them. If they choose to avoid the snake, they tick their die up by one fewer this turn unless they roll a critical success. If they don't avoid the snake, glass shards deal Major damage to their vehicle.",
+            "ru": "Когда персонаж получает Активацию, вы можете потратить Страх, чтобы на трассе перед ним появилась Стеклянная Змея. Если он решит объехать змею, в этот ход его кость продвинется на единицу меньше, если только он не выбросит критический успех. Если он не объедет змею, стеклянные осколки наносят Ощутимый урон его машине."
+          },
+          "prompt": {
+            "en": "Does the PC swerve to avoid the snake?",
+            "ru": "Уворачивается ли персонаж от змеи?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Pot Shot",
+            "ru": "Выстрел Наугад"
+          },
+          "description": {
+            "en": "When a PC rolls with Fear, you can spend that Fear to have a Jagged Knife Sniper shoot at the vehicle. Make an attack roll with -1 penalty, dealing 1d10+4 physical damage on a success.",
+            "ru": "Когда персонаж выбрасывает результат со Страхом, вы можете потратить этот Страх, чтобы Снайпер из «Зазубренного ножа» выстрелил по машине. Совершите бросок атаки со штрафом -1, нанося при успехе 1d10+4 физического урона."
+          },
+          "prompt": {
+            "en": "Is the surrounding countryside known for bandits, or is another racer responsible?",
+            "ru": "Известна ли округа бандитами, или виноват другой гонщик?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Tumbleweed",
+            "ru": "Перекати-Поле"
+          },
+          "description": {
+            "en": "When a PC rolls with Fear, you can spend that Fear to have Tangle Brambles blow onto the track and latch onto all racers with the PC's progress die value. A racer has disadvantage on action rolls until the Tangle Bramble attached to them is defeated.",
+            "ru": "Когда персонаж выбрасывает результат со Страхом, вы можете потратить этот Страх, чтобы Спутанный Терновник вынесло на трассу и он вцепился во всех гонщиков со значением кости прогресса персонажа. Гонщик совершает броски действия с помехой, пока не одолеет вцепившийся в него Спутанный Терновник."
+          },
+          "prompt": {
+            "en": "Is it worth perservering or attempting to brush off the bramble?",
+            "ru": "Стоит ли упорствовать или лучше попытаться стряхнуть терновник?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "settlement"
+      ]
+    },
+    {
+      "id": "blood-marsh",
+      "tier": 2,
+      "type": "traversal",
+      "difficulty": 14,
+      "name": {
+        "en": "Blood Marsh",
+        "ru": "Кровавая трясина"
+      },
+      "impulses": {
+        "en": [
+          "Sink the unprepared",
+          "strip life of energy",
+          "channel energy into new life"
+        ],
+        "ru": [
+          "Топить неподготовленных",
+          "лишать энергии",
+          "направлять энергию в новую жизнь"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Acid Burrower",
+          "Acid Gator",
+          "Blood Ooze",
+          "Giant Mosquitoes",
+          "Lizardfolk (Chameleon, Gila Monster, Monitor)",
+          "Swarm of Piranhas",
+          "Vehicles (Air Balloon, Skimmer)",
+          "Zombies (Beast, Pack, Rotted)"
+        ],
+        "ru": [
+          "Кислотный Землекоп",
+          "Кислотный Аллигатор",
+          "Кровавая Слизь",
+          "Гигантские Москиты",
+          "Ящеролюды (Хамелеон, Гила-Монстр, Монитор)",
+          "Рой Пираний",
+          "Транспорт (Воздушный Шар, Скиммер)",
+          "Зомби (Звериный, Стая, Гнилой)"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Boiling Waters",
+            "ru": "Кипящие Воды"
+          },
+          "description": {
+            "en": "PCs who enter the bubbling waters take 2d10 direct magic damage.",
+            "ru": "Персонажи, входящие в бурлящую воду, получают 2d10 прямого магического урона."
+          },
+          "prompt": {
+            "en": "What does the water smell like?",
+            "ru": "Чем пахнет эта вода?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Red Mists",
+            "ru": "Алые Туманы"
+          },
+          "description": {
+            "en": "Blanket the landscape in a red mist. All PCs must mark a Stress when they make an action roll.",
+            "ru": "Окутайте местность алым туманом. Все персонажи должны отметить Стресс, совершая бросок действия."
+          },
+          "prompt": {
+            "en": "How does the air feel to breathe? What effect does the mist have on visibility?",
+            "ru": "Каково дышать этим воздухом? Как туман влияет на видимость?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Rising Dead",
+            "ru": "Восстающие Мертвецы"
+          },
+          "description": {
+            "en": "When the Red Mists are present, spend a Fear to summon a Zombie Beast and 2d4+2 Rotted Zombies from the water. When three of these adversaries are defeated, summon a Zombie Pack. The red mists immediately dissipate.",
+            "ru": "Пока присутствуют Алые Туманы, потратьте Страх, чтобы призвать из воды Звериного Зомби и 2d4+2 Гнилых Зомби. Когда трое из этих противников будут повержены, призовите Стаю Зомби. Алые туманы тут же рассеиваются."
+          },
+          "prompt": {
+            "en": "How did so many bodies end up in the bog?",
+            "ru": "Как столько тел оказалось в трясине?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Not a Log",
+            "ru": "Это Не Бревно"
+          },
+          "description": {
+            "en": "When crossing a patch of boiling water, two Acid Gators emerge and strike at the PCs.",
+            "ru": "При пересечении участка кипящей воды из неё выныривают два Кислотных Аллигатора и атакуют персонажей."
+          },
+          "prompt": {
+            "en": "What creatures do the gators normally feed on?",
+            "ru": "Чем обычно питаются эти аллигаторы?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "wetland"
+      ]
+    },
+    {
+      "id": "body",
+      "tier": 2,
+      "type": "exploration",
+      "difficulty": 13,
+      "name": {
+        "en": "Body",
+        "ru": "Тело"
+      },
+      "impulses": {
+        "en": [
+          "Send signals from brain",
+          "pump blood around body",
+          "fight foreign bodies"
+        ],
+        "ru": [
+          "Посылать сигналы из мозга",
+          "перекачивать кровь по телу",
+          "бороться с чужеродными телами"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Electric Eels (as Neurons)",
+          "Innards (Antibody, Bacteria Swarm, Inner Demon, Muscle)",
+          "Minor Chaos Elemental",
+          "Mortal Hunter (as White Blood Cells)",
+          "Oozes (Clear, Green)",
+          "Siren (as Heart Siren)",
+          "Spectral (Archer, Captain, Guardian)",
+          "Stonewraith (as Clots)"
+        ],
+        "ru": [
+          "Электрические Угри (как Нейроны)",
+          "Внутренности (Антитело, Рой Бактерий, Внутренний Демон, Мышца)",
+          "Малый Элементаль Хаоса",
+          "Смертный Охотник (как Белые Кровяные Тельца)",
+          "Слизни (Прозрачная, Зелёная)",
+          "Сирена (как Сирена Сердца)",
+          "Призрачные (Лучник, Капитан, Страж)",
+          "Каменный Призрак (как Тромбы)"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Body Parts",
+            "ru": "Части Тела"
+          },
+          "description": {
+            "en": "Different parts of the body have different features and adversaries.\n- Mouth and Esophagus: Bacteria Swarms breed in saliva pools in the mouth and esophagus. The esophagus is buffeted by wind from the trachea passage.\n- Trachea and Lungs: Wind in the trachea and lungs forms Minor Chaos Elementals. Mucus Oozes (Clear Oozes) drop from the ceiling.\n- Stomach, Intestines, and Liver: Green Oozes lurk here. PCs must dive through acidic waters to pass through the stomach, marking an Armor Slot when they act.\n- Brain and Nervous System: Memories (Spectral adversaries) haunt the labyrinthian brain. At the center is an Inner Demon, a map of the body, and controls for making PCs friendly to the Immune System patrols. The brain connects to limbs via the nervous system, in which Neurons (Electric Eels) are found.\n- Heart and Blood Vessels: Heart Sirens (Sirens) pull on the PC heartstrings. Clots (Stonewraiths) can attack and cause blockages. In blood vessels, the PCs can ride red blood cells like a raft. Moving to a specific limb requires a successful Knowledge Roll or map, otherwise the party travels to a limb determined at random.\n- Limbs: Muscles can investigate PCs and attack.",
+            "ru": "Разные части тела обладают разными свойствами и противниками.\n- Рот и Пищевод: Рои Бактерий размножаются в лужицах слюны во рту и пищеводе. Пищевод обдувается ветром из трахеи.\n- Трахея и Лёгкие: Ветер в трахее и лёгких порождает Малых Элементалей Хаоса. С потолка капают Слизистые Слизни (Прозрачные Слизни).\n- Желудок, Кишечник и Печень: Здесь таятся Зелёные Слизни. Персонажи должны нырять сквозь кислотные воды, чтобы пройти через желудок, отмечая Ячейку Брони каждый раз, когда действуют.\n- Мозг и Нервная Система: Воспоминания (противники типа Призрачные) преследуют по лабиринтообразному мозгу. В его центре находится Внутренний Демон, карта тела и рычаги управления, делающие персонажей дружественными патрулям Иммунной Системы. Мозг связан с конечностями через нервную систему, где обитают Нейроны (Электрические Угри).\n- Сердце и Кровеносные Сосуды: Сирены Сердца (Сирены) дёргают персонажей за струны сердца. Тромбы (Каменные Призраки) могут атаковать и вызывать закупорки. В кровеносных сосудах персонажи могут плыть на эритроцитах, как на плоту. Чтобы переместиться в конкретную конечность, требуется успешный бросок Знания или карта, иначе отряд отправляется в случайно определённую конечность.\n- Конечности: Мышцы могут расследовать появление персонажей и атаковать."
+          },
+          "prompt": {
+            "en": "What do the rooms look like? Where are the PCs headed? What task is required when they get there?",
+            "ru": "Как выглядят помещения? Куда направляются персонажи? Какая задача требуется от них по прибытии?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Immune System",
+            "ru": "Иммунная Система"
+          },
+          "description": {
+            "en": "Spend a Fear to have a patrol of 1d4 White Blood Cells (Mortal Hunters) and 1d4 Antibodies pass by. PCs must succeed on a group action roll using traits of their choice to become Hidden. On a failure, the patrol spots the PCs.",
+            "ru": "Потратьте Страх, чтобы мимо прошёл патруль из 1d4 Белых Кровяных Телец (Смертных Охотников) и 1d4 Антител. Персонажи должны преуспеть в групповом броске, используя черты по своему выбору, чтобы стать Скрытыми. При неудаче патруль замечает персонажей."
+          },
+          "prompt": {
+            "en": "Are the patrols relaxed or alert and actively searching for the PCs?",
+            "ru": "Патрули расслаблены или насторожены и активно ищут персонажей?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Inside a Living Being",
+            "ru": "Внутри Живого Существа"
+          },
+          "description": {
+            "en": "When damage is dealt that affects the environment (such as area of effect attacks) the ground shakes. All creatures that aren't flying must make an Instinct Reaction Roll, falling prone on a failure and becoming Vulnerable until they next act.",
+            "ru": "Когда наносится урон, затрагивающий окружение (например, атаки по области), земля сотрясается. Все существа, кроме летающих, должны совершить Бросок Реакции на Инстинкт, при неудаче падая ничком и становясь Уязвимыми до своего следующего действия."
+          },
+          "prompt": {
+            "en": "The PCs are shrunk inside a living being - how long do they have before they return to regular size?",
+            "ru": "Персонажи уменьшены и находятся внутри живого существа — сколько времени у них есть, прежде чем они вернутся к обычному размеру?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "universal"
+      ]
+    },
+    {
+      "id": "desert",
+      "tier": 2,
+      "type": "traversal",
+      "difficulty": 14,
+      "name": {
+        "en": "Desert",
+        "ru": "Пустыня"
+      },
+      "impulses": {
+        "en": [
+          "Weather land",
+          "burn travelers",
+          "evaporate water"
+        ],
+        "ru": [
+          "Выветривать землю",
+          "сжигать путников",
+          "испарять воду"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Glass Snake",
+          "Lizardfolk (Chameleon, Gila Monster, Monitor)",
+          "Minor Fire Elemental",
+          "Quobble",
+          "Siren (as Harpy)",
+          "Skimmer",
+          "Great Worm"
+        ],
+        "ru": [
+          "Стеклянная Змея",
+          "Ящеролюды (Хамелеон, Гила-Монстр, Монитор)",
+          "Малый Огненный Элементаль",
+          "Кводдл",
+          "Сирена (как Гарпия)",
+          "Скиммер",
+          "Великий Червь"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Scorching Heat",
+            "ru": "Палящий Зной"
+          },
+          "description": {
+            "en": "PCs not equipped for hot weather must mark a Stress when they roll with Fear.",
+            "ru": "Персонажи, не подготовленные к жаркой погоде, должны отметить Стресс, когда выбрасывают результат со Страхом."
+          },
+          "prompt": {
+            "en": "Is it preferable to swelter in the heat, or remove armor and risk being unprepared in a fight?",
+            "ru": "Что предпочтительнее — изнывать от жары или снять броню и рисковать оказаться неготовым к бою?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Quicksand",
+            "ru": "Зыбучие Пески"
+          },
+          "description": {
+            "en": "Some adversaries might leave quicksand in their wake (such as a Great Worm) or lure the PCs into a patch of quicksand (such as a Harpy). A PC moving through quicksand must make an Agility Reaction Roll. On a failure they sink 1d4 feet into the sand and are Engulfed, with the spotlight passing to the GM. An Engulfed creature is Restrained and Vulnerable. They can break free with a Strength or Finesse Roll, but sink an additional 1 foot on a failure. A PC in over their head must mark a Stress each time they act.",
+            "ru": "Некоторые противники могут оставлять за собой зыбучие пески (например, Великий Червь) или заманивать персонажей в такой участок (например, Гарпия). Персонаж, идущий по зыбучим пескам, должен совершить Бросок Реакции на Проворность. При неудаче он проваливается в песок на 1d4 фута и становится Поглощённым, а Активация переходит к Мастеру. Поглощённое существо Обездвижено и Уязвимо. Освободиться можно броском Силы или Искусности, но при неудаче персонаж проваливается ещё на 1 фут. Персонаж, ушедший в песок с головой, должен отмечать Стресс каждый раз, когда действует."
+          },
+          "prompt": {
+            "en": "Is something important buried in the sand here?",
+            "ru": "Не погребено ли здесь в песке что-то важное?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Cacti",
+            "ru": "Кактусы"
+          },
+          "description": {
+            "en": "A cacti patch can be used to replenish water reserves. A PC can make a Finesse Roll to harvest water. On a roll with Fear, the PC takes 2d6 physical damage from the cactus needles.",
+            "ru": "Заросли кактусов можно использовать, чтобы пополнить запасы воды. Персонаж может совершить бросок Искусности, чтобы собрать воду. При результате со Страхом персонаж получает 2d6 физического урона от игл кактуса."
+          },
+          "prompt": {
+            "en": "How low were supplies getting? How much water can be harvested?",
+            "ru": "Насколько скудны были запасы? Сколько воды удастся добыть?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Approaching Caravan",
+            "ru": "Приближающийся Караван"
+          },
+          "description": {
+            "en": "An approaching group of travelers mounted on Camels or Skimmers is spotted through the haze. Spend a Fear to make them aggressive adversaries such as a Lizardfolk Gila Monster, two Lizardfolk Monitors, and a Lizardfolk Chameleon.",
+            "ru": "Сквозь марево замечена приближающаяся группа путников верхом на верблюдах или скиммерах. Потратьте Страх, чтобы сделать их враждебными противниками, такими как Ящеролюд Гила-Монстр, два Ящеролюда Монитора и Ящеролюд Хамелеон."
+          },
+          "prompt": {
+            "en": "What supplies does the approaching caravan have? Are they friend or foe?",
+            "ru": "Какие припасы есть у приближающегося каравана? Друзья они или враги?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "drylands"
+      ]
+    },
+    {
+      "id": "magical-storm",
+      "tier": 2,
+      "type": "event",
+      "difficulty": 13,
+      "name": {
+        "en": "Magical Storm",
+        "ru": "Магическая буря"
+      },
+      "impulses": {
+        "en": [
+          "Release chaotic mix of elements",
+          "sweep up the unprepared",
+          "heighten magic"
+        ],
+        "ru": [
+          "Высвобождать хаотичную смесь стихий",
+          "сметать неподготовленных",
+          "усиливать магию"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Acid Gator",
+          "Avian Aeronaut",
+          "Bearcupine",
+          "Centaur Druid",
+          "Drakona Elementalist",
+          "Gargoyle",
+          "Giant Eagle",
+          "Lightning Crab",
+          "Manticore",
+          "Shark"
+        ],
+        "ru": [
+          "Кислотный Аллигатор",
+          "Пернатый Аэронавт",
+          "Медведодикобраз",
+          "Кентавр-Друид",
+          "Дракона Стихийник",
+          "Гаргулья",
+          "Гигантский Орёл",
+          "Молниевый Краб",
+          "Мантикора",
+          "Акула"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Magic Surge",
+            "ru": "Магический Всплеск"
+          },
+          "description": {
+            "en": "Spellcast Rolls and attacks that deal magic damage are made with advantage. On a success, the spell or attack also triggers a Wild Magic effect (Introduction of this book).",
+            "ru": "Броски Заклинания и атаки, наносящие магический урон, совершаются с преимуществом. При успехе заклинание или атака также вызывает эффект Дикой Магии (см. Введение этой книги)."
+          },
+          "prompt": {
+            "en": "How often do magic storms occur, and how long do they last?",
+            "ru": "Как часто случаются магические бури и как долго они длятся?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Strong Winds",
+            "ru": "Сильный Ветер"
+          },
+          "description": {
+            "en": "Ranged attacks that deal physical damage are made with disadvantage.",
+            "ru": "Дальнобойные атаки, наносящие физический урон, совершаются с помехой."
+          },
+          "prompt": {
+            "en": "Do people's voices carry less far? What are the light levels?",
+            "ru": "Разносятся ли голоса людей не так далеко? Каков уровень освещения?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Elemental Winds",
+            "ru": "Стихийные Ветра"
+          },
+          "description": {
+            "en": "The storm builds up and releases elemental energy. Roll a d4 to determine what kind of energy from the options below. 1. Lightning Strikes. Countdown (2). When the countdown triggers, lightning strikes all targets with metal weapons or armor, dealing 2d6 direct magic damage. 2. Fire Tornado. Countdown (3). When the countdown triggers, all exposed targets take 2d8+3 magic damage and must make a Strength Reaction Roll. On a failure, they are moved up to Close range in the direction the fire tornado is spinning. 3. Acid Downpour. Countdown (2). When the countdown triggers, all exposed PCs must mark an Armor Slot. If they cannot mark an Armor Slot, they must mark a HP. 4. Blizzard. Countdown (3). When the countdown triggers, any PC not adapted to the cold takes 2d6 magic damage.",
+            "ru": "Буря нарастает и высвобождает стихийную энергию. Бросьте d4, чтобы определить тип энергии из вариантов ниже. 1. Удары Молний. Отсчёт (2). Когда отсчёт срабатывает, молния бьёт по всем целям с металлическим оружием или бронёй, нанося 2d6 прямого магического урона. 2. Огненный Торнадо. Отсчёт (3). Когда отсчёт срабатывает, все незащищённые цели получают 2d8+3 магического урона и должны совершить Бросок Реакции на Силу. При неудаче их перемещает на дистанцию до Близкой в направлении вращения огненного торнадо. 3. Кислотный Ливень. Отсчёт (2). Когда отсчёт срабатывает, все незащищённые персонажи должны отметить Ячейку Брони. Если они не могут отметить Ячейку Брони, они должны отметить Рану. 4. Метель. Отсчёт (3). Когда отсчёт срабатывает, любой персонаж, не приспособленный к холоду, получает 2d6 магического урона."
+          },
+          "prompt": {
+            "en": "What damage does the storm do to the surrounding environment?",
+            "ru": "Какой урон буря наносит окружающему ландшафту?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Out of the Sky",
+            "ru": "С Небес"
+          },
+          "description": {
+            "en": "Spend a Fear to summon three adversaries, who fall from the sky. Each adversary begins with two HP marked.",
+            "ru": "Потратьте Страх, чтобы призвать трёх противников, падающих с неба. Каждый противник начинает с двумя отмеченными очками здоровья."
+          },
+          "prompt": {
+            "en": "Were the adversaries swept up in the storm, summoned by it, or created by it? Are they hostile, friendly, or neutral?",
+            "ru": "Противников подхватила буря, их призвала буря, или же они порождены ею? Враждебны они, дружелюбны или нейтральны?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "universal"
+      ]
+    },
+    {
+      "id": "masquerade-party",
+      "tier": 2,
+      "type": "social",
+      "difficulty": 14,
+      "name": {
+        "en": "Masquerade Party",
+        "ru": "Бал-маскарад"
+      },
+      "impulses": {
+        "en": [
+          "Hide identities",
+          "forge political alliances",
+          "spawn gossip"
+        ],
+        "ru": [
+          "Скрывать личности",
+          "заключать политические союзы",
+          "порождать сплетни"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Animated Objects (Rug, Statue)",
+          "Assassins (Apprentice, Master, Poisoner)",
+          "Courtesan",
+          "Faerie Trickster",
+          "Knight of the Realm",
+          "Masked Thief",
+          "Merchant Baron",
+          "Petty Noble",
+          "Royal Advisor",
+          "Secret-Keeper",
+          "Spy"
+        ],
+        "ru": [
+          "Одушевлённые Предметы (Ковёр, Статуя)",
+          "Убийцы (Ученик, Мастер, Отравитель)",
+          "Куртизанка",
+          "Фейский Трикстер",
+          "Рыцарь Королевства",
+          "Вор в Маске",
+          "Торговый Барон",
+          "Мелкий Аристократ",
+          "Королевский Советник",
+          "Культист-Хранитель Тайн",
+          "Шпион"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Hidden Faces",
+            "ru": "Скрытые Лица"
+          },
+          "description": {
+            "en": "Recognizing a known face requires a successful Knowledge Roll.",
+            "ru": "Чтобы узнать знакомое лицо, требуется успешный бросок Знания."
+          },
+          "prompt": {
+            "en": "Who are the well known socialites and notorious scoundrels in this settlement? What masks do the PCs and NPCs wear?",
+            "ru": "Кто из известных светских львов и печально известных негодяев может быть на этом приёме? Какие маски носят персонажи и НПС?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Civil Society",
+            "ru": "Приличное Общество"
+          },
+          "description": {
+            "en": "No armor or weapons are allowed at the party.",
+            "ru": "На приём запрещено проносить броню или оружие."
+          },
+          "prompt": {
+            "en": "What are the PCs able to smuggle in without detection?",
+            "ru": "Что персонажи смогут пронести незамеченным?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Gossip Circle",
+            "ru": "Кружок Сплетен"
+          },
+          "description": {
+            "en": "A group gathers nearby to talk about a topic of interest to the PCs. A PC can make a Presence Roll to join the conversation or a Finesse Roll to sneak up and eavesdrop.",
+            "ru": "Неподалёку собирается группа, обсуждающая тему, интересную персонажам. Персонаж может совершить бросок Влияния, чтобы присоединиться к разговору, или бросок Искусности, чтобы подкрасться и подслушать."
+          },
+          "prompt": {
+            "en": "What is the discussion about? Who is behind the masks?",
+            "ru": "О чём разговор? Кто скрывается за масками?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Dance",
+            "ru": "Танец"
+          },
+          "description": {
+            "en": "Music begins to play signaling that it is time to find a partner for a dance.",
+            "ru": "Начинает играть музыка, сигнализируя, что пора найти партнёра для танца."
+          },
+          "prompt": {
+            "en": "What information can be learned during the dance? How comfortable are the PCs at dancing?",
+            "ru": "Какие сведения можно узнать во время танца? Насколько уверенно персонажи чувствуют себя в танце?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "The Main Event",
+            "ru": "Главное Событие"
+          },
+          "description": {
+            "en": "The head of the household makes a speech celebrating the cause of the gathering. Spend a Fear to spotlight an adversary who adds a complication, such as an assassination attempt.",
+            "ru": "Глава семейства произносит речь в честь повода для собрания. Потратьте Страх, чтобы дать Активацию противнику, добавляющему осложнение, например, попытку покушения."
+          },
+          "prompt": {
+            "en": "What was the purpose of the gathering - a marriage, coming of age ceremony, or for building political alliances?",
+            "ru": "Какова была цель собрания — свадьба, обряд совершеннолетия или укрепление политических союзов?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Social Judgment",
+            "ru": "Общественное Осуждение"
+          },
+          "description": {
+            "en": "If a PC makes a social faux pas, they must mark a Stress.",
+            "ru": "Если персонаж совершает социальную оплошность, он должен отметить Стресс."
+          },
+          "prompt": {
+            "en": "How will the PC make up for their error? Are they anonymous enough behind their mask?",
+            "ru": "Как персонаж исправит свою ошибку? Достаточно ли он анонимен под своей маской?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Insult",
+            "ru": "Оскорбление"
+          },
+          "description": {
+            "en": "If a guest is insulted, spend a Fear to issue a challenge to a duel.",
+            "ru": "Если гостя оскорбили, потратьте Страх, чтобы был брошен вызов на дуэль."
+          },
+          "prompt": {
+            "en": "When and where is the challenge? What weapons and rules will be decided?",
+            "ru": "Когда и где назначен вызов? Какое оружие и правила будут выбраны?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "settlement"
+      ]
+    },
+    {
+      "id": "obstacle-course",
+      "tier": 2,
+      "type": "traversal",
+      "difficulty": 14,
+      "name": {
+        "en": "Obstacle Course",
+        "ru": "Полоса препятствий"
+      },
+      "impulses": {
+        "en": [
+          "Challenge contestants",
+          "weed out the weaklings"
+        ],
+        "ru": [
+          "Испытывать участников",
+          "отсеивать слабых"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Cult Initiate",
+          "Giant Recruit",
+          "Simiah Bronzeback"
+        ],
+        "ru": [
+          "Посвящённый Культа",
+          "Гигант Новобранец",
+          "Симиан-Бронзеспин"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Race",
+            "ru": "Гонка"
+          },
+          "description": {
+            "en": "Each racer begins with a d12 progress die to track their progress, set to 1. The first to 12 wins. For initiative, start with the highest progress die and work downwards, with PCs moving before NPCs for shared die values. Each turn, a racer makes an action roll, progressing as follows:\n- Tick up 1 on a Failure.\n- Tick up 2 on a Success.\n- Tick up 3 on a Critical Success. If a racer's action roll involves anything other than racing, the amount the racer's die ticks up is reduced by 1. If they target another racer, on a success the target's die might tick down by 1, or they may have disadvantage on their next action roll, depending on the effect.",
+            "ru": "Каждый гонщик начинает с d12-кости прогресса, отслеживающей его продвижение, установленной на 1. Первый, кто достигнет 12, побеждает. Для очерёдности начинайте с наибольшего значения кости прогресса и двигайтесь вниз, при равных значениях персонажи ходят раньше НПС. Каждый ход гонщик совершает бросок действия, продвигаясь следующим образом:\n- При Неудаче — +1.\n- При Успехе — +2.\n- При Критическом Успехе — +3. Если бросок действия гонщика связан не с самой гонкой, а с чем-то ещё, продвижение кости уменьшается на 1. Если он целится в другого гонщика, при успехе кость цели может уменьшиться на 1, либо цель получает помеху на следующий бросок действия, в зависимости от эффекта."
+          },
+          "prompt": {
+            "en": "Why are the PCs competing - to gain someone's trust, settle differences, or show they are worthy?",
+            "ru": "Зачем персонажи соревнуются — заслужить чьё-то доверие, уладить разногласия или доказать, что они достойны?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Course Sections",
+            "ru": "Участки Полосы"
+          },
+          "description": {
+            "en": "The course has 4 sections with the following progress die values and suggested action rolls: 1-3. Climb. Racers must make an Agility or Strength Roll. 4-6. Cross a Gap. Racers must make an Agility Roll. On a failure, they take 1d10+5 physical damage and reset their progress die to 1. 7-9. Sneak. Racers must make a Finesse Roll. On a failure, they must reset their progress die to 7. 10-12. Avoid Hazards. Racers must make an Instinct or Finesse Roll. On a failure, they take 2d6 physical damage and reset their progress die to 10.",
+            "ru": "Полоса состоит из 4 участков со следующими значениями кости прогресса и рекомендуемыми бросками действия: 1-3. Подъём. Гонщики должны совершить бросок Проворности или Силы. 4-6. Пересечь Провал. Гонщики должны совершить бросок Проворности. При неудаче они получают 1d10+5 физического урона и сбрасывают кость прогресса на 1. 7-9. Прокрасться. Гонщики должны совершить бросок Искусности. При неудаче они должны сбросить кость прогресса на 7. 10-12. Избежать Опасностей. Гонщики должны совершить бросок Инстинкта или Искусности. При неудаче они получают 2d6 физического урона и сбрасывают кость прогресса на 10."
+          },
+          "prompt": {
+            "en": "Where is the obstacle course held - across rooftops, in a jungle, or at a military training camp?",
+            "ru": "Где проходит полоса препятствий — по крышам, в джунглях или в военном учебном лагере?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Hit the Targets",
+            "ru": "Поразить Мишени"
+          },
+          "description": {
+            "en": "Targets appear at the position of the lead racer. Each racer must make a successful attack roll against a target before they can advance beyond that position.",
+            "ru": "На позиции лидирующего гонщика появляются мишени. Каждый гонщик должен успешно совершить бросок атаки по мишени, прежде чем сможет продвинуться дальше этой позиции."
+          },
+          "prompt": {
+            "en": "Who or what do the targets represent?",
+            "ru": "Кого или что символизируют мишени?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Heated Competition",
+            "ru": "Жаркое Соперничество"
+          },
+          "description": {
+            "en": "When a PC rolls with Fear, you can spend a Fear to have another racer on the same section impose disadvantage on the PC's next roll.",
+            "ru": "Когда персонаж выбрасывает результат со Страхом, вы можете потратить Страх, чтобы другой гонщик на том же участке наложил помеху на следующий бросок персонажа."
+          },
+          "prompt": {
+            "en": "How does the racer sabotage the PC?",
+            "ru": "Как гонщик саботирует персонажа?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "settlement"
+      ]
+    },
+    {
+      "id": "quickdraw",
+      "tier": 2,
+      "type": "event",
+      "difficulty": 14,
+      "name": {
+        "en": "Quickdraw",
+        "ru": "Быстрый выстрел"
+      },
+      "impulses": {
+        "en": [
+          "Build tension",
+          "settle differences",
+          "strike often or strike hard"
+        ],
+        "ru": [
+          "Нагнетать напряжение",
+          "разрешать споры",
+          "бить часто или бить сильно"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Tier 1: Human Student, Jagged Knife Lieutenant",
+          "Tier 2: Firbolg Cowboy, Gnome Gunslinger, War Wizard",
+          "Tier 3: Devil Planeswalker, Xolothi Mage",
+          "Tier 4: Headmaster"
+        ],
+        "ru": [
+          "Ранг 1: Студент-Человек, Лейтенант из «Зазубренного ножа»",
+          "Ранг 2: Ковбой-Фирболг, Гномка-Стрелок, Боевой Маг",
+          "Ранг 3: Дьявол-Планетоходец, Маг Ксолоти",
+          "Ранг 4: Директор"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Dueling Rules",
+            "ru": "Правила Дуэли"
+          },
+          "description": {
+            "en": "The rules for the duel are outlined below.\n- The first to deal Severe damage or defeat their opponent wins the duel.\n- The GM sets aside their Fear pool and starts with 1 Fear. Any remaining Fear at the end of the duel is discarded.\n- The PC and adversary make an Agility Reaction Roll to determine who acts first.\n- The adversary gains the Relentless (2) feature (if they don't have a Relentless feature) and they can't summon other adversaries.\n- The PC can't use Armor Slots.\n- When the last HP is marked, the target only dies if there is intent to kill.",
+            "ru": "Ниже изложены правила дуэли.\n- Первый, кто нанесёт Тяжёлый урон или победит противника, выигрывает дуэль.\n- Мастер откладывает свой запас Страха и начинает с 1 Страхом. Весь оставшийся Страх по окончании дуэли отбрасывается.\n- Персонаж и противник совершают Бросок Реакции на Проворность, чтобы определить, кто действует первым.\n- Противник получает свойство Неутомимый (2) (если у него ещё нет свойства Неутомимый) и не может призывать других противников.\n- Персонаж не может использовать Ячейки Брони.\n- Когда отмечено последнее очко здоровья, цель погибает, только если было намерение убить."
+          },
+          "prompt": {
+            "en": "Do the duelers start back-to-back and pace forwards to a mark, or start apart with holstered weapons?",
+            "ru": "Начинают ли дуэлянты спина к спине и расходятся до отметки, или начинают порознь с оружием в кобуре?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Deadly Focus",
+            "ru": "Смертельная Сосредоточенность"
+          },
+          "description": {
+            "en": "A dueler can mark a Stress and make a Instinct Roll against the Environment's Difficulty. On a success, they gain a Focus token. A dueler can spend one or more Focus tokens to gain a +5 bonus to their damage roll during the duel when they succeed on an attack.",
+            "ru": "Дуэлянт может отметить Стресс и совершить бросок Инстинкта против Сложности Окружения. При успехе он получает жетон Сосредоточенности. Дуэлянт может потратить один или несколько жетонов Сосредоточенности, чтобы получить +5 к броску урона во время дуэли при успешной атаке."
+          },
+          "prompt": {
+            "en": "How do the duelers focus their aim, and what do they focus on?",
+            "ru": "Как дуэлянты фокусируют прицел и на чём именно они сосредотачиваются?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "settlement"
+      ]
+    },
+    {
+      "id": "rooftop-chase",
+      "tier": 2,
+      "type": "event",
+      "difficulty": 14,
+      "name": {
+        "en": "Rooftop Chase",
+        "ru": "Погоня по крышам"
+      },
+      "impulses": {
+        "en": [
+          "Disrupt progress with streets to leap over",
+          "drop the unready down to the streets below"
+        ],
+        "ru": [
+          "Мешать продвижению улицами, которые приходится перепрыгивать",
+          "сбрасывать неготовых вниз на улицы"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Air Balloon",
+          "Cult Fang",
+          "Guards (Archer, Bladed, Head)",
+          "Katari Bounty Hunter",
+          "Masked Thief",
+          "Mortal Hunter",
+          "Simiah Bronzeback",
+          "Spy"
+        ],
+        "ru": [
+          "Воздушный Шар",
+          "Клык Культа",
+          "Стражники (Лучник, Мечник, Капитан)",
+          "Катари Охотник за Головами",
+          "Вор в Маске",
+          "Смертный Охотник",
+          "Симиан-Бронзеспин",
+          "Шпион"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Chase Sequence",
+            "ru": "Последовательность Погони"
+          },
+          "description": {
+            "en": "Set the pursuers' countdown to 8 and the escapee's countdown to a value between 5 and 7 depending on their lead. Normal chase rules apply: the escapee flees if their countdown triggers first, and they are caught if the pursuer's countdown triggers first. Advance the two countdowns when a PC makes an action roll:\n- Critical Success: PC countdown ticks down 3.\n- Success with Hope: PC countdown ticks down 2.\n- Success with Fear: Both countdowns tick down 1.\n- Failure with Hope: Adversary countdown ticks down 2.\n- Failure with Fear: Adversary countdown ticks down 3.",
+            "ru": "Установите отсчёт преследователей на 8, а отсчёт беглеца — на значение от 5 до 7 в зависимости от его отрыва. Действуют обычные правила погони: беглец скрывается, если его отсчёт срабатывает первым, и пойман, если первым срабатывает отсчёт преследователя. Продвигайте оба отсчёта, когда персонаж совершает бросок действия:\n- Критический Успех: отсчёт персонажа уменьшается на 3.\n- Успех с Надеждой: отсчёт персонажа уменьшается на 2.\n- Успех со Страхом: оба отсчёта уменьшаются на 1.\n- Неудача с Надеждой: отсчёт противника уменьшается на 2.\n- Неудача со Страхом: отсчёт противника уменьшается на 3."
+          },
+          "prompt": {
+            "en": "How do the PCs advance - do they pass through a building, leap over an alley, or take a shortcut from recalling the layout of the settlement?",
+            "ru": "Как персонажи продвигаются — проходят сквозь здание, перепрыгивают переулок или срезают путь, вспомнив планировку поселения?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Slippery Tiles",
+            "ru": "Скользкая Черепица"
+          },
+          "description": {
+            "en": "All PCs must make an Instinct Reaction Roll. PCs who fail must mark a Stress.",
+            "ru": "Все персонажи должны совершить Бросок Реакции на Инстинкт. Провалившие его должны отметить Стресс."
+          },
+          "prompt": {
+            "en": "Are the tiles loose, or slippery from the weather?",
+            "ru": "Черепица расшатана, или скользкая из-за погоды?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Wide Gap",
+            "ru": "Широкий Провал"
+          },
+          "description": {
+            "en": "Spend a Fear to introduce a large gap spanning rooftops. PCs must make an Agility Reaction Roll (16) to leap across the gap. PCs who fail fall to street level, taking 1d20+5 direct physical damage. They must start their own progress countdown with the same value, using the Street Chase environment.",
+            "ru": "Потратьте Страх, чтобы ввести широкий провал между крышами. Персонажи должны совершить Бросок Реакции на Проворность (16), чтобы перепрыгнуть провал. Провалившие бросок падают на уровень улицы, получая 1d20+5 прямого физического урона. Они должны начать собственный отсчёт прогресса с тем же значением, используя окружение «Погоня по Улицам»."
+          },
+          "prompt": {
+            "en": "Do the PCs help each other across the gap, or use any skills to reduce the Difficulty?",
+            "ru": "Помогают ли персонажи друг другу преодолеть провал или используют навыки, чтобы снизить Сложность?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Guard Patrol",
+            "ru": "Патруль Стражи"
+          },
+          "description": {
+            "en": "When the PCs are the escapees, spend a Fear to have a group of Archer Guards on another rooftop use their \"Hobbling Shot\" action (+1 attack bonus, dealing 1d12+3 physical damage and the target's Agility Rolls have disadvantage until they clear HP). Make one shared attack roll against all PCs.",
+            "ru": "Когда персонажи убегают, потратьте Страх, чтобы группа Стражников-Лучников на другой крыше применила действие «Обездвиживающий выстрел» (бонус +1 к атаке, нанося 1d12+3 физического урона; после этого броски Проворности цели совершаются с помехой, пока она не снимет Рану). Совершите один общий бросок атаки против всех персонажей."
+          },
+          "prompt": {
+            "en": "Do the guards also begin to chase?",
+            "ru": "Начинают ли стражники также преследование?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "settlement"
+      ]
+    },
+    {
+      "id": "street-chase",
+      "tier": 2,
+      "type": "event",
+      "difficulty": 13,
+      "name": {
+        "en": "Street Chase",
+        "ru": "Погоня по улицам"
+      },
+      "impulses": {
+        "en": [
+          "Slow down travel",
+          "populate the streets",
+          "block the path forwards"
+        ],
+        "ru": [
+          "Замедлять путешествие",
+          "заполнять улицы толпой",
+          "перекрывать путь вперёд"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Clanker",
+          "Cult Fang",
+          "Guards (Archer, Bladed, Head)",
+          "Katari Bounty Hunter",
+          "Masked Thief",
+          "Merchant",
+          "Mortal Hunter",
+          "Spy"
+        ],
+        "ru": [
+          "Лязгач",
+          "Клык Культа",
+          "Стражники (Лучник, Мечник, Капитан)",
+          "Катари Охотник за Головами",
+          "Вор в Маске",
+          "Торговец",
+          "Смертный Охотник",
+          "Шпион"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Chase Sequence",
+            "ru": "Последовательность Погони"
+          },
+          "description": {
+            "en": "Set the pursuers' countdown to 8 and the escapee's countdown to a value between 5 and 7 depending on their lead. Normal chase rules apply: the escapee flees if their countdown triggers first, and they are caught if the pursuer's countdown triggers first. Advance the two countdowns when a PC makes an action roll:\n- Critical Success: PC countdown ticks down 3.\n- Success with Hope: PC countdown ticks down 2.\n- Success with Fear: Both countdowns tick down 1.\n- Failure with Hope: Adversary countdown ticks down 2.\n- Failure with Fear: Adversary countdown ticks down 3.",
+            "ru": "Установите отсчёт преследователей на 8, а отсчёт беглеца — на значение от 5 до 7 в зависимости от его отрыва. Действуют обычные правила погони: беглец скрывается, если его отсчёт срабатывает первым, и пойман, если первым срабатывает отсчёт преследователя. Продвигайте оба отсчёта, когда персонаж совершает бросок действия:\n- Критический Успех: отсчёт персонажа уменьшается на 3.\n- Успех с Надеждой: отсчёт персонажа уменьшается на 2.\n- Успех со Страхом: оба отсчёта уменьшаются на 1.\n- Неудача с Надеждой: отсчёт противника уменьшается на 2.\n- Неудача со Страхом: отсчёт противника уменьшается на 3."
+          },
+          "prompt": {
+            "en": "How do the PCs advance - do they cut through a building, climb onto the rooftops, or take a shortcut from recalling the layout of the settlement?",
+            "ru": "Как персонажи продвигаются — прорезают путь сквозь здание, забираются на крыши или срезают путь, вспомнив планировку поселения?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "To the Rooftops",
+            "ru": "На Крыши"
+          },
+          "description": {
+            "en": "The escapee can climb a building and continue along the rooftops. PCs must succeed on an Agility Roll to do so. Change the environment to a Rooftop Chase environment and keep the same countdowns.",
+            "ru": "Беглец может забраться на здание и продолжить путь по крышам. Персонажи должны преуспеть в броске Проворности, чтобы сделать это. Смените окружение на «Погоня по Крышам», сохранив те же отсчёты."
+          },
+          "prompt": {
+            "en": "Do the PCs use parkour, scaffolding, or another means of ascending?",
+            "ru": "Используют ли персонажи паркур, строительные леса или другой способ подъёма?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Parade",
+            "ru": "Парад"
+          },
+          "description": {
+            "en": "A parade has closed down the street ahead, drawing a crowd. Tick up both countdowns by 2. The escapee can choose to push through the crowd or find an alternative route.",
+            "ru": "Парад перекрыл улицу впереди, собрав толпу. Увеличьте оба отсчёта на 2. Беглец может протолкнуться через толпу или найти обходной путь."
+          },
+          "prompt": {
+            "en": "Is it a celebratory parade for a cultural event, or a solemn parade for a funeral procession?",
+            "ru": "Это праздничный парад в честь культурного события или скорбная похоронная процессия?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Vendor's Stall",
+            "ru": "Прилавок Торговца"
+          },
+          "description": {
+            "en": "All PCs must make a Finesse Reaction Roll to avoid a series of vendor carts. On a failure, the PC is blacklisted by the Merchant's Guild until they pay a handful of gold for damages.",
+            "ru": "Все персонажи должны совершить Бросок Реакции на Искусность, чтобы не задеть ряд торговых тележек. При неудаче персонаж вносится Гильдией Торговцев в чёрный список, пока не заплатит горсть золота за ущерб."
+          },
+          "prompt": {
+            "en": "What wares were the vendors selling?",
+            "ru": "Каким товаром торговали на прилавках?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Line of Guards",
+            "ru": "Шеренга Стражи"
+          },
+          "description": {
+            "en": "When the PCs are the escapees, spend a Fear to summon 4 Bladed Guards who block the path ahead. A PC must succeed on an Agility Roll (16) to lead the group through the Guards' shield wall. On a roll with Fear, two guards make their standard attack against the PC (+1 attack bonus, 1d6+1 phy damage). Combine the damage.",
+            "ru": "Когда персонажи убегают, потратьте Страх, чтобы призвать 4 Стражников-Мечников, перекрывающих путь впереди. Персонаж должен преуспеть в броске Проворности (16), чтобы провести группу сквозь стену щитов стражи. При результате со Страхом двое стражников совершают стандартную атаку по персонажу (бонус +1 к атаке, 1d6+1 физического урона). Сложите урон."
+          },
+          "prompt": {
+            "en": "Do the guards also begin to chase?",
+            "ru": "Начинают ли стражники также преследование?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "settlement"
+      ]
+    },
+    {
+      "id": "arctic",
+      "tier": 3,
+      "type": "traversal",
+      "difficulty": 20,
+      "name": {
+        "en": "Arctic",
+        "ru": "Арктика"
+      },
+      "impulses": {
+        "en": [
+          "Cover land with snow",
+          "bring extreme weather and cold",
+          "hide secrets beneath the ice"
+        ],
+        "ru": [
+          "Покрывать землю снегом",
+          "насылать экстремальную погоду и холод",
+          "скрывать тайны подо льдом"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Elephant (Mammoth)",
+          "Frost Bear",
+          "Frost Giant",
+          "Frost Spirits",
+          "Ice Spider",
+          "Krampus",
+          "Phoenix",
+          "Tiger (Saber-Toothed Tiger)",
+          "Wight",
+          "Yeti",
+          "Young Ice Dragon"
+        ],
+        "ru": [
+          "Слон (Мамонт)",
+          "Морозный Медведь",
+          "Морозный Великан",
+          "Морозные Духи",
+          "Ледяной Паук",
+          "Крампус",
+          "Феникс",
+          "Тигр (Саблезубый Тигр)",
+          "Вих",
+          "Йети",
+          "Молодой Ледяной Дракон"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Biting Cold",
+            "ru": "Пронизывающий Холод"
+          },
+          "description": {
+            "en": "PCs not equipped for cold weather must mark a Stress when they roll with Fear.",
+            "ru": "Персонажи, не подготовленные к холодной погоде, должны отметить Стресс, когда выбрасывают результат со Страхом."
+          },
+          "prompt": {
+            "en": "How can the PCs warm themselves up under these conditions?",
+            "ru": "Как персонажи могут согреться в этих условиях?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Thick Snow",
+            "ru": "Глубокий Снег"
+          },
+          "description": {
+            "en": "In areas with thick snow, Agility Rolls are made with disadvantage.",
+            "ru": "На участках с глубоким снегом броски Проворности совершаются с помехой."
+          },
+          "prompt": {
+            "en": "How do snowdrifts shape the battlefield?",
+            "ru": "Как сугробы формируют поле боя?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Blizzard",
+            "ru": "Метель"
+          },
+          "description": {
+            "en": "Countdown (Loop 4). A blizzard begins to form. Spend a Fear to activate the countdown. When it triggers, all exposed PCs take 3d6 direct magic damage.",
+            "ru": "Отсчёт (Цикл 4). На горизонте начинает формироваться метель. Потратьте Страх, чтобы активировать отсчёт. Когда он срабатывает, все незащищённые персонажи получают 3d6 прямого магического урона."
+          },
+          "prompt": {
+            "en": "What shelter is nearby? Does a beast claim it as their lair?",
+            "ru": "Какое укрытие есть поблизости? Не занял ли его какой-нибудь зверь в качестве логова?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Buried Ruins",
+            "ru": "Погребённые Руины"
+          },
+          "description": {
+            "en": "The remains of an old building poke through the snow and ice. The building provides shelter from the elements, but is the home of two Yetis.",
+            "ru": "Из-под снега и льда проступают остатки старого здания. Здание даёт укрытие от стихии, но в нём обитают два Йети."
+          },
+          "prompt": {
+            "en": "What civilization built it and what was its purpose? What loot can be found?",
+            "ru": "Какая цивилизация его построила и с какой целью? Какую добычу здесь можно найти?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Ice Sheet",
+            "ru": "Ледяной Покров"
+          },
+          "description": {
+            "en": "When crossing an ice sheet, a Frost Giant spots the PCs, and uses their \"Freeze/Thaw\" action to crack the ice. All PCs must succeed on an Agility Reaction Roll or fall into the icy water, taking 3d10+5 direct magic damage.",
+            "ru": "При пересечении ледяного покрова Морозный Великан замечает персонажей и использует действие «Заморозить/Растопить», чтобы расколоть лёд. Все персонажи должны преуспеть в Броске Реакции на Проворность, иначе падают в ледяную воду, получая 3d10+5 прямого магического урона."
+          },
+          "prompt": {
+            "en": "Do additional monsters lurk in the water beneath the ice?",
+            "ru": "Таятся ли в воде подо льдом другие чудовища?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "frozen"
+      ]
+    },
+    {
+      "id": "bank-heist",
+      "tier": 3,
+      "type": "event",
+      "difficulty": 17,
+      "name": {
+        "en": "Bank Heist",
+        "ru": "Ограбление банка"
+      },
+      "impulses": {
+        "en": [
+          "Protect valuables",
+          "detect and trap intruders"
+        ],
+        "ru": [
+          "Защищать ценности",
+          "обнаруживать и ловить в ловушки незваных гостей"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Bladed Guards",
+          "Huge Golden Ooze",
+          "Vault Guardians (Gaoler, Sentinel, Turret)",
+          "Watcher",
+          "Zaxian"
+        ],
+        "ru": [
+          "Стражники-Мечники",
+          "Огромная Золотая Слизь",
+          "Стражи Хранилища (Тюремщик, Дозорный, Турель)",
+          "Наблюдатель",
+          "Заксианец"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Casing the Joint",
+            "ru": "Разведка Объекта"
+          },
+          "description": {
+            "en": "Publically accessible areas are open during business hours, and supervised access to restricted areas can be achieved with successful Presence Rolls. Blueprints can be obtained to find an unguarded entry point by speaking with knowledgable NPCs or from original plans in a library.",
+            "ru": "Общедоступные зоны открыты в рабочие часы, а контролируемый доступ в закрытые зоны можно получить успешными бросками Влияния. Чертежи можно раздобыть, чтобы найти неохраняемую точку входа — расспросив осведомлённых НПС или найдя оригинальные планы в библиотеке."
+          },
+          "prompt": {
+            "en": "How many guards are there? Who grants access to the restricted areas? Where are the alternative entrances?",
+            "ru": "Сколько здесь охранников? Кто предоставляет доступ в закрытые зоны? Где находятся альтернативные входы?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Temptations",
+            "ru": "Соблазны"
+          },
+          "description": {
+            "en": "Other vaults are accessible with valuable loot, but have their own traps, and can distract from the core heist.",
+            "ru": "Другие хранилища доступны и содержат ценную добычу, но имеют собственные ловушки и способны отвлечь от основной цели ограбления."
+          },
+          "prompt": {
+            "en": "What other items of value are present in the other vaults?",
+            "ru": "Какие ещё ценности есть в других хранилищах?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Patrol",
+            "ru": "Патруль"
+          },
+          "description": {
+            "en": "Spend a Fear to have a patrol of two Bladed Guards pass by. PCs must succeed on a group action roll using traits of their choice to become Hidden. On a failure, the patrol spots the PCs.",
+            "ru": "Потратьте Страх, чтобы мимо прошёл патруль из двух Стражников-Мечников. Персонажи должны преуспеть в групповом броске, используя черты по своему выбору, чтобы стать Скрытыми. При неудаче патруль замечает персонажей."
+          },
+          "prompt": {
+            "en": "What does the patrol discuss as they make their rounds?",
+            "ru": "Что обсуждает патруль во время обхода?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Raised Alarm",
+            "ru": "Поднятая Тревога"
+          },
+          "description": {
+            "en": "Countdown (Loop 2d8). When the alarm is raised, all PCs must mark a Stress. Activate the countdown, which ticks down each time a PC rolls with Fear. Each time it triggers, roll a d4 to determine what reinforcements arrive within Very Far range. 1. A Vault Guardian Sentinel and Vault Guardian Gaoler 2. Two Vault Guardian Turrets 3. Two Watchers 4.",
+            "ru": "Отсчёт (Цикл 2d8). Когда поднята тревога, все персонажи должны отметить Стресс. Активируйте отсчёт, который уменьшается каждый раз, когда персонаж выбрасывает результат со Страхом. Каждый раз, когда он срабатывает, бросьте d4, чтобы определить, какое подкрепление прибывает в пределах Очень Дальней дистанции. 1. Страж Хранилища-Дозорный и Страж Хранилища-Тюремщик 2. Две Стража Хранилища-Турели 3. Два Наблюдателя 4."
+          },
+          "prompt": {
+            "en": "A Zaxian Will the PCs fight or flee? Which witnesses can describe their appearances?",
+            "ru": "Заксианец Будут ли персонажи сражаться или спасаться бегством? Какие свидетели смогут описать их внешность?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Trap",
+            "ru": "Ловушка"
+          },
+          "description": {
+            "en": "When a PC fails a roll in a restricted area, spend a Fear to activate a trap, such as a series of magical glyphs. All PCs within Very Close range of the trap must make an Agility Reaction Roll. On a failure they take 3d10 direct magic damage.",
+            "ru": "Когда персонаж проваливает бросок в закрытой зоне, потратьте Страх, чтобы сработала ловушка, например, серия магических глифов. Все персонажи в пределах Очень Близкой дистанции от ловушки должны совершить Бросок Реакции на Проворность. При неудаче они получают 3d10 прямого магического урона."
+          },
+          "prompt": {
+            "en": "What form does the trap take? Can it be triggered again?",
+            "ru": "В какой форме предстаёт ловушка? Можно ли активировать её повторно?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "settlement"
+      ]
+    },
+    {
+      "id": "circles-below-dis",
+      "tier": 3,
+      "type": "social",
+      "difficulty": 18,
+      "name": {
+        "en": "Circles Below: Dis",
+        "ru": "Нижние круги: Дис"
+      },
+      "impulses": {
+        "en": [
+          "Encourage lives of sin",
+          "beat spirit from souls",
+          "reward corruption"
+        ],
+        "ru": [
+          "Поощрять греховную жизнь",
+          "выбивать дух из душ",
+          "вознаграждать порок"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Demonic Hound Pack",
+          "Demons (Avarice, Despair, Hubris, Jealousy, Wrath)",
+          "Devils (Dealmaker, Punisher)",
+          "Inferni Incubus/Succubus"
+        ],
+        "ru": [
+          "Свора Демонических Гончих",
+          "Демоны (Алчности, Уныния, Гордыни, Зависти, Гнева)",
+          "Дьяволы (Заключающий Сделки, Каратель)",
+          "Инферни Инкуб/Суккуб"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "City of Sin",
+            "ru": "Город Греха"
+          },
+          "description": {
+            "en": "The Demons that rule Dis are involved in political games for power. A PC can inquire about a person or event with a Presence Roll. What they learn depends on the outcome of their roll.\n- Critical Success: Learn the location of the person or event and some relevant background information.\n- Success with Hope: Learn of a gluttonous demon who can provide the information if they are fed their favorite food.\n- Success with Fear: Learn where the information can be found through gambling.\n- Any Failure: The demon responds poorly to the inquiries. The PC must mark a Stress and barter in exchange for minor information.",
+            "ru": "Демоны, правящие Дисом, вовлечены в политические игры за власть. Персонаж может расспросить о человеке или событии броском Влияния. То, что он узнает, зависит от результата броска.\n- Критический Успех: узнайте местонахождение человека или события и некоторую значимую информацию.\n- Успех с Надеждой: узнайте о чревоугодливом демоне, который может предоставить информацию, если его накормить любимым блюдом.\n- Успех со Страхом: узнайте, что нужную информацию можно найти через азартные игры.\n- Любая Неудача: демон плохо реагирует на расспросы. Персонаж должен отметить Стресс и обменять что-то за небольшую информацию."
+          },
+          "prompt": {
+            "en": "Who are the major players in Dis and what vices do they embody?",
+            "ru": "Кто главные игроки в Дисе и какие пороки они олицетворяют?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Corrupting Influence",
+            "ru": "Растлевающее Влияние"
+          },
+          "description": {
+            "en": "Once per scene, when a PC makes a sinful action (pride, greed, wrath, envy, lust, gluttony, or sloth), they gain a Sin token. These can be spent to gain advantage on an action roll while in Dis.",
+            "ru": "Раз за сцену, когда персонаж совершает греховный поступок (гордыня, жадность, гнев, зависть, похоть, чревоугодие или праздность), он получает жетон Греха. Их можно потратить, чтобы получить преимущество на бросок действия, пока персонаж находится в Дисе."
+          },
+          "prompt": {
+            "en": "How might they achieve each of these sins while in Dis?",
+            "ru": "Как персонажи могли бы совершить каждый из этих грехов, находясь в Дисе?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Souls as Slaves",
+            "ru": "Души как Рабы"
+          },
+          "description": {
+            "en": "Souls of the damned have been stripped of their spirit, and dutifully attend to the menial tasks within Dis as slaves of the demon ruling class.",
+            "ru": "Души проклятых лишены духа и покорно выполняют чёрную работу в Дисе как рабы демонической правящей касты."
+          },
+          "prompt": {
+            "en": "Is buying and selling souls a commonplace occurrence? Do demons barter with souls?",
+            "ru": "Является ли покупка и продажа душ обыденным делом? Торгуются ли демоны душами?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Spirited Souls",
+            "ru": "Одухотворённые Души"
+          },
+          "description": {
+            "en": "A group of souls with a little remaining spirit attempt to make an escape from a cruel master in sight of the PCs, seeking the means to become demons themselves or escape to the Hallows Above.",
+            "ru": "Группа душ, всё ещё сохранивших немного духа, на глазах у персонажей пытается сбежать от жестокого хозяина, ища способ самим стать демонами или сбежать в Высшие Святыни."
+          },
+          "prompt": {
+            "en": "What crimes did the souls commit to be condemned to the Circles Below? Are they redeemable?",
+            "ru": "Какие преступления совершили эти души, чтобы быть осуждёнными на Нижние Круги? Искупимы ли они?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Suspicious Denizens",
+            "ru": "Подозрительные Обитатели"
+          },
+          "description": {
+            "en": "When the PCs don't have any Sin tokens, spend a Fear to have a Demon of Hubris, a Demon of Wrath, and a Demon of Jealousy investigate the PCs.",
+            "ru": "Когда у персонажей нет жетонов Греха, потратьте Страх, чтобы Демон Гордыни, Демон Гнева и Демон Зависти занялись расследованием в отношении персонажей."
+          },
+          "prompt": {
+            "en": "What were the demons on their way to do?",
+            "ru": "Куда направлялись эти демоны?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "universal"
+      ]
+    },
+    {
+      "id": "cloudy-sky",
+      "tier": 3,
+      "type": "traversal",
+      "difficulty": 16,
+      "name": {
+        "en": "Cloudy Sky",
+        "ru": "Облачное небо"
+      },
+      "impulses": {
+        "en": [
+          "Obscure view",
+          "support an ecosystem of flying monsters"
+        ],
+        "ru": [
+          "Затуманивать обзор",
+          "поддерживать экосистему летающих чудовищ"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Adult Flickerfly",
+          "Avians (Aeronaut, Divebomber, Wind-Dancer)",
+          "Giants (Cloud, Storm)",
+          "Phoenix",
+          "Whale (Sky Whale)",
+          "Winged Basilisk",
+          "Wyvern",
+          "Young Ice Dragon"
+        ],
+        "ru": [
+          "Взрослая Мерцекрылка",
+          "Пернатые (Аэронавт, Пикировщик, Ветротанцор)",
+          "Великаны (Облачный, Штормовой)",
+          "Феникс",
+          "Кит (Небесный Кит)",
+          "Крылатый Василиск",
+          "Виверна",
+          "Молодой Ледяной Дракон"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Limited Visibility",
+            "ru": "Ограниченная Видимость"
+          },
+          "description": {
+            "en": "Attack rolls made against targets at Far range or further have disadvantage.",
+            "ru": "Броски атаки по целям на Дальней дистанции и дальше совершаются с помехой."
+          },
+          "prompt": {
+            "en": "Are there regions of solid cloud that provide cover?",
+            "ru": "Есть ли участки плотного облака, дающие укрытие?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Cloud Castle",
+            "ru": "Облачный Замок"
+          },
+          "description": {
+            "en": "A gap in the clouds reveals a castle floating on cloud in the sky ahead. A PC can make an Instinct Roll to spot what kind of creatures inhabit the castle.",
+            "ru": "Просвет в облаках открывает впереди замок, парящий на облаке в небе. Персонаж может совершить бросок Инстинкта, чтобы понять, какие существа обитают в замке."
+          },
+          "prompt": {
+            "en": "Who inhabits this castle, and are they friend or foe?",
+            "ru": "Кто населяет этот замок — друзья они или враги?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Rough Winds",
+            "ru": "Резкие Ветра"
+          },
+          "description": {
+            "en": "Spend a Fear for turbulence to disrupt the journey. All PCs on the deck must succeed on an Agility Reaction Roll or be thrown overboard.",
+            "ru": "Потратьте Страх, чтобы турбулентность нарушила путешествие. Все персонажи на палубе должны преуспеть в Броске Реакции на Проворность, иначе их выбросит за борт."
+          },
+          "prompt": {
+            "en": "Did an adversary cause the turbulence? How will they find and rescue their falling allies through the cloud? Is there solid cloud beneath that catches their fall?",
+            "ru": "Вызвал ли турбулентность противник? Как найти и спасти упавших союзников сквозь облака? Есть ли внизу плотное облако, смягчающее падение?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Solid Cloud",
+            "ru": "Плотное Облако"
+          },
+          "description": {
+            "en": "Spend a Fear to move into a region of solid cloud. The captain must make Finesse Rolls to navigate through the cloud, which can be made with advantage with help from lookouts. On a failure, the ship hits a cloud-berg and takes Minor damage on a roll with Hope or Major damage on a roll with Fear. At the center of this region spend a Fear to have a Winged Basilisk attack.",
+            "ru": "Потратьте Страх, чтобы войти в область плотного облака. Капитан должен совершать броски Искусности, чтобы провести корабль сквозь облако; их можно совершать с преимуществом при помощи впередсмотрящих. При неудаче корабль сталкивается с ледяной глыбой облака и получает Незначительный урон при результате с Надеждой или Ощутимый урон при результате со Страхом. В центре этой области потратьте Страх, чтобы напал Крылатый Василиск."
+          },
+          "prompt": {
+            "en": "Where can the PCs dock the skyship to conduct repairs?",
+            "ru": "Где персонажи могут пристать на небесном корабле, чтобы провести ремонт?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "universal"
+      ]
+    },
+    {
+      "id": "dripping-caverns",
+      "tier": 3,
+      "type": "exploration",
+      "difficulty": 17,
+      "name": {
+        "en": "Dripping Caverns",
+        "ru": "Капающие пещеры"
+      },
+      "impulses": {
+        "en": [
+          "Connect underground settlements",
+          "disorient with twists and turns"
+        ],
+        "ru": [
+          "Соединять подземные поселения",
+          "дезориентировать поворотами и изгибами"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Aquatic Basilisk",
+          "Basilisk",
+          "Ekoko",
+          "Giants (Earth, Fire)",
+          "Greater Earth Elemental",
+          "Huge Green Ooze",
+          "Rhino Beetle",
+          "Terrans (Gaia, Scree, Sorcerer, Tuff)",
+          "Watcher"
+        ],
+        "ru": [
+          "Водный Василиск",
+          "Василиск",
+          "Экоко",
+          "Великаны (Земляной, Огненный)",
+          "Старший Элементаль Земли",
+          "Огромная Зелёная Слизь",
+          "Носорожий Жук",
+          "Терраны (Гея, Осыпь, Чародей, Туф)",
+          "Наблюдатель"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Carved Pathways",
+            "ru": "Прорубленные Пути"
+          },
+          "description": {
+            "en": "The caverns have larger open rooms and smaller twisting tunnels carved out by water and underground burrowers over time. There are large drops and rises that require an Agility Roll or use of climbing equipment to safely progress, as well as tighter spaces requiring a Finesse or Strength Roll for larger PCs to squeeze or break through.",
+            "ru": "В пещерах есть более крупные открытые залы и узкие извилистые туннели, вырезанные со временем водой и подземными землекопами. Здесь есть большие обрывы и подъёмы, требующие броска Проворности или альпинистского снаряжения для безопасного продвижения, а также узкие проходы, требующие броска Искусности или Силы, чтобы крупные персонажи протиснулись или пробились сквозь них."
+          },
+          "prompt": {
+            "en": "Are any PCs claustrophobic? Do the caverns pass underground rivers or lava flows?",
+            "ru": "Страдает ли кто-то из персонажей клаустрофобией? Проходят ли пещеры вдоль подземных рек или потоков лавы?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Pitch Black",
+            "ru": "Кромешная Тьма"
+          },
+          "description": {
+            "en": "Unless the darkness is negated (such as with a light source), action rolls are made with disadvantage.",
+            "ru": "Если тьма не устранена (например, источником света), броски действия совершаются с помехой."
+          },
+          "prompt": {
+            "en": "How long do the non-magical light sources last? Do monsters that see in the dark target the light sources?",
+            "ru": "Как долго держатся немагические источники света? Нацеливаются ли на источники света чудовища, видящие в темноте?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Stalactites",
+            "ru": "Сталактиты"
+          },
+          "description": {
+            "en": "Larger cavernous spaces have stalactites hanging from the ceiling. They can be dislodged with a successful attack, dealing 2d10+5 physical damage to a creature below.",
+            "ru": "В более крупных пещерных залах со сводов свисают сталактиты. Их можно сбить успешной атакой, нанося 2d10+5 физического урона существу внизу."
+          },
+          "prompt": {
+            "en": "What else has grown over time in the caves - magic crystals, bioluminescent fungi, or roots from trees above?",
+            "ru": "Что ещё со временем выросло в пещерах — магические кристаллы, биолюминесцентные грибы или корни деревьев сверху?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Echoes of the Ekoko",
+            "ru": "Эхо Экоко"
+          },
+          "description": {
+            "en": "The PCs hear a bat-like screech echo through the tunnels. If they are not stealthy as they progress, summon an Ekoko. Otherwise, spend a Fear for the Ekoko to use its \"Screech\" action and detect the PCs.",
+            "ru": "Персонажи слышат по туннелям летучемышиный визг эха. Если они продвигаются не скрытно, призовите Экоко. В противном случае потратьте Страх, чтобы Экоко применил действие «Визг» и обнаружил персонажей."
+          },
+          "prompt": {
+            "en": "What gnawed remains do the PCs find of the ekoko's last meal?",
+            "ru": "Какие обглоданные останки последней добычи экоко находят персонажи?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Flooded Passage",
+            "ru": "Затопленный Проход"
+          },
+          "description": {
+            "en": "The path ahead is flooded and PCs must swim underwater to progress. Spend a Fear to summon an Aquatic Basilisk in the water.",
+            "ru": "Путь впереди затоплен, и персонажам нужно плыть под водой, чтобы продвинуться. Потратьте Страх, чтобы призвать в воде Водного Василиска."
+          },
+          "prompt": {
+            "en": "How long is the underwater stretch of tunnel, and are there regions with air? What remains of the basilisk's prey foreshadow its appearance?",
+            "ru": "Насколько длинный этот подводный участок туннеля и есть ли в нём карманы воздуха? Какие останки добычи василиска предвещают его появление?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "underground"
+      ]
+    },
+    {
+      "id": "jungle",
+      "tier": 3,
+      "type": "traversal",
+      "difficulty": 16,
+      "name": {
+        "en": "Jungle",
+        "ru": "Джунгли"
+      },
+      "impulses": {
+        "en": [
+          "Overwhelm the senses",
+          "teem with life just out of sight"
+        ],
+        "ru": [
+          "Перегружать чувства",
+          "кишеть жизнью прямо за пределами видимости"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Adult Flickerfly",
+          "Baihu",
+          "Carnivorous Plant",
+          "Dryad",
+          "Faerie Spider",
+          "Nagas (Oracle, Shapeshifter)",
+          "Treant (Oak, Sapling)",
+          "Tiger",
+          "Xolothi (Mage, Shaman, Warrior)"
+        ],
+        "ru": [
+          "Взрослая Мерцекрылка",
+          "Байху",
+          "Плотоядное Растение",
+          "Дриада",
+          "Фейский Паук",
+          "Наги (Оракул, Оборотень)",
+          "Трэнт (Дубовый, Саженец)",
+          "Тигр",
+          "Ксолоти (Маг, Шаман, Воин)"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Survival in the Wilds",
+            "ru": "Выживание в Диких Землях"
+          },
+          "description": {
+            "en": "PCs can navigate through the jungle by completing a progress countdown. Failed rolls extend the journey time, potentially diminishing supplies. During downtime, PCs can make an action roll to forage for food and water. On a success with Fear, roll a d6. On a 1, the food or water is tainted and all PCs that consume it contract Spirit Fever (see the \"Tropical Diseases\" action).",
+            "ru": "Персонажи могут пройти через джунгли, завершив отсчёт прогресса. Провальные броски продлевают время пути, потенциально сокращая запасы. Во время простоя персонажи могут совершить бросок действия, чтобы добыть еду и воду. При успехе со Страхом бросьте d6. При результате 1 еда или вода заражены, и все персонажи, употребившие их, заражаются Духовной Лихорадкой (см. действие «Тропические Болезни»)."
+          },
+          "prompt": {
+            "en": "How do the PCs set up camp to avoid wildlife and stay dry?",
+            "ru": "Как персонажи разбивают лагерь, чтобы избежать диких животных и остаться сухими?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Thick Brambles",
+            "ru": "Густой Терновник"
+          },
+          "description": {
+            "en": "A large patch of thick thorny brambles blocks the path ahead. If the PCs push through, they each take 3d12+5 physical damage as their skin is torn to shreds.",
+            "ru": "Крупный участок густого колючего терновника преграждает путь впереди. Если персонажи пробиваются напролом, каждый получает 3d12+5 физического урона, разрывая кожу в клочья."
+          },
+          "prompt": {
+            "en": "What other routes exist - swinging from vines in the canopy above, finding how locals part the way, or speaking to the plants?",
+            "ru": "Какие ещё пути существуют — раскачиваться на лианах в кронах деревьев, найти способ, которым это делают местные жители, или заговорить с растениями?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Tropical Diseases",
+            "ru": "Тропические Болезни"
+          },
+          "description": {
+            "en": "Spend a Fear to inflict a PC with one of the following conditions for the next 1d4 days or until they find an antidote.\n- Spirit Fever: The PC has a -1 penalty to their maximum HP and Stress.\n- Nightbane: The PC can only take one downtime move during a rest.\n- Blight: Hope features require spending an additional Hope.",
+            "ru": "Потратьте Страх, чтобы наделить персонажа одним из следующих состояний на следующие 1d4 дня или до тех пор, пока он не найдёт противоядие.\n- Духовная Лихорадка: у персонажа штраф -1 к максимальным очкам здоровья и Стресса.\n- Ночная Хворь: персонаж может совершить только один Ход Отдыха во время отдыха.\n- Скверна: свойства Надежды требуют траты дополнительной Надежды."
+          },
+          "prompt": {
+            "en": "What caused the disease - a poisonous plant, disease-carrying insect, or infected water supply?",
+            "ru": "Что вызвало болезнь — ядовитое растение, насекомое-переносчик или заражённый источник воды?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Turf War",
+            "ru": "Территориальная Война"
+          },
+          "description": {
+            "en": "When the PCs are in Naga or Xolothi territory, they spot a Naga Oracle and three Naga Shapeshifters ambush two Xolothi Warriors.",
+            "ru": "Когда персонажи оказываются на территории Наг или Ксолоти, они замечают, как Нага-Оракул и три Наги-Оборотня устраивают засаду на двух Воинов Ксолоти."
+          },
+          "prompt": {
+            "en": "What reward do the Xolothi grant for assistance?",
+            "ru": "Какую награду дадут Ксолоти за помощь?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "tropical"
+      ]
+    },
+    {
+      "id": "murder-mystery",
+      "tier": 3,
+      "type": "social",
+      "difficulty": 17,
+      "name": {
+        "en": "Murder Mystery",
+        "ru": "Загадка убийства"
+      },
+      "impulses": {
+        "en": [
+          "Sow distrust",
+          "conceal the murderer"
+        ],
+        "ru": [
+          "Сеять недоверие",
+          "скрывать убийцу"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Blood Cleric",
+          "Canid Bodyguard",
+          "Drakona Monk",
+          "Dryad",
+          "Earth Giant",
+          "Fatespinner Hag",
+          "Guards (Bladed, Head)",
+          "Head Vampire",
+          "Inferni Diabolist",
+          "Jorogumo",
+          "Katari Pit Fighter",
+          "Monarch",
+          "Sheriff",
+          "Stag Knight",
+          "Weredragon"
+        ],
+        "ru": [
+          "Кровавый Клирик",
+          "Псовый Телохранитель",
+          "Дракона Монах",
+          "Дриада",
+          "Земляной Великан",
+          "Ведьма-Пряха Судьбы",
+          "Стражники (Мечник, Капитан)",
+          "Старший Вампир",
+          "Инферни Дьяволист",
+          "Дзёрогумо",
+          "Катари Боец Ямы",
+          "Монарх",
+          "Шериф",
+          "Рыцарь-Олень",
+          "Вердракон"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Building the Mystery",
+            "ru": "Выстраивая Загадку"
+          },
+          "description": {
+            "en": "An ally or acquaintance of the PCs has just been murdered. The suspects are at the murder scene under guard. Roll a d4 or choose from the following prompts to build the scenario.\n- Victim: What career did the victim have? 1. guild or trade, 2. magical or academic, 3. religious or cultural, 4. political or investigative.\n- Location: Where did the murder take place? 1. private manor, 2. job site, 3. public building, 4. mode of transport.\n- Means: How was the victim killed? 1. physical attack, 2. elemental attack, 3. magical attack, 4. poison.\n- Motive: Why was the victim murdered? 1. steal an artifact, 2. seek revenge, 3. silence a secret, 4. gain more power.\n- Opportunity: How did the murderer attack without notice? 1. created a distraction, 2. lured victim away, 3. knew the victim's routine, 4. waited for an opportunistic moment.",
+            "ru": "Союзника или знакомого персонажей только что убили. Подозреваемые находятся на месте преступления под охраной. Бросьте d4 или выберите из предложенных ниже вариантов, чтобы выстроить сценарий.\n- Жертва: чем занималась жертва? 1. гильдия или ремесло, 2. магия или наука, 3. религия или культура, 4. политика или расследования.\n- Место: где произошло убийство? 1. частный особняк, 2. место работы, 3. общественное здание, 4. транспортное средство.\n- Способ: как была убита жертва? 1. физическая атака, 2. стихийная атака, 3. магическая атака, 4. яд.\n- Мотив: почему жертву убили? 1. украсть артефакт, 2. отомстить, 3. заглушить тайну, 4. заполучить больше власти.\n- Возможность: как убийца атаковал незамеченным? 1. создал отвлечение, 2. выманил жертву, 3. знал распорядок жертвы, 4. дождался удобного момента."
+          },
+          "prompt": {
+            "en": "Did a guard invite the PCs or are they suspects? Did the victim say anything cryptic to the PCs while they were alive?",
+            "ru": "Пригласил ли персонажей кто-то из стражи, или они сами под подозрением? Говорила ли жертва персонажам что-то загадочное, пока была жива?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Uncovering Clues",
+            "ru": "Раскрытие Улик"
+          },
+          "description": {
+            "en": "PCs can interrogate suspects, search for clues on the victim or at the crime scene, or otherwise use their abilities to narrow down suspects until only the killer remains.",
+            "ru": "Персонажи могут допрашивать подозреваемых, искать улики на теле жертвы или на месте преступления, либо иначе использовать свои способности, чтобы сузить круг подозреваемых, пока не останется только убийца."
+          },
+          "prompt": {
+            "en": "Who found the body? Who are the prime suspects? Is there a twist, such as the body being moved, the murderer being charmed by the true killer, or two suspects working together?",
+            "ru": "Кто нашёл тело? Кто главные подозреваемые? Есть ли неожиданный поворот — тело переместили, убийцу очаровал настоящий преступник, или два подозреваемых действуют заодно?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Interrogation",
+            "ru": "Допрос"
+          },
+          "description": {
+            "en": "A suspect is available for interrogation. Each suspect has the means to carry out the murder, but it might be inconsistent with the manner of death. Each suspect has a connection to the victim that can be revealed with a successful Presence Roll and might be a motive for murder. Some will have had the opportunity to murder that can be revealed when the time of death is established. Other clues that can emerge from an interrogation might include their suspicious behavior, gossip about others, physical evidence on their body or clothing, or items in their possession.",
+            "ru": "Подозреваемый доступен для допроса. У каждого подозреваемого есть средства для совершения убийства, но это может не соответствовать способу смерти. У каждого подозреваемого есть связь с жертвой, которую можно раскрыть успешным броском Влияния, и она может служить мотивом убийства. У некоторых была возможность совершить убийство, которая раскрывается при установлении времени смерти. Другие улики, которые могут всплыть при допросе, — подозрительное поведение, сплетни о других, физические улики на теле или одежде, либо предметы во владении."
+          },
+          "prompt": {
+            "en": "Do any of the suspects have contradictory alibis? Do any of the suspects have unrelated secrets that make them act suspiciously? Were any of the suspects recently injured?",
+            "ru": "Есть ли у подозреваемых противоречащие друг другу алиби? Есть ли у кого-то из подозреваемых не связанные с делом тайны, из-за которых он ведёт себя подозрительно? Был ли кто-то из подозреваемых недавно ранен?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Finale",
+            "ru": "Финал"
+          },
+          "description": {
+            "en": "During the reveal, spend a Fear to have the murderer take the spotlight and attack or try to flee.",
+            "ru": "Во время разоблачения потратьте Страх, чтобы убийца получил Активацию и атаковал или попытался сбежать."
+          },
+          "prompt": {
+            "en": "Was the murder part of a larger plot?",
+            "ru": "Было ли убийство частью более крупного плана?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "settlement"
+      ]
+    },
+    {
+      "id": "valley-of-death",
+      "tier": 3,
+      "type": "exploration",
+      "difficulty": 17,
+      "name": {
+        "en": "Valley of Death",
+        "ru": "Долина смерти"
+      },
+      "impulses": {
+        "en": [
+          "Depress emotions",
+          "guide souls through the cycle of life"
+        ],
+        "ru": [
+          "Подавлять эмоции",
+          "направлять души по циклу жизни"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Death Wraith",
+          "Ferryman",
+          "Reaper",
+          "Shadows (Animated Shadow, Hungering Darkness)",
+          "Vampires (Vampire, Head Vampire, Vampire Mage)",
+          "Wisp"
+        ],
+        "ru": [
+          "Смертный Призрак",
+          "Паромщик",
+          "Жнец",
+          "Тени (Одушевлённая Тень, Голодающая Тьма)",
+          "Вампиры (Вампир, Старший Вампир, Вампир-Маг)",
+          "Дух"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Land of Shadow",
+            "ru": "Земля Тени"
+          },
+          "description": {
+            "en": "Colors are muted and plants grow brown and stunted. Hope features require spending an additional Hope.",
+            "ru": "Цвета приглушены, а растения растут бурыми и чахлыми. Свойства Надежды требуют траты дополнительной Надежды."
+          },
+          "prompt": {
+            "en": "What does the terrain look like? Is there a day/night cycle?",
+            "ru": "Как выглядит эта местность? Есть ли здесь цикл дня и ночи?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "River Styx",
+            "ru": "Река Стикс"
+          },
+          "description": {
+            "en": "The river Styx cuts through the center of the valley, where Ferryman boaters transport souls to an imposing fortress to face judgment from a Reaper, then to either the Hallows Above or the Circles Below.",
+            "ru": "Река Стикс пересекает центр долины, где Паромщики переправляют души к внушительной крепости, чтобы предстать перед судом Жнеца, а затем отправиться либо в Высшие Святыни, либо в Нижние Круги."
+          },
+          "prompt": {
+            "en": "Are the PCs dead or just visitors to this land?",
+            "ru": "Персонажи мертвы или просто гости в этой земле?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Purging Mists",
+            "ru": "Очищающие Туманы"
+          },
+          "description": {
+            "en": "Gathering mists attempt to strip away personality. All PCs must succeed on a Presence Reaction Roll or their highest trait is temporarily reduced by 1d4 unless they mark a number of Stress equal to its value. Any lost trait points are regained if the PC critically succeeds or escapes the Valley of Death.",
+            "ru": "Сгущающиеся туманы пытаются стереть личность. Все персонажи должны преуспеть в Броске Реакции на Влияние, иначе их наивысшая черта временно уменьшается на 1d4, если только они не отметят количество Стресса, равное этому значению. Любые потерянные очки черт восстанавливаются, если персонаж критически преуспеет или сбежит из Долины Смерти."
+          },
+          "prompt": {
+            "en": "How do locals keep the mists away?",
+            "ru": "Как местные держат туманы на расстоянии?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Anomalies",
+            "ru": "Аномалии"
+          },
+          "description": {
+            "en": "Countdown (1d4). When the PCs enter the Valley of Death but are not dead, activate the countdown. When it triggers, summon three Death Wraiths drawn to the PCs' unnatural journey across the Veil.",
+            "ru": "Отсчёт (1d4). Когда персонажи входят в Долину Смерти, не будучи мертвы, активируйте отсчёт. Когда он срабатывает, призовите трёх Смертных Призраков, привлечённых неестественным путешествием персонажей через Завесу."
+          },
+          "prompt": {
+            "en": "What madnesses do the Wraiths inflict on the PCs?",
+            "ru": "Каким безумием Призраки поражают персонажей?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "universal"
+      ]
+    },
+    {
+      "id": "fortress",
+      "tier": 4,
+      "type": "exploration",
+      "difficulty": 20,
+      "name": {
+        "en": "Fortress",
+        "ru": "Крепость"
+      },
+      "impulses": {
+        "en": [
+          "Defend the land",
+          "harbor armies",
+          "provide a safe haven for villains"
+        ],
+        "ru": [
+          "Защищать землю",
+          "укрывать армии",
+          "давать убежище злодеям"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Armies (Archer Company, Cavalry Troop, Infantry Unit, Mage Circle, Monster Horde)",
+          "Fallen (Shock Troop, Sorcerer, Warlord)",
+          "Jaegers (Assassin, Mage Hunter)",
+          "Hallowed (Archer, Soldier)"
+        ],
+        "ru": [
+          "Армии (Рота Лучников, Отряд Кавалерии, Пехотное Подразделение, Круг Магов, Орда Чудовищ)",
+          "Падшие (Штурмовой Отряд, Чародей, Военачальник)",
+          "Егеря (Убийца, Охотник на Магов)",
+          "Освящённые (Лучник, Солдат)"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Fortress Rooms",
+            "ru": "Помещения Крепости"
+          },
+          "description": {
+            "en": "A Fortress typically has the following areas.\n- Gatehouse: The main route into and out of the fortress that can be closed and defended.\n- Barracks: Sleeping quarters for the army.\n- Storage: An armory for weapons and larder for food and water.\n- Watchtower: A tower for watching the surrounding lands.\n- Prison Cells: A place to keep prisoners.\n- Training Yard: An open area for training practice.\n- Commander's Quarters: Rooms for the fort's commander and visiting nobles, off limits to most.",
+            "ru": "Крепость обычно включает следующие зоны.\n- Надвратная Башня: главный путь в крепость и из неё, который можно закрыть и оборонять.\n- Казармы: спальные помещения для армии.\n- Склад: оружейная для оружия и кладовая для еды и воды.\n- Сторожевая Башня: башня для наблюдения за окрестными землями.\n- Тюремные Камеры: место для содержания пленников.\n- Тренировочный Двор: открытая площадка для тренировок.\n- Покои Коменданта: комнаты для коменданта крепости и посещающих дворян, закрытые для большинства."
+          },
+          "prompt": {
+            "en": "What other rooms might be present? Are there any distinct features based on the geography, or purpose of the fortress?",
+            "ru": "Какие ещё помещения могут присутствовать? Есть ли особые черты, обусловленные географией или назначением крепости?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Guards Everywhere",
+            "ru": "Стража Повсюду"
+          },
+          "description": {
+            "en": "Entrances to off-limits areas in and around the Fortress are guarded, and the battlements and surrounding lands have guard patrols. PCs can attempt to discern patrol patterns with a successful Knowledge Roll. On a success, they are able to time their route to avoid confrontation.",
+            "ru": "Входы в закрытые зоны в крепости и вокруг неё охраняются, а на укреплениях и в окрестных землях несут службу патрули. Персонажи могут попытаться выявить закономерности патрулей успешным броском Знания. При успехе они смогут рассчитать маршрут так, чтобы избежать столкновения."
+          },
+          "prompt": {
+            "en": "Are guards expecting an attack? Are there covert routes to approach the fortress completely undetected?",
+            "ru": "Ожидает ли стража нападения? Есть ли скрытые пути, позволяющие подойти к крепости совершенно незамеченными?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Sabotage",
+            "ru": "Саботаж"
+          },
+          "description": {
+            "en": "PCs can sabotage the army within in the Fortress by poisoning the food or water supply, or damaging a weapons storage. For the next 1d4+1 days Army adversaries stationed at the Fortress have disadvantage on all attack rolls.",
+            "ru": "Персонажи могут саботировать армию внутри Крепости, отравив запасы еды или воды, либо повредив оружейный склад. В течение следующих 1d4+1 дней противники типа Армия, размещённые в Крепости, совершают все броски атаки с помехой."
+          },
+          "prompt": {
+            "en": "Where are the supplies located, and who guards them?",
+            "ru": "Где хранятся припасы и кто их охраняет?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Army Drills",
+            "ru": "Армейские Учения"
+          },
+          "description": {
+            "en": "Spend a Fear to announce the sound of a gong, indicating troops should gather for combat drills. A group of 2d6 Fallen Shock Troops approach. PCs must succeed on a group action roll using traits of their choice to become Hidden. On a failure, the troops spot the PCs.",
+            "ru": "Потратьте Страх, чтобы объявить звук гонга, сигнализирующий войскам собраться на боевые учения. Приближается группа из 2d6 Падших Штурмовых Отрядов. Персонажи должны преуспеть в групповом броске, используя черты по своему выбору, чтобы стать Скрытыми. При неудаче войска замечают персонажей."
+          },
+          "prompt": {
+            "en": "What kind of troops are in the army? What are they armed with?",
+            "ru": "Какие войска входят в армию? Чем они вооружены?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Raised Alarm",
+            "ru": "Поднятая Тревога"
+          },
+          "description": {
+            "en": "If an adversary is able to raise the alarm, a patrol of 2d6+5 Fallen Shock Troops and a Jaeger Assassin go to their last known location and begin to track the PCs. Activate the Jaeger Assassin's Tracking Countdown. If the PCs leave the fortress, begin a Progress Countdown (3). When it triggers, the search ends.",
+            "ru": "Если противник способен поднять тревогу, патруль из 2d6+5 Падших Штурмовых Отрядов и Егеря-Убийцы отправляется к последнему известному местоположению персонажей и начинает их выслеживать. Активируйте Отсчёт Выслеживания Егеря-Убийцы. Если персонажи покидают крепость, начните Отсчёт Прогресса (3). Когда он срабатывает, поиски прекращаются."
+          },
+          "prompt": {
+            "en": "Do the PCs know they are being chased? Will they confront the trackers or flee?",
+            "ru": "Знают ли персонажи, что их преследуют? Будут ли они противостоять преследователям или спасаться бегством?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "universal"
+      ]
+    },
+    {
+      "id": "lunar-surface",
+      "tier": 4,
+      "type": "traversal",
+      "difficulty": 20,
+      "name": {
+        "en": "Lunar Surface",
+        "ru": "Лунная поверхность"
+      },
+      "impulses": {
+        "en": [
+          "Manifest illusions",
+          "affect the cursed",
+          "release natural hazards"
+        ],
+        "ru": [
+          "Проявлять иллюзии",
+          "воздействовать на проклятых",
+          "высвобождать природные опасности"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Ghostly Legion",
+          "Lycans (Weredragon, Weretiger)",
+          "Outer Realms (Abomination, Corruptor, Thrall)",
+          "Psiders (Brood Mother, Spawn)",
+          "Worms (Elder, Great)",
+          "Xenn (Astral Raider, Hexer, Neurocrat)"
+        ],
+        "ru": [
+          "Призрачный Легион",
+          "Ликаны (Вердракон, Вертигр)",
+          "Внешние Миры (Мерзость, Растлитель, Прислужник)",
+          "Псайдеры (Мать Выводка, Отпрыск)",
+          "Черви (Старший, Великий)",
+          "Ксенны (Астральный Налётчик, Колдун-Проклинатель, Нейрократ)"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Lunar Day",
+            "ru": "Лунный День"
+          },
+          "description": {
+            "en": "Day and night lengths on the moon correspond to the length of change in phase of the moon.",
+            "ru": "Длина дня и ночи на луне соответствует длительности смены лунной фазы."
+          },
+          "prompt": {
+            "en": "How have lunar societies adapted to long days and nights?",
+            "ru": "Как лунные общества приспособились к долгим дням и ночам?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Low Gravity",
+            "ru": "Слабая Гравитация"
+          },
+          "description": {
+            "en": "Gravity is weaker. PCs have advantage on Agility Rolls to jump and disadvantage on Agility Rolls to move to Far and Very Far range.",
+            "ru": "Гравитация здесь слабее. Персонажи получают преимущество на броски Проворности для прыжков и помеху на броски Проворности для перемещения на Дальнюю и Очень Дальнюю дистанцию."
+          },
+          "prompt": {
+            "en": "How does this affect movement of animals, and growth of plants?",
+            "ru": "Как это влияет на передвижение животных и рост растений?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Dust Storm",
+            "ru": "Пылевая Буря"
+          },
+          "description": {
+            "en": "Countdown (Loop 6). Spend a Fear to activate the countdown as a storm brews on the horizon. When it triggers, all PCs must make a Strength Reaction Roll. Targets who fail take 4d8+5 direct physical damage as they are carried into the air and flung to Very Far range.",
+            "ru": "Отсчёт (Цикл 6). Потратьте Страх, чтобы активировать отсчёт, пока на горизонте нарастает буря. Когда он срабатывает, все персонажи должны совершить Бросок Реакции на Силу. Провалившие получают 4d8+5 прямого физического урона, будучи поднятыми в воздух и отброшенными на Очень Дальнюю дистанцию."
+          },
+          "prompt": {
+            "en": "What structures might locals use for shelter? How do dust storms affect plant life?",
+            "ru": "Какие сооружения местные жители могут использовать как укрытие? Как пылевые бури влияют на растительную жизнь?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Wandering Monsters",
+            "ru": "Странствующие Чудовища"
+          },
+          "description": {
+            "en": "Spend a Fear to summon adversaries. During the lunar day, summon a pack of 1d4 Weretigers led by a Weredragon out hunting. During the lunar night, summon a Ghostly Legion composed of illusions made real.",
+            "ru": "Потратьте Страх, чтобы призвать противников. Лунным днём призовите стаю из 1d4 Вертигров во главе с Вердраконом на охоте. Лунной ночью призовите Призрачный Легион, состоящий из ставших реальными иллюзий."
+          },
+          "prompt": {
+            "en": "What other cursed creatures live on the moon? Is there a connection between illusion magic and dreams?",
+            "ru": "Какие ещё проклятые существа обитают на луне? Есть ли связь между иллюзорной магией и снами?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Moon Quake",
+            "ru": "Лунотрясение"
+          },
+          "description": {
+            "en": "During combat, spend a Fear to make the ground shake. All creatures that aren't flying must make a Strength Reaction Roll. Creatures who fail are knocked down, becoming Vulnerable until they next act.",
+            "ru": "Во время боя потратьте Страх, чтобы земля затряслась. Все нелетающие существа должны совершить Бросок Реакции на Силу. Провалившие его сбиты с ног и становятся Уязвимыми до своего следующего действия."
+          },
+          "prompt": {
+            "en": "Is the moon tectonically active, or did something else cause the quake?",
+            "ru": "Луна тектонически активна, или толчок вызван чем-то ещё?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "universal"
+      ]
+    },
+    {
+      "id": "terror-of-the-deep",
+      "tier": 4,
+      "type": "exploration",
+      "difficulty": 19,
+      "name": {
+        "en": "Terror of the Deep",
+        "ru": "Ужас глубин"
+      },
+      "impulses": {
+        "en": [
+          "Roughen waters",
+          "batter ships",
+          "send sailors to their watery graves"
+        ],
+        "ru": [
+          "Вздымать волны",
+          "избивать корабли",
+          "отправлять моряков на дно"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Dragon Turtle",
+          "Kraken",
+          "Leviathan",
+          "Selachi (Megalodon, Warband)",
+          "Ship"
+        ],
+        "ru": [
+          "Дракон-Черепаха",
+          "Кракен",
+          "Левиафан",
+          "Селахи (Мегалодон, Стая)",
+          "Корабль"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Sea Monster's Lair",
+            "ru": "Логово Морского Чудовища"
+          },
+          "description": {
+            "en": "The surrounding waters are the territory of a terrifying sea monster such as a Dragon Turtle, Leviathan, or Kraken. The sea monster starts with a +1 bonus to Difficulty.",
+            "ru": "Окрестные воды — территория ужасающего морского чудовища, такого как Дракон-Черепаха, Левиафан или Кракен. Морское чудовище начинает с бонусом +1 к Сложности."
+          },
+          "prompt": {
+            "en": "What foreshadows the monster's appearance - carcasses, shipwrecks, or a brewing storm?",
+            "ru": "Что предвещает появление чудовища — туши, обломки кораблекрушений или назревающий шторм?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Rogue Wave",
+            "ru": "Волна-Убийца"
+          },
+          "description": {
+            "en": "Countdown (1). Spend a Fear to create a large wave of Close width that builds in size approaching the battlefield. Activate the countdown. When it triggers, the wave crosses the battlefield. If a ship is side-on to the wave it takes 4d8+5 physical damage, and occupants of the ship on deck must succeed on an Agility Reaction Roll or be thrown overboard. If a ship is end-on it takes half damage. Creatures in the water affected by the wave must mark 2 Stress.",
+            "ru": "Отсчёт (1). Потратьте Страх, чтобы создать крупную волну шириной с Близкую дистанцию, нарастающую по мере приближения к полю боя. Активируйте отсчёт. Когда он срабатывает, волна проходит через поле боя. Если корабль обращён к волне бортом, он получает 4d8+5 физического урона, а находящиеся на палубе должны преуспеть в Броске Реакции на Проворность, иначе их смоет за борт. Если корабль обращён к волне носом или кормой, он получает половину урона. Существа в воде, затронутые волной, должны отметить 2 Стресса."
+          },
+          "prompt": {
+            "en": "How does the wave affect the ship's occupants?",
+            "ru": "Как волна сказывается на находящихся на корабле?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Lightning Strike",
+            "ru": "Удар Молнии"
+          },
+          "description": {
+            "en": "Spend a Fear and choose three targets within Far range. Targets must succeed on an Agility Reaction Roll or take 2d8+12 magic damage.",
+            "ru": "Потратьте Страх и выберите три цели в пределах Дальней дистанции. Цели должны преуспеть в Броске Реакции на Проворность, иначе получают 2d8+12 магического урона."
+          },
+          "prompt": {
+            "en": "What signs of damage does the ship show?",
+            "ru": "Какие следы повреждений видны на корабле?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Raiders",
+            "ru": "Налётчики"
+          },
+          "description": {
+            "en": "When the PCs first enter the lair, summon a Selachi Megalodon and a Selachi Warband, who board the ship. They attempt to commandeer the ship to escape the sea monster.",
+            "ru": "Когда персонажи впервые входят в логово, призовите Селахи-Мегалодона и Стаю Селахи, которые взбираются на борт корабля. Они пытаются захватить корабль, чтобы спастись от морского чудовища."
+          },
+          "prompt": {
+            "en": "What happened during the raiders' previous run-in with the sea monster?",
+            "ru": "Что произошло во время предыдущей встречи налётчиков с морским чудовищем?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Not Over Yet",
+            "ru": "Ещё Не Всё Кончено"
+          },
+          "description": {
+            "en": "When the sea monster first marks their last HP, clear HP equal to twice the number of PCs (maximum 10), and clear all Stress. The sea monster's Difficulty decreases by 1 and their damage increases by 2. The sea monster immediately takes the spotlight.",
+            "ru": "Когда морское чудовище впервые отмечает своё последнее очко здоровья, снимите здоровье, равное удвоенному числу персонажей (максимум 10), и снимите весь Стресс. Сложность морского чудовища уменьшается на 1, а его урон увеличивается на 2. Морское чудовище немедленно получает Активацию."
+          },
+          "prompt": {
+            "en": "How does the sea monster change for this second phase?",
+            "ru": "Как морское чудовище меняется в этой второй фазе?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "aquatic"
+      ]
+    },
+    {
+      "id": "time-loop",
+      "tier": 4,
+      "type": "exploration",
+      "difficulty": 19,
+      "name": {
+        "en": "Time Loop",
+        "ru": "Временная петля"
+      },
+      "impulses": {
+        "en": [
+          "Trap within the loop",
+          "repeat the past",
+          "reveal clues to escape"
+        ],
+        "ru": [
+          "Удерживать в петле",
+          "повторять прошлое",
+          "раскрывать подсказки для побега"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Dinosaurs (Ankylosaurus, Quetzalcoatlus, Triceratops, Tyrannosaurus Rex, Velociraptor)",
+          "Fallen Sorcerer",
+          "Masters (Archdruid, Archmage, Archpriest, Commando, First Knight, General, Headmaster, Mastermind, Virtuoso)",
+          "Oracle of Doom",
+          "Sphinx",
+          "Time Wraith"
+        ],
+        "ru": [
+          "Динозавры (Анкилозавр, Кетцалькоатль, Трицератопс, Тираннозавр Рекс, Велоцираптор)",
+          "Падший Чародей",
+          "Мастера (Архидруид, Архимаг, Архижрец, Командо, Первый Рыцарь, Генерал, Директор, Мастермайнд, Виртуоз)",
+          "Оракул Погибели",
+          "Сфинкс",
+          "Дух Времени"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Entering the Loop",
+            "ru": "Вход в Петлю"
+          },
+          "description": {
+            "en": "Powerful magic has created a time loop affecting an area. Anyone within the area at midnight enters the time loop. Once in the loop, the PCs can't escape until they end the loop - they can learn new things each day working towards this goal.",
+            "ru": "Могущественная магия создала временную петлю, затрагивающую область. Любой, кто окажется в этой области в полночь, попадает во временную петлю. Оказавшись в петле, персонажи не могут выбраться из неё, пока не прекратят её — с каждым днём они могут узнавать что-то новое, приближаясь к этой цели."
+          },
+          "prompt": {
+            "en": "What is the area's climate? What settlements are present?",
+            "ru": "Какой климат в этой области? Какие поселения здесь есть?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Trapped NPCs",
+            "ru": "Пленённые НПС"
+          },
+          "description": {
+            "en": "The PCs are not the only ones trapped in the loop. Whether consciously or not they have become highly skilled due to their time spent in the loop.",
+            "ru": "Персонажи — не единственные, кто застрял в петле. Осознанно или нет, но они стали высококвалифицированными благодаря времени, проведённому в петле."
+          },
+          "prompt": {
+            "en": "Are the NPCs aware they are trapped? If they aren't, why is it different for the PCs? Is the person or group that created the loop within it or was it an external force such as a God?",
+            "ru": "Осознают ли НПС, что застряли? Если нет, почему для персонажей всё иначе? Находится ли создавший петлю человек или группа внутри неё, или это была внешняя сила, например, Бог?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Clues",
+            "ru": "Подсказки"
+          },
+          "description": {
+            "en": "A PC can investigate clues leading to one of the time loop's seals. The time loop might have one or multiple seals.",
+            "ru": "Персонаж может расследовать подсказки, ведущие к одной из печатей временной петли. У временной петли может быть одна или несколько печатей."
+          },
+          "prompt": {
+            "en": "What is the clue - a large battle and aftermath, preparations for a great ritual, or an unfurling natural disaster?",
+            "ru": "Какова подсказка — крупная битва и её последствия, приготовления к великому ритуалу, или разворачивающееся стихийное бедствие?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Exiting the Loop",
+            "ru": "Выход из Петли"
+          },
+          "description": {
+            "en": "Each loop, PCs keep knowledge gained from the previous loops. They can use this knowledge to hunt down leads and destroy the cause of the loop, freeing everyone trapped within.",
+            "ru": "С каждой петлёй персонажи сохраняют знания, полученные в предыдущих петлях. Они могут использовать эти знания, чтобы выследить зацепки и уничтожить причину петли, освободив всех, кто в ней застрял."
+          },
+          "prompt": {
+            "en": "Why was the time loop created - to trap a powerful NPC, as a result of failed time travel, or as a God's punishment?",
+            "ru": "Зачем была создана временная петля — чтобы поймать в ловушку могущественного НПС, в результате неудачного путешествия во времени, или как наказание от Бога?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Time Wraith",
+            "ru": "Дух Времени"
+          },
+          "description": {
+            "en": "Spend a Fear to summon 1d4 Time Wraiths which have broken through due to the time loop's effect on reality.",
+            "ru": "Потратьте Страх, чтобы призвать 1d4 Духов Времени, прорвавшихся из-за воздействия временной петли на реальность."
+          },
+          "prompt": {
+            "en": "Do the Wraiths attack the same place and time each loop?",
+            "ru": "Атакуют ли Духи одно и то же место и время в каждой петле?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Reset Day",
+            "ru": "Сброс Дня"
+          },
+          "description": {
+            "en": "At midnight, the PCs reset to their initial locations, and the same day begins again.",
+            "ru": "В полночь персонажи возвращаются в исходные точки, и начинается тот же самый день."
+          },
+          "prompt": {
+            "en": "What have the group learned this time?",
+            "ru": "Что группа узнала на этот раз?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "universal"
+      ]
     }
   ]
 }
