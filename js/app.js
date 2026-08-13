@@ -17,6 +17,8 @@ const LS_KEYS = {
 
 const TAG_COLORS = ['#d9a441', '#9c2b3b', '#3f7b74', '#6a7fae', '#a15fb0', '#7a8a4a', '#c17a3d', '#5a8fae'];
 
+const BIOMES = ['underground', 'aquatic', 'wetland', 'grassland', 'tropical', 'forest', 'drylands', 'rolling', 'mountain', 'frozen', 'badlands', 'settlement', 'universal'];
+
 function normalizeLang(v) { return v === 'en' ? 'en' : 'ru'; }
 
 const state = {
@@ -29,7 +31,7 @@ const state = {
   hiddenBuiltin: JSON.parse(localStorage.getItem(LS_KEYS.hiddenBuiltin) || '[]'),
   lists: JSON.parse(localStorage.getItem(LS_KEYS.lists) || '[]'),
   envLists: JSON.parse(localStorage.getItem(LS_KEYS.envLists) || '{}'),
-  filters: { search: '', tiers: new Set(), types: new Set(), tags: new Set() },
+  filters: { search: '', tiers: new Set(), types: new Set(), tags: new Set(), biomes: new Set() },
   sort: { key: 'name', dir: 'asc' },
   editingEnvId: null,
   route: parseRoute(),
@@ -198,6 +200,12 @@ function renderToolbar() {
           ${state.tags.map(tg => `<option value="${tg.id}" ${state.filters.tags.has(tg.id) ? 'selected' : ''}>${escapeHtml(tg.name)}</option>`).join('')}
         </select>
       </div>
+      <div class="field">
+        <label>${t('filter_biome')}</label>
+        <div class="biome-pills" id="f-biomes">
+          ${BIOMES.map(biome => `<button class="pill ${state.filters.biomes.has(biome) ? 'active' : ''}" data-biome="${biome}">${t('biome_' + biome)}</button>`).join('')}
+        </div>
+      </div>
       <div class="toolbar-spacer"></div>
       <div class="field">
         <label>${t('sort_by')}</label>
@@ -230,6 +238,10 @@ function renderToolbar() {
     state.filters.tags = new Set(e.target.value ? [e.target.value] : []);
     renderGrid();
   });
+  el.querySelectorAll('#f-biomes .pill').forEach(btn => btn.addEventListener('click', () => {
+    toggleSetValue(state.filters.biomes, btn.dataset.biome);
+    renderToolbar(); renderGrid();
+  }));
   document.getElementById('f-sort-key').addEventListener('change', e => { state.sort.key = e.target.value; renderGrid(); });
   document.getElementById('f-sort-dir').addEventListener('change', e => { state.sort.dir = e.target.value; renderGrid(); });
 
@@ -263,6 +275,12 @@ function envMatchesFilters(env) {
     for (const tg of f.tags) if (envTagSet.has(tg)) match = true;
     if (!match) return false;
   }
+  if (f.biomes.size) {
+    const envBiomeSet = new Set(env.biomes || []);
+    let match = false;
+    for (const b of f.biomes) if (envBiomeSet.has(b)) match = true;
+    if (!match) return false;
+  }
   return true;
 }
 
@@ -290,7 +308,7 @@ function renderGrid() {
     (hasActiveFilters() ? `<button id="clear-filters-btn">${t('clear_filters')}</button>` : '');
   const clearBtn = document.getElementById('clear-filters-btn');
   if (clearBtn) clearBtn.addEventListener('click', () => {
-    state.filters = { search: '', tiers: new Set(), types: new Set(), tags: new Set() };
+    state.filters = { search: '', tiers: new Set(), types: new Set(), tags: new Set(), biomes: new Set() };
     renderToolbar(); renderGrid();
   });
 
@@ -309,7 +327,7 @@ function renderGrid() {
 
 function hasActiveFilters() {
   const f = state.filters;
-  return f.search || f.tiers.size || f.types.size || f.tags.size;
+  return f.search || f.tiers.size || f.types.size || f.tags.size || f.biomes.size;
 }
 
 function cardHtml(env) {
@@ -320,6 +338,7 @@ function cardHtml(env) {
     if (!tg) return '';
     return `<span class="tag-chip" style="border-color:${tg.color}55;color:${tg.color}">${escapeHtml(tg.name)}</span>`;
   }).join('');
+  const biomeChips = (env.biomes || []).map(b => `<span class="biome-chip">${t('biome_' + b)}</span>`).join('');
   const badges = [
     env.builtin ? '' : `<span class="badge custom">${t('custom_badge')}</span>`,
     isTranslated(env) ? '' : `<span class="badge pending">${t('untranslated_badge')}</span>`,
@@ -335,6 +354,7 @@ function cardHtml(env) {
         <span class="diff">${t('difficulty_label')} ${escapeHtml(String(envDifficulty(env)))}</span>
       </div>
       ${impulses.length ? `<div class="card-impulses">${escapeHtml(impulses.join(', '))}</div>` : ''}
+      ${biomeChips ? `<div class="card-biomes">${biomeChips}</div>` : ''}
       ${badges}
       <div class="card-tags">${tagChips}</div>
     </div>`;
@@ -538,6 +558,7 @@ function openDetail(envId) {
           <div class="stat-block-item"><span class="k">${t('filter_type')}</span><span class="v">${t('type_' + env.type)}</span></div>
         </div>
 
+        ${(env.biomes || []).length ? `<span class="section-label">${t('filter_biome')}</span><div class="card-biomes">${env.biomes.map(b => `<span class="biome-chip">${t('biome_' + b)}</span>`).join('')}</div>` : ''}
         ${impulses.length ? `<span class="section-label">${t('impulses_label')}</span><p class="impulse-list">${escapeHtml(impulses.join(', '))}</p>` : ''}
         ${adversaries.length ? `<span class="section-label">${t('adversaries_label')}</span><p class="adversary-list">${escapeHtml(adversaries.join('; '))}</p>` : ''}
         ${featuresHtml ? `<span class="section-label">${t('features_label')}</span>${featuresHtml}` : ''}
@@ -566,7 +587,13 @@ function openDetail(envId) {
   function closeDetail() {
     (overlay._countdownOverlays || []).slice().forEach(p => p.remove());
     overlay.remove();
+    document.removeEventListener('keydown', onKeyDown);
   }
+
+  function onKeyDown(e) {
+    if (e.key === 'Escape') closeDetail();
+  }
+  document.addEventListener('keydown', onKeyDown);
 
   overlay.querySelector('.modal-close').addEventListener('click', closeDetail);
   overlay.addEventListener('click', e => { if (e.target === overlay) closeDetail(); });
@@ -1050,6 +1077,11 @@ function openEditForm(envId) {
           </div>
           <div class="form-field"><label>${t('form_difficulty')}</label><input id="fe-difficulty" type="number" value="${existing?.difficulty ?? 12}"></div>
         </div>
+        <div class="form-field field-wide"><label>${t('form_biomes')}</label>
+          <div class="biome-pills" id="fe-biomes">
+            ${BIOMES.map(b => `<button type="button" class="pill ${(existing?.biomes || []).includes(b) ? 'active' : ''}" data-biome="${b}">${t('biome_' + b)}</button>`).join('')}
+          </div>
+        </div>
         <div class="form-field field-wide"><label>${t('form_impulses')}</label><input id="fe-impulses" value="${escapeAttr((existing?.impulses?.ru || existing?.impulses?.en || []).join(', '))}"></div>
         <div class="form-field field-wide"><label>${t('form_adversaries')}</label><input id="fe-adversaries" value="${escapeAttr((existing?.potential_adversaries?.ru || existing?.potential_adversaries?.en || []).join(', '))}"></div>
         <div class="form-field field-wide"><label>${t('form_raw_en')}</label><textarea id="fe-raw-en">${escapeHtml(existing?.rawText?.en || '')}</textarea></div>
@@ -1065,6 +1097,7 @@ function openEditForm(envId) {
   overlay.querySelector('.modal-close').addEventListener('click', () => overlay.remove());
   overlay.querySelector('#fe-cancel').addEventListener('click', () => overlay.remove());
   overlay.addEventListener('click', e => { if (e.target === overlay) overlay.remove(); });
+  overlay.querySelectorAll('#fe-biomes .pill').forEach(btn => btn.addEventListener('click', () => btn.classList.toggle('active')));
 
   overlay.querySelector('#fe-save').addEventListener('click', () => {
     const nameEn = overlay.querySelector('#fe-name-en').value.trim();
@@ -1075,6 +1108,7 @@ function openEditForm(envId) {
     rec.tier = Number(overlay.querySelector('#fe-tier').value);
     rec.type = overlay.querySelector('#fe-type').value;
     rec.difficulty = Number(overlay.querySelector('#fe-difficulty').value);
+    rec.biomes = [...overlay.querySelectorAll('#fe-biomes .pill.active')].map(btn => btn.dataset.biome);
     const impulses = overlay.querySelector('#fe-impulses').value.split(',').map(s => s.trim()).filter(Boolean);
     const adversaries = overlay.querySelector('#fe-adversaries').value.split(',').map(s => s.trim()).filter(Boolean);
     // Impulses/adversaries are entered once, in whichever language is active right now.

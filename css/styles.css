@@ -124,7 +124,7 @@ a { color: var(--hope-soft); text-decoration: none; }
 .toolbar-spacer { flex: 1; }
 .toolbar-right { display: flex; gap: 10px; align-items: flex-end; }
 
-.tier-pills, .type-pills { display: flex; gap: 6px; flex-wrap: wrap; }
+.tier-pills, .type-pills, .biome-pills { display: flex; gap: 6px; flex-wrap: wrap; }
 .pill {
   font-family: var(--font-mono); font-size: 12px; padding: 6px 11px; border-radius: 20px;
   border: 1px solid var(--line); background: var(--ink-raised); color: var(--muted); cursor: pointer;
@@ -175,6 +175,11 @@ a { color: var(--hope-soft); text-decoration: none; }
 .tag-chip {
   font-family: var(--font-mono); font-size: 10.5px; padding: 3px 8px; border-radius: 3px;
   border: 1px solid var(--line); color: var(--parchment-dim);
+}
+.card-biomes { display: flex; gap: 6px; flex-wrap: wrap; }
+.biome-chip {
+  font-family: var(--font-mono); font-size: 10.5px; padding: 3px 8px; border-radius: 3px;
+  border: 1px solid var(--teal-soft); color: var(--teal-soft);
 }
 .badge {
   font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.05em; text-transform: uppercase;
