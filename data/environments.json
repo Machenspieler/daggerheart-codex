@@ -781,6 +781,2681 @@
       ],
       "builtin": true,
       "tags": []
+    },
+    {
+      "id": "arcane-magic-shop",
+      "tier": 1,
+      "type": "social",
+      "difficulty": 10,
+      "name": {
+        "en": "Arcane Magic Shop",
+        "ru": "Лавка Арканной Магии"
+      },
+      "impulses": {
+        "en": [
+          "Buy low, and sell high",
+          "match the magic item to the buyer"
+        ],
+        "ru": [
+          "Покупать дёшево и продавать дорого",
+          "подбирать магический предмет под покупателя"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Construct",
+          "Devil",
+          "Serpent Sorcerer",
+          "Spellblade",
+          "Masked Thief",
+          "War Wizard"
+        ],
+        "ru": [
+          "Конструкт",
+          "Бес",
+          "Змеиный Чародей",
+          "Заклинатель-Мечник",
+          "Вор в Маске",
+          "Боевой Маг"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Tip the Scales",
+            "ru": "Склонить Чашу Весов"
+          },
+          "description": {
+            "en": "PCs can gain advantage on a Presence Roll by offering magical components as part of the interaction.",
+            "ru": "Персонажи могут получить преимущество на бросок Влияния, предложив магические компоненты в рамках взаимодействия."
+          },
+          "prompt": {
+            "en": "Will any components be accepted, or only special ones?",
+            "ru": "Примут ли здесь любые компоненты, или только особенные?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Enchanted Find",
+            "ru": "Волшебная Находка"
+          },
+          "description": {
+            "en": "Reveal to the PCs that the shop has something they want or need, such as a rare magic item, a dubious treasure map, or a magical key.",
+            "ru": "Раскройте персонажам, что в лавке есть нечто, что им нужно или хочется — редкий магический предмет, сомнительная карта сокровищ или магический ключ."
+          },
+          "prompt": {
+            "en": "What cost beyond gold will the merchant ask for in exchange for this rarity?",
+            "ru": "Какую плату сверх золота торговец попросит за эту редкость?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Enchanting",
+            "ru": "Очарование"
+          },
+          "description": {
+            "en": "A magic item attempts to charm a PC, who must make a Presence roll to avoid buying it, no matter how little the PC cares for it.",
+            "ru": "Магический предмет пытается очаровать персонажа, который должен совершить бросок Влияния, чтобы не купить его, каким бы безразличным он к нему ни был."
+          },
+          "prompt": {
+            "en": "Why did the item choose this PC? What does it want?",
+            "ru": "Почему предмет выбрал именно этого персонажа? Чего он хочет?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Just Shopping",
+            "ru": "Только Присматриваюсь"
+          },
+          "description": {
+            "en": "When one of the PCs browses, a devil in disguise as a normal customer offers to buy an item for the PC, in return for a favor. And signing this contract.",
+            "ru": "Когда один из персонажей рассматривает товары, переодетый обычным покупателем бес предлагает купить предмет для персонажа в обмен на услугу. И подписание этого контракта."
+          },
+          "prompt": {
+            "en": "Who is this infernal being? What favor do they require? What happens when the wizard/shopkeeper recognizes them?",
+            "ru": "Кто это адское существо? Какую услугу оно потребует? Что произойдёт, когда волшебник/торговец его узнает?"
+          }
+        }
+      ],
+      "builtin": true,
+      "tags": []
+    },
+    {
+      "id": "jungle-path",
+      "tier": 1,
+      "type": "exploration",
+      "difficulty": 11,
+      "name": {
+        "en": "Jungle Path",
+        "ru": "Тропа через Джунгли"
+      },
+      "impulses": {
+        "en": [
+          "Embrace and don't let go"
+        ],
+        "ru": [
+          "Обхватить и не отпускать"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Beasts (Glass Snake)",
+          "Blighted Jungle creatures (Blighted Phantom Gorillapus, Giant Rat)",
+          "Dinosaurs (\"Thunder Lizards\")",
+          "Koblins",
+          "Lizardfolk",
+          "Pirates",
+          "J'ba Fofi Spiders"
+        ],
+        "ru": [
+          "Звери (Стеклянная Змея)",
+          "Порченые существа джунглей (Порченый Призрачный Гориллапус, Гигантская Крыса)",
+          "Динозавры («Громовые Ящеры»)",
+          "Коблины",
+          "Ящеролюды",
+          "Пираты",
+          "Пауки Джба-Фофи"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Overgrown Killing Field",
+            "ru": "Заросшее Поле Битвы"
+          },
+          "description": {
+            "en": "There has been a struggle here. A PC can make an Instinct Roll to identify evidence of that fight. On a success with Hope, learn all three pieces of information below. On a success with Fear, learn two. On a failure, a PC can mark a Stress to learn one and gain advantage on the next action roll to investigate this environment. A PC with an appropriate background or Experience can learn an additional detail and ask a follow-up question about the scene and get a truthful (if not always complete) answer. (1) Traces of a battle (broken weapons and branches, bones under vines) litter the ground. (2) A scarlet bandanna wrapped around the skull of a dead pirate. A broken spear held in hands of a fallen kobold. Or other potential adversaries. (3) A map or orders from one side or the other lies crushed in the mud. Whatever the document, have it point to more adventure!",
+            "ru": "Здесь произошла схватка. Персонаж может совершить бросок Инстинкта, чтобы найти следы этой битвы. При успехе с Надеждой узнайте все три сведения ниже. При успехе со Страхом узнайте два. При неудаче персонаж может отметить Стресс, чтобы узнать одно и получить преимущество на следующий бросок действия при исследовании этого окружения. Персонаж с подходящим происхождением или Опытом может узнать дополнительную деталь и задать уточняющий вопрос о произошедшем, получив правдивый (хоть и не всегда полный) ответ. (1) Следы битвы (сломанное оружие и ветви, кости под лозами) усеивают землю. (2) Алая бандана, обёрнутая вокруг черепа мёртвого пирата. Сломанное копьё в руках павшего коблина. Или другие потенциальные противники. (3) Карта или приказы одной из сторон валяются, смятые, в грязи. Каким бы ни был этот документ, пусть он укажет путь к новым приключениям!"
+          },
+          "prompt": {
+            "en": "Why did these groups come to blows? Will they come back? Are any of them watching over this site now?",
+            "ru": "Почему эти группы сошлись в схватке? Вернутся ли они? Наблюдает ли кто-то из них за этим местом сейчас?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Grasping Vines",
+            "ru": "Хватающие Лозы"
+          },
+          "description": {
+            "en": "Pick a point within the jungle. All targets within Close range of that point must succeed on an Agility Reaction Roll or take 1d8+3 physical damage and become Restrained by vines. Restrained creatures can't move until they're freed with a successful Finesse or Strength roll or by dealing at least 6 damage to the vines. Spend a Fear to make all restrained targets mark a Stress.",
+            "ru": "Выберите точку в джунглях. Все цели в пределах Близкой дистанции от этой точки должны совершить Бросок Реакции на Проворность или получить 1d8+3 физического урона и стать Обездвиженными лозами. Обездвиженные существа не могут двигаться, пока не освободятся успешным броском Искусности или Силы, либо нанеся лозам не менее 6 урона. Потратьте Страх, чтобы заставить всех обездвиженных целей отметить Стресс."
+          },
+          "prompt": {
+            "en": "How many vines are there? Where do they grab you? Do they pull you down or lift you off the ground? Does the vine attack trigger a potential adversary attack?",
+            "ru": "Сколько здесь лоз? За что они хватают вас? Тянут ли они вниз или поднимают в воздух? Провоцирует ли атака лоз потенциальную атаку противника?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "This is a dangerous place",
+            "ru": "Опасное Место"
+          },
+          "description": {
+            "en": "Pick two or more potential adversaries. They are fighting each other a Far or Very Far distance away. The victors might then turn on the PCs.",
+            "ru": "Выберите двух или более потенциальных противников. Они сражаются друг с другом на Дальней или Очень Дальней дистанции. Победители затем могут обратиться против персонажей."
+          },
+          "prompt": {
+            "en": "What are they fighting over? Could the PCs appeal to any of them?",
+            "ru": "Из-за чего они сражаются? Могут ли персонажи воззвать к кому-то из них?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Invisible giant",
+            "ru": "Невидимый Великан"
+          },
+          "description": {
+            "en": "Spend a Fear to summon a Blighted Phantom Gorillapus drawn to the echoes of violence and discord. They appear within Far range of a chosen PC and immediately take the spotlight.",
+            "ru": "Потратьте Страх, чтобы призвать Порченого Призрачного Гориллапуса, привлечённого отголосками насилия и раздора. Он появляется в пределах Дальней дистанции от выбранного персонажа и немедленно получает Активацию."
+          },
+          "prompt": {
+            "en": "Does it approach, or move away? What does it want?",
+            "ru": "Он приближается или удаляется? Чего он хочет?"
+          }
+        }
+      ],
+      "builtin": true,
+      "tags": []
+    },
+    {
+      "id": "lizardfolk-village",
+      "tier": 1,
+      "type": "social",
+      "difficulty": 12,
+      "name": {
+        "en": "Lizardfolk Village",
+        "ru": "Деревня Ящеролюдов"
+      },
+      "impulses": {
+        "en": [
+          "If you can't fight them, cheat them"
+        ],
+        "ru": [
+          "Не можешь победить в бою — обмани"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Lizardfolk (basher, hunter, commander)",
+          "Merchant",
+          "Dinosaur"
+        ],
+        "ru": [
+          "Ящеролюды (громила, охотник, командир)",
+          "Торговец",
+          "Динозавр"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Rumors Abound",
+            "ru": "Слухи Повсюду"
+          },
+          "description": {
+            "en": "Lizardfolk love to gossip about each other and their surroundings. A PC can inquire about major events by making a Presence Roll. What they learn depends on the outcome of their roll, based on the following criteria: Critical Success: Learn about two major events. The PC can ask one follow-up question about one of the rumors and get a truthful (if not always complete) answer. Success with Hope: Learn about two events, at least one of which is relevant to the character's background. Success with Fear: Learn an alarming rumor related to the character's background. Any Failure: The locals respond poorly to their inquiries. The PC must mark a Stress to learn one relevant rumor.",
+            "ru": "Ящеролюды обожают сплетничать друг о друге и об окружающем мире. Персонаж может расспросить о важных событиях, совершив бросок Влияния. То, что он узнает, зависит от результата броска: Критический успех: узнайте о двух важных событиях. Персонаж может задать один уточняющий вопрос об одном из слухов и получить правдивый (хоть и не всегда полный) ответ. Успех с Надеждой: узнайте о двух событиях, хотя бы одно из которых связано с происхождением персонажа. Успех со Страхом: узнайте тревожный слух, связанный с происхождением персонажа. Любая неудача: местные плохо реагируют на расспросы. Персонаж должен отметить Стресс, чтобы узнать один подходящий слух."
+          },
+          "prompt": {
+            "en": "What news do the PCs have that they could pass along to curious travelers? What do the locals think about these events?",
+            "ru": "Какими новостями персонажи могли бы поделиться с любопытными путниками? Что местные думают об этих событиях?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Hidden Safehouse",
+            "ru": "Тайное Убежище"
+          },
+          "description": {
+            "en": "An organization active in the region keeps a safehouse here, and the lizardfolk are well paid or intimidated enough to leave it alone.",
+            "ru": "Одна из организаций, действующих в регионе, держит здесь убежище, а ящеролюдам достаточно платят или их достаточно запугали, чтобы оставить его в покое."
+          },
+          "prompt": {
+            "en": "What is the organization? Is anyone currently occupying the safehouse?",
+            "ru": "Что это за организация? Занимает ли кто-нибудь сейчас это убежище?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "You've Overstayed your Welcome",
+            "ru": "Вы Загостились"
+          },
+          "description": {
+            "en": "At night, or when the party is alone, you can spend a Fear to introduce a group of lizardfolk who try to rob them. The thieves appear at Close range of a chosen PC and include a Lizardfolk Commander, as many Lizardfolk Bashers as there are PCs, and a few Lizardfolk Hunters. For a larger party, add a Carnotaurus or Deinonychus.",
+            "ru": "Ночью или когда группа остаётся одна, вы можете потратить Страх, чтобы ввести группу ящеролюдов, пытающихся их ограбить. Грабители появляются в пределах Близкой дистанции от выбранного персонажа и включают ящеролюда-командира, столько же ящеролюдов-громил, сколько персонажей в группе, и несколько ящеролюдов-охотников. Для более крупной группы добавьте карнотавра или дейнониха."
+          },
+          "prompt": {
+            "en": "What details show the party that these lizardfolk are desperate?",
+            "ru": "Какие детали показывают группе, что эти ящеролюды в отчаянии?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Hatchlings",
+            "ru": "Детёныши"
+          },
+          "description": {
+            "en": "A PC who has been friendly to the lizardfolk hears about a hatchling that the lizardfolk would like to find a home for. It could be a dinosaur, a jungle snake, or other creature local to the area.",
+            "ru": "Персонаж, дружелюбно относившийся к ящеролюдам, слышит о детёныше, которому ящеролюды хотели бы найти дом. Это может быть динозавр, болотная змея или другое существо, характерное для этой местности."
+          },
+          "prompt": {
+            "en": "Does the creature bond with a PC? What happens when it grows? Where will it live?",
+            "ru": "Привязывается ли существо к персонажу? Что будет, когда оно вырастет? Где оно будет жить?"
+          }
+        }
+      ],
+      "builtin": true,
+      "tags": []
+    },
+    {
+      "id": "civic-library",
+      "tier": 2,
+      "type": "exploration",
+      "difficulty": 15,
+      "name": {
+        "en": "The Civic Library",
+        "ru": "Городская Библиотека"
+      },
+      "impulses": {
+        "en": [
+          "Secrets everywhere",
+          "high noise-to-signal ratio"
+        ],
+        "ru": [
+          "Тайны повсюду",
+          "высокое отношение шума к сигналу"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Docents",
+          "Dire Silverfish",
+          "Black Mold"
+        ],
+        "ru": [
+          "Смотрители",
+          "Ужасная Чешуйница",
+          "Чёрная Плесень"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Sparse Stacks",
+            "ru": "Скудные Полки"
+          },
+          "description": {
+            "en": "Everything seems well organized. A PC can make an Instinct roll to notice that the book collection is unusually small and lacks the rich chaos of different perspectives you'd expect to find in a city. (1) The lettering, paper, and wording style of city record books seem strikingly consistent across decades, with no sign of wear. (2) Property maps and lists of births and deaths for a specific span of a few years are missing.",
+            "ru": "Всё кажется хорошо организованным. Персонаж может совершить бросок Инстинкта, чтобы заметить, что собрание книг необычно мало и лишено того богатого разнообразия взглядов, которое ожидаешь найти в городе. (1) Шрифт, бумага и стиль изложения городских летописей поразительно единообразны на протяжении десятилетий, без каких-либо следов износа. (2) Карты собственности и списки рождений и смертей за несколько конкретных лет отсутствуют."
+          },
+          "prompt": {
+            "en": "What important events occurred during the missing years?",
+            "ru": "Какие важные события произошли в те пропавшие годы?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "The Building is the Book",
+            "ru": "Здание — Это Книга"
+          },
+          "description": {
+            "en": "The tile floor shows a series of familiar tales of leaders saving townspeople from invading monsters. (1) The tiles are marked with the sign of the local mason's guild. (2) The tile work shows exceptional skill, but the scenes run into each other at the edges, sometimes making it look like the townspeople in one scene are running away, not from the monster, but from the leader in the adjacent scene.",
+            "ru": "Плиточный пол изображает череду знакомых легенд о правителях, спасающих горожан от вторгшихся чудовищ. (1) Плитки помечены знаком местной гильдии каменщиков. (2) Мозаика выполнена с исключительным мастерством, но сцены переходят одна в другую по краям, порой создавая впечатление, будто горожане на одной сцене убегают не от чудовища, а от правителя на соседней сцене."
+          },
+          "prompt": {
+            "en": "Who were the leaders people seem to be fleeing from? What did they do that might deserve this?",
+            "ru": "От каких правителей, похоже, бегут люди? Что они сделали, чтобы заслужить это?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Queen Sacchrina",
+            "ru": "Королева Сахарина"
+          },
+          "description": {
+            "en": "A trail of silvery dust leads to a Dire Silverfish. The bookshelves next to the library fountain provide an ideal home for her 42 offspring. She will plead her case to be left alone and will not attack first. If the players let the silverfish be or help it relocate to the nearby forest, they will be given a vial of Carbo-Grow, highly valued by local farmers and foresters. If players attack, the docents will assist them, but the vial will be broken during the fight.",
+            "ru": "Дорожка серебристой пыли ведёт к Ужасной Чешуйнице. Книжные полки рядом с библиотечным фонтаном служат идеальным домом для её 42 отпрысков. Она будет умолять оставить её в покое и не нападёт первой. Если игроки оставят чешуйницу в покое или помогут ей перебраться в ближайший лес, им дадут флакон Карбо-Роста, высоко ценимого местными фермерами и лесниками. Если игроки нападут, смотрители помогут им, но флакон разобьётся во время боя."
+          },
+          "prompt": {
+            "en": "Is Queen Sacchrina to be trusted?",
+            "ru": "Можно ли доверять Королеве Сахарине?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Art History",
+            "ru": "История Искусства"
+          },
+          "description": {
+            "en": "If the PCs make a diligent search, one can spend a Hope to find the Art History Booklet.",
+            "ru": "Если персонажи проведут тщательный поиск, один из них может потратить Надежду, чтобы найти Буклет по Истории Искусства."
+          },
+          "prompt": {
+            "en": "What did they do to find this hidden booklet?",
+            "ru": "Что они сделали, чтобы найти этот спрятанный буклет?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Docents",
+            "ru": "Смотрители"
+          },
+          "description": {
+            "en": "If the PCs harm or criticize the library, two docents appear. The young Ms. Williams and the elder Mr. Grey share tales of the region's history and describe how civic investment helps keep the library open for all. They will not take bribes from PCs. If PCs express a genuine, good-hearted interest in deeper secrets about power and corruption in the city, they'll reveal book recommendations that help PCs deduce a few personal family scandals. This information is already widely known and of little import today. Neither docent has the motivation or intelligence to realize the floor has real clues. They see the art as foolish, fantastical, and out of style, but insist it represents an important chapter in art history. The corrupt and powerful in the city know there's no better money spent than a donation to the library, where docents have been leading meddling adventurers astray for decades. If the docents sense too much nosiness, they'll recommend a specific book (see Cursed Booklet).",
+            "ru": "Если персонажи причиняют вред библиотеке или критикуют её, появляются два смотрителя. Молодая мисс Уильямс и пожилой мистер Грей рассказывают истории региона и объясняют, как городские вложения помогают библиотеке оставаться открытой для всех. Они не берут взяток у персонажей. Если персонажи проявляют искренний, доброжелательный интерес к более глубоким тайнам власти и коррупции в городе, они порекомендуют книги, которые помогут персонажам вывести несколько личных семейных скандалов. Эти сведения уже широко известны и сегодня не имеют большого значения. Ни у одного из смотрителей нет ни мотивации, ни ума, чтобы понять, что на полу есть настоящие улики. Они считают искусство глупым, фантастическим и старомодным, но настаивают, что оно представляет собой важную главу в истории искусства. Коррумпированные и влиятельные люди города знают, что нет лучшего вложения денег, чем пожертвование библиотеке, где смотрители десятилетиями сбивают назойливых искателей приключений с верного следа. Если смотрители почувствуют слишком много любопытства, они порекомендуют конкретную книгу (см. «Проклятый Буклет»)."
+          },
+          "prompt": {
+            "en": "How can the PCs tell the Docents seem unnaturally protective of the library's reputation?",
+            "ru": "Как персонажи могут заметить, что Смотрители неестественно ревностно защищают репутацию библиотеки?"
+          }
+        }
+      ],
+      "builtin": true,
+      "tags": []
+    },
+    {
+      "id": "devouring-green",
+      "tier": 2,
+      "type": "event",
+      "difficulty": 14,
+      "name": {
+        "en": "The Devouring Green",
+        "ru": "Пожирающая Зелень"
+      },
+      "impulses": {
+        "en": [
+          "Eat",
+          "trap",
+          "confuse"
+        ],
+        "ru": [
+          "Есть",
+          "заманивать в ловушку",
+          "сбивать с толку"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Cursed Coconut Palm",
+          "Deeproot Defender",
+          "Young Dryad",
+          "Dryad",
+          "Oak treant",
+          "Treant Sapling"
+        ],
+        "ru": [
+          "Проклятая Кокосовая Пальма",
+          "Защитник Корней",
+          "Юная Дриада",
+          "Дриада",
+          "Дубовый Трэнт",
+          "Трэнт Саженец"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Constant Predation",
+            "ru": "Непрестанное Хищничество"
+          },
+          "description": {
+            "en": "Every leaf, every vine, every tree is trying to bite the PCs. This does not affect Fungrils or any PCs that are plant, stone, or otherwise not made of meat. Affected PCs cannot rest in this patch of forest or jungle, and once wounded, cannot clear their last hit point until they leave the hungry plants behind.",
+            "ru": "Каждый лист, каждая лоза, каждое дерево пытается укусить персонажей. Это не затрагивает фангрилов и любых персонажей, состоящих из растений, камня или иначе не сделанных из плоти. Затронутые персонажи не могут отдыхать в этом участке леса или джунглей, а получив рану, не могут снять последнее очко здоровья, пока не покинут голодные растения позади."
+          },
+          "prompt": {
+            "en": "Which PC dreams of the Devouring Green next rest? Do their screams wake the others?",
+            "ru": "Какому персонажу приснится Пожирающая Зелень на следующем отдыхе? Их крики будят остальных?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "The Green Moves",
+            "ru": "Зелень Движется"
+          },
+          "description": {
+            "en": "Spend a Fear to summon a group of adversaries equal to the default battle points budget for the party. You may spend an additional Fear to attempt an ambush. Have the party navigator make an Instinct Reaction Roll to notice the attackers. On a failure, the party is surprised and an adversary immediately takes the spotlight.",
+            "ru": "Потратьте Страх, чтобы призвать группу противников, равную стандартному бюджету боевых очков группы. Вы можете потратить дополнительный Страх, чтобы устроить засаду. Пусть штурман группы совершит Бросок Реакции на Инстинкт, чтобы заметить нападающих. При неудаче группа застигнута врасплох, и один из противников немедленно получает Активацию."
+          },
+          "prompt": {
+            "en": "What tips you off that things are worse than they appear?",
+            "ru": "Что подсказывает вам, что дела обстоят хуже, чем кажется?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Dark Seed",
+            "ru": "Тёмное Семя"
+          },
+          "description": {
+            "en": "Countdown (8). When the Devouring Green is entered for the first time, activate the countdown. The Countdown ticks down by one every time the PCs take a long rest. When it ticks down to zero, the Green becomes a titanic creature called the Green Doom. It destroys a few villages and towns, and vanishes into the wild. Eventually the PCs might be strong enough to bring it down, and will hear of it threatening further devastation. Completing the Devouring Green Ritual stops the countdown.",
+            "ru": "Отсчёт (8). Когда персонажи впервые входят в Пожирающую Зелень, активируйте отсчёт. Отсчёт уменьшается на единицу каждый раз, когда персонажи совершают долгий отдых. Когда он доходит до нуля, Зелень превращается в исполинское существо, называемое Зелёной Гибелью. Оно уничтожает несколько деревень и городов, а затем исчезает в диких землях. Со временем персонажи могут стать достаточно сильны, чтобы одолеть его, и услышат, что оно угрожает новыми разрушениями. Завершение Ритуала Пожирающей Зелени останавливает отсчёт."
+          },
+          "prompt": {
+            "en": "How do you feel about the monster unleashed on the world?",
+            "ru": "Что вы чувствуете по поводу чудовища, выпущенного на волю?"
+          }
+        }
+      ],
+      "builtin": true,
+      "tags": []
+    },
+    {
+      "id": "devouring-green-ritual",
+      "tier": 2,
+      "type": "event",
+      "difficulty": 14,
+      "name": {
+        "en": "Devouring Green Ritual",
+        "ru": "Ритуал Пожирающей Зелени"
+      },
+      "impulses": {
+        "en": [
+          "Destroy",
+          "obstruct"
+        ],
+        "ru": [
+          "Уничтожать",
+          "препятствовать"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Cursed Coconut",
+          "Cursed Coconut Palm",
+          "Greater Chaosblight Elemental",
+          "Blighted Phantom Gorillapus",
+          "Blighted T-Rex",
+          "Blighted Velociraptor"
+        ],
+        "ru": [
+          "Проклятый Кокос",
+          "Проклятая Кокосовая Пальма",
+          "Великий Элементаль Хаоса и Порчи",
+          "Порченый Призрачный Гориллапус",
+          "Порченый Ти-Рекс",
+          "Порченый Велоцираптор"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Chaosblight Shimmer",
+            "ru": "Мерцание Хаоспорчи"
+          },
+          "description": {
+            "en": "When a PC makes a Spellcast or Ritual Roll, they use a d20 for their Fear Die.",
+            "ru": "Когда персонаж совершает Бросок Заклинания или Бросок Ритуала, он использует d20 в качестве кости Страха."
+          },
+          "prompt": {
+            "en": "What does the shimmer look like? Feel like?",
+            "ru": "Как выглядит это мерцание? Каково оно на ощупь?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Grasping Vines",
+            "ru": "Хватающие Лозы"
+          },
+          "description": {
+            "en": "Animate vines bristling with thorns whip out from the underbrush to ensnare the PCs. A target must succeed on an Agility Reaction Roll or become Restrained and Vulnerable until they break free, clearing both conditions, with a successful Finesse or Strength Roll or by dealing 10 damage to the vines. When the target makes a roll to escape, they take 1d8+2 physical damage and lose a Hope.",
+            "ru": "Ожившие лозы, ощетинившиеся шипами, хлещут из подлеска, чтобы опутать персонажей. Цель должна совершить Бросок Реакции на Проворность или стать Обездвиженной и Уязвимой, пока не освободится, сняв оба состояния успешным броском Искусности или Силы, либо нанеся лозам 10 урона. Когда цель совершает бросок, чтобы освободиться, она получает 1d8+2 физического урона и теряет Надежду."
+          },
+          "prompt": {
+            "en": "What does the vines smell remind you of?",
+            "ru": "О чём напоминает вам запах этих лоз?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "The Ritual",
+            "ru": "Ритуал"
+          },
+          "description": {
+            "en": "If the PCs have discovered a healing ritual and returned to perform it, start a Dynamic Progress Countdown (8). PCs describe their actions in the ritual. The first time the Progress Countdown ticks down, start the boss battle with a Greater Chaosblight Elemental and other adversaries to taste. The Ritual Countdown does not progress while the Greater Chaosblight Elemental is in the fight. Every failure with Fear while the Elemental is in the fight ticks up the Ritual Countdown to a maximum of 8. When the Elemental is defeated, its allies fade away. When the Ritual Countdown reaches 0, it succeeds and the Devouring Green fades away.",
+            "ru": "Если персонажи обнаружили ритуал исцеления и вернулись, чтобы его провести, начните Динамический Счётчик Прогресса (8). Персонажи описывают свои действия в ритуале. Когда Счётчик Прогресса впервые сдвигается, начните финальную битву с Великим Элементалем Хаоса и Порчи и другими противниками на ваш вкус. Счётчик Ритуала не продвигается, пока Великий Элементаль Хаоса и Порчи участвует в бою. Каждая неудача со Страхом, пока Элементаль в бою, увеличивает Счётчик Ритуала на единицу, максимум до 8. Когда Элементаль побеждён, его союзники исчезают. Когда Счётчик Ритуала достигает 0, ритуал завершается успешно, и Пожирающая Зелень исчезает."
+          },
+          "prompt": {
+            "en": "How do the PCs find the ritual? Do they have to complete a quest? Can they get back in time? What is their part in the ritual? Describe what happens when the ritual works.",
+            "ru": "Как персонажи находят ритуал? Должны ли они выполнить квест? Успеют ли они вернуться вовремя? Какова их роль в ритуале? Опишите, что происходит, когда ритуал срабатывает."
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Rebirth",
+            "ru": "Возрождение"
+          },
+          "description": {
+            "en": "When the Greater Chaos Elemental is defeated, start an Increasing Dynamic Consequence Countdown (4). When it triggers, the Greater Chaosblight Elemental returns at full hit points Very Close to one of the PCs, but with no allies. This interrupts the Ritual once again. Every time Rebirth is triggered, the countdown starts one higher, so 5, 6, 7, and so on.",
+            "ru": "Когда Великий Элементаль Хаоса побеждён, начните Возрастающий Динамический Счётчик Последствий (4). Когда он срабатывает, Великий Элементаль Хаоса и Порчи возвращается с полным запасом здоровья на Очень Близкой дистанции от одного из персонажей, но без союзников. Это вновь прерывает Ритуал. Каждый раз, когда срабатывает Возрождение, счётчик начинается на единицу выше — то есть 5, 6, 7 и так далее."
+          },
+          "prompt": {
+            "en": "Who does the Elemental appear next to? What image does the Elemental force into the PCs mind?",
+            "ru": "Рядом с кем появляется Элементаль? Какой образ Элементаль вселяет в разум персонажей?"
+          }
+        }
+      ],
+      "builtin": true,
+      "tags": []
+    },
+    {
+      "id": "domain-of-dinosaurs",
+      "tier": 2,
+      "type": "exploration",
+      "difficulty": 14,
+      "name": {
+        "en": "Domain of Dinosaurs",
+        "ru": "Владения Динозавров"
+      },
+      "impulses": {
+        "en": [
+          "Create awe",
+          "drive out interlopers",
+          "conceal mysteries"
+        ],
+        "ru": [
+          "Внушать трепет",
+          "изгонять чужаков",
+          "скрывать тайны"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Dinosaurs (any) and those who hunt them"
+        ],
+        "ru": [
+          "Динозавры (любые) и те, кто на них охотится"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Exclusion",
+            "ru": "Изгнание"
+          },
+          "description": {
+            "en": "Whenever the party enters the Domain of Dinosaurs the GM should set a Consequence Countdown (6) that advances each time the party takes a Short Rest, spends meaningful time in a location, or travels between locations inside the domain. It resets every time they take a Long Rest outside the domain. When the countdown triggers, an overwhelming force of dinosaurs assembles to drive the party out of the Domain. It does not seek their destruction, but will defend itself. The way out is made easy, and the dinosaurs will slowly advance, roaring as they come. If somehow the party communicates and befriends the spirit of the Domain, probably though a difficult quest, this Countdown may be scrapped.",
+            "ru": "Всякий раз, когда группа входит во Владения Динозавров, Мастер должен начать Отсчёт Последствий (6), который продвигается каждый раз, когда группа совершает короткий отдых, проводит значимое время в одном месте или перемещается между локациями внутри владений. Он сбрасывается всякий раз, когда группа совершает долгий отдых за пределами владений. Когда отсчёт срабатывает, собирается подавляющая сила динозавров, чтобы изгнать группу из Владений. Она не стремится их уничтожить, но будет защищаться. Путь наружу оставлен свободным, а динозавры будут медленно наступать, ревя на ходу. Если группе каким-то образом удастся договориться и подружиться с духом Владений — вероятно, через сложный квест — этот отсчёт можно отменить."
+          },
+          "prompt": {
+            "en": "What controls the domain's reaction to the PCs? Can it be negotiated with? What would it want?",
+            "ru": "Что определяет реакцию владений на персонажей? Можно ли с ними договориться? Чего они хотят?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Search the Domain",
+            "ru": "Обыскать Владения"
+          },
+          "description": {
+            "en": "If the party conducts a thorough search of an area (for a quest, to find the spirit that animates the domain, for a place to rest), call for a Group Action Roll. Each such roll takes an hour or more (advance the Countdown). Critical Success: The party finds what they were looking for and something extra (loot, clue, or NPC). Success with Hope: The party finds what they were looking for, no complications. Success with Fear: The party finds what they were looking for, but each must mark a Stress. Failure with Hope: The party didn't find what they sought, but find something else useful. Failure with Fear: The party finds nothing useful except an attack by adversaries or a major complication.",
+            "ru": "Если группа проводит тщательный поиск в какой-либо местности (ради квеста, чтобы найти дух, одушевляющий владения, или место для отдыха), потребуйте Групповой бросок. Каждый такой бросок занимает час или больше (продвиньте Отсчёт). Критический успех: группа находит искомое и кое-что ещё (добычу, улику или неигрового персонажа). Успех с Надеждой: группа находит искомое без осложнений. Успех со Страхом: группа находит искомое, но каждый должен отметить Стресс. Неудача с Надеждой: группа не нашла искомое, но находит нечто иное полезное. Неудача со Страхом: группа не находит ничего полезного, кроме атаки противников или серьёзного осложнения."
+          },
+          "prompt": {
+            "en": "What were they looking for?",
+            "ru": "Что они искали?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Dinosaur Attack",
+            "ru": "Атака Динозавров"
+          },
+          "description": {
+            "en": "Spend a Fear to summon a challenging group of dinosaurs who attempt to encircle the party before they pounce. The dinosaurs attempt to pick off lone PCs if the party is dispersed. After the encounter is over, advance the Countdown.",
+            "ru": "Потратьте Страх, чтобы призвать грозную группу динозавров, пытающихся окружить группу перед тем, как наброситься. Динозавры пытаются выхватывать одиноких персонажей, если группа рассредоточена. После окончания столкновения продвиньте Отсчёт."
+          },
+          "prompt": {
+            "en": "Did some dinosaurs get away? Are they tracking the party?",
+            "ru": "Сбежали ли какие-то динозавры? Выслеживают ли они группу?"
+          }
+        }
+      ],
+      "builtin": true,
+      "tags": []
+    },
+    {
+      "id": "forgotten-temple-of-the-serpent",
+      "tier": 2,
+      "type": "exploration",
+      "difficulty": 14,
+      "name": {
+        "en": "Forgotten Temple of the Serpent",
+        "ru": "Забытый Храм Змея"
+      },
+      "impulses": {
+        "en": [
+          "Conceal long lost treasures",
+          "spook trespassers",
+          "watch interlopers"
+        ],
+        "ru": [
+          "Скрывать давно потерянные сокровища",
+          "пугать незваных гостей",
+          "следить за чужаками"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Giants (any)",
+          "Flickerflies (any)",
+          "Spectral Creatures (any, they appear as serpent folk)"
+        ],
+        "ru": [
+          "Великаны (любые)",
+          "Мерцекрылки (любые)",
+          "Призрачные существа (любые, предстают в облике змеиного народа)"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "New Rulers Ambush Party",
+            "ru": "Новые Правители Устраивают Засаду"
+          },
+          "description": {
+            "en": "When the party enters the outskirts of the temple compound, start a Consequence Countdown (6) that advances each time a PC rolls with Fear. When the Countdown triggers, the party are ambushed by a challenging group of the new owners. The new owners have cover. When this triggers, abandon the other Countdown.",
+            "ru": "Когда группа входит на окраину храмового комплекса, начните Отсчёт Последствий (6), который продвигается каждый раз, когда персонаж совершает бросок со Страхом. Когда Отсчёт срабатывает, группу подстерегают в засаде грозные силы новых владельцев. У новых владельцев есть укрытие. Когда это происходит, откажитесь от другого Отсчёта."
+          },
+          "prompt": {
+            "en": "Who are the new owners? Why are they hiding? What are they hiding?",
+            "ru": "Кто эти новые владельцы? Почему они прячутся? Что они скрывают?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Where is everybody?",
+            "ru": "Где Все?"
+          },
+          "description": {
+            "en": "When the party enters the outskirts of the temple compound, start a Progress Countdown (6) that advances each time the PCs succeed on an investigative roll. A success with Fear will advance both Countdowns. Successes will reveal clues to the new owners, not show them. Sounds, footprints, glimpses… When the Countdown triggers, the party catches someone watching them. Reveal the opposition and abandon the other Countdown.",
+            "ru": "Когда группа входит на окраину храмового комплекса, начните Отсчёт Прогресса (6), который продвигается каждый раз, когда персонажи преуспевают в исследовательском броске. Успех со Страхом продвигает оба Отсчёта. Успехи раскрывают улики о новых владельцах, но не показывают их самих. Звуки, следы, проблески… Когда Отсчёт срабатывает, группу застают за наблюдением. Раскройте противников и откажитесь от другого Отсчёта."
+          },
+          "prompt": {
+            "en": "What signs does the party notice that lead them to believe they are being watched?",
+            "ru": "Какие признаки замечает группа, наводящие на мысль, что за ними следят?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Search the Temple",
+            "ru": "Обыскать Храм"
+          },
+          "description": {
+            "en": "If the party conducts a thorough search of the Serpent Temple, call for a Group Action Roll. Each such roll takes an hour or more (advance the Countdown). Critical Success: The party finds what they were looking for and something extra (loot, clue, or NPC). Success with Hope: The party finds what they were looking for, no complications. Success with Fear: The party finds what they were looking for, but each must mark a Stress. Failure with Hope: The party didn't find what they sought, but find something else useful. Failure with Fear: The party finds nothing useful except an attack by adversaries or a major complication.",
+            "ru": "Если группа проводит тщательный поиск в Храме Змея, потребуйте Групповой бросок. Каждый такой бросок занимает час или больше (продвиньте Отсчёт). Критический успех: группа находит искомое и кое-что ещё (добычу, улику или неигрового персонажа). Успех с Надеждой: группа находит искомое без осложнений. Успех со Страхом: группа находит искомое, но каждый должен отметить Стресс. Неудача с Надеждой: группа не нашла искомое, но находит нечто иное полезное. Неудача со Страхом: группа не находит ничего полезного, кроме атаки противников или серьёзного осложнения."
+          },
+          "prompt": {
+            "en": "What were they looking for?",
+            "ru": "Что они искали?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Battle for the Temple",
+            "ru": "Битва за Храм"
+          },
+          "description": {
+            "en": "Spend a Fear to have the new owners launch an attack, trying to drive the PCs away. Ranged attackers will use cover.",
+            "ru": "Потратьте Страх, чтобы новые владельцы начали атаку, пытаясь прогнать персонажей прочь. Дальнобойные бойцы будут использовать укрытие."
+          },
+          "prompt": {
+            "en": "What will convince the new owners to flee? Do they have a banner or talisman whose possession by the party will break their morale?",
+            "ru": "Что убедит новых владельцев отступить? Есть ли у них знамя или талисман, обладание которым сломит их боевой дух?"
+          }
+        }
+      ],
+      "builtin": true,
+      "tags": []
+    },
+    {
+      "id": "jungle-trek",
+      "tier": 2,
+      "type": "traversal",
+      "difficulty": 15,
+      "name": {
+        "en": "Jungle Trek",
+        "ru": "Переход через Джунгли"
+      },
+      "impulses": {
+        "en": [
+          "Dangerous creatures",
+          "make outsiders become lost",
+          "stifling heat"
+        ],
+        "ru": [
+          "Опасные существа",
+          "заставить чужаков заблудиться",
+          "удушающая жара"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Beasts (Giant Ants, Glass Snake)",
+          "Blighted Jungle creatures (Gorillapus, Giant Rat)",
+          "Dinosaurs (\"Thunder Lizards\")",
+          "Koblins",
+          "Lizardfolk",
+          "Pirates",
+          "J'ba Fofi Spiders"
+        ],
+        "ru": [
+          "Звери (Гигантские Муравьи, Стеклянная Змея)",
+          "Порченые существа джунглей (Гориллапус, Гигантская Крыса)",
+          "Динозавры («Громовые Ящеры»)",
+          "Коблины",
+          "Ящеролюды",
+          "Пираты",
+          "Пауки Джба-Фофи"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Step by Step",
+            "ru": "Шаг за Шагом"
+          },
+          "description": {
+            "en": "When the party starts their trek through the jungle, activate a Progress Countdown based on the length of the journey (4 - short, 6 - normal, 8 - long, 10 - very long). Describe the jungle each step of the way, and allow party members to use Reaction Rolls using any traits and experiences that make sense to help their navigator make their navigate roll. When the countdown is triggered, describe the destination and tell each PC to gain a Hope.",
+            "ru": "Когда группа начинает переход через джунгли, активируйте Отсчёт Прогресса в зависимости от длины пути (4 — короткий, 6 — обычный, 8 — долгий, 10 — очень долгий). Описывайте джунгли на каждом шагу пути и позвольте участникам группы совершать Броски Реакции, используя любые черты и опыт, подходящие для помощи штурману в его броске навигации. Когда отсчёт срабатывает, опишите место назначения и дайте каждому персонажу получить Надежду."
+          },
+          "prompt": {
+            "en": "What do the PCs hear, smell, and feel in the jungle?",
+            "ru": "Что персонажи слышат, чувствуют по запаху и ощущают в джунглях?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Torrential Downpour",
+            "ru": "Проливной Ливень"
+          },
+          "description": {
+            "en": "Once per session while on the jungle trek the skies open and a thundering rain pounds down on the party. They may find shelter and wait it out, which will add one to their Progress Countdown. Or they may press on, causing each PC and ally to lose a Hope or mark a Stress. If they press on, you may spend a Fear to have one party member fall behind and lose their way.",
+            "ru": "Раз за сессию во время перехода через джунгли небеса разверзаются, и на группу обрушивается гремящий ливень. Они могут найти укрытие и переждать его, что добавит единицу к их Отсчёту Прогресса. Или же они могут продолжить путь, из-за чего каждый персонаж и союзник теряет Надежду или отмечает Стресс. Если они продолжат путь, вы можете потратить Страх, чтобы один из участников группы отстал и заблудился."
+          },
+          "prompt": {
+            "en": "How long does the rain last? Are there flash floods?",
+            "ru": "Сколько длится дождь? Есть ли внезапные паводки?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Sweltering Heat",
+            "ru": "Изнуряющий Зной"
+          },
+          "description": {
+            "en": "Spend a Fear to crank up the heat. Sweat drips from the party members. The party can rest and let the Countdown increase by one or press on and have each PC and ally lose a Hope or mark a Stress. PCs wearing armor that gives them a minus on their Evasion must mark an additional Stress.",
+            "ru": "Потратьте Страх, чтобы усилить жару. Пот струится с участников группы. Группа может отдохнуть, позволив Отсчёту увеличиться на единицу, или продолжить путь, из-за чего каждый персонаж и союзник теряет Надежду или отмечает Стресс. Персонажи, носящие броню, дающую штраф к Уклонению, должны отметить дополнительный Стресс."
+          },
+          "prompt": {
+            "en": "When will the heat break? What creatures are still active regardless of the heat?",
+            "ru": "Когда спадёт жара? Какие существа остаются активными несмотря на зной?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Rumble in the Jungle",
+            "ru": "Гвалт в Джунглях"
+          },
+          "description": {
+            "en": "Spend a Fear to summon a group of adversaries equal to the default battle points budget for the party. You may spend an additional Fear to attempt an ambush, have the party navigator make an Instinct Reaction Roll to notice the attackers. On a failure, the party is surprised and an adversary immediately takes the spotlight.",
+            "ru": "Потратьте Страх, чтобы призвать группу противников, равную стандартному бюджету боевых очков группы. Вы можете потратить дополнительный Страх, чтобы устроить засаду — пусть штурман группы совершит Бросок Реакции на Инстинкт, чтобы заметить нападающих. При неудаче группа застигнута врасплох, и один из противников немедленно получает Активацию."
+          },
+          "prompt": {
+            "en": "Are some of the adversaries hidden?",
+            "ru": "Прячутся ли некоторые из противников?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Danger",
+            "ru": "Опасность"
+          },
+          "description": {
+            "en": "When a PC fails a roll to advance the Progress Countdown for the journey, describe an accident. A PC takes 2d10 physical damage and must mark a Stress. You may also spend a Fear to increase the Countdown by one.",
+            "ru": "Когда персонаж проваливает бросок для продвижения Отсчёта Прогресса путешествия, опишите несчастный случай. Персонаж получает 2d10 физического урона и должен отметить Стресс. Вы также можете потратить Страх, чтобы увеличить Отсчёт на единицу."
+          },
+          "prompt": {
+            "en": "What happened?",
+            "ru": "Что произошло?"
+          }
+        }
+      ],
+      "builtin": true,
+      "tags": []
+    },
+    {
+      "id": "tower-of-slime",
+      "tier": 2,
+      "type": "exploration",
+      "difficulty": 14,
+      "name": {
+        "en": "Tower of Slime",
+        "ru": "Башня Слизи"
+      },
+      "impulses": {
+        "en": [
+          "Madness takes its toll",
+          "ooze"
+        ],
+        "ru": [
+          "Безумие берёт своё",
+          "слизь"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "All oozes",
+          "all fungal creatures",
+          "Slime Demon"
+        ],
+        "ru": [
+          "Все слизни",
+          "все грибные существа",
+          "Демон Слизи"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "History of Madness",
+            "ru": "История Безумия"
+          },
+          "description": {
+            "en": "PCs exploring such a mad place are likely to find clues as to how such a thing happened. PCs may make an Intuition or Knowledge roll as they investigate. Critical Success: Gain valuable information and a useful item. Success with Hope: Gain valuable information and mark one Stress. Success with Fear: Discover vague or confusing information, mark one Stress, lose one Hope. Failure with Hope: Discover a clue and mark one Stress. Failure with Fear: See yourself as a slime person in a reflection. Mark two Stress, lose one Hope.",
+            "ru": "Персонажи, исследующие столь безумное место, скорее всего найдут улики того, как такое могло произойти. Персонажи могут совершить бросок Инстинкта или Знания, пока исследуют его. Критический успех: получите ценные сведения и полезный предмет. Успех с Надеждой: получите ценные сведения и отметьте один Стресс. Успех со Страхом: узнайте смутные или запутанные сведения, отметьте один Стресс, потеряйте одну Надежду. Неудача с Надеждой: обнаружьте улику и отметьте один Стресс. Неудача со Страхом: увидьте себя слизистым существом в отражении. Отметьте два Стресса, потеряйте одну Надежду."
+          },
+          "prompt": {
+            "en": "What happened? A pact gone wrong, a failed spell, attracting the wrong sort of attention…",
+            "ru": "Что произошло? Неудавшийся пакт, провалившееся заклинание, привлечение не того внимания…"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Unstable Floors",
+            "ru": "Нестабильные Полы"
+          },
+          "description": {
+            "en": "When a PC's weight is placed on a slime floor or staircase, have the player start a Countdown (5) as they slowly sink into the slime. Reset it to 5 every time the PCs moves. When the Countdown reaches 0, the tower envelops the PC. That piece of tower has the stats of a Huge Green Ooze that has just enveloped the PC.",
+            "ru": "Когда вес персонажа оказывается на слизистом полу или лестнице, пусть игрок начнёт Отсчёт (5), пока он медленно погружается в слизь. Сбрасывайте его до 5 каждый раз, когда персонажи двигаются. Когда Отсчёт достигает 0, башня поглощает персонажа. Этот участок башни получает характеристики Огромной Зелёной Слизи, только что поглотившей персонажа."
+          },
+          "prompt": {
+            "en": "Does the acid dissolve a valuable item in the PC's possession?",
+            "ru": "Растворяет ли кислота ценный предмет во владении персонажа?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Slime People",
+            "ru": "Слизистые Люди"
+          },
+          "description": {
+            "en": "The people here take no notice of the PCs, just going about their business. They get in the way. If attacked, use ooze stat blocks. The Huge Green Ooze stats work well.",
+            "ru": "Местные жители не обращают на персонажей внимания, занимаясь своими делами. Они путаются под ногами. Если на них нападут, используйте характеристики слизней. Хорошо подходят характеристики Огромной Зелёной Слизи."
+          },
+          "prompt": {
+            "en": "What do the slime people look like? What are they doing?",
+            "ru": "Как выглядят слизистые люди? Чем они заняты?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Awaken, my Slimy Friends",
+            "ru": "Пробудитесь, Мои Слизистые Друзья"
+          },
+          "description": {
+            "en": "Spend a Fear to awaken enough of the slime people to cause a ruckus. Again, consider the Huge Green Ooze for stats. The slime people are out of their minds with fright and horror, lashing out mindlessly.",
+            "ru": "Потратьте Страх, чтобы пробудить достаточно слизистых людей для устройства переполоха. Снова используйте характеристики Огромной Зелёной Слизи. Слизистые люди обезумели от страха и ужаса, набрасываясь бездумно."
+          },
+          "prompt": {
+            "en": "Can their shattered minds be healed? Or is it too late?",
+            "ru": "Можно ли исцелить их разбитые разумы? Или уже слишком поздно?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Forward, to the Past!",
+            "ru": "Вперёд, в Прошлое!"
+          },
+          "description": {
+            "en": "Spend a Fear to send the PCs back into the past, just before the tower became slime. Start a Countdown (6) for the PCs to return to their own time. Slime demons and oozes attack. Spotlight an adversary. Panicked people crash into the PCs. The PCs experience events showing how it all started.",
+            "ru": "Потратьте Страх, чтобы отправить персонажей в прошлое, как раз перед тем, как башня превратилась в слизь. Начните Отсчёт (6) для возвращения персонажей в своё время. Демоны слизи и слизни нападают. Дайте Активацию противнику. Обезумевшие люди врезаются в персонажей. Персонажи становятся свидетелями событий, показывающих, как всё началось."
+          },
+          "prompt": {
+            "en": "What happened, and why?",
+            "ru": "Что произошло и почему?"
+          }
+        }
+      ],
+      "builtin": true,
+      "tags": []
+    },
+    {
+      "id": "court-of-cats",
+      "tier": 3,
+      "type": "social",
+      "difficulty": 18,
+      "name": {
+        "en": "Court of Cats",
+        "ru": "Кошачий Двор"
+      },
+      "impulses": {
+        "en": [
+          "Dance",
+          "impress",
+          "play",
+          "pounce",
+          "stretch"
+        ],
+        "ru": [
+          "Танцевать",
+          "впечатлять",
+          "играть",
+          "набрасываться",
+          "потягиваться"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Clowder of Fey Cats",
+          "Crimson Cap",
+          "Dryads",
+          "Fey Cat",
+          "Fey Mist Lion",
+          "Moon Knight",
+          "Glimmer of Pixies",
+          "Pixie Knight",
+          "Queen of Cats",
+          "Redcap",
+          "Sylvan Soldier",
+          "Treants"
+        ],
+        "ru": [
+          "Стая Фейских Кошек",
+          "Багровый Колпак",
+          "Дриады",
+          "Фейская Кошка",
+          "Фейский Туманный Лев",
+          "Лунный Рыцарь",
+          "Мерцание Пикси",
+          "Рыцарь Пикси",
+          "Королева Кошек",
+          "Красный Колпак",
+          "Лесной Солдат",
+          "Трэнты"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Fey Knows Fey",
+            "ru": "Фейри Узнают Фейри"
+          },
+          "description": {
+            "en": "PCs with the Elf, Faerie, Faun, Goblin, or Katari ancestries, or a Mixed ancestry that includes any of those, have advantage on all Presence Rolls as long as they do not speak poorly of the realm or its Queen.",
+            "ru": "Персонажи родословных Эльф, Фейри, Фавн, Гоблин или Катари, или Смешанной родословной, включающей любую из них, получают преимущество на все броски Влияния, пока не отзываются плохо об этих землях или их Королеве."
+          },
+          "prompt": {
+            "en": "What is familiar about this place, even if it was in dream?",
+            "ru": "Что кажется знакомым в этом месте, пусть даже это было во сне?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Come Dancing",
+            "ru": "Пойдём Танцевать"
+          },
+          "description": {
+            "en": "Everyone, including the cats, is summoned to a dance before the Queen. Those who resist are herded by a Clowder of Fey Cats toward the ballroom. The cats are most insistent. Further refusal will likely make the PC Marked. At the ball, each dancer calls out their dance, describes it, then attempts a Presence or Agility Roll (16). On a failure, roll 1d6: 1. The dancer's head turns into a carp's head until their next rest. 2. The dancers clothes stay the same, while everyone else's turn into a new fashion. The dancer's clothes are considered unfortunate. 3. The dancer shrinks to half size, while their clothes remain the same size. 4. The dancer is compelled to keep dancing until they succeed on their roll, marking a Stress each time they fail. 5. The dancer has a white porcelain cat mask affixed to their face until their next rest. Everyone is sympathetic. 6. The dancer now has 2 left feet until their next rest. This gives disadvantage on running, jumping, etc. On a success, the dancer is celebrated and gets an audience with the Queen. The have advantage on any arguments then make before the Queen. Somewhere on their person they find a consumable in a party gift bag. Roll 3d12 on the loot table. On a critical success, the dancer also gets their choice of a Fey Mirror, a Fey Quiver, or a Moon Scarf. The Queen takes a special interest in them, which allows all kinds of adventure!",
+            "ru": "Всех, включая кошек, созывают на танец перед Королевой. Тех, кто сопротивляется, Стая Фейских Кошек сгоняет к бальному залу. Кошки настроены весьма решительно. Дальнейший отказ, вероятно, сделает персонажа Отмеченным. На балу каждый танцор объявляет свой танец, описывает его, а затем совершает бросок Влияния или Проворности (16). При неудаче бросьте 1d6: 1. Голова танцора превращается в голову карпа до его следующего отдыха. 2. Одежда танцора остаётся прежней, пока одежда всех остальных превращается в новую моду. Одежда танцора считается неудачной. 3. Танцор уменьшается вдвое, пока его одежда остаётся прежнего размера. 4. Танцор вынужден продолжать танцевать, пока не преуспеет в броске, отмечая Стресс за каждую неудачу. 5. К лицу танцора до его следующего отдыха приделывается белая фарфоровая кошачья маска. Все ему сочувствуют. 6. У танцора до следующего отдыха теперь две левые ноги. Это даёт помеху на бег, прыжки и тому подобное. При успехе танцора чествуют, и он получает аудиенцию у Королевы. У него есть преимущество на любые доводы, которые он затем приводит перед Королевой. Где-то на себе он находит расходник в праздничном подарочном мешочке. Бросьте 3d12 по таблице добычи. При критическом успехе танцор также получает на выбор Фейское Зеркало, Фейский Колчан или Лунный Шарф. Королева проявляет к нему особый интерес, что открывает самые разные приключения!"
+          },
+          "prompt": {
+            "en": "Where did you learn your dance? Who did you last dance with?",
+            "ru": "Где вы научились своему танцу? С кем вы танцевали в последний раз?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Glimmer Gale",
+            "ru": "Мерцающий Шквал"
+          },
+          "description": {
+            "en": "A magical deluge that drenches everyone outside. Locals all take cover just before the storm. The wind whispers secrets in dozens of voices that PCs almost recognize. The trees dance naked, while their leaves turn into butterflies and fly away to avoid the rain, returning when the storm passes. The air tastes of burnt sugar and memories. Every raindrop brings a memory of your childhood.",
+            "ru": "Магический ливень, промачивающий всех снаружи насквозь. Местные жители укрываются прямо перед бурей. Ветер шепчет тайны десятками голосов, которые персонажи почти узнают. Деревья танцуют нагими, а их листья превращаются в бабочек и улетают прочь от дождя, возвращаясь, когда буря проходит. Воздух отдаёт вкусом жжёного сахара и воспоминаний. Каждая капля дождя приносит воспоминание о вашем детстве."
+          },
+          "prompt": {
+            "en": "You remember a childhood birthday party. What happened? How long has it been since you thought of this?",
+            "ru": "Вы вспоминаете день рождения из детства. Что произошло? Сколько времени прошло с тех пор, как вы в последний раз думали об этом?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Feast of the Fey",
+            "ru": "Пир Фейри"
+          },
+          "description": {
+            "en": "The party comes upon a banquet and they are honored guests. The food and drink are astoundingly delicious, likely the best they've ever tasted. If they eat or drink, they are compelled to stay in the Court of Cats for the rest of their lives. To leave, they must gain permission from the Queen. She may have a task or two in mind for them. Or just decide to do anything for a pretty face, or a good dancer.",
+            "ru": "Группа натыкается на пир, и они — почётные гости. Еда и питьё поразительно вкусны, вероятно, лучшие из всего, что они когда-либо пробовали. Если они едят или пьют, они вынуждены остаться в Кошачьем Дворе на всю оставшуюся жизнь. Чтобы уйти, они должны получить разрешение Королевы. У неё может быть на уме одно-два задания для них. Или же она просто решит сделать что угодно ради красивого лица или хорошего танцора."
+          },
+          "prompt": {
+            "en": "What did you eat? Could any meal ever compare with this?",
+            "ru": "Что вы ели? Может ли какое-либо блюдо сравниться с этим?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Marked",
+            "ru": "Отмечен"
+          },
+          "description": {
+            "en": "For any or no reason at all, you may spend a Fear to make a character Marked. This magical mark means the target is fair game for any discomfort, abuse, or death while in the Court of Cats. This may be a test or just an amusement to see how well the PC defends themselves. It can be taken away at any time.",
+            "ru": "По любой причине или вовсе без неё вы можете потратить Страх, чтобы сделать персонажа Отмеченным. Эта магическая метка означает, что цель становится законной добычей для любых неудобств, издевательств или смерти, пока находится в Кошачьем Дворе. Это может быть испытанием или просто развлечением, чтобы посмотреть, насколько хорошо персонаж сможет себя защитить. Метку можно снять в любой момент."
+          },
+          "prompt": {
+            "en": "What does it feel like to be Marked?",
+            "ru": "Каково это — быть Отмеченным?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Silence",
+            "ru": "Тишина"
+          },
+          "description": {
+            "en": "If any PC talks in a way that the Queen of Cats might find disrespectful (and that can change day to day), you may spend a Fear to have little glass spiders sew their lips together and cause the target to mark a Stress. The PC is Silenced and cannot talk until forgiven by the Queen or they remove the glass threads. Removing the glass threads does 1 point of direct damage and the target is now Marked.",
+            "ru": "Если персонаж говорит так, что Королева Кошек может счесть это неуважением (а это может меняться изо дня в день), вы можете потратить Страх, чтобы крошечные стеклянные пауки зашили ему губы, заставив цель отметить Стресс. Персонаж Заглушён и не может говорить, пока его не простит Королева или пока он не удалит стеклянные нити. Удаление стеклянных нитей наносит 1 очко прямого урона, и теперь цель Отмечена."
+          },
+          "prompt": {
+            "en": "Why do the glass threads tighten and loosen in time with your heartbeat?",
+            "ru": "Почему стеклянные нити сжимаются и ослабевают в такт вашему сердцебиению?"
+          }
+        }
+      ],
+      "builtin": true,
+      "tags": []
+    },
+    {
+      "id": "court-of-hounds",
+      "tier": 3,
+      "type": "social",
+      "difficulty": 18,
+      "name": {
+        "en": "Court of Hounds",
+        "ru": "Псиный Двор"
+      },
+      "impulses": {
+        "en": [
+          "Feast",
+          "hunt",
+          "impress",
+          "play wild music",
+          "travel"
+        ],
+        "ru": [
+          "Пировать",
+          "охотиться",
+          "впечатлять",
+          "играть дикую музыку",
+          "путешествовать"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Crimson Cap",
+          "Dryads",
+          "Fey Hunting Hound",
+          "Fey Hound Pack",
+          "Moon Knight",
+          "Glimmer of Pixies",
+          "Pixie Knight",
+          "Prince of Hounds",
+          "Redcap",
+          "Sylvan Soldier",
+          "Treants"
+        ],
+        "ru": [
+          "Багровый Колпак",
+          "Дриады",
+          "Фейская Охотничья Гончая",
+          "Свора Фейских Гончих",
+          "Лунный Рыцарь",
+          "Мерцание Пикси",
+          "Рыцарь Пикси",
+          "Принц Псов",
+          "Красный Колпак",
+          "Лесной Солдат",
+          "Трэнты"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Fey Knows Fey",
+            "ru": "Фейри Узнают Фейри"
+          },
+          "description": {
+            "en": "PCs with the Elf, Faerie, Faun, or Goblin ancestries, or a Mixed ancestry that includes any of those, have advantage on all Presence Rolls as long as they do not speak poorly of the realm or its Prince.",
+            "ru": "Персонажи родословных Эльф, Фейри, Фавн или Гоблин, или Смешанной родословной, включающей любую из них, получают преимущество на все броски Влияния, пока не отзываются плохо об этих землях или их Принце."
+          },
+          "prompt": {
+            "en": "What have you heard of this place, and the Wild Hunt?",
+            "ru": "Что вы слышали об этом месте и о Дикой Охоте?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "The Wild Hunt",
+            "ru": "Дикая Охота"
+          },
+          "description": {
+            "en": "Start a Dynamic Consequence Countdown (Loop d20) as soon as the players enter the realm. If the party has somehow found themselves on the good side of the Prince of Hounds, they are invited to take part in the hunt. If not, or if they refuse to join the hunt, they are the hunted. The hunt includes the Prince of Hounds, multiple Fey Hound Packs, and a group of Moon Knights riding spectral mounts. If the party is with the hunt, they find it a tough go, but stimulating. The Prince will loan them steeds to ride. Challenges include: Keeping up with the hounds (group Instinct or Presence Roll). Take flight! (chase a flying white stag; group Strength or Agility Roll 17 to hang on, ranged attackers get one shot at Far range with disadvantage). The End (the stag is cornered, Prince loans legendary spear, difficulty 18 throw to finish it). If the party is the quarry of the hunt, they are expected to flee and only stand and fight after a merry chase, facing the Prince, Moon Knights, Fey Hound Packs, Pixie Knights. Challenges include Strafing run, Look Up!, Not a Safe Place, Cornered!, and possible Death (resurrection with amnesia, rescuable).",
+            "ru": "Начните Динамический Счётчик Последствий (Цикл d20), как только игроки войдут в это царство. Если группа каким-то образом оказалась на хорошей стороне у Принца Псов, их приглашают принять участие в охоте. Если нет, или если они отказываются присоединиться к охоте, они сами становятся дичью. В охоту входят Принц Псов, несколько Свор Фейских Гончих и группа Лунных Рыцарей, скачущих на призрачных скакунах. Если группа участвует в охоте вместе со всеми, она находит это трудным, но воодушевляющим занятием. Принц одолжит им скакунов. Испытания включают: Не отставать от гончих (групповой бросок Инстинкта или Влияния). В полёт! (погоня за летящим белым оленем; групповой бросок Силы или Проворности 17, чтобы удержаться, дальнобойные бойцы получают один выстрел на Дальней дистанции с помехой). Конец (олень загнан в угол, Принц одалживает легендарное копьё, бросок сложности 18, чтобы прикончить его). Если группа сама является дичью охоты, от неё ожидается, что она будет спасаться бегством и встанет на бой лишь после весёлой погони, столкнувшись с Принцем, Лунными Рыцарями, Сворами Фейских Гончих, Рыцарями Пикси. Испытания включают Обстрел с Флангов, Смотри Вверх!, Небезопасное Место, В Загоне! и возможную Смерть (воскрешение с амнезией, персонажа можно спасти)."
+          },
+          "prompt": {
+            "en": "What boon do you want of the Prince?",
+            "ru": "Какую милость вы хотите получить от Принца?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "A Test of Fitness",
+            "ru": "Испытание на Пригодность"
+          },
+          "description": {
+            "en": "A Crimson Cap named Kryme arranges one on one and three on three fights. The first to lose half HPs loses. One on one fights are against a (d3): 1. Moon Knight 2. Oak Treant 3. Stag Knight. Three on Threes are against one of each of the above. When someone is at half HP or less, they are out of the fight, but the rest of the team fights on. Laughing Pixies cheer contestants on. Winners get a 3d12 roll on the Consumables table or a Fey Quiver. Losers mark a Stress.",
+            "ru": "Багровый Колпак по имени Крайм устраивает поединки один на один и три на три. Проигрывает тот, кто первым теряет половину очков здоровья. Поединки один на один проходят против (d3): 1. Лунного Рыцаря 2. Дубового Трэнта 3. Рыцаря-Оленя. Три на три проходят против одного из каждого перечисленного выше. Когда кто-то достигает половины очков здоровья или меньше, он выбывает из боя, но остальная команда продолжает сражаться. Смеющиеся Пикси подбадривают участников. Победители получают бросок 3d12 по таблице Расходников или Фейский Колчан. Проигравшие отмечают Стресс."
+          },
+          "prompt": {
+            "en": "Why would you want to fight?",
+            "ru": "Зачем вам сражаться?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "The Sky Opens",
+            "ru": "Небо Разверзается"
+          },
+          "description": {
+            "en": "Thunder cracks, the winds howl, and the rain pelts down like standing under a waterfall. Vision stops after Very Close range. PCs mark a Stress, and you can have them mark another Stress whenever you want until they take shelter. The shelter they find is occupied by d4: 1. An old elf writing poetry by wax candlight while a Fey Hound Pack sleeps at his feet. 2. Hidden about are 1 Crimson Cap and 1 Redcap per PC. They are hostile. 3. Three Moon Knights. 4. Hidden is a Fey Cat who may offer them a teleport to the Court of Cats.",
+            "ru": "Гремит гром, воют ветра, а дождь хлещет так, будто вы стоите под водопадом. Видимость пропадает за пределами Близкой дистанции. Персонажи отмечают Стресс, и вы можете заставить их отмечать ещё один Стресс, когда пожелаете, пока они не найдут укрытие. Укрытие, которое они находят, занято (d4): 1. Старым эльфом, пишущим стихи при свете восковой свечи, пока Свора Фейских Гончих спит у его ног. 2. Спрятанными здесь Багровым Колпаком и Красным Колпаком на каждого персонажа. Они настроены враждебно. 3. Тремя Лунными Рыцарями. 4. Спрятанной Фейской Кошкой, которая может предложить им телепортацию в Кошачий Двор."
+          },
+          "prompt": {
+            "en": "What tells you must find shelter quickly?",
+            "ru": "Что подсказывает вам, что нужно срочно искать укрытие?"
+          }
+        }
+      ],
+      "builtin": true,
+      "tags": []
+    },
+    {
+      "id": "deserted-moor",
+      "tier": 3,
+      "type": "exploration",
+      "difficulty": 16,
+      "name": {
+        "en": "Deserted Moor",
+        "ru": "Пустынная Пустошь"
+      },
+      "impulses": {
+        "en": [
+          "Heal",
+          "wound"
+        ],
+        "ru": [
+          "Исцелять",
+          "ранить"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Adult Flickerfly",
+          "Demon of Despair",
+          "Ghost Wolves",
+          "Giant Spitting Beewolf",
+          "Serpent Sorcerer",
+          "Spectral Ghosts",
+          "Lightning Troll"
+        ],
+        "ru": [
+          "Взрослая Мерцекрылка",
+          "Демон Уныния",
+          "Призрачные Волки",
+          "Гигантский Плюющийся Пчелиный Волк",
+          "Змеиный Чародей",
+          "Призрачные Существа",
+          "Молниевый Тролль"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Healing Herbs",
+            "ru": "Целебные Травы"
+          },
+          "description": {
+            "en": "The PCs quickly notice a small stream where plants were obviously harvested. A PC can use Knowledge to identify these as potent healing herbs. This area is mostly cleared out, but has enough for one dose. Start a Progress Countdown (6) to find more of these healing herbs. Start a Consequence Countdown (4) for a rival group to find them first; a Serpent Sorcerer and 1d2 Lightning Trolls. Success yields 2d12 doses worth of herbs that let you take an additional rest action during a long rest.",
+            "ru": "Персонажи быстро замечают небольшой ручей, у которого явно собирали растения. Персонаж может использовать Знание, чтобы опознать в них мощные целебные травы. Этот участок в основном опустошён, но трав хватит на одну дозу. Начните Отсчёт Прогресса (6), чтобы найти больше этих целебных трав. Начните Отсчёт Последствий (4) для соперничающей группы, которая может найти их первой — Змеиного Чародея и 1d2 Молниевых Троллей. Успех приносит 2d12 доз трав, позволяющих совершить дополнительное действие отдыха во время долгого отдыха."
+          },
+          "prompt": {
+            "en": "What about these healing herbs surprises you? How can you tell others have been harvesting these herbs?",
+            "ru": "Что удивляет вас в этих целебных травах? Как вы понимаете, что другие уже собирали эти травы?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Haunted Howls",
+            "ru": "Жуткий Вой"
+          },
+          "description": {
+            "en": "Spend a Fear to have 2d6 Ghost Wolves lead by a Ghost Wolf Pack Leader attack.",
+            "ru": "Потратьте Страх, чтобы 2d6 Призрачных Волков во главе с Вожаком Стаи Призрачных Волков напали."
+          },
+          "prompt": {
+            "en": "Are these the ghosts of natural wolves, or something stranger?",
+            "ru": "Это призраки обычных волков или нечто более странное?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Fog Rolls In",
+            "ru": "Наплывает Туман"
+          },
+          "description": {
+            "en": "A dense fog rolls hid obscuring vision beyond Close range. Beyond this range, strange colored lights appear, move, and vanish. PCs who stand still are visited by a light, and must make a Knowledge Reaction Roll. A success reveals a safe way out of the moor and the PC gains a Hope. A failure causes the PC to mark a Stress as they feel something alien touching their mind. PCs who move in the fog are in danger of slipping into a watery bog. The lead PC makes an Instinct Reaction Roll. On a success, they find a safe way out of the moor. On a failure, they lead the party into the bog and they are stuck in deep mud until they succeed on a Strength roll. Each failure on the Strength roll causes them to mark a Stress.",
+            "ru": "Плотный туман наплывает, скрывая видимость за пределами Близкой дистанции. За этой дистанцией появляются, движутся и исчезают странные цветные огоньки. Персонажей, стоящих неподвижно, посещает огонёк, и они должны совершить Бросок Реакции на Знание. Успех раскрывает безопасный путь из пустоши, и персонаж получает Надежду. Неудача заставляет персонажа отметить Стресс, поскольку он чувствует, как нечто чужеродное касается его разума. Персонажи, двигающиеся в тумане, рискуют соскользнуть в топкое болото. Ведущий персонаж совершает Бросок Реакции на Инстинкт. При успехе он находит безопасный путь из пустоши. При неудаче он ведёт группу в болото, и они застревают в глубокой грязи, пока не преуспеют в броске Силы. Каждая неудача в броске Силы заставляет их отметить Стресс."
+          },
+          "prompt": {
+            "en": "How do you know the fog is magical and dangerous?",
+            "ru": "Откуда вы знаете, что туман магический и опасный?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Ghostly Procession",
+            "ru": "Призрачное Шествие"
+          },
+          "description": {
+            "en": "Spectral forms float across the moor a far distance away. They ignore the PCs unless approached. If the PCs are respectful, the specters whisper a secret pertinent to their adventures. Very good roleplay nets the PCs a Hope apiece. Disrespect curses the PCs with a d8 for their Hope die until they succeed with Hope or take a rest. In either case the procession vanishes into the mist.",
+            "ru": "Призрачные фигуры плывут через пустошь на дальней дистанции. Они не обращают внимания на персонажей, пока к ним не приблизятся. Если персонажи проявляют уважение, призраки шепчут тайну, важную для их приключений. Очень хорошая ролевая игра приносит персонажам по одной Надежде каждому. Неуважение проклинает персонажей d8 вместо кости Надежды, пока они не преуспеют с Надеждой или не отдохнут. В любом случае шествие исчезает в тумане."
+          },
+          "prompt": {
+            "en": "What about a specter reminds you of yourself? Is this your doom?",
+            "ru": "Что в призраке напоминает вам о себе самом? Не ваша ли это судьба?"
+          }
+        }
+      ],
+      "builtin": true,
+      "tags": []
+    },
+    {
+      "id": "fey-lands",
+      "tier": 3,
+      "type": "exploration",
+      "difficulty": 18,
+      "name": {
+        "en": "Fey Lands",
+        "ru": "Фейские Земли"
+      },
+      "impulses": {
+        "en": [
+          "Astound",
+          "beguile",
+          "enthrall",
+          "entrap"
+        ],
+        "ru": [
+          "Изумлять",
+          "обольщать",
+          "очаровывать",
+          "заманивать в ловушку"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Clowder of Fey Cats",
+          "Crimson Cap",
+          "Dryads",
+          "Fey Cat",
+          "Fey Hunting Hound",
+          "Fey Hound Pack",
+          "Fey Mist Lion",
+          "Moon Knight",
+          "Glimmer of Pixies",
+          "Pixie Knight",
+          "Queen of Cats",
+          "Redcap",
+          "Sylvan Soldier",
+          "Treants"
+        ],
+        "ru": [
+          "Стая Фейских Кошек",
+          "Багровый Колпак",
+          "Дриады",
+          "Фейская Кошка",
+          "Фейская Охотничья Гончая",
+          "Свора Фейских Гончих",
+          "Фейский Туманный Лев",
+          "Лунный Рыцарь",
+          "Мерцание Пикси",
+          "Рыцарь Пикси",
+          "Королева Кошек",
+          "Красный Колпак",
+          "Лесной Солдат",
+          "Трэнты"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Fey Knows Fey",
+            "ru": "Фейри Узнают Фейри"
+          },
+          "description": {
+            "en": "PCs with the Elf, Faerie, Faun, Goblin, or a Mixed ancestry that includes any of those, have advantage on all Presence Rolls as long as they do not speak poorly of the realm or its rulers.",
+            "ru": "Персонажи родословных Эльф, Фейри, Фавн, Гоблин, или Смешанной родословной, включающей любую из них, получают преимущество на все броски Влияния, пока не отзываются плохо об этих землях или их правителях."
+          },
+          "prompt": {
+            "en": "What is familiar about this place, even if it was in dream?",
+            "ru": "Что кажется знакомым в этом месте, пусть даже это было во сне?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Festival",
+            "ru": "Празднество"
+          },
+          "description": {
+            "en": "The party finds itself in the middle of a festival. Epic poetry, feasting, and wild celebration are all around the PCs. Those who take part in the poetry, eating, or drinking are thrilled and clear a Stress. Spend a Fear to have a PC who listened to poetry, drank, or ate to be unable to leave the Fey Lands without explicit permission from the leader of a Fey court. Festivals include: Autumn Fest, Blindfold Day, Cavalcade of Cats, Hound's Day, Stick Man Will Eat Us Day, Spring Fest, Summer Fest, Winter Fest.",
+            "ru": "Группа оказывается в разгаре празднества. Эпическая поэзия, пиршество и дикое веселье окружают персонажей. Те, кто принимает участие в чтении стихов, еде или питье, приходят в восторг и снимают Стресс. Потратьте Страх, чтобы персонаж, слушавший стихи, пивший или евший, не смог покинуть Фейские Земли без явного разрешения правителя одного из Фейских дворов. Празднества включают: Осенний Праздник, День Повязки на Глазах, Кавалькаду Кошек, День Гончих, День «Палкочеловек Нас Съест», Весенний Праздник, Летний Праздник, Зимний Праздник."
+          },
+          "prompt": {
+            "en": "What memory from you childhood is triggered by this festival?",
+            "ru": "Какое воспоминание из вашего детства пробуждает это празднество?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Ley Line",
+            "ru": "Линия Силы"
+          },
+          "description": {
+            "en": "The party comes upon a Ley Line. Those with Spellcasting traits recognize the power under the earth here. The Fey Folk often build their roads atop Ley Lines. While on a Ley Line characters have advantage on all Spellcasting rolls. The party may meet friendly travelers on the line, or it's powerful magic may attract adversaries. Spend a Fear to create an adversarial fey themed group. spend a second fear to have them lying in wait for an ambush.",
+            "ru": "Группа натыкается на Линию Силы. Те, у кого есть черты заклинателя, чувствуют мощь под землёй в этом месте. Фейский народ часто строит свои дороги поверх Линий Силы. Находясь на Линии Силы, персонажи получают преимущество на все броски Заклинания. Группа может встретить на линии дружелюбных путников, или же её мощная магия может привлечь противников. Потратьте Страх, чтобы создать враждебную группу в фейской тематике; потратьте второй Страх, чтобы устроить им засаду."
+          },
+          "prompt": {
+            "en": "What does it feel like to walk a Lay Line? Have you felt one before? Where?",
+            "ru": "Каково это — идти по Линии Силы? Вы уже чувствовали такое прежде? Где?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Ruins of a Lost Court",
+            "ru": "Руины Потерянного Двора"
+          },
+          "description": {
+            "en": "The party comes upon ruins of a fantastical Fey castle. Moon Knights guard the ruins and elven vampires inhabit them. Possible treasures include a Fey Mirror, Fey Quiver, or Moon Scarf. An Oak Treant is a prisoner of the vampires, who are trying to turn it into their thrall. If freed, the treant offers to arrange an audience with the leader of a Fey court for the party.",
+            "ru": "Группа натыкается на руины фантастического Фейского замка. Лунные Рыцари охраняют руины, а эльфийские вампиры обитают в них. Возможные сокровища включают Фейское Зеркало, Фейский Колчан или Лунный Шарф. Дубовый Трэнт томится в плену у вампиров, которые пытаются превратить его в своего раба. Если его освободить, трэнт предложит устроить группе аудиенцию у правителя одного из Фейских дворов."
+          },
+          "prompt": {
+            "en": "Why do you think this castle fell? What court used to reign here?",
+            "ru": "Почему, по-вашему, этот замок пал? Какой двор здесь правил раньше?"
+          }
+        }
+      ],
+      "builtin": true,
+      "tags": []
+    },
+    {
+      "id": "haunted-mountain-pass",
+      "tier": 3,
+      "type": "traversal",
+      "difficulty": 18,
+      "name": {
+        "en": "Haunted Mountain Pass",
+        "ru": "Призрачный Горный Перевал"
+      },
+      "impulses": {
+        "en": [
+          "Block",
+          "intimidate"
+        ],
+        "ru": [
+          "Преграждать путь",
+          "запугивать"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Dire Bats",
+          "Spectral Ghosts (all)",
+          "Vampires (all, including Lamia)"
+        ],
+        "ru": [
+          "Ужасные Летучие Мыши",
+          "Призрачные Существа (любые)",
+          "Вампиры (любые, включая Ламию)"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Step by Step",
+            "ru": "Шаг за Шагом"
+          },
+          "description": {
+            "en": "When the party starts their trek through the pass, activate a Dynamic Progress Countdown (8). Describe the steep pass with steep cliffs, raging rivers, dense mists, and towering trees each step of the way. Allow party members to use Reaction Rolls using any traits and experiences that make sense to help their navigator make their navigate roll. When the countdown is triggered, describe the destination and tell each PC to mark a Stress.",
+            "ru": "Когда группа начинает переход через перевал, активируйте Динамический Счётчик Прогресса (8). Описывайте крутой перевал с отвесными обрывами, бушующими реками, густыми туманами и высящимися деревьями на каждом шагу пути. Позвольте участникам группы совершать Броски Реакции, используя любые черты и опыт, подходящие для помощи штурману в его броске навигации. Когда отсчёт срабатывает, опишите место назначения и дайте каждому персонажу отметить Стресс."
+          },
+          "prompt": {
+            "en": "What do the PCs hear, smell, and feel in the pass?",
+            "ru": "Что персонажи слышат, чувствуют по запаху и ощущают на перевале?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Flames of Blue",
+            "ru": "Синее Пламя"
+          },
+          "description": {
+            "en": "As the party climbs up the pass, they start to see flashes a blue light in the dense forest. Eventually they see tall pillars of blue flame shimmering in the wood. The flames are cool, and do not ignite the forest. Spend a Fear to cause a party member to attempt an Instinct or Presence Reaction Roll. On a failure, the party member will do their best to walk into one of the blue flames. If they enter a flame, they vanish. They appear 5-20 minutes later in real time, disheveled and at 0 Stress, with no memories of what happened.",
+            "ru": "По мере того как группа поднимается по перевалу, они начинают замечать вспышки синего света в густом лесу. В конце концов они видят высокие столбы синего пламени, мерцающего среди деревьев. Пламя холодное и не поджигает лес. Потратьте Страх, чтобы заставить участника группы совершить Бросок Реакции на Инстинкт или Влияние. При неудаче участник группы всеми силами постарается войти в одно из синих пламён. Если он войдёт в пламя, он исчезнет. Он появится через 5-20 минут в реальном времени, растрёпанный и с 0 Стресса, без каких-либо воспоминаний о произошедшем."
+          },
+          "prompt": {
+            "en": "What did they see? What did they hear? What spooky foreshadowing can you fit in?",
+            "ru": "Что они увидели? Что они услышали? Какие жуткие предзнаменования вы можете сюда вплести?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Ruined Building",
+            "ru": "Руины Здания"
+          },
+          "description": {
+            "en": "The party finds a ruin. If they investigate, they could find a clue or secret. Spend a Fear to surprise them with Ghost Wolves and Dire Bats.",
+            "ru": "Группа находит руины. Если они их исследуют, то могут найти улику или тайну. Потратьте Страх, чтобы застать их врасплох Призрачными Волками и Ужасными Летучими Мышами."
+          },
+          "prompt": {
+            "en": "What secret could they uncover here to deepen their understanding of the story?",
+            "ru": "Какую тайну они могли бы здесь раскрыть, чтобы углубить понимание истории?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Chill Mists",
+            "ru": "Холодные Туманы"
+          },
+          "description": {
+            "en": "Dense mists roll in, obscuring vision beyond Close range. Spend a Fear to have the party hear whispering and moaning, and then from out of the fog attack them with a Spectral Necromancer and/or a Spectral Apothecary and some Spectral Archers and Guardians.",
+            "ru": "Наплывают густые туманы, скрывая видимость за пределами Близкой дистанции. Потратьте Страх, чтобы группа услышала шёпот и стоны, а затем из тумана на них нападут Призрачный Некромант и/или Призрачный Аптекарь с несколькими Призрачными Лучниками и Стражами."
+          },
+          "prompt": {
+            "en": "Why did the specters call your name?",
+            "ru": "Почему призраки назвали ваше имя?"
+          }
+        }
+      ],
+      "builtin": true,
+      "tags": []
+    },
+    {
+      "id": "mystic-ring",
+      "tier": 3,
+      "type": "exploration",
+      "difficulty": 16,
+      "name": {
+        "en": "Mystic Ring",
+        "ru": "Мистическое Кольцо"
+      },
+      "impulses": {
+        "en": [
+          "Impart wisdom",
+          "protect the henge"
+        ],
+        "ru": [
+          "Даровать мудрость",
+          "защищать хендж"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Adult Flickerfly",
+          "Elementals (Elemental Spark, Greater Earth)",
+          "Giant Spitting Beewolf",
+          "Stag Knight"
+        ],
+        "ru": [
+          "Взрослая Мерцекрылка",
+          "Элементали (Стихийная Искра, Великий Земляной Элементаль)",
+          "Гигантский Плюющийся Пчелиный Волк",
+          "Рыцарь-Олень"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Story of Stone",
+            "ru": "Сказание о Камне"
+          },
+          "description": {
+            "en": "PCs exploring the stones are likely to find clues as to how the stones may be venerated with the Story of Stone ritual. PCs may make an Intuition or Knowledge roll as they investigate. Critical Success: Gain the knowledge of how to venerate the stones and their Hidden Guardian and a useful item. Success with Hope: Gain the knowledge of how to venerate the stones and their spirits. Success with Fear: Gain the knowledge, but go about it in a way that annoys the spirits; mark a Stress. Failure with Hope: Gain the knowledge that there is a way to get the Hidden Guardian on their side, if they could only find it; mark a Stress. Failure with Fear: The Hidden Guardian is angry, all party members mark a Stress, the spirit vanishes and will not return without a quest of atonement.",
+            "ru": "Персонажи, исследующие камни, скорее всего найдут улики того, как их можно почтить с помощью ритуала «Сказание о Камне». Персонажи могут совершить бросок Инстинкта или Знания, пока исследуют их. Критический успех: получите знание о том, как почтить камни и их Скрытого Стража, а также полезный предмет. Успех с Надеждой: получите знание о том, как почтить камни и их духов. Успех со Страхом: получите знание, но действуете так, что это раздражает духов; отметьте Стресс. Неудача с Надеждой: получите знание о том, что есть способ привлечь Скрытого Стража на свою сторону, если только удастся его найти; отметьте Стресс. Неудача со Страхом: Скрытый Страж разгневан, все участники группы отмечают Стресс, дух исчезает и не вернётся без квеста искупления."
+          },
+          "prompt": {
+            "en": "What is it about this place that makes you feel watched?",
+            "ru": "Что в этом месте заставляет вас чувствовать себя под наблюдением?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Company",
+            "ru": "Компания"
+          },
+          "description": {
+            "en": "Spend a Fear to summon a group of adversaries equal to the default battle points budget for the party. They announce that if the party defeats them in honorable combat, the Hidden Guardian will favor them (advantage on all further actions here). Ask if the final blow is a killing one or not. Killing blows are not honorable.",
+            "ru": "Потратьте Страх, чтобы призвать группу противников, равную стандартному бюджету боевых очков группы. Они объявляют, что если группа победит их в честном бою, Скрытый Страж будет благоволить им (преимущество на все дальнейшие действия здесь). Спросите, является ли последний удар смертельным или нет. Смертельные удары не считаются честными."
+          },
+          "prompt": {
+            "en": "What feels familiar about this?",
+            "ru": "Что кажется вам знакомым в этом?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Veneration",
+            "ru": "Почитание"
+          },
+          "description": {
+            "en": "If the PCs perform the Story of Stone ritual they learned above, each may roll with Presence or their Spellcasting trait. The highest roll is judged by the Hidden Guardian of the stones. Critical Success: Everyone gain useful information, 2 Hope, and clears a Stress; the PC with the high roll finds a useful item. Success with Hope: Everyone gain useful information, 2 Hope, and clears a Stress. Success with Fear: Everyone gain useful information, 1 Hope, but mark a Stress. Failure with Hope: Everyone gain useful information, but mark a Stress. Failure with Fear: Everyone mark a Stress.",
+            "ru": "Если персонажи проводят изученный выше ритуал «Сказание о Камне», каждый может совершить бросок Влияния или своей черты Заклинателя. Наивысший результат оценивается Скрытым Стражем камней. Критический успех: все получают полезные сведения, 2 Надежды и снимают Стресс; персонаж с наивысшим броском находит полезный предмет. Успех с Надеждой: все получают полезные сведения, 2 Надежды и снимают Стресс. Успех со Страхом: все получают полезные сведения, 1 Надежду, но отмечают Стресс. Неудача с Надеждой: все получают полезные сведения, но отмечают Стресс. Неудача со Страхом: все отмечают Стресс."
+          },
+          "prompt": {
+            "en": "How does this ritual compare to those you were raised with?",
+            "ru": "Как этот ритуал соотносится с теми, на которых вы были воспитаны?"
+          }
+        }
+      ],
+      "builtin": true,
+      "tags": []
+    },
+    {
+      "id": "scorching-dungeon",
+      "tier": 3,
+      "type": "exploration",
+      "difficulty": 17,
+      "name": {
+        "en": "Scorching Dungeon",
+        "ru": "Раскалённое Подземелье"
+      },
+      "impulses": {
+        "en": [
+          "Bake",
+          "burn",
+          "misdirect"
+        ],
+        "ru": [
+          "Печь",
+          "жечь",
+          "сбивать с толку"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Demons",
+          "Devils",
+          "Elemental Spark",
+          "Dread Salamanders",
+          "Volcanic Dragon"
+        ],
+        "ru": [
+          "Демоны",
+          "Дьяволы",
+          "Стихийная Искра",
+          "Ужасные Саламандры",
+          "Вулканический Дракон"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Dungeon Turns",
+            "ru": "Ходы Подземелья"
+          },
+          "description": {
+            "en": "Track time for Countdowns in Dungeon Turns. A turn is about 10 minutes of exploration or one encounter. Particularly noisy or lengthy encounters may count as 2 turns.",
+            "ru": "Отслеживайте время для Отсчётов в Ходах Подземелья. Один ход — это примерно 10 минут исследования или одна встреча. Особенно шумные или долгие встречи могут засчитываться за 2 хода."
+          },
+          "prompt": {
+            "en": "Is your noise particularly noticeable by others in the dungeon? Are you moving fast, slow and stealthy, or in between?",
+            "ru": "Особенно ли заметен ваш шум для остальных обитателей подземелья? Вы двигаетесь быстро, медленно и скрытно, или как-то иначе?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Guards",
+            "ru": "Стражи"
+          },
+          "description": {
+            "en": "Start a Dynamic Consequence Countdown (Loop d8) using Dungeon Turns. When the Countdown triggers, Dread Salamanders find the party and attack. 1 Dread Salamander per PC, led by an Elder Dread Salamander.",
+            "ru": "Начните Динамический Счётчик Последствий (Цикл 8) в Ходах Подземелья. Когда Счётчик срабатывает, Ужасные Саламандры находят группу и нападают. По одной Ужасной Саламандре на персонажа, во главе со Старшей Ужасной Саламандрой."
+          },
+          "prompt": {
+            "en": "Is the heat getting to you yet?",
+            "ru": "Жара уже начинает сказываться на вас?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Guard Room",
+            "ru": "Караульное Помещение"
+          },
+          "description": {
+            "en": "The party comes to a portcullis with 1d3+2 Dread Salamander guards on the other side, doing various activities. There is a gong on the wall on their side of the portcullis they can use to summon more guards.",
+            "ru": "Группа подходит к решётке, за которой находятся 1d3+2 стражника-Ужасные Саламандры, занятые разными делами. На стене с их стороны решётки висит гонг, которым они могут вызвать подкрепление."
+          },
+          "prompt": {
+            "en": "What kind of books are in the guard room? Why doesn't the paper burn? Is it paper?",
+            "ru": "Какие книги находятся в караульном помещении? Почему бумага не горит? Это вообще бумага?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Steam Room",
+            "ru": "Парная"
+          },
+          "description": {
+            "en": "The party comes to a closed iron door with a whiff of sulfur. Inside are two Elder Dread Salamanders enjoying a steambath. Their armor and weapons are stacked by the door.",
+            "ru": "Группа подходит к закрытой железной двери с лёгким запахом серы. Внутри две Старшие Ужасные Саламандры наслаждаются парной. Их доспехи и оружие сложены у двери."
+          },
+          "prompt": {
+            "en": "Do you like steam baths?",
+            "ru": "Вам нравятся парные?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Bridge Over Troubled Devils",
+            "ru": "Мост над Беспокойными Дьяволами"
+          },
+          "description": {
+            "en": "The party comes to an iron bridge over a flaming chasm. Flying in circles under the bridge are one Devilish Imp Swarms per PC and a Braided Devil. Falling into the Chasm does 3d20 magical damage.",
+            "ru": "Группа подходит к железному мосту над пылающей пропастью. Под мостом кружат по одному Рою Бесов-Прислужников на персонажа и Плетёный Бес. Падение в пропасть наносит 3d20 магического урона."
+          },
+          "prompt": {
+            "en": "What draws devils here? Can you get out before meeting more?",
+            "ru": "Что привлекает сюда дьяволов? Успеете ли вы выбраться, не встретив ещё больше?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Fire Dance With Me",
+            "ru": "Станцуй со Мной в Огне"
+          },
+          "description": {
+            "en": "The party comes to a hot iron door. Beyond is a room with lava slowly flowing through. In the lava are stone islands. On the islands are 2-3 Lava Trolls dancing around a delicate bronze automaton that is playing a silver goblet drum. The trolls assume anyone entering wants to take the automaton away from them. If combat breaks out, the automaton will reach up and dance with one of the trolls, making them Vulnerable. The automaton wants to be taken out and sold to Silas Vane, a rich and powerful merchant prince nearby.",
+            "ru": "Группа подходит к горячей железной двери. За ней комната, через которую медленно течёт лава. В лаве — каменные острова. На островах 2-3 Лавовых Тролля танцуют вокруг изящного бронзового автоматона, играющего на серебряном барабане-кубке. Тролли полагают, что любой вошедший хочет забрать у них автоматона. Если начнётся бой, автоматон потянется вверх и станцует с одним из троллей, сделав его Уязвимым. Автоматон хочет, чтобы его забрали и продали Сайласу Вейну, богатому и влиятельному купеческому принцу неподалёку."
+          },
+          "prompt": {
+            "en": "How does the automaton communicate its wishes? How can you tell it is pleased to be taken away and sold?",
+            "ru": "Как автоматон сообщает о своих желаниях? Как понять, что он рад тому, что его забирают и продают?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Rocky",
+            "ru": "Рокки"
+          },
+          "description": {
+            "en": "The party hears jaunty whistling from around a corner, the out steps Rocky, a Greater Earth Elemental that is mapping out the Scorching Dungeon. Rocky writes up many dungeons, and trusts in his stoney exterior to protect him from danger.",
+            "ru": "Группа слышит бодрый свист из-за угла, и оттуда выходит Рокки, Великий Земляной Элементаль, составляющий карту Раскалённого Подземелья. Рокки составляет карты множества подземелий и полагается на свою каменную оболочку, которая защитит его от опасности."
+          },
+          "prompt": {
+            "en": "How can you tell Rocky is telling the truth about not wishing the PCs ill?",
+            "ru": "Как вы понимаете, что Рокки говорит правду о том, что не желает персонажам зла?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Vault of the Fire Lord",
+            "ru": "Хранилище Повелителя Огня"
+          },
+          "description": {
+            "en": "The party finds a locked secret door. Behind it is a relic of the fire lord, perhaps two matched sets of Dragonscale Armor. However, the armor is guarded by a group Vault Guardian Gaolers, Vault Guardian Sentinels, and Vault Guardian Turrets using battle points. The treasure is on a stone block that is trapped. Anyone moving the treasure triggers a blast everywhere around the stone block within Very Close range. Anyone standing in the flame must make an Agility Reaction roll. On a failure, they take 3d20 magical damage and mark a Stress. On a success, they take half damage and no Stress.",
+            "ru": "Группа находит запертую тайную дверь. За ней — реликвия повелителя огня, возможно, два подходящих друг другу комплекта Драконьей Чешуйчатой Брони. Однако броню охраняет группа Стражей Хранилища-Тюремщиков, Стражей Хранилища-Дозорных и Стражей Хранилища-Турелей, использующих боевые очки. Сокровище лежит на каменном постаменте, который заминирован. Всякий, кто сдвигает сокровище, вызывает взрыв повсюду вокруг постамента в пределах Очень Близкой дистанции. Все, кто стоит в пламени, должны совершить Бросок Реакции на Проворность. При неудаче они получают 3d20 магического урона и отмечают Стресс. При успехе они получают половину урона и не отмечают Стресс."
+          },
+          "prompt": {
+            "en": "How can you tell that items on the stone block are magical?",
+            "ru": "Как вы понимаете, что предметы на каменном постаменте магические?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Stairway of Fire",
+            "ru": "Огненная Лестница"
+          },
+          "description": {
+            "en": "The party comes upon an iron spiral stairway going down a shaft that occasionally shoots up huge bursts of flame. At the bottom is an iron catwalk over lava that vanishes into the rock wall surrounding the staircase. Spend a Fear to fill the stairwell with flames. Everyone must attempt an Agility Reaction roll. On a failure, they take 3d20 magical damage and mark a Stress. On a success, they take half damage and no Stress.",
+            "ru": "Группа подходит к железной винтовой лестнице, спускающейся по шахте, из которой время от времени вырывается огромный сноп пламени. Внизу — железный настил над лавой, уходящий в каменную стену, окружающую лестницу. Потратьте Страх, чтобы наполнить лестничный колодец пламенем. Все должны совершить Бросок Реакции на Проворность. При неудаче они получают 3d20 магического урона и отмечают Стресс. При успехе они получают половину урона и не отмечают Стресс."
+          },
+          "prompt": {
+            "en": "What clues lead them to climb down these stairs? How do they know a dragon's lair is near?",
+            "ru": "Какие улики привели их к спуску по этой лестнице? Как они узнают, что логово дракона близко?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Dragon's Lair",
+            "ru": "Логово Дракона"
+          },
+          "description": {
+            "en": "The party comes with a massive cavern with lava pools that is the home of a Volcanic Dragon. This may be the end of a Tier 3 party, but the Dragon may sense their weakness and play with them, giving them a chance to retreat and come back later. In the lair is of course a massive treasure horde, perhaps 1 chest of gold per PC, a few magic items, and a major clue for the party's current quest.",
+            "ru": "Группа приходит в исполинскую пещеру с озёрами лавы — дом Вулканического Дракона. Это может стать концом для группы 3 ранга, но дракон может почувствовать их слабость и поиграть с ними, дав шанс отступить и вернуться позже. В логове, конечно же, находится огромная сокровищница — возможно, по сундуку золота на персонажа, несколько магических предметов и важная улика для текущего квеста группы."
+          },
+          "prompt": {
+            "en": "How can you tell the dragon is playing with you, like a cat with a mouse? Now that you've returned, how can you tell the dragon still isn't impressed?",
+            "ru": "Как вы понимаете, что дракон играет с вами, как кошка с мышью? Теперь, когда вы вернулись, как понять, что дракон всё ещё не впечатлён?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Temple",
+            "ru": "Храм"
+          },
+          "description": {
+            "en": "The party finds a Temple with a statue of a Giant Fire Snake with ruby eyes. There are signs of humanoid sacrifice here. A pile of bones sits on a large brass platter. On a shelf are items considered important. Any magic items will be here. The rubies are worth a chest of gold each. Touching or moving anything causes the bones to form into Dread Bone Nagas.",
+            "ru": "Группа находит Храм со статуей Гигантской Огненной Змеи с рубиновыми глазами. Здесь видны следы человеческих жертвоприношений. На большом латунном блюде лежит груда костей. На полке — предметы, считающиеся важными. Любые магические предметы будут здесь. Рубины стоят по сундуку золота каждый. Прикосновение или перемещение чего-либо заставляет кости сложиться в Ужасных Костяных Наг."
+          },
+          "prompt": {
+            "en": "What lets you know that people were sacrificed here?",
+            "ru": "Что даёт вам понять, что здесь приносили людей в жертву?"
+          }
+        }
+      ],
+      "builtin": true,
+      "tags": []
+    },
+    {
+      "id": "shadowfen",
+      "tier": 3,
+      "type": "exploration",
+      "difficulty": 17,
+      "name": {
+        "en": "Shadowfen",
+        "ru": "Сумрачная Топь"
+      },
+      "impulses": {
+        "en": [
+          "Drown",
+          "ensnare",
+          "protect its treasures"
+        ],
+        "ru": [
+          "Топить",
+          "опутывать",
+          "защищать свои сокровища"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Dread Ghast",
+          "Dread Ghoul",
+          "Skeletons (all)",
+          "Ghosts (all)",
+          "Vampires (all, including Lamia)"
+        ],
+        "ru": [
+          "Ужасное Умертвие",
+          "Ужасный Гуль",
+          "Скелеты (любые)",
+          "Призраки (любые)",
+          "Вампиры (любые, включая Ламию)"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Lost Treasures",
+            "ru": "Потерянные Сокровища"
+          },
+          "description": {
+            "en": "While most of the glints from the marsh are from silver, eyeless carp, there are some treasures for those who look long and hard enough. Ask the PC how long they look, and then let them make an Instinct check. If they look for less than 10 minutes, give them disadvantage. If they search for an hour or more, give them advantage. Crit: Find two ancient treasures tied in with the Campaign Frame you are using. Success with Hope: Gain an ancient treasure from your world. Success with Failure: See an ancient treasure from your world, but it's a Very Close distance below the water next to a Vision of the Fallen. Failure with Hope: See a Vision of the Fallen point in the direction of deeper water. Searching there gives advantage on the next Instinct roll. Failure with Fear: Trigger the Unquiet Dead without spending a Fear.",
+            "ru": "Хотя большая часть отблесков в болоте исходит от серебристых слепых карпов, здесь есть и сокровища для тех, кто ищет достаточно долго и упорно. Спросите персонажа, как долго он ищет, а затем позвольте ему совершить проверку Инстинкта. Если он ищет менее 10 минут, дайте ему помеху. Если он ищет час и более, дайте преимущество. Крит: найдите два древних сокровища, связанных с используемым вами Сеттингом. Успех с Надеждой: получите древнее сокровище из вашего мира. Успех со Страхом: увидьте древнее сокровище из вашего мира, но оно на Очень Близкой дистанции под водой рядом с Видением Павшего. Неудача с Надеждой: увидьте Видение Павшего, указывающее в сторону более глубокой воды. Поиск там даёт преимущество на следующий бросок Инстинкта. Неудача со Страхом: активируйте Беспокойных Мертвецов, не тратя Страх."
+          },
+          "prompt": {
+            "en": "What surprises you about the treasure you find?",
+            "ru": "Что вас удивляет в найденном сокровище?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Unquiet Dead",
+            "ru": "Беспокойные Мертвецы"
+          },
+          "description": {
+            "en": "Spend a Fear to summon a group of undead adversaries in elven arms and armor equal to the default battle points budget for the party. You may spend an additional Fear to automatically succeed on an ambush. The party is surprised and an adversary immediately takes the spotlight.",
+            "ru": "Потратьте Страх, чтобы призвать группу противников-нежити в эльфийских доспехах и с эльфийским оружием, равную стандартному бюджету боевых очков группы. Вы можете потратить дополнительный Страх, чтобы автоматически преуспеть в засаде. Группа застигнута врасплох, и один из противников немедленно получает Активацию."
+          },
+          "prompt": {
+            "en": "What banners did the undead raise as they attacked you?",
+            "ru": "Какие знамёна поднимала нежить, нападая на вас?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Visions of the Fallen",
+            "ru": "Видения Павших"
+          },
+          "description": {
+            "en": "One of the PCs sees a breathtakingly beautiful elven knight lying in repose just under the water. They do not appear to be breathing, but no wounds are evident. The vision is an illusion, but a persistent one. If a PC approaches, you may spend a Fear to have the knight's eyes snap open as the PC swoons and falls into the water, which is very deep. This causes the PC to mark a Stress and they must continue to mark a Stress every time they are Spotlighted until they leave the water.",
+            "ru": "Один из персонажей видит захватывающе прекрасного эльфийского рыцаря, лежащего в покое прямо под водой. Кажется, он не дышит, но никаких ран не видно. Видение — иллюзия, но настойчивая. Если персонаж приблизится, вы можете потратить Страх, чтобы глаза рыцаря резко открылись, а персонаж от испуга упал в воду, которая очень глубока. Это заставляет персонажа отметить Стресс, и он должен продолжать отмечать Стресс каждый раз, когда получает Активацию, пока не покинет воду."
+          },
+          "prompt": {
+            "en": "What did the knight whisper to you that bothers you?",
+            "ru": "Что прошептал вам рыцарь, что вас тревожит?"
+          }
+        }
+      ],
+      "builtin": true,
+      "tags": []
+    },
+    {
+      "id": "unhallowed-ground",
+      "tier": 3,
+      "type": "exploration",
+      "difficulty": 18,
+      "name": {
+        "en": "Unhallowed Ground",
+        "ru": "Оскверненная Земля"
+      },
+      "impulses": {
+        "en": [
+          "Defend the new owners",
+          "drive away intruders"
+        ],
+        "ru": [
+          "Защищать новых владельцев",
+          "прогонять незваных гостей"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Demons",
+          "Devils",
+          "Dire Bat",
+          "Giant Rat",
+          "Swarm of Rats",
+          "Spectral Ghosts",
+          "Vampires"
+        ],
+        "ru": [
+          "Демоны",
+          "Дьяволы",
+          "Ужасная Летучая Мышь",
+          "Гигантская Крыса",
+          "Стая Крыс",
+          "Призрачные Существа",
+          "Вампиры"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Abandoned Facade",
+            "ru": "Заброшенный Фасад"
+          },
+          "description": {
+            "en": "The common knowledge is that this place was once holy, but is now abandoned and lost it's power. People say it's a sad place and best avoided. Investigations with a successful Instinct (16) roll reveal one or more secret passages leading under the facade and deeper into what has become a lair of evil. When a secret passage is opened, you can have a Swarm of Rats swarm out and attack.",
+            "ru": "Общеизвестно, что это место когда-то было святым, но теперь заброшено и утратило свою силу. Люди говорят, что это печальное место, которого лучше избегать. Расследования с успешным броском Инстинкта (16) раскрывают один или несколько тайных ходов, ведущих под фасад и глубже, в то, что стало логовом зла. Когда открывается тайный ход, вы можете заставить Стаю Крыс наброситься и атаковать."
+          },
+          "prompt": {
+            "en": "What shows you that this place is less abandoned then if first appears?",
+            "ru": "Что показывает вам, что это место менее заброшено, чем кажется на первый взгляд?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Creatures of the Night",
+            "ru": "Ночные Твари"
+          },
+          "description": {
+            "en": "As the party explores, spend a Fear to bring out enough Dire Bats to create a challenge using Battle Points. You can throw in some rats for tradition's sake.",
+            "ru": "Пока группа исследует местность, потратьте Страх, чтобы выпустить достаточно Ужасных Летучих Мышей для создания испытания с использованием боевых очков. Можете добавить и крыс — по традиции."
+          },
+          "prompt": {
+            "en": "What do you do to prevent more bats from find you?",
+            "ru": "Что вы делаете, чтобы не привлечь ещё больше летучих мышей?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Shadow of the Torturers",
+            "ru": "Тень Мучителей"
+          },
+          "description": {
+            "en": "While exploring the secret places, the party hears sounds of suffering and torture. Behind a locked room is a torture chamber. Inside are iron maidens, racks, and other torture devices, plus 1d3 prisoners (including any the party may have been looking for) and 1d3 Nosferatu Vampires and 1d3 Dire Ghouls. The vampires will raise the alarm if given the chance.",
+            "ru": "Исследуя тайные места, группа слышит звуки страдания и пыток. За запертой дверью — камера пыток. Внутри — железные девы, дыбы и другие орудия пыток, а также 1d3 пленника (включая любого, кого могла искать группа) и 1d3 Вампира-Носферату с 1d3 Ужасными Гулями. Вампиры поднимут тревогу, если им представится возможность."
+          },
+          "prompt": {
+            "en": "Who are the prisoners? How can you tell that vampire is about to sound an alarm?",
+            "ru": "Кто эти пленники? Как понять, что вампир вот-вот подаст сигнал тревоги?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Crypt",
+            "ru": "Крипта"
+          },
+          "description": {
+            "en": "The party comes upon an old crypt that is now the home of the new occupants, the big evil that has moved in. At first, it looks like they are out, but you can spend a Fear to have them hidden around the crypt, using Battle Points to make a hard fight. The adversaries fight hard here, but will retreat to the Crimson Chamber through another secret passage as soon as the party gets the upper hand.",
+            "ru": "Группа натыкается на старую крипту, ставшую теперь домом для новых обитателей — того большого зла, что здесь поселилось. Сперва кажется, что их нет на месте, но вы можете потратить Страх, чтобы они прятались по всей крипте, используя боевые очки для создания тяжёлого боя. Противники здесь сражаются отчаянно, но отступят через другой тайный ход, как только группа получит преимущество."
+          },
+          "prompt": {
+            "en": "What do you notice that tells you this place is now a nest of evil and no longer a sacred resting place?",
+            "ru": "Что вы замечаете, что говорит о том, что это место теперь гнездо зла, а не более святое место упокоения?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Crimson Chamber",
+            "ru": "Багровый Чертог"
+          },
+          "description": {
+            "en": "The party comes to a locked red door, behind which is the crimson chamber. All surfaces are painted red, or is it blood? Occult symbols of evil abound. The main adversary is here, and healed up if wounded previously, along with enough allies to make this a hard fight. Adversaries here clear a Stress each time they are spotlighted and have advantage on all rolls. Clever PCs may detect the nexus of the occult power here and destroy it to remove the bonuses the adversaries enjoy.",
+            "ru": "Группа подходит к запертой красной двери, за которой находится багровый чертог. Все поверхности выкрашены в красный — или это кровь? Повсюду оккультные символы зла. Здесь находится главный противник, исцелившийся, если был ранен ранее, вместе с достаточным числом союзников, чтобы сделать это тяжёлым боем. Противники здесь снимают Стресс каждый раз, когда получают Активацию, и имеют преимущество на все броски. Смышлёные персонажи могут обнаружить средоточие оккультной силы здесь и уничтожить его, чтобы лишить противников этих бонусов."
+          },
+          "prompt": {
+            "en": "How do you attempt to find the source of occult power in this horrid chamber?",
+            "ru": "Как вы пытаетесь найти источник оккультной силы в этом жутком чертоге?"
+          }
+        }
+      ],
+      "builtin": true,
+      "tags": []
+    },
+    {
+      "id": "vampires-castle",
+      "tier": 3,
+      "type": "exploration",
+      "difficulty": 17,
+      "name": {
+        "en": "Vampire's Castle",
+        "ru": "Замок Вампира"
+      },
+      "impulses": {
+        "en": [
+          "Ensnare",
+          "misdirect",
+          "protect the master/mistress"
+        ],
+        "ru": [
+          "Опутывать",
+          "сбивать с толку",
+          "защищать хозяина/хозяйку"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Dire Bat",
+          "Dread Ghast",
+          "Dread Ghoul",
+          "Ghost (all)",
+          "Renfield",
+          "Vampires (all, including Lamia)"
+        ],
+        "ru": [
+          "Ужасная Летучая Мышь",
+          "Ужасное Умертвие",
+          "Ужасный Гуль",
+          "Призраки (любые)",
+          "Ренфилд",
+          "Вампиры (любые, включая Ламию)"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Main Entrance",
+            "ru": "Главный Вход"
+          },
+          "description": {
+            "en": "Over a drawbridge, large doors open by themselves as the PCs approach. A voice welcomes them and gives directions to their rooms. Portraits of the master or mistress line the walls. The entrance is in a state of disrepair and cobwebs are everywhere.",
+            "ru": "Через разводной мост большие двери открываются сами по себе, стоит персонажам приблизиться. Голос приветствует их и указывает путь к их комнатам. Портреты хозяина или хозяйки выстроились вдоль стен. Вход обветшал, и повсюду паутина."
+          },
+          "prompt": {
+            "en": "How do the carvings on banisters and painting on the walls show the danger of this castle?",
+            "ru": "Как резьба на перилах и картины на стенах показывают опасность этого замка?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "The servant",
+            "ru": "Слуга"
+          },
+          "description": {
+            "en": "An invisible servant (Spectral Necromancer) follows the party and says nothing unless the PCs don't immediately go to their assigned rooms, in which case they will politely try to guide them. If a fight breaks out, the servant becomes partially visible.",
+            "ru": "Невидимый слуга (Призрачный Некромант) следует за группой и молчит, если только персонажи не отправляются немедленно в отведённые им комнаты, — в таком случае он вежливо попытается их проводить. Если начнётся бой, слуга частично становится видимым."
+          },
+          "prompt": {
+            "en": "What tells you that the servant is not your friend?",
+            "ru": "Что подсказывает вам, что слуга вам не друг?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Malevolent Artwork",
+            "ru": "Зловещие Произведения Искусства"
+          },
+          "description": {
+            "en": "As the party explores the castle, the artwork seems to watch them. Paintings and statues subtly move when the PCs aren't looking. Spend a Fear to force a PC to make a Presence Reaction Roll (19). On a success, they mark a Stress and gain a vision of the Chamber of Horrors. On a failure, they mark a Stress and are teleported into the Chamber of Horrors.",
+            "ru": "Пока группа исследует замок, кажется, что произведения искусства наблюдают за ними. Картины и статуи едва заметно движутся, когда персонажи не смотрят. Потратьте Страх, чтобы заставить персонажа совершить Бросок Реакции на Влияние (19). При успехе он отмечает Стресс и получает видение Чертога Ужасов. При неудаче он отмечает Стресс и телепортируется в Чертог Ужасов."
+          },
+          "prompt": {
+            "en": "What lets you know your comrade has been sent to the Chamber of Horrors?",
+            "ru": "Что даёт вам понять, что вашего товарища отправили в Чертог Ужасов?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Tiny Dancer and Friend",
+            "ru": "Крошка-Танцовщица и Друг"
+          },
+          "description": {
+            "en": "Spend a Fear to have the party encounter a Lamia and a Vampire Negotiator while just out of sight, a group of Dread Ghouls and a Dread Ghast wait in the wings, using Battle Points to make a challenging encounter. The vampires attempt to convince the party to cooperate and to work as a strike team to take out the vampires' enemies.",
+            "ru": "Потратьте Страх, чтобы группа встретила Ламию и Вампира-Переговорщика, пока чуть поодаль, вне поля зрения, ждут группа Ужасных Гулей и Ужасное Умертвие, используя боевые очки для создания сложного столкновения. Вампиры пытаются убедить группу сотрудничать и стать ударным отрядом для устранения врагов вампиров."
+          },
+          "prompt": {
+            "en": "What lets you know the offer is real? And is tilted in the vampires' favor?",
+            "ru": "Что подсказывает вам, что предложение искреннее? И что оно склоняется в пользу вампиров?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Chamber of Horrors",
+            "ru": "Чертог Ужасов"
+          },
+          "description": {
+            "en": "Eventually, the party comes to the Chamber of Horrors, a prison full of torture devices: iron maidens, racks, hot pokers, and worse. Any PC teleported or brought here as a prisoner is chained up here, while all their equipment is stashed in a nearby locked and trapped chest. There are 1d3 prisoners here, including any the party may be looking for. Spend a Fear to have a Moonblessed Vampire torturer and their Dread Ghast apprentice here.",
+            "ru": "В конце концов группа приходит в Чертог Ужасов — тюрьму, полную орудий пыток: железных дев, дыб, раскалённых кочерог и кое-чего похуже. Любой персонаж, телепортированный сюда или приведённый в качестве пленника, прикован здесь цепями, пока всё его снаряжение спрятано в запертом и заминированном сундуке неподалёку. Здесь находятся 1d3 пленника, включая любого, кого могла искать группа. Потратьте Страх, чтобы здесь оказались Благословлённый Луной Вампир-мучитель и его ученик — Ужасное Умертвие."
+          },
+          "prompt": {
+            "en": "What tells you that this place is about to have another visitor?",
+            "ru": "Что подсказывает вам, что это место вот-вот примет ещё одного посетителя?"
+          }
+        }
+      ],
+      "builtin": true,
+      "tags": []
+    },
+    {
+      "id": "wispy-wasteland",
+      "tier": 3,
+      "type": "traversal",
+      "difficulty": 16,
+      "name": {
+        "en": "Wispy Wasteland",
+        "ru": "Туманная Пустошь"
+      },
+      "impulses": {
+        "en": [
+          "Lead Astray"
+        ],
+        "ru": [
+          "Сбивать с пути"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Beasts (Giant Scorpion, Giant Spitting Beewolf, Glass Snake)",
+          "Flickerflies (Adult, Juvenile)",
+          "Elementals (Elemental Spark, Greater Earth)",
+          "Undead (Dread Ghast, Dread Ghoul, Ghost Wolf, Skeletons, Vampires)"
+        ],
+        "ru": [
+          "Звери (Гигантский Скорпион, Гигантский Плюющийся Пчелиный Волк, Стеклянная Змея)",
+          "Мерцекрылки (Взрослая, Молодая)",
+          "Элементали (Стихийная Искра, Великий Земляной Элементаль)",
+          "Нежить (Ужасное Умертвие, Ужасный Гуль, Призрачный Волк, Скелеты, Вампиры)"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "In the Land of Wisps",
+            "ru": "В Краю Духов"
+          },
+          "description": {
+            "en": "When the party starts their trek through the Wastelands, activate a Progress Countdown (typically 10). Describe the wastes each step of the way and allow party members to use Reaction Rolls using any traits and experiences that make sense to help their navigator make their navigate roll. Spend a Fear to bump the Difficulty to 19 as mists and confusing Wisps close in. When the countdown is triggered, describe the destination and tell each PC to gain a Hope. On a failure roll a d6 (or choose) a sub-environment inside the wastes the PCs stumble into: 1. Shadowfen 2. Mystic Ring 3. Cliff 4. Faction Encampment 5. Faction Altar 6. Deserted Moor.",
+            "ru": "Когда группа начинает переход через Пустоши, активируйте Отсчёт Прогресса (обычно 10). Описывайте пустоши на каждом шагу пути и позвольте участникам группы совершать Броски Реакции, используя любые черты и опыт, подходящие для помощи штурману в его броске навигации. Потратьте Страх, чтобы повысить Сложность до 19, поскольку туманы и сбивающие с толку Духи подступают ближе. Когда отсчёт срабатывает, опишите место назначения и дайте каждому персонажу получить Надежду. При неудаче бросьте d6 (или выберите), в какое под-окружение внутри пустошей забредут персонажи: 1. Сумрачная Топь 2. Мистическое Кольцо 3. Утёс 4. Лагерь Фракции 5. Алтарь Фракции 6. Пустынная Пустошь."
+          },
+          "prompt": {
+            "en": "What makes it so hard to navigate here? What did you see in the mists?",
+            "ru": "Что делает навигацию здесь настолько сложной? Что вы увидели в туманах?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Enemy Move",
+            "ru": "Ход Врага"
+          },
+          "description": {
+            "en": "Spend a Fear to summon adversaries for a hard fight using battle points.",
+            "ru": "Потратьте Страх, чтобы призвать противников для тяжёлого боя, используя боевые очки."
+          },
+          "prompt": {
+            "en": "Are you being followed?",
+            "ru": "Вас преследуют?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Wisp Move",
+            "ru": "Ход Духа"
+          },
+          "description": {
+            "en": "Spend a Fear to make a PC make an Instinct roll. Critical Success: They have an Insight (award a clue to your story), and they gain 1 hope, clear 1 stress, and are given advantage on the next navigation roll and all future Faction interactions. Success with Hope: They gain 1 Hope. Success with Fear: They mark 1 Stress. Failure with Hope: As a Failure with Fear, but they have advantage on Faction altar rolls. Failure with Fear: they go through an Inner Struggle – they gain 1 stress and are vulnerable until a successful Instinct roll is made at a Faction altar (can only try once each altar). When they successfully relieve their Inner Struggle, they gain the effects of the critical success above.",
+            "ru": "Потратьте Страх, чтобы заставить персонажа совершить бросок Инстинкта. Критический успех: у него есть Озарение (дайте подсказку для вашей истории), он получает 1 Надежду, снимает 1 Стресс, и ему даётся преимущество на следующий бросок навигации и на все дальнейшие взаимодействия с Фракцией. Успех с Надеждой: он получает 1 Надежду. Успех со Страхом: он отмечает 1 Стресс. Неудача с Надеждой: как при неудаче со Страхом, но он получает преимущество на броски у Алтаря Фракции. Неудача со Страхом: он переживает Внутреннюю Борьбу — получает 1 Стресс и становится Уязвимым, пока не совершит успешный бросок Инстинкта у Алтаря Фракции (можно пытаться только один раз у каждого алтаря). Когда он успешно разрешает свою Внутреннюю Борьбу, он получает эффекты критического успеха, описанного выше."
+          },
+          "prompt": {
+            "en": "What did the Wisp reveal?",
+            "ru": "Что раскрыл Дух?"
+          }
+        }
+      ],
+      "builtin": true,
+      "tags": []
+    },
+    {
+      "id": "city-out-of-time",
+      "tier": 4,
+      "type": "exploration",
+      "difficulty": 19,
+      "name": {
+        "en": "City Out of Time",
+        "ru": "Город Вне Времени"
+      },
+      "impulses": {
+        "en": [
+          "Horrify",
+          "Mystify"
+        ],
+        "ru": [
+          "Ужасать",
+          "сбивать с толку"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Cultists",
+          "Dire Bat",
+          "Flying Polyps",
+          "Great Race of Yith",
+          "Huge Green Ooze",
+          "Secret-Keeper",
+          "Shuggoth"
+        ],
+        "ru": [
+          "Культисты",
+          "Ужасная Летучая Мышь",
+          "Летающие Полипы",
+          "Великая Раса Йита",
+          "Огромная Зелёная Слизь",
+          "Культист-Хранитель Тайн",
+          "Шоггот"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "The Past",
+            "ru": "Прошлое"
+          },
+          "description": {
+            "en": "The character has been their old self for some time now, but friends and colleagues remember how strange they acted during \"the episode.\"",
+            "ru": "Персонаж уже некоторое время снова стал собой, но друзья и коллеги помнят, как странно он вёл себя во время «того случая»."
+          },
+          "prompt": {
+            "en": "What outlandish things did they do? Where did they go? What books did they read?",
+            "ru": "Какие невероятные вещи они делали? Куда они ходили? Какие книги читали?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Nightmares",
+            "ru": "Кошмары"
+          },
+          "description": {
+            "en": "The character starts remembering horrors during nightmares. They were in an alien body (a Yithian body) in a Yithian installation (the same ruins they visited before this all began).",
+            "ru": "Персонаж начинает вспоминать ужасы во снах. Он был в чужом теле (теле Йитианина) в йитианском сооружении (тех самых руинах, которые он посещал до того, как всё это началось)."
+          },
+          "prompt": {
+            "en": "What do they call out in their sleep?",
+            "ru": "Что они выкрикивают во сне?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "We must go back!",
+            "ru": "Мы Должны Вернуться!"
+          },
+          "description": {
+            "en": "The character tries to convince the party to go back. They remember the ruins had something valuable to the party: knowledge they need in their bigger quest, a powerful artifact, a tier 4 weapon that would be perfect for a PC? Lightning Guns? Maybe multiple things? Something to tempt the party. If the character is an NPC and the PCs refuse to go to the ruins, the NPC goes without the party and is never heard from again.",
+            "ru": "Персонаж пытается убедить группу вернуться. Он помнит, что в руинах было нечто ценное для группы: знания, нужные им для их большего квеста, могущественный артефакт, оружие 4 ранга, идеально подходящее одному из персонажей? Молниевые ружья? Возможно, несколько вещей сразу? Что-то, что соблазнит группу. Если этот персонаж — неигровой, а персонажи игроков отказываются идти к руинам, неигровой персонаж отправляется туда один и больше о нём не слышно."
+          },
+          "prompt": {
+            "en": "How can you tell the character needs closure as much as whatever they expect to find in the ruins?",
+            "ru": "Как вы понимаете, что персонажу нужно завершение не меньше, чем то, что он рассчитывает найти?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Minor Threat",
+            "ru": "Малая Угроза"
+          },
+          "description": {
+            "en": "Spend a Fear to create a minor battle. Tier 3 adversaries such as Dire Bats or Huge Green Oozes are good.",
+            "ru": "Потратьте Страх, чтобы создать небольшую битву. Хорошо подойдут противники 3 ранга, такие как Ужасные Летучие Мыши или Огромные Зелёные Слизни."
+          },
+          "prompt": {
+            "en": "Did you hear chanting just before the battle?",
+            "ru": "Вы слышали пение перед битвой?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Did You Hear That?",
+            "ru": "Вы Это Слышали?"
+          },
+          "description": {
+            "en": "Add noises and smells that presage distant threats. The flapping of wings for Dire Bats, the barely heard whistling of Flying Polyps, the cries of \"Tikalee Lee\" from Shuggoths, falling stones landing in distant shafts, and so on. You may spend a Fear to reveal the remains or writings of another explorer who died in these dark halls. Call for a Presence Reaction Roll for the party. Any who fail mark a Stress.",
+            "ru": "Добавьте звуки и запахи, предвещающие далёкие угрозы. Хлопанье крыльев Ужасных Летучих Мышей, едва различимый свист Летающих Полипов, крики «Тикали-ли» Шогготов, падающие камни, летящие в дальние шахты, и тому подобное. Вы можете потратить Страх, чтобы раскрыть останки или записи другого исследователя, погибшего в этих тёмных залах. Потребуйте Бросок Реакции на Влияние для группы. Все, кто проваливает его, отмечают Стресс."
+          },
+          "prompt": {
+            "en": "What makes you think the sounds are following you?",
+            "ru": "Что заставляет вас думать, что звуки следуют за вами?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Cultists on the Move",
+            "ru": "Культисты в Движении"
+          },
+          "description": {
+            "en": "Have the party notice cultists moving by torchlight with a prisoner. There are two Cult Initiates per PC, led by a Cult Adept.",
+            "ru": "Пусть группа заметит культистов, движущихся при свете факелов с пленником. На каждого персонажа приходится по два Посвящённых Культа во главе с Адептом Культа."
+          },
+          "prompt": {
+            "en": "Does anyone know the prisoner? Who are they?",
+            "ru": "Знает ли кто-нибудь пленника? Кто они?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "The Summoning",
+            "ru": "Призыв"
+          },
+          "description": {
+            "en": "The party hears chanting far away. Following the sound leads them to a massive chamber and a Cult Ritual encounter. The cult is attempting to summon a Shuggoth using sacrificial prisoners. There is a Secret-Keeper with a Lightning Gun leading the ritual, supported by a Cult Adept and a Cult Fang. There are 3 Cult Initiates for every PC.",
+            "ru": "Группа слышит пение вдалеке. Следуя за звуком, они попадают в исполинский зал и встречу Ритуала Культа. Культ пытается призвать Шоггота, используя пленников для жертвоприношения. Ритуал возглавляет Культист-Хранитель Тайн с Молниевым Ружьём, которому помогают Адепт Культа и Клык Культа. На каждого персонажа приходится по 3 Посвящённых Культа."
+          },
+          "prompt": {
+            "en": "What makes you think the ritual is almost complete?",
+            "ru": "Что заставляет вас думать, что ритуал почти завершён?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "The Lost City",
+            "ru": "Потерянный Город"
+          },
+          "description": {
+            "en": "The ruins are massive, mostly underground, and take days to explore. Ancient devices seem to be some kind of machines, art, or both. There are no stairs, only ramps. Everything is large, sized for the Great Race of Yith. Start a Linked Countdown. The first is a Decreasing Dynamic Consequence Countdown (Loop 6) as they explore; when it goes off, adversaries charge out of the darkness (Flying Polyps are classic). The second is a Dynamic Progress Countdown (10) to find the promised rewards.",
+            "ru": "Руины исполинские, находятся преимущественно под землёй и требуют дней на исследование. Древние устройства напоминают некие механизмы, произведения искусства или и то, и другое сразу. Здесь нет лестниц, только пандусы. Всё огромно, рассчитано на Великую Расу Йита. Начните Связанный Отсчёт. Первый — Убывающий Динамический Счётчик Последствий (Цикл 6): пока группа исследует, когда он срабатывает, из темноты выступают противники (Летающие Полипы — классический выбор). Второй — Динамический Счётчик Прогресса (10) для нахождения обещанных наград."
+          },
+          "prompt": {
+            "en": "How can you tell the city fell to violence? What are you doing to explore the ruins?",
+            "ru": "Как вы понимаете, что город пал от насилия? Что вы делаете, чтобы исследовать руины?"
+          }
+        }
+      ],
+      "builtin": true,
+      "tags": []
+    },
+    {
+      "id": "deep-one-city",
+      "tier": 4,
+      "type": "exploration",
+      "difficulty": 20,
+      "name": {
+        "en": "Deep One City",
+        "ru": "Город Глубоководных"
+      },
+      "impulses": {
+        "en": [
+          "Defend the city from intruders",
+          "drown surface-folk",
+          "proselytize the Church of Mother Hydra"
+        ],
+        "ru": [
+          "Защищать город от чужаков",
+          "топить жителей суши",
+          "обращать в веру Церкви Матери Гидры"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Deep Ones",
+          "Kraken",
+          "Mother Hydra",
+          "Pirates",
+          "Sharks"
+        ],
+        "ru": [
+          "Глубоководные",
+          "Кракен",
+          "Мать Гидра",
+          "Пираты",
+          "Акулы"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Underwater",
+            "ru": "Под Водой"
+          },
+          "description": {
+            "en": "The normal underwater rules apply here. Characters who make a death move in the city can choose to wake up as prisoners in an air filled chamber in the Deep One city.",
+            "ru": "Здесь действуют обычные правила пребывания под водой. Персонажи, совершающие предсмертный ход в городе, могут по желанию очнуться пленниками в наполненной воздухом камере в Городе Глубоководных."
+          },
+          "prompt": {
+            "en": "What is different about swimming these waters? Are there other prisoners of the Deep Ones here?",
+            "ru": "Что не так с плаванием в этих водах? Есть ли здесь другие пленники Глубоководных?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Border Crossing",
+            "ru": "Пересечение Границы"
+          },
+          "description": {
+            "en": "If the party approaches the city, Deep One guards will rise up to meet them. The guards are antagonistic and will attack unless quickly pacified. Worshipers of Mother Hydra are the only outsiders let in. And even those have to sacrifice family members every few years. The guards often are accompanied by sharks. If things get out of control and the guards are allowed to call reinforcements, a Kraken may appear.",
+            "ru": "Если группа приближается к городу, навстречу поднимаются стражи-Глубоководные. Стражи настроены враждебно и нападут, если их быстро не успокоить. Внутрь пускают только последователей Матери Гидры. И даже им приходится каждые несколько лет приносить в жертву членов семьи. Стражей часто сопровождают акулы. Если ситуация выйдет из-под контроля и стражам дадут вызвать подкрепление, может появиться Кракен."
+          },
+          "prompt": {
+            "en": "Do you try and trade with these abhorrent fish-people? What do you offer? How do you impersonate a cultist of Mother Hydra?",
+            "ru": "Пытаетесь ли вы торговать с этими отвратительными рыболюдьми? Что вы предлагаете? Как вы выдаёте себя за культиста Матери Гидры?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Egg Chamber",
+            "ru": "Камера Яиц"
+          },
+          "description": {
+            "en": "If the party is searching the city, they come upon a massive chamber of hundreds of slimy Deep One eggs waiting to hatch upon piles of humanoid bones. In the center is an altar to Mother Hydra where surface dwellers are sacrificed. If the party is looking for a prisoner, this is a good place to find them, chained to the altar.",
+            "ru": "Если группа обыскивает город, они натыкаются на исполинскую камеру с сотнями склизких яиц Глубоководных, ожидающих вылупления на грудах гуманоидных костей. В центре — алтарь Матери Гидре, где приносят в жертву жителей суши. Если группа ищет пленника, это хорошее место, чтобы его найти — прикованным к алтарю."
+          },
+          "prompt": {
+            "en": "What tells you that this altar is the center of evil rites in this city?",
+            "ru": "Что подсказывает вам, что этот алтарь — центр злых обрядов в этом городе?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Treasure Chamber",
+            "ru": "Сокровищница"
+          },
+          "description": {
+            "en": "If the party is searching the city, they see a stone doorway guarded by Deep Ones down a shaft that burrows into the muddy seafloor. Behind is a treasure room of pearls, jewelry wrought of strange blue-green metal, and magic items. If Mother Hydra hasn't shown up yet, she tears open the chamber roof and swims in.",
+            "ru": "Если группа обыскивает город, они видят каменный дверной проём, охраняемый Глубоководными, вниз по шахте, уходящей в илистое морское дно. За ним — сокровищница с жемчугом, украшениями из странного сине-зелёного металла и магическими предметами. Если Мать Гидра ещё не появилась, она прорывает крышу камеры и вплывает внутрь."
+          },
+          "prompt": {
+            "en": "Can you escape with any treasure? How about your lives? Did you see something down here you recognize?",
+            "ru": "Сможете ли вы сбежать с каким-то сокровищем? А со своими жизнями? Узнали ли вы здесь что-то знакомое?"
+          }
+        }
+      ],
+      "builtin": true,
+      "tags": []
+    },
+    {
+      "id": "dreamlands",
+      "tier": 4,
+      "type": "exploration",
+      "difficulty": 20,
+      "name": {
+        "en": "Dreamlands",
+        "ru": "Страна Снов"
+      },
+      "impulses": {
+        "en": [
+          "Awe",
+          "confound",
+          "enthrall",
+          "horrify"
+        ],
+        "ru": [
+          "Изумлять",
+          "сбивать с толку",
+          "очаровывать",
+          "ужасать"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Arch-Necromancer",
+          "Cat",
+          "Dread Ghoul",
+          "Gug",
+          "Knight of the Realm",
+          "Monarch",
+          "Nightgaunt",
+          "Oracle of Doom",
+          "Shantak",
+          "Perfected Zombie"
+        ],
+        "ru": [
+          "Архинекромант",
+          "Кошка",
+          "Ужасный Гуль",
+          "Гуг",
+          "Рыцарь Королевства",
+          "Монарх",
+          "Ночной Кошмар",
+          "Оракул Погибели",
+          "Шантак",
+          "Совершенный Зомби"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Dream Travel",
+            "ru": "Путешествие во Сне"
+          },
+          "description": {
+            "en": "Travel can be instant, where the PCs know they traveled for weeks, but remember nothing. Or travel can be everything, where the destination is forgotten, remembered, changed, and forgotten again, but the PCs keep on moving. If the party wishes to control their travel, start a Dynamic Progress Countdown (8). Failures might result in distractions that act to keep the party from the intended destination. When the Countdown triggers, the party reaches their destination and everyone gains a Hope.",
+            "ru": "Путешествие может быть мгновенным, когда персонажи знают, что путешествовали неделями, но ничего не помнят. Или же путешествие может быть всем сразу, когда пункт назначения забывается, вспоминается, меняется и забывается снова, но персонажи продолжают идти. Если группа желает контролировать своё путешествие, начните Динамический Счётчик Прогресса (8). Неудачи могут привести к отвлечениям, которые не дают группе достичь намеченного пункта назначения. Когда Счётчик срабатывает, группа достигает места назначения, и каждый получает Надежду."
+          },
+          "prompt": {
+            "en": "What does it feel like to have time and memory behave this way? Are you going in circles?",
+            "ru": "Каково это — когда время и память ведут себя подобным образом? Вы ходите по кругу?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "It's you, isn't it?",
+            "ru": "Это ведь ты, не так ли?"
+          },
+          "description": {
+            "en": "A PC notices someone they know from the waking world who dresses like a local in the Dreamlands. It could even be from someone who has died, but lives on here. If approached the person might be a case of mistaken identity, a fellow traveler in the Dreamlands who is excited to see the PCs, or someone who wants to wake up, and is trapped in the Dreamlands.",
+            "ru": "Персонаж замечает кого-то знакомого из мира яви, кто одевается как местный житель в Стране Снов. Это может быть даже кто-то, кто умер, но продолжает жить здесь. Если приблизиться, этот человек может оказаться случаем ошибочного опознания, попутчиком по Стране Снов, обрадованным встрече с персонажами, или же тем, кто хочет проснуться и в ловушке Страны Снов."
+          },
+          "prompt": {
+            "en": "How can you tell it's really them? Are you happy to meet them? Do you want to avoid them?",
+            "ru": "Как вы понимаете, что это действительно они? Вы рады их встретить? Хотите ли вы их избежать?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "City of Ulthar",
+            "ru": "Город Ултар"
+          },
+          "description": {
+            "en": "The party crosses a bridge over a river and ends up in a feudal city of people and cats. This city is the easiest to reach from the waking world, and some of the locals might be from the waking world. The Temple of the Elder Ones sits on a hill in the center of the city. It is illegal to kill a cat in this city. At night, cats can jump from rooftops to the moon, and the shops are guarded by giant scorpions.",
+            "ru": "Группа переходит мост через реку и оказывается в феодальном городе людей и кошек. До этого города легче всего добраться из мира яви, и некоторые местные жители могут быть родом оттуда. Храм Древних Богов стоит на холме в центре города. В этом городе запрещено убивать кошек. Ночью кошки могут прыгать с крыш на луну, а лавки охраняют гигантские скорпионы."
+          },
+          "prompt": {
+            "en": "How do you react to the cats all rubbing at your legs? Why do the city streets feel familiar?",
+            "ru": "Как вы реагируете на то, что все кошки трутся о ваши ноги? Почему городские улицы кажутся знакомыми?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Nightmare Attack",
+            "ru": "Ночное Нападение"
+          },
+          "description": {
+            "en": "Spend a Fear to bring a challenging force of adversaries to the PCs. Perhaps an Arch-Necromancer riding a Shantak with an army of Dread Ghouls and Zombies. Or just a whole bunch of Gugs and Nightgaunts. Use the Battle Point system.",
+            "ru": "Потратьте Страх, чтобы привести грозную силу противников к персонажам. Возможно, Архинекромант верхом на Шантаке с армией Ужасных Гулей и Зомби. Или просто целая куча Гугов и Ночных Кошмаров. Используйте систему боевых очков."
+          },
+          "prompt": {
+            "en": "What is this attack trying to keep you from? If you die in the Dreamlands, can you ever come back?",
+            "ru": "От чего эта атака пытается вас удержать? Если вы умрёте в Стране Снов, сможете ли вы когда-нибудь вернуться?"
+          }
+        }
+      ],
+      "builtin": true,
+      "tags": []
     }
   ]
 }
