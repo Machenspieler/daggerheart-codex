@@ -1,0 +1,786 @@
+{
+  "environments": [
+    {
+      "id": "harsh-desert",
+      "tier": 2,
+      "type": "traversal",
+      "difficulty": 14,
+      "name": {
+        "en": "Harsh Desert",
+        "ru": "Суровая пустыня"
+      },
+      "impulses": {
+        "en": [
+          "Overcome the unprepared",
+          "exist in the extreme",
+          "keep secrets buried"
+        ],
+        "ru": [
+          "Одолевать неподготовленных",
+          "существовать в крайностях",
+          "хранить погребённые тайны"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Assassins (Apprentice, Poisoner)",
+          "Jackalweres (Dunerider, Hierophant, Raider, Ravager, Sandknife)",
+          "Sellsword",
+          "Glintsand Drakona (Efreeti, Firewalker, Nomad, Spellbreaker, Stalker, Urdu)",
+          "Giant Scorpion"
+        ],
+        "ru": [
+          "Убийцы (Ученик, Отравитель)",
+          "Шакалвиры (Всадник Дюн, Иерофант, Налётчик, Разоритель, Песчаный Клинок)",
+          "Наёмник",
+          "Дракона Мерцающих Песков (Ифрит, Огнеходец, Кочевник, Разрушитель Чар, Ловчий, Урду)",
+          "Гигантский Скорпион"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Burning Sands, Freezing Nights",
+            "ru": "Палящие пески, морозные ночи"
+          },
+          "description": {
+            "en": "The party must adequately stock up on water and food for the journey, which could take multiple days. While resting in this environment, the PCs take one less Downtime move. A PC can gain a supply token for a handful of coins, which they place on their character sheet. If a PC rolls an action roll and does not have a supply token, they make their roll at disadvantage. They discard all their supply tokens when they leave this environment.",
+            "ru": "Отряд должен как следует запастись водой и едой на время странствия, которое может занять несколько дней. Отдыхая в этом окружении, персонажи получают на одно действие простоя меньше. Персонаж может получить жетон припасов за горсть монет и разместить его на листе персонажа. Если персонаж совершает бросок действия без жетона припасов, он бросает с помехой. Все жетоны припасов сбрасываются, когда персонажи покидают это окружение."
+          },
+          "prompt": {
+            "en": "What supplies might be helpful when crossing the dunes? What might happen to make a PC lose their token?",
+            "ru": "Какие припасы могут пригодиться при переходе через дюны? Что может произойти, чтобы персонаж потерял свой жетон?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Making The Trek",
+            "ru": "Долгий переход"
+          },
+          "description": {
+            "en": "Traveling across the desert uses a Progress Countdown (12). It ticks down according to the following criteria when the PCs make an action roll to survive the harsh environment: Critical Success: Tick down 3; Success with Hope: Tick down 2; Success with Fear: Tick down 1; Failure with Hope: No advancement; Failure with Fear: Tick up 1. When the countdown triggers, the party has made it to their destination. For each roll a PC makes, roll a D20. On a 1-5, the party experiences an encounter from the Actions below.",
+            "ru": "Путешествие через пустыню отслеживается Отсчётом Продвижения (12). Он уменьшается по следующим правилам, когда персонажи совершают бросок действия, чтобы выжить в суровом окружении: Критический успех — -3; Успех с Надеждой — -2; Успех со Страхом — -1; Провал с Надеждой — без изменений; Провал со Страхом — +1. Когда отсчёт срабатывает, отряд достигает цели. При каждом броске персонажа бросайте d20. На результате 1–5 отряд встречает случайную ситуацию из раздела «Действия» ниже."
+          },
+          "prompt": {
+            "en": "What keeps the PCs safe? What might happen while they rest?",
+            "ru": "Что защищает персонажей? Что может произойти во время отдыха?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Sandstorm",
+            "ru": "Песчаная буря"
+          },
+          "description": {
+            "en": "A sandstorm blows in. It delays them by half a day and removes 1d4 from their Progress Countdown.",
+            "ru": "Налетает песчаная буря. Она задерживает отряд на полдня и снимает 1d4 с Отсчёта Продвижения."
+          },
+          "prompt": {
+            "en": "What signs might they have that this storm is coming? Do they see the wall bearing down on them or is it created magically?",
+            "ru": "Какие признаки могли подсказать, что буря приближается? Видят ли персонажи стену бури, надвигающуюся на них, или она вызвана магией?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Oasis Found",
+            "ru": "Найденный оазис"
+          },
+          "description": {
+            "en": "The PCs discover a secluded oasis to take a rest, ignoring the Burning Sands, Freezing Nights effect. Roll a die. On an even result, a group of Glintsand Drakona are already there and may welcome the party.",
+            "ru": "Персонажи обнаруживают укромный оазис, где можно отдохнуть, не подвергаясь эффекту «Палящие пески, морозные ночи». Бросьте кость. При чётном результате там уже находится группа Дракона Мерцающих Песков, которая может радушно принять отряд."
+          },
+          "prompt": {
+            "en": "Are there beasts resting at this oasis? Are there enemies following the party?",
+            "ru": "Отдыхают ли у оазиса какие-то звери? Не следуют ли за отрядом враги?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "A Lost Reminder",
+            "ru": "Забытое напоминание"
+          },
+          "description": {
+            "en": "The PCs come upon a landmark from an ancient city. It radiates with a mysterious aura, imparts some ancient wisdom, or directs the party to a hidden tomb and promises of riches.",
+            "ru": "Персонажи натыкаются на памятник древнего города. Он излучает таинственную ауру, дарует древнюю мудрость или указывает отряду путь к скрытой гробнице, обещающей богатства."
+          },
+          "prompt": {
+            "en": "What magic remains here, and how does it affect the surrounding area?",
+            "ru": "Какая магия сохранилась здесь и как она влияет на окружающую местность?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Sand Sharks!",
+            "ru": "Песчаные акулы!"
+          },
+          "description": {
+            "en": "The PCs are found by a group of Sand Sharks (Use the Shark statblock but treat the sand as water). Spend a Fear to ambush the party. At the end of the encounter, a random PC must remove their supply token.",
+            "ru": "Персонажей находит стая песчаных акул (используйте статблок Акулы, но считайте песок водой). Потратьте Страх, чтобы устроить засаду на отряд. По завершении встречи случайный персонаж должен потерять свой жетон припасов."
+          },
+          "prompt": {
+            "en": "What do these creatures look like? Are there ways to distract the sharks at the cost of supplies?",
+            "ru": "Как выглядят эти существа? Есть ли способы отвлечь акул за счёт припасов?"
+          }
+        }
+      ],
+      "builtin": true,
+      "tags": []
+    },
+    {
+      "id": "port-city",
+      "tier": 2,
+      "type": "social",
+      "difficulty": 12,
+      "name": {
+        "en": "Port City",
+        "ru": "Портовый город"
+      },
+      "impulses": {
+        "en": [
+          "Work hard",
+          "make money",
+          "create beauty"
+        ],
+        "ru": [
+          "Усердно трудиться",
+          "зарабатывать деньги",
+          "творить красоту"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Animated Art (Rampaging Caryatid, Animated Statue, Animated Rubble Pile, Stonewraith)",
+          "Guards (Elite Soldier, Knight of the Realm)",
+          "Masked Thief",
+          "Merchant Baron",
+          "Spy",
+          "War Wizard"
+        ],
+        "ru": [
+          "Одушевлённое искусство (Буйствующая Кариатида, Одушевлённая Статуя, Одушевлённая Груда Обломков, Каменный Призрак)",
+          "Стражники (Элитный Солдат, Рыцарь Королевства)",
+          "Вор в маске",
+          "Торговый Барон",
+          "Шпион",
+          "Военный Волшебник"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "The Daily Catch",
+            "ru": "Улов дня"
+          },
+          "description": {
+            "en": "Ask a PC to describe a delicious meal or local delicacy. After sampling that food, the PC gains a Hope.",
+            "ru": "Попросите персонажа описать вкусное блюдо или местный деликатес. Попробовав это блюдо, персонаж получает Надежду."
+          },
+          "prompt": {
+            "en": "What food stalls might the PCs pass by? What senses do they invigorate?",
+            "ru": "Какие торговые ряды с едой могут встретить персонажи? Какие чувства они пробуждают?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "On Display",
+            "ru": "На показ"
+          },
+          "description": {
+            "en": "Beauty lives in this city. Each block is decorated in diverse ways. Statues, painted homes, topiary gardens. When the party is walking through town they might see one of the following scenes: A statue of a hero that few remember; The buildings painted to look like a festival; Children in an art class in the middle of a square.",
+            "ru": "В этом городе живёт красота. Каждый квартал украшен на свой лад: статуи, расписные дома, топиарные сады. Проходя через город, отряд может увидеть одну из следующих сцен: статую героя, которого почти никто не помнит; здания, расписанные так, будто идёт праздник; детей на уроке искусства прямо посреди площади."
+          },
+          "prompt": {
+            "en": "What other sites might catch the PCs eyes? How might they relate to the current quest?",
+            "ru": "Какие ещё достопримечательности могут привлечь внимание персонажей? Как они могут быть связаны с текущим заданием?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Oppression",
+            "ru": "Притеснение"
+          },
+          "description": {
+            "en": "The PCs witness a poor laborer being told off by a surly merchant while his hungry family watches from across the street.",
+            "ru": "Персонажи становятся свидетелями того, как хмурый торговец распекает бедного работника, пока его голодная семья наблюдает с другой стороны улицы."
+          },
+          "prompt": {
+            "en": "What trouble does it cause if the PCs intervene?",
+            "ru": "Какие неприятности возникнут, если персонажи вмешаются?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Bounty On Their Heads",
+            "ru": "Награда за их головы"
+          },
+          "description": {
+            "en": "Spend a Fear to summon a group of Tier appropriate mercenaries who ambush the party. They might have been hired by a rival faction, or story villain.",
+            "ru": "Потратьте Страх, чтобы призвать группу наёмников подходящего Ранга, устраивающих засаду на отряд. Возможно, их наняла соперничающая фракция или злодей истории."
+          },
+          "prompt": {
+            "en": "Who would want to see the characters harmed? Do the mercenaries have information regarding the party's next goal?",
+            "ru": "Кто хотел бы увидеть персонажей пострадавшими? Известна ли наёмникам информация о следующей цели отряда?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "A Performance to Die For",
+            "ru": "Представление, ради которого стоит умереть"
+          },
+          "description": {
+            "en": "A troupe of performers come to the city for a single night. If the party attends, Spend a Fear to have an important NPC in the audience near the party fall onto the stage. Perhaps the PCs are being set up, or maybe they're asked to help solve the murder! The group responsible could be Jackalwere assassins or a Rival party.",
+            "ru": "Труппа артистов приезжает в город на одну ночь. Если отряд посещает представление, потратьте Страх, чтобы важный НИП в зале рядом с отрядом упал на сцену. Возможно, персонажей хотят подставить, а возможно, их просят помочь расследовать убийство! Виновными могут быть убийцы-шакалвиры или соперничающий отряд."
+          },
+          "prompt": {
+            "en": "Who could be responsible? What outcomes might the killer be hoping to achieve?",
+            "ru": "Кто может быть виновен? Каких результатов может добиваться убийца?"
+          }
+        }
+      ],
+      "builtin": true,
+      "tags": []
+    },
+    {
+      "id": "moonlight-temple",
+      "tier": 2,
+      "type": "event",
+      "difficulty": 14,
+      "name": {
+        "en": "Moonlight Temple",
+        "ru": "Храм лунного света"
+      },
+      "impulses": {
+        "en": [
+          "Spread Lycanthropy",
+          "hoard wealth",
+          "glorify the leader"
+        ],
+        "ru": [
+          "Распространять ликантропию",
+          "копить богатства",
+          "восхвалять лидера"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Assassins (Apprentice, Poisoner)",
+          "Jackalweres (Dunerider, Hierophant, Raider, Ravager, Sandknife)",
+          "Sellsword"
+        ],
+        "ru": [
+          "Убийцы (Ученик, Отравитель)",
+          "Шакалвиры (Всадник Дюн, Иерофант, Налётчик, Разоритель, Песчаный Клинок)",
+          "Наёмник"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Giant Statues",
+            "ru": "Гигантские статуи"
+          },
+          "description": {
+            "en": "The ritual site has many large statues that have weathered the desert for centuries. They might be unstable. A PC must succeed on a Strength Roll to topple one of the statues.",
+            "ru": "На месте ритуала стоит множество больших статуй, простоявших в пустыне веками. Они могут быть неустойчивы. Персонаж должен успешно совершить Бросок Силы, чтобы опрокинуть одну из статуй."
+          },
+          "prompt": {
+            "en": "Who are these statues of? What might they represent to the Hierophant or the PCs?",
+            "ru": "Кого изображают эти статуи? Что они могут значить для Иерофанта или для персонажей?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Profane Rituals",
+            "ru": "Кощунственные ритуалы"
+          },
+          "description": {
+            "en": "This temple is dedicated to a deity of Moonlight and trickery, affecting the flow of magic. At night, spellcast rolls are made with a d10 Hope die.",
+            "ru": "Этот храм посвящён божеству лунного света и обмана, что искажает потоки магии. Ночью броски заклинаний совершаются с костью Надежды d10."
+          },
+          "prompt": {
+            "en": "What might happen when a spell works, but does so with Fear? What can the PCs do to remove the desecration?",
+            "ru": "Что может произойти, если заклинание срабатывает, но с торжеством Страха? Что могут сделать персонажи, чтобы снять эту скверну?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Dark Deeds",
+            "ru": "Тёмные деяния"
+          },
+          "description": {
+            "en": "Countdown (4). When the party enters the scene at night time, the moon shines down on the temple and empowers 1d4 adversaries. While Empowered, these adversaries can disappear into a shadow and reappear in another one within Far range.",
+            "ru": "Отсчёт (4). Когда отряд входит в сцену ночью, луна освещает храм и усиливает 1d4 противников. Пока противники усилены, они могут исчезать в тени и появляться в другой тени на Дальней дистанции."
+          },
+          "prompt": {
+            "en": "Is there a way to stop the moon from empowering these adversaries? Are they weakened during the day as a result?",
+            "ru": "Есть ли способ помешать луне усиливать этих противников? Слабеют ли они днём в результате этого?"
+          }
+        }
+      ],
+      "builtin": true,
+      "tags": []
+    },
+    {
+      "id": "ancient-tomb",
+      "tier": 3,
+      "type": "exploration",
+      "difficulty": 17,
+      "name": {
+        "en": "Ancient Tomb",
+        "ru": "Древняя гробница"
+      },
+      "impulses": {
+        "en": [
+          "Seed rumors of treasure",
+          "lure adventurers",
+          "turn creatures to undead"
+        ],
+        "ru": [
+          "Сеять слухи о сокровищах",
+          "приманивать искателей приключений",
+          "превращать существ в нежить"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Tomb-bound (Four-armed Skeleton, Wretched Archer, Mummified Centaur, Bone Swarm, Bone Colossus, Tomblord)",
+          "Vault Guardians (Gaoler, Sentinel, Turret)",
+          "Hydra",
+          "Rival parties of Treasure Hunters or Adventurers Guiding Scholars through the ruins"
+        ],
+        "ru": [
+          "Узники гробницы (Четырёхрукий Скелет, Жалкий Лучник, Мумифицированный Кентавр, Костяной Рой, Костяной Колосс, Владыка Гробницы)",
+          "Хранители хранилища (Тюремщик, Часовой, Турель)",
+          "Гидра",
+          "Соперничающие отряды охотников за сокровищами или искателей приключений, сопровождающих учёных по руинам"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Silence Broken",
+            "ru": "Нарушенная тишина"
+          },
+          "description": {
+            "en": "Sounds in the tomb carry into rooms nearby, alerting its denizens to the PCs if they speak louder than a whisper. This feature can be negated with a successful Finesse roll.",
+            "ru": "Звуки в гробнице разносятся по соседним залам, оповещая её обитателей о персонажах, если те говорят громче шёпота. Этот эффект можно нейтрализовать успешным Броском Искусности."
+          },
+          "prompt": {
+            "en": "What waits for the PCs in the next room?",
+            "ru": "Что ждёт персонажей в следующем зале?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Suffused in Magic",
+            "ru": "Пронизано магией"
+          },
+          "description": {
+            "en": "The residual magics that pervade the tomb, make magic wilder and more unpredictable. When a character makes a Spellcast roll with hope, increase the roll's total by one. When a character makes a Spellcast roll with Fear, reduce the roll's total by one.",
+            "ru": "Остаточная магия, пронизывающая гробницу, делает волшебство более диким и непредсказуемым. Когда персонаж совершает Бросок Заклинания с Надеждой, увеличьте итог броска на единицу. Когда персонаж совершает Бросок Заклинания со Страхом, уменьшите итог броска на единицу."
+          },
+          "prompt": {
+            "en": "What magic roils beneath the sands? How might this affect those more sensitive to magic?",
+            "ru": "Какая магия бурлит под песками? Как это может повлиять на тех, кто более чувствителен к магии?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Ancient Treasure",
+            "ru": "Древние сокровища"
+          },
+          "description": {
+            "en": "The tomb could be filled with treasure and valuable historical knowledge or dangerous guardians. Roll 2d4 (or choose 5) to determine the number of rooms in the tomb and then have the PCs roll to determine what is in each room (reroll doubles). 1 - Solo encounter; 2 - Rival Treasure Hunters (have the players describe them, if they haven't been introduced already); 3 - Trapped room that sends the party back to the entrance if they fail to disarm it; 4 - Puzzle room or Lore that pertains to the party's goal; 5 - A burial chamber (Mummified Centaur, Bone Colossus, 2x Wretched Archers and Four-armed Skeletons equal to half the party's number); 6 - Treasure appropriate to the party's members and a chest of gold; 7 - A Tomblord's dusty crypt; 8 - A group of scholars or other NPCs like a stone sphinx or ghostly spirit that creates a social encounter.",
+            "ru": "Гробница может быть полна сокровищ и ценных исторических знаний — или опасных хранителей. Бросьте 2d4 (или выберите 5), чтобы определить количество комнат в гробнице, а затем позвольте персонажам бросить кость, чтобы определить содержимое каждой комнаты (при дублях — перебросьте): 1 — одиночная схватка; 2 — соперничающие охотники за сокровищами (попросите игроков описать их, если они ещё не были представлены); 3 — комната с ловушкой, которая отправляет отряд обратно ко входу, если её не удаётся обезвредить; 4 — комната с головоломкой или знанием, связанным с целью отряда; 5 — погребальная камера (Мумифицированный Кентавр, Костяной Колосс, 2 Жалких Лучника и Четырёхрукие Скелеты числом, равным половине отряда); 6 — сокровища, подходящие членам отряда, и сундук золота; 7 — пыльный склеп Владыки Гробницы; 8 — группа учёных или иных НИП, вроде каменного сфинкса или призрачного духа, создающая социальную встречу."
+          },
+          "prompt": {
+            "en": "What are the walls of the tombs covered in? What might the PCs be searching for within them?",
+            "ru": "Чем покрыты стены гробниц? Что могут искать персонажи внутри них?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Traps",
+            "ru": "Ловушки"
+          },
+          "description": {
+            "en": "Countdown (Loop 2d6). When the characters enter the tomb, activate the countdown. When it triggers, roll 1d4 or choose a trap from the list below: 1 - Scythes spring from the walls. The triggering character must make an Agility reaction roll or take 2d12 +3 physical damage. 2 - Pit Trap springs open. All creatures in a group near the triggering character must make a Strength or Agility reaction roll. Targets who fail, fall into a pit full of spikes, taking 3d8 physical damage. 3 - Jets of magical fire burst from iron tubes in statues in a line in front of the characters. Disarming the trap takes 5 minutes and a successful Finesse roll. On a failure, or if a character passes through the fire, they take 3d6 direct damage. 4 - The walls in the room start to close in and the only way out is back the way they came. Begin a Countdown (4). Perhaps there is a secret door that leads in further or a lever that might stop the walls. Characters can make Knowledge or Instinct checks to find a way through. On a Failure with Fear the walls start to move faster. If a character searches for a trap, you can assume they find it, or make a Knowledge or Instinct roll. A Finesse (14) roll disarms it.",
+            "ru": "Отсчёт (Цикл 2d6). Когда персонажи входят в гробницу, активируйте отсчёт. Когда он срабатывает, бросьте 1d4 или выберите ловушку из списка ниже: 1 — из стен вырываются серпы. Персонаж, вызвавший срабатывание, должен совершить Бросок Реакции на Проворность или получить 2d12 +3 физического урона. 2 — открывается ямная ловушка. Все существа в группе рядом с персонажем, вызвавшим срабатывание, должны совершить Бросок Реакции на Силу или Проворность. Провалившие цели падают в яму, полную шипов, получая 3d8 физического урона. 3 — струи магического огня вырываются из железных труб в статуях в ряд перед персонажами. Обезвреживание ловушки занимает 5 минут и требует успешного Броска Искусности. При провале, или если персонаж проходит через огонь, он получает 3d6 прямого урона. 4 — стены комнаты начинают сдвигаться, и единственный путь наружу — назад тем же путём. Начните Отсчёт (4). Возможно, есть скрытая дверь, ведущая дальше, или рычаг, способный остановить стены. Персонажи могут совершить Бросок Знания или Инстинкта, чтобы найти выход. При Провале со Страхом стены начинают двигаться быстрее. Если персонаж ищет ловушку, можно считать, что он её находит, либо совершить Бросок Знания или Инстинкта. Бросок Искусности (14) обезвреживает её."
+          },
+          "prompt": {
+            "en": "Who laid these traps and who were they intended to stop?",
+            "ru": "Кто установил эти ловушки и против кого они были предназначены?"
+          }
+        }
+      ],
+      "builtin": true,
+      "tags": []
+    },
+    {
+      "id": "underground-chasm",
+      "tier": 3,
+      "type": "exploration",
+      "difficulty": 17,
+      "name": {
+        "en": "Underground Chasm",
+        "ru": "Подземная расселина"
+      },
+      "impulses": {
+        "en": [
+          "Turn interlopers into thralls",
+          "devour souls",
+          "push the weak into the chasm",
+          "protect the queen"
+        ],
+        "ru": [
+          "Превращать пришельцев в рабов",
+          "поглощать души",
+          "сталкивать слабых в расселину",
+          "защищать королеву"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Hive of Evil (Abbadon Wasp, Captured Thrall, Cilrathi Queensguard, Scythicant Sentinel, Wasp Queen, Waspwyrm)",
+          "Dire bats",
+          "Greater Earth Elementals"
+        ],
+        "ru": [
+          "Улей зла (Оса Абаддона, Захваченный Раб, Стражница Королевы Цилрати, Часовой-Косокрыл, Королева Ос, Осодрак)",
+          "Свирепые летучие мыши",
+          "Старшие элементали земли"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Evil Bargain",
+            "ru": "Злая сделка"
+          },
+          "description": {
+            "en": "When a PC rolls with Fear, they may mark a Stress to swap the values of the dice. If a PC does this, the GM gains 2 Fear.",
+            "ru": "Когда персонаж совершает бросок со Страхом, он может отметить Стресс, чтобы поменять значения костей местами. Если персонаж делает это, Ведущий получает 2 Страха."
+          },
+          "prompt": {
+            "en": "Who offers this deal to the PC? Is there something they gain from helping the party?",
+            "ru": "Кто предлагает эту сделку персонажу? Есть ли что-то, что они получают, помогая отряду?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Infernal Buzzing",
+            "ru": "Адское жужжание"
+          },
+          "description": {
+            "en": "The stones seem to vibrate with a malevolent tone, shifting slightly. The resulting drone bends the nerves and grates on the senses. When characters make Agility or Finesse action rolls, they roll a d4 and subtract the total.",
+            "ru": "Камни, кажется, вибрируют злобным тоном, слегка сдвигаясь. Возникающий гул напрягает нервы и режет чувства. Когда персонажи совершают броски действия на Проворность или Искусность, они бросают d4 и вычитают результат из итога."
+          },
+          "prompt": {
+            "en": "What eerie noises do the PCs hear as they approach? Are there any physical symptoms that might manifest for the PCs or ways to remove the effect?",
+            "ru": "Какие жуткие звуки слышат персонажи, приближаясь? Есть ли какие-то физические симптомы, которые могут проявиться у персонажей, или способы устранить этот эффект?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Vile Exsanguination",
+            "ru": "Мерзкое обескровливание"
+          },
+          "description": {
+            "en": "The blood of the chained being above drips down at a point of your choice. All targets in a Very Close range must make an Agility reaction roll. Targets who fail take 3d8 magical damage and must mark a Stress. Targets that succeed take half as much damage.",
+            "ru": "Кровь прикованного существа сверху капает в выбранную вами точку. Все цели на Очень Близкой дистанции должны совершить Бросок Реакции на Проворность. Провалившие цели получают 3d8 магического урона и должны отметить Стресс. Цели, прошедшие бросок, получают половину урона."
+          },
+          "prompt": {
+            "en": "What does the blood smell like? How does it change the spot where it came in contact with the character?",
+            "ru": "Как пахнет эта кровь? Как она меняет место, с которым соприкасается персонаж?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Prey Caught",
+            "ru": "Добыча поймана"
+          },
+          "description": {
+            "en": "Spend a Fear to ambush the party. Two Scythicant Sentinels burst from the walls in close range of the PCs and immediately take the spotlight. Start a Countdown (4). If the countdown reaches 0 before the scene ends, summon two Cilrathi Queensguard riding Waspwyrms who appear at Far range.",
+            "ru": "Потратьте Страх, чтобы устроить засаду на отряд. Два Часовых-Косокрыла вырываются из стен на Близкой дистанции от персонажей и немедленно берут инициативу. Начните Отсчёт (4). Если отсчёт достигает 0 до конца сцены, призовите двух Стражниц Королевы Цилрати, скачущих на Осодраках, которые появляются на Дальней дистанции."
+          },
+          "prompt": {
+            "en": "Where might this ambush take place? What environmental hazards might also be found?",
+            "ru": "Где может произойти эта засада? Какие опасности окружения могут также встретиться?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Bleak Revelation",
+            "ru": "Мрачное откровение"
+          },
+          "description": {
+            "en": "Countdown (Loop 1d6). When the PCs enter the cavern, activate the countdown. When it triggers, All PCs must roll their Hope die. The one with the lowest roll hears the overwhelming voice of the chained creature above, whispering uncertainty into their minds. That PC loses a Hope.",
+            "ru": "Отсчёт (Цикл 1d6). Когда персонажи входят в пещеру, активируйте отсчёт. Когда он срабатывает, все персонажи должны бросить свою кость Надежды. Тот, у кого выпало наименьшее значение, слышит всепоглощающий голос прикованного существа сверху, шепчущего неуверенность в его разум. Этот персонаж теряет Надежду."
+          },
+          "prompt": {
+            "en": "What does the creature's corpse say? What might it know about the PC?",
+            "ru": "Что говорит труп существа? Что оно может знать о персонаже?"
+          }
+        }
+      ],
+      "builtin": true,
+      "tags": []
+    },
+    {
+      "id": "magic-city",
+      "tier": 2,
+      "type": "social",
+      "difficulty": 13,
+      "name": {
+        "en": "Magic City",
+        "ru": "Магический город"
+      },
+      "impulses": {
+        "en": [
+          "Enforce order",
+          "experiment with magic",
+          "opulent living or painful existence"
+        ],
+        "ru": [
+          "Насаждать порядок",
+          "экспериментировать с магией",
+          "жить в роскоши или страдать в нищете"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Guards",
+          "Assassins",
+          "Masked Thief",
+          "Bandits (tier 2)",
+          "Cultists",
+          "Merchant Baron",
+          "Spy",
+          "War Wizard",
+          "Bounty Hunter"
+        ],
+        "ru": [
+          "Стражники",
+          "Убийцы",
+          "Вор в маске",
+          "Бандиты (ранг 2)",
+          "Культисты",
+          "Торговый Барон",
+          "Шпион",
+          "Военный Волшебник",
+          "Охотник за головами"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Ruling Class",
+            "ru": "Правящий класс"
+          },
+          "description": {
+            "en": "Characters without connections in the city may find it difficult to negotiate with those of higher station. Until the PCs prove themselves to the people of the city, all social situations dealing with those of higher station have a +2 to difficulty.",
+            "ru": "Персонажам без связей в городе может быть трудно вести переговоры с теми, кто занимает более высокое положение. Пока персонажи не проявят себя перед жителями города, все социальные ситуации с участием тех, кто выше по положению, получают +2 к сложности."
+          },
+          "prompt": {
+            "en": "What tells the PCs this city has a caste system? What encounters might change the party's stature in the city?",
+            "ru": "Что говорит персонажам о том, что в этом городе есть кастовая система? Какие встречи могут изменить положение отряда в городе?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Information Abounds",
+            "ru": "Обилие информации"
+          },
+          "description": {
+            "en": "The city boasts multiple libraries full of information about subjects magical and mundane. Sacred texts and secret tomes might also be accessible to the party, depending on what they can access. One thing's for sure: information doesn't come cheap.",
+            "ru": "В городе множество библиотек, полных сведений на магические и обычные темы. Священные тексты и тайные тома также могут быть доступны отряду, в зависимости от того, куда у них есть доступ. Одно можно сказать точно: информация не бывает дешёвой."
+          },
+          "prompt": {
+            "en": "What types of bookstores and libraries are there and where might they be located? What dangerous or esoteric knowledge might the PCs find?",
+            "ru": "Какие книжные лавки и библиотеки здесь есть и где они могут находиться? Какие опасные или эзотерические знания могут найти персонажи?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Scrying Eye",
+            "ru": "Всевидящее око"
+          },
+          "description": {
+            "en": "Spend a Fear to summon an invisible listening device that appears in Far range of the party. It observes them for 10 minutes before disappearing. The information about their appearance, location and direction is relayed to a story NPC.",
+            "ru": "Потратьте Страх, чтобы призвать невидимое подслушивающее устройство, появляющееся на Дальней дистанции от отряда. Оно наблюдает за ними 10 минут, прежде чем исчезнуть. Информация об их внешности, местоположении и направлении передаётся сюжетному НИП."
+          },
+          "prompt": {
+            "en": "Who is spying on the party? What are their intentions?",
+            "ru": "Кто шпионит за отрядом? Каковы их намерения?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Two Sides of the Coin",
+            "ru": "Две стороны монеты"
+          },
+          "description": {
+            "en": "The PCs can find great houses of magic and wonder and shops that sell items they can't afford in luxurious settings as well as beggars pleading for coin, shady deals down dark alleys, and rebellion brewing in the taverns. Many of the people in the city vie for power and prestige that magic cannot afford.",
+            "ru": "Персонажи могут найти как величественные дома магии и чудес, и магазины с товарами, которые они не могут себе позволить, в роскошной обстановке, так и нищих, выпрашивающих монету, тёмные сделки в глухих переулках и зреющий бунт в тавернах. Многие жители города борются за власть и престиж, которые магия не в силах дать."
+          },
+          "prompt": {
+            "en": "Will the party choose to align with power and be used as pawns? Is an uprising inevitable?",
+            "ru": "Решит ли отряд встать на сторону власти и стать пешками? Неизбежно ли восстание?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Power…At a Cost",
+            "ru": "Власть… за цену"
+          },
+          "description": {
+            "en": "Spend a Fear to hand a PC a golden opportunity. Magic that can cure a disease, contact a loved one that has passed on, or information pertinent to their goals. But first, they must do something for the offer. It might be something they're not comfortable with, or a quest that could run counter to other party goals.",
+            "ru": "Потратьте Страх, чтобы предложить персонажу золотую возможность. Магию, способную излечить болезнь, связаться с ушедшим близким или дать информацию, важную для их целей. Но сперва они должны сделать что-то в ответ на это предложение. Это может быть то, что им неприятно, или задание, идущее вразрез с другими целями отряда."
+          },
+          "prompt": {
+            "en": "Is it access to information or a powerful item, a clue or a terrible secret? What might it cost?",
+            "ru": "Это доступ к информации или мощному предмету, подсказка или страшная тайна? Чего это может стоить?"
+          }
+        }
+      ],
+      "builtin": true,
+      "tags": []
+    },
+    {
+      "id": "ruined-castle",
+      "tier": 1,
+      "type": "exploration",
+      "difficulty": 11,
+      "name": {
+        "en": "Ruined Castle",
+        "ru": "Разрушенный замок"
+      },
+      "impulses": {
+        "en": [
+          "Draw in the curious",
+          "reminder of the past",
+          "hide secrets",
+          "crumble"
+        ],
+        "ru": [
+          "Манить любопытных",
+          "напоминать о прошлом",
+          "скрывать тайны",
+          "рассыпаться в прах"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Beasts (Bear, Giant Rat, Swarm of Bats, Swarm of Rats, Giant Mosquitoes, Dire Wolf)",
+          "Bandits",
+          "Oozes (Green Ooze, Tiny Green Ooze, Red Ooze, Tiny Red Ooze)",
+          "Skeletons",
+          "Tangle Bramble",
+          "Tangle Bramble Swarm",
+          "Zombies"
+        ],
+        "ru": [
+          "Звери (Медведь, Гигантская Крыса, Рой Летучих Мышей, Рой Крыс, Гигантские Москиты, Свирепый Волк)",
+          "Бандиты",
+          "Слизни (Зелёный Слизень, Крошечный Зелёный Слизень, Красный Слизень, Крошечный Красный Слизень)",
+          "Скелеты",
+          "Спутанный Терновник",
+          "Рой Спутанного Терновника",
+          "Зомби"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "The Old World",
+            "ru": "Старый мир"
+          },
+          "description": {
+            "en": "This castle was once used for something. Perhaps it was a mage's lair or a barracks. A PC can make a Knowledge or Presence Roll to remember stories about the location. Decide on three pieces of information pertinent to this location. On a success with Hope, the PC learns all three pieces. On a success with Fear, learn two. On a failure, a PC can mark a Stress to learn one and gain advantage on the next action roll to investigate this environment. A PC with an appropriate background or Experience can learn an additional detail and ask a follow-up question about the scene and get a truthful (if not always complete) answer.",
+            "ru": "Этот замок когда-то использовался для чего-то. Возможно, это было убежище мага или казармы. Персонаж может совершить Бросок Знания или Влияния, чтобы вспомнить истории об этом месте. Определите три сведения, относящихся к этому месту. При успехе с Надеждой персонаж узнаёт все три. При успехе со Страхом — два. При провале персонаж может отметить Стресс, чтобы узнать одно и получить преимущество на следующий бросок действия для исследования этого окружения. Персонаж с подходящей Предысторией или Опытом может узнать дополнительную деталь и задать уточняющий вопрос о сцене, получив правдивый (хотя не всегда полный) ответ."
+          },
+          "prompt": {
+            "en": "Who lived here before? What happened to them? What's something the PCs wouldn't find out from this roll?",
+            "ru": "Кто жил здесь раньше? Что с ними случилось? Что персонажи не смогут узнать из этого броска?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Forgotten Treasure",
+            "ru": "Забытое сокровище"
+          },
+          "description": {
+            "en": "A tower or bedroom might still hold treasure. A PC who searches for treasure can make an Instinct or Knowledge (12) Roll to discover something valuable.",
+            "ru": "В башне или спальне могут до сих пор храниться сокровища. Персонаж, ищущий сокровища, может совершить Бросок Инстинкта или Знания (12), чтобы обнаружить что-то ценное."
+          },
+          "prompt": {
+            "en": "Is it a weapon that will help in an upcoming battle or a bag of gold tucked away by the previous owner?",
+            "ru": "Это оружие, которое поможет в грядущей битве, или мешок золота, припрятанный прежним владельцем?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Crumbling Architecture",
+            "ru": "Осыпающаяся архитектура"
+          },
+          "description": {
+            "en": "Spend a Fear to force a PC to make an Agility reaction roll. On a failure, the floor falls away or a wall crumbles down on them and they take 1d8 physical damage, but a new way is opened to them.",
+            "ru": "Потратьте Страх, чтобы заставить персонажа совершить Бросок Реакции на Проворность. При провале пол уходит из-под ног или стена обрушивается на него, и он получает 1d8 физического урона, но перед ним открывается новый путь."
+          },
+          "prompt": {
+            "en": "Where do these halls lead? Who might have heard the sound?",
+            "ru": "Куда ведут эти залы? Кто мог услышать этот звук?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Current Residents",
+            "ru": "Нынешние обитатели"
+          },
+          "description": {
+            "en": "Spend a Fear to choose a group of Adversaries that appear at Far range to attack the party.",
+            "ru": "Потратьте Страх, чтобы выбрать группу противников, появляющихся на Дальней дистанции для атаки на отряд."
+          },
+          "prompt": {
+            "en": "Are they animals that have made this place a home? Is something lurking in the dungeon, only just now let out?",
+            "ru": "Это животные, сделавшие это место своим домом? Или что-то затаившееся в подземелье только что было выпущено на свободу?"
+          }
+        }
+      ],
+      "builtin": true,
+      "tags": []
+    }
+  ]
+}
