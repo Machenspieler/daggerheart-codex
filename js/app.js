@@ -323,6 +323,12 @@ function renderGrid() {
   el.querySelectorAll('.card').forEach(card => {
     card.addEventListener('click', () => openDetail(card.dataset.id));
   });
+  el.querySelectorAll('[data-add-to-list]').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      openAddToListPopup(btn.dataset.addToList);
+    });
+  });
 }
 
 function hasActiveFilters() {
@@ -346,7 +352,10 @@ function cardHtml(env) {
   return `
     <div class="card" data-id="${env.id}" data-type="${env.type}">
       <div class="card-top">
-        <h3 class="card-title">${escapeHtml(envName(env))}</h3>
+        <div class="card-title-row">
+          <h3 class="card-title">${escapeHtml(envName(env))}</h3>
+          <button type="button" class="card-add-btn" data-add-to-list="${env.id}" aria-label="${t('add_to_list')}" title="${t('add_to_list')}">+</button>
+        </div>
         <span class="card-tier">${t('tier_label')} ${env.tier}</span>
       </div>
       <div class="card-meta">
