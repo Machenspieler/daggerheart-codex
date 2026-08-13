@@ -1,5 +1,5 @@
 /* ============================================================
-   Environment Codex — app.js
+   Daggerheart Atlas — app.js
    Vanilla JS, no build step. All state persisted to localStorage
    except the bundled builtin environment data (data/environments.json)
    which stays read-only on disk; user edits layer on top of it.

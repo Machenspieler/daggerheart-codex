@@ -1,6 +1,6 @@
 {
   "en": {
-    "app_title": "Environment Codex",
+    "app_title": "Daggerheart Atlas",
     "app_subtitle": "A field guide to the world's scenes and hazards",
     "search_placeholder": "Search by name, impulse, tag…",
     "filter_tier": "Tier",
@@ -67,7 +67,7 @@
     "raw_text_label": "Notes / raw text"
   },
   "ru": {
-    "app_title": "Кодекс окружений",
+    "app_title": "Атлас Daggerheart",
     "app_subtitle": "Справочник сцен и опасностей мира",
     "search_placeholder": "Поиск по названию, импульсу, тегу…",
     "filter_tier": "Ранг",

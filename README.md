@@ -1,4 +1,4 @@
-# Environment Codex — помощник по Daggerheart
+# Daggerheart Atlas — помощник по Daggerheart
 
 Статический сайт-справочник по Environment stat blocks для Daggerheart:
 поиск, сортировка, фильтры, теги, переключатель RU/EN и кликабельные
