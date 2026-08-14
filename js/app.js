@@ -139,7 +139,7 @@ function renderHeader() {
   el.innerHTML = `
     <div class="header-inner">
       <div class="brand" id="brand-home" role="button" tabindex="0">
-        ${diceMarkSVG()}
+        <img class="brand-mark" src="img/brand-dagger.png?v=1" alt="" aria-hidden="true">
         <div class="brand-text">
           <h1>${t('app_title')}</h1>
           <p>${t('app_subtitle')}</p>
@@ -162,15 +162,6 @@ function renderHeader() {
   });
   document.getElementById('btn-lists').addEventListener('click', () => navigate('#/lists'));
   document.getElementById('brand-home').addEventListener('click', () => navigate(''));
-}
-
-function diceMarkSVG() {
-  return `<svg class="brand-mark" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <polygon points="24,3 43,15 43,33 24,45 5,33 5,15" stroke="#d9a441" stroke-width="2" fill="#211c18"/>
-    <polygon points="24,3 43,15 24,24 5,15" fill="#3a322b" opacity="0.6"/>
-    <polygon points="24,24 43,15 43,33 24,45" fill="#9c2b3b" opacity="0.25"/>
-    <text x="24" y="30" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700" fill="#e9dfc7" text-anchor="middle">12</text>
-  </svg>`;
 }
 
 function renderToolbar() {
