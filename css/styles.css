@@ -205,24 +205,38 @@ button.rank-icon:active { transform: scale(0.92); }
 .result-count button { background: none; border: none; color: var(--teal-soft); cursor: pointer; font-size: 12.5px; padding: 0; margin-left: 8px; text-decoration: underline; }
 
 /* ---------- card grid ---------- */
+/* The biome picture claims a 132px rail on the left, so columns are wider than
+ * the text alone would need — below ~340px a Russian name wraps to three lines. */
 .grid {
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px;
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 16px;
 }
 
 .card {
   background: var(--ink-card);
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  padding: 18px 18px 16px;
+  padding: 18px 18px 16px 0;
   cursor: pointer;
   position: relative;
   transition: border-color 0.18s, transform 0.12s, box-shadow 0.18s;
-  display: flex; flex-direction: column; gap: 10px;
+  display: flex; gap: 14px;
 }
+/* The type colour sits on the right: the picture occupies the left edge. */
 .card::before {
-  content: ""; position: absolute; left: 0; top: 14px; bottom: 14px; width: 3px;
+  content: ""; position: absolute; right: 0; top: 14px; bottom: 14px; width: 3px;
   background: var(--teal);
 }
+
+/* The art is a hexagon on a transparent field, so it needs no frame of its own.
+ * `min-height` reserves the row before the picture loads — the masters differ
+ * slightly in aspect ratio (115-121px tall at this width), and the tallest one
+ * sets the floor, so a loading card never shifts its neighbours. */
+.card-art {
+  flex: none; width: 132px; min-height: 121px;
+  display: flex; align-items: center; justify-content: center;
+}
+.card-art img { display: block; width: 100%; height: auto; }
+.card-body { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 10px; }
 .card[data-type="traversal"]::before { background: var(--teal); }
 .card[data-type="social"]::before { background: var(--hope); }
 .card[data-type="event"]::before { background: var(--fear); }
@@ -463,6 +477,10 @@ button.rank-icon:active { transform: scale(0.92); }
 
 @media (max-width: 640px) {
   .header-inner { flex-direction: column; align-items: flex-start; }
+  /* One column at this width, so the card is wide and the rail can shrink to
+   * leave the name a full line. Matches the -sm picture source. */
+  .grid { grid-template-columns: 1fr; }
+  .card-art { width: 108px; min-height: 99px; }
   .modal-overlay { padding: 16px 10px; }
   .modal-header { padding: 14px 16px 12px; }
   .modal-body { padding: 16px 16px 20px; }
