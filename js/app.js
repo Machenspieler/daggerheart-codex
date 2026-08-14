@@ -22,6 +22,7 @@ const state = {
   lang: normalizeLang(localStorage.getItem(LS_KEYS.lang)),
   i18n: null,
   builtinEnvs: [],
+  regions: [],
   customEnvs: JSON.parse(localStorage.getItem(LS_KEYS.customEnvs) || '[]'),
   hiddenBuiltin: JSON.parse(localStorage.getItem(LS_KEYS.hiddenBuiltin) || '[]'),
   lists: JSON.parse(localStorage.getItem(LS_KEYS.lists) || '[]'),
@@ -75,6 +76,23 @@ function isTranslated(env) {
   return !!(env.name && env.name.ru && env.name.ru.trim());
 }
 
+/* ---------------- regions ---------------- */
+
+/** Environments that belong to the same connected place are grouped into a
+ * region in data/regions.json. An environment belongs to at most one region. */
+function regionOfEnv(envId) {
+  return state.regions.find(r => (r.environments || []).includes(envId)) || null;
+}
+function regionName(region) {
+  return region.name?.[state.lang] || region.name?.en || region.name?.ru || '';
+}
+/** Region members that actually exist right now (a hidden or removed builtin
+ * environment drops out of the button row rather than rendering a dead button). */
+function regionMembers(region) {
+  const byId = new Map(allEnvs().map(e => [e.id, e]));
+  return (region.environments || []).map(id => byId.get(id)).filter(Boolean);
+}
+
 /** Difficulty is usually a plain number, but a few environments (e.g. duel
  * events whose difficulty depends on the chosen adversary) store a bilingual
  * descriptive string instead: { en, ru }. */
@@ -87,12 +105,14 @@ function envDifficulty(env) {
 /* ---------------- init ---------------- */
 
 async function init() {
-  const [i18n, envs] = await Promise.all([
+  const [i18n, envs, regions] = await Promise.all([
     fetch('data/i18n.json').then(r => r.json()),
     fetch('data/environments.json').then(r => r.json()),
+    fetch('data/regions.json').then(r => r.json()).catch(() => ({ regions: [] })),
   ]);
   state.i18n = i18n;
   state.builtinEnvs = envs.environments;
+  state.regions = regions.regions || [];
   render();
 }
 
@@ -524,6 +544,20 @@ function openDetail(envId) {
     <div class="feature-desc" data-rich-block="${encodeURIComponent(env.rawText[state.lang] || env.rawText.en || env.rawText.ru || '')}"></div>
   ` : '';
 
+  const region = regionOfEnv(env.id);
+  const members = region ? regionMembers(region) : [];
+  const regionHtml = members.length > 1 ? `
+    <div class="region-block">
+      <span class="section-label">${t('region_label')}</span>
+      <p class="region-name">${escapeHtml(regionName(region))}</p>
+      <div class="region-envs">
+        ${members.map(member => member.id === env.id
+          ? `<button type="button" class="region-env-btn active" disabled aria-current="true">${escapeHtml(envName(member))}<span class="region-env-tier">${member.tier}</span></button>`
+          : `<button type="button" class="region-env-btn" data-region-env="${member.id}">${escapeHtml(envName(member))}<span class="region-env-tier">${member.tier}</span></button>`
+        ).join('')}
+      </div>
+    </div>` : '';
+
   const overlay = document.createElement('div');
   overlay.className = 'modal-overlay';
   overlay.innerHTML = `
@@ -550,6 +584,7 @@ function openDetail(envId) {
         ${adversaries.length ? `<span class="section-label">${t('adversaries_label')}</span><p class="adversary-list">${escapeHtml(adversaries.join('; '))}</p>` : ''}
         ${featuresHtml ? `<span class="section-label">${t('features_label')}</span>${featuresHtml}` : ''}
         ${rawHtml}
+        ${regionHtml}
 
         <div class="form-actions" style="margin-top:22px">
           <button class="btn" id="detail-add-to-list-bottom">${t('add_to_list')}</button>
@@ -582,6 +617,12 @@ function openDetail(envId) {
 
   const editBtn = overlay.querySelector('#detail-edit');
   if (editBtn) editBtn.addEventListener('click', () => { closeDetail(); openEditForm(env.id); });
+
+  overlay.querySelectorAll('[data-region-env]').forEach(btn => btn.addEventListener('click', () => {
+    const nextId = btn.dataset.regionEnv;
+    closeDetail();
+    openDetail(nextId);
+  }));
 
   overlay.querySelector('#detail-add-to-list').addEventListener('click', () => openAddToListPopup(env.id));
   overlay.querySelector('#detail-add-to-list-bottom').addEventListener('click', () => openAddToListPopup(env.id));

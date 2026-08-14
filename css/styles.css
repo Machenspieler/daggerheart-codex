@@ -317,6 +317,30 @@ button.rank-icon:active { transform: scale(0.92); }
 .feature-prompt::before { content: "❖ "; color: var(--hope); font-style: normal; }
 .feature-group-divider { border: none; border-top: 1px solid var(--line); margin: 18px 0; }
 
+/* ---------- region navigation (bottom of the detail card) ---------- */
+.region-block { margin-top: 26px; }
+.region-name {
+  font-family: var(--font-display); font-size: 18px; color: var(--hope-soft); margin: 0 0 10px;
+}
+.region-envs { display: flex; gap: 8px; flex-wrap: wrap; }
+.region-env-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--font-body); font-size: 14px; text-align: left;
+  padding: 7px 12px; border-radius: var(--radius);
+  border: 1px solid var(--line); background: var(--ink-raised); color: var(--parchment-dim);
+  cursor: pointer; transition: border-color 0.15s, color 0.15s, background 0.15s;
+}
+.region-env-btn:hover { border-color: var(--teal-soft); color: var(--parchment); background: rgba(63,123,116,0.14); }
+.region-env-btn.active {
+  border-color: var(--hope); color: var(--parchment); background: rgba(217,164,65,0.16);
+  cursor: default;
+}
+.region-env-tier {
+  font-family: var(--font-mono); font-size: 10.5px; line-height: 1;
+  padding: 3px 6px; border-radius: 3px; border: 1px solid var(--line); color: var(--muted);
+}
+.region-env-btn.active .region-env-tier { border-color: var(--hope); color: var(--hope-soft); }
+
 /* ---------- dice button ---------- */
 .dice-btn {
   display: inline-flex; align-items: center; gap: 5px;

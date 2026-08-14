@@ -1,0 +1,113 @@
+{
+  "_comment": "Regions group environments that belong to the same connected place. Each environment id may appear in at most one region; unknown ids are ignored. The button order in the UI follows the order of the environments array here. Region names and membership come from the `region` field of the Wondrous Environments source; the order within each region follows the source too.",
+  "regions": [
+    {
+      "id": "cursed-lands",
+      "name": { "en": "The Cursed Lands", "ru": "Проклятые земли" },
+      "environments": [
+        "haunted-oratorium",
+        "ruined-mage-tower",
+        "heal-the-land"
+      ]
+    },
+    {
+      "id": "frozen-wastes",
+      "name": { "en": "The Frozen Wastes", "ru": "Ледяные пустоши" },
+      "environments": [
+        "snow-squall",
+        "frozen-lake",
+        "prehistoric-valley"
+      ]
+    },
+    {
+      "id": "glimmering-mire",
+      "name": { "en": "Glimmering Mire", "ru": "Мерцающая топь" },
+      "environments": [
+        "chronon-pools",
+        "flickerstorm",
+        "swamp-ruins"
+      ]
+    },
+    {
+      "id": "hivelands",
+      "name": { "en": "The Hivelands", "ru": "Земли Ульев" },
+      "environments": [
+        "webbed-terrain",
+        "thrumming-hives",
+        "escape-the-swarm"
+      ]
+    },
+    {
+      "id": "meteoric-basin",
+      "name": { "en": "Meteoric Basin", "ru": "Метеоритная котловина" },
+      "environments": [
+        "shard-field",
+        "rewritten-grove",
+        "stop-the-collapse-of-reality"
+      ]
+    },
+    {
+      "id": "neverhome-manor",
+      "name": { "en": "Neverhome Manor", "ru": "Поместье Неверхоума" },
+      "environments": [
+        "neverhome-corridors",
+        "neverhome-library",
+        "shatter-the-heart"
+      ]
+    },
+    {
+      "id": "sanctum-mortalis",
+      "name": { "en": "Sanctum Mortalis", "ru": "Санктум Морталис" },
+      "environments": [
+        "forced-penance",
+        "humble-altar",
+        "endless-catacombs"
+      ]
+    },
+    {
+      "id": "smokevein-caverns",
+      "name": { "en": "Smokevein Caverns", "ru": "Пещеры Дымных Жил" },
+      "environments": [
+        "aetherstone-grove",
+        "corridor-of-flammable-air",
+        "divert-the-river"
+      ]
+    },
+    {
+      "id": "umbral-sea",
+      "name": { "en": "Umbral Sea", "ru": "Сумеречное море" },
+      "environments": [
+        "umbral-basin",
+        "shadow-surge",
+        "pool-of-pure-darkness"
+      ]
+    },
+    {
+      "id": "watchers-grave",
+      "name": { "en": "The Watcher’s Grave", "ru": "Могила Наблюдателя" },
+      "environments": [
+        "sentient-ink-marsh",
+        "mistfield-of-possibility",
+        "the-waking-archives"
+      ]
+    },
+    {
+      "id": "witches-cauldera",
+      "name": { "en": "Witches’ Cauldera", "ru": "Котёл Ведьм" },
+      "environments": [
+        "ouroborean-pass",
+        "field-of-dreams",
+        "cauldera-valley"
+      ]
+    },
+    {
+      "_note": "Not from the source's `region` field — the Ritual card is a scene inside the Devouring Green, so the two are grouped here. Remove this entry if you want regions to stay strictly source-backed.",
+      "id": "devouring-green",
+      "name": { "en": "The Devouring Green", "ru": "Пожирающая Зелень" },
+      "environments": [
+        "devouring-green",
+        "devouring-green-ritual"
+      ]
+    }
+  ]
+}
