@@ -702,7 +702,10 @@ function openDetail(envId) {
 
 /* ---------------- dice parsing + rolling ---------------- */
 
-const DICE_RE = /\b(\d{0,2})d(3|4|6|8|10|12|20|100)\b/gi;
+/* Matches "2d6", "d20" and an optional flat modifier ("1d6+2", "3d6 - 1"). The
+ * lookahead keeps the modifier from swallowing the first die of a following
+ * roll, so "2d6 + 1d8" stays two separate buttons. */
+const DICE_RE = /\b(\d{0,2})d(3|4|6|8|10|12|20|100)\b(?:\s*([+-])\s*(\d+)\b(?!\s*d\s*\d))?/gi;
 const COUNTDOWN_KEYWORD_RE = /(Countdown|Отсчёт\w*|Отсчет\w*|Счётчик\w*|Счетчик\w*)/gi;
 const COUNTDOWN_PAREN_RE = /\(\s*(?:(?:Loop|Цикл)\s+)?(?:\d*d)?(\d+)\s*\)/gi;
 
@@ -744,7 +747,8 @@ function findDiceMatches(text) {
   while ((m = DICE_RE.exec(text))) {
     const count = m[1] ? parseInt(m[1], 10) : 1;
     const sides = parseInt(m[2], 10);
-    matches.push({ start: m.index, end: m.index + m[0].length, type: 'dice', count, sides, label: m[0] });
+    const mod = m[4] ? (m[3] === '-' ? -1 : 1) * parseInt(m[4], 10) : 0;
+    matches.push({ start: m.index, end: m.index + m[0].length, type: 'dice', count, sides, mod, label: m[0] });
   }
   return matches;
 }
@@ -757,7 +761,7 @@ function renderRichText(container, text) {
   for (const match of matches) {
     if (match.start < lastIndex) continue; // skip overlapping match
     if (match.start > lastIndex) container.appendChild(document.createTextNode(text.slice(lastIndex, match.start)));
-    if (match.type === 'dice') container.appendChild(makeDiceButton(match.count, match.sides, match.label));
+    if (match.type === 'dice') container.appendChild(makeDiceButton(match.count, match.sides, match.mod, match.label));
     else container.appendChild(makeCountdownButton(match.value, match.label));
     lastIndex = match.end;
   }
@@ -801,14 +805,14 @@ function renderFeatureBody(container, text) {
   flushPara();
 }
 
-function makeDiceButton(count, sides, label) {
+function makeDiceButton(count, sides, mod, label) {
   const btn = document.createElement('button');
   btn.className = 'dice-btn';
   btn.type = 'button';
   btn.innerHTML = `${diceIconSVG()}<span>${label}</span>`;
   btn.addEventListener('click', (e) => {
     e.stopPropagation();
-    rollDice(btn, count, sides, label);
+    rollDice(btn, count, sides, mod, label);
   });
   return btn;
 }
@@ -888,23 +892,25 @@ function openCountdownOverlay(btn) {
   }
 }
 
-function rollDice(btn, count, sides, label) {
+function rollDice(btn, count, sides, mod, label) {
   const rolls = Array.from({ length: count }, () => 1 + Math.floor(Math.random() * sides));
-  const total = rolls.reduce((a, b) => a + b, 0);
-  showDiceResultPop(btn, label, rolls, total);
+  const total = rolls.reduce((a, b) => a + b, 0) + mod;
+  showDiceResultPop(btn, label, rolls, mod, total);
 }
 
-function showDiceResultPop(btn, label, rolls, total) {
+function showDiceResultPop(btn, label, rolls, mod, total) {
   const rect = btn.getBoundingClientRect();
   const pop = document.createElement('div');
   pop.className = 'dice-result-pop';
   pop.style.left = Math.max(8, Math.min(rect.left, window.innerWidth - 110)) + 'px';
   pop.style.top = (rect.bottom + 8) + 'px';
   pop.innerHTML = `<div class="notation">${label}</div><div class="value">${total}</div>`;
-  if (rolls.length > 1) {
+  if (rolls.length > 1 || mod) {
     const bd = document.createElement('div');
     bd.className = 'breakdown';
-    bd.textContent = rolls.join(' + ');
+    let expr = rolls.join(' + ');
+    if (mod) expr += (mod < 0 ? ' − ' : ' + ') + Math.abs(mod);
+    bd.textContent = `${expr} = ${total}`;
     pop.appendChild(bd);
   }
   document.body.appendChild(pop);
