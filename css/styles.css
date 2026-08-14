@@ -246,6 +246,10 @@ button.rank-icon:active { transform: scale(0.92); }
   font-family: var(--font-mono); font-size: 10.5px; padding: 3px 8px; border-radius: 3px;
   border: 1px solid var(--teal-soft); color: var(--teal-soft);
 }
+.region-chip {
+  font-family: var(--font-mono); font-size: 10.5px; padding: 3px 8px; border-radius: 3px;
+  border: 1px solid var(--hope-soft); color: var(--hope-soft);
+}
 .badge {
   font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.05em; text-transform: uppercase;
   padding: 3px 7px; border-radius: 3px; border: 1px dashed var(--line); color: var(--muted);

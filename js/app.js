@@ -398,6 +398,12 @@ function hasActiveFilters() {
 function cardHtml(env) {
   const impulses = envField(env, 'impulses');
   const biomeChips = (env.biomes || []).map(b => `<span class="biome-chip">${t('biome_' + b)}</span>`).join('');
+  // Environments that belong to a region carry its name alongside the biomes.
+  // Regions are optional, so most cards show biome chips only.
+  const region = regionOfEnv(env.id);
+  const regionChip = region
+    ? `<span class="region-chip" title="${t('region_label')}">${escapeHtml(regionName(region))}</span>`
+    : '';
   const badges = [
     env.builtin ? '' : `<span class="badge custom">${t('custom_badge')}</span>`,
     isTranslated(env) ? '' : `<span class="badge pending">${t('untranslated_badge')}</span>`,
@@ -416,7 +422,7 @@ function cardHtml(env) {
         <span class="diff">${t('difficulty_label')} ${escapeHtml(String(envDifficulty(env)))}</span>
       </div>
       ${impulses.length ? `<div class="card-impulses">${escapeHtml(impulses.join(', '))}</div>` : ''}
-      ${biomeChips ? `<div class="card-biomes">${biomeChips}</div>` : ''}
+      ${biomeChips || regionChip ? `<div class="card-biomes">${biomeChips}${regionChip}</div>` : ''}
       ${badges}
     </div>`;
 }
