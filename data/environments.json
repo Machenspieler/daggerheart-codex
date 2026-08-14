@@ -15404,6 +15404,7 @@
       ],
       "builtin": true,
       "biomes": [
+        "forest",
         "mountain"
       ]
     },
@@ -15489,7 +15490,7 @@
       ],
       "builtin": true,
       "biomes": [
-        "mountain"
+        "grassland"
       ]
     },
     {
