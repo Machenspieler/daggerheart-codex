@@ -150,6 +150,7 @@ a { color: var(--hope-soft); text-decoration: none; }
 .pill.active[data-type="social"] { border-color: var(--hope-soft); background: rgba(217,164,65,0.18); }
 .pill.active[data-type="event"] { border-color: var(--fear-soft); background: rgba(156,43,59,0.22); }
 .pill.active[data-type="exploration"] { border-color: var(--parchment-dim); background: rgba(185,173,145,0.18); }
+.pill.active[data-type="region"] { border-color: var(--hope); background: rgba(217,164,65,0.24); }
 .pill:hover { color: var(--parchment); }
 
 .rank-pills { display: flex; gap: 9px; flex-wrap: wrap; }

@@ -28,7 +28,7 @@ const state = {
   lists: JSON.parse(localStorage.getItem(LS_KEYS.lists) || '[]'),
   envLists: JSON.parse(localStorage.getItem(LS_KEYS.envLists) || '{}'),
   storageNoticeDismissed: localStorage.getItem(LS_KEYS.storageNoticeDismissed) === '1',
-  filters: { search: '', tiers: new Set(), types: new Set(), biomes: new Set() },
+  filters: { search: '', tiers: new Set(), types: new Set(), biomes: new Set(), regionOnly: false },
   editingEnvId: null,
   route: parseRoute(),
 };
@@ -179,6 +179,11 @@ function renderToolbar() {
   const envs = currentEnvs();
   const usedTiers = [...new Set(envs.map(e => e.tier))].sort();
   const types = ['traversal', 'social', 'event', 'exploration'];
+  // The region pill sits alongside the type pills but filters on region
+  // membership, not env.type. Regions only make sense on the full catalog, so
+  // the pill — and any filter left over from it — is dropped elsewhere.
+  const showRegionPill = state.route.name === 'catalog';
+  if (!showRegionPill) state.filters.regionOnly = false;
 
   const listBar = state.route.name === 'list' ? (() => {
     const list = state.lists.find(l => l.id === state.route.id);
@@ -210,6 +215,7 @@ function renderToolbar() {
         <label>${t('filter_type')}</label>
         <div class="type-pills" id="f-types">
           ${types.map(type => `<button class="pill ${state.filters.types.has(type) ? 'active' : ''}" data-type="${type}">${t('type_' + type)}</button>`).join('')}
+          ${showRegionPill ? `<button class="pill ${state.filters.regionOnly ? 'active' : ''}" data-type="region" id="f-region">${t('region_label')}</button>` : ''}
         </div>
       </div>
       <div class="field">
@@ -241,10 +247,15 @@ function renderToolbar() {
     toggleSetValue(state.filters.tiers, tier);
     renderToolbar(); renderGrid();
   }));
-  el.querySelectorAll('#f-types .pill').forEach(btn => btn.addEventListener('click', () => {
+  el.querySelectorAll('#f-types .pill:not(#f-region)').forEach(btn => btn.addEventListener('click', () => {
     toggleSetValue(state.filters.types, btn.dataset.type);
     renderToolbar(); renderGrid();
   }));
+  const regionBtn = document.getElementById('f-region');
+  if (regionBtn) regionBtn.addEventListener('click', () => {
+    state.filters.regionOnly = !state.filters.regionOnly;
+    renderToolbar(); renderGrid();
+  });
   document.getElementById('f-biome').addEventListener('change', e => {
     state.filters.biomes = new Set(e.target.value ? [e.target.value] : []);
     renderGrid();
@@ -272,6 +283,7 @@ function envMatchesFilters(env) {
   }
   if (f.tiers.size && !f.tiers.has(env.tier)) return false;
   if (f.types.size && !f.types.has(env.type)) return false;
+  if (f.regionOnly && !regionOfEnv(env.id)) return false;
   if (f.biomes.size) {
     const envBiomeSet = new Set(env.biomes || []);
     let match = false;
@@ -295,7 +307,7 @@ function renderGrid() {
     (hasActiveFilters() ? `<button id="clear-filters-btn">${t('clear_filters')}</button>` : '');
   const clearBtn = document.getElementById('clear-filters-btn');
   if (clearBtn) clearBtn.addEventListener('click', () => {
-    state.filters = { search: '', tiers: new Set(), types: new Set(), biomes: new Set() };
+    state.filters = { search: '', tiers: new Set(), types: new Set(), biomes: new Set(), regionOnly: false };
     renderToolbar(); renderGrid();
   });
 
@@ -320,7 +332,7 @@ function renderGrid() {
 
 function hasActiveFilters() {
   const f = state.filters;
-  return f.search || f.tiers.size || f.types.size || f.biomes.size;
+  return f.search || f.tiers.size || f.types.size || f.biomes.size || f.regionOnly;
 }
 
 function cardHtml(env) {
