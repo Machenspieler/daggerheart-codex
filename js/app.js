@@ -11,6 +11,7 @@ const LS_KEYS = {
   hiddenBuiltin: 'dhcodex_hidden_builtin',
   lists: 'dhcodex_lists',
   envLists: 'dhcodex_env_lists',
+  storageNoticeDismissed: 'dhcodex_storage_notice_dismissed',
 };
 
 const BIOMES = ['underground', 'aquatic', 'wetland', 'grassland', 'tropical', 'forest', 'drylands', 'rolling', 'mountain', 'frozen', 'badlands', 'settlement', 'universal'];
@@ -25,6 +26,7 @@ const state = {
   hiddenBuiltin: JSON.parse(localStorage.getItem(LS_KEYS.hiddenBuiltin) || '[]'),
   lists: JSON.parse(localStorage.getItem(LS_KEYS.lists) || '[]'),
   envLists: JSON.parse(localStorage.getItem(LS_KEYS.envLists) || '{}'),
+  storageNoticeDismissed: localStorage.getItem(LS_KEYS.storageNoticeDismissed) === '1',
   filters: { search: '', tiers: new Set(), types: new Set(), biomes: new Set() },
   editingEnvId: null,
   route: parseRoute(),
@@ -357,6 +359,13 @@ function renderListsHome() {
   const el = document.getElementById('grid-wrap');
   el.innerHTML = `
     <div class="lists-home-wrap" style="grid-column:1/-1">
+      ${state.storageNoticeDismissed ? '' : `
+      <div class="storage-notice" role="status">
+        <span class="storage-notice-icon" aria-hidden="true">!</span>
+        <p class="storage-notice-text">${t('storage_notice')}</p>
+        <button type="button" class="storage-notice-close" id="storage-notice-close"
+                aria-label="${t('dismiss')}" title="${t('dismiss')}">×</button>
+      </div>`}
       <div class="new-list-row">
         <input type="text" id="new-list-input" placeholder="${t('new_list_name')}">
         <button class="btn btn-primary" id="new-list-btn">${t('create')}</button>
@@ -365,6 +374,14 @@ function renderListsHome() {
         ? `<div class="list-cards-grid">${state.lists.map(listCardHtml).join('')}</div>`
         : `<div class="empty-state"><p>${t('no_lists_yet')}</p><p>${t('no_lists_hint')}</p></div>`}
     </div>`;
+
+  const noticeClose = document.getElementById('storage-notice-close');
+  if (noticeClose) noticeClose.addEventListener('click', () => {
+    state.storageNoticeDismissed = true;
+    localStorage.setItem(LS_KEYS.storageNoticeDismissed, '1');
+    const notice = noticeClose.closest('.storage-notice');
+    if (notice) notice.remove();
+  });
 
   document.getElementById('new-list-btn').addEventListener('click', () => {
     const input = document.getElementById('new-list-input');
