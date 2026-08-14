@@ -526,6 +526,13 @@ function listCardHtml(list) {
     </div>`;
 }
 
+/* Escape closes one modal at a time: the add-to-list popup opens on top of the
+ * environment card, so only the last overlay in the DOM reacts to the key. */
+function isTopOverlay(overlay) {
+  const all = document.querySelectorAll('.modal-overlay');
+  return all.length > 0 && all[all.length - 1] === overlay;
+}
+
 function openAddToListPopup(envId) {
   const overlay = document.createElement('div');
   overlay.className = 'modal-overlay';
@@ -566,7 +573,17 @@ function openAddToListPopup(envId) {
   }
   overlay.querySelectorAll('[data-list-toggle]').forEach(bindToggle);
 
-  function close() { overlay.remove(); render(); }
+  function close() {
+    overlay.remove();
+    document.removeEventListener('keydown', onKeyDown);
+    render();
+  }
+
+  function onKeyDown(e) {
+    if (e.key === 'Escape' && isTopOverlay(overlay)) close();
+  }
+  document.addEventListener('keydown', onKeyDown);
+
   overlay.querySelector('.modal-close').addEventListener('click', close);
   overlay.addEventListener('click', e => { if (e.target === overlay) close(); });
 
@@ -891,7 +908,7 @@ function openDetail(envId) {
   }
 
   function onKeyDown(e) {
-    if (e.key === 'Escape') closeDetail();
+    if (e.key === 'Escape' && isTopOverlay(overlay)) closeDetail();
   }
   document.addEventListener('keydown', onKeyDown);
 
