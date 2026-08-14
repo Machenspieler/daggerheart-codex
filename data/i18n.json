@@ -81,7 +81,7 @@
   "ru": {
     "app_title": "Атлас Daggerheart",
     "app_subtitle": "Справочник сцен и опасностей мира",
-    "search_placeholder": "Поиск по названию, импульсу…",
+    "search_placeholder": "Поиск по названию, импульсу или слову",
     "filter_tier": "Ранг",
     "filter_type": "Тип",
     "filter_biome": "Биом",

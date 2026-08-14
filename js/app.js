@@ -169,16 +169,19 @@ function renderToolbar() {
   el.innerHTML = listBar + `
     <div class="toolbar">
       <div class="field search-field">
-        <label>${t('search_placeholder')}</label>
         <div class="search-input-wrap">
+          <svg class="search-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <circle cx="9" cy="9" r="6.5" stroke="currentColor" stroke-width="1.6"/>
+            <line x1="13.6" y1="13.6" x2="18" y2="18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
           <input type="text" id="f-search" placeholder="${t('search_placeholder')}" value="${escapeAttr(state.filters.search)}">
           <button type="button" class="search-clear-btn" id="f-search-clear" aria-label="${t('clear_filters')}" style="${state.filters.search ? '' : 'display:none;'}">×</button>
         </div>
       </div>
       <div class="field">
         <label>${t('filter_tier')}</label>
-        <div class="tier-pills" id="f-tiers">
-          ${usedTiers.map(tier => `<button class="pill ${state.filters.tiers.has(tier) ? 'active' : ''}" data-tier="${tier}">${tier}</button>`).join('')}
+        <div class="rank-pills" id="f-tiers">
+          ${usedTiers.map(tier => `<button type="button" class="rank-icon ${state.filters.tiers.has(tier) ? 'active' : ''}" data-tier="${tier}"><span>${tier}</span></button>`).join('')}
         </div>
       </div>
       <div class="field">
@@ -211,7 +214,7 @@ function renderToolbar() {
     searchInput.focus();
     renderGrid();
   });
-  el.querySelectorAll('#f-tiers .pill').forEach(btn => btn.addEventListener('click', () => {
+  el.querySelectorAll('#f-tiers .rank-icon').forEach(btn => btn.addEventListener('click', () => {
     const tier = Number(btn.dataset.tier);
     toggleSetValue(state.filters.tiers, tier);
     renderToolbar(); renderGrid();
@@ -312,7 +315,7 @@ function cardHtml(env) {
           <h3 class="card-title">${escapeHtml(envName(env))}</h3>
           <button type="button" class="card-add-btn" data-add-to-list="${env.id}" aria-label="${t('add_to_list')}" title="${t('add_to_list')}">+</button>
         </div>
-        <span class="card-tier">${t('tier_label')} ${env.tier}</span>
+        <span class="rank-icon rank-icon-sm active" title="${t('tier_label')} ${env.tier}"><span>${env.tier}</span></span>
       </div>
       <div class="card-meta">
         <span>${t('type_' + env.type)}</span>
