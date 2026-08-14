@@ -583,6 +583,134 @@ function openAddToListPopup(envId) {
   });
 }
 
+/* ---------------- reading a stat block at another tier ---------------- */
+
+/* "Environment Statistics by Tier" from the Core Rulebook. `difficulty` is the
+ * printed value; `band` is the printed damage range expressed as average damage
+ * (tier 1 runs 1d6+1 … 1d8+3, i.e. 4.5 … 7.5); `dice` are the die sizes that
+ * range uses; `mid` is the band midpoint, used to scale damage the book never
+ * prints. */
+const TIER_TABLE = {
+  1: { difficulty: 11, band: [4.5, 7.5], dice: [6, 8], mid: 6 },
+  2: { difficulty: 14, band: [10, 13], dice: [6, 8, 10], mid: 11.5 },
+  3: { difficulty: 17, band: [16.5, 17.5], dice: [8, 10], mid: 17 },
+  4: { difficulty: 20, band: [21, 32], dice: [8, 10], mid: 26.5 },
+};
+
+// No environment in the book or in data/environments.json sits outside 10–20.
+const DIFFICULTY_FLOOR = 10;
+const DIFFICULTY_CEIL = 20;
+
+const DIE_SIZES = [3, 4, 6, 8, 10, 12, 20, 100];
+
+function diceAvg(count, sides, mod) { return count * (sides + 1) / 2 + mod; }
+
+/** Environments deviate from the printed difficulty by −2…+3 and that deviation
+ * is authored tuning, so it is carried over instead of showing the flat table
+ * value: a tier 2 environment at 13 (one below the table) reads 16 at tier 3.
+ * Descriptive difficulties ("Special (see Relative Strength)") never scale. */
+function retierDifficulty(env, tier) {
+  if (typeof env.difficulty !== 'number') return envDifficulty(env);
+  if (tier === env.tier) return env.difficulty;
+  const shifted = env.difficulty + TIER_TABLE[tier].difficulty - TIER_TABLE[env.tier].difficulty;
+  return Math.min(DIFFICULTY_CEIL, Math.max(DIFFICULTY_FLOOR, shifted));
+}
+
+const damageLadderCache = new Map();
+
+/** Every XdY+Z the table allows for a tier: X equal to the tier, Y one of the
+ * tier's die sizes, Z whatever keeps the average inside the printed band. */
+function tierDamageLadder(tier) {
+  let ladder = damageLadderCache.get(tier);
+  if (!ladder) {
+    const { band, dice } = TIER_TABLE[tier];
+    ladder = [];
+    for (const sides of dice) {
+      for (let mod = 0; mod <= 15; mod++) {
+        const avg = diceAvg(tier, sides, mod);
+        if (avg >= band[0] && avg <= band[1]) ladder.push({ count: tier, sides, mod, avg });
+      }
+    }
+    ladder.sort((a, b) => a.avg - b.avg || a.sides - b.sides);
+    damageLadderCache.set(tier, ladder);
+  }
+  return ladder;
+}
+
+/** Damage that sits inside its own tier's printed range keeps its position in
+ * that range: the tier 2 minimum (2d6+3) reads as the tier 3 minimum (3d8+3).
+ * The result is always a roll the table itself allows. */
+function mapDamageWithinTable(from, to, roll) {
+  const [lo, hi] = TIER_TABLE[from].band;
+  const pos = (diceAvg(roll.count, roll.sides, roll.mod) - lo) / (hi - lo || 1);
+  const [tLo, tHi] = TIER_TABLE[to].band;
+  const want = tLo + pos * (tHi - tLo);
+  let best = null;
+  for (const cand of tierDamageLadder(to)) {
+    if (!best || Math.abs(cand.avg - want) < Math.abs(best.avg - want)) best = cand;
+  }
+  return best;
+}
+
+/** Damage the book never prints — 8d12 in Castle Of Wails, 3d20 in Scorching
+ * Dungeon, 2d8+12 in Stop The Collapse Of Reality. Squeezing those into the
+ * printed band would *lower* the damage when the tier goes up (8d12 averages 52,
+ * the whole tier 3 range tops out at 17.5), so they scale against themselves
+ * instead: the average moves by the ratio of the two tiers' midpoints and the
+ * die type is kept, so an unusually brutal hazard stays unusually brutal. */
+function scaleDamageOutsideTable(from, to, roll) {
+  const ratio = TIER_TABLE[to].mid / TIER_TABLE[from].mid;
+  const want = diceAvg(roll.count, roll.sides, roll.mod) * ratio;
+  let count = Math.max(1, Math.round(roll.count * ratio));
+  let sides = roll.sides;
+  for (;;) {
+    const mod = Math.round(want - diceAvg(count, sides, 0));
+    if (mod >= 0) return { count, sides, mod };
+    if (count > 1) { count--; continue; }        // drop a die before shrinking one
+    const i = DIE_SIZES.indexOf(sides);
+    if (i > 0) { sides = DIE_SIZES[i - 1]; continue; }
+    return { count: 1, sides: DIE_SIZES[0], mod: 0 };
+  }
+}
+
+/** Safety net for the two mappings above: a higher tier must hit harder and a
+ * lower one softer, never the reverse. Both mappings already guarantee this for
+ * every roll in the bundled data — this only catches rounding on hand-authored
+ * environments. */
+function enforceDamageDirection(from, to, roll, scaled) {
+  const target = diceAvg(roll.count, roll.sides, roll.mod);
+  const dir = to > from ? 1 : -1;
+  let { count, sides, mod } = scaled;
+  for (let i = 0; i < 40 && dir * (diceAvg(count, sides, mod) - target) <= 0; i++) {
+    if (dir > 0) { mod++; continue; }
+    if (mod > 0) { mod--; continue; }
+    const idx = DIE_SIZES.indexOf(sides);
+    if (idx > 0) { sides = DIE_SIZES[idx - 1]; continue; }
+    if (count > 1) { count--; continue; }
+    break;                                       // 1d3 is the floor
+  }
+  return { count, sides, mod };
+}
+
+/** The same damage roll read at another tier. The environment's own tier always
+ * returns the authored roll untouched — nothing about a stat block is ever
+ * rewritten at its native tier. */
+function retierDamage(from, to, roll) {
+  if (to === from) return { count: roll.count, sides: roll.sides, mod: roll.mod, changed: false };
+  const avg = diceAvg(roll.count, roll.sides, roll.mod);
+  const [lo, hi] = TIER_TABLE[from].band;
+  const scaled = (avg >= lo && avg <= hi)
+    ? mapDamageWithinTable(from, to, roll)
+    : scaleDamageOutsideTable(from, to, roll);
+  return { ...enforceDamageDirection(from, to, roll, scaled), changed: true };
+}
+
+/** A scaled roll always prints its count, even where the source wrote "d6":
+ * the count is the part that carries the tier. */
+function formatDamage(roll) {
+  return `${roll.count}d${roll.sides}` + (roll.mod > 0 ? `+${roll.mod}` : '');
+}
+
 /* ---------------- detail modal ---------------- */
 
 function openDetail(envId) {
@@ -590,6 +718,12 @@ function openDetail(envId) {
   if (!env) return;
   const impulses = envField(env, 'impulses');
   const adversaries = envField(env, 'potential_adversaries');
+
+  /* The tier the card is currently being read at. Deliberately modal-local: it
+   * lives while this card is open and is gone the moment it closes, so nothing
+   * outside — cards, filters, region badges, storage — ever sees an override.
+   * Opening a neighbour from the region block opens it at its own tier. */
+  let viewTier = env.tier;
 
   const featureHtml = f => {
     const fname = f.name[state.lang] || f.name.en || f.name.ru;
@@ -606,10 +740,14 @@ function openDetail(envId) {
       </div>`;
   };
 
+  // Passive, then reaction, then action. The groups are told apart by the type
+  // chip on each feature and by the gap between them, so there is no rule drawn
+  // between them.
   const featuresHtml = ['passive', 'reaction', 'action']
     .map(type => (env.features || []).filter(f => f.type === type).map(featureHtml).join(''))
     .filter(Boolean)
-    .join('<hr class="feature-group-divider">');
+    .map(group => `<div class="feature-group">${group}</div>`)
+    .join('');
 
   const rawHtml = env.rawText && (env.rawText.en || env.rawText.ru) ? `
     <span class="section-label">${t('raw_text_label')}</span>
@@ -630,48 +768,116 @@ function openDetail(envId) {
       </div>
     </div>` : '';
 
+  /* The environment's own tier carries a dot, so an overridden card never hides
+   * which tier the stat block was actually written for — and so the row reads as
+   * something switchable rather than as a rating. */
+  const tierPillsHtml = [1, 2, 3, 4].map(n => `
+    <button type="button" class="rank-icon rank-icon-sm ${n === env.tier ? 'native' : ''}" data-view-tier="${n}"
+            aria-label="${t('view_as_tier')} ${n}" title="${n === env.tier ? t('native_tier') : t('view_as_tier') + ' ' + n}"
+      ><span>${n}</span>${n === env.tier ? '<i class="rank-native-dot" aria-hidden="true"></i>' : ''}</button>`).join('');
+
+  const biomesHtml = (env.biomes || []).length ? `
+    <div class="detail-footer-biomes">
+      <span class="dm-k">${t('filter_biome')}</span><span class="dm-dash">—</span>
+      ${env.biomes.map(b => `<span class="biome-chip">${t('biome_' + b)}</span>`).join('')}
+    </div>` : '<span></span>';
+
   const overlay = document.createElement('div');
   overlay.className = 'modal-overlay';
   overlay.innerHTML = `
-    <div class="modal">
+    <div class="modal" id="detail-modal">
       <div class="modal-header">
-        <div>
-          <div class="modal-title-row">
-            <h2>${escapeHtml(envName(env))}</h2>
-            <button type="button" class="card-add-btn" id="detail-add-to-list" aria-label="${t('add_to_list')}" title="${t('add_to_list')}">+</button>
-          </div>
-          <div class="modal-sub">${t('type_' + env.type)} — ${t('tier_label')} ${env.tier}</div>
+        <div class="modal-title-row">
+          <h2>${escapeHtml(envName(env))}</h2>
+          <button type="button" class="card-add-btn" id="detail-add-to-list" aria-label="${t('add_to_list')}" title="${t('add_to_list')}">+</button>
         </div>
+        <div class="rank-pills detail-tier-pills" id="detail-tier-pills" role="group" aria-label="${t('view_as_tier')}">${tierPillsHtml}</div>
         <button class="modal-close" aria-label="${t('close')}">&times;</button>
       </div>
       <div class="modal-body">
-        <div class="stat-row">
-          <div class="stat-block-item"><span class="k">${t('tier_label')}</span><span class="v">${env.tier}</span></div>
-          <div class="stat-block-item"><span class="k">${t('difficulty_label')}</span><span class="v">${escapeHtml(String(envDifficulty(env)))}</span></div>
-          <div class="stat-block-item"><span class="k">${t('filter_type')}</span><span class="v">${t('type_' + env.type)}</span></div>
+        <div class="detail-meta">
+          <span class="dm-item">
+            <span class="dm-k">${t('difficulty_label')}</span><span class="dm-dash">—</span>
+            <span class="dm-v" id="detail-difficulty-value"></span>
+            <span class="dm-orig" id="detail-difficulty-orig"></span>
+          </span>
+          <span class="dm-sep" aria-hidden="true">·</span>
+          <span class="dm-item">
+            <span class="dm-k">${t('filter_type')}</span><span class="dm-dash">—</span>
+            <span class="dm-v dm-v-text">${t('type_' + env.type)}</span>
+          </span>
         </div>
 
-        ${(env.biomes || []).length ? `<span class="section-label">${t('filter_biome')}</span><div class="card-biomes">${env.biomes.map(b => `<span class="biome-chip">${t('biome_' + b)}</span>`).join('')}</div>` : ''}
         ${impulses.length ? `<span class="section-label">${t('impulses_label')}</span><p class="impulse-list">${escapeHtml(impulses.join(', '))}</p>` : ''}
         ${adversaries.length ? `<span class="section-label">${t('adversaries_label')}</span><p class="adversary-list">${escapeHtml(adversaries.join('; '))}</p>` : ''}
         ${featuresHtml ? `<span class="section-label">${t('features_label')}</span>${featuresHtml}` : ''}
         ${rawHtml}
         ${regionHtml}
 
-        <div class="form-actions" style="margin-top:22px">
+        <div class="detail-footer">
+          ${biomesHtml}
           <button class="btn" id="detail-add-to-list-bottom">${t('add_to_list')}</button>
-          ${!env.builtin ? `<button class="btn" id="detail-edit">${t('edit')}</button>` : ''}
         </div>
       </div>
     </div>`;
   document.body.appendChild(overlay);
 
-  // render dice- and countdown-enabled text, with bullet-list support
-  overlay.querySelectorAll('[data-rich-block]').forEach(node => {
-    const text = decodeURIComponent(node.getAttribute('data-rich-block'));
-    node.removeAttribute('data-rich-block');
-    renderFeatureBody(node, text);
-  });
+  const modalEl = overlay.querySelector('#detail-modal');
+  const difficultyValueEl = overlay.querySelector('#detail-difficulty-value');
+  const difficultyOrigEl = overlay.querySelector('#detail-difficulty-orig');
+
+  /** Countdown panels whose button was replaced by a re-render would otherwise
+   * linger over the card with nothing behind them. */
+  function pruneCountdownOverlays() {
+    (overlay._countdownOverlays || []).slice().forEach(panel => {
+      if (panel._btn && !document.body.contains(panel._btn)) {
+        panel.remove();
+        overlay._countdownOverlays = overlay._countdownOverlays.filter(p => p !== panel);
+      }
+    });
+  }
+
+  // Renders dice- and countdown-enabled text, with bullet-list support. On a
+  // tier switch only blocks that actually hold a damage roll are rebuilt, so a
+  // countdown tracker opened elsewhere in the card survives the switch.
+  function renderRichBlocks() {
+    const retier = viewTier === env.tier ? null : { from: env.tier, to: viewTier };
+    overlay.querySelectorAll('[data-rich-block]').forEach(node => {
+      const text = decodeURIComponent(node.getAttribute('data-rich-block'));
+      if (node._renderedTier === viewTier) return;
+      if (node._renderedTier !== undefined && !hasDamageRoll(text)) return;
+      node._renderedTier = viewTier;
+      renderFeatureBody(node, text, retier);
+    });
+    pruneCountdownOverlays();
+  }
+
+  function applyViewTier() {
+    const overridden = viewTier !== env.tier;
+    difficultyValueEl.textContent = String(retierDifficulty(env, viewTier));
+    // While a card is read at another tier it says so twice over: an amber rim
+    // around the whole card, and the environment's own difficulty spelled out
+    // next to the scaled one.
+    modalEl.classList.toggle('retiered', overridden);
+    difficultyOrigEl.textContent = overridden
+      ? t('retier_original_short').replace('{v}', String(envDifficulty(env)))
+      : '';
+    difficultyValueEl.title = overridden
+      ? t('retier_original').replace('{v}', `${t('tier_label')} ${env.tier}, ${t('difficulty_label')} ${envDifficulty(env)}`)
+      : '';
+    overlay.querySelectorAll('[data-view-tier]').forEach(btn => {
+      const on = Number(btn.dataset.viewTier) === viewTier;
+      btn.classList.toggle('active', on);
+      btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+    renderRichBlocks();
+  }
+
+  overlay.querySelectorAll('[data-view-tier]').forEach(btn => btn.addEventListener('click', () => {
+    viewTier = Number(btn.dataset.viewTier);
+    applyViewTier();
+  }));
+  applyViewTier();
 
   function closeDetail() {
     (overlay._countdownOverlays || []).slice().forEach(p => p.remove());
@@ -686,9 +892,6 @@ function openDetail(envId) {
 
   overlay.querySelector('.modal-close').addEventListener('click', closeDetail);
   overlay.addEventListener('click', e => { if (e.target === overlay) closeDetail(); });
-
-  const editBtn = overlay.querySelector('#detail-edit');
-  if (editBtn) editBtn.addEventListener('click', () => { closeDetail(); openEditForm(env.id); });
 
   overlay.querySelectorAll('[data-region-env]').forEach(btn => btn.addEventListener('click', () => {
     const nextId = btn.dataset.regionEnv;
@@ -740,6 +943,22 @@ function findCountdownMatches(text) {
   return matches;
 }
 
+/* A roll counts as damage only when a damage word follows it in the same clause:
+ * "3d8 physical damage", "3d8 магического урона". Everything else is left as
+ * authored — "summon 2d4+2 Rotted Zombies", "roll 1d4 or choose a trap",
+ * "1d3 prisoners". The scan stops at the next roll, so in "1d3+2 guards … doing
+ * 1d8 physical damage" only the 1d8 is damage. */
+const DAMAGE_WORD_RE = /(damage|уро[нм])/i;
+const NEXT_DICE_RE = /\b\d{0,2}d(?:3|4|6|8|10|12|20|100)\b/i;
+const DAMAGE_SCAN_CHARS = 70;
+
+function isDamageRoll(text, from) {
+  let clause = text.slice(from, from + DAMAGE_SCAN_CHARS).split(/[.!?;:]/)[0];
+  const nextDice = clause.search(NEXT_DICE_RE);
+  if (nextDice !== -1) clause = clause.slice(0, nextDice);
+  return DAMAGE_WORD_RE.test(clause);
+}
+
 function findDiceMatches(text) {
   const matches = [];
   DICE_RE.lastIndex = 0;
@@ -748,12 +967,20 @@ function findDiceMatches(text) {
     const count = m[1] ? parseInt(m[1], 10) : 1;
     const sides = parseInt(m[2], 10);
     const mod = m[4] ? (m[3] === '-' ? -1 : 1) * parseInt(m[4], 10) : 0;
-    matches.push({ start: m.index, end: m.index + m[0].length, type: 'dice', count, sides, mod, label: m[0] });
+    const end = m.index + m[0].length;
+    matches.push({ start: m.index, end, type: 'dice', count, sides, mod, label: m[0], isDamage: isDamageRoll(text, end) });
   }
   return matches;
 }
 
-function renderRichText(container, text) {
+function hasDamageRoll(text) {
+  return findDiceMatches(text).some(m => m.isDamage);
+}
+
+/** `retier` is `{ from, to }` while the card is being read at another tier, or
+ * null at the environment's own tier. Only damage rolls follow it; countdowns
+ * and every other roll in the text are left exactly as written. */
+function renderRichText(container, text, retier) {
   container.textContent = '';
   const matches = [...findDiceMatches(text), ...findCountdownMatches(text)].sort((a, b) => a.start - b.start);
 
@@ -761,8 +988,14 @@ function renderRichText(container, text) {
   for (const match of matches) {
     if (match.start < lastIndex) continue; // skip overlapping match
     if (match.start > lastIndex) container.appendChild(document.createTextNode(text.slice(lastIndex, match.start)));
-    if (match.type === 'dice') container.appendChild(makeDiceButton(match.count, match.sides, match.mod, match.label));
-    else container.appendChild(makeCountdownButton(match.value, match.label));
+    if (match.type === 'dice') {
+      const scaled = retier && match.isDamage ? retierDamage(retier.from, retier.to, match) : null;
+      container.appendChild(scaled && scaled.changed
+        ? makeDiceButton(scaled.count, scaled.sides, scaled.mod, formatDamage(scaled), match.label)
+        : makeDiceButton(match.count, match.sides, match.mod, match.label));
+    } else {
+      container.appendChild(makeCountdownButton(match.value, match.label));
+    }
     lastIndex = match.end;
   }
   if (lastIndex < text.length) container.appendChild(document.createTextNode(text.slice(lastIndex)));
@@ -772,14 +1005,14 @@ const BULLET_LINE_RE = /^[-•]\s+/;
 
 /** Splits feature/raw text into paragraphs and "- "/"• "-prefixed bullet lists,
  * rendering dice/countdown spans within each line via renderRichText. */
-function renderFeatureBody(container, text) {
+function renderFeatureBody(container, text, retier) {
   container.innerHTML = '';
   const lines = text.split('\n');
   let para = [];
   const flushPara = () => {
     if (!para.length) return;
     const p = document.createElement('p');
-    renderRichText(p, para.join(' '));
+    renderRichText(p, para.join(' '), retier);
     container.appendChild(p);
     para = [];
   };
@@ -792,7 +1025,7 @@ function renderFeatureBody(container, text) {
       ul.className = 'feature-bullets';
       while (i < lines.length && BULLET_LINE_RE.test(lines[i].trim())) {
         const li = document.createElement('li');
-        renderRichText(li, lines[i].trim().replace(BULLET_LINE_RE, ''));
+        renderRichText(li, lines[i].trim().replace(BULLET_LINE_RE, ''), retier);
         ul.appendChild(li);
         i++;
       }
@@ -805,10 +1038,11 @@ function renderFeatureBody(container, text) {
   flushPara();
 }
 
-function makeDiceButton(count, sides, mod, label) {
+function makeDiceButton(count, sides, mod, label, originalLabel) {
   const btn = document.createElement('button');
-  btn.className = 'dice-btn';
+  btn.className = originalLabel ? 'dice-btn dice-btn-retiered' : 'dice-btn';
   btn.type = 'button';
+  if (originalLabel) btn.title = t('retier_original').replace('{v}', originalLabel);
   btn.innerHTML = `${diceIconSVG()}<span>${label}</span>`;
   btn.addEventListener('click', (e) => {
     e.stopPropagation();
@@ -864,6 +1098,7 @@ function openCountdownOverlay(btn) {
   }
   stack.appendChild(panel);
   btn._countdownOverlay = panel;
+  panel._btn = btn;
 
   const valueEl = panel.querySelector('.countdown-overlay-value');
   panel.querySelector('[data-op="inc"]').addEventListener('click', () => {

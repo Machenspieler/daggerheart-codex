@@ -265,29 +265,58 @@ button.rank-icon:active { transform: scale(0.92); }
   display: flex; align-items: flex-start; justify-content: center; padding: 40px 16px;
   overflow-y: auto;
 }
+/* The card is capped to the viewport and scrolls inside its own body, so the
+ * header — name, tier switcher, close — never leaves the screen. Sticky on the
+ * header instead would let body text ride up into the strip above it. */
 .modal {
   background: var(--ink-card); border: 1px solid var(--line); border-radius: var(--radius);
   max-width: 720px; width: 100%; box-shadow: var(--shadow-deep);
   animation: modal-in 0.16s ease-out;
+  display: flex; flex-direction: column;
+  max-height: calc(100vh - 80px);
+  max-height: calc(100dvh - 80px);
 }
 @keyframes modal-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
 .modal-header {
-  display: flex; justify-content: space-between; align-items: flex-start; gap: 14px;
-  padding: 22px 24px 14px; border-bottom: 1px solid var(--line);
+  display: flex; align-items: center; flex-wrap: wrap; gap: 14px;
+  padding: 18px 24px 14px; border-bottom: 1px solid var(--line);
+  flex: none;
 }
-.modal-title-row { display: flex; align-items: center; gap: 10px; margin: 0 0 6px; }
-.modal-header h2 { font-family: var(--font-display); font-size: 24px; margin: 0; color: var(--parchment); }
-.modal-title-row .card-add-btn { width: 24px; height: 24px; font-size: 16px; }
-.modal-sub { font-size: 13px; color: var(--muted); }
-.modal-close { background: none; border: none; color: var(--muted); font-size: 22px; cursor: pointer; line-height: 1; }
+.modal-title-row { display: flex; align-items: center; gap: 10px; margin: 0; flex: 0 1 auto; min-width: 0; }
+.modal-header h2 { font-family: var(--font-display); font-size: 24px; margin: 0; color: var(--parchment); overflow-wrap: anywhere; }
+.modal-title-row .card-add-btn { flex: none; width: 24px; height: 24px; font-size: 16px; }
+/* margin-right:auto keeps the tier row next to the name and the close button
+ * pinned to the far edge, well clear of the tier 4 pill. */
+.detail-tier-pills { gap: 7px; margin-right: auto; padding-bottom: 9px; }
+.rank-native-dot {
+  position: absolute; left: 50%; bottom: -7px; transform: translateX(-50%);
+  width: 4px; height: 4px; border-radius: 50%; background: var(--hope); opacity: 0.8;
+}
+.modal-close { align-self: flex-start; margin-left: 18px; background: none; border: none; color: var(--muted); font-size: 22px; cursor: pointer; line-height: 1; }
 .modal-close:hover { color: var(--parchment); }
-.modal-body { padding: 20px 24px 26px; }
+.modal-body { padding: 20px 24px 26px; flex: 1 1 auto; min-height: 0; overflow-y: auto; }
 .modal-body.form-body { display: flex; flex-direction: column; gap: 14px; }
 
-.stat-row { display: flex; gap: 22px; flex-wrap: wrap; margin-bottom: 14px; }
-.stat-block-item { display: flex; flex-direction: column; gap: 3px; }
-.stat-block-item .k { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
-.stat-block-item .v { font-family: var(--font-mono); font-size: 18px; color: var(--hope-soft); }
+/* ---------- detail card: difficulty / type line ---------- */
+.detail-meta { display: flex; align-items: baseline; flex-wrap: wrap; gap: 6px 12px; }
+.dm-item { display: inline-flex; align-items: baseline; gap: 7px; }
+.dm-k { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.dm-dash, .dm-sep { color: var(--muted); }
+.dm-v { font-family: var(--font-mono); font-size: 18px; color: var(--hope-soft); }
+.dm-v-text { font-family: var(--font-body); font-size: 15px; color: var(--parchment); }
+.dm-orig { font-family: var(--font-mono); font-size: 11.5px; color: var(--hope); }
+
+/* ---------- detail card: read at another tier ---------- */
+.modal.retiered { border-color: rgba(217,164,65,0.5); box-shadow: var(--shadow-deep), 0 0 0 1px rgba(217,164,65,0.28); }
+.modal.retiered .modal-header { border-bottom-color: rgba(217,164,65,0.35); }
+.dice-btn-retiered { border-color: rgba(217,164,65,0.55); }
+
+/* ---------- detail card footer ---------- */
+.detail-footer {
+  display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap;
+  margin-top: 26px; padding-top: 16px; border-top: 1px solid var(--line);
+}
+.detail-footer-biomes { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 
 .section-label {
   font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
@@ -316,7 +345,8 @@ button.rank-icon:active { transform: scale(0.92); }
 .feature-bullets:last-child { margin-bottom: 0; }
 .feature-prompt { margin: 8px 0 0; font-size: 13px; color: var(--muted); font-style: italic; }
 .feature-prompt::before { content: "❖ "; color: var(--hope); font-style: normal; }
-.feature-group-divider { border: none; border-top: 1px solid var(--line); margin: 18px 0; }
+/* No rule between passive / reaction / action — the gap does the grouping. */
+.feature-group + .feature-group { margin-top: 26px; }
 
 /* ---------- region navigation (bottom of the detail card) ---------- */
 .region-block { margin-top: 26px; }
@@ -448,5 +478,15 @@ button.rank-icon:active { transform: scale(0.92); }
 @media (max-width: 640px) {
   .header-inner { flex-direction: column; align-items: flex-start; }
   .form-grid { grid-template-columns: 1fr; }
-  .stat-row { gap: 14px; }
+  .modal-overlay { padding: 16px 10px; }
+  .modal { max-height: calc(100vh - 32px); max-height: calc(100dvh - 32px); }
+  .modal-header { padding: 14px 16px 12px; }
+  .modal-body { padding: 16px 16px 20px; }
+  /* Name and close on the first line, the tier row on its own below: a 32-char
+   * name plus four pills plus the close button never fit a phone. The basis has
+   * to be small — a wrapping flex line is filled at base size, so `auto` would
+   * let the name claim the whole line and push the close button off it. */
+  .modal-title-row { order: 1; flex: 1 1 180px; }
+  .modal-close { order: 2; margin-left: 8px; }
+  .detail-tier-pills { order: 3; flex-basis: 100%; margin-right: 0; }
 }
