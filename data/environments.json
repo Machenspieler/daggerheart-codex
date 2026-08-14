@@ -17372,6 +17372,2573 @@
       "biomes": [
         "universal"
       ]
+    },
+    {
+      "id": "laboratory",
+      "tier": 1,
+      "type": "exploration",
+      "difficulty": 10,
+      "name": {
+        "en": "Laboratory",
+        "ru": "Лаборатория"
+      },
+      "impulses": {
+        "en": [
+          "Create new life",
+          "cause confusion and disgust",
+          "display magic and madness"
+        ],
+        "ru": [
+          "Создавать новую жизнь",
+          "сеять смятение и отвращение",
+          "демонстрировать магию и безумие"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Chimeric Creations (Amphiptere, Ashkadavar, Ashkadavar Swarm, Griffon, Hippogriff, Manticore, Urstrix)",
+          "Construct",
+          "Hedge Wizard",
+          "Mad Mage",
+          "Minor Chaos Elemental",
+          "Minor Fire Elemental",
+          "Minor Demon",
+          "Oozes (Green Ooze, Red Ooze)",
+          "Untamed Experiment"
+        ],
+        "ru": [
+          "Химерные Творения (Амфиптер, Ашкадавар, Рой Ашкадаваров, Грифон, Гиппогриф, Мантикора, Урстрикс)",
+          "Конструкт",
+          "Деревенский Волшебник",
+          "Безумный Маг",
+          "Малый Элементаль Хаоса",
+          "Малый Огненный Элементаль",
+          "Малый Демон",
+          "Слизни (Зелёная Слизь, Красная Слизь)",
+          "Неприрученный Эксперимент"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Magically Conductive Materials",
+            "ru": "Магически Проводящие Материалы"
+          },
+          "description": {
+            "en": "When a PC makes a Spellcast Roll, they must roll two Hope Dice and take the lower result.",
+            "ru": "Когда персонаж совершает Бросок Заклинания, он должен бросить две кости Надежды и взять меньший результат."
+          },
+          "prompt": {
+            "en": "What sort of magical items are causing this feedback? What would happen if the PC rolls a critical success?",
+            "ru": "Какие магические предметы вызывают эту обратную связь? Что случится, если персонаж выбросит критический успех?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Tools of the Trade",
+            "ru": "Орудия Ремесла"
+          },
+          "description": {
+            "en": "The laboratory has hundreds of tools useful to its owner from the walls of books to vials full of experimental fluids. A PC can make a Knowledge Roll to discover some of the following information. If the PC does not have a Spellcasting Trait, the roll is made with disadvantage.\n• Critical Success: The PC gains insight into the goals of the laboratory’s owner and discovers a Minor Stamina Potion.\n• Success with Hope: The PC finds notes about recent experiments.\n• Success with Fear: The PC uncovers a recent experiment, locked in a cage or otherwise Restrained.\n• Any Failure: An experiment within the laboratory gets loose! Use the “Experimental Escapee” action without requiring a Fear to be spent on the feature.",
+            "ru": "В лаборатории сотни полезных её владельцу инструментов — от стен, заставленных книгами, до склянок, полных экспериментальных жидкостей. Персонаж может совершить бросок Знания, чтобы узнать что-то из перечисленного ниже. Если у персонажа нет черты Заклинателя, бросок совершается с помехой.\n• Критический успех: персонаж понимает цели владельца лаборатории и находит Малое Зелье Выносливости.\n• Успех с Надеждой: персонаж находит записи о недавних экспериментах.\n• Успех со Страхом: персонаж обнаруживает недавний эксперимент, запертый в клетке или иначе Обездвиженный.\n• Любая неудача: один из экспериментов лаборатории вырывается на свободу! Используйте действие «Сбежавший Эксперимент», не тратя на это свойство Страх."
+          },
+          "prompt": {
+            "en": "What tools might the laboratory’s owner use? Where are its experiments being held?",
+            "ru": "Какие инструменты мог использовать владелец лаборатории? Где содержатся его эксперименты?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Experimental Escapee",
+            "ru": "Сбежавший Эксперимент"
+          },
+          "description": {
+            "en": "Spend a Fear to release a caged creature from the Potential Adversaries list who immediately takes the spotlight.",
+            "ru": "Потратьте Страх, чтобы выпустить из клетки существо из списка Потенциальных Противников, которое немедленно получает Активацию."
+          },
+          "prompt": {
+            "en": "Is this creature able to speak? Can it communicate its fear or hesitation?",
+            "ru": "Способно ли это существо говорить? Может ли оно выразить свой страх или колебания?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Overload",
+            "ru": "Перегрузка"
+          },
+          "description": {
+            "en": "Sparks of lightning from a device strike down on a point of your choice. All targets within Melee range of that point must succeed on an Agility Reaction Roll or take 1d10+2 magic damage.",
+            "ru": "Искры молний от устройства бьют в выбранную вами точку. Все цели в пределах Дистанции Ближнего Боя от этой точки должны совершить успешный Бросок Реакции на Проворность или получить 1d10+2 магического урона."
+          },
+          "prompt": {
+            "en": "What is the purpose of these devices? Is there a way to power them down?",
+            "ru": "Для чего предназначены эти устройства? Есть ли способ их обесточить?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "settlement"
+      ]
+    },
+    {
+      "id": "gloaming-forest",
+      "tier": 1,
+      "type": "traversal",
+      "difficulty": 11,
+      "name": {
+        "en": "Gloaming Forest",
+        "ru": "Сумеречный Лес"
+      },
+      "impulses": {
+        "en": [
+          "Discourage logging",
+          "ensorcel travelers",
+          "overwhelm civilization"
+        ],
+        "ru": [
+          "Препятствовать вырубке",
+          "околдовывать путников",
+          "поглощать цивилизацию"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Burroska Doll",
+          "Flowering Creatures (Blooming Cockatrice, Budding Cockatrice Clutch, Leafcutter Spriggant, Prickleboar)",
+          "Sylvan Warriors (Soldier, Warden, Fungril Gladeservant)",
+          "Woad Stalker"
+        ],
+        "ru": [
+          "Кукла Бурроска",
+          "Цветущие Существа (Цветущий Кокатрис, Выводок Юных Кокатрисов, Листорез-Спригант, Колючий Кабан)",
+          "Лесные Воины (Солдат, Хранитель, Фангрил-Служитель Поляны)",
+          "Вайдовый Соглядатай"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Green and Overgrown",
+            "ru": "Зелено и Заросло"
+          },
+          "description": {
+            "en": "There are multiple paths through this cluttered forest and little way to determine location or direction. Paths shuffle and rearrange at a whim causing all Instinct Rolls used to navigate the forest to have disadvantage.",
+            "ru": "Через этот захламлённый лес ведёт множество троп, и почти нет способа определить местоположение или направление. Тропы перетасовываются и меняются по прихоти леса, из-за чего все броски Инстинкта для навигации по лесу совершаются с помехой."
+          },
+          "prompt": {
+            "en": "Where do the winding trails lead? What landmarks show this place is rampant with growth?",
+            "ru": "Куда ведут петляющие тропы? Какие приметы показывают, что это место буйно заросло?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Dreaming Spirits",
+            "ru": "Грезящие Духи"
+          },
+          "description": {
+            "en": "Flowers bloom within Melee range of a PC who must immediately succeed on a Knowledge Reaction Roll (12). On a failure, their scent causes the PC to feel as if they are walking through a half-formed dream that dulls their senses and their thresholds are reduced by 2 until their next rest outside of this environment.",
+            "ru": "В пределах Дистанции Ближнего Боя от персонажа расцветают цветы, и он должен немедленно совершить успешный Бросок Реакции на Знание (12). При неудаче их аромат заставляет персонажа почувствовать, будто он бредёт сквозь полусформированный сон, притупляющий чувства, и его пороги урона уменьшаются на 2 до следующего отдыха за пределами этого окружения."
+          },
+          "prompt": {
+            "en": "What illusions do these flowers create? Where might the dreams lead them?",
+            "ru": "Какие иллюзии создают эти цветы? Куда могут привести эти сны?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Gloamtrap Pit",
+            "ru": "Сумеречная Ловчая Яма"
+          },
+          "description": {
+            "en": "Spend a Fear to introduce a pit covered with moss and grass. All PCs walking must succeed on an Agility or Instinct Reaction Roll. Targets who fail fall into the pit, taking 1d6+3 direct physical damage and are Restrained by vines until they succeed on a Strength Roll (10) to break free and climb out of the pit.",
+            "ru": "Потратьте Страх, чтобы ввести яму, скрытую мхом и травой. Все идущие персонажи должны совершить успешный Бросок Реакции на Проворность или Инстинкт. Цели, провалившие бросок, падают в яму, получая 1d6+3 прямого физического урона, и становятся Обездвиженными лозами, пока не преуспеют в броске Силы (10), чтобы освободиться и выбраться из ямы."
+          },
+          "prompt": {
+            "en": "Was this pit trap set by someone or was the rampant growth enough to cover an existing hollow? Could this pit lead somewhere or potentially split the party?",
+            "ru": "Установил ли эту ловушку кто-то, или буйный рост сам собой скрыл существующую впадину? Может ли эта яма куда-то вести или разделить группу?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Roaming Wanderer",
+            "ru": "Странствующий Скиталец"
+          },
+          "description": {
+            "en": "Introduce an NPC that knows something about the area and can potentially direct the party. Choose from the options below, or make one of your own. If a PC can provide something that satisfies the NPC’s request, all PCs in the party gain a Hope.\n• An ancient troll who has become exhausted while searching for a way out\n• A small faerie with batlike wings whose home is riddled by woodpeckers\n• An animal that has the ability to speak and would like help obtaining food",
+            "ru": "Введите НПС, который знает нечто об этой местности и потенциально может направить группу. Выберите один из вариантов ниже или придумайте свой. Если персонаж может предоставить то, что удовлетворит просьбу НПС, вся группа получает Надежду.\n• Древний тролль, изнемогший в поисках выхода.\n• Маленькая фея с крыльями как у летучей мыши, чей дом донимают дятлы.\n• Животное, способное говорить, которое хотело бы получить помощь в добыче еды.\n• Дерево, каким-то образом сохранившее сознание, которое желает избавиться от своего проклятия."
+          },
+          "prompt": {
+            "en": "• A tree that has somehow retained its consciousness who wishes to be rid of their curse Who is the NPC and what do they know about this location? Do some of these NPCs want the forest to stay?",
+            "ru": "Кто этот НПС и что он знает об этом месте? Хотят ли некоторые из этих НПС, чтобы лес остался таким, какой он есть?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "forest"
+      ]
+    },
+    {
+      "id": "possessed-abode",
+      "tier": 1,
+      "type": "exploration",
+      "difficulty": 12,
+      "name": {
+        "en": "Possessed Abode",
+        "ru": "Одержимое Жилище"
+      },
+      "impulses": {
+        "en": [
+          "Repel interlopers",
+          "grieve the lost",
+          "shelter inhabitants"
+        ],
+        "ru": [
+          "Отпугивать чужаков",
+          "скорбеть об утраченном",
+          "укрывать обитателей"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Animated Toy",
+          "Dolliglop",
+          "Giant Rat",
+          "Skeleton",
+          "Swarm of Rats",
+          "Zombie"
+        ],
+        "ru": [
+          "Одушевлённая Игрушка",
+          "Куклоглот",
+          "Гигантская Крыса",
+          "Скелет",
+          "Стая Крыс",
+          "Зомби"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Unwanted",
+            "ru": "Незваные Гости"
+          },
+          "description": {
+            "en": "The dwelling is hostile toward intruders. When a PC fails a roll, they must mark a Stress.",
+            "ru": "Жилище враждебно к незваным гостям. Когда персонаж проваливает бросок, он должен отметить Стресс."
+          },
+          "prompt": {
+            "en": "What is the state of the abode? What do the PCs hear and smell inside?",
+            "ru": "В каком состоянии находится жилище? Что персонажи слышат и чуют внутри?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Tightly Held Secrets",
+            "ru": "Крепко Хранимые Тайны"
+          },
+          "description": {
+            "en": "PCs who enter the abode can make a Knowledge Roll to discover information about it and its former or current inhabitants.\n• Critical Success: They discover the journal of one of the deceased parents. The last entry expresses concern about their child’s recent obsession with a particular toy.\n• Success with Hope: They find a broken child’s toy with strange marks or tracks in the dust leading away from it.\n• Success with Fear: They find a broken child’s toy which has a crusty residue on its torn edges.\n• Failure with Hope: They find a child’s toy.\n• Failure with Fear: They learn nothing and are Vulnerable until they clear a Stress.",
+            "ru": "Персонажи, вошедшие в жилище, могут совершить бросок Знания, чтобы узнать сведения о нём и его бывших или нынешних обитателях.\n• Критический успех: они находят дневник одного из покойных родителей. Последняя запись выражает беспокойство о недавней одержимости их ребёнка определённой игрушкой.\n• Успех с Надеждой: они находят сломанную детскую игрушку со странными отметинами или следами в пыли, ведущими от неё прочь.\n• Успех со Страхом: они находят сломанную детскую игрушку с корочкой засохшей жидкости на рваных краях.\n• Неудача с Надеждой: они находят детскую игрушку.\n• Неудача со Страхом: они ничего не узнают и становятся Уязвимыми, пока не снимут Стресс."
+          },
+          "prompt": {
+            "en": "What toys has the Dolliglop spurned in favor of its current one? What other information about the family might the PCs glean from exploring the home?",
+            "ru": "От каких игрушек Куклоглот отказался в пользу нынешней? Какие ещё сведения о семье персонажи могут почерпнуть, исследуя дом?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Flying Objects",
+            "ru": "Летающие Предметы"
+          },
+          "description": {
+            "en": "Send loose objects flying at all targets within Close range of a chosen point. All targets within the area must make an Agility Reaction Roll. On a failure, the target takes 2d6 physical damage and loses a Hope. On a success the target takes half damage.",
+            "ru": "Незакреплённые предметы летят во все цели в пределах Близкой дистанции от выбранной точки. Все цели в этой области должны совершить Бросок Реакции на Проворность. При неудаче цель получает 2d6 физического урона и теряет Надежду. При успехе цель получает половину урона."
+          },
+          "prompt": {
+            "en": "What objects are in the room? Does one of them offer a clue to a secret of the dwelling?",
+            "ru": "Какие предметы находятся в комнате? Не намекает ли один из них на тайну этого жилища?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Forlorn Spirit",
+            "ru": "Тоскующий Дух"
+          },
+          "description": {
+            "en": "Spend a Fear to summon a Forlorn Spirit which appears within Very Close range of a chosen PC and is immediately spotlighted.",
+            "ru": "Потратьте Страх, чтобы призвать Тоскующего Духа, который появляется в пределах Очень Близкой дистанции от выбранного персонажа и немедленно получает Активацию."
+          },
+          "prompt": {
+            "en": "Who is the Spirit and how are they related to the abode? Are they connected to the possessing presence?",
+            "ru": "Кто этот Дух и как он связан с жилищем? Связан ли он с одержимостью?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Destroy the Intruders!",
+            "ru": "Уничтожить Незваных Гостей!"
+          },
+          "description": {
+            "en": "Countdown (6) When a PC first rolls with Fear, begin the countdown. It ticks down with each Hope spent. When it triggers, a Dolliglop encourages its child to come out of hiding in order to torment and defeat the home’s invaders.",
+            "ru": "Отсчёт (6). Когда персонаж впервые выбрасывает результат со Страхом, начните отсчёт. Он уменьшается с каждой потраченной Надеждой. Когда он срабатывает, Куклоглот уговаривает своего ребёнка выйти из укрытия, чтобы измучить и одолеть захватчиков дома."
+          },
+          "prompt": {
+            "en": "How can the PCs safely separate the infested toy from the confused child? At what point will the Dolliglop abandon the child to save itself?",
+            "ru": "Как персонажи могут безопасно отделить заражённую игрушку от растерянного ребёнка? В какой момент Куклоглот бросит ребёнка, чтобы спасти себя?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "settlement"
+      ]
+    },
+    {
+      "id": "chaotic-marketplace",
+      "tier": 1,
+      "type": "event",
+      "difficulty": 11,
+      "name": {
+        "en": "Chaotic Marketplace",
+        "ru": "Хаотичный Рынок"
+      },
+      "impulses": {
+        "en": [
+          "Contagious fear",
+          "protect the wares",
+          "seize an opportunity"
+        ],
+        "ru": [
+          "Заразительный страх",
+          "защищать товар",
+          "воспользоваться моментом"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Guards",
+          "Jagged Knife Bandit",
+          "Masked Thief",
+          "Merchants",
+          "Shoppers",
+          "Weejits"
+        ],
+        "ru": [
+          "Стражники",
+          "Бандит из «Зазубренного ножа»",
+          "Вор в Маске",
+          "Торговцы",
+          "Покупатели",
+          "Виджиты"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Clear the Area!",
+            "ru": "Очистить Территорию!"
+          },
+          "description": {
+            "en": "Begin the scene with a total number of Shoppers and Merchants equal to five times the number of PCs. Whenever a PC takes the spotlight, 1d6 of these bystanders successfully flee the scene.",
+            "ru": "Начните сцену с общим числом Покупателей и Торговцов, равным пятикратному числу персонажей. Всякий раз, когда персонаж получает Активацию, 1d6 этих очевидцев успешно сбегают со сцены."
+          },
+          "prompt": {
+            "en": "Do the PCs focus on dealing with the threat, or saving bystanders? If the PCs’ actions initiated the event, how do the bystanders react to them?",
+            "ru": "Сосредотачиваются ли персонажи на угрозе или на спасении случайных прохожих? Если действия персонажей и вызвали это происшествие, как прохожие на них реагируют?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Belligerent Merchant",
+            "ru": "Воинственный Торговец"
+          },
+          "description": {
+            "en": "Introduce a Merchant who is more concerned about their wares than their own life and refuses to leave. PCs who make an action roll targeting the Merchant must mark a Stress.",
+            "ru": "Введите Торговца, которого больше заботит его товар, чем собственная жизнь, и который отказывается уходить. Персонажи, совершающие бросок действия, нацеленный на Торговца, должны отметить Стресс."
+          },
+          "prompt": {
+            "en": "What can the PCs say to convince the Merchant to leave? Can they help gather the Merchant’s goods together to make them easier to transport?",
+            "ru": "Что персонажи могут сказать, чтобы убедить Торговца уйти? Могут ли они помочь собрать товар Торговца, чтобы его было легче унести?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Stampede!",
+            "ru": "Паническое Бегство!"
+          },
+          "description": {
+            "en": "Spend a Fear to pick a point in the scene. All Merchants and Shoppers within Close range of that point move as a group up to Far range in a single direction. Any targets in their path must mark a Stress and make an Agility or Instinct Reaction Roll. Targets who fail take 1d6+4 physical damage. Targets who succeed take half damage.",
+            "ru": "Потратьте Страх, чтобы выбрать точку на сцене. Все Торговцы и Покупатели в пределах Близкой дистанции от этой точки перемещаются группой на Дальнюю дистанцию в одном направлении. Любые цели на их пути должны отметить Стресс и совершить Бросок Реакции на Проворность или Инстинкт. Цели, провалившие бросок, получают 1d6+4 физического урона. Цели, прошедшие бросок, получают половину урона."
+          },
+          "prompt": {
+            "en": "Can the PCs do anything to calm the crowd? What obstacles might make things even more difficult to navigate through the area?",
+            "ru": "Могут ли персонажи как-то успокоить толпу? Какие препятствия могут ещё больше затруднить передвижение по территории?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "settlement"
+      ]
+    },
+    {
+      "id": "shadow-well",
+      "tier": 2,
+      "type": "exploration",
+      "difficulty": 14,
+      "name": {
+        "en": "Shadow Well",
+        "ru": "Теневой Колодец"
+      },
+      "impulses": {
+        "en": [
+          "Squelch light",
+          "spread shadow",
+          "sow fear"
+        ],
+        "ru": [
+          "Подавлять свет",
+          "распространять тень",
+          "сеять страх"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Shadowknife",
+          "Shadowspawn"
+        ],
+        "ru": [
+          "Теневой Клинок",
+          "Порождение Тени"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Smoke-Filled Air",
+            "ru": "Наполненный Дымом Воздух"
+          },
+          "description": {
+            "en": "The air within Far range of the Shadow Well is permeated with smoke and shadow, making it difficult to see and breathe. Anything within the area is too obscured to target for anyone outside. Once a PC enters the area, begin a Consequence Countdown (10). When the countdown ends, PCs within the area must mark a Stress each time they make an Action Roll.",
+            "ru": "Воздух в пределах Дальней дистанции от Теневого Колодца пропитан дымом и тенью, из-за чего трудно видеть и дышать. Всё в этой области слишком скрыто, чтобы стать целью для тех, кто находится снаружи. Как только персонаж входит в область, начните Отсчёт Последствий (10). Когда отсчёт заканчивается, персонажи в этой области должны отмечать Стресс каждый раз, когда совершают Бросок Действия."
+          },
+          "prompt": {
+            "en": "Can the PCs take any precautions before entering to lengthen the Countdown? Does exiting the area reset or lengthen the Countdown?",
+            "ru": "Могут ли персонажи предпринять какие-то меры перед входом, чтобы продлить Отсчёт? Сбрасывает ли выход из области Отсчёт, или продлевает его?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "The Shadow Well",
+            "ru": "Теневой Колодец"
+          },
+          "description": {
+            "en": "PCs who enter within Close range of the Well can make a Knowledge Roll to try to determine a way to close it.\n• On a Success. They know light is the key. The party must create a number of light sources equal to three times the number of PCs simultaneously within Close range of the Well. A torch counts as one. A magical light source from an item or class feature counts as two. A light source from a domain ability counts as two per level of the card.\n• On a Failure. They know they need light, but how much of it is uncertain. The PC can mark a Stress to repeat the roll with Advantage. If they fail a second time, they must mark another Stress and cannot attempt again.",
+            "ru": "Персонажи, вошедшие в пределы Близкой дистанции от Колодца, могут совершить бросок Знания, чтобы попытаться определить способ его закрыть.\n• При успехе: они узнают, что ключ — это свет. Группа должна создать число источников света, равное утроенному числу персонажей, одновременно находящихся в пределах Близкой дистанции от Колодца. Факел считается за один. Магический источник света от предмета или свойства класса считается за два. Источник света от способности карты домена считается за два за каждый уровень карты.\n• При неудаче: они узнают, что нужен свет, но неясно, сколько именно. Персонаж может отметить Стресс, чтобы повторить бросок с Преимуществом. Если он проваливает его во второй раз, он должен отметить ещё один Стресс и не может повторить попытку снова."
+          },
+          "prompt": {
+            "en": "Where does the PC’s knowledge come from? Can the Well feel the PC’s attempt to probe its secrets?",
+            "ru": "Откуда у персонажа эти знания? Способен ли Колодец почувствовать попытку персонажа выведать его тайны?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Wave of Despair",
+            "ru": "Волна Отчаяния"
+          },
+          "description": {
+            "en": "Spend 2 Fear to emanate a rolling wave of hopelessness from the Well. 2d4 Shadowspawn appear within Close range of the well and are immediately spotlighted. The Well’s “Mounting Fear” Reaction is also triggered and all non-magical light sources within Far range are extinguished.",
+            "ru": "Потратьте 2 Страха, чтобы от Колодца разошлась накатывающая волна безнадёжности. 2d4 Порождения Тени появляются в пределах Близкой дистанции от колодца и немедленно получают Активацию. Реакция Колодца «Растущий Страх» также срабатывает, и все немагические источники света в пределах Дальней дистанции гаснут."
+          },
+          "prompt": {
+            "en": "What do the PCs think of as this moment of despair washes over them? How will this darkness spread if it isn’t quelled?",
+            "ru": "О чём думают персонажи, когда их накрывает эта волна отчаяния? Как эта тьма распространится, если её не остановить?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Mounting Fear",
+            "ru": "Растущий Страх"
+          },
+          "description": {
+            "en": "When a PC enters Far range of the Shadow Well, they must succeed on a Strength or Instinct Reaction Roll. On a failure, their Fear die becomes a d20 and every time they succeed with Fear, they must mark a Stress. This lasts until their next rest or until the Shadow Well has been closed.",
+            "ru": "Когда персонаж входит в пределы Дальней дистанции от Теневого Колодца, он должен совершить успешный Бросок Реакции на Силу или Инстинкт. При неудаче его кость Страха становится d20, и каждый раз, когда он преуспевает со Страхом, он должен отметить Стресс. Это длится до его следующего отдыха или пока Теневой Колодец не будет закрыт."
+          },
+          "prompt": {
+            "en": "What do the PCs see as they enter the influence of the Shadow Well? How does the Mounting Fear manifest in their thoughts?",
+            "ru": "Что видят персонажи, попадая под влияние Теневого Колодца? Как Растущий Страх проявляется в их мыслях?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "universal"
+      ]
+    },
+    {
+      "id": "deep-underground-cave",
+      "tier": 2,
+      "type": "exploration",
+      "difficulty": 14,
+      "name": {
+        "en": "Deep Underground Cave",
+        "ru": "Глубокая Подземная Пещера"
+      },
+      "impulses": {
+        "en": [
+          "Shelter",
+          "lead to danger",
+          "disorient"
+        ],
+        "ru": [
+          "Укрывать",
+          "вести к опасности",
+          "дезориентировать"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Beasts (Bear, Dire Wolf)",
+          "Body Snatcher",
+          "Corpse Puppet",
+          "Cult of the Fallen (Cult Adept, Cult Fang, Cult Initiate, Secret-Keeper)",
+          "Chaos Skull",
+          "Excavation Golem",
+          "Ghosts (Spectral Archer, Spectral Captain, Spectral Guardian)",
+          "Pile of Living Rocks",
+          "Silkwings (Silkwing Broodmother, Silkwing Cluster, Silkwing Consort, Silkwing Webspitter)",
+          "Stonewraith",
+          "Worm of the Deep"
+        ],
+        "ru": [
+          "Звери (Медведь, Лютоволк)",
+          "Похититель Тел",
+          "Кукла-Труп",
+          "Культ Падших (Адепт Культа, Клык Культа, Посвящённый Культа, Хранитель Тайн)",
+          "Череп Хаоса",
+          "Голем Раскопок",
+          "Призраки (Призрачный Лучник, Призрачный Командующий, Призрачный Страж)",
+          "Груда Живых Камней",
+          "Шелкокрылы (Шелкокрыл-Родительница, Скопление Шелкокрылов, Шелкокрыл-Консорт, Шелкокрыл-Плевун Паутины)",
+          "Каменный Призрак",
+          "Червь Глубин"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Ancient Writing",
+            "ru": "Древние Письмена"
+          },
+          "description": {
+            "en": "The entrance of the cave has markings and pictographs from a bygone era. A PC with a relevant background or Experience can translate these into useful information about the ancient inhabitants of the cave. A PC who succeeds on a Knowledge or Instinct Roll might be able to glean something about the current inhabitants of the cave. If a PC critically succeeds, they find a small amount of treasure equal to 3 handfuls of gold.",
+            "ru": "У входа в пещеру есть надписи и пиктограммы давно минувшей эпохи. Персонаж с подходящим происхождением или Опытом может перевести их в полезные сведения о древних обитателях пещеры. Персонаж, преуспевший в броске Знания или Инстинкта, может узнать нечто о нынешних обитателях пещеры. Если персонаж критически преуспевает, он находит небольшое сокровище, равное 3 горстям золота."
+          },
+          "prompt": {
+            "en": "Who lived in this cave before and how long ago? What happened to them? What creatures have found their way since?",
+            "ru": "Кто жил в этой пещере раньше и как давно? Что с ними случилось? Какие существа нашли сюда путь с тех пор?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Darkness",
+            "ru": "Тьма"
+          },
+          "description": {
+            "en": "Light sources in the cave only reach to a Close range. Any action roll that would require sight is made at disadvantage if the target or the PC are outside of a lit area.",
+            "ru": "Источники света в пещере достигают лишь Близкой дистанции. Любой бросок действия, требующий зрения, совершается с помехой, если цель или персонаж находятся вне освещённой области."
+          },
+          "prompt": {
+            "en": "Do the PCs have a way to see? Are there traps laid to make use of the lack of light?",
+            "ru": "Есть ли у персонажей способ видеть в темноте? Расставлены ли здесь ловушки, использующие недостаток света?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Rocks Fall",
+            "ru": "Падение Камней"
+          },
+          "description": {
+            "en": "Spend a Fear. Unstable rock formations overhead fall down onto a point of your choice. All creatures within Very Close range of that point must make an Agility Reaction Roll. Targets who fail take 2d10+3 physical damage. Creatures who succeed take half damage instead.",
+            "ru": "Потратьте Страх. Нестабильные скальные образования наверху обрушиваются в выбранную вами точку. Все существа в пределах Очень Близкой дистанции от этой точки должны совершить Бросок Реакции на Проворность. Цели, провалившие бросок, получают 2d10+3 физического урона. Существа, прошедшие бросок, получают половину урона."
+          },
+          "prompt": {
+            "en": "What could have caused these stalactites to fall? Did the debris split the party?",
+            "ru": "Что могло заставить эти сталактиты упасть? Разделили ли обломки группу?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Wet Lung",
+            "ru": "Мокрая Хворь"
+          },
+          "description": {
+            "en": "Countdown (Loop 6). When the PCs enter the Cave, activate the countdown. When it triggers, all PCs must succeed on a Strength or Instinct Reaction Roll. Targets who fail mark 2 stress and become Chilled until their next rest or they clear a Stress. While they are Chilled, they have disadvantage on attack rolls. If a PC is already Chilled they have disadvantage on subsequent Reaction Rolls.",
+            "ru": "Отсчёт (Цикл 6). Когда персонажи входят в Пещеру, активируйте отсчёт. Когда он срабатывает, все персонажи должны совершить успешный Бросок Реакции на Силу или Инстинкт. Цели, провалившие бросок, отмечают 2 Стресса и становятся Продрогшими до следующего отдыха или пока не снимут Стресс. Пока персонаж Продрогший, он совершает броски атаки с помехой. Если персонаж уже Продрогший, он совершает последующие Броски Реакции с помехой."
+          },
+          "prompt": {
+            "en": "What could have caused this terrible disease? Is there something the PCs could do to prevent it?",
+            "ru": "Что могло вызвать эту ужасную болезнь? Могут ли персонажи что-то сделать, чтобы её предотвратить?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "underground"
+      ]
+    },
+    {
+      "id": "forest-wildfire",
+      "tier": 2,
+      "type": "event",
+      "difficulty": 14,
+      "name": {
+        "en": "Forest Wildfire",
+        "ru": "Лесной Пожар"
+      },
+      "impulses": {
+        "en": [
+          "Burn",
+          "ride the wind",
+          "flee or perish"
+        ],
+        "ru": [
+          "Гореть",
+          "нестись с ветром",
+          "бежать или погибнуть"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Bear",
+          "Fae Flame",
+          "Grove Guardian",
+          "Minor Treant",
+          "Moose",
+          "Sylvan Soldier",
+          "Young Dryad"
+        ],
+        "ru": [
+          "Медведь",
+          "Фейское Пламя",
+          "Страж Рощи",
+          "Молодой Древень",
+          "Лось",
+          "Лесной Солдат",
+          "Юная Дриада"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Intense Heat",
+            "ru": "Сильный Жар"
+          },
+          "description": {
+            "en": "A creature that moves within Very Close range of the fire must make a Strength Reaction Roll. On a failure, they take 2d4 direct magic damage, mark a Stress and lose one Hope. On a success, they must mark a Stress.",
+            "ru": "Существо, переместившееся в пределы Очень Близкой дистанции от огня, должно совершить Бросок Реакции на Силу. При неудаче оно получает 2d4 прямого магического урона, отмечает Стресс и теряет одну Надежду. При успехе оно должно отметить Стресс."
+          },
+          "prompt": {
+            "en": "Must the PCs travel through the blaze, or can they go around at a cost of time? What precautions could the PCs take to make it through the fire more safely?",
+            "ru": "Должны ли персонажи пройти сквозь пламя, или могут обойти его ценой времени? Какие меры предосторожности могут принять персонажи, чтобы пройти через огонь безопаснее?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Shifting Winds",
+            "ru": "Переменчивые Ветра"
+          },
+          "description": {
+            "en": "Spend a Fear to change the speed and direction of the wind and advance the fire faster toward the PCs who must all make a Presence Reaction Roll. Those who fail must mark 2 Stress and lose a Hope. Those who succeed must mark a Stress.",
+            "ru": "Потратьте Страх, чтобы изменить скорость и направление ветра и ускорить продвижение огня к персонажам, которые все должны совершить Бросок Реакции на Влияние. Провалившие его должны отметить 2 Стресса и потерять Надежду. Преуспевшие должны отметить Стресс."
+          },
+          "prompt": {
+            "en": "How do the PCs react to the sudden change and seeing the fire leap through the dry canopy toward them? How fast is the fire now moving?",
+            "ru": "Как персонажи реагируют на внезапную перемену и вид огня, перескакивающего через сухой полог леса? Насколько быстро теперь движется огонь?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Panicked Denizens",
+            "ru": "Обезумевшие Обитатели"
+          },
+          "description": {
+            "en": "A stampede of woodland creatures rush through the area away from the blaze. All targets within Close range of their path must make a Strength or Agility Reaction Roll. Targets who fail take 2d12+2 physical damage. Those who succeed must mark a Stress.",
+            "ru": "Стадо лесных существ мчится через местность прочь от пожара. Все цели в пределах Близкой дистанции от их пути должны совершить Бросок Реакции на Силу или Проворность. Цели, провалившие бросок, получают 2d12+2 физического урона. Преуспевшие должны отметить Стресс."
+          },
+          "prompt": {
+            "en": "What creatures are a part of this group? Can the PCs take cover to avoid the onslaught?",
+            "ru": "Какие существа входят в эту группу? Могут ли персонажи укрыться, чтобы избежать натиска?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Hunting the Firestarter",
+            "ru": "Охота на Поджигателя"
+          },
+          "description": {
+            "en": "Countdown (6). When the PCs enter the forest, activate the countdown, which ticks down on a failed action roll or a roll with Fear. When it triggers, a Grove Guardian appears at Very Far range from a chosen PC and is immediately spotlighted.",
+            "ru": "Отсчёт (6). Когда персонажи входят в лес, активируйте отсчёт, который уменьшается при провальном броске действия или результате со Страхом. Когда он срабатывает, Страж Рощи появляется на Очень Дальней дистанции от выбранного персонажа и немедленно получает Активацию."
+          },
+          "prompt": {
+            "en": "Who does the Guardian view as the most likely potential guilty party? What will convince them the PCs are innocent, if they are?",
+            "ru": "Кого Страж считает наиболее вероятным виновником? Что убедит его в невиновности персонажей, если они невиновны?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Bring the Rain (Environment Change)",
+            "ru": "Призвать Дождь (Изменение Окружения)"
+          },
+          "description": {
+            "en": "If the Grove Guardian is convinced the PCs are not responsible, they suggest performing a ritual to produce rain, but it requires the PCs’ aid. If they agree to help, shift to the Rain Ritual environment and spotlight it.",
+            "ru": "Если Страж Рощи убеждён, что персонажи не виновны, он предлагает провести ритуал вызова дождя, но для этого требуется помощь персонажей. Если они соглашаются помочь, смените окружение на «Ритуал Дождя» и активируйте его."
+          },
+          "prompt": {
+            "en": "What is the Guardian’s reaction if the PCs refuse to help? Besides protecting the Guardian, what else can the PCs do to aid in the ritual?",
+            "ru": "Как реагирует Страж, если персонажи отказываются помочь? Кроме защиты Стража, что ещё могут сделать персонажи, чтобы помочь ритуалу?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "forest"
+      ]
+    },
+    {
+      "id": "rain-ritual",
+      "tier": 2,
+      "type": "event",
+      "difficulty": 14,
+      "name": {
+        "en": "Rain Ritual",
+        "ru": "Ритуал Дождя"
+      },
+      "impulses": {
+        "en": [
+          "Cleanse with fire",
+          "prevent the unnatural",
+          "run its course"
+        ],
+        "ru": [
+          "Очищать огнём",
+          "предотвращать противоестественное",
+          "идти своим чередом"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Bear",
+          "Fae Flame",
+          "Minor Treant",
+          "Moose",
+          "Sylvan Soldier",
+          "Young Dryad"
+        ],
+        "ru": [
+          "Медведь",
+          "Фейское Пламя",
+          "Молодой Древень",
+          "Лось",
+          "Лесной Солдат",
+          "Юная Дриада"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Make it Rain",
+            "ru": "Вызвать Дождь"
+          },
+          "description": {
+            "en": "The fire begins the event at Very Far range in a direction of the GM’s choosing. When the Grove Guardian begins the ritual, the party must complete a Progress Countdown (8), but only rolls within Close range of the Guardian count toward the progress. When the countdown triggers, heavy clouds roll in and begin to shower substantial rain in the area.",
+            "ru": "Пожар начинает событие на Очень Дальней дистанции в направлении, выбранном Мастером. Когда Страж Рощи начинает ритуал, группа должна завершить Отсчёт Прогресса (8), но только броски в пределах Близкой дистанции от Стража засчитываются в прогресс. Когда отсчёт срабатывает, надвигаются тяжёлые тучи и начинают проливать в этой области обильный дождь."
+          },
+          "prompt": {
+            "en": "What does the Guardian say or do to encourage the PCs to remain close? How do the skies change while the ritual is being performed?",
+            "ru": "Что говорит или делает Страж, чтобы побудить персонажей оставаться рядом? Как меняется небо, пока проводится ритуал?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Intense Heat",
+            "ru": "Сильный Жар"
+          },
+          "description": {
+            "en": "Anyone within Very Close range of the fire must make a Strength Reaction Roll. On a failure, they take 2d4 direct magic damage, mark a Stress and lose one Hope. On a success, they must mark a Stress.",
+            "ru": "Любой в пределах Очень Близкой дистанции от огня должен совершить Бросок Реакции на Силу. При неудаче он получает 2d4 прямого магического урона, отмечает Стресс и теряет одну Надежду. При успехе он должен отметить Стресс."
+          },
+          "prompt": {
+            "en": "Can the PCs do anything to block the fire’s progress? How does the fire’s proximity affect the Grove Guardian while they enact the ritual?",
+            "ru": "Могут ли персонажи что-то сделать, чтобы остановить продвижение огня? Как близость огня влияет на Стража Рощи, пока он проводит ритуал?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Dangerous Mischief",
+            "ru": "Опасное Озорство"
+          },
+          "description": {
+            "en": "Spend a Fear to summon 2 Fae Flames within Far range and immediately spotlight one of them.",
+            "ru": "Потратьте Страх, чтобы призвать 2 Фейских Пламени в пределах Дальней дистанции, и немедленно дайте одному из них Активацию."
+          },
+          "prompt": {
+            "en": "What color and form do the Fae Flames take? Do precautions such as closing your eyes give any benefit against the Flames’ lures?",
+            "ru": "Какой цвет и форму принимают Фейские Пламена? Дают ли меры предосторожности вроде закрытых глаз какую-то защиту от их приманивания?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Fan the Flames",
+            "ru": "Раздуть Пламя"
+          },
+          "description": {
+            "en": "Spend a Fear to advance the fire one range category toward the PCs. What do the PCs think of as the flames rush closer? Consider expanding the area of fire laterally instead which might cut off an avenue of escape.",
+            "ru": "Потратьте Страх, чтобы огонь продвинулся на одну категорию дистанции к персонажам. О чём думают персонажи, когда пламя приближается к ним? Рассмотрите также вариант расширения области огня вбок, что может отрезать путь к отступлению."
+          },
+          "prompt": {
+            "en": "",
+            "ru": ""
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "forest"
+      ]
+    },
+    {
+      "id": "wishmaker-glade",
+      "tier": 2,
+      "type": "exploration",
+      "difficulty": 14,
+      "name": {
+        "en": "Wishmaker Glade",
+        "ru": "Поляна Желаний"
+      },
+      "impulses": {
+        "en": [
+          "offer hope to the downtrodden",
+          "gather wishes like seeds",
+          "draw in wish spirits"
+        ],
+        "ru": [
+          "Дарить надежду обездоленным",
+          "собирать желания, как семена",
+          "притягивать духов желаний"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Cultists (any)",
+          "Chaos Skull",
+          "Demanding Crowd",
+          "Merchant",
+          "Wish Spirits (any)"
+        ],
+        "ru": [
+          "Культисты (любые)",
+          "Череп Хаоса",
+          "Требовательная Толпа",
+          "Торговец",
+          "Духи Желаний (любые)"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Wish-Holder Tree",
+            "ru": "Дерево-Хранитель Желаний"
+          },
+          "description": {
+            "en": "At the center of the glade stands a large purple-leaved tree with numerous branches, all laden with wish-tokens hung by string and parchment inscribed with the dreamers’ names. PCs can investigate the scene with an Instinct or Knowledge Roll. On a success with Hope, learn all three pieces of information below. On a success with Fear, learn two. On a failure, a PC can mark a Stress to learn one and gain advantage on the next action roll to investigate this environment.\n• Three wish tokens fused together in a strange shape, crackling with magical energy.\n• Broken and unfulfilled wish tokens scattered around the glade.\n• Clusters of wish tokens are tied together as if accidentally tangled by some outside actor.",
+            "ru": "В центре поляны стоит большое дерево с фиолетовыми листьями и многочисленными ветвями, все увешаны жетонами желаний на нитях и пергаментом с именами мечтателей. Персонажи могут исследовать сцену броском Инстинкта или Знания. При успехе с Надеждой узнайте все три сведения ниже. При успехе со Страхом узнайте два. При неудаче персонаж может отметить Стресс, чтобы узнать одно и получить преимущество на следующий бросок действия для исследования этого окружения.\n• Три жетона желаний слились в странную форму, потрескивающую магической энергией.\n• Сломанные и неисполненные жетоны желаний разбросаны по поляне.\n• Скопления жетонов желаний связаны вместе, будто случайно спутанные какой-то посторонней силой."
+          },
+          "prompt": {
+            "en": "How else can PCs tell this glade has been trampled by too many visitors? What wishes can be read from the tokens that remain?",
+            "ru": "Что ещё указывает персонажам на то, что эту поляну затоптало слишком много посетителей? Какие желания можно прочесть на оставшихся жетонах?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Thin Veil",
+            "ru": "Тонкая Завеса"
+          },
+          "description": {
+            "en": "Numerous attempts by Wish Spirits to satisfy contradictory dreams has left the fabric of reality in the glade dangerously loose and unpredictable. The area bears the signature of several types of magic, some natural to the area, others foreign and illogical. When making a Spellcast roll, PCs must replace their Hope die with a d10.",
+            "ru": "Многочисленные попытки Духов Желаний удовлетворить противоречивые мечты оставили ткань реальности на поляне опасно рыхлой и непредсказуемой. Область несёт отпечаток нескольких видов магии, некоторые из которых естественны для этого места, другие — чужеродны и нелогичны. Совершая Бросок Заклинания, персонажи должны заменить свою кость Надежды на d10."
+          },
+          "prompt": {
+            "en": "How does the weakened veil manifest physically? What small magical effects linger at the edge of your perception?",
+            "ru": "Как ослабленная завеса проявляется физически? Какие мелкие магические эффекты задерживаются на краю вашего восприятия?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Aura of Possibility",
+            "ru": "Аура Возможности"
+          },
+          "description": {
+            "en": "The first time each scene that a PC with 0 Hope enters the Wishmaker Glade, they gain a Hope. PCs that Prepare in the Wishmaker Glade gain an additional Hope.",
+            "ru": "Первый раз за сцену, когда персонаж с 0 Надежды входит на Поляну Желаний, он получает Надежду. Персонажи, использующие ход простоя «Подготовка» на Поляне Желаний, получают дополнительную Надежду."
+          },
+          "prompt": {
+            "en": "What about the glade inspires such enduring Hope? What possibilities seem within reach that would normally seem impossible?",
+            "ru": "Что в этой поляне вдохновляет столь стойкую Надежду? Какие возможности кажутся достижимыми, хотя обычно казались бы невозможными?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Trampling Tourists",
+            "ru": "Растаптывающие Туристы"
+          },
+          "description": {
+            "en": "Introduce a Demanding Crowd, travelers and tourists heedless of the warnings and insistent on having their turn getting wishes granted. The Demanding Crowd immediately takes the spotlight.",
+            "ru": "Введите Требовательную Толпу — путников и туристов, не обращающих внимания на предупреждения и настаивающих на своей очереди, чтобы их желания исполнились. Требовательная Толпа немедленно получает Активацию."
+          },
+          "prompt": {
+            "en": "Who is the loudest among the group, or is there no formal or informal ringleader? Does the crowd view the PCs as hogging the glade for themselves or as interlopers trying to prevent people from having their wishes granted?",
+            "ru": "Кто самый громкий в этой группе, или нет никакого формального или неформального заводилы? Считает ли толпа, что персонажи монополизируют поляну для себя, или что они чужаки, пытающиеся помешать людям загадать желания?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Tangled Desires",
+            "ru": "Спутанные Желания"
+          },
+          "description": {
+            "en": "Spend a Fear to introduce a Wish Spirit Knot, which appears at Close distance and takes the spotlight.",
+            "ru": "Потратьте Страх, чтобы ввести Узел Духов Желаний, который появляется на Близкой дистанции и получает Активацию."
+          },
+          "prompt": {
+            "en": "What contradictory wishes attracted the Wish Spirit Knot? How can you tell that the cluster of spirits is confused?",
+            "ru": "Какие противоречивые желания привлекли Узел Духов Желаний? Как понять, что этот сгусток духов растерян?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Drawn to Hope",
+            "ru": "Влекомые Надеждой"
+          },
+          "description": {
+            "en": "When a PC makes a wish and hangs a token on the tree, introduce a Wish Spirit, which appears within Close distance and takes the spotlight.",
+            "ru": "Когда персонаж загадывает желание и вешает жетон на дерево, введите Духа Желаний, который появляется на Близкой дистанции и получает Активацию."
+          },
+          "prompt": {
+            "en": "How does it approach the token? How does the glade react to the appearance of the spirit? Does wind cause the branches and leaves to ripple? Does the air grow cool yet comforting?",
+            "ru": "Как он приближается к жетону? Как поляна реагирует на появление духа? Заставляет ли ветер ветви и листья колыхаться? Становится ли воздух прохладным, но при этом умиротворяющим?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Tug of War",
+            "ru": "Перетягивание Каната"
+          },
+          "description": {
+            "en": "If a PC loses their last Hope (not spends, only loses), gain a Fear as the emotional resonance of the glade shifts toward dreams denied.",
+            "ru": "Если персонаж теряет свою последнюю Надежду (не тратит, а именно теряет), получите Страх, поскольку эмоциональный отклик поляны смещается в сторону несбывшихся мечтаний."
+          },
+          "prompt": {
+            "en": "What thwarted dream is the PC reminded of when they lose their last Hope? How does growing Fear manifest in the glade?",
+            "ru": "О какой несбывшейся мечте напоминает персонажу потеря последней Надежды? Как растущий Страх проявляется на поляне?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "forest"
+      ]
+    },
+    {
+      "id": "unsettling-forest",
+      "tier": 2,
+      "type": "traversal",
+      "difficulty": 14,
+      "name": {
+        "en": "Unsettling Forest",
+        "ru": "Тревожный Лес"
+      },
+      "impulses": {
+        "en": [
+          "Conceal the way",
+          "terrify",
+          "threaten"
+        ],
+        "ru": [
+          "Скрывать путь",
+          "внушать ужас",
+          "угрожать"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Chaos Skull",
+          "Demonic Hound Pack",
+          "Dullahan",
+          "Lindwyrm",
+          "Living Doll Horde"
+        ],
+        "ru": [
+          "Череп Хаоса",
+          "Свора Демонических Гончих",
+          "Дуллахан",
+          "Линдвирм",
+          "Орда Живых Кукол"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Navigate the Woods",
+            "ru": "Проложить Путь Через Лес"
+          },
+          "description": {
+            "en": "To find the heart of the Forest, the PCs must complete a Progress Countdown (6). A PC who rolls with Fear is targeted by the “Disturbing Totems” action without requiring a Fear to be spent on the feature.",
+            "ru": "Чтобы найти сердце Леса, персонажи должны завершить Отсчёт Прогресса (6). Персонаж, выбросивший результат со Страхом, становится целью действия «Тревожные Тотемы», не тратя на это свойство Страх."
+          },
+          "prompt": {
+            "en": "What sort of twisted changes has the hag had on the forest? What about its inhabitants?",
+            "ru": "Какие искажения ведьма привнесла в лес? А что с его обитателями?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Disturbing Totems",
+            "ru": "Тревожные Тотемы"
+          },
+          "description": {
+            "en": "The Forest is filled with magic that turns even the most mundane thing into a twisted effigy of the hag’s predilections. Spend a Fear and choose the appropriate manifestation of the hag’s totem and narrate the discovery of it. All targets within Close range of the totem must succeed on a Presence Reaction Roll. Targets that fail mark a Stress.",
+            "ru": "Лес наполнен магией, превращающей даже самую обыденную вещь в искажённое изваяние прихотей ведьмы. Потратьте Страх и выберите подходящее воплощение тотема ведьмы, затем опишите его обнаружение. Все цели в пределах Близкой дистанции от тотема должны совершить успешный Бросок Реакции на Влияние. Провалившие его цели отмечают Стресс."
+          },
+          "prompt": {
+            "en": "What shape do these totems take? What fears might the totems uncover in the PCs?",
+            "ru": "Какую форму принимают эти тотемы? Какие страхи тотемы могут вскрыть в персонажах?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Spirits of the Damned",
+            "ru": "Духи Проклятых"
+          },
+          "description": {
+            "en": "Spend a Fear to summon a Dullahan, Lindwyrm, or similar Tier 2 adversary that appears within Close range of the PCs and immediately takes the spotlight. This creature may be a guardian or a warning to the party.",
+            "ru": "Потратьте Страх, чтобы призвать Дуллахана, Линдвирма или похожего противника 2 ранга, который появляется в пределах Близкой дистанции от персонажей и немедленно получает Активацию. Это существо может быть стражем или предостережением для группы."
+          },
+          "prompt": {
+            "en": "What messages might the spirit convey? How are they representative of the hag?",
+            "ru": "Какое послание может передать этот дух? Как они отражают саму ведьму?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Cage of Brambles",
+            "ru": "Клетка из Терновника"
+          },
+          "description": {
+            "en": "A character that fails an Instinct Roll guides the party into a patch of thorny brambles that closes around them. All PCs in the scene must succeed on an Agility Reaction Roll or take 2d6+4 physical damage. Targets that mark an Armor Slot from this damage must mark an additional slot without receiving its benefits. You gain a Fear for each target that fails.",
+            "ru": "Персонаж, проваливший бросок Инстинкта, заводит группу в заросли колючего терновника, которые смыкаются вокруг них. Все персонажи на сцене должны совершить успешный Бросок Реакции на Проворность или получить 2d6+4 физического урона. Цели, отметившие от этого урона Ячейку Брони, должны отметить дополнительную ячейку, не получая её преимуществ. Вы получаете Страх за каждую провалившую цель."
+          },
+          "prompt": {
+            "en": "How do the PCs get out of this cage? What signs of the hag might the party find here?",
+            "ru": "Как персонажи выбираются из этой клетки? Какие следы ведьмы группа может здесь найти?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "forest"
+      ]
+    },
+    {
+      "id": "hags-hut",
+      "tier": 2,
+      "type": "social",
+      "difficulty": 14,
+      "name": {
+        "en": "Hag’s Hut",
+        "ru": "Хижина Ведьмы"
+      },
+      "impulses": {
+        "en": [
+          "Encourage bad deals",
+          "cause desperation",
+          "disgust visitors"
+        ],
+        "ru": [
+          "Поощрять невыгодные сделки",
+          "вызывать отчаяние",
+          "внушать отвращение посетителям"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Alraune (Queen, Young)",
+          "Bunyip",
+          "Hag (Dollmaker, Puppetmaster)",
+          "Living Doll Horde"
+        ],
+        "ru": [
+          "Альраун (Королева, Юная)",
+          "Буньип",
+          "Ведьма (Кукольник, Кукловод)",
+          "Орда Живых Кукол"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Arcane Focus",
+            "ru": "Магический Фокус"
+          },
+          "description": {
+            "en": "The hut has a magical item that the hag uses to craft powerful spells. For each hag it is different. It might be a bubbling cauldron or an enchanted crafting table. A PC that succeeds on a Knowledge Roll (16) can roll a d8 to create an item from the Consumables Table (SRD pg. 60). On a failure, all PCs within Far range mark a Stress.",
+            "ru": "В хижине есть магический предмет, который ведьма использует для создания могущественных заклинаний. У каждой ведьмы он свой. Это может быть булькающий котёл или зачарованный рабочий стол. Персонаж, преуспевший в броске Знания (16), может бросить d8, чтобы создать предмет из Таблицы Расходников (ОСБ, стр. 60). При неудаче все персонажи в пределах Дальней дистанции отмечают Стресс."
+          },
+          "prompt": {
+            "en": "What form does the hag’s focus take? What kind of items does it create?",
+            "ru": "Какую форму принимает фокус ведьмы? Какие предметы он создаёт?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Shady Dealings",
+            "ru": "Тёмные Делишки"
+          },
+          "description": {
+            "en": "A PC that succeeds on a Knowledge Roll uncovers a prominent NPC has made a deal with the hag. If the hag has not been defeated, the roll is made with disadvantage.",
+            "ru": "Персонаж, преуспевший в броске Знания, узнаёт, что видный НПС заключил сделку с ведьмой. Если ведьма ещё не побеждена, бросок совершается с помехой."
+          },
+          "prompt": {
+            "en": "What damning information might the PCs find? Is the NPC someone they trust?",
+            "ru": "Какие компрометирующие сведения могут найти персонажи? Является ли этот НПС тем, кому они доверяют?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Animated Objects",
+            "ru": "Одушевлённые Предметы"
+          },
+          "description": {
+            "en": "Spend a Fear to make the items within the hut come to life briefly. All targets in the scene must make an Agility Reaction Roll. Targets who fail take 2d12+2 magic damage. Targets who succeed take half damage.",
+            "ru": "Потратьте Страх, чтобы предметы в хижине ненадолго ожили. Все цели на сцене должны совершить Бросок Реакции на Проворность. Провалившие его цели получают 2d12+2 магического урона. Преуспевшие получают половину урона."
+          },
+          "prompt": {
+            "en": "What kinds of items attack the PCs? Is there a way to stop them?",
+            "ru": "Какие предметы нападают на персонажей? Есть ли способ их остановить?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Devilish Deals",
+            "ru": "Дьявольские Сделки"
+          },
+          "description": {
+            "en": "Spend a Fear to make a life changing offer to a PC within Close range. A PC who accepts the deal gains a version of the deal that is twisted in some way that may not be immediately apparent. The Hag summons a Totem of Fear, designating the PC as the doppelganger. A PC who refuses the deal must succeed on a Presence Reaction Roll or mark 2 Stress.",
+            "ru": "Потратьте Страх, чтобы сделать персонажу в пределах Близкой дистанции судьбоносное предложение. Персонаж, принявший сделку, получает версию сделки, искажённую каким-то не сразу заметным образом. Ведьма призывает Тотем Страха, назначая персонажа двойником. Персонаж, отказавшийся от сделки, должен совершить успешный Бросок Реакции на Влияние или отметить 2 Стресса."
+          },
+          "prompt": {
+            "en": "What way does the hag twist the deal? What do they take from the PC that makes it?",
+            "ru": "Каким образом ведьма искажает сделку? Что она забирает у персонажа взамен?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "forest"
+      ]
+    },
+    {
+      "id": "hakturi-ambush",
+      "tier": 2,
+      "type": "event",
+      "difficulty": 14,
+      "name": {
+        "en": "Hakturi Ambush",
+        "ru": "Засада Хактури"
+      },
+      "impulses": {
+        "en": [
+          "Overwhelm",
+          "cause stress",
+          "create more mothers"
+        ],
+        "ru": [
+          "Подавлять числом",
+          "вызывать стресс",
+          "создавать новых матерей"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Hakturi",
+          "Hakturi Mother"
+        ],
+        "ru": [
+          "Хактури",
+          "Мать Хактури"
+        ]
+      },
+      "features": [
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Failure Blooms",
+            "ru": "Расцвет Неудач"
+          },
+          "description": {
+            "en": "Countdown (Loop 5). When the environment first takes the spotlight, activate the countdown. It ticks down each time a PC fails a roll. When it triggers, all PCs in the scene must succeed on an Instinct Reaction Roll or mark a Stress as images of their past failures haunt them.",
+            "ru": "Отсчёт (Цикл 5). Когда окружение впервые получает Активацию, активируйте отсчёт. Он уменьшается каждый раз, когда персонаж проваливает бросок. Когда он срабатывает, все персонажи на сцене должны совершить успешный Бросок Реакции на Инстинкт или отметить Стресс, поскольку их преследуют образы прошлых неудач."
+          },
+          "prompt": {
+            "en": "",
+            "ru": ""
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Love Bomb!",
+            "ru": "Любовная Бомба!"
+          },
+          "description": {
+            "en": "The Hakturi Mother reveals themself to the party, you gain 2 Fear and all Hakturi in the scene gain a friend token. The spotlight shifts to the Hakturi Mother who immediately uses their “Hypnotic Pollen” action without requiring a Fear to be spent on the Feature.",
+            "ru": "Мать Хактури раскрывает себя группе, вы получаете 2 Страха, и все Хактури на сцене получают жетон друга. Активация переходит к Матери Хактури, которая немедленно использует своё действие «Гипнотическая Пыльца», не тратя на это свойство Страх."
+          },
+          "prompt": {
+            "en": "",
+            "ru": ""
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "tropical"
+      ]
+    },
+    {
+      "id": "undersea-trench",
+      "tier": 2,
+      "type": "exploration",
+      "difficulty": 15,
+      "name": {
+        "en": "Undersea Trench",
+        "ru": "Подводная Впадина"
+      },
+      "impulses": {
+        "en": [
+          "Shelter",
+          "lead to danger",
+          "hide treasure",
+          "disorient"
+        ],
+        "ru": [
+          "Укрывать",
+          "вести к опасности",
+          "скрывать сокровища",
+          "дезориентировать"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Naga (Eel Master, Finscourge, Reefwatcher, Sea Witch, Shoalstalker, Titan, Young Leviathan)",
+          "Sirens",
+          "Undersea creatures (Shark, Electric Eel, Kraken)"
+        ],
+        "ru": [
+          "Нага (Повелитель Угрей, Разоритель Плавников, Хранитель Рифа, Морская Ведьма, Мелководный Ловчий, Титан, Юный Левиафан)",
+          "Сирены",
+          "Морские Существа (Акула, Электрический Угорь, Кракен)"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Flotsam",
+            "ru": "Обломки"
+          },
+          "description": {
+            "en": "Wrecks of ships taken down by the Naga litter the sea floor. PCs can make an Instinct or Knowledge Roll to discover more about a wreckage.\n• Critical Success: Gain information from Success with Hope and an appropriate treasure.\n• Success with Hope: The name and origin of the ship, and what kind of ship it was, types of cargo it might have carried, perhaps even signs pointing the party toward their goal.\n• Success with Fear: They find the name of the ship and what cargo it held, but all the items of worth are gone. When the “Patrols” reaction triggers, a creature of your choice has a Tier 2 weapon in their possession.\n• Failure with Hope: Mark a Stress but lean on a character’s goals (perhaps by pointing the way toward their goal).\n• Failure with Fear: Activate “Boiling Fury” action below.",
+            "ru": "Обломки кораблей, потопленных Нагами, усеивают морское дно. Персонажи могут совершить бросок Инстинкта или Знания, чтобы узнать больше об обломках.\n• Критический успех: получите информацию как при Успехе с Надеждой и подходящее сокровище.\n• Успех с Надеждой: имя и происхождение корабля, каким он был, какой груз мог перевозить, возможно, даже знаки, указывающие группе путь к их цели.\n• Успех со Страхом: они находят имя корабля и то, какой груз он вёз, но все ценные вещи пропали. Когда срабатывает реакция «Патрули», выбранное вами существо имеет при себе оружие 2 ранга.\n• Неудача с Надеждой: отметьте Стресс, но обопритесь на цели персонажа (например, указав путь к его цели).\n• Неудача со Страхом: активируйте действие «Кипящая Ярость» ниже."
+          },
+          "prompt": {
+            "en": "",
+            "ru": ""
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Boiling Fury",
+            "ru": "Кипящая Ярость"
+          },
+          "description": {
+            "en": "Spend a Fear to have a lava vent burst out boiling water in a line upward. All targets within Very Close range of that line must succeed on an Agility Reaction Roll. Targets who fail take 2d6+6 magic damage and if they use armor to reduce the damage, they must mark 2 Armor Slots.",
+            "ru": "Потратьте Страх, чтобы лавовый жерло выбросил вверх линию кипящей воды. Все цели в пределах Очень Близкой дистанции от этой линии должны совершить успешный Бросок Реакции на Проворность. Цели, провалившие бросок, получают 2d6+6 магического урона, и если они используют броню, чтобы снизить урон, они должны отметить 2 Ячейки Брони."
+          },
+          "prompt": {
+            "en": "What is causing these eruptions? Are their warnings signs or sounds that give the party a sign?",
+            "ru": "Что вызывает эти извержения? Есть ли предупреждающие знаки или звуки, дающие группе знак?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "No Escape Here",
+            "ru": "Здесь Нет Спасения"
+          },
+          "description": {
+            "en": "Spend a Fear to cause an earthquake that collapses a tunnel or send the remains of a sunken ship crashing down on the PC heads. This could cause the party to split up or have to take a more dangerous route.",
+            "ru": "Потратьте Страх, чтобы вызвать землетрясение, обрушивающее туннель или посылающее обломки затонувшего корабля прямо на головы персонажей. Это может вынудить группу разделиться или выбрать более опасный путь."
+          },
+          "prompt": {
+            "en": "Did any of the PCs get caught in the falling debris? What alternative ways might there be out of this place?",
+            "ru": "Попал ли кто-то из персонажей под падающие обломки? Какие альтернативные пути могут быть из этого места?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Patrols",
+            "ru": "Патрули"
+          },
+          "description": {
+            "en": "Countdown (5). When the PCs enter the scene activate the countdown. When it triggers, have the triggering PC make a fate roll with their Fear die. The number is how many BP you have to spend on an encounter using the Naga in the Potential Adversaries section. Spend a Fear to restart the countdown.",
+            "ru": "Отсчёт (5). Когда персонажи входят на сцену, активируйте отсчёт. Когда он срабатывает, пусть спровоцировавший его персонаж совершит бросок судьбы своей костью Страха. Это число — сколько БО вы можете потратить на столкновение, используя Наг из раздела Потенциальных Противников. Потратьте Страх, чтобы перезапустить отсчёт."
+          },
+          "prompt": {
+            "en": "Are the adversaries actively looking for the party? Do they catch the PCs off guard?",
+            "ru": "Активно ли противники ищут группу? Застают ли они персонажей врасплох?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "aquatic"
+      ]
+    },
+    {
+      "id": "rimefouled-wastes",
+      "tier": 2,
+      "type": "exploration",
+      "difficulty": 13,
+      "name": {
+        "en": "Rimefouled Wastes",
+        "ru": "Иневлаженные Пустоши"
+      },
+      "impulses": {
+        "en": [
+          "Freeze",
+          "exhaust",
+          "haunt the living"
+        ],
+        "ru": [
+          "Замораживать",
+          "изнурять",
+          "преследовать живых"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Icebound Terrors (Frost Jötunn, Frozen Horror, Heartless Ghost, Ice Golem, Rimefouled Yeti, Rime Wolf, Veiled Hag)"
+        ],
+        "ru": [
+          "Скованные Льдом Ужасы (Морозный Йотун, Замёрзший Кошмар, Бессердечный Призрак, Ледяной Голем, Иневлаженный Йети, Инистый Волк, Скрытая Ведьма)"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Bitter Cold",
+            "ru": "Жгучий Холод"
+          },
+          "description": {
+            "en": "While away from a settlement, PCs cannot take a long rest. Start a Countdown (Decreasing 4) when the PCs enter the environment. It ticks down each time a PC rolls with Fear. When it triggers, the Difficulty of the environment and the adversaries in it increases by 1. This countdown resets when the PCs take a long rest.",
+            "ru": "Находясь вдали от поселения, персонажи не могут совершить долгий отдых. Начните Отсчёт (Убывающий 4), когда персонажи входят в окружение. Он уменьшается каждый раз, когда персонаж выбрасывает результат со Страхом. Когда он срабатывает, Сложность окружения и находящихся в нём противников увеличивается на 1. Этот отсчёт сбрасывается, когда персонажи совершают долгий отдых."
+          },
+          "prompt": {
+            "en": "How can the PCs stay warm while traveling? What parts go numb first?",
+            "ru": "Как персонажи могут согреться в пути? Какие части тела немеют первыми?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Ancient Monuments",
+            "ru": "Древние Монументы"
+          },
+          "description": {
+            "en": "The PCs discover a large stone marker, monument, or other magical manifestation of the Rime. These monuments may have been from a bygone era that tell stories of past civilization or directions for others to follow. Have a PC roll a fate roll to discover what boon or bane awaits them.\n• 1-2: The site is a remembrance for a fallen explorer. A frozen Stamina Potion lies at its base.\n• 3-6: A large stone points toward the closest settlement. Navigation attempts on the next leg of the journey are made at advantage.\n• 7-10: The script on the stone is a warning in the language of Giants. A Frost Jötunn and their pet Rime Wolf find the party soon after.\n• 11: There is an unnaturally warm geothermal spring here. Its waters might be restorative, or could be fouled by magics.\n• 12: This is a burial cairn, haunted by a Hearthless Ghost.",
+            "ru": "Персонажи обнаруживают крупный каменный указатель, монумент или иное магическое проявление Инея. Эти монументы могут быть родом из давно минувшей эпохи и рассказывать истории прошлой цивилизации или указывать путь для других. Пусть персонаж бросит кость судьбы, чтобы узнать, какое благо или горе его ждёт.\n• 1-2: это место памяти павшему исследователю. У его подножия лежит замёрзшее Зелье Выносливости.\n• 3-6: большой камень указывает в сторону ближайшего поселения. Попытки навигации на следующем этапе пути совершаются с преимуществом.\n• 7-10: надпись на камне — предупреждение на языке Великанов. Морозный Йотун со своим ручным Инистым Волком вскоре находят группу.\n• 11: здесь есть неестественно тёплый геотермальный источник. Его воды могут быть целебными, либо оскверненными магией.\n• 12: это погребальный курган, населённый Бессердечным Призраком."
+          },
+          "prompt": {
+            "en": "Who erected this monument? What effects has the rime had on the place?",
+            "ru": "Кто воздвиг этот монумент? Какое воздействие иней оказал на это место?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Hunting Yetis",
+            "ru": "Охота на Йети"
+          },
+          "description": {
+            "en": "Spend a Fear to summon two Rimefouled Yetis who appear in the scene Hidden. When the Yetis reveal themselves, all PCs must succeed on an Instinct Reaction Roll. Targets who fail mark a Stress. You gain a Fear for each failure. You may then spotlight one of the Yetis.",
+            "ru": "Потратьте Страх, чтобы призвать двух Иневлаженных Йети, которые появляются на сцене Скрытыми. Когда Йети раскрывают себя, все персонажи должны совершить успешный Бросок Реакции на Инстинкт. Провалившие его цели отмечают Стресс. Вы получаете Страх за каждую неудачу. После этого вы можете дать Активацию одному из Йети."
+          },
+          "prompt": {
+            "en": "How did the Yeti’s find the PCs? Are there signs of the party being hunted?",
+            "ru": "Как Йети нашли персонажей? Есть ли признаки того, что за группой охотятся?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "frozen"
+      ]
+    },
+    {
+      "id": "ancient-power-conduit",
+      "tier": 2,
+      "type": "exploration",
+      "difficulty": 13,
+      "name": {
+        "en": "Ancient Power Conduit",
+        "ru": "Древний Проводник Силы"
+      },
+      "impulses": {
+        "en": [
+          "Keep old tech",
+          "describe the past",
+          "attack trespassers"
+        ],
+        "ru": [
+          "Хранить старые технологии",
+          "рассказывать о прошлом",
+          "нападать на нарушителей"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Mechanized Menaces (Decimator, Defense Drone, EREN, Hover Turret, Rummager, Sewer Snake)",
+          "mechanical versions of other adversaries (see “Remnants of the Old World”)"
+        ],
+        "ru": [
+          "Механизированные Угрозы (Разрушитель, Дрон Обороны, ЭРЕН, Турель Парения, Сборщик Хлама, Канализационный Змей)",
+          "механические версии других противников (см. «Останки Старого Мира»)"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Terminal Hack",
+            "ru": "Взлом Терминала"
+          },
+          "description": {
+            "en": "There is an item within the Conduit that pertains to the PCs goals, but it is locked behind multiple layers of security. A PC that hacks into a terminal looking for information about the item can make an Instinct or Knowledge Roll to discover information about the Conduit.\n• On a Critical Success: They learn both of the details below and find a Key Card that allows them to bypass one security measure.\n• On a Success: They learn both of the details below.\n• On a Failure: They mark a Stress and find one of the details below.\n• Any roll with Fear: Tick down the “Security Breach” countdown by 1.\n• Details: The location of the item. The kinds of security measures that protect it.",
+            "ru": "В Проводнике есть предмет, относящийся к целям персонажей, но он заперт за несколькими слоями защиты. Персонаж, взламывающий терминал в поисках сведений о предмете, может совершить бросок Инстинкта или Знания, чтобы узнать сведения о Проводнике.\n• При критическом успехе: он узнаёт оба сведения ниже и находит Ключ-Карту, позволяющую обойти одну меру безопасности.\n• При успехе: он узнаёт оба сведения ниже.\n• При неудаче: он отмечает Стресс и узнаёт одно из сведений ниже.\n• Любой бросок со Страхом: уменьшите отсчёт «Нарушение Безопасности» на 1.\n• Сведения: местонахождение предмета. Виды мер безопасности, защищающих его."
+          },
+          "prompt": {
+            "en": "Where is the item located? What security measures keep it safe?",
+            "ru": "Где находится предмет? Какие меры безопасности его охраняют?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "I’m In",
+            "ru": "Я Внутри"
+          },
+          "description": {
+            "en": "If a PC that attempts to hack a security system fails, tick down the “Security Breach” Countdown by 1 unless the PC marks a Stress to reroll their Hope die. If they fail again, tick down the “Security Breach” Countdown by 2.",
+            "ru": "Если персонаж, пытающийся взломать систему безопасности, проваливает бросок, уменьшите отсчёт «Нарушение Безопасности» на 1, если только персонаж не отметит Стресс, чтобы перебросить кость Надежды. Если он проваливает снова, уменьшите отсчёт «Нарушение Безопасности» на 2."
+          },
+          "prompt": {
+            "en": "What kind of security access point is this? What methods do the PCs use to bypass it?",
+            "ru": "Что это за точка доступа безопасности? Какими способами персонажи пытаются её обойти?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Remnants of the Old World",
+            "ru": "Останки Старого Мира"
+          },
+          "description": {
+            "en": "Adversaries who appear here are robotic. They have a +1 bonus to their Thresholds per tier.",
+            "ru": "Противники, появляющиеся здесь, механические. Они получают бонус +1 к порогам урона за каждый ранг."
+          },
+          "prompt": {
+            "en": "What do these robots look like? What purpose did they serve?",
+            "ru": "Как выглядят эти роботы? Для какой цели они служили?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Security Breach",
+            "ru": "Нарушение Безопасности"
+          },
+          "description": {
+            "en": "Countdown (6). When the PCs enter the scene, activate the countdown. It ticks down as described in the features above. When it triggers, all PCs in the scene lose a Hope. Summon an EREN and two Hover turrets within Close range of the triggering PC.",
+            "ru": "Отсчёт (6). Когда персонажи входят на сцену, активируйте отсчёт. Он уменьшается, как описано в свойствах выше. Когда он срабатывает, все персонажи на сцене теряют Надежду. Призовите ЭРЕНа и двух Турелей Парения в пределах Близкой дистанции от спровоцировавшего это персонажа."
+          },
+          "prompt": {
+            "en": "What sorts of defense systems are there in the Conduit? How many of them are still fully operational?",
+            "ru": "Какие системы обороны есть в Проводнике? Сколько из них всё ещё полностью работоспособны?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "underground"
+      ]
+    },
+    {
+      "id": "almara-forest",
+      "tier": 3,
+      "type": "traversal",
+      "difficulty": 16,
+      "name": {
+        "en": "Almara Forest",
+        "ru": "Лес Альмара"
+      },
+      "impulses": {
+        "en": [
+          "Obscure",
+          "slow",
+          "keep hidden"
+        ],
+        "ru": [
+          "Скрывать",
+          "замедлять",
+          "оставаться незамеченным"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Verdant Defenders (Dryad, Oak Treant, Stag Knight)",
+          "Young Ice Dragon"
+        ],
+        "ru": [
+          "Защитники Леса (Дриада, Дубовый Трэнт, Рыцарь-Олень)",
+          "Молодой Ледяной Дракон"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Dense Forest",
+            "ru": "Густой Лес"
+          },
+          "description": {
+            "en": "Navigating the Torso to find the Temple requires the party to complete a Progress Countdown (6). A PC who rolls a failure with Fear summons a Stag Knight who appears above them and immediately takes the spotlight to use their “Blade of the Forest” action.",
+            "ru": "Чтобы найти Храм, ориентируясь по Торсу, группа должна завершить Отсчёт Прогресса (6). Персонаж, выбросивший результат со Страхом, призывает Рыцаря-Оленя, который появляется над персонажами и немедленно получает Активацию, чтобы использовать действие «Клинок Леса»."
+          },
+          "prompt": {
+            "en": "What actions can the PCs take to navigate this forest? How does it differ from one that is on the ground?",
+            "ru": "Какие действия могут предпринять персонажи для навигации в этом лесу? Чем он отличается от леса на земле?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Burst of Cold",
+            "ru": "Порыв Холода"
+          },
+          "description": {
+            "en": "Spend a Fear to send a frozen blast of ice through a point of your choice. All targets within Close range must succeed on a Strength Reaction Roll or take 3d4 direct magical damage.",
+            "ru": "Потратьте Страх, чтобы послать замороженный ледяной порыв через выбранную вами точку. Все цели в пределах Близкой дистанции должны совершить успешный Бросок Реакции на Силу или получить 3d4 прямого магического урона."
+          },
+          "prompt": {
+            "en": "Where is the wind originating from? Is there a way for the PCs to shield themselves from it?",
+            "ru": "Откуда берётся этот ветер? Есть ли у персонажей способ от него укрыться?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Torment of the Woods",
+            "ru": "Мучение Леса"
+          },
+          "description": {
+            "en": "If a PC rolls less than a 17 on an action roll, they must mark a Stress.",
+            "ru": "Если персонаж выбрасывает на броске действия меньше 17, он должен отметить Стресс."
+          },
+          "prompt": {
+            "en": "What form does this torment take?",
+            "ru": "Какую форму принимает это мучение?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "forest"
+      ]
+    },
+    {
+      "id": "dread-mire",
+      "tier": 3,
+      "type": "exploration",
+      "difficulty": 16,
+      "name": {
+        "en": "Dread Mire",
+        "ru": "Гиблая Топь"
+      },
+      "impulses": {
+        "en": [
+          "Banish the light",
+          "fester",
+          "nurture decay"
+        ],
+        "ru": [
+          "Изгонять свет",
+          "гноиться",
+          "взращивать разложение"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Adult Murk Drake",
+          "Bog Conjurer",
+          "Bog Siren",
+          "Corrupted Piranha School",
+          "Crocodiles (Giant, Juvenile Giant)",
+          "Greater Water Elemental",
+          "Huge Green Ooze",
+          "Hydra",
+          "Oozing Husk",
+          "Verdant Defenders (Dryad, Oak Treants, Treant Saplings)",
+          "Vine Behemoth",
+          "Vine Serpent"
+        ],
+        "ru": [
+          "Взрослый Мрачный Дракончик",
+          "Болотный Заклинатель",
+          "Болотная Сирена",
+          "Стая Порченых Пираний",
+          "Крокодилы (Гигантский, Юный Гигантский)",
+          "Великий Водный Элементаль",
+          "Огромная Зелёная Слизь",
+          "Гидра",
+          "Гниющий Труп-Оболочка",
+          "Защитники Леса (Дриада, Дубовые Трэнты, Трэнты Саженцы)",
+          "Лозяной Исполин",
+          "Лозяной Змей"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Sinister Tidings",
+            "ru": "Зловещие Знамения"
+          },
+          "description": {
+            "en": "Upon entering the Mire, PCs gain a sense of permeating evil and must mark a Stress. A PC who seeks a deeper understanding, or location of the evil presence can make an Instinct or Knowledge Roll.\n• Critical Success: They learn who or what is behind the corruption, its general location, and one piece of information which grants them a token to use for advantage on one roll they make while in the Dread Mire. Begin a Progress Countdown (4). When it triggers, resolve the current scene, then shift to the Heart of the Mire environment.\n• Success with Hope: They learn who or what is behind the corruption and its general location. Begin a Progress Countdown (6). When it triggers, resolve the current scene, then shift to the Heart of the Mire environment.\n• Success with Fear: They learn who or what is behind the corruption, but must mark a Stress because something in the Mire has become aware of them.\n• Failure with Hope: They learn nothing.\n• Failure with Fear: They learn nothing and are Vulnerable until they clear a Stress.",
+            "ru": "Войдя в Топь, персонажи ощущают разлитое зло и должны отметить Стресс. Персонаж, стремящийся глубже понять природу или местонахождение этого зла, может совершить бросок Инстинкта или Знания.\n• Критический успех: они узнают, кто или что стоит за порчей, её приблизительное местонахождение и одно сведение, дающее им жетон для преимущества на один бросок, пока они находятся в Гиблой Топи. Начните Отсчёт Прогресса (4). Когда он срабатывает, завершите текущую сцену, затем смените окружение на «Сердце Топи».\n• Успех с Надеждой: они узнают, кто или что стоит за порчей, и её приблизительное местонахождение. Начните Отсчёт Прогресса (6). Когда он срабатывает, завершите текущую сцену, затем смените окружение на «Сердце Топи».\n• Успех со Страхом: они узнают, кто или что стоит за порчей, но должны отметить Стресс, поскольку нечто в Топи заметило их.\n• Неудача с Надеждой: они ничего не узнают.\n• Неудача со Страхом: они ничего не узнают и становятся Уязвимыми, пока не снимут Стресс."
+          },
+          "prompt": {
+            "en": "Who or what is causing this corruption? In what ways does this evil manifest as the PCs explore?",
+            "ru": "Кто или что вызывает эту порчу? Как это зло проявляется, пока персонажи исследуют местность?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Leeches",
+            "ru": "Пиявки"
+          },
+          "description": {
+            "en": "The waters of the mire are infested with leeches. These creatures attach themselves to any flesh they can find. A PC who has exposed flesh in the water has several attach to them. They can make an Instinct Roll to remove the leeches. On a failure, the PC who has the leeches on their body marks a HP. On a success they mark a Stress.",
+            "ru": "Воды топи кишат пиявками. Эти существа присасываются к любой плоти, какую находят. Если у персонажа в воде обнажена плоть, к ней присасывается несколько пиявок. Он может совершить бросок Инстинкта, чтобы их снять. При неудаче персонаж с пиявками на теле отмечает Рану. При успехе он отмечает Стресс."
+          },
+          "prompt": {
+            "en": "Do the leeches carry disease? What precautions can the PCs take to prevent more leeches?",
+            "ru": "Переносят ли пиявки болезни? Какие меры предосторожности могут принять персонажи, чтобы избежать новых пиявок?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "No Rest for the Weary",
+            "ru": "Нет Покоя Усталым"
+          },
+          "description": {
+            "en": "If the PCs choose to rest in the Dread Mire, you gain an additional 1d4 Fear.",
+            "ru": "Если персонажи решают отдохнуть в Гиблой Топи, вы получаете дополнительные 1d4 Страха."
+          },
+          "prompt": {
+            "en": "What things do the PCs see or hear during their downtime to make it less restful? Can you advance a long-term countdown as a result of their delay?",
+            "ru": "Что персонажи видят или слышат во время простоя, из-за чего отдых не приносит покоя? Можете ли вы продвинуть долгосрочный отсчёт из-за их промедления?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "You Belong to the Mire",
+            "ru": "Ты Принадлежишь Топи"
+          },
+          "description": {
+            "en": "Spend a Fear to introduce a sinking mire pit to the scene. All PCs must succeed on an Instinct Reaction Roll. On a failure, the PC is Sinking in the mire and a total of 3 Stress must be marked (either by the Sinking PC or others who can aid them) to clear the condition. If not enough Stress is available, PCs must mark HP instead.",
+            "ru": "Потратьте Страх, чтобы ввести на сцену затягивающую топкую яму. Все персонажи должны совершить успешный Бросок Реакции на Инстинкт. При неудаче персонаж Тонет в топи, и должен быть отмечен в общей сложности 3 Стресса (либо самим Тонущим персонажем, либо другими, кто может ему помочь), чтобы снять это состояние. Если недостаточно доступного Стресса, персонажи должны вместо этого отмечать Раны."
+          },
+          "prompt": {
+            "en": "Are there vines or roots nearby to grab onto? What thoughts run through PCs’ minds as they are pulled under?",
+            "ru": "Есть ли поблизости лозы или корни, за которые можно ухватиться? Какие мысли проносятся в голове персонажей, пока их затягивает под воду?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Piranha",
+            "ru": "Пиранья"
+          },
+          "description": {
+            "en": "When a PC marks HP while in water, you can spend a Fear to summon one Corrupted Piranha School for each PC. They appear at Far range and are immediately spotlighted.",
+            "ru": "Когда персонаж отмечает Рану, находясь в воде, вы можете потратить Страх, чтобы призвать по одной Стае Порченых Пираний на каждого персонажа. Они появляются на Дальней дистанции и немедленно получают Активацию."
+          },
+          "prompt": {
+            "en": "Are there places nearby to climb out of the water? Is the water deep enough to force some or all of the PCs to swim?",
+            "ru": "Есть ли поблизости места, чтобы выбраться из воды? Достаточно ли глубока вода, чтобы вынудить некоторых или всех персонажей плыть?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "I See You",
+            "ru": "Я Вижу Тебя"
+          },
+          "description": {
+            "en": "When a PC fails or rolls with Fear to gain information about the Dread Mire in “Sinister Tidings”, activate a Consequence Countdown (8). When the Countdown triggers, the PCs stumble onto the source of the corruption unaware. Resolve the current scene, then gain a Fear and shift to the Heart of the Mire environment and spotlight it.",
+            "ru": "Когда персонаж проваливает бросок или выбрасывает результат со Страхом, пытаясь получить сведения о Гиблой Топи в «Зловещих Знамениях», активируйте Отсчёт Последствий (8). Когда Отсчёт срабатывает, персонажи неосознанно натыкаются на источник порчи. Завершите текущую сцену, затем получите Страх и смените окружение на «Сердце Топи», активировав его."
+          },
+          "prompt": {
+            "en": "What lies in wait at the Heart of the Mire? What advantage might be gained over the surprised PCs?",
+            "ru": "Что поджидает в Сердце Топи? Какое преимущество можно получить над застигнутыми врасплох персонажами?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "wetland"
+      ]
+    },
+    {
+      "id": "heart-of-the-mire",
+      "tier": 3,
+      "type": "event",
+      "difficulty": 16,
+      "name": {
+        "en": "Heart of the Mire",
+        "ru": "Сердце Топи"
+      },
+      "impulses": {
+        "en": [
+          "Feed on the living",
+          "spread corruption",
+          "succumb to the pain"
+        ],
+        "ru": [
+          "Питаться живыми",
+          "распространять порчу",
+          "поддаваться боли"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Adult Murk Drake",
+          "Bog Conjurer",
+          "Bog Siren",
+          "Crocodiles (Giant, Juvenile Giant)",
+          "Huge Green Ooze",
+          "Hydra",
+          "Oozing Husk",
+          "Verdant Defenders (Oak Treants, Treant Sapling)",
+          "Vine Behemoth",
+          "Vine Serpent"
+        ],
+        "ru": [
+          "Взрослый Мрачный Дракончик",
+          "Болотный Заклинатель",
+          "Болотная Сирена",
+          "Крокодилы (Гигантский, Юный Гигантский)",
+          "Огромная Зелёная Слизь",
+          "Гидра",
+          "Гниющий Труп-Оболочка",
+          "Защитники Леса (Дубовые Трэнты, Трэнт Саженец)",
+          "Лозяной Исполин",
+          "Лозяной Змей"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Everything Has Led You to Me",
+            "ru": "Всё Привело Тебя Ко Мне"
+          },
+          "description": {
+            "en": "When the scene begins, designate an adversary as the Primary Combatant. When that adversary is defeated, the Heart’s corruption is halted.",
+            "ru": "Когда сцена начинается, обозначьте одного противника как Главного Противоборца. Когда этот противник побеждён, порча Сердца прекращается."
+          },
+          "prompt": {
+            "en": "What has the Primary Combatant done to the Heart? What do they hope to gain from its corruption or destruction?",
+            "ru": "Что Главный Противоборец сделал с Сердцем? На что он надеется, порочая или уничтожая его?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Overwhelming Dread",
+            "ru": "Всепоглощающий Ужас"
+          },
+          "description": {
+            "en": "Upon entering the Heart, all PCs lose a Hope. If they have no Hope to lose, they are Vulnerable until they make an action roll.",
+            "ru": "Войдя в Сердце, все персонажи теряют Надежду. Если у них нет Надежды, чтобы потерять, они становятся Уязвимыми, пока не совершат бросок действия."
+          },
+          "prompt": {
+            "en": "What in particular makes the atmosphere so oppressive? Does the Primary Combatant show themselves immediately?",
+            "ru": "Что именно делает атмосферу столь гнетущей? Раскрывает ли себя Главный Противоборец сразу?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Grasping Vines",
+            "ru": "Хватающие Лозы"
+          },
+          "description": {
+            "en": "Choose a point in the scene. All targets within a Very Close range of that point must succeed on an Agility or Instinct Reaction Roll. Targets who fail are Restrained by roots and vines until they break free with a Strength roll.",
+            "ru": "Выберите точку на сцене. Все цели в пределах Очень Близкой дистанции от этой точки должны совершить успешный Бросок Реакции на Проворность или Инстинкт. Цели, провалившие бросок, становятся Обездвиженными корнями и лозами, пока не освободятся броском Силы."
+          },
+          "prompt": {
+            "en": "How does the corruption manifest in the plant life? How else might a target free itself?",
+            "ru": "Как порча проявляется в растительной жизни? Каким ещё способом цель может освободиться?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "The Very Earth Trembles",
+            "ru": "Сама Земля Содрогается"
+          },
+          "description": {
+            "en": "Spend a Fear to send a shock wave through the swamp, toppling your choice of 1d4 of the standing stones. All creatures within Very Close range of those stones must make an Agility Reaction Roll. On a failure, the creature takes 3d20 physical damage and is Restrained and Vulnerable until they break free, clearing both conditions, with a Strength roll. Creatures who succeed must mark a Stress.",
+            "ru": "Потратьте Страх, чтобы послать по болоту ударную волну, обрушивающую по вашему выбору 1d4 из стоячих камней. Все существа в пределах Очень Близкой дистанции от этих камней должны совершить Бросок Реакции на Проворность. При неудаче существо получает 3d20 физического урона и становится Обездвиженным и Уязвимым, пока не освободится, сняв оба состояния броском Силы. Существа, прошедшие бросок, должны отметить Стресс."
+          },
+          "prompt": {
+            "en": "Do the PCs notice cracks in any of the stones which indicate instability? Could the PCs use unstable stones to their advantage?",
+            "ru": "Замечают ли персонажи трещины на каких-либо камнях, указывающие на нестабильность? Могут ли персонажи использовать нестабильные камни себе на пользу?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "The Mire is Mine!",
+            "ru": "Топь Моя!"
+          },
+          "description": {
+            "en": "When the Primary Combatant enters the scene, begin a Countdown (Loop 3), which ticks down each time a PC rolls with Fear. When it triggers, black swarms of biting and stinging insects fly out from crevasses in the standing stones. All targets in the scene must make an Instinct Reaction Roll, taking 3d6 physical damage on a failure and half damage on a success.",
+            "ru": "Когда Главный Противоборец появляется на сцене, начните Отсчёт (Цикл 3), который уменьшается каждый раз, когда персонаж выбрасывает результат со Страхом. Когда он срабатывает, чёрные рои кусающих и жалящих насекомых вылетают из трещин в стоячих камнях. Все цели на сцене должны совершить Бросок Реакции на Инстинкт, получая 3d6 физического урона при неудаче и половину урона при успехе."
+          },
+          "prompt": {
+            "en": "Can the PCs do anything to shield themselves from the swarms? Do the insects remain and hamper visibility?",
+            "ru": "Могут ли персонажи как-то защититься от роёв? Остаются ли насекомые, затрудняя видимость?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "wetland"
+      ]
+    },
+    {
+      "id": "droughtlands",
+      "tier": 3,
+      "type": "traversal",
+      "difficulty": 16,
+      "name": {
+        "en": "Droughtlands",
+        "ru": "Засушливые Земли"
+      },
+      "impulses": {
+        "en": [
+          "Thirst for water",
+          "powderkeg",
+          "relentless"
+        ],
+        "ru": [
+          "Жаждать воды",
+          "быть пороховой бочкой",
+          "не знать пощады"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Cinder Ant",
+          "Fire Beetles",
+          "Flame Fanner",
+          "Ignocerous",
+          "Spikeback Fire-Eater",
+          "Spitfire Rattler"
+        ],
+        "ru": [
+          "Пепельный Муравей",
+          "Огненные Жуки",
+          "Раздуватель Пламени",
+          "Игноцерус",
+          "Шипастый Огнеед",
+          "Огнемётная Гремучница"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Parched",
+            "ru": "Иссушённые"
+          },
+          "description": {
+            "en": "Because of the lack of water and need to keep hydrated, PCs must succeed on a Strength or Instinct roll at the conclusion of each scene. On a failure, they must mark a Stress.",
+            "ru": "Из-за нехватки воды и необходимости оставаться увлажнёнными, персонажи должны совершить успешный бросок Силы или Инстинкта в конце каждой сцены. При неудаче они должны отметить Стресс."
+          },
+          "prompt": {
+            "en": "What can the PCs do to conserve water? Did they think ahead and bring extra? Can they find, or even create their own?",
+            "ru": "Что могут сделать персонажи, чтобы сохранить воду? Подумали ли они заранее и взяли ли запас? Могут ли они найти или даже создать воду сами?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Dry Lightning",
+            "ru": "Сухая Молния"
+          },
+          "description": {
+            "en": "Spend X Fear to introduce a rainless thunderstorm. Choose the smallest die that is greater than the number of PCs. For example, if you have 4 PCs, use a d6. Assign a number to each PC, then roll the die to determine the target of a lightning strike. If the number corresponds to a PC, they must make an Agility or Instinct Reaction Roll. On a failure, they take 3d8 direct magic damage and mark a Stress. On a success, they take half damage. If the number rolled is not assigned to a PC, the lightning strikes an area on the map of your choosing and starts an Open Fire. Roll the die again once for each Fear you spent on this move.",
+            "ru": "Потратьте X Страха, чтобы ввести грозу без дождя. Выберите наименьшую кость, значение которой больше числа персонажей. Например, если у вас 4 персонажа, используйте d6. Присвойте каждому персонажу число, затем бросьте кость, чтобы определить цель удара молнии. Если выпавшее число соответствует персонажу, он должен совершить Бросок Реакции на Проворность или Инстинкт. При неудаче он получает 3d8 прямого магического урона и отмечает Стресс. При успехе он получает половину урона. Если выпавшее число не соответствует ни одному персонажу, молния бьёт в выбранную вами область на карте и начинает Открытый Пожар. Бросьте кость ещё раз за каждый потраченный на этот ход Страх."
+          },
+          "prompt": {
+            "en": "Are PCs with metal armor more likely to be hit? Can PCs take cover somehow to avoid being hit?",
+            "ru": "Персонажи в металлической броне более уязвимы для удара? Могут ли персонажи как-то укрыться, чтобы избежать попадания?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Ignocerous Territory",
+            "ru": "Территория Игноцеруса"
+          },
+          "description": {
+            "en": "When the PCs enter the domain of an Ignocerous, one appears at Very Far range of a PC it perceives as the biggest threat. Include 1d4+1 Flame Fanners along for the ride on its back.",
+            "ru": "Когда персонажи входят во владения Игноцеруса, один из них появляется на Очень Дальней дистанции от персонажа, которого он воспринимает как наибольшую угрозу. Вместе с ним на его спине едут 1d4+1 Раздувателей Пламени."
+          },
+          "prompt": {
+            "en": "How might the PCs deal with the threat outside of combat? How determined is the Ignocerous? Is it protecting something besides its territory—young perhaps?",
+            "ru": "Как персонажи могут разрешить угрозу вне боя? Насколько решительно настроен Игноцерус? Защищает ли он что-то, помимо своей территории — возможно, детёнышей?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Open Fires",
+            "ru": "Открытые Пожары"
+          },
+          "description": {
+            "en": "Whenever the ground cover or dry foliage are on fire, start a Countdown (Loop 1d4) which progresses each time the PCs fail or roll with Fear. When it triggers, 1d4 Fire Beetles emerge from the burnt area.",
+            "ru": "Всякий раз, когда почвенный покров или сухая листва загораются, начните Отсчёт (Цикл 1d4), который продвигается каждый раз, когда персонажи проваливают бросок или выбрасывают результат со Страхом. Когда он срабатывает, 1d4 Огненных Жуков появляются из выгоревшей области."
+          },
+          "prompt": {
+            "en": "How can the PCs put out fires? If they use their water supply, what are the consequences?",
+            "ru": "Как персонажи могут потушить огонь? Если они используют свой запас воды, каковы будут последствия?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "drylands"
+      ]
+    },
+    {
+      "id": "demonic-abyss",
+      "tier": 3,
+      "type": "exploration",
+      "difficulty": 17,
+      "name": {
+        "en": "Demonic Abyss",
+        "ru": "Демоническая Бездна"
+      },
+      "impulses": {
+        "en": [
+          "Turn interlopers into thralls",
+          "devour souls",
+          "push the weak into the chasm",
+          "protect the queen"
+        ],
+        "ru": [
+          "Превращать чужаков в рабов",
+          "пожирать души",
+          "сталкивать слабых в пропасть",
+          "защищать королеву"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Hive of Evil (Abbadon Wasp, Captured Thrall, Cilrathi Queensguard, Scythicant Sentinel, Wasp Queen, Waspwyrm)",
+          "Dire Bats",
+          "Greater Earth Elemental"
+        ],
+        "ru": [
+          "Улей Зла (Оса Абаддона, Захваченный Раб, Стражница Королевы Цилрати, Часовой-Косокрыл, Королева Ос, Осодрак)",
+          "Ужасные Летучие Мыши",
+          "Великий Земляной Элементаль"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Evil Bargain",
+            "ru": "Дьявольская Сделка"
+          },
+          "description": {
+            "en": "When a PC rolls with Fear, they may mark a Stress to change the roll into a roll with Hope instead. If a PC does this, you gain 2 Fear.",
+            "ru": "Когда персонаж выбрасывает результат со Страхом, он может отметить Стресс, чтобы превратить бросок в результат с Надеждой. Вы получаете 2 Страха."
+          },
+          "prompt": {
+            "en": "Who offers this deal to the PC? Is there something they gain from helping the party?",
+            "ru": "Кто предлагает эту сделку персонажу? Получает ли этот некто что-то от помощи группе?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Infernal Buzzing",
+            "ru": "Инфернальное Жужжание"
+          },
+          "description": {
+            "en": "The stones seem to vibrate with a malevolent tone, shifting slightly. The resulting drone bends the nerves and grates on the senses. When characters make Instinct or Knowledge Rolls, they roll 1d4 and subtract it from the total.",
+            "ru": "Камни, кажется, вибрируют злобным тоном, слегка сдвигаясь. Возникающий гул действует на нервы и раздражает чувства. Когда персонажи совершают броски Инстинкта или Знания, они бросают 1d4 и вычитают его из результата."
+          },
+          "prompt": {
+            "en": "What eerie noises do the PCs hear as they approach? Are there any physical symptoms that might manifest for the PCs or ways to remove the effect?",
+            "ru": "Какие жуткие звуки слышат персонажи, приближаясь? Есть ли какие-либо физические симптомы, которые могут проявиться у персонажей, или способы снять этот эффект?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Vile Exsanguination",
+            "ru": "Мерзкое Кровопускание"
+          },
+          "description": {
+            "en": "The blood of the chained being above drips down at a point of your choice. All targets within a Very Close range must make an Agility Reaction Roll. Targets who fail take 3d8 magical damage and must mark a Stress. Targets who succeed take half damage.",
+            "ru": "Кровь скованного существа наверху капает в выбранную вами точку. Все цели в пределах Очень Близкой дистанции должны совершить Бросок Реакции на Проворность. Провалившие его цели получают 3d8 магического урона и должны отметить Стресс. Преуспевшие цели получают половину урона."
+          },
+          "prompt": {
+            "en": "What does the blood smell like? How does it change the spot where it came in contact with the character?",
+            "ru": "Чем пахнет эта кровь? Как она меняет место, с которым соприкасается?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Prey Caught",
+            "ru": "Добыча Поймана"
+          },
+          "description": {
+            "en": "Spend a Fear to ambush the party. Two Scythicant Sentinels burst from the walls in Close range of the PCs and immediately take the spotlight. Start a Countdown (8). If the countdown reaches 0 before the scene ends, summon two Cilrathi Queensguard riding Waspwyrms who appear at Far range.",
+            "ru": "Потратьте Страх, чтобы устроить засаду на группу. Два Часовых-Косокрыла вырываются из стен в пределах Близкой дистанции от персонажей и немедленно получают Активацию. Начните Отсчёт (8). Если отсчёт достигает 0 до конца сцены, призовите двух Стражниц Королевы Цилрати, скачущих на Осодраках, которые появляются на Дальней дистанции."
+          },
+          "prompt": {
+            "en": "Where might this ambush take place? What environmental hazards might also be found?",
+            "ru": "Где могла произойти эта засада? Какие опасности окружающей среды здесь ещё можно найти?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Bleak Revelation",
+            "ru": "Мрачное Откровение"
+          },
+          "description": {
+            "en": "Countdown (Loop 1d6). When the PCs enter the cavern, activate the countdown. When it triggers, All PCs must roll their Hope die. The one with the lowest roll hears the overwhelming voice of the chained creature above, whispering uncertainty into their minds. That PC loses a Hope.",
+            "ru": "Отсчёт (Цикл 1d6). Когда персонажи входят в пещеру, активируйте отсчёт. Когда он срабатывает, все персонажи бросают свою кость Надежды. Тот, кто выбросил наименьший результат, слышит подавляющий голос скованного существа наверху, нашёптывающий сомнения в его разум. Этот персонаж теряет Надежду."
+          },
+          "prompt": {
+            "en": "What does the creature’s corpse say? What might it know about the PC?",
+            "ru": "Что говорит труп существа? Что оно может знать об этом персонаже?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "underground"
+      ]
+    },
+    {
+      "id": "extraplanar-breach",
+      "tier": 3,
+      "type": "event",
+      "difficulty": 17,
+      "name": {
+        "en": "Extraplanar Breach",
+        "ru": "Внепланарный Разлом"
+      },
+      "impulses": {
+        "en": [
+          "Unleash the troops",
+          "bend space",
+          "remake to familiarity"
+        ],
+        "ru": [
+          "Выпустить войска",
+          "искривлять пространство",
+          "переделывать под привычное"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Chromatic Eel",
+          "Xeralyth (Concubine, Dragoon, Queen)"
+        ],
+        "ru": [
+          "Хроматический Угорь",
+          "Ксералит (Наложница, Драгун, Королева)"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Queen is the Key",
+            "ru": "Ключ — Королева"
+          },
+          "description": {
+            "en": "The Xeralyth Queen is holding the portal open with her psychic energy. When she is defeated, the portal closes.",
+            "ru": "Королева Ксералитов удерживает портал открытым своей псионической энергией. Когда она побеждена, портал закрывается."
+          },
+          "prompt": {
+            "en": "How can the PCs discern this information? Is it possible to convince the Queen to close it of their own accord?",
+            "ru": "Как персонажи могут узнать эти сведения? Возможно ли убедить Королеву закрыть его добровольно?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Light on Your Feet",
+            "ru": "Лёгкий На Ногу"
+          },
+          "description": {
+            "en": "The area within Very Far range of the portal has less gravity. Strength rolls made to lift objects have advantage. Strength rolls made to avoid forced movement have disadvantage and falling damage is halved.",
+            "ru": "В области в пределах Очень Дальней дистанции от портала гравитация ослаблена. Броски Силы, совершаемые для поднятия предметов, совершаются с преимуществом. Броски Силы, совершаемые, чтобы избежать вынужденного перемещения, совершаются с помехой, а урон от падения уменьшается вдвое."
+          },
+          "prompt": {
+            "en": "Can the PCs use this to their advantage? How does it affect them to know reality is already being altered near the portal?",
+            "ru": "Могут ли персонажи использовать это в свою пользу? Как на них влияет осознание того, что реальность уже искажается вблизи портала?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Time Bender",
+            "ru": "Искривитель Времени"
+          },
+          "description": {
+            "en": "The area within Far range of the portal is fluctuating in time. When a PC takes the spotlight, they roll their duality dice. If their Hope die is higher, they can take two actions before passing the spotlight. If their Fear die is higher, they must mark a Stress before proceeding with their spotlight. If the numbers are equal, their spotlight proceeds as normal. No Hope or Fear are gained with this roll.",
+            "ru": "Область в пределах Дальней дистанции от портала колеблется во времени. Когда персонаж получает Активацию, он бросает свои кости двойственности. Если его кость Надежды выше, он может совершить два действия, прежде чем передать Активацию. Если его кость Страха выше, он должен отметить Стресс, прежде чем продолжить свою Активацию. Если числа равны, его Активация проходит как обычно. Надежда или Страх за этот бросок не начисляются."
+          },
+          "prompt": {
+            "en": "How does time warp around the PC after they make their roll?",
+            "ru": "Как время искажается вокруг персонажа после этого броска?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Reinforcements!",
+            "ru": "Подкрепление!"
+          },
+          "description": {
+            "en": "Spend a Fear to summon 1d4 Xeralyth Dragoons who appear within Melee range of the portal. PCs within Far range either mark a Stress or lose a Hope.",
+            "ru": "Потратьте Страх, чтобы призвать 1d4 Драгунов Ксералитов, которые появляются в пределах Дистанции Ближнего Боя от портала. Персонажи в пределах Дальней дистанции либо отмечают Стресс, либо теряют Надежду."
+          },
+          "prompt": {
+            "en": "How do the PCs feel upon seeing more adversaries appear on the battlefield?",
+            "ru": "Что персонажи чувствуют, видя, как на поле боя появляется всё больше противников?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Jelly Bombs",
+            "ru": "Желейные Бомбы"
+          },
+          "description": {
+            "en": "When the Queen takes Major or greater damage, waves of floating, explosive, tentacled blobs fly out from the portal toward all targets within Close range. Targets must make an Agility Reaction Roll, taking 3d8 physical damage on a failure. Targets who succeed take half damage.",
+            "ru": "Когда Королева получает Ощутимый или больший урон, волны парящих, взрывающихся, щупальцевых сгустков вылетают из портала во все цели в пределах Близкой дистанции. Цели должны совершить Бросок Реакции на Проворность, получая при неудаче 3d8 физического урона. Преуспевшие цели получают половину урона."
+          },
+          "prompt": {
+            "en": "What do the jelly bombs look like? What happens when they explode?",
+            "ru": "Как выглядят эти желейные бомбы? Что происходит, когда они взрываются?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "universal"
+      ]
+    },
+    {
+      "id": "prison-city-pyrrhexis",
+      "tier": 4,
+      "type": "social",
+      "difficulty": 20,
+      "name": {
+        "en": "Prison City Pyrrhexis",
+        "ru": "Тюремный Город Пиррексис"
+      },
+      "impulses": {
+        "en": [
+          "Exhaust",
+          "lie",
+          "cheat",
+          "steal but don’t get caught"
+        ],
+        "ru": [
+          "Изнурять",
+          "лгать",
+          "обманывать",
+          "красть, но не попадаться"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Demons (Any)",
+          "Hellish Army (Ashen Demon King, Cinderwretch, Flamereaver, Greater Fire Demon, Pyrothurge)"
+        ],
+        "ru": [
+          "Демоны (любые)",
+          "Адское Воинство (Пепельный Царь Демонов, Пепельный Отверженец, Пожиратель Пламени, Великий Огненный Демон, Пиротург)"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "The Palace of Spite",
+            "ru": "Дворец Злобы"
+          },
+          "description": {
+            "en": "The large metal fortress of the Ashen Demon King rises at the center of this Circle. It radiates malevolence and hatred. When a PC rolls a failure with Fear while in the Circle, you gain an extra Fear.",
+            "ru": "Огромная металлическая крепость Пепельного Царя Демонов возвышается в центре этого Круга. Она источает злобу и ненависть. Когда персонаж выбрасывает результат провала со Страхом в пределах Круга, вы получаете дополнительный Страх."
+          },
+          "prompt": {
+            "en": "Are any of the characters susceptible to the overwhelming feelings of evil in the place? What sorts of everyday occurrences are made more evil in the Circle of the Burned?",
+            "ru": "Восприимчив ли кто-то из персонажей к подавляющим чувствам зла в этом месте? Какие обыденные происшествия становятся ещё более злыми в Круге Сожжённых?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Burning Hells",
+            "ru": "Горящие Преисподние"
+          },
+          "description": {
+            "en": "Souls banished here during the Earliest Age scheme endlessly. PCs attempting to barter or gain information must make a Presence Roll (18).\n• On a Critical Success: they learn three of the below details.\n• On a Success: If the roll is a success with Hope, they learn two details. On a success with Fear they learn one, but mark a Stress.\n• On a Failure: They are surrounded by members of the Hellish Army or adversaries of your choosing. Killing these adversaries might direct the party to an NPC who wishes to help them, for a price.\n• Details: At the center of Pyrrhexis is the Palace of Spite. The Ashen Demon King sits the throne in the Palace and is the chief jailor of souls in the Circle; he alone judges their weight and worth. The singular rule of Pyrrhexis is that one must give up something of equal value to that which they gain.",
+            "ru": "Души, изгнанные сюда с Древнейшей Эпохи, бесконечно строят козни. Персонажи, пытающиеся торговаться или получить сведения, должны совершить бросок Влияния (18).\n• При критическом успехе: они узнают три из сведений ниже.\n• При успехе: если бросок — успех с Надеждой, они узнают два сведения. При успехе со Страхом они узнают одно, но отмечают Стресс.\n• При неудаче: их окружают члены Адского Воинства или противники по вашему выбору. Победа над этими противниками может привести группу к НПС, который хочет им помочь, за плату.\n• Сведения: в центре Пиррексиса находится Дворец Злобы. Пепельный Царь Демонов восседает на троне во Дворце и является главным тюремщиком душ в Круге; только он взвешивает их вес и ценность. Единственное правило Пиррексиса — нужно отдать нечто равноценное тому, что получаешь."
+          },
+          "prompt": {
+            "en": "Who might the PCs ask for information? What does it cost to gain this information?",
+            "ru": "К кому персонажи могут обратиться за сведениями? Чего это будет стоить?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Temptations",
+            "ru": "Искушения"
+          },
+          "description": {
+            "en": "Trade and markets exist in this city, but coins have little value here. The denizens instead deal in the souls of the dead and favors from the living that come to the city. A demonic merchant offers the PCs a Tier 4 piece of armor or weapon for a favor. If the party refuses, all PCs mark a Stress.",
+            "ru": "В этом городе есть торговля и рынки, но монеты здесь почти не имеют ценности. Вместо этого местные обитатели торгуют душами мёртвых и услугами живых, приходящих в город. Демонический торговец предлагает персонажам оружие или броню 4 ранга в обмен на услугу. Если группа отказывается, все персонажи отмечают Стресс."
+          },
+          "prompt": {
+            "en": "What favor is the merchant asking for? What dangers do the PCs face if they accept?",
+            "ru": "Какую услугу просит торговец? Какие опасности грозят персонажам, если они согласятся?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Ashen Landscape",
+            "ru": "Пепельный Ландшафт"
+          },
+          "description": {
+            "en": "Countdown (Loop 8). The air is sulphuric and the winds strip flesh from bone. When the PCs enter the Circle of the Burned, activate the countdown. When it triggers, all characters must succeed on a Strength or Instinct Reaction Roll. Targets who fail mark a Stress and take a cumulative –1 penalty to their action rolls while they remain in the Circle of the Burned. A PC that clears all its stress can remove the penalty.",
+            "ru": "Отсчёт (Цикл 8). Воздух здесь серный, а ветра сдирают плоть с костей. Когда персонажи входят в Круг Сожжённых, активируйте отсчёт. Когда он срабатывает, все персонажи должны совершить успешный Бросок Реакции на Силу или Инстинкт. Провалившие его цели отмечают Стресс и получают накопительный штраф -1 к броскам действия, пока остаются в Круге Сожжённых. Персонаж, снявший весь свой Стресс, может убрать этот штраф."
+          },
+          "prompt": {
+            "en": "What are some ways one might combat this hostile environment? Are there services in the city the PCs can gain access to that might protect them?",
+            "ru": "Какими способами можно противостоять этому враждебному окружению? Есть ли в городе услуги, к которым персонажи могут получить доступ, чтобы защититься?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "universal"
+      ]
+    },
+    {
+      "id": "the-metal-throne-of-sin",
+      "tier": 4,
+      "type": "event",
+      "difficulty": 20,
+      "name": {
+        "en": "The Metal Throne of Sin",
+        "ru": "Железный Трон Греха"
+      },
+      "impulses": {
+        "en": [
+          "Rule with authority",
+          "bring down",
+          "undermine",
+          "inexhaustible locus of hatred"
+        ],
+        "ru": [
+          "Править с властью",
+          "низвергать",
+          "подрывать",
+          "быть неисчерпаемым средоточием ненависти"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Hellish Army (Ashen Demon King, Cinderwretch, Flamereaver, Greater Fire Demon, Pyrothurge)"
+        ],
+        "ru": [
+          "Адское Воинство (Пепельный Царь Демонов, Пепельный Отверженец, Пожиратель Пламени, Великий Огненный Демон, Пиротург)"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Weight of Your Sins",
+            "ru": "Тяжесть Твоих Грехов"
+          },
+          "description": {
+            "en": "Features that cost Hope to use require the PC to mark a Stress as well.",
+            "ru": "Свойства, требующие траты Надежды, также требуют, чтобы персонаж отметил Стресс."
+          },
+          "prompt": {
+            "en": "What hidden secrets weigh down the PCs? Does confession help, or make the Throne’s power grow stronger?",
+            "ru": "Какие скрытые тайны отягощают персонажей? Помогает ли исповедь, или же она лишь укрепляет силу Трона?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Flames of Excoriation",
+            "ru": "Пламя Бичевания"
+          },
+          "description": {
+            "en": "A demon sitting on the Throne can mark a Stress to choose a target within Far range to make a Presence Reaction Roll (18). On a failure, the target takes 4d8 magic damage and starts a Penance Countdown (4). It ticks down each time the target has the spotlight. While this countdown is active, the target is compelled to attack their allies. For each spotlight they take that does not follow this compulsion, they must mark 2 Stress. The countdown ends early if the target succeeds on a Presence Roll or if the Demon chooses another target. The demon sitting on the Throne can mark a Stress to force the target to take the spotlight.",
+            "ru": "Демон, восседающий на Троне, может отметить Стресс, чтобы выбрать цель в пределах Дальней дистанции для совершения Броска Реакции на Влияние (18). При неудаче цель получает 4d8 магического урона и запускает Отсчёт Покаяния (4). Он уменьшается каждый раз, когда цель получает Активацию. Пока этот отсчёт активен, цель вынуждена атаковать своих союзников. За каждую Активацию, во время которой она не следует этому принуждению, она должна отметить 2 Стресса. Отсчёт заканчивается досрочно, если цель преуспевает в броске Влияния, или если Демон выбирает другую цель. Демон, восседающий на Троне, может отметить Стресс, чтобы заставить цель получить Активацию."
+          },
+          "prompt": {
+            "en": "What secret frustrations does the Throne play upon? What would happen if a PC were to sit on the Throne?",
+            "ru": "Какие тайные разочарования использует Трон? Что случилось бы, если бы персонаж сел на Трон?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Risen From Flames",
+            "ru": "Восставший из Пламени"
+          },
+          "description": {
+            "en": "Twice per scene, spend a Fear to summon a Greater Fire Demon that appears within Far range of the Throne and immediately takes the spotlight as if you had paid the cost of its “Ramp Up” feature.",
+            "ru": "Дважды за сцену потратьте Страх, чтобы призвать Великого Огненного Демона, который появляется на Дальней дистанции от Трона и немедленно получает Активацию, как если бы вы оплатили стоимость его свойства «Разгон»."
+          },
+          "prompt": {
+            "en": "What tells you that this creature’s loyalties can be bartered for?",
+            "ru": "Что подсказывает вам, что верность этого существа можно купить?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "A New Lord of Hell",
+            "ru": "Новый Владыка Ада"
+          },
+          "description": {
+            "en": "Chase Countdown (6, 3). If a PC sits upon the Throne, activate both countdowns. The first ticks down each time they make an action roll to intimidate, belittle, or exert power over another, or if a creature succeeds on a Presence Roll (18) to pledge unswerving loyalty to the PC. If the action roll is a critical success, it ticks down twice. The second ticks down each time they fail. If the first countdown triggers, the PC gains control of the Throne and becomes the Lord of the Circle of the Burned. If the second countdown triggers, the PC makes a death move.",
+            "ru": "Отсчёт Погони (6, 3). Если персонаж садится на Трон, активируйте оба отсчёта. Первый уменьшается каждый раз, когда он совершает бросок действия, чтобы запугать, унизить или проявить власть над кем-то ещё, или если существо преуспевает в броске Влияния (18), чтобы поклясться персонажу в безоговорочной верности. Если этот бросок действия — критический успех, отсчёт уменьшается дважды. Второй уменьшается каждый раз, когда он проваливает бросок. Если первый отсчёт срабатывает, персонаж получает контроль над Троном и становится Владыкой Круга Сожжённых. Если второй отсчёт срабатывает, персонаж совершает предсмертный ход."
+          },
+          "prompt": {
+            "en": "What does it mean to control the Throne of Sin? What does this mean for the other PCs?",
+            "ru": "Что значит владеть Троном Греха? Что это значит для остальных персонажей?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "universal"
+      ]
+    },
+    {
+      "id": "the-profane-ascendancy",
+      "tier": 4,
+      "type": "event",
+      "difficulty": 18,
+      "name": {
+        "en": "The Profane Ascendancy",
+        "ru": "Нечестивое Восхождение"
+      },
+      "impulses": {
+        "en": [
+          "Spread heresy",
+          "defile corpses",
+          "enforce trials"
+        ],
+        "ru": [
+          "Распространять ересь",
+          "осквернять трупы",
+          "устраивать испытания"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Congregant",
+          "The Infesting Lord",
+          "Wailing Corpse"
+        ],
+        "ru": [
+          "Прихожанин",
+          "Заражающий Владыка",
+          "Воющий Труп"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Trial of Conflagration",
+            "ru": "Испытание Всесожжения"
+          },
+          "description": {
+            "en": "Congregants immolate themselves by using the flames of a corrupted pyre to show their faith. While this trial continues, each time the Infesting Lord summons Wailing Corpses, they summon an additional Wailing Corpse. A PC can extinguish the blaze by succeeding on an action roll to smother the flames.",
+            "ru": "Прихожане предают себя огню, используя пламя оскверненного погребального костра, чтобы показать свою веру. Пока это испытание продолжается, каждый раз, когда Заражающий Владыка призывает Воющих Трупов, он призывает ещё одного дополнительного. Персонаж может потушить пламя, преуспев в броске действия, чтобы его загасить."
+          },
+          "prompt": {
+            "en": "What are some other ways to end this trial?",
+            "ru": "Какие ещё есть способы прекратить это испытание?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Trial of Burdens",
+            "ru": "Испытание Бремени"
+          },
+          "description": {
+            "en": "A group of Congregants hold aloft a great and heavy symbol of the Ordinant’s ascendancy. While this trial continues, the Infesting Lord has a +1 bonus to their Difficulty. A PC can end this trial by making a successful attack against the Congregants and doing 45 or greater damage.",
+            "ru": "Группа Прихожан удерживает на весу великий и тяжёлый символ восхождения Ординанта. Пока это испытание продолжается, Заражающий Владыка получает бонус +1 к Сложности. Персонаж может прекратить это испытание, совершив успешную атаку против Прихожан и нанеся 45 или больше урона."
+          },
+          "prompt": {
+            "en": "What do these congregants look like? Why are they devoted to this task?",
+            "ru": "Как выглядят эти прихожане? Почему они преданы этой задаче?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Trial of Contrition",
+            "ru": "Испытание Раскаяния"
+          },
+          "description": {
+            "en": "A circle of 8 Congregants kneel on spikes and whip themselves with barbed lashes while reciting apologies into a twisted reliquary. Place 8 contrition tokens on this stat block. While this trial continues, the Infesting Lord increases their thresholds by the number of tokens. Each time a Congregant is defeated, remove a contrition token from the stat block.",
+            "ru": "Круг из 8 Прихожан стоит на коленях на шипах и хлещет себя зазубренными плетями, читая извинения в искажённый реликварий. Поместите 8 жетонов раскаяния на этот статблок. Пока это испытание продолжается, Заражающий Владыка увеличивает свои пороги урона на число жетонов. Каждый раз, когда Прихожанин побеждён, уберите жетон раскаяния со статблока."
+          },
+          "prompt": {
+            "en": "What does the twisted reliquary look like? How does it bolster the Infesting Lord?",
+            "ru": "Как выглядит этот искажённый реликварий? Как он усиливает Заражающего Владыку?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Breaking the Faith",
+            "ru": "Слом Веры"
+          },
+          "description": {
+            "en": "If all three trials have been stopped, each player rolls their Hope die. Combine the rolls and deal that much damage to the Infesting Lord.",
+            "ru": "Если все три испытания были остановлены, каждый игрок бросает свою кость Надежды. Сложите результаты и нанесите столько же урона Заражающему Владыке."
+          },
+          "prompt": {
+            "en": "What form does this damage take? How does it affect the area where the ritual has been taking place?",
+            "ru": "Какую форму принимает этот урон? Как он влияет на область, где проводился ритуал?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "universal"
+      ]
     }
   ]
 }
