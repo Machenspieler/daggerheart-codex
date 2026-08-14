@@ -139,7 +139,7 @@ a { color: var(--hope-soft); text-decoration: none; }
 .toolbar-spacer { flex: 1; }
 .toolbar-right { display: flex; gap: 10px; align-items: flex-end; }
 
-.tier-pills, .type-pills, .biome-pills { display: flex; gap: 6px; flex-wrap: wrap; }
+.tier-pills, .type-pills { display: flex; gap: 6px; flex-wrap: wrap; }
 .pill {
   font-family: var(--font-mono); font-size: 12px; padding: 6px 11px; border-radius: 20px;
   border: 1px solid var(--line); background: var(--ink-raised); color: var(--muted); cursor: pointer;
@@ -299,7 +299,6 @@ button.rank-icon:active { transform: scale(0.92); }
 .modal-close { align-self: flex-start; margin-left: 18px; background: none; border: none; color: var(--muted); font-size: 22px; cursor: pointer; line-height: 1; }
 .modal-close:hover { color: var(--parchment); }
 .modal-body { padding: 20px 24px 26px; flex: 1 1 auto; min-height: 0; overflow-y: auto; }
-.modal-body.form-body { display: flex; flex-direction: column; gap: 14px; }
 
 /* ---------- detail card: difficulty / type line ---------- */
 .detail-meta { display: flex; align-items: baseline; flex-wrap: wrap; gap: 6px 12px; }
@@ -438,19 +437,6 @@ button.rank-icon:active { transform: scale(0.92); }
 .countdown-overlay-btn:hover { background: rgba(217,164,65,0.16); border-color: var(--hope); }
 .countdown-overlay-btn:active { transform: scale(0.9); }
 
-/* ---------- forms ---------- */
-.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-.form-grid.full, .field-wide { grid-column: 1 / -1; }
-.field-wide textarea, .field-wide input, .form-grid label { width: 100%; }
-.form-field { display: flex; flex-direction: column; gap: 5px; }
-.form-field label { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); }
-.form-field input, .form-field select, .form-field textarea {
-  font-family: var(--font-body); font-size: 14px; background: var(--ink-raised);
-  border: 1px solid var(--line); color: var(--parchment); padding: 9px 11px; border-radius: var(--radius);
-}
-.form-field textarea { min-height: 96px; resize: vertical; font-family: var(--font-mono); font-size: 12.5px; }
-.form-field input:focus, .form-field select:focus, .form-field textarea:focus { outline: none; border-color: var(--hope); }
-.form-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 6px; }
 .hint { font-size: 12px; color: var(--muted); margin: -2px 0 0; }
 
 /* ---------- lists feature ---------- */
@@ -481,7 +467,6 @@ button.rank-icon:active { transform: scale(0.92); }
 
 @media (max-width: 640px) {
   .header-inner { flex-direction: column; align-items: flex-start; }
-  .form-grid { grid-template-columns: 1fr; }
   .modal-overlay { padding: 16px 10px; }
   .modal { max-height: calc(100vh - 32px); max-height: calc(100dvh - 32px); }
   .modal-header { padding: 14px 16px 12px; }

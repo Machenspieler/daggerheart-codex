@@ -29,7 +29,6 @@ const state = {
   envLists: JSON.parse(localStorage.getItem(LS_KEYS.envLists) || '{}'),
   storageNoticeDismissed: localStorage.getItem(LS_KEYS.storageNoticeDismissed) === '1',
   filters: { search: '', tiers: new Set(), types: new Set(), biomes: new Set(), regionOnly: false },
-  editingEnvId: null,
   route: parseRoute(),
 };
 
@@ -1157,79 +1156,6 @@ function showDiceResultPop(btn, label, rolls, mod, total) {
   document.body.appendChild(pop);
   pop.addEventListener('click', () => pop.remove());
   setTimeout(() => pop.remove(), 2600);
-}
-
-/* ---------------- add / edit environment form ---------------- */
-
-function openEditForm(envId) {
-  const existing = envId ? state.customEnvs.find(e => e.id === envId) : null;
-  const overlay = document.createElement('div');
-  overlay.className = 'modal-overlay';
-  overlay.innerHTML = `
-    <div class="modal" style="max-width:640px">
-      <div class="modal-header">
-        <h2>${existing ? t('edit') : t('modal_add_title')}</h2>
-        <button class="modal-close">&times;</button>
-      </div>
-      <div class="modal-body form-body">
-        <div class="form-grid">
-          <div class="form-field"><label>${t('form_name_en')}</label><input id="fe-name-en" value="${escapeAttr(existing?.name?.en || '')}"></div>
-          <div class="form-field"><label>${t('form_name_ru')}</label><input id="fe-name-ru" value="${escapeAttr(existing?.name?.ru || '')}"></div>
-          <div class="form-field"><label>${t('form_tier')}</label>
-            <select id="fe-tier">${[1,2,3,4].map(n => `<option value="${n}" ${existing?.tier === n ? 'selected' : ''}>${n}</option>`).join('')}</select>
-          </div>
-          <div class="form-field"><label>${t('form_type')}</label>
-            <select id="fe-type">${['traversal','social','event','exploration'].map(ty => `<option value="${ty}" ${existing?.type === ty ? 'selected' : ''}>${t('type_' + ty)}</option>`).join('')}</select>
-          </div>
-          <div class="form-field"><label>${t('form_difficulty')}</label><input id="fe-difficulty" type="number" value="${existing?.difficulty ?? 12}"></div>
-        </div>
-        <div class="form-field field-wide"><label>${t('form_biomes')}</label>
-          <div class="biome-pills" id="fe-biomes">
-            ${BIOMES.map(b => `<button type="button" class="pill ${(existing?.biomes || []).includes(b) ? 'active' : ''}" data-biome="${b}">${t('biome_' + b)}</button>`).join('')}
-          </div>
-        </div>
-        <div class="form-field field-wide"><label>${t('form_impulses')}</label><input id="fe-impulses" value="${escapeAttr((existing?.impulses?.ru || existing?.impulses?.en || []).join(', '))}"></div>
-        <div class="form-field field-wide"><label>${t('form_adversaries')}</label><input id="fe-adversaries" value="${escapeAttr((existing?.potential_adversaries?.ru || existing?.potential_adversaries?.en || []).join(', '))}"></div>
-        <div class="form-field field-wide"><label>${t('form_raw_en')}</label><textarea id="fe-raw-en">${escapeHtml(existing?.rawText?.en || '')}</textarea></div>
-        <div class="form-field field-wide"><label>${t('form_raw_ru')}</label><textarea id="fe-raw-ru">${escapeHtml(existing?.rawText?.ru || '')}</textarea></div>
-        <p class="hint">${t('form_raw_en')}</p>
-        <div class="form-actions">
-          <button class="btn" id="fe-cancel">${t('cancel')}</button>
-          <button class="btn btn-primary" id="fe-save">${t('save')}</button>
-        </div>
-      </div>
-    </div>`;
-  document.body.appendChild(overlay);
-  overlay.querySelector('.modal-close').addEventListener('click', () => overlay.remove());
-  overlay.querySelector('#fe-cancel').addEventListener('click', () => overlay.remove());
-  overlay.addEventListener('click', e => { if (e.target === overlay) overlay.remove(); });
-  overlay.querySelectorAll('#fe-biomes .pill').forEach(btn => btn.addEventListener('click', () => btn.classList.toggle('active')));
-
-  overlay.querySelector('#fe-save').addEventListener('click', () => {
-    const nameEn = overlay.querySelector('#fe-name-en').value.trim();
-    const nameRu = overlay.querySelector('#fe-name-ru').value.trim();
-    if (!nameEn && !nameRu) { overlay.querySelector('#fe-name-en').focus(); return; }
-    const rec = existing || { id: 'custom-' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6), builtin: false, features: [] };
-    rec.name = { en: nameEn, ru: nameRu };
-    rec.tier = Number(overlay.querySelector('#fe-tier').value);
-    rec.type = overlay.querySelector('#fe-type').value;
-    rec.difficulty = Number(overlay.querySelector('#fe-difficulty').value);
-    rec.biomes = [...overlay.querySelectorAll('#fe-biomes .pill.active')].map(btn => btn.dataset.biome);
-    const impulses = overlay.querySelector('#fe-impulses').value.split(',').map(s => s.trim()).filter(Boolean);
-    const adversaries = overlay.querySelector('#fe-adversaries').value.split(',').map(s => s.trim()).filter(Boolean);
-    // Impulses/adversaries are entered once, in whichever language is active right now.
-    rec.impulses = { en: [], ru: [] };
-    rec.impulses[state.lang] = impulses;
-    rec.potential_adversaries = { en: [], ru: [] };
-    rec.potential_adversaries[state.lang] = adversaries;
-    rec.rawText = { en: overlay.querySelector('#fe-raw-en').value, ru: overlay.querySelector('#fe-raw-ru').value };
-    rec.builtin = false;
-
-    if (!existing) state.customEnvs.push(rec);
-    persist(LS_KEYS.customEnvs, state.customEnvs);
-    overlay.remove();
-    renderToolbar(); renderGrid();
-  });
 }
 
 /* ---------------- utils ---------------- */
