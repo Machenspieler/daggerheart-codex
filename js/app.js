@@ -266,6 +266,66 @@ function renderToolbar() {
 
 function toggleSetValue(set, value) { set.has(value) ? set.delete(value) : set.add(value); }
 
+// Searching any term in a group also searches every other term in the group,
+// so "магазин" finds Магическая Лавка and "tavern" finds Магический город.
+// Both languages sit in one group because the haystack holds EN and RU text.
+// Terms are stems matched at word start, which covers Russian inflections
+// (торгов → торговец, торговый). Keep them long and unambiguous: a stem also
+// fires inside longer words, so "порт" would drag in Город Порталов and "бар"
+// every барьер. Verify a new term against the data before adding it.
+const SEARCH_ALIASES = [
+  ['магазин', 'лавк', 'рынок', 'базар', 'торгов', 'ярмарк', 'купц',
+   'shop', 'store', 'market', 'merchant', 'vendor', 'trader', 'wares', 'stall'],
+  ['таверн', 'трактир', 'кабак', 'харчевн', 'пивн', 'постоял',
+   'tavern', 'innkeeper', 'alehouse', 'saloon', 'bartender', 'barkeep'],
+  ['кладбищ', 'погост', 'склеп', 'гробниц', 'усыпальн',
+   'graveyard', 'cemetery', 'tomb', 'crypt', 'mausoleum', 'ossuary'],
+  ['храм', 'святилищ', 'церк', 'алтар', 'монастыр', 'часовн',
+   'temple', 'shrine', 'altar', 'sanctuary', 'cathedral', 'chapel', 'monastery'],
+  ['подземель', 'катакомб', 'пещер', 'грот',
+   'dungeon', 'catacomb', 'cave', 'cavern', 'grotto'],
+  ['библиотек', 'архив', 'книг', 'фолиант',
+   'library', 'archive', 'book', 'tome', 'scriptorium'],
+];
+
+// Below this length a query is too generic to expand — "ба" would otherwise
+// pull in the whole tavern group.
+const MIN_ALIAS_QUERY = 3;
+
+const aliasRegexCache = new Map();
+
+function wordStartRegex(term) {
+  let re = aliasRegexCache.get(term);
+  if (!re) {
+    re = new RegExp('(^|[^\\p{L}\\p{N}])' + term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'iu');
+    aliasRegexCache.set(term, re);
+  }
+  return re;
+}
+
+// A query expands only as a whole: it must be a prefix of a group term (user
+// typed a stem, "таверн") or start with one (user typed an inflection,
+// "таверной"). Multi-word queries stay literal — someone narrowing to
+// "магазин товаров" wants fewer results than "магазин", not the whole group.
+function aliasTermsFor(query) {
+  if (query.length < MIN_ALIAS_QUERY || /\s/.test(query)) return [];
+  const terms = new Set();
+  for (const group of SEARCH_ALIASES) {
+    if (!group.some(term => term.startsWith(query) || query.startsWith(term))) continue;
+    for (const term of group) terms.add(term);
+  }
+  return [...terms];
+}
+
+// Literal substring first, so every match that worked before still works; the
+// alias pass only ever widens the result set.
+function matchesSearch(hay, query) {
+  const q = query.trim().toLowerCase();
+  if (!q) return true;
+  if (hay.includes(q)) return true;
+  return aliasTermsFor(q).some(term => wordStartRegex(term).test(hay));
+}
+
 function envMatchesFilters(env) {
   const f = state.filters;
   if (f.search) {
@@ -279,7 +339,7 @@ function envMatchesFilters(env) {
       ...(env.potential_adversaries ? [...(env.potential_adversaries.en || []), ...(env.potential_adversaries.ru || [])] : []),
       ...featureText, ...rawText,
     ].filter(Boolean).join(' ').toLowerCase();
-    if (!hay.includes(f.search.toLowerCase())) return false;
+    if (!matchesSearch(hay, f.search)) return false;
   }
   if (f.tiers.size && !f.tiers.has(env.tier)) return false;
   if (f.types.size && !f.types.has(env.type)) return false;
