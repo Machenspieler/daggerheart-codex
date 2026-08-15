@@ -205,8 +205,8 @@ button.rank-icon:active { transform: scale(0.92); }
 .result-count button { background: none; border: none; color: var(--teal-soft); cursor: pointer; font-size: 12.5px; padding: 0; margin-left: 8px; text-decoration: underline; }
 
 /* ---------- card grid ---------- */
-/* The biome picture claims a 132px rail on the left, so columns are wider than
- * the text alone would need — below ~340px a Russian name wraps to three lines. */
+/* A column carries the 95px picture panel plus a text column wide enough for a
+ * Russian name — under ~340px the name starts wrapping to three lines. */
 .grid {
   display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 16px;
 }
@@ -228,22 +228,23 @@ button.rank-icon:active { transform: scale(0.92); }
   background: var(--teal);
 }
 
-/* The art is a hexagon on a transparent field, so it needs no frame of its own.
- * `min-height` reserves the rail before the picture loads, since the picture
- * itself is out of flow and contributes no height. */
-/* Negative margins cancel the card's padding so the panel reaches the card's
- * own top, bottom and left edges. */
+/* The panel is a window onto a taller picture. Negative margins cancel the
+ * card's padding so it reaches the card's own top, bottom and left edges, and
+ * `min-height` reserves it before the picture loads. */
 .card-art {
-  flex: none; width: 150px; align-self: stretch; position: relative; min-height: 138px;
+  flex: none; width: 95px; align-self: stretch; position: relative; min-height: 150px;
   margin: -18px 0 -16px;
 }
-/* The picture fills the rail edge to edge and top to bottom, cropped to fit
- * rather than fitted whole: a hexagon shown entire has to shrink to an icon,
- * and leaves dead ground above and below it on a tall card. The crop is
- * centred, so the brass frame reads along the top and bottom of the panel. */
+/* Anchored to the top and drawn at a fixed scale — the served art is cropped
+ * to 1:3, so 95px wide makes it 285px tall, more than any card. The window
+ * shows the top of the picture and the card's own height decides how far down
+ * it reaches. The art is composed for that: the biome reads in the upper half,
+ * the lower half is what a short card cuts. `cover` only begins scaling past
+ * 285px, where a fixed scale would leave bare ground below the picture. */
 .card-art img {
   position: absolute; inset: 0;
-  display: block; width: 100%; height: 100%; object-fit: cover;
+  display: block; width: 100%; height: 100%;
+  object-fit: cover; object-position: top center;
 }
 .card-body { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 10px; }
 .card[data-type="traversal"]::before { background: var(--teal); }
@@ -486,10 +487,10 @@ button.rank-icon:active { transform: scale(0.92); }
 
 @media (max-width: 640px) {
   .header-inner { flex-direction: column; align-items: flex-start; }
-  /* One column at this width, so the card is wide and the rail can shrink to
-   * leave the name a full line. Matches the -sm picture source. */
+  /* One column at this width, and the panel narrows so the name keeps a full
+   * line. Keep the width in step with ART_SIZES in app.js. */
   .grid { grid-template-columns: 1fr; }
-  .card-art { width: 122px; min-height: 112px; }
+  .card-art { width: 140px; min-height: 130px; }
   .modal-overlay { padding: 16px 10px; }
   .modal-header { padding: 14px 16px 12px; }
   .modal-body { padding: 16px 16px 20px; }

@@ -101,6 +101,15 @@ function envDifficulty(env) {
   return d;
 }
 
+/** A descriptive difficulty only ever points back at a feature that already
+ * spells the rule out ("Relative Strength"), so cards and the detail overlay
+ * drop the difficulty line for those environments instead of repeating it. */
+function hasDifficulty(env) {
+  const d = env.difficulty;
+  if (d === null || d === undefined || d === '') return false;
+  return typeof d !== 'object';
+}
+
 /* ---------------- init ---------------- */
 
 async function init() {
@@ -402,14 +411,24 @@ function artBiome(env) {
   return pool.sort()[0] || null;
 }
 
+/* The picture panel is a fixed width, so the browser can be told exactly how
+ * many pixels it will draw and pick the tier that matches the screen: 200 for
+ * an ordinary display, 400 at 2x, 600 at 3x. Keep in step with .card-art. */
+const ART_SIZES = '(max-width: 640px) 140px, 95px';
+const ART_WIDTHS = [100, 200, 300];
+
 function biomeArtHtml(env) {
   const biome = artBiome(env);
   if (!biome) return '';
+  const base = 'img/biomes/' + biome;
+  const avif = ART_WIDTHS.map(w => `${base}-${w}.avif ${w}w`).join(', ');
+  // AVIF holds detail these landscapes need at a fraction of the weight; the
+  // WebP is only there for a browser too old to decode it.
   return `
       <div class="card-art">
         <picture>
-          <source media="(max-width: 640px)" srcset="img/biomes/${biome}-sm.webp">
-          <img src="img/biomes/${biome}.webp" alt="" loading="lazy" decoding="async">
+          <source type="image/avif" sizes="${ART_SIZES}" srcset="${avif}">
+          <img src="${base}-200.webp" alt="" loading="lazy" decoding="async">
         </picture>
       </div>`;
 }
@@ -440,7 +459,7 @@ function cardHtml(env) {
         </div>
         <div class="card-meta">
           <span>${t('type_' + env.type)}</span>
-          <span class="diff">${t('difficulty_label')} ${escapeHtml(String(envDifficulty(env)))}</span>
+          ${hasDifficulty(env) ? `<span class="diff">${t('difficulty_label')} ${escapeHtml(String(envDifficulty(env)))}</span>` : ''}
         </div>
         ${impulses.length ? `<div class="card-impulses">${escapeHtml(impulses.join(', '))}</div>` : ''}
         ${biomeChips || regionChip ? `<div class="card-biomes">${biomeChips}${regionChip}</div>` : ''}
@@ -841,12 +860,13 @@ function openDetail(envId) {
       </div>
       <div class="modal-body">
         <div class="detail-meta">
+          ${hasDifficulty(env) ? `
           <span class="dm-item">
             <span class="dm-k">${t('difficulty_label')}</span><span class="dm-dash">—</span>
             <span class="dm-v" id="detail-difficulty-value"></span>
             <span class="dm-orig" id="detail-difficulty-orig"></span>
           </span>
-          <span class="dm-sep" aria-hidden="true">·</span>
+          <span class="dm-sep" aria-hidden="true">·</span>` : ''}
           <span class="dm-item">
             <span class="dm-k">${t('filter_type')}</span><span class="dm-dash">—</span>
             <span class="dm-v dm-v-text">${t('type_' + env.type)}</span>
@@ -899,17 +919,19 @@ function openDetail(envId) {
 
   function applyViewTier() {
     const overridden = viewTier !== env.tier;
-    difficultyValueEl.textContent = String(retierDifficulty(env, viewTier));
     // While a card is read at another tier it says so twice over: an amber rim
     // around the whole card, and the environment's own difficulty spelled out
     // next to the scaled one.
     modalEl.classList.toggle('retiered', overridden);
-    difficultyOrigEl.textContent = overridden
-      ? t('retier_original_short').replace('{v}', String(envDifficulty(env)))
-      : '';
-    difficultyValueEl.title = overridden
-      ? t('retier_original').replace('{v}', `${t('tier_label')} ${env.tier}, ${t('difficulty_label')} ${envDifficulty(env)}`)
-      : '';
+    if (difficultyValueEl) {
+      difficultyValueEl.textContent = String(retierDifficulty(env, viewTier));
+      difficultyOrigEl.textContent = overridden
+        ? t('retier_original_short').replace('{v}', String(envDifficulty(env)))
+        : '';
+      difficultyValueEl.title = overridden
+        ? t('retier_original').replace('{v}', `${t('tier_label')} ${env.tier}, ${t('difficulty_label')} ${envDifficulty(env)}`)
+        : '';
+    }
     overlay.querySelectorAll('[data-view-tier]').forEach(btn => {
       const on = Number(btn.dataset.viewTier) === viewTier;
       btn.classList.toggle('active', on);
