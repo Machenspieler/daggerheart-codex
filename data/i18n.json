@@ -2,7 +2,7 @@
   "en": {
     "app_title": "Daggerheart Atlas",
     "app_subtitle": "A field guide to the world's scenes and hazards",
-    "search_placeholder": "Search by name, impulse…",
+    "search_placeholder": "Name or impulse…",
     "filter_tier": "Tier",
     "filter_type": "Type",
     "filter_biome": "Biome",
@@ -94,7 +94,7 @@
   "ru": {
     "app_title": "Атлас Daggerheart",
     "app_subtitle": "Справочник сцен и опасностей мира",
-    "search_placeholder": "Поиск по названию или импульсу...",
+    "search_placeholder": "Название или импульс…",
     "filter_tier": "Ранг",
     "filter_type": "Тип",
     "filter_biome": "Биом",

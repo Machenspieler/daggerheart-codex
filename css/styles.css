@@ -142,7 +142,15 @@ a:hover { text-decoration: underline; text-underline-offset: 2px; }
 }
 
 /* ---------- layout shell ---------- */
-.shell { max-width: 1180px; margin: 0 auto; padding: 0 var(--s-5) var(--s-10); }
+/* index.html asks for viewport-fit=cover so the ground reaches the edges of a
+ * notched screen; every inset below is what keeps content out from under the
+ * notch, the rounded corners and the home indicator. env() is 0 everywhere
+ * else, so the max()/calc() collapse to the plain token. */
+.shell {
+  max-width: 1180px; margin: 0 auto;
+  padding-inline: max(var(--s-5), env(safe-area-inset-left)) max(var(--s-5), env(safe-area-inset-right));
+  padding-bottom: calc(var(--s-10) + env(safe-area-inset-bottom));
+}
 
 .site-header {
   position: sticky; top: 0; z-index: 30;
@@ -151,7 +159,9 @@ a:hover { text-decoration: underline; text-underline-offset: 2px; }
   backdrop-filter: blur(6px);
 }
 .header-inner {
-  max-width: 1180px; margin: 0 auto; padding: var(--s-3) var(--s-5);
+  max-width: 1180px; margin: 0 auto;
+  padding-block: var(--s-3);
+  padding-inline: max(var(--s-5), env(safe-area-inset-left)) max(var(--s-5), env(safe-area-inset-right));
   display: flex; align-items: center; justify-content: space-between; gap: var(--s-6); flex-wrap: wrap;
 }
 .brand {
@@ -177,6 +187,9 @@ a:hover { text-decoration: underline; text-underline-offset: 2px; }
 }
 .header-actions { display: flex; gap: var(--s-3); align-items: center; flex-wrap: wrap; }
 .header-nav { display: flex; gap: var(--s-2); align-items: center; }
+/* The header cluster runs one size down from the page controls: a 40px button
+ * beside the 32px language switch read as two unrelated control sizes. */
+.header-actions .btn { height: var(--h-sm); }
 
 .lang-switch {
   display: flex; height: var(--h-sm);
@@ -428,6 +441,14 @@ button.rank-icon:focus-visible { outline: var(--focus-ring); outline-offset: 1px
               box-shadow var(--t-base) var(--ease-out);
   display: flex; gap: var(--s-4);
 }
+/* No content-visibility here, deliberately. It was tried and measured: cards
+ * run 176-235px, so a single intrinsic estimate is wrong for most of them and
+ * the page reports 12% too long at desktop and 18% too long in the phone's
+ * single column — and `auto` never reclaims it, the estimate survives a full
+ * scroll to the bottom and back. A scrollbar that lies about the length of the
+ * catalogue costs more than the skipped paint is worth. The per-interaction
+ * cost that actually mattered is already gone: search is debounced and the
+ * grid's click handling is delegated rather than rebound per card. */
 /* The type colour sits on the right: the picture holds the left edge. */
 .card::before {
   content: ""; position: absolute; right: 0; top: var(--s-4); bottom: var(--s-4); width: 3px;
@@ -466,7 +487,12 @@ button.rank-icon:focus-visible { outline: var(--focus-ring); outline-offset: 1px
 }
 
 .card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: var(--s-3); }
-.card-title-row { display: flex; align-items: baseline; gap: var(--s-2); min-width: 0; }
+/* flex-start, not baseline: a two-line name would otherwise put the + on the
+ * last baseline, leaving it stranded halfway down the card away from the row
+ * of controls it belongs to. The negative margin optically centres it on the
+ * first line, whether the name wraps or not. */
+.card-title-row { display: flex; align-items: flex-start; gap: var(--s-2); min-width: 0; }
+.card-title-row .card-add-btn { margin-top: -1px; }
 .card-title {
   font-family: var(--font-display); font-weight: 400;
   font-size: var(--fs-md); line-height: var(--lh-md); letter-spacing: var(--tracking-display);
@@ -551,7 +577,9 @@ button.rank-icon:focus-visible { outline: var(--focus-ring); outline-offset: 1px
 
 /* ---------- toast ---------- */
 .toast-stack {
-  position: fixed; left: var(--s-5); bottom: var(--s-5); z-index: 240;
+  position: fixed; z-index: 240;
+  left: calc(var(--s-5) + env(safe-area-inset-left));
+  bottom: calc(var(--s-5) + env(safe-area-inset-bottom));
   display: flex; flex-direction: column-reverse; gap: var(--s-2);
   pointer-events: none; max-width: min(360px, calc(100vw - var(--s-8)));
 }
@@ -569,11 +597,28 @@ button.rank-icon:focus-visible { outline: var(--focus-ring); outline-offset: 1px
 .toast.is-error svg { color: var(--fear-soft); }
 @keyframes toast-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
 
+/* ---------- tooltip ---------- */
+/* Replaces the native title attribute, which waits ~700ms, cannot be styled
+ * and never appears for a keyboard user. One element, reused, driven by
+ * data-tip. Purely visual — every trigger carries its own accessible name. */
+.tooltip {
+  position: fixed; top: 0; left: 0; z-index: 260; pointer-events: none;
+  max-width: 240px; padding: var(--s-1) var(--s-2);
+  background: var(--ink-raised); border: 1px solid var(--line-strong);
+  border-radius: var(--r-sm); box-shadow: var(--e-3);
+  color: var(--parchment); font-family: var(--font-body);
+  font-size: var(--fs-xs); line-height: var(--lh-xs);
+  opacity: 0; transform: translateY(2px);
+  transition: opacity var(--t-fast) var(--ease-out), transform var(--t-fast) var(--ease-out);
+}
+.tooltip.is-open { opacity: 1; transform: none; }
+
 /* ---------- modal ---------- */
 .modal-overlay {
   position: fixed; inset: 0; background: var(--ink-overlay); z-index: 100;
   display: flex; align-items: flex-start; justify-content: center;
-  padding: var(--s-8) var(--s-4);
+  padding-block: calc(var(--s-8) + env(safe-area-inset-top)) calc(var(--s-8) + env(safe-area-inset-bottom));
+  padding-inline: max(var(--s-4), env(safe-area-inset-left)) max(var(--s-4), env(safe-area-inset-right));
   overflow-y: auto; overscroll-behavior: contain;
 }
 /* The card grows to its content and the whole thing scrolls inside the overlay,
@@ -653,8 +698,10 @@ button.rank-icon:focus-visible { outline: var(--focus-ring); outline-offset: 1px
 .impulse-list { font-style: italic; color: var(--parchment-dim); }
 .adversary-list { color: var(--parchment-dim); font-size: var(--fs-base); }
 
+/* The one rule left inside the card body, so it carries the interactive weight
+ * rather than the default edge — at 1.73:1 a 2px stem read as nothing at all. */
 .feature {
-  border-left: 2px solid var(--line); padding: var(--s-1) 0 var(--s-1) var(--s-4); margin: var(--s-4) 0;
+  border-left: 2px solid var(--line-strong); padding: var(--s-1) 0 var(--s-1) var(--s-4); margin: var(--s-4) 0;
 }
 .feature-head { display: flex; align-items: baseline; gap: var(--s-2); flex-wrap: wrap; }
 .feature-name {
@@ -674,8 +721,11 @@ button.rank-icon:focus-visible { outline: var(--focus-ring); outline-offset: 1px
 .feature-bullets { margin: 0 0 var(--s-2); padding-left: 22px; list-style: disc; color: var(--parchment-dim); }
 .feature-bullets li { margin: 3px 0; }
 .feature-bullets:last-child { margin-bottom: 0; }
+/* Hanging indent: the lozenge sits in its own gutter so a wrapped second line
+ * starts under the first line's text rather than under the glyph. */
 .feature-prompt {
   margin: var(--s-2) 0 0; max-width: var(--measure);
+  padding-left: 1.15em; text-indent: -1.15em;
   font-size: var(--fs-sm); line-height: var(--lh-sm); color: var(--muted); font-style: italic;
 }
 .feature-prompt::before { content: "❖ "; color: var(--hope); font-style: normal; }
@@ -880,7 +930,9 @@ button.rank-icon:focus-visible { outline: var(--focus-ring); outline-offset: 1px
 .countdown-btn:active { transform: scale(0.95); }
 
 .countdown-stack {
-  position: fixed; right: var(--s-5); bottom: var(--s-5); z-index: 220;
+  position: fixed; z-index: 220;
+  right: calc(var(--s-5) + env(safe-area-inset-right));
+  bottom: calc(var(--s-5) + env(safe-area-inset-bottom));
   display: flex; flex-direction: column-reverse; align-items: flex-end; gap: var(--s-3);
 }
 .countdown-overlay {
@@ -1022,7 +1074,9 @@ button.rank-icon:focus-visible { outline: var(--focus-ring); outline-offset: 1px
  * line of its own. */
 @media (max-width: 900px) {
   .toolbar { align-items: flex-end; gap: var(--s-3); }
-  .search-field { flex: 1 1 120px; min-width: 0; }
+  /* Grows to fill a phone, but stops well short of the ~600px box a tablet
+   * would otherwise hand a field that holds two or three words. */
+  .search-field { flex: 1 1 120px; min-width: 0; max-width: 420px; }
   .search-input-wrap { min-width: 0; }
   .search-field input[type="text"] { min-width: 0; }
   .search-field .field-label { display: none; }
@@ -1067,9 +1121,14 @@ button.rank-icon:focus-visible { outline: var(--focus-ring); outline-offset: 1px
   .field select { min-width: 0; }
 
   /* One column at this width, and the panel narrows so the name keeps a full
-   * line. Keep the width in step with ART_SIZES in app.js. */
+   * line. Keep the width in step with ART_SIZES in app.js. 88px is 27% of the
+   * card, the same share the 95px panel takes on the desktop grid, and it
+   * leaves the text column enough to hold every name in the catalogue to two
+   * lines — including at 326px, which is what a narrowed desktop window gives
+   * once a classic scrollbar takes its 16px. */
   .grid { grid-template-columns: 1fr; }
-  .card-art { width: 100px; min-height: 130px; }
+  .card { gap: var(--s-3); }
+  .card-art { width: 88px; min-height: 130px; }
 
   .modal-overlay { padding: var(--s-4) var(--s-2); }
   .modal-header { padding: var(--s-4) var(--s-4) var(--s-3); }
@@ -1083,7 +1142,28 @@ button.rank-icon:focus-visible { outline: var(--focus-ring); outline-offset: 1px
   .detail-tier-pills { order: 3; flex-basis: 100%; margin-right: 0; }
 
   .list-cards-grid { grid-template-columns: 1fr; }
-  .toast-stack { left: var(--s-4); right: var(--s-4); bottom: var(--s-4); max-width: none; }
+  /* Toasts go full width here, which would lay them straight over a countdown
+   * tracker pinned bottom-right. They move under the header instead and stack
+   * downwards, leaving the bottom corner to the trackers. */
+  .toast-stack {
+    top: calc(var(--s-9) + env(safe-area-inset-top)); bottom: auto;
+    left: max(var(--s-4), env(safe-area-inset-left));
+    right: max(var(--s-4), env(safe-area-inset-right));
+    flex-direction: column; max-width: none;
+  }
+  .toast { animation-name: toast-in-top; }
+  @keyframes toast-in-top { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: none; } }
+}
+
+/* Below this the wordmark wraps to two lines and pushes the header past the
+ * single row it exists to hold. The mark carries the brand on its own; the h1
+ * stays in the accessibility tree as the page heading. */
+@media (max-width: 520px) {
+  .brand-text h1 {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
+  }
+  .brand-mark { height: 32px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

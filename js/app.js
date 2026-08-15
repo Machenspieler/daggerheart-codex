@@ -168,7 +168,7 @@ function hasDifficulty(env) {
 /* Cache buster for the JSON under data/. index.html versions the stylesheet and
    this script the same way; the data files are fetched from here instead, so
    bump this whenever anything in data/ changes or browsers serve stale copies. */
-const DATA_VERSION = 7;
+const DATA_VERSION = 8;
 
 function getJSON(path) {
   return fetch(path).then(r => {
@@ -286,6 +286,90 @@ function showToast(message, kind = 'success') {
   setTimeout(() => toast.remove(), 3200);
 }
 
+/* ---------------- tooltip ---------------- */
+
+/* One element for the whole page, driven by data-tip. The native title it
+ * replaces waits ~700ms, cannot be styled and never shows on a keyboard
+ * focus. Presentational only: every trigger carries its own accessible name,
+ * so the tooltip stays out of the accessibility tree rather than
+ * double-announcing it. */
+const TIP_DELAY_MS = 200;
+let tipEl = null;
+let tipTimer = null;
+let tipTarget = null;
+
+function tipNode() {
+  if (!tipEl) {
+    tipEl = document.createElement('div');
+    tipEl.className = 'tooltip';
+    tipEl.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(tipEl);
+  }
+  return tipEl;
+}
+
+function placeTip(target, el) {
+  const r = target.getBoundingClientRect();
+  const t = el.getBoundingClientRect();
+  const left = Math.max(8, Math.min(r.left + r.width / 2 - t.width / 2, window.innerWidth - t.width - 8));
+  // Above by preference; below when there is no room, so it never leaves the screen.
+  const above = r.top - t.height - 8;
+  el.style.left = `${Math.round(left)}px`;
+  el.style.top = `${Math.round(above < 8 ? r.bottom + 8 : above)}px`;
+}
+
+function showTip(target) {
+  const text = target.dataset.tip;
+  if (!text) return;
+  const el = tipNode();
+  el.textContent = text;
+  placeTip(target, el);
+  el.classList.add('is-open');
+  tipTarget = target;
+}
+
+function hideTip() {
+  clearTimeout(tipTimer);
+  tipTarget = null;
+  if (tipEl) tipEl.classList.remove('is-open');
+}
+
+// Mouse only: on a touch screen pointerover fires with the tap and the tooltip
+// would stick around with nothing to dismiss it.
+document.addEventListener('pointerover', e => {
+  if (e.pointerType !== 'mouse') return;
+  const target = e.target.closest?.('[data-tip]');
+  if (!target || target === tipTarget) return;
+  clearTimeout(tipTimer);
+  tipTimer = setTimeout(() => showTip(target), TIP_DELAY_MS);
+});
+document.addEventListener('pointerout', e => {
+  if (e.target.closest?.('[data-tip]')) hideTip();
+});
+// No delay for the keyboard: focus is already a deliberate act. Deferred to
+// the end of the task because moving focus can scroll the element into view,
+// and the scroll handler below would otherwise dismiss the tooltip as it
+// appeared. A timeout rather than a frame: nothing here needs to line up with
+// a paint, and rAF does not run at all in a background tab. Guarded on the
+// focus target rather than on document.activeElement, which does not reliably
+// track programmatic focus while the window is in the background.
+let tipFocusTarget = null;
+document.addEventListener('focusin', e => {
+  const target = e.target.closest?.('[data-tip]');
+  if (!target) return;
+  clearTimeout(tipTimer);
+  tipFocusTarget = target;
+  setTimeout(() => { if (tipFocusTarget === target) showTip(target); }, 0);
+});
+document.addEventListener('focusout', () => { tipFocusTarget = null; hideTip(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') hideTip(); });
+// A focused trigger keeps its tooltip and takes it along; a hovered one loses
+// it, since the pointer has effectively left the element.
+document.addEventListener('scroll', () => {
+  if (tipTarget && tipTarget === tipFocusTarget) placeTip(tipTarget, tipNode());
+  else hideTip();
+}, true);
+
 /* ---------------- overlay plumbing ---------------- */
 
 /* Every overlay in the app — the environment card, the add-to-list popup and
@@ -369,9 +453,7 @@ function render() {
     state.route = { name: 'lists' };
     if (location.hash !== '#/lists') location.hash = '#/lists';
   }
-  document.title = state.route.name === 'catalog'
-    ? t('app_title')
-    : `${t('lists_title')} — ${t('app_title')}`;
+  document.title = routeTitle();
   renderHeader();
   if (state.route.name === 'lists') {
     renderListsHome();
@@ -380,6 +462,17 @@ function render() {
     renderGrid();
   }
   renderFooter();
+}
+
+/** An open list names itself in the tab, so several of them are tellable apart
+ * in a tab strip or a history list. */
+function routeTitle() {
+  if (state.route.name === 'catalog') return t('app_title');
+  if (state.route.name === 'list') {
+    const list = state.lists.find(l => l.id === state.route.id);
+    if (list) return `${list.name} — ${t('app_title')}`;
+  }
+  return `${t('lists_title')} — ${t('app_title')}`;
 }
 
 function renderHeader() {
@@ -723,7 +816,7 @@ function artBiome(env) {
 /* The picture panel is a fixed width, so the browser can be told exactly how
  * many pixels it will draw and pick the tier that matches the screen: 100 for
  * an ordinary display, 200 at 2x, 300 at 3x. Keep in step with .card-art. */
-const ART_SIZES = '(max-width: 640px) 100px, 95px';
+const ART_SIZES = '(max-width: 640px) 88px, 95px';
 const ART_WIDTHS = [100, 200, 250, 300];
 
 function biomeArtHtml(env) {
@@ -749,7 +842,7 @@ function cardHtml(env) {
   // Regions are optional, so most cards show biome chips only.
   const region = regionOfEnv(env.id);
   const regionChip = region
-    ? `<span class="region-chip" title="${t('region_label')}">${escapeHtml(regionName(region))}</span>`
+    ? `<span class="region-chip" data-tip="${t('region_label')}"><span class="sr-only">${t('region_label')}: </span>${escapeHtml(regionName(region))}</span>`
     : '';
   const badges = [
     env.builtin ? '' : `<span class="badge custom">${t('custom_badge')}</span>`,
@@ -765,9 +858,9 @@ function cardHtml(env) {
         <div class="card-top">
           <div class="card-title-row">
             <h3 class="card-title"><button type="button" class="card-open" data-open-env="${env.id}">${escapeHtml(envName(env))}</button></h3>
-            <button type="button" class="card-add-btn" data-add-to-list="${env.id}" aria-label="${t('add_to_list')}" title="${t('add_to_list')}">+</button>
+            <button type="button" class="card-add-btn" data-add-to-list="${env.id}" aria-label="${t('add_to_list')}" data-tip="${t('add_to_list')}">+</button>
           </div>
-          <span class="rank-icon rank-icon-sm active" title="${t('tier_label')} ${env.tier}"><span>${env.tier}</span></span>
+          <span class="rank-icon rank-icon-sm active" role="img" aria-label="${t('tier_label')} ${env.tier}" data-tip="${t('tier_label')} ${env.tier}"><span aria-hidden="true">${env.tier}</span></span>
         </div>
         <div class="card-meta">
           <span>${t('type_' + env.type)}</span>
@@ -816,7 +909,7 @@ function renderListsHome() {
         <span class="storage-notice-icon" aria-hidden="true">!</span>
         <p class="storage-notice-text">${t('storage_notice')}</p>
         <button type="button" class="storage-notice-close" id="storage-notice-close"
-                aria-label="${t('dismiss')}" title="${t('dismiss')}">×</button>
+                aria-label="${t('dismiss')}" data-tip="${t('dismiss')}">×</button>
       </div>`}
       <div>
         <div class="new-list-row">
@@ -1192,7 +1285,7 @@ function openDetail(envId) {
    * something switchable rather than as a rating. */
   const tierPillsHtml = [1, 2, 3, 4].map(n => `
     <button type="button" class="rank-icon rank-icon-sm ${n === env.tier ? 'native' : ''}" data-view-tier="${n}"
-            aria-label="${t('view_as_tier')} ${n}" title="${n === env.tier ? t('native_tier') : t('view_as_tier') + ' ' + n}"
+            aria-label="${t('view_as_tier')} ${n}" data-tip="${n === env.tier ? t('native_tier') : t('view_as_tier') + ' ' + n}"
       ><span>${n}</span>${n === env.tier ? '<i class="rank-native-dot" aria-hidden="true"></i>' : ''}</button>`).join('');
 
   const biomesHtml = (env.biomes || []).length ? `
@@ -1209,7 +1302,7 @@ function openDetail(envId) {
       <div class="modal-header">
         <div class="modal-title-row">
           <h2 id="detail-title">${escapeHtml(envName(env))}</h2>
-          <button type="button" class="card-add-btn" id="detail-add-to-list" aria-label="${t('add_to_list')}" title="${t('add_to_list')}">+</button>
+          <button type="button" class="card-add-btn" id="detail-add-to-list" aria-label="${t('add_to_list')}" data-tip="${t('add_to_list')}">+</button>
         </div>
         <div class="rank-pills detail-tier-pills" id="detail-tier-pills" role="group" aria-label="${t('view_as_tier')}">${tierPillsHtml}</div>
         <button type="button" class="modal-close" aria-label="${t('close')}">&times;</button>
@@ -1286,9 +1379,12 @@ function openDetail(envId) {
       difficultyOrigEl.textContent = overridden
         ? t('retier_original_short').replace('{v}', String(envDifficulty(env)))
         : '';
-      difficultyValueEl.title = overridden
-        ? t('retier_original').replace('{v}', `${t('tier_label')} ${env.tier}, ${t('difficulty_label')} ${envDifficulty(env)}`)
-        : '';
+      if (overridden) {
+        difficultyValueEl.dataset.tip =
+          t('retier_original').replace('{v}', `${t('tier_label')} ${env.tier}, ${t('difficulty_label')} ${envDifficulty(env)}`);
+      } else {
+        delete difficultyValueEl.dataset.tip;
+      }
     }
     overlay.querySelectorAll('[data-view-tier]').forEach(btn => {
       const on = Number(btn.dataset.viewTier) === viewTier;
@@ -1336,9 +1432,26 @@ function openDetail(envId) {
 const ITEM_CRAFT_ICON = `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 11h11.2l-3.6-3.6L13 6l6 6-6 6-1.4-1.4 3.6-3.6H4v-2z"/></svg>`;
 const ITEM_LINK_ICON = `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.9 12a5.1 5.1 0 0 1 5.1-5.1h4V5H9a7 7 0 0 0 0 14h4v-1.9H9A5.1 5.1 0 0 1 3.9 12zM8 13h8v-2H8v2zm7-8v1.9h4a5.1 5.1 0 0 1 0 10.2h-4V19h4a7 7 0 0 0 0-14h-4z"/></svg>`;
 
+/* The quoted card is set in Inter, which is not one of the atlas's three
+ * faces. Requesting it up front would put a fourth family on every page load
+ * for an overlay most visitors never open, and leaving it out of the request
+ * — as it was — meant the quotation silently fell through to the system sans
+ * on almost every machine. So it is fetched the first time an item card is
+ * actually opened, and never otherwise. */
+let lootFontRequested = false;
+function ensureLootFont() {
+  if (lootFontRequested) return;
+  lootFontRequested = true;
+  const link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap';
+  document.head.appendChild(link);
+}
+
 function openItemDetail(itemId) {
   const item = itemById(itemId);
   if (!item) return;
+  ensureLootFont();
 
   const name = itemField(item, 'name');
   const art = itemImageUrl(item);
@@ -1567,7 +1680,7 @@ function makeItemButton(id, label) {
   const btn = document.createElement('button');
   btn.className = 'item-btn';
   btn.type = 'button';
-  btn.title = t('open_item');
+  btn.dataset.tip = t('open_item');
   btn.innerHTML = `${itemIconSVG()}<span>${escapeHtml(label)}</span>`;
   btn.addEventListener('click', e => {
     e.stopPropagation();
@@ -1584,7 +1697,7 @@ function makeDiceButton(count, sides, mod, label, originalLabel) {
   const btn = document.createElement('button');
   btn.className = originalLabel ? 'dice-btn dice-btn-retiered' : 'dice-btn';
   btn.type = 'button';
-  if (originalLabel) btn.title = t('retier_original').replace('{v}', originalLabel);
+  if (originalLabel) btn.dataset.tip = t('retier_original').replace('{v}', originalLabel);
   btn.innerHTML = `${diceIconSVG()}<span>${label}</span>`;
   btn.addEventListener('click', (e) => {
     e.stopPropagation();
