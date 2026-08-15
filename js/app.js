@@ -444,6 +444,45 @@ function hasActiveFilters() {
   return f.search || f.tiers.size || f.types.size || f.biomes.size || f.regionOnly;
 }
 
+/* Biomes that only get to supply a card picture when nothing else is on offer.
+ * "universal" ("Другое") says nothing about the place, and "settlement" is worn
+ * by a quarter of the catalog, so a more specific biome always outranks them.
+ * Ordered least specific first, since each one is dropped in turn. */
+const GENERIC_BIOMES = ['universal', 'settlement'];
+
+/* Which biome's picture a card shows. Ties break on the biome id rather than the
+ * translated name so the picture stays put when the language changes. */
+function artBiome(env) {
+  let pool = (env.biomes || []).filter(b => BIOMES.includes(b));
+  for (const generic of GENERIC_BIOMES) {
+    if (pool.length < 2) break;
+    pool = pool.filter(b => b !== generic);
+  }
+  return pool.sort()[0] || null;
+}
+
+/* The picture panel is a fixed width, so the browser can be told exactly how
+ * many pixels it will draw and pick the tier that matches the screen: 100 for
+ * an ordinary display, 200 at 2x, 300 at 3x. Keep in step with .card-art. */
+const ART_SIZES = '(max-width: 640px) 140px, 95px';
+const ART_WIDTHS = [100, 200, 300];
+
+function biomeArtHtml(env) {
+  const biome = artBiome(env);
+  if (!biome) return '';
+  const base = 'img/biomes/' + biome;
+  const avif = ART_WIDTHS.map(w => `${base}-${w}.avif ${w}w`).join(', ');
+  // AVIF holds the detail these landscapes need at a fraction of the weight;
+  // the WebP is only there for a browser too old to decode it.
+  return `
+      <div class="card-art">
+        <picture>
+          <source type="image/avif" sizes="${ART_SIZES}" srcset="${avif}">
+          <img src="${base}-200.webp" alt="" loading="lazy" decoding="async">
+        </picture>
+      </div>`;
+}
+
 function cardHtml(env) {
   const impulses = envField(env, 'impulses');
   const biomeChips = (env.biomes || []).map(b => `<span class="biome-chip">${t('biome_' + b)}</span>`).join('');
@@ -459,20 +498,23 @@ function cardHtml(env) {
   ].join('');
   return `
     <div class="card" data-id="${env.id}" data-type="${env.type}">
-      <div class="card-top">
-        <div class="card-title-row">
-          <h3 class="card-title">${escapeHtml(envName(env))}</h3>
-          <button type="button" class="card-add-btn" data-add-to-list="${env.id}" aria-label="${t('add_to_list')}" title="${t('add_to_list')}">+</button>
+      ${biomeArtHtml(env)}
+      <div class="card-body">
+        <div class="card-top">
+          <div class="card-title-row">
+            <h3 class="card-title">${escapeHtml(envName(env))}</h3>
+            <button type="button" class="card-add-btn" data-add-to-list="${env.id}" aria-label="${t('add_to_list')}" title="${t('add_to_list')}">+</button>
+          </div>
+          <span class="rank-icon rank-icon-sm active" title="${t('tier_label')} ${env.tier}"><span>${env.tier}</span></span>
         </div>
-        <span class="rank-icon rank-icon-sm active" title="${t('tier_label')} ${env.tier}"><span>${env.tier}</span></span>
+        <div class="card-meta">
+          <span>${t('type_' + env.type)}</span>
+          <span class="diff">${t('difficulty_label')} ${escapeHtml(String(envDifficulty(env)))}</span>
+        </div>
+        ${impulses.length ? `<div class="card-impulses">${escapeHtml(impulses.join(', '))}</div>` : ''}
+        ${biomeChips || regionChip ? `<div class="card-biomes">${biomeChips}${regionChip}</div>` : ''}
+        ${badges}
       </div>
-      <div class="card-meta">
-        <span>${t('type_' + env.type)}</span>
-        <span class="diff">${t('difficulty_label')} ${escapeHtml(String(envDifficulty(env)))}</span>
-      </div>
-      ${impulses.length ? `<div class="card-impulses">${escapeHtml(impulses.join(', '))}</div>` : ''}
-      ${biomeChips || regionChip ? `<div class="card-biomes">${biomeChips}${regionChip}</div>` : ''}
-      ${badges}
     </div>`;
 }
 
