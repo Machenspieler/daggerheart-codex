@@ -611,7 +611,7 @@ button.rank-icon:active { transform: scale(0.92); }
   /* One column at this width, and the panel narrows so the name keeps a full
    * line. Keep the width in step with ART_SIZES in app.js. */
   .grid { grid-template-columns: 1fr; }
-  .card-art { width: 140px; min-height: 130px; }
+  .card-art { width: 105px; min-height: 130px; }
   .modal-overlay { padding: 16px 10px; }
   .modal-header { padding: 14px 16px 12px; }
   .modal-body { padding: 16px 16px 20px; }

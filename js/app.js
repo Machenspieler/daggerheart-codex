@@ -410,8 +410,13 @@ function envMatchesFilters(env) {
   return true;
 }
 
+/* Tier first, then the displayed name — so the grid reads as a ladder and each
+ * rung is alphabetical in whichever language is on screen. */
 function sortedFilteredEnvs() {
-  return currentEnvs().filter(envMatchesFilters);
+  const collator = new Intl.Collator(state.lang, { sensitivity: 'base', numeric: true });
+  return currentEnvs()
+    .filter(envMatchesFilters)
+    .sort((a, b) => a.tier - b.tier || collator.compare(envName(a), envName(b)));
 }
 
 function renderGrid() {
@@ -472,8 +477,8 @@ function artBiome(env) {
 /* The picture panel is a fixed width, so the browser can be told exactly how
  * many pixels it will draw and pick the tier that matches the screen: 100 for
  * an ordinary display, 200 at 2x, 300 at 3x. Keep in step with .card-art. */
-const ART_SIZES = '(max-width: 640px) 140px, 95px';
-const ART_WIDTHS = [100, 200, 300];
+const ART_SIZES = '(max-width: 640px) 105px, 95px';
+const ART_WIDTHS = [100, 200, 250, 300];
 
 function biomeArtHtml(env) {
   const biome = artBiome(env);
