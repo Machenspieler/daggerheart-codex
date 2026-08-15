@@ -385,35 +385,6 @@ function hasActiveFilters() {
   return f.search || f.tiers.size || f.types.size || f.biomes.size || f.regionOnly;
 }
 
-/* Biomes that only get to supply a card picture when nothing else is on offer.
- * "universal" ("Другое") says nothing about the place, and "settlement" is worn
- * by a quarter of the catalog, so a more specific biome always outranks them.
- * Ordered least specific first, since each one is dropped in turn. */
-const GENERIC_BIOMES = ['universal', 'settlement'];
-
-/* Which biome's picture a card shows. Ties break on the biome id rather than the
- * translated name so the picture stays put when the language changes. */
-function artBiome(env) {
-  let pool = (env.biomes || []).filter(b => BIOMES.includes(b));
-  for (const generic of GENERIC_BIOMES) {
-    if (pool.length < 2) break;
-    pool = pool.filter(b => b !== generic);
-  }
-  return pool.sort()[0] || null;
-}
-
-function biomeArtHtml(env) {
-  const biome = artBiome(env);
-  if (!biome) return '';
-  return `
-      <div class="card-art">
-        <picture>
-          <source media="(max-width: 640px)" srcset="img/biomes/${biome}-sm.webp">
-          <img src="img/biomes/${biome}.webp" alt="" loading="lazy" decoding="async">
-        </picture>
-      </div>`;
-}
-
 function cardHtml(env) {
   const impulses = envField(env, 'impulses');
   const biomeChips = (env.biomes || []).map(b => `<span class="biome-chip">${t('biome_' + b)}</span>`).join('');
@@ -429,23 +400,20 @@ function cardHtml(env) {
   ].join('');
   return `
     <div class="card" data-id="${env.id}" data-type="${env.type}">
-      ${biomeArtHtml(env)}
-      <div class="card-body">
-        <div class="card-top">
-          <div class="card-title-row">
-            <h3 class="card-title">${escapeHtml(envName(env))}</h3>
-            <button type="button" class="card-add-btn" data-add-to-list="${env.id}" aria-label="${t('add_to_list')}" title="${t('add_to_list')}">+</button>
-          </div>
-          <span class="rank-icon rank-icon-sm active" title="${t('tier_label')} ${env.tier}"><span>${env.tier}</span></span>
+      <div class="card-top">
+        <div class="card-title-row">
+          <h3 class="card-title">${escapeHtml(envName(env))}</h3>
+          <button type="button" class="card-add-btn" data-add-to-list="${env.id}" aria-label="${t('add_to_list')}" title="${t('add_to_list')}">+</button>
         </div>
-        <div class="card-meta">
-          <span>${t('type_' + env.type)}</span>
-          <span class="diff">${t('difficulty_label')} ${escapeHtml(String(envDifficulty(env)))}</span>
-        </div>
-        ${impulses.length ? `<div class="card-impulses">${escapeHtml(impulses.join(', '))}</div>` : ''}
-        ${biomeChips || regionChip ? `<div class="card-biomes">${biomeChips}${regionChip}</div>` : ''}
-        ${badges}
+        <span class="rank-icon rank-icon-sm active" title="${t('tier_label')} ${env.tier}"><span>${env.tier}</span></span>
       </div>
+      <div class="card-meta">
+        <span>${t('type_' + env.type)}</span>
+        <span class="diff">${t('difficulty_label')} ${escapeHtml(String(envDifficulty(env)))}</span>
+      </div>
+      ${impulses.length ? `<div class="card-impulses">${escapeHtml(impulses.join(', '))}</div>` : ''}
+      ${biomeChips || regionChip ? `<div class="card-biomes">${biomeChips}${regionChip}</div>` : ''}
+      ${badges}
     </div>`;
 }
 

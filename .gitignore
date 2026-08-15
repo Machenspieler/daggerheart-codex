@@ -1,3 +1,3 @@
-# Biome art masters — ~2.8 MB PNGs the site never serves. The 480px and 288px
-# WebP files generated from them are committed alongside; keep the masters local.
+# Biome art masters — ~2.8 MB PNGs kept locally as the source for the picture
+# work on the biome-pictures branch. Nothing on main serves them.
 img/biomes/src/
