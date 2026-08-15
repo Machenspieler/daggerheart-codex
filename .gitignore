@@ -2,6 +2,11 @@
 # work on the biome-pictures branch. Nothing on main serves them.
 img/biomes/src/
 
+# Header mark master — the 2 MB transparent render that img/brand-logo.png is
+# cropped and downscaled from. Kept locally in case the mark is ever needed
+# larger; the site only ever serves the 206x168 copy.
+img/logo_tr.png
+
 # Claude Code's per-machine config: launch.json and settings.local.json describe
 # this checkout, not the project.
 .claude/
