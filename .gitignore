@@ -1,3 +1,7 @@
 # Biome art masters — ~2.8 MB PNGs kept locally as the source for the picture
 # work on the biome-pictures branch. Nothing on main serves them.
 img/biomes/src/
+
+# Claude Code's per-machine config: launch.json and settings.local.json describe
+# this checkout, not the project.
+.claude/
