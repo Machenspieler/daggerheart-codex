@@ -206,7 +206,7 @@ function renderHeader() {
   el.innerHTML = `
     <div class="header-inner">
       <div class="brand" id="brand-home" role="button" tabindex="0">
-        <img class="brand-mark" src="img/brand-dagger.png?v=1" alt="" aria-hidden="true">
+        <img class="brand-mark" src="img/brand-logo.png?v=2" alt="" aria-hidden="true">
         <div class="brand-text">
           <h1>${t('app_title')}</h1>
           <p>${t('app_subtitle')}</p>
