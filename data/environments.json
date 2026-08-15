@@ -827,7 +827,7 @@
         ],
         "ru": [
           "Конструкт",
-          "Бес",
+          "Дьявол",
           "Змеиный Чародей",
           "Заклинатель-Мечник",
           "Вор в Маске",
@@ -888,7 +888,7 @@
           },
           "description": {
             "en": "When one of the PCs browses, a devil in disguise as a normal customer offers to buy an item for the PC, in return for a favor. And signing this contract.",
-            "ru": "Когда один из персонажей рассматривает товары, переодетый обычным покупателем бес предлагает купить предмет для персонажа в обмен на услугу. И подписание этого контракта."
+            "ru": "Когда один из персонажей рассматривает товары, переодетый обычным покупателем дьявол предлагает купить предмет для персонажа в обмен на услугу. И подписание этого контракта."
           },
           "prompt": {
             "en": "Who is this infernal being? What favor do they require? What happens when the wizard/shopkeeper recognizes them?",
@@ -2621,7 +2621,7 @@
           },
           "description": {
             "en": "The party comes to an iron bridge over a flaming chasm. Flying in circles under the bridge are one Devilish Imp Swarms per PC and a Braided Devil. Falling into the Chasm does 3d20 magical damage.",
-            "ru": "Группа подходит к железному мосту над пылающей пропастью. Под мостом кружат по одному Рою Бесов-Прислужников на персонажа и Плетёный Бес. Падение в пропасть наносит 3d20 магического урона."
+            "ru": "Группа подходит к железному мосту над пылающей пропастью. Под мостом кружат по одному Рою Дьявольских Бесов на персонажа и Плетёный Дьявол. Падение в пропасть наносит 3d20 магического урона."
           },
           "prompt": {
             "en": "What draws devils here? Can you get out before meeting more?",
@@ -13599,7 +13599,7 @@
           },
           "description": {
             "en": "A PC can make an Instinct Roll to identify twisted flora in the area. On a success with Hope, they find all three of the below plants. On a success with Fear, they find two. On a failure, they can mark a Stress to find one.\n- Gyre Cap\n- Liar's Bane\n- Barbed Lattice",
-            "ru": "Персонаж может сделать Бросок на Инстинкт, чтобы опознать искажённую флору в этой местности. При успехе с Надеждой он находит все три растения из списка ниже. При успехе со Страхом он находит два. При неудаче он может отметить Стресс, чтобы найти одно.\n- Вихревая Шляпка\n- Погибель Лжеца\n- Шипастая Решётка"
+            "ru": "Персонаж может сделать Бросок на Инстинкт, чтобы опознать искажённую флору в этой местности. При успехе с Надеждой он находит все три растения из списка ниже. При успехе со Страхом он находит два. При неудаче он может отметить Стресс, чтобы найти одно.\n- Вихревая Шляпка\n- Погибель Лжецов\n- Шипастая Решётка"
           },
           "prompt": {
             "en": "What strange scents and colors do the twisted plants display? What local creatures browse on them?",
@@ -14405,7 +14405,7 @@
           },
           "description": {
             "en": "Many useful flora are only found in these caves. A PC can make a Knowledge or Instinct Roll to identify plants. On a success with Hope, they find three of the below plants. On a success with Fear, they find two. On a failure, they can mark a Stress to find one.\n- Aetherflower\n- Boomberry\n- Flare Tuber\n- Toxilily",
-            "ru": "Многие полезные растения встречаются только в этих пещерах. Персонаж может сделать Бросок на Знание или Инстинкт, чтобы определить растения. При успехе с Надеждой он находит три из перечисленных ниже растений. При успехе со Страхом — два. При неудаче он может отметить Стресс, чтобы найти одно.\n- Эфироцвет\n- Взрыв-ягода\n- Вспышка-клубень\n- Ядолилия"
+            "ru": "Многие полезные растения встречаются только в этих пещерах. Персонаж может сделать Бросок на Знание или Инстинкт, чтобы определить растения. При успехе с Надеждой он находит три из перечисленных ниже растений. При успехе со Страхом — два. При неудаче он может отметить Стресс, чтобы найти одно.\n- Эфироцвет\n- Грохотягода\n- Дыхательный Клубень\n- Ядолилия"
           },
           "prompt": {
             "en": "What scars has the mining left on the nature in this land? What do the PCs have to be wary of when searching in the area?",
@@ -14692,7 +14692,7 @@
           },
           "description": {
             "en": "A PC can make a Knowledge or Instinct Roll to identify plants worth harvesting. On a success with Hope, they find three of the below plants. On a success with Fear, they find two. On a failure, they can mark a Stress to find one.\n- Umbra Lily\n- Phantom Ferns\n- Gloomblossom Anemone\n- Thieves' Eelgrass",
-            "ru": "Игрок может совершить Бросок на Знание или Инстинкт, чтобы определить растения, пригодные для сбора. При Успехе с Надеждой он находит три из перечисленных ниже растений. При Успехе со Страхом — два. При Неудаче он может отметить Стресс, чтобы найти одно.\n- Сумеречная Лилия\n- Папоротники-Призраки\n- Анемона Мрачноцвет\n- Воровской Взморник"
+            "ru": "Игрок может совершить Бросок на Знание или Инстинкт, чтобы определить растения, пригодные для сбора. При Успехе с Надеждой он находит три из перечисленных ниже растений. При Успехе со Страхом — два. При Неудаче он может отметить Стресс, чтобы найти одно.\n- Тенелилия\n- Призрачные Папоротники\n- Анемона Мрачноцвет\n- Воровской Взморник"
           },
           "prompt": {
             "en": "What does this plant look like? How do you know of its use, and why do you want it?",
@@ -15349,7 +15349,7 @@
           },
           "description": {
             "en": "A PC can make a Knowledge or Instinct Roll to identify plants worth harvesting. On a success with Hope, they find all three of the below plants. On a success with Fear, they find two. On a failure, they can mark a Stress to find one.\n- Blossomveil Ivy\n- Nursewood\n- Witherroot",
-            "ru": "Игрок может совершить Бросок на Знание или Инстинкт, чтобы определить растения, пригодные для сбора. При Успехе с Надеждой он находит все три из перечисленных ниже растений. При Успехе со Страхом — два. При Неудаче он может отметить Стресс, чтобы найти одно.\n- Плющ Цветозавеса\n- Древо-Нянька\n- Корень Увядания"
+            "ru": "Игрок может совершить Бросок на Знание или Инстинкт, чтобы определить растения, пригодные для сбора. При Успехе с Надеждой он находит все три из перечисленных ниже растений. При Успехе со Страхом — два. При Неудаче он может отметить Стресс, чтобы найти одно.\n- Плющ Цветочной Вуали\n- Целебное Древо\n- Вянущий Корень"
           },
           "prompt": {
             "en": "What makes you realize this plant is useful? How do you know how to use the plant?",
