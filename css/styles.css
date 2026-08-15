@@ -14,6 +14,7 @@
   /* ---- surfaces ---- */
   --ink: #14110f;
   --ink-raised: #1c1815;
+  --ink-hover: #241d17;    /* --ink-raised lifted one step, for button hover */
   --ink-card: #211c18;
   --ink-overlay: rgba(10,8,7,0.80);
 
@@ -217,7 +218,7 @@ a:hover { text-decoration: underline; text-underline-offset: 2px; }
               color var(--t-fast) var(--ease-out),
               transform var(--t-fast) var(--ease-out);
 }
-.btn:hover { border-color: var(--line-strong); background: #241d17; }
+.btn:hover { border-color: var(--line-strong); background: var(--ink-hover); }
 .btn:active { transform: translateY(1px); }
 
 /* Gold, not the orphan forest green that used to live here — the same
@@ -631,6 +632,7 @@ button.rank-icon:focus-visible { outline: var(--focus-ring); outline-offset: 1px
   animation: modal-in var(--t-base) var(--ease-enter);
 }
 .modal:focus { outline: none; }
+.modal-sm { max-width: 400px; }
 @keyframes modal-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
 .modal-header {
   display: flex; align-items: center; flex-wrap: wrap; gap: var(--s-4);
@@ -1130,9 +1132,30 @@ button.rank-icon:focus-visible { outline: var(--focus-ring); outline-offset: 1px
   .card { gap: var(--s-3); }
   .card-art { width: 88px; min-height: 130px; }
 
-  .modal-overlay { padding: var(--s-4) var(--s-2); }
-  .modal-header { padding: var(--s-4) var(--s-4) var(--s-3); }
-  .modal-body { padding: var(--s-4) var(--s-4) var(--s-5); }
+  /* A sheet, not a card floating in a margin: the stat block is the reading
+   * surface and on a phone it takes the whole screen. */
+  /* flex-start plus min-height, not align-items:stretch — stretch would set the
+   * sheet to exactly the viewport height, so a long stat block would overflow
+   * it rather than grow it, and the sticky header below would have no tall
+   * containing block to stick within. */
+  .modal-overlay { padding: 0; align-items: flex-start; }
+  .modal, .modal-sm {
+    max-width: none; width: 100%; margin: 0; min-height: 100%;
+    border: none; border-radius: 0;
+  }
+  /* Filling the screen removes the backdrop, and a phone has no Escape key, so
+   * the close button is the only way out — it has to stay on screen. This is a
+   * deliberate departure from the desktop card, where the header scrolls away
+   * with the rest and there is always a backdrop to click. */
+  .modal-header {
+    position: sticky; top: 0; z-index: 2;
+    background: var(--ink-card);
+    padding-block: calc(var(--s-4) + env(safe-area-inset-top)) var(--s-3);
+  }
+  .modal-header, .modal-body {
+    padding-inline: max(var(--s-4), env(safe-area-inset-left)) max(var(--s-4), env(safe-area-inset-right));
+  }
+  .modal-body { padding-block: var(--s-4) calc(var(--s-6) + env(safe-area-inset-bottom)); }
   /* Name and close on the first line, the tier row on its own below: a 32-char
    * name plus four pills plus the close button never fit a phone. The basis has
    * to be small — a wrapping flex line is filled at base size, so `auto` would

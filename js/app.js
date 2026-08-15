@@ -1012,7 +1012,7 @@ function openAddToListPopup(envId) {
   }
 
   overlay.innerHTML = `
-    <div class="modal" style="max-width:400px" data-overlay-card
+    <div class="modal modal-sm" data-overlay-card
          role="dialog" aria-modal="true" aria-labelledby="atl-title">
       <div class="modal-header">
         <h2 id="atl-title">${t('add_to_list')}</h2>
