@@ -25,3 +25,7 @@ fall back to a globally configured or auto-detected identity.
 `index.html` references the stylesheet and script with a `?v=` query string. Bump the
 number whenever `css/styles.css` or `js/app.js` changes, or browsers will serve stale
 copies after deploy.
+
+The JSON under `data/` is fetched by `js/app.js`, not linked from `index.html`, so it
+carries its own buster: bump `DATA_VERSION` in `js/app.js` whenever any data file
+changes. That edits `js/app.js`, so bump its `?v=` in `index.html` too.

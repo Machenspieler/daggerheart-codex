@@ -103,11 +103,17 @@ function envDifficulty(env) {
 
 /* ---------------- init ---------------- */
 
+/* Cache buster for the JSON under data/. index.html versions the stylesheet and
+   this script the same way; the data files are fetched from here instead, so
+   bump this whenever anything in data/ changes or browsers serve stale copies. */
+const DATA_VERSION = 1;
+
 async function init() {
+  const v = `?v=${DATA_VERSION}`;
   const [i18n, envs, regions] = await Promise.all([
-    fetch('data/i18n.json').then(r => r.json()),
-    fetch('data/environments.json').then(r => r.json()),
-    fetch('data/regions.json').then(r => r.json()).catch(() => ({ regions: [] })),
+    fetch(`data/i18n.json${v}`).then(r => r.json()),
+    fetch(`data/environments.json${v}`).then(r => r.json()),
+    fetch(`data/regions.json${v}`).then(r => r.json()).catch(() => ({ regions: [] })),
   ]);
   state.i18n = i18n;
   state.builtinEnvs = envs.environments;
