@@ -151,6 +151,14 @@ function envDifficulty(env) {
   if (d && typeof d === 'object') return d[state.lang] || d.en || d.ru || '';
   return d;
 }
+/** A descriptive difficulty only ever points back at a feature that already
+ * spells the rule out ("Relative Strength"), so cards and the detail overlay
+ * drop the difficulty line for those environments instead of repeating it. */
+function hasDifficulty(env) {
+  const d = env.difficulty;
+  if (d === null || d === undefined || d === '') return false;
+  return typeof d !== 'object';
+}
 
 /* ---------------- init ---------------- */
 
@@ -509,7 +517,7 @@ function cardHtml(env) {
         </div>
         <div class="card-meta">
           <span>${t('type_' + env.type)}</span>
-          <span class="diff">${t('difficulty_label')} ${escapeHtml(String(envDifficulty(env)))}</span>
+          ${hasDifficulty(env) ? `<span class="diff">${t('difficulty_label')} ${escapeHtml(String(envDifficulty(env)))}</span>` : ''}
         </div>
         ${impulses.length ? `<div class="card-impulses">${escapeHtml(impulses.join(', '))}</div>` : ''}
         ${biomeChips || regionChip ? `<div class="card-biomes">${biomeChips}${regionChip}</div>` : ''}
@@ -910,12 +918,13 @@ function openDetail(envId) {
       </div>
       <div class="modal-body">
         <div class="detail-meta">
+          ${hasDifficulty(env) ? `
           <span class="dm-item">
             <span class="dm-k">${t('difficulty_label')}</span><span class="dm-dash">—</span>
             <span class="dm-v" id="detail-difficulty-value"></span>
             <span class="dm-orig" id="detail-difficulty-orig"></span>
           </span>
-          <span class="dm-sep" aria-hidden="true">·</span>
+          <span class="dm-sep" aria-hidden="true">·</span>` : ''}
           <span class="dm-item">
             <span class="dm-k">${t('filter_type')}</span><span class="dm-dash">—</span>
             <span class="dm-v dm-v-text">${t('type_' + env.type)}</span>
@@ -968,17 +977,21 @@ function openDetail(envId) {
 
   function applyViewTier() {
     const overridden = viewTier !== env.tier;
-    difficultyValueEl.textContent = String(retierDifficulty(env, viewTier));
     // While a card is read at another tier it says so twice over: an amber rim
     // around the whole card, and the environment's own difficulty spelled out
     // next to the scaled one.
     modalEl.classList.toggle('retiered', overridden);
-    difficultyOrigEl.textContent = overridden
-      ? t('retier_original_short').replace('{v}', String(envDifficulty(env)))
-      : '';
-    difficultyValueEl.title = overridden
-      ? t('retier_original').replace('{v}', `${t('tier_label')} ${env.tier}, ${t('difficulty_label')} ${envDifficulty(env)}`)
-      : '';
+    // An environment with a descriptive difficulty has no difficulty line to
+    // update — the rest of the tier switch still applies to it.
+    if (difficultyValueEl) {
+      difficultyValueEl.textContent = String(retierDifficulty(env, viewTier));
+      difficultyOrigEl.textContent = overridden
+        ? t('retier_original_short').replace('{v}', String(envDifficulty(env)))
+        : '';
+      difficultyValueEl.title = overridden
+        ? t('retier_original').replace('{v}', `${t('tier_label')} ${env.tier}, ${t('difficulty_label')} ${envDifficulty(env)}`)
+        : '';
+    }
     overlay.querySelectorAll('[data-view-tier]').forEach(btn => {
       const on = Number(btn.dataset.viewTier) === viewTier;
       btn.classList.toggle('active', on);
