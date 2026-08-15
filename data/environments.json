@@ -13598,12 +13598,12 @@
             "ru": "Искажённая роща"
           },
           "description": {
-            "en": "A PC can make an Instinct Roll to identify twisted flora in the area. On a success with Hope, they find all three of the below plants. On a success with Fear, they find two. On a failure, they can mark a Stress to find one.",
-            "ru": "Персонаж может сделать Бросок на Инстинкт, чтобы опознать искажённую флору в этой местности. При успехе с Надеждой он находит все три растения из списка ниже. При успехе со Страхом он находит два. При неудаче он может отметить Стресс, чтобы найти одно."
+            "en": "A PC can make an Instinct Roll to identify twisted flora in the area. On a success with Hope, they find all three of the below plants. On a success with Fear, they find two. On a failure, they can mark a Stress to find one.\n- Gyre Cap\n- Liar's Bane\n- Barbed Lattice",
+            "ru": "Персонаж может сделать Бросок на Инстинкт, чтобы опознать искажённую флору в этой местности. При успехе с Надеждой он находит все три растения из списка ниже. При успехе со Страхом он находит два. При неудаче он может отметить Стресс, чтобы найти одно.\n- Вихревая Шляпка\n- Погибель Лжеца\n- Шипастая Решётка"
           },
           "prompt": {
-            "en": "Gyre Cap Liar's Bane Barbed Lattice What strange scents and colors do the twisted plants display? What local creatures browse on them?",
-            "ru": "Вихревая Шляпка Погибель Лжеца Шипастая Решётка Какие странные запахи и цвета источают искажённые растения? Какие местные существа питаются ими?"
+            "en": "What strange scents and colors do the twisted plants display? What local creatures browse on them?",
+            "ru": "Какие странные запахи и цвета источают искажённые растения? Какие местные существа питаются ими?"
           }
         },
         {
@@ -14404,12 +14404,12 @@
             "ru": "Обыск рощи"
           },
           "description": {
-            "en": "Many useful flora are only found in these caves. A PC can make a Knowledge or Instinct Roll to identify plants. On a success with Hope, they find three of the below plants. On a success with Fear, they find two. On a failure, they can mark a Stress to find one.",
-            "ru": "Многие полезные растения встречаются только в этих пещерах. Персонаж может сделать Бросок на Знание или Инстинкт, чтобы определить растения. При успехе с Надеждой он находит три из перечисленных ниже растений. При успехе со Страхом — два. При неудаче он может отметить Стресс, чтобы найти одно."
+            "en": "Many useful flora are only found in these caves. A PC can make a Knowledge or Instinct Roll to identify plants. On a success with Hope, they find three of the below plants. On a success with Fear, they find two. On a failure, they can mark a Stress to find one.\n- Aetherflower\n- Boomberry\n- Flare Tuber\n- Toxilily",
+            "ru": "Многие полезные растения встречаются только в этих пещерах. Персонаж может сделать Бросок на Знание или Инстинкт, чтобы определить растения. При успехе с Надеждой он находит три из перечисленных ниже растений. При успехе со Страхом — два. При неудаче он может отметить Стресс, чтобы найти одно.\n- Эфироцвет\n- Взрыв-ягода\n- Вспышка-клубень\n- Ядолилия"
           },
           "prompt": {
-            "en": "Aetherflower Boomberry Flare Tuber Toxilily What scars has the mining left on the nature in this land? What do the PCs have to be wary of when searching in the area?",
-            "ru": "Эфироцвет Взрыв-ягода Вспышка-клубень Ядолилия Какие шрамы добыча оставила на природе этих земель? Чего персонажам следует остерегаться при поиске в этой местности?"
+            "en": "What scars has the mining left on the nature in this land? What do the PCs have to be wary of when searching in the area?",
+            "ru": "Какие шрамы добыча оставила на природе этих земель? Чего персонажам следует остерегаться при поиске в этой местности?"
           }
         },
         {
@@ -14691,12 +14691,12 @@
             "ru": "Роща сумеречных растений"
           },
           "description": {
-            "en": "A PC can make a Knowledge or Instinct Roll to identify plants worth harvesting. On a success with Hope, they find three of the below plants. On a success with Fear, they find two. On a failure, they can mark a Stress to find one.",
-            "ru": "Игрок может совершить Бросок на Знание или Инстинкт, чтобы определить растения, пригодные для сбора. При Успехе с Надеждой он находит три из перечисленных ниже растений. При Успехе со Страхом — два. При Неудаче он может отметить Стресс, чтобы найти одно."
+            "en": "A PC can make a Knowledge or Instinct Roll to identify plants worth harvesting. On a success with Hope, they find three of the below plants. On a success with Fear, they find two. On a failure, they can mark a Stress to find one.\n- Umbra Lily\n- Phantom Ferns\n- Gloomblossom Anemone\n- Thieves' Eelgrass",
+            "ru": "Игрок может совершить Бросок на Знание или Инстинкт, чтобы определить растения, пригодные для сбора. При Успехе с Надеждой он находит три из перечисленных ниже растений. При Успехе со Страхом — два. При Неудаче он может отметить Стресс, чтобы найти одно.\n- Сумеречная Лилия\n- Папоротники-Призраки\n- Анемона Мрачноцвет\n- Воровской Взморник"
           },
           "prompt": {
-            "en": "Umbra Lily Phantom Ferns Gloomblossom Anemone Thieves' Eelgrass What does this plant look like? How do you know of its use, and why do you want it?",
-            "ru": "Сумеречная Лилия Папоротники-Призраки Анемона Мрачноцвет Воровской Взморник Как выглядит это растение? Откуда вы знаете о его применении, и зачем оно вам нужно?"
+            "en": "What does this plant look like? How do you know of its use, and why do you want it?",
+            "ru": "Как выглядит это растение? Откуда вы знаете о его применении, и зачем оно вам нужно?"
           }
         },
         {
@@ -15348,12 +15348,12 @@
             "ru": "Флора долины"
           },
           "description": {
-            "en": "A PC can make a Knowledge or Instinct Roll to identify plants worth harvesting. On a success with Hope, they find all three of the below plants. On a success with Fear, they find two. On a failure, they can mark a Stress to find one.",
-            "ru": "Игрок может совершить Бросок на Знание или Инстинкт, чтобы определить растения, пригодные для сбора. При Успехе с Надеждой он находит все три из перечисленных ниже растений. При Успехе со Страхом — два. При Неудаче он может отметить Стресс, чтобы найти одно."
+            "en": "A PC can make a Knowledge or Instinct Roll to identify plants worth harvesting. On a success with Hope, they find all three of the below plants. On a success with Fear, they find two. On a failure, they can mark a Stress to find one.\n- Blossomveil Ivy\n- Nursewood\n- Witherroot",
+            "ru": "Игрок может совершить Бросок на Знание или Инстинкт, чтобы определить растения, пригодные для сбора. При Успехе с Надеждой он находит все три из перечисленных ниже растений. При Успехе со Страхом — два. При Неудаче он может отметить Стресс, чтобы найти одно.\n- Плющ Цветозавеса\n- Древо-Нянька\n- Корень Увядания"
           },
           "prompt": {
-            "en": "Blossomveil Ivy Nursewood Witherroot What makes you realize this plant is useful? How do you know how to use the plant?",
-            "ru": "Плющ Цветозавеса Древо-Нянька Корень Увядания Что заставляет вас понять, что это растение полезно? Откуда вы знаете, как его использовать?"
+            "en": "What makes you realize this plant is useful? How do you know how to use the plant?",
+            "ru": "Что заставляет вас понять, что это растение полезно? Откуда вы знаете, как его использовать?"
           }
         },
         {
@@ -15363,8 +15363,8 @@
             "ru": "Туман времени"
           },
           "description": {
-            "en": "Spend a Fear to have a PC become Younger or Older until they take their first long rest outside this environment. They must make a Strength Reaction Roll. On a success, they gain a boon from the condition, on a failure they gain a bane. Boons: Younger: They have a +1 bonus to Strength and Agility. Older: They have a +1 bonus to their Experiences. Banes: Younger: They have a –1 penalty to their Experiences. Older: They have a –1 penalty to Strength and Agility.",
-            "ru": "Потратьте Страх, чтобы Игрок стал Моложе или Старше, пока не совершит свой первый Продолжительный отдых за пределами этого окружения. Он должен совершить Бросок Реакции на Силу. При успехе он получает благо от этого состояния, при провале — проклятие. Блага: Моложе: он получает бонус +1 к Силе и Проворности. Старше: он получает бонус +1 к своим Опытам. Проклятия: Моложе: он получает штраф –1 к своим Опытам. Старше: он получает штраф –1 к Силе и Проворности."
+            "en": "Spend a Fear to have a PC become Younger or Older until they take their first long rest outside this environment. They must make a Strength Reaction Roll. On a success, they gain a boon from the condition, on a failure they gain a bane.\n- Boons: Younger: They have a +1 bonus to Strength and Agility. Older: They have a +1 bonus to their Experiences.\n- Banes: Younger: They have a –1 penalty to their Experiences. Older: They have a –1 penalty to Strength and Agility.",
+            "ru": "Потратьте Страх, чтобы Игрок стал Моложе или Старше, пока не совершит свой первый Продолжительный отдых за пределами этого окружения. Он должен совершить Бросок Реакции на Силу. При успехе он получает благо от этого состояния, при провале — проклятие.\n- Блага: Моложе: он получает бонус +1 к Силе и Проворности. Старше: он получает бонус +1 к своим Опытам.\n- Проклятия: Моложе: он получает штраф –1 к своим Опытам. Старше: он получает штраф –1 к Силе и Проворности."
           },
           "prompt": {
             "en": "What memories spark as your age changes? How do you feel about your sudden change in age, and why?",
