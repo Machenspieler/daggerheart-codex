@@ -3,22 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#14110f">
 <title>Daggerheart Atlas</title>
 <link rel="icon" href="favicon.ico?v=3" sizes="any">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png?v=3">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png?v=2">
 <link rel="icon" type="image/png" sizes="512x512" href="favicon-512.png?v=2">
 <link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
-<link rel="stylesheet" href="css/styles.css?v=22">
+<!-- The font request lives here rather than as an @import inside styles.css:
+     an @import cannot start until that file has been fetched and parsed, which
+     puts a whole round trip in front of the first text paint. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Forum&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@500;700&display=swap">
+<link rel="stylesheet" href="css/styles.css?v=23">
 </head>
 <body>
   <header class="site-header" id="header"></header>
-  <main class="shell">
+  <main class="shell" id="main" tabindex="-1">
     <div id="toolbar"></div>
-    <div class="result-count" id="result-count"></div>
+    <div class="result-count" id="result-count" role="status"></div>
     <div class="grid" id="grid-wrap"></div>
   </main>
   <footer class="site-footer" id="footer"></footer>
-  <script src="js/app.js?v=26"></script>
+  <script src="js/app.js?v=27"></script>
 </body>
 </html>

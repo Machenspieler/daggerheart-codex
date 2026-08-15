@@ -74,7 +74,22 @@
     "item_src_frame": "Frame",
     "craft_into": "Upgrades to",
     "craft_from": "Made from",
-    "open_in_loot": "Open in the loot generator ↗"
+    "open_in_loot": "Open in the loot generator ↗",
+    "loot_src_note": "Card shown as it appears in the loot generator.",
+    "skip_to_content": "Skip to the catalog",
+    "main_nav": "Site sections",
+    "search_label": "Search",
+    "filters_label": "Filters",
+    "filters_active": "active filters: {n}",
+    "lists_title": "My lists",
+    "loading": "Loading the atlas…",
+    "load_error": "The atlas data could not be loaded.",
+    "load_error_hint": "Check your connection, then try again.",
+    "retry": "Try again",
+    "list_name_required": "Enter a name for the list.",
+    "list_created": "List “{n}” created",
+    "added_to_list": "Added to “{n}”",
+    "removed_from_list": "Removed from “{n}”"
   },
   "ru": {
     "app_title": "Атлас Daggerheart",
@@ -151,6 +166,21 @@
     "item_src_frame": "Фрейм",
     "craft_into": "Улучшается до",
     "craft_from": "Получается из",
-    "open_in_loot": "Открыть в генераторе лута ↗"
+    "open_in_loot": "Открыть в генераторе лута ↗",
+    "loot_src_note": "Карточка показана так, как она выглядит в генераторе лута.",
+    "skip_to_content": "Перейти к каталогу",
+    "main_nav": "Разделы сайта",
+    "search_label": "Поиск",
+    "filters_label": "Фильтры",
+    "filters_active": "активных фильтров: {n}",
+    "lists_title": "Мои списки",
+    "loading": "Загрузка атласа…",
+    "load_error": "Не удалось загрузить данные атласа.",
+    "load_error_hint": "Проверьте соединение и попробуйте снова.",
+    "retry": "Повторить",
+    "list_name_required": "Введите название списка.",
+    "list_created": "Список «{n}» создан",
+    "added_to_list": "Добавлено в «{n}»",
+    "removed_from_list": "Удалено из «{n}»"
   }
 }

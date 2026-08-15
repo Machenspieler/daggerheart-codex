@@ -31,6 +31,9 @@ const state = {
   envLists: JSON.parse(localStorage.getItem(LS_KEYS.envLists) || '{}'),
   storageNoticeDismissed: localStorage.getItem(LS_KEYS.storageNoticeDismissed) === '1',
   filters: { search: '', tiers: new Set(), types: new Set(), biomes: new Set(), regionOnly: false },
+  // Whether the phone-width filter disclosure is open. Purely presentational,
+  // so it lives here rather than in localStorage and survives a re-render only.
+  filtersOpen: false,
   route: parseRoute(),
 };
 
@@ -165,21 +168,197 @@ function hasDifficulty(env) {
 /* Cache buster for the JSON under data/. index.html versions the stylesheet and
    this script the same way; the data files are fetched from here instead, so
    bump this whenever anything in data/ changes or browsers serve stale copies. */
-const DATA_VERSION = 6;
+const DATA_VERSION = 7;
 
+function getJSON(path) {
+  return fetch(path).then(r => {
+    if (!r.ok) throw new Error(`${r.status} ${r.statusText} — ${path}`);
+    return r.json();
+  });
+}
+
+/* The dictionary comes first and alone: it is 8KB against the catalogue's 1.4MB,
+ * and every string on the loading screen is in it. Once it lands the header and
+ * a skeleton grid go up immediately, so the first paint is the shape of the page
+ * rather than an empty near-black rectangle. */
 async function init() {
   const v = `?v=${DATA_VERSION}`;
-  const [i18n, envs, regions, items] = await Promise.all([
-    fetch(`data/i18n.json${v}`).then(r => r.json()),
-    fetch(`data/environments.json${v}`).then(r => r.json()),
-    fetch(`data/regions.json${v}`).then(r => r.json()).catch(() => ({ regions: [] })),
-    fetch(`data/items.json${v}`).then(r => r.json()).catch(() => ({ items: {}, aliases: {} })),
-  ]);
-  state.i18n = i18n;
-  state.builtinEnvs = envs.environments;
-  state.regions = regions.regions || [];
-  setItemCatalog(items);
+  try {
+    state.i18n = await getJSON(`data/i18n.json${v}`);
+  } catch (err) {
+    renderFatalError(err);
+    return;
+  }
+  renderHeader();
+  renderFooter();
+  renderLoadingState();
+  try {
+    const [envs, regions, items] = await Promise.all([
+      getJSON(`data/environments.json${v}`),
+      getJSON(`data/regions.json${v}`).catch(() => ({ regions: [] })),
+      getJSON(`data/items.json${v}`).catch(() => ({ items: {}, aliases: {} })),
+    ]);
+    state.builtinEnvs = envs.environments;
+    state.regions = regions.regions || [];
+    setItemCatalog(items);
+  } catch (err) {
+    renderLoadError(err);
+    return;
+  }
   render();
+}
+
+function renderLoadingState() {
+  document.getElementById('toolbar').innerHTML = `
+    <div class="skeleton-toolbar" aria-hidden="true">
+      <div class="sk sk-field wide"></div>
+      <div class="sk sk-field"></div>
+      <div class="sk sk-field"></div>
+      <div class="sk sk-field"></div>
+    </div>`;
+  document.getElementById('result-count').textContent = t('loading');
+  document.getElementById('grid-wrap').innerHTML =
+    Array.from({ length: 6 }, () => '<div class="sk sk-card" aria-hidden="true"></div>').join('');
+}
+
+function renderLoadError(err) {
+  console.error('[atlas] data load failed', err);
+  document.getElementById('toolbar').innerHTML = '';
+  document.getElementById('result-count').textContent = '';
+  document.getElementById('grid-wrap').innerHTML = emptyStateHtml({
+    icon: ICON_ALERT,
+    title: t('load_error'),
+    hint: t('load_error_hint'),
+    action: `<button type="button" class="btn btn-primary" id="retry-load">${t('retry')}</button>`,
+    error: true,
+  });
+  document.getElementById('retry-load').addEventListener('click', e => {
+    e.currentTarget.dataset.loading = 'true';
+    location.reload();
+  });
+}
+
+/* The dictionary itself failed, so there are no strings to say so with. */
+function renderFatalError(err) {
+  console.error('[atlas] i18n load failed', err);
+  document.getElementById('grid-wrap').innerHTML = emptyStateHtml({
+    icon: ICON_ALERT,
+    title: 'Не удалось загрузить атлас. / The atlas could not be loaded.',
+    hint: 'Проверьте соединение и обновите страницу. / Check your connection and reload.',
+    error: true,
+  });
+}
+
+/* ---------------- shared UI primitives ---------------- */
+
+const ICON_ALERT = `<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3.5 22 20H2L12 3.5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M12 10v4.5M12 17.2v.1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>`;
+const ICON_CHECK = `<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="m8 12.2 2.7 2.6L16 9.4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+const ICON_SEARCH_EMPTY = `<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" stroke-width="1.6"/><path d="m15.5 15.5 4.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M8 10.5h5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>`;
+const ICON_BOOKMARK = `<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.5 3.5h11a1 1 0 0 1 1 1v16l-6.5-4-6.5 4v-16a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>`;
+
+/** One empty/error state for the whole app: an icon, a headline, a line of help
+ * and — the part the old dashed box was missing — the action that resolves it. */
+function emptyStateHtml({ icon, title, hint, action = '', error = false }) {
+  return `
+    <div class="empty-state${error ? ' is-error' : ''}"${error ? ' role="alert"' : ''}>
+      ${icon}
+      <p>${escapeHtml(title)}</p>
+      ${hint ? `<p>${escapeHtml(hint)}</p>` : ''}
+      ${action}
+    </div>`;
+}
+
+function showToast(message, kind = 'success') {
+  let stack = document.getElementById('toast-stack');
+  if (!stack) {
+    stack = document.createElement('div');
+    stack.id = 'toast-stack';
+    stack.className = 'toast-stack';
+    stack.setAttribute('role', 'status');
+    stack.setAttribute('aria-live', 'polite');
+    document.body.appendChild(stack);
+  }
+  const toast = document.createElement('div');
+  toast.className = kind === 'error' ? 'toast is-error' : 'toast';
+  toast.innerHTML = `${kind === 'error' ? ICON_ALERT : ICON_CHECK}<span></span>`;
+  toast.querySelector('span').textContent = message;
+  stack.appendChild(toast);
+  setTimeout(() => toast.remove(), 3200);
+}
+
+/* ---------------- overlay plumbing ---------------- */
+
+/* Every overlay in the app — the environment card, the add-to-list popup and
+ * the item card — goes through this. It is what gives them Escape, a focus
+ * trap, focus restored to whatever opened them, and a page behind that stays
+ * put instead of scrolling under the wheel. */
+const overlayStack = [];
+let scrollLockY = 0;
+
+const FOCUSABLE = 'a[href],button:not([disabled]),input:not([disabled]),select:not([disabled]),textarea:not([disabled]),[tabindex]:not([tabindex="-1"])';
+
+function focusableIn(root) {
+  return [...root.querySelectorAll(FOCUSABLE)].filter(el => el.offsetParent !== null);
+}
+
+/* position:fixed rather than overflow:hidden — iOS Safari ignores the latter on
+ * body once a nested element is scrolling. The offset is restored on unlock so
+ * the catalog is exactly where it was left. */
+function lockScroll() {
+  if (overlayStack.length !== 1) return;
+  scrollLockY = window.scrollY;
+  document.body.style.position = 'fixed';
+  document.body.style.top = `-${scrollLockY}px`;
+  document.body.style.insetInline = '0';
+}
+
+function unlockScroll() {
+  if (overlayStack.length) return;
+  document.body.style.position = '';
+  document.body.style.top = '';
+  document.body.style.insetInline = '';
+  window.scrollTo(0, scrollLockY);
+}
+
+/** Wires an overlay up and returns its teardown. `closeFn` is the caller's own
+ * close routine, so Escape and the trap stay in step with the click handlers. */
+function registerOverlay(overlay, closeFn) {
+  const previouslyFocused = document.activeElement;
+  overlayStack.push(overlay);
+  lockScroll();
+
+  function onKeyDown(e) {
+    if (overlayStack[overlayStack.length - 1] !== overlay) return;
+    if (e.key === 'Escape') { e.preventDefault(); closeFn(); return; }
+    if (e.key !== 'Tab') return;
+    const items = focusableIn(overlay);
+    if (!items.length) { e.preventDefault(); return; }
+    const first = items[0];
+    const last = items[items.length - 1];
+    const inside = overlay.contains(document.activeElement);
+    if (e.shiftKey && (!inside || document.activeElement === first)) {
+      e.preventDefault(); last.focus();
+    } else if (!e.shiftKey && (!inside || document.activeElement === last)) {
+      e.preventDefault(); first.focus();
+    }
+  }
+  document.addEventListener('keydown', onKeyDown);
+
+  const card = overlay.querySelector('[data-overlay-card]');
+  if (card) {
+    card.setAttribute('tabindex', '-1');
+    card.focus({ preventScroll: true });
+  }
+
+  return function teardown() {
+    document.removeEventListener('keydown', onKeyDown);
+    const i = overlayStack.indexOf(overlay);
+    if (i !== -1) overlayStack.splice(i, 1);
+    unlockScroll();
+    if (previouslyFocused && document.contains(previouslyFocused)) {
+      previouslyFocused.focus({ preventScroll: true });
+    }
+  };
 }
 
 /* ---------------- rendering ---------------- */
@@ -190,6 +369,9 @@ function render() {
     state.route = { name: 'lists' };
     if (location.hash !== '#/lists') location.hash = '#/lists';
   }
+  document.title = state.route.name === 'catalog'
+    ? t('app_title')
+    : `${t('lists_title')} — ${t('app_title')}`;
   renderHeader();
   if (state.route.name === 'lists') {
     renderListsHome();
@@ -204,20 +386,24 @@ function renderHeader() {
   const el = document.getElementById('header');
   const onLists = state.route.name !== 'catalog';
   el.innerHTML = `
+    <a class="skip-link" href="#grid-wrap">${t('skip_to_content')}</a>
     <div class="header-inner">
-      <div class="brand" id="brand-home" role="button" tabindex="0">
+      <button type="button" class="brand" id="brand-home">
         <img class="brand-mark" src="img/brand-logo.png?v=2" alt="" aria-hidden="true">
-        <div class="brand-text">
+        <span class="brand-text">
           <h1>${t('app_title')}</h1>
           <p>${t('app_subtitle')}</p>
-        </div>
-      </div>
+        </span>
+      </button>
       <div class="header-actions">
         <div class="lang-switch">
-          <button data-lang="ru" class="${state.lang === 'ru' ? 'active' : ''}">RU</button>
-          <button data-lang="en" class="${state.lang === 'en' ? 'active' : ''}">EN</button>
+          <button type="button" data-lang="ru" aria-pressed="${state.lang === 'ru'}" class="${state.lang === 'ru' ? 'active' : ''}">RU</button>
+          <button type="button" data-lang="en" aria-pressed="${state.lang === 'en'}" class="${state.lang === 'en' ? 'active' : ''}">EN</button>
         </div>
-        <button class="btn ${onLists ? 'active' : ''}" id="btn-lists">${t('nav_lists')}</button>
+        <nav class="header-nav" aria-label="${t('main_nav')}">
+          <button type="button" class="btn ${onLists ? 'active' : ''}" id="btn-lists"
+                  ${onLists ? 'aria-current="page"' : ''}>${t('nav_lists')}</button>
+        </nav>
       </div>
     </div>`;
   el.querySelectorAll('[data-lang]').forEach(btn => {
@@ -228,8 +414,24 @@ function renderHeader() {
     });
   });
   document.getElementById('btn-lists').addEventListener('click', () => navigate('#/lists'));
+  // A real <button> now, so Enter and Space come for free — the old div carried
+  // role="button" and tabindex but no key handler, and did nothing when focused.
   document.getElementById('brand-home').addEventListener('click', () => navigate(''));
+  // The route lives in location.hash, so letting the anchor write "#grid-wrap"
+  // there would parse as the catalog and navigate away from the lists page.
+  // Move focus by hand and leave the hash alone.
+  el.querySelector('.skip-link').addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.getElementById('grid-wrap');
+    target.setAttribute('tabindex', '-1');
+    target.focus();
+    target.scrollIntoView({ block: 'start' });
+  });
 }
+
+// Long enough to swallow a burst of typing, short enough that the grid still
+// feels like it is following the keyboard.
+const SEARCH_DEBOUNCE_MS = 120;
 
 function renderToolbar() {
   const el = document.getElementById('toolbar');
@@ -250,9 +452,15 @@ function renderToolbar() {
     </div>`;
   })() : '';
 
+  // How many filter groups are narrowing the list right now. Only shown next to
+  // the phone-width disclosure, where the filters themselves are out of sight.
+  const activeGroups = (state.filters.tiers.size ? 1 : 0) + (state.filters.types.size ? 1 : 0)
+    + (state.filters.biomes.size ? 1 : 0) + (state.filters.regionOnly ? 1 : 0);
+
   el.innerHTML = listBar + `
-    <div class="toolbar">
+    <div class="toolbar" data-filters-open="${state.filtersOpen}">
       <div class="field search-field">
+        <label class="field-label" for="f-search">${t('search_label')}</label>
         <div class="search-input-wrap">
           <svg class="search-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
             <circle cx="9" cy="9" r="6.5" stroke="currentColor" stroke-width="1.6"/>
@@ -262,37 +470,54 @@ function renderToolbar() {
           <button type="button" class="search-clear-btn" id="f-search-clear" aria-label="${t('clear_filters')}" style="${state.filters.search ? '' : 'display:none;'}">×</button>
         </div>
       </div>
-      <div class="field">
-        <label>${t('filter_tier')}</label>
-        <div class="rank-pills" id="f-tiers">
-          ${usedTiers.map(tier => `<button type="button" class="rank-icon ${state.filters.tiers.has(tier) ? 'active' : ''}" data-tier="${tier}"><span>${tier}</span></button>`).join('')}
+      <button type="button" class="btn filter-toggle" id="f-toggle"
+              aria-expanded="${state.filtersOpen}" aria-controls="toolbar-filters">
+        ${t('filters_label')}
+        ${activeGroups ? `<span class="filter-count" aria-label="${t('filters_active').replace('{n}', activeGroups)}">${activeGroups}</span>` : ''}
+      </button>
+      <div class="toolbar-filters" id="toolbar-filters">
+        <div class="field">
+          <span class="field-label" id="f-tiers-label">${t('filter_tier')}</span>
+          <div class="rank-pills field-control" id="f-tiers" role="group" aria-labelledby="f-tiers-label">
+            ${usedTiers.map(tier => `<button type="button" class="rank-icon ${state.filters.tiers.has(tier) ? 'active' : ''}" data-tier="${tier}" aria-pressed="${state.filters.tiers.has(tier)}" aria-label="${t('tier_label')} ${tier}"><span>${tier}</span></button>`).join('')}
+          </div>
+        </div>
+        <div class="field">
+          <span class="field-label" id="f-types-label">${t('filter_type')}</span>
+          <div class="type-pills field-control" id="f-types" role="group" aria-labelledby="f-types-label">
+            ${types.map(type => `<button type="button" class="pill ${state.filters.types.has(type) ? 'active' : ''}" data-type="${type}" aria-pressed="${state.filters.types.has(type)}">${t('type_' + type)}</button>`).join('')}
+            ${showRegionPill ? `<button type="button" class="pill ${state.filters.regionOnly ? 'active' : ''}" data-type="region" id="f-region" aria-pressed="${state.filters.regionOnly}">${t('region_label')}</button>` : ''}
+          </div>
+        </div>
+        <div class="field">
+          <label class="field-label" for="f-biome">${t('filter_biome')}</label>
+          <select id="f-biome">
+            <option value="">${t('all')}</option>
+            ${BIOMES.map(biome => `<option value="${biome}" ${state.filters.biomes.has(biome) ? 'selected' : ''}>${t('biome_' + biome)}</option>`).join('')}
+          </select>
         </div>
       </div>
-      <div class="field">
-        <label>${t('filter_type')}</label>
-        <div class="type-pills" id="f-types">
-          ${types.map(type => `<button class="pill ${state.filters.types.has(type) ? 'active' : ''}" data-type="${type}">${t('type_' + type)}</button>`).join('')}
-          ${showRegionPill ? `<button class="pill ${state.filters.regionOnly ? 'active' : ''}" data-type="region" id="f-region">${t('region_label')}</button>` : ''}
-        </div>
-      </div>
-      <div class="field">
-        <label>${t('filter_biome')}</label>
-        <select id="f-biome">
-          <option value="">${t('all')}</option>
-          ${BIOMES.map(biome => `<option value="${biome}" ${state.filters.biomes.has(biome) ? 'selected' : ''}>${t('biome_' + biome)}</option>`).join('')}
-        </select>
-      </div>
-      <div class="toolbar-spacer"></div>
     </div>`;
 
   const searchInput = document.getElementById('f-search');
   const searchClearBtn = document.getElementById('f-search-clear');
+  // Debounced: the grid rebuild is ~190 cards' worth of markup and listeners,
+  // and running it per keystroke put that on the typing path.
+  let searchTimer = null;
   searchInput.addEventListener('input', e => {
     state.filters.search = e.target.value;
     searchClearBtn.style.display = e.target.value ? '' : 'none';
-    renderGrid();
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(renderGrid, SEARCH_DEBOUNCE_MS);
+  });
+
+  document.getElementById('f-toggle').addEventListener('click', () => {
+    state.filtersOpen = !state.filtersOpen;
+    renderToolbar();
+    document.getElementById('f-toggle').focus();
   });
   searchClearBtn.addEventListener('click', () => {
+    clearTimeout(searchTimer);
     state.filters.search = '';
     searchInput.value = '';
     searchClearBtn.style.display = 'none';
@@ -428,28 +653,49 @@ function renderGrid() {
   countBar.innerHTML = `${t('count_showing').replace('{n}', list.length).replace('{total}', total)}` +
     (hasActiveFilters() ? `<button id="clear-filters-btn">${t('clear_filters')}</button>` : '');
   const clearBtn = document.getElementById('clear-filters-btn');
-  if (clearBtn) clearBtn.addEventListener('click', () => {
-    state.filters = { search: '', tiers: new Set(), types: new Set(), biomes: new Set(), regionOnly: false };
-    renderToolbar(); renderGrid();
-  });
+  if (clearBtn) clearBtn.addEventListener('click', clearAllFilters);
 
   if (!list.length) {
     el.innerHTML = (state.route.name === 'list' && total === 0)
-      ? `<div class="empty-state"><p>${t('list_empty')}</p><p>${t('list_empty_hint')}</p></div>`
-      : `<div class="empty-state"><p>${t('no_results')}</p><p>${t('no_results_hint')}</p></div>`;
+      ? emptyStateHtml({ icon: ICON_BOOKMARK, title: t('list_empty'), hint: t('list_empty_hint') })
+      : emptyStateHtml({
+          icon: ICON_SEARCH_EMPTY,
+          title: t('no_results'),
+          hint: t('no_results_hint'),
+          // The way out of the state belongs inside it, not only up in the count bar.
+          action: hasActiveFilters()
+            ? `<button type="button" class="btn" data-clear-filters>${t('clear_filters')}</button>`
+            : '',
+        });
+    bindGridDelegation(el);
     return;
   }
 
   el.innerHTML = list.map(cardHtml).join('');
-  el.querySelectorAll('.card').forEach(card => {
-    card.addEventListener('click', () => openDetail(card.dataset.id));
+  bindGridDelegation(el);
+}
+
+/* One listener on the container instead of two per card. With ~190 cards that
+ * was ~380 registrations rebuilt on every filter change. */
+function bindGridDelegation(el) {
+  if (el._delegated) return;
+  el._delegated = true;
+  el.addEventListener('click', e => {
+    const add = e.target.closest('[data-add-to-list]');
+    if (add) { e.preventDefault(); openAddToListPopup(add.dataset.addToList); return; }
+    const open = e.target.closest('[data-open-env]');
+    if (open) { e.preventDefault(); openDetail(open.dataset.openEnv); return; }
+    const clear = e.target.closest('[data-clear-filters]');
+    if (clear) clearAllFilters();
   });
-  el.querySelectorAll('[data-add-to-list]').forEach(btn => {
-    btn.addEventListener('click', e => {
-      e.stopPropagation();
-      openAddToListPopup(btn.dataset.addToList);
-    });
-  });
+}
+
+function clearAllFilters() {
+  state.filters = { search: '', tiers: new Set(), types: new Set(), biomes: new Set(), regionOnly: false };
+  renderToolbar();
+  renderGrid();
+  const search = document.getElementById('f-search');
+  if (search) search.focus();
 }
 
 function hasActiveFilters() {
@@ -477,7 +723,7 @@ function artBiome(env) {
 /* The picture panel is a fixed width, so the browser can be told exactly how
  * many pixels it will draw and pick the tier that matches the screen: 100 for
  * an ordinary display, 200 at 2x, 300 at 3x. Keep in step with .card-art. */
-const ART_SIZES = '(max-width: 640px) 105px, 95px';
+const ART_SIZES = '(max-width: 640px) 100px, 95px';
 const ART_WIDTHS = [100, 200, 250, 300];
 
 function biomeArtHtml(env) {
@@ -509,13 +755,16 @@ function cardHtml(env) {
     env.builtin ? '' : `<span class="badge custom">${t('custom_badge')}</span>`,
     isTranslated(env) ? '' : `<span class="badge pending">${t('untranslated_badge')}</span>`,
   ].join('');
+  // The whole card is still the click target — the stretched ::after on
+  // .card-open covers it — but the tab stop and the accessible name now sit on
+  // one real button, so the catalog is reachable from the keyboard.
   return `
-    <div class="card" data-id="${env.id}" data-type="${env.type}">
+    <article class="card" data-id="${env.id}" data-type="${env.type}">
       ${biomeArtHtml(env)}
       <div class="card-body">
         <div class="card-top">
           <div class="card-title-row">
-            <h3 class="card-title">${escapeHtml(envName(env))}</h3>
+            <h3 class="card-title"><button type="button" class="card-open" data-open-env="${env.id}">${escapeHtml(envName(env))}</button></h3>
             <button type="button" class="card-add-btn" data-add-to-list="${env.id}" aria-label="${t('add_to_list')}" title="${t('add_to_list')}">+</button>
           </div>
           <span class="rank-icon rank-icon-sm active" title="${t('tier_label')} ${env.tier}"><span>${env.tier}</span></span>
@@ -528,7 +777,7 @@ function cardHtml(env) {
         ${biomeChips || regionChip ? `<div class="card-biomes">${biomeChips}${regionChip}</div>` : ''}
         ${badges}
       </div>
-    </div>`;
+    </article>`;
 }
 
 function renderFooter() {
@@ -536,7 +785,7 @@ function renderFooter() {
   const showReset = state.route.name === 'lists';
   el.innerHTML = `
     <span>${t('footer_note')}</span>
-    ${showReset ? `<button class="btn btn-sm btn-ghost" id="btn-reset">${t('reset_data')}</button>` : ''}`;
+    ${showReset ? `<button type="button" class="btn btn-sm btn-ghost" id="btn-reset">${t('reset_data')}</button>` : ''}`;
   if (showReset) {
     document.getElementById('btn-reset').addEventListener('click', () => {
       if (confirm(t('reset_confirm'))) {
@@ -561,6 +810,7 @@ function renderListsHome() {
   const el = document.getElementById('grid-wrap');
   el.innerHTML = `
     <div class="lists-home-wrap" style="grid-column:1/-1">
+      <h2 class="page-title">${t('lists_title')}</h2>
       ${state.storageNoticeDismissed ? '' : `
       <div class="storage-notice" role="status">
         <span class="storage-notice-icon" aria-hidden="true">!</span>
@@ -568,13 +818,17 @@ function renderListsHome() {
         <button type="button" class="storage-notice-close" id="storage-notice-close"
                 aria-label="${t('dismiss')}" title="${t('dismiss')}">×</button>
       </div>`}
-      <div class="new-list-row">
-        <input type="text" id="new-list-input" placeholder="${t('new_list_name')}">
-        <button class="btn btn-primary" id="new-list-btn">${t('create')}</button>
+      <div>
+        <div class="new-list-row">
+          <input type="text" id="new-list-input" placeholder="${t('new_list_name')}"
+                 aria-label="${t('new_list_name')}" aria-describedby="new-list-error">
+          <button type="button" class="btn btn-primary" id="new-list-btn">${t('create')}</button>
+        </div>
+        <p class="field-error" id="new-list-error" hidden>${ICON_ALERT}<span>${t('list_name_required')}</span></p>
       </div>
       ${state.lists.length
         ? `<div class="list-cards-grid">${state.lists.map(listCardHtml).join('')}</div>`
-        : `<div class="empty-state"><p>${t('no_lists_yet')}</p><p>${t('no_lists_hint')}</p></div>`}
+        : emptyStateHtml({ icon: ICON_BOOKMARK, title: t('no_lists_yet'), hint: t('no_lists_hint') })}
     </div>`;
 
   const noticeClose = document.getElementById('storage-notice-close');
@@ -585,14 +839,34 @@ function renderListsHome() {
     if (notice) notice.remove();
   });
 
-  document.getElementById('new-list-btn').addEventListener('click', () => {
-    const input = document.getElementById('new-list-input');
-    const name = input.value.trim();
-    if (!name) return;
+  const newListInput = document.getElementById('new-list-input');
+  const newListError = document.getElementById('new-list-error');
+
+  function createList() {
+    const name = newListInput.value.trim();
+    // An empty name used to fail silently — the button simply did nothing.
+    if (!name) {
+      newListError.hidden = false;
+      newListInput.setAttribute('aria-invalid', 'true');
+      newListInput.focus();
+      return;
+    }
     state.lists.push({ id: 'list-' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6), name });
     persist(LS_KEYS.lists, state.lists);
     renderListsHome();
+    showToast(t('list_created').replace('{n}', name));
+    const input = document.getElementById('new-list-input');
+    if (input) input.focus();
+  }
+
+  newListInput.addEventListener('input', () => {
+    newListError.hidden = true;
+    newListInput.removeAttribute('aria-invalid');
   });
+  newListInput.addEventListener('keydown', e => {
+    if (e.key === 'Enter') { e.preventDefault(); createList(); }
+  });
+  document.getElementById('new-list-btn').addEventListener('click', createList);
 
   el.querySelectorAll('.list-rename').forEach(input => {
     input.addEventListener('change', () => {
@@ -623,19 +897,12 @@ function listCardHtml(list) {
   return `
     <div class="list-card" data-list="${list.id}">
       <div class="list-card-top">
-        <input type="text" value="${escapeAttr(list.name)}" class="list-rename">
-        <button class="btn btn-sm btn-danger" data-del-list="${list.id}">${t('delete')}</button>
+        <input type="text" value="${escapeAttr(list.name)}" class="list-rename" aria-label="${t('new_list_name')}">
+        <button type="button" class="btn btn-sm btn-danger" data-del-list="${list.id}">${t('delete')}</button>
       </div>
       <div class="list-card-count">${t('list_env_count').replace('{n}', listEnvCount(list.id))}</div>
-      <button class="btn btn-sm" data-open-list="${list.id}">${t('open_list')}</button>
+      <button type="button" class="btn btn-sm" data-open-list="${list.id}">${t('open_list')}</button>
     </div>`;
-}
-
-/* Escape closes one modal at a time: the add-to-list popup opens on top of the
- * environment card, so only the last overlay in the DOM reacts to the key. */
-function isTopOverlay(overlay) {
-  const all = document.querySelectorAll('.modal-overlay');
-  return all.length > 0 && all[all.length - 1] === overlay;
 }
 
 function openAddToListPopup(envId) {
@@ -647,55 +914,69 @@ function openAddToListPopup(envId) {
     return state.lists.map(l => `
       <label class="atl-row">
         <input type="checkbox" data-list-toggle="${l.id}" ${membership.has(l.id) ? 'checked' : ''}>
-        ${escapeHtml(l.name)}
+        <span>${escapeHtml(l.name)}</span>
       </label>`).join('') || `<p class="hint">${t('no_lists_yet')}</p>`;
   }
 
   overlay.innerHTML = `
-    <div class="modal" style="max-width:360px">
+    <div class="modal" style="max-width:400px" data-overlay-card
+         role="dialog" aria-modal="true" aria-labelledby="atl-title">
       <div class="modal-header">
-        <h2 style="font-size:17px">${t('add_to_list')}</h2>
-        <button class="modal-close" aria-label="${t('close')}">&times;</button>
+        <h2 id="atl-title">${t('add_to_list')}</h2>
+        <button type="button" class="modal-close" aria-label="${t('close')}">&times;</button>
       </div>
       <div class="modal-body">
         <div id="atl-list">${listRowsHtml()}</div>
-        <div class="new-list-row" style="margin-top:14px">
-          <input type="text" id="atl-new-input" placeholder="${t('new_list_name')}">
-          <button class="btn btn-primary" id="atl-new-btn">${t('create')}</button>
+        <div style="margin-top:var(--s-4)">
+          <div class="new-list-row">
+            <input type="text" id="atl-new-input" placeholder="${t('new_list_name')}"
+                   aria-label="${t('new_list_name')}" aria-describedby="atl-new-error">
+            <button type="button" class="btn btn-primary" id="atl-new-btn">${t('create')}</button>
+          </div>
+          <p class="field-error" id="atl-new-error" hidden>${ICON_ALERT}<span>${t('list_name_required')}</span></p>
         </div>
       </div>
     </div>`;
   document.body.appendChild(overlay);
 
+  const teardown = registerOverlay(overlay, close);
+
   function bindToggle(cb) {
     cb.addEventListener('change', () => {
       const listId = cb.dataset.listToggle;
+      const list = state.lists.find(l => l.id === listId);
       const set = new Set(state.envLists[envId] || []);
       if (cb.checked) set.add(listId); else set.delete(listId);
       state.envLists[envId] = [...set];
       persist(LS_KEYS.envLists, state.envLists);
+      // Membership is otherwise a silent toggle with nothing to confirm it.
+      showToast((cb.checked ? t('added_to_list') : t('removed_from_list')).replace('{n}', list ? list.name : ''));
     });
   }
   overlay.querySelectorAll('[data-list-toggle]').forEach(bindToggle);
 
   function close() {
     overlay.remove();
-    document.removeEventListener('keydown', onKeyDown);
-    render();
+    teardown();
+    // Only the list routes show anything that membership changes; re-rendering
+    // the catalog here would throw away the focus teardown just restored.
+    if (state.route.name !== 'catalog') render();
   }
-
-  function onKeyDown(e) {
-    if (e.key === 'Escape' && isTopOverlay(overlay)) close();
-  }
-  document.addEventListener('keydown', onKeyDown);
 
   overlay.querySelector('.modal-close').addEventListener('click', close);
   overlay.addEventListener('click', e => { if (e.target === overlay) close(); });
 
-  overlay.querySelector('#atl-new-btn').addEventListener('click', () => {
-    const input = overlay.querySelector('#atl-new-input');
-    const name = input.value.trim();
-    if (!name) return;
+  const newInput = overlay.querySelector('#atl-new-input');
+  const newError = overlay.querySelector('#atl-new-error');
+
+  function createAndAdd() {
+    const name = newInput.value.trim();
+    if (!name) {
+      newError.hidden = false;
+      newInput.setAttribute('aria-invalid', 'true');
+      newInput.focus();
+      return;
+    }
     const list = { id: 'list-' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6), name };
     state.lists.push(list);
     persist(LS_KEYS.lists, state.lists);
@@ -703,11 +984,22 @@ function openAddToListPopup(envId) {
     set.add(list.id);
     state.envLists[envId] = [...set];
     persist(LS_KEYS.envLists, state.envLists);
-    input.value = '';
+    newInput.value = '';
     const container = overlay.querySelector('#atl-list');
     container.innerHTML = listRowsHtml();
     container.querySelectorAll('[data-list-toggle]').forEach(bindToggle);
+    showToast(t('added_to_list').replace('{n}', name));
+    newInput.focus();
+  }
+
+  newInput.addEventListener('input', () => {
+    newError.hidden = true;
+    newInput.removeAttribute('aria-invalid');
   });
+  newInput.addEventListener('keydown', e => {
+    if (e.key === 'Enter') { e.preventDefault(); createAndAdd(); }
+  });
+  overlay.querySelector('#atl-new-btn').addEventListener('click', createAndAdd);
 }
 
 /* ---------------- reading a stat block at another tier ---------------- */
@@ -912,14 +1204,15 @@ function openDetail(envId) {
   const overlay = document.createElement('div');
   overlay.className = 'modal-overlay';
   overlay.innerHTML = `
-    <div class="modal" id="detail-modal">
+    <div class="modal" id="detail-modal" data-overlay-card
+         role="dialog" aria-modal="true" aria-labelledby="detail-title">
       <div class="modal-header">
         <div class="modal-title-row">
-          <h2>${escapeHtml(envName(env))}</h2>
+          <h2 id="detail-title">${escapeHtml(envName(env))}</h2>
           <button type="button" class="card-add-btn" id="detail-add-to-list" aria-label="${t('add_to_list')}" title="${t('add_to_list')}">+</button>
         </div>
         <div class="rank-pills detail-tier-pills" id="detail-tier-pills" role="group" aria-label="${t('view_as_tier')}">${tierPillsHtml}</div>
-        <button class="modal-close" aria-label="${t('close')}">&times;</button>
+        <button type="button" class="modal-close" aria-label="${t('close')}">&times;</button>
       </div>
       <div class="modal-body">
         <div class="detail-meta">
@@ -944,7 +1237,7 @@ function openDetail(envId) {
 
         <div class="detail-footer">
           ${biomesHtml}
-          <button class="btn" id="detail-add-to-list-bottom">${t('add_to_list')}</button>
+          <button type="button" class="btn" id="detail-add-to-list-bottom">${t('add_to_list')}</button>
         </div>
       </div>
     </div>`;
@@ -1011,16 +1304,13 @@ function openDetail(envId) {
   }));
   applyViewTier();
 
+  const teardown = registerOverlay(overlay, closeDetail);
+
   function closeDetail() {
     (overlay._countdownOverlays || []).slice().forEach(p => p.remove());
     overlay.remove();
-    document.removeEventListener('keydown', onKeyDown);
+    teardown();
   }
-
-  function onKeyDown(e) {
-    if (e.key === 'Escape' && isTopOverlay(overlay)) closeDetail();
-  }
-  document.addEventListener('keydown', onKeyDown);
 
   overlay.querySelector('.modal-close').addEventListener('click', closeDetail);
   overlay.addEventListener('click', e => { if (e.target === overlay) closeDetail(); });
@@ -1061,7 +1351,7 @@ function openItemDetail(itemId) {
   const overlay = document.createElement('div');
   overlay.className = 'modal-overlay loot-overlay';
   overlay.innerHTML = `
-    <div class="loot-modal-card" role="dialog" aria-modal="true" aria-label="${escapeAttr(name)}">
+    <div class="loot-modal-card" data-overlay-card role="dialog" aria-modal="true" aria-label="${escapeAttr(name)}">
       <button type="button" class="loot-x" aria-label="${t('close')}">&times;</button>
       <article class="loot-card">
         ${art ? `<div class="loot-media"><img src="${escapeAttr(art)}" alt="${escapeAttr(name)}"></div>` : ''}
@@ -1077,6 +1367,7 @@ function openItemDetail(itemId) {
           <div class="loot-acts">
             <a class="loot-btn" href="${escapeAttr(itemUrl(itemId))}" target="_blank" rel="noopener">${ITEM_LINK_ICON}${t('open_in_loot')}</a>
           </div>
+          <p class="loot-src-note">${t('loot_src_note')}</p>
         </div>
       </article>
     </div>`;
@@ -1090,16 +1381,13 @@ function openItemDetail(itemId) {
   const media = overlay.querySelector('.loot-media');
   if (media) media.querySelector('img').addEventListener('error', () => media.remove());
 
+  const teardown = registerOverlay(overlay, closeItem);
+
   function closeItem() {
     (overlay._countdownOverlays || []).slice().forEach(p => p.remove());
     overlay.remove();
-    document.removeEventListener('keydown', onKeyDown);
+    teardown();
   }
-
-  function onKeyDown(e) {
-    if (e.key === 'Escape' && isTopOverlay(overlay)) closeItem();
-  }
-  document.addEventListener('keydown', onKeyDown);
 
   overlay.querySelector('.loot-x').addEventListener('click', closeItem);
   overlay.addEventListener('click', e => { if (e.target === overlay) closeItem(); });
