@@ -645,12 +645,15 @@ function toggleSetValue(set, value) { set.has(value) ? set.delete(value) : set.a
 // so "магазин" finds Магическая Лавка and "tavern" finds Магический город.
 // Both languages sit in one group because the haystack holds EN and RU text.
 // Terms are stems matched at word start, which covers Russian inflections
-// (торгов → торговец, торговый). Keep them long and unambiguous: a stem also
-// fires inside longer words, so "порт" would drag in Город Порталов and "бар"
-// every барьер. Verify a new term against the data before adding it.
+// (лавк → лавка, лавке). Keep them long and unambiguous: a stem also fires
+// inside longer words, so "порт" would drag in Город Порталов and "бар" every
+// барьер. Verify a new term against the data before adding it.
+// Name a place, not the person standing in it — "торгов"/"merchant" used to sit
+// in the first group and matched 21 of 188 environments, nearly every one of
+// them a feast or a casino that merely lists a Merchant among its adversaries.
 const SEARCH_ALIASES = [
-  ['магазин', 'лавк', 'рынок', 'базар', 'торгов', 'ярмарк', 'купц',
-   'shop', 'store', 'market', 'merchant', 'vendor', 'trader', 'wares', 'stall'],
+  ['магазин', 'лавк', 'рынок', 'базар', 'ярмарк',
+   'shop', 'store', 'market', 'wares', 'stall'],
   ['таверн', 'трактир', 'кабак', 'харчевн', 'пивн', 'постоял',
    'tavern', 'innkeeper', 'alehouse', 'saloon', 'bartender', 'barkeep'],
   ['кладбищ', 'погост', 'склеп', 'гробниц', 'усыпальн',
@@ -693,12 +696,15 @@ function aliasTermsFor(query) {
 }
 
 // Literal substring first, so every match that worked before still works; the
-// alias pass only ever widens the result set.
-function matchesSearch(hay, query) {
+// alias pass only ever widens the result set. It runs against a narrower
+// haystack than the literal pass: the adversary list is a roster of stock NPCs
+// that says nothing about what the place is, so a lone Merchant there must not
+// answer for "рынок" — but typing "торговец" outright still finds it literally.
+function matchesSearch(hay, aliasHay, query) {
   const q = query.trim().toLowerCase();
   if (!q) return true;
   if (hay.includes(q)) return true;
-  return aliasTermsFor(q).some(term => wordStartRegex(term).test(hay));
+  return aliasTermsFor(q).some(term => wordStartRegex(term).test(aliasHay));
 }
 
 function envMatchesFilters(env) {
@@ -708,13 +714,18 @@ function envMatchesFilters(env) {
       feat.name?.en, feat.name?.ru, feat.description?.en, feat.description?.ru, feat.prompt?.en, feat.prompt?.ru,
     ]);
     const rawText = env.rawText ? [env.rawText.en, env.rawText.ru] : [];
-    const hay = [
+    const adversaries = env.potential_adversaries
+      ? [...(env.potential_adversaries.en || []), ...(env.potential_adversaries.ru || [])]
+      : [];
+    const aliasHay = [
       env.name.en, env.name.ru,
       ...(env.impulses ? [...(env.impulses.en || []), ...(env.impulses.ru || [])] : []),
-      ...(env.potential_adversaries ? [...(env.potential_adversaries.en || []), ...(env.potential_adversaries.ru || [])] : []),
       ...featureText, ...rawText,
     ].filter(Boolean).join(' ').toLowerCase();
-    if (!matchesSearch(hay, f.search)) return false;
+    const hay = adversaries.length
+      ? aliasHay + ' ' + adversaries.join(' ').toLowerCase()
+      : aliasHay;
+    if (!matchesSearch(hay, aliasHay, f.search)) return false;
   }
   if (f.tiers.size && !f.tiers.has(env.tier)) return false;
   if (f.types.size && !f.types.has(env.type)) return false;
