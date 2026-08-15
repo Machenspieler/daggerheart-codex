@@ -23,6 +23,8 @@ const state = {
   i18n: null,
   builtinEnvs: [],
   regions: [],
+  itemCatalog: { items: {}, itemUrl: '', imageUrl: '' },
+  itemIndex: new Map(),
   customEnvs: JSON.parse(localStorage.getItem(LS_KEYS.customEnvs) || '[]'),
   hiddenBuiltin: JSON.parse(localStorage.getItem(LS_KEYS.hiddenBuiltin) || '[]'),
   lists: JSON.parse(localStorage.getItem(LS_KEYS.lists) || '[]'),
@@ -92,6 +94,55 @@ function regionMembers(region) {
   return (region.environments || []).map(id => byId.get(id)).filter(Boolean);
 }
 
+/* ---------------- item catalogue ---------------- */
+
+/* Stat blocks name loot by the plant or object the party harvests — "Nursewood",
+ * not "Nursewood Sap" — so a name is looked up through an alias table as well as
+ * through the catalogue's own names. Both sides go through the same normaliser,
+ * which drops case, punctuation and spacing so a stray apostrophe or hyphen in a
+ * stat block never costs a link. */
+function normalizeItemKey(str) {
+  return String(str ?? '')
+    .toLowerCase()
+    .replace(/ё/g, 'е')
+    .replace(/[^\p{L}\p{N}]+/gu, ' ')
+    .trim();
+}
+
+function setItemCatalog(data) {
+  const items = data.items || {};
+  state.itemCatalog = { items, itemUrl: data.item_url || '', imageUrl: data.image_url || '' };
+  const index = new Map();
+  const add = (text, id) => {
+    const key = normalizeItemKey(text);
+    if (key && !index.has(key)) index.set(key, id);
+  };
+  // Aliases win over catalogue names: they are the deliberate mapping, and a
+  // stat block's wording is what the reader is actually clicking on.
+  Object.entries(data.aliases || {}).forEach(([name, id]) => { if (items[id]) add(name, id); });
+  Object.entries(items).forEach(([id, item]) => {
+    ['en', 'ru'].forEach(lang => add(item[lang]?.name, id));
+  });
+  state.itemIndex = index;
+}
+
+function itemById(id) { return state.itemCatalog.items[id] || null; }
+function itemIdFor(text) { return state.itemIndex.get(normalizeItemKey(text)) || null; }
+function itemField(item, field) { return item[state.lang]?.[field] || item.en?.[field] || item.ru?.[field] || ''; }
+function itemUrl(id) { return state.itemCatalog.itemUrl.replace('{id}', id); }
+function itemImageUrl(item) {
+  return item.img && state.itemCatalog.imageUrl ? state.itemCatalog.imageUrl.replace('{img}', item.img) : '';
+}
+/** The other end of a craft chain: what this entry becomes, and what becomes it. */
+function itemCraftRows(id) {
+  const item = itemById(id);
+  const rows = [];
+  if (item?.craft && itemById(item.craft)) rows.push({ label: t('craft_into'), id: item.craft });
+  const from = Object.keys(state.itemCatalog.items).find(other => state.itemCatalog.items[other].craft === id);
+  if (from) rows.push({ label: t('craft_from'), id: from });
+  return rows;
+}
+
 /** Difficulty is usually a plain number, but a few environments (e.g. duel
  * events whose difficulty depends on the chosen adversary) store a bilingual
  * descriptive string instead: { en, ru }. */
@@ -106,18 +157,20 @@ function envDifficulty(env) {
 /* Cache buster for the JSON under data/. index.html versions the stylesheet and
    this script the same way; the data files are fetched from here instead, so
    bump this whenever anything in data/ changes or browsers serve stale copies. */
-const DATA_VERSION = 2;
+const DATA_VERSION = 6;
 
 async function init() {
   const v = `?v=${DATA_VERSION}`;
-  const [i18n, envs, regions] = await Promise.all([
+  const [i18n, envs, regions, items] = await Promise.all([
     fetch(`data/i18n.json${v}`).then(r => r.json()),
     fetch(`data/environments.json${v}`).then(r => r.json()),
     fetch(`data/regions.json${v}`).then(r => r.json()).catch(() => ({ regions: [] })),
+    fetch(`data/items.json${v}`).then(r => r.json()).catch(() => ({ items: {}, aliases: {} })),
   ]);
   state.i18n = i18n;
   state.builtinEnvs = envs.environments;
   state.regions = regions.regions || [];
+  setItemCatalog(items);
   render();
 }
 
@@ -922,6 +975,84 @@ function openDetail(envId) {
   overlay.querySelector('#detail-add-to-list-bottom').addEventListener('click', () => openAddToListPopup(env.id));
 }
 
+/* ---------------- item card ---------------- */
+
+/* This card is a copy of the one the loot generator shows, down to its palette,
+ * type and spacing — square art on top, the badge row, the name, the text and
+ * the craft chain, on that site's plum surface rather than our parchment. It is
+ * quoting another site's card, and the seam is the point: everything inside is
+ * theirs. The artwork is served from there too, so a picture that will not load
+ * simply drops out of the card. */
+const ITEM_CRAFT_ICON = `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 11h11.2l-3.6-3.6L13 6l6 6-6 6-1.4-1.4 3.6-3.6H4v-2z"/></svg>`;
+const ITEM_LINK_ICON = `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.9 12a5.1 5.1 0 0 1 5.1-5.1h4V5H9a7 7 0 0 0 0 14h4v-1.9H9A5.1 5.1 0 0 1 3.9 12zM8 13h8v-2H8v2zm7-8v1.9h4a5.1 5.1 0 0 1 0 10.2h-4V19h4a7 7 0 0 0 0-14h-4z"/></svg>`;
+
+function openItemDetail(itemId) {
+  const item = itemById(itemId);
+  if (!item) return;
+
+  const name = itemField(item, 'name');
+  const art = itemImageUrl(item);
+  const kind = item.kind === 'consumable' ? 'consumable' : 'item';
+
+  const craftHtml = itemCraftRows(itemId).map(row => `
+    <p>${ITEM_CRAFT_ICON}<span class="loot-craft-l">${row.label}</span>
+       <button type="button" class="loot-craft-a" data-craft-item="${escapeAttr(row.id)}">${escapeHtml(itemField(itemById(row.id), 'name'))}</button></p>`).join('');
+
+  const overlay = document.createElement('div');
+  overlay.className = 'modal-overlay loot-overlay';
+  overlay.innerHTML = `
+    <div class="loot-modal-card" role="dialog" aria-modal="true" aria-label="${escapeAttr(name)}">
+      <button type="button" class="loot-x" aria-label="${t('close')}">&times;</button>
+      <article class="loot-card">
+        ${art ? `<div class="loot-media"><img src="${escapeAttr(art)}" alt="${escapeAttr(name)}"></div>` : ''}
+        <div class="loot-body">
+          <div class="loot-meta">
+            ${item.roll ? `<span class="loot-badge num">${item.roll}</span>` : ''}
+            <span class="loot-badge ${kind === 'consumable' ? 'cons' : 'thing'}">${t('item_kind_' + kind)}</span>
+            <span class="loot-badge src">${t('item_src_' + item.src)}</span>
+          </div>
+          <h2 class="loot-name"><span>${escapeHtml(name)}</span></h2>
+          <div class="loot-desc" data-item-desc></div>
+          ${craftHtml ? `<div class="loot-craft">${craftHtml}</div>` : ''}
+          <div class="loot-acts">
+            <a class="loot-btn" href="${escapeAttr(itemUrl(itemId))}" target="_blank" rel="noopener">${ITEM_LINK_ICON}${t('open_in_loot')}</a>
+          </div>
+        </div>
+      </article>
+    </div>`;
+  document.body.appendChild(overlay);
+
+  // Item text carries its own rolls ("clear 1d4 HP"), so it goes through the
+  // same renderer as a feature — minus the tier scaling, which describes an
+  // environment's damage and has nothing to say about a potion.
+  renderFeatureBody(overlay.querySelector('[data-item-desc]'), itemField(item, 'description'), null);
+
+  const media = overlay.querySelector('.loot-media');
+  if (media) media.querySelector('img').addEventListener('error', () => media.remove());
+
+  function closeItem() {
+    (overlay._countdownOverlays || []).slice().forEach(p => p.remove());
+    overlay.remove();
+    document.removeEventListener('keydown', onKeyDown);
+  }
+
+  function onKeyDown(e) {
+    if (e.key === 'Escape' && isTopOverlay(overlay)) closeItem();
+  }
+  document.addEventListener('keydown', onKeyDown);
+
+  overlay.querySelector('.loot-x').addEventListener('click', closeItem);
+  overlay.addEventListener('click', e => { if (e.target === overlay) closeItem(); });
+
+  // Walking the craft chain replaces this card rather than stacking another one:
+  // the chain is one entry read from a different end, not a second thing to close.
+  overlay.querySelectorAll('[data-craft-item]').forEach(btn => btn.addEventListener('click', () => {
+    const nextId = btn.dataset.craftItem;
+    closeItem();
+    openItemDetail(nextId);
+  }));
+}
+
 /* ---------------- dice parsing + rolling ---------------- */
 
 /* Matches "2d6", "d20" and an optional flat modifier ("1d6+2", "3d6 - 1"). The
@@ -1044,7 +1175,7 @@ function renderFeatureBody(container, text, retier) {
       ul.className = 'feature-bullets';
       while (i < lines.length && BULLET_LINE_RE.test(lines[i].trim())) {
         const li = document.createElement('li');
-        renderRichText(li, lines[i].trim().replace(BULLET_LINE_RE, ''), retier);
+        renderBulletBody(li, lines[i].trim().replace(BULLET_LINE_RE, ''), retier);
         ul.appendChild(li);
         i++;
       }
@@ -1055,6 +1186,50 @@ function renderFeatureBody(container, text, retier) {
     i++;
   }
   flushPara();
+}
+
+/* The harvesting features list what the party can find as bare bullets, and each
+ * of those names an entry in the loot catalogue. The name has to stand alone —
+ * either as the whole bullet, or as the label before a colon or dash — so a
+ * bullet that merely mentions an item in passing stays prose. */
+const BULLET_LABEL_RE = /^([^:—–]+?)\s*([:—–])\s*(.+)$/;
+
+function renderBulletBody(li, text, retier) {
+  let id = itemIdFor(text);
+  let label = text;
+  let sep = '';
+  let rest = '';
+  if (!id) {
+    const m = text.match(BULLET_LABEL_RE);
+    const headId = m && itemIdFor(m[1]);
+    if (headId) { id = headId; label = m[1]; sep = m[2]; rest = m[3]; }
+  }
+  if (!id) { renderRichText(li, text, retier); return; }
+  li.className = 'has-item';
+  li.appendChild(makeItemButton(id, label));
+  if (rest) {
+    li.appendChild(document.createTextNode(` ${sep} `));
+    const tail = document.createElement('span');
+    renderRichText(tail, rest, retier);
+    li.appendChild(tail);
+  }
+}
+
+function makeItemButton(id, label) {
+  const btn = document.createElement('button');
+  btn.className = 'item-btn';
+  btn.type = 'button';
+  btn.title = t('open_item');
+  btn.innerHTML = `${itemIconSVG()}<span>${escapeHtml(label)}</span>`;
+  btn.addEventListener('click', e => {
+    e.stopPropagation();
+    openItemDetail(id);
+  });
+  return btn;
+}
+
+function itemIconSVG() {
+  return `<svg viewBox="0 0 24 24" fill="none"><path d="M9.5 3v5.4L5.4 16.6A2.6 2.6 0 0 0 7.7 20.5h8.6a2.6 2.6 0 0 0 2.3-3.9L14.5 8.4V3" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M8.4 3h7.2M7.6 13.4h8.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>`;
 }
 
 function makeDiceButton(count, sides, mod, label, originalLabel) {

@@ -1,0 +1,307 @@
+{
+  "_note": "Item cards mirrored from the Daggerheart Loot generator (artex-x.github.io/daggerheart-loot). Names, descriptions and both translations come from its data.json; the artwork is loaded from there at display time. `aliases` maps the plant/item names as an environment stat block writes them to the catalogue entry they yield — a bullet whose text matches an alias, or an item name outright, becomes a link. Matching ignores case, punctuation and spacing.",
+  "source": "https://artex-x.github.io/daggerheart-loot/",
+  "item_url": "https://artex-x.github.io/daggerheart-loot/#/i/{id}",
+  "image_url": "https://artex-x.github.io/daggerheart-loot/img/{img}",
+  "aliases": {
+    "Gyre Cap": "w43",
+    "Вихревая Шляпка": "w43",
+    "Liar's Bane": "w52",
+    "Погибель Лжецов": "w52",
+    "Aetherflower": "w3",
+    "Эфироцвет": "w3",
+    "Boomberry": "w18",
+    "Грохотягода": "w18",
+    "Flare Tuber": "w39",
+    "Дыхательный Клубень": "w39",
+    "Toxilily": "w98",
+    "Ядолилия": "w98",
+    "Umbra Lily": "w103",
+    "Тенелилия": "w103",
+    "Phantom Ferns": "w65",
+    "Призрачные Папоротники": "w65",
+    "Blossomveil Ivy": "w14",
+    "Плющ Цветочной Вуали": "w14",
+    "Nursewood": "w62",
+    "Целебное Древо": "w62",
+    "Witherroot": "w114",
+    "Вянущий Корень": "w114",
+    "Gloomblossom Anemone": "w80",
+    "Анемона Мрачноцвет": "w80"
+  },
+  "items": {
+    "w2": {
+      "kind": "consumable",
+      "src": "wondrous",
+      "roll": 2,
+      "img": "w2.webp",
+      "en": {
+        "name": "Aetherflower Tea",
+        "description": "Until your next rest, you can detect the presence of magic as a faint aura around visible objects within Very Close range."
+      },
+      "ru": {
+        "name": "Чай Эфироцвета",
+        "description": "До следующего отдыха вы можете обнаруживать присутствие магии как слабую ауру вокруг видимых объектов в пределах Близкой дистанции."
+      }
+    },
+    "w3": {
+      "kind": "item",
+      "src": "wondrous",
+      "roll": 3,
+      "img": "w3.webp",
+      "en": {
+        "name": "Aetherflower",
+        "description": "This flower is sensitive to magic, and will point in the direction of the strongest source of magic within Very Close range. It withers when you take your first rest after harvesting it."
+      },
+      "ru": {
+        "name": "Эфироцвет",
+        "description": "Этот цветок чувствителен к магии и указывает в направлении сильнейшего источника магии в пределах Близкой дистанции. Он вянет, когда вы в первый раз отдохнёте после сбора."
+      },
+      "craft": "w2"
+    },
+    "w14": {
+      "kind": "consumable",
+      "src": "wondrous",
+      "roll": 14,
+      "img": "w14.webp",
+      "en": {
+        "name": "Blossomveil Petal",
+        "description": "You have advantage on your next Presence Reaction Roll until a short or long rest. The petal is destroyed in sunlight."
+      },
+      "ru": {
+        "name": "Лепесток Цветочной Вуали",
+        "description": "До следующего короткого или продолжительного отдыха вы получаете преимущество на следующему Броску Реакции Влияния. Лепесток уничтожается на солнечном свету."
+      }
+    },
+    "w17": {
+      "kind": "consumable",
+      "src": "wondrous",
+      "roll": 17,
+      "img": "w17.webp",
+      "en": {
+        "name": "Boomberry Jam",
+        "description": "A jar of this jam contains 5 portions. A single portion makes a tasty meal. Alternatively, you can throw the jar at a point within Far range. All creatures within Close range of it take Xd8+4 physical damage, where X is the number of portions remaining."
+      },
+      "ru": {
+        "name": "Варенье из Грохотягод",
+        "description": "Банка содержит 5 порций. Одна порция составляет сытный обед. Также вы можете бросить банку в точку в пределах Далекой дистанции. Все существа в пределах Средней дистанции получают Xd8+4 физического урона, где X - количество оставшихся порций."
+      }
+    },
+    "w18": {
+      "kind": "consumable",
+      "src": "wondrous",
+      "roll": 18,
+      "img": "w18.webp",
+      "en": {
+        "name": "Boomberry",
+        "description": "Two of these berries will suffice for a full meal, but when you eat them, on a roll of 1 on a d12 they explode, causing you to mark 2 HP and 2 Stress."
+      },
+      "ru": {
+        "name": "Грохотягода",
+        "description": "Двух ягод достаточно для полноценного обеда, но если при поедании выпадет 1 на d12, они взрываются, вынуждая вас отметить 2 Раны и 2 Стресса."
+      },
+      "craft": "w17"
+    },
+    "w39": {
+      "kind": "consumable",
+      "src": "wondrous",
+      "roll": 39,
+      "img": "w39.webp",
+      "en": {
+        "name": "Flare Tuber",
+        "description": "If you hold one of these roots in your mouth, it provides enough oxygen for you to breathe normally, but you can't speak or cast spells."
+      },
+      "ru": {
+        "name": "Дыхательный Клубень",
+        "description": "Если держать этот корень во рту, он обеспечивает достаточно кислорода для нормального дыхания, но вы не можете говорить или произносить заклинания."
+      }
+    },
+    "w43": {
+      "kind": "consumable",
+      "src": "wondrous",
+      "roll": 43,
+      "img": "w43.webp",
+      "en": {
+        "name": "Gyre Cap",
+        "description": "Brewed into a tea as a downtime move, these mushrooms give any drinker advantage on Instinct rolls and disadvantage on Presence rolls until their next rest."
+      },
+      "ru": {
+        "name": "Вихревая Шляпка",
+        "description": "Заваренные в чай в качестве Хода Отдыха, эти грибы дают любому выпившему преимущество на броски Инстинкта и помеху на броски Влияния до следующего отдыха."
+      },
+      "craft": "w69"
+    },
+    "w52": {
+      "kind": "consumable",
+      "src": "wondrous",
+      "roll": 52,
+      "img": "w52.webp",
+      "en": {
+        "name": "Liar's Bane",
+        "description": "After you chew these leaves, for the scene you have advantage on rolls to notice traps and see through lies and deceptions, but you must mark a Stress to deceive someone else."
+      },
+      "ru": {
+        "name": "Погибель Лжецов",
+        "description": "После того как вы разжуёте эти листья, на время сцены вы получаете преимущество на броски для обнаружения ловушек и распознавания лжи и обмана, но должны отметить Стресс, чтобы солгать кому-либо."
+      },
+      "craft": "w101"
+    },
+    "w62": {
+      "kind": "consumable",
+      "src": "wondrous",
+      "roll": 62,
+      "img": "w62.webp",
+      "en": {
+        "name": "Nursewood Sap",
+        "description": "Rub onto a creature to clear 1d4 HP, 1d4 Stress, or one condition."
+      },
+      "ru": {
+        "name": "Целебная Смола",
+        "description": "Нанесите на существо, чтобы очистить 1d4 Ран, 1d4 Стресса или одно состояние."
+      }
+    },
+    "w65": {
+      "kind": "consumable",
+      "src": "wondrous",
+      "roll": 65,
+      "img": "w65.webp",
+      "en": {
+        "name": "Phantom Fern Shoots",
+        "description": "Eaten raw, these shoots remove the effect of most poisons, but leave you Lightheaded for 1 hour. While Lightheaded, roll a d8 as your disadvantage die."
+      },
+      "ru": {
+        "name": "Побеги Призрачного Папоротника",
+        "description": "Съеденные в сыром виде, эти побеги устраняют действие большинства ядов, но оставляют вас в лёгком Дурмане на 1 час. Пока вы в Дурмане, бросайте d8 в качестве кости помехи."
+      },
+      "craft": "w66"
+    },
+    "w66": {
+      "kind": "consumable",
+      "src": "wondrous",
+      "roll": 66,
+      "img": "w66.webp",
+      "en": {
+        "name": "Phantom Fern Tea",
+        "description": "Remove the effect of most poisons."
+      },
+      "ru": {
+        "name": "Чай из Призрачного Папоротника",
+        "description": "Устраняет действие большинства ядов."
+      }
+    },
+    "w69": {
+      "kind": "consumable",
+      "src": "wondrous",
+      "roll": 69,
+      "img": "w69.webp",
+      "en": {
+        "name": "Potion of Spiraling Vision",
+        "description": "Once per scene until your next rest, when you make a roll with your Duality Dice, you can mark a Stress to postpone the result and roll again, using the postponed result for your next roll. If you fail to use the postponed result in the scene, you permanently lose a Stress."
+      },
+      "ru": {
+        "name": "Зелье Спирального Зрения",
+        "description": "Один раз за сцену до следующего отдыха, когда вы совершаете бросок Костей Дуальности, вы можете отметить Стресс, чтобы отложить результат и бросить снова, используя отложенный результат для следующего броска. Если вы не используете отложенный результат в сцене, вы навсегда теряете одну ячейку Стресса."
+      }
+    },
+    "w80": {
+      "kind": "consumable",
+      "src": "wondrous",
+      "roll": 80,
+      "img": "w80.webp",
+      "en": {
+        "name": "Shadowangler Lure",
+        "description": "Activating this lure causes it to glow. Any creature within Far range must make an Instinct Reaction Roll (12). On a failure, they move in to Very Close range."
+      },
+      "ru": {
+        "name": "Приманка Теневого Удильщика",
+        "description": "Активация этой приманки заставляет её светиться. Любое существо в пределах Далекой дистанции должно совершить Бросок Реакции Инстинкта (12). При провале оно перемещается в пределы Близкой дистанции."
+      }
+    },
+    "w98": {
+      "kind": "consumable",
+      "src": "wondrous",
+      "roll": 98,
+      "img": "w98.webp",
+      "en": {
+        "name": "Toxilily Bulb",
+        "description": "This bulb can be broken into 1d4 cloves, each of which can be smeared on a weapon. Until your next rest, you add your Proficiency to the damage rolls for the weapon."
+      },
+      "ru": {
+        "name": "Луковица Ядолилии",
+        "description": "Эту луковицу можно разделить на 1d4 дольки, каждую из которых можно нанести на оружие. До следующего отдыха вы добавляете Мастерство к броскам урона этим оружием."
+      }
+    },
+    "w101": {
+      "kind": "consumable",
+      "src": "wondrous",
+      "roll": 101,
+      "img": "w101.webp",
+      "en": {
+        "name": "True Vision Serum",
+        "description": "For the scene, you can't be fooled by lies, illusions, or deceptions, can see invisible creatures, and have advantage on rolls to notice traps. However, you must mark a Stress to attempt to lie."
+      },
+      "ru": {
+        "name": "Сыворотка Истинного Зрения",
+        "description": "На время сцены вас нельзя обмануть ложью, иллюзиями или обманом, вы можете видеть невидимых существ и получаете преимущество на броски обнаружения ловушек. Однако вы должны отметить Стресс, чтобы попытаться солгать."
+      }
+    },
+    "w103": {
+      "kind": "consumable",
+      "src": "wondrous",
+      "roll": 103,
+      "img": "w103.webp",
+      "en": {
+        "name": "Umbra Lily Petals",
+        "description": "After eating a petal, for this scene you can spend a Hope to snuff out a nonmagical or magical light within Close range."
+      },
+      "ru": {
+        "name": "Лепестки Тенелилии",
+        "description": "После поедания лепестка на время сцены вы можете потратить Надежду, чтобы погасить немагический или магический источник света в пределах Средней дистанции."
+      },
+      "craft": "w104"
+    },
+    "w104": {
+      "kind": "consumable",
+      "src": "wondrous",
+      "roll": 104,
+      "img": "w104.webp",
+      "en": {
+        "name": "Umbral Potion",
+        "description": "Until your next long rest you can spend a Hope to snuff out a nonmagical or magical light within Far range."
+      },
+      "ru": {
+        "name": "Сумеречное Зелье",
+        "description": "До следующего продолжительного отдыха вы можете потратить Надежду, чтобы погасить немагический или магический источник света в пределах Далекой дистанции."
+      }
+    },
+    "w114": {
+      "kind": "consumable",
+      "src": "wondrous",
+      "roll": 114,
+      "img": "w114.webp",
+      "en": {
+        "name": "Witherroot Ichor",
+        "description": "Mark 1d4 HP and permanently lose 1 HP slot. The next spell you cast this scene that deals damage marks the same number of additional HP on one of its targets."
+      },
+      "ru": {
+        "name": "Ихор Вянущего Корня",
+        "description": "Отметьте 1d4 Ран и навсегда потеряйте 1 ячейку Ран. Следующее заклинание, произнесённое вами в этой сцене и наносящее урон, заставляет одну из целей получить то же количество дополнительных Ран."
+      },
+      "craft": "w115"
+    },
+    "w115": {
+      "kind": "consumable",
+      "src": "wondrous",
+      "roll": 115,
+      "img": "w115.webp",
+      "en": {
+        "name": "Witherroot Tonic",
+        "description": "The next spell you cast this scene that deals damage marks an additional 1d4 HP on one of its targets."
+      },
+      "ru": {
+        "name": "Тоник Вянущего Корня",
+        "description": "Следующее заклинание, произнесённое вами в этой сцене и наносящее урон, заставляет одну из целей отметить дополнительно 1d4 Ран."
+      }
+    }
+  }
+}

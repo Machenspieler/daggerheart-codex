@@ -62,7 +62,19 @@
     "view_as_tier": "Read as tier",
     "native_tier": "This environment's own tier",
     "retier_original": "Originally {v}",
-    "retier_original_short": "(orig. {v})"
+    "retier_original_short": "(orig. {v})",
+    "open_item": "Open item card",
+    "item_kind_item": "Item",
+    "item_kind_consumable": "Consumable",
+    "item_src_core": "Core",
+    "item_src_hnf": "Hope & Fear",
+    "item_src_wondrous": "Wondrous",
+    "item_src_dread": "Dread",
+    "item_src_community": "Communities",
+    "item_src_frame": "Frame",
+    "craft_into": "Upgrades to",
+    "craft_from": "Made from",
+    "open_in_loot": "Open in the loot generator ↗"
   },
   "ru": {
     "app_title": "Атлас Daggerheart",
@@ -127,6 +139,18 @@
     "view_as_tier": "Читать как ранг",
     "native_tier": "Родной ранг этого окружения",
     "retier_original": "В оригинале {v}",
-    "retier_original_short": "(ориг. {v})"
+    "retier_original_short": "(ориг. {v})",
+    "open_item": "Открыть карточку предмета",
+    "item_kind_item": "Предмет",
+    "item_kind_consumable": "Расходник",
+    "item_src_core": "Core",
+    "item_src_hnf": "Hope & Fear",
+    "item_src_wondrous": "Wondrous",
+    "item_src_dread": "Dread",
+    "item_src_community": "Сообщества",
+    "item_src_frame": "Фрейм",
+    "craft_into": "Улучшается до",
+    "craft_from": "Получается из",
+    "open_in_loot": "Открыть в генераторе лута ↗"
   }
 }

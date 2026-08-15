@@ -382,6 +382,127 @@ button.rank-icon:active { transform: scale(0.92); }
 .dice-btn svg { width: 13px; height: 13px; }
 .dice-btn:hover { background: rgba(217,164,65,0.16); }
 .dice-btn:active { transform: scale(0.95); }
+/* ---------- item links + item card ---------- */
+
+/* A bullet that names a catalogue entry loses its disc: the flask already marks
+ * the line, and a bullet in front of a pill reads as two markers for one item. */
+.feature-bullets li.has-item { list-style: none; margin-left: -22px; }
+.item-btn {
+  display: inline-flex; align-items: baseline; gap: 5px;
+  font-family: var(--font-body); font-size: 14.5px;
+  background: var(--ink-raised); border: 1px solid var(--teal); color: var(--teal-soft);
+  padding: 1px 10px 2px 8px; border-radius: 20px; cursor: pointer; vertical-align: middle;
+  text-align: left; transition: background 0.15s, transform 0.1s;
+}
+.item-btn svg { width: 13px; height: 13px; flex: none; align-self: center; }
+.item-btn:hover { background: rgba(63,123,116,0.18); color: var(--parchment); }
+.item-btn:active { transform: scale(0.97); }
+
+/* The item card is a copy of the loot generator's, tokens and all. Its palette
+ * is scoped to .loot-overlay rather than :root so the plum surface, the Inter
+ * stack and the 14px corners stay inside this one card and never leak into the
+ * parchment theme around it. Values are that site's, kept verbatim so the two
+ * cards can be compared side by side. */
+.loot-overlay {
+  --lt-bg: #0e0c15;
+  --lt-surface: #1a1626;
+  --lt-surface2: #221d31;
+  --lt-line: #312a45;
+  --lt-line2: #3f3758;
+  --lt-txt: #ece8f6;
+  --lt-muted: #9b93b3;
+  --lt-muted2: #8a83a3;
+  --lt-gold: #d8ab5e;
+  --lt-gold-soft: #f0d091;
+  --lt-item: #7a8ee0;
+  --lt-cons: #9ec96a;
+  --lt-radius: 14px;
+  --lt-ui: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --lt-mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+
+  align-items: center; padding: 18px;
+  background: rgba(6,4,12,0.78); backdrop-filter: blur(5px);
+}
+.loot-modal-card {
+  position: relative; width: min(440px, 100%); max-height: 88vh; overflow: auto;
+  border-radius: var(--lt-radius); animation: loot-pop 0.22s cubic-bezier(.2,.8,.3,1) both;
+}
+@keyframes loot-pop {
+  from { opacity: 0; transform: translateY(10px) scale(0.985); }
+  to { opacity: 1; transform: none; }
+}
+.loot-x {
+  position: absolute; right: 10px; top: 10px; z-index: 5; width: 34px; height: 34px; border-radius: 50%;
+  border: 1px solid var(--lt-line2); background: rgba(10,8,16,0.8); color: var(--lt-txt);
+  font-size: 22px; line-height: 1; cursor: pointer; backdrop-filter: blur(6px); font-family: var(--lt-ui);
+}
+.loot-x:hover { border-color: var(--lt-gold); color: var(--lt-gold); }
+
+.loot-card {
+  background: linear-gradient(180deg, var(--lt-surface2), var(--lt-surface));
+  border: 1px solid var(--lt-line); border-radius: var(--lt-radius); overflow: hidden;
+  display: flex; flex-direction: column; box-shadow: 0 10px 34px -14px rgba(0,0,0,0.85);
+  color: var(--lt-txt); font: 15.5px/1.6 var(--lt-ui);
+}
+.loot-media { width: 100%; aspect-ratio: 1; max-height: 420px; background: #0a0810; overflow: hidden; flex: none; }
+.loot-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.loot-body { padding: 13px 15px 14px; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.loot-meta { display: flex; gap: 5px; flex-wrap: wrap; align-items: center; }
+.loot-badge {
+  font-size: 10.5px; font-weight: 650; letter-spacing: 0.07em; text-transform: uppercase;
+  padding: 3px 7px; border-radius: 6px; background: rgba(10,8,16,0.5);
+  border: 1px solid var(--lt-line2); color: var(--lt-muted);
+}
+.loot-badge.thing { color: var(--lt-item); border-color: #7a8ee073; }
+.loot-badge.cons { color: var(--lt-cons); border-color: #9ec96a73; }
+.loot-badge.src { color: #9a9aa6; }
+.loot-badge.num {
+  font-family: var(--lt-mono); font-size: 11px; letter-spacing: 0;
+  color: var(--lt-gold-soft); border-color: rgba(216,171,94,0.5);
+}
+.loot-name {
+  margin: 0; font-size: 19px; font-weight: 680; letter-spacing: -0.01em; line-height: 1.28;
+  display: flex; align-items: baseline; gap: 7px; font-family: var(--lt-ui); color: var(--lt-txt);
+}
+.loot-name > span { min-width: 0; overflow-wrap: break-word; }
+.loot-desc { margin: 0; color: #cfc8e0; font-size: 14px; line-height: 1.62; }
+.loot-desc p { margin: 0 0 7px; }
+.loot-desc p:last-child { margin-bottom: 0; }
+/* The roll buttons are ours, not theirs — restyled into their palette so they
+ * read as part of this card rather than as a graft from the page behind it. */
+.loot-desc .dice-btn {
+  font-family: var(--lt-mono); font-size: 12px; font-weight: 600;
+  background: rgba(10,8,16,0.5); border-color: rgba(216,171,94,0.5); color: var(--lt-gold-soft);
+  border-radius: 6px; padding: 1px 7px 1px 5px;
+}
+.loot-desc .dice-btn:hover { background: rgba(216,171,94,0.14); }
+
+.loot-craft { display: flex; flex-direction: column; gap: 3px; margin: -1px 0 1px; }
+.loot-craft p {
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 5px; margin: 0;
+  font-size: 12.5px; line-height: 1.45; min-width: 0;
+}
+.loot-craft svg { width: 13px; height: 13px; flex: none; align-self: center; fill: var(--lt-muted2); }
+.loot-craft-l {
+  color: var(--lt-muted2); text-transform: uppercase; letter-spacing: 0.05em;
+  font-size: 10.5px; white-space: nowrap;
+}
+.loot-craft-a {
+  background: none; border: 0; padding: 0; cursor: pointer; font: inherit; min-width: 0; text-align: left;
+  color: var(--lt-gold-soft); border-bottom: 1px dotted rgba(240,208,145,0.45);
+}
+.loot-craft-a:hover { border-bottom-style: solid; }
+
+.loot-acts { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; margin-top: auto; padding-top: 3px; }
+.loot-btn {
+  display: inline-flex; align-items: center; gap: 6px; text-decoration: none;
+  border: 1px solid var(--lt-line2); background: var(--lt-surface); color: var(--lt-txt);
+  height: 32px; padding: 0 11px; border-radius: 8px;
+  font-size: 12.5px; font-weight: 600; white-space: nowrap; transition: 0.15s;
+}
+.loot-btn svg { width: 15px; height: 15px; flex: none; fill: currentColor; }
+.loot-btn:hover { border-color: var(--lt-gold); background: var(--lt-surface2); }
+
 .dice-result-pop {
   position: fixed; z-index: 200; background: var(--ink-card); border: 1px solid var(--hope);
   border-radius: var(--radius); padding: 10px 16px; box-shadow: var(--shadow-deep);
