@@ -30,6 +30,20 @@
     "Анемона Мрачноцвет": "w80"
   },
   "items": {
+    "di15": {
+      "kind": "item",
+      "src": "dread",
+      "roll": 15,
+      "img": "di15.webp",
+      "en": {
+        "name": "Fey Mirror",
+        "description": "Reveals true forms and makes the invisible visible. The viewer can make a Presence roll to notice ill intent. May not re-roll until after a long rest."
+      },
+      "ru": {
+        "name": "Зеркало Фей",
+        "description": "Раскрывает истинные облики и делает невидимое видимым. Смотрящий может совершить бросок Влияния, чтобы заметить злой умысел. Переброс невозможен до следующего продолжительного отдыха."
+      }
+    },
     "di16": {
       "kind": "item",
       "src": "dread",
@@ -42,6 +56,20 @@
       "ru": {
         "name": "Колчан Фей",
         "description": "При находке содержит 1d6 стрел, отмеченных магией фейри. Вы можете отметить Стресс при использовании этих стрел, чтобы получить преимущество на броски атаки. Когда на кости урона выпадает 6, вы очищаете этот Стресс. Стрелы наносят магический урон. За каждый продолжительный отдых восстанавливайте 1 стрелу, отмеченную магией фейри, до максимума 6."
+      }
+    },
+    "di24": {
+      "kind": "item",
+      "src": "dread",
+      "roll": 24,
+      "img": "di24.webp",
+      "en": {
+        "name": "Moon Scarf",
+        "description": "A scarf made of moonlight, bringing calm. Recover 1d4 Stress once per rest."
+      },
+      "ru": {
+        "name": "Лунный Шарф",
+        "description": "Шарф из лунного света, приносящий покой. Один раз за отдых очищает 1d4 Стресса."
       }
     },
     "w2": {
