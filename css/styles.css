@@ -224,7 +224,12 @@ a:hover { text-decoration: underline; text-underline-offset: 2px; }
 .lang-float {
   position: fixed; z-index: 150;
   top: max(var(--s-3), env(safe-area-inset-top));
-  right: max(var(--s-3), env(safe-area-inset-right));
+  /* The card scrolls inside its overlay, so on a platform with classic
+   * scrollbars there is a bar down the very edge the switch is pinned to.
+   * --sbw is its measured width — see updateLangFloatOffset() — so the switch
+   * clears the bar instead of standing on the thumb. It is 0 wherever the
+   * scrollbar overlays the content, which is every touch platform. */
+  right: calc(max(var(--s-3), env(safe-area-inset-right)) + var(--sbw, 0px));
   background: var(--ink-raised); border-color: var(--line-strong);
   box-shadow: var(--e-3);
 }

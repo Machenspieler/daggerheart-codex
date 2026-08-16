@@ -575,7 +575,24 @@ function syncLangFloat() {
   // Kept last in the document — an overlay opened on top of the card is
   // appended after it, and the focus ring in trapItems() follows DOM order.
   if (el.nextSibling) document.body.appendChild(el);
+  updateLangFloatOffset();
 }
+
+/** Measures the scrollbar of the card's overlay — the one bar that reaches the
+ * right edge of the screen, whatever else is stacked on top — and hands the
+ * width to CSS, which keeps the switch beside it rather than on it. Anything
+ * that can change whether that overlay scrolls has to call this. */
+function updateLangFloatOffset() {
+  const el = document.getElementById('lang-float');
+  if (!el) return;
+  const scroller = document.getElementById('detail-modal')?.closest('.modal-overlay');
+  const width = scroller ? scroller.offsetWidth - scroller.clientWidth : 0;
+  el.style.setProperty('--sbw', `${Math.max(0, width)}px`);
+}
+
+// A card that fits the window has no scrollbar, and resizing is what decides
+// that. Cheap: it does nothing at all unless a card is open.
+window.addEventListener('resize', updateLangFloatOffset);
 
 /* ---------------- rendering ---------------- */
 
