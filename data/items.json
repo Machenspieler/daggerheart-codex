@@ -30,6 +30,20 @@
     "Анемона Мрачноцвет": "w80"
   },
   "items": {
+    "di16": {
+      "kind": "item",
+      "src": "dread",
+      "roll": 16,
+      "img": "di16.webp",
+      "en": {
+        "name": "Fey Quiver",
+        "description": "Contains 1d6 fey-touched arrows when found. You can mark a Stress when using these arrows to give advantage on attack rolls. When you roll a 6 on a damage die, you regain your Stress. Arrows do magical damage. Every long rest, recover 1 fey-touched arrow, to a maximum of 6."
+      },
+      "ru": {
+        "name": "Колчан Фей",
+        "description": "При находке содержит 1d6 стрел, отмеченных магией фейри. Вы можете отметить Стресс при использовании этих стрел, чтобы получить преимущество на броски атаки. Когда на кости урона выпадает 6, вы очищаете этот Стресс. Стрелы наносят магический урон. За каждый продолжительный отдых восстанавливайте 1 стрелу, отмеченную магией фейри, до максимума 6."
+      }
+    },
     "w2": {
       "kind": "consumable",
       "src": "wondrous",

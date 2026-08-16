@@ -2071,8 +2071,8 @@
             "ru": "Испытание на Пригодность"
           },
           "description": {
-            "en": "A Crimson Cap named Kryme arranges one on one and three on three fights. The first to lose half HPs loses. One on one fights are against a (d3): 1. Moon Knight 2. Oak Treant 3. Stag Knight. Three on Threes are against one of each of the above. When someone is at half HP or less, they are out of the fight, but the rest of the team fights on. Laughing Pixies cheer contestants on. Winners get a 3d12 roll on the Consumables table or a Fey Quiver. Losers mark a Stress.",
-            "ru": "Багровый Колпак по имени Крайм устраивает поединки один на один и три на три. Проигрывает тот, кто первым теряет половину очков здоровья. Поединки один на один проходят против (d3): 1. Лунного Рыцаря 2. Дубового Трэнта 3. Рыцаря-Оленя. Три на три проходят против одного из каждого перечисленного выше. Когда кто-то достигает половины очков здоровья или меньше, он выбывает из боя, но остальная команда продолжает сражаться. Смеющиеся Пикси подбадривают участников. Победители получают бросок 3d12 по таблице Расходников или Фейский Колчан. Проигравшие отмечают Стресс."
+            "en": "A Crimson Cap named Kryme arranges one on one and three on three fights. The first to lose half HPs loses. One on one fights are against a (d3): 1. Moon Knight 2. Oak Treant 3. Stag Knight. Three on Threes are against one of each of the above. When someone is at half HP or less, they are out of the fight, but the rest of the team fights on. Laughing Pixies cheer contestants on. Losers mark a Stress. Winners get one of the following:\n- A 3d12 roll on the Consumables table\n- Fey Quiver",
+            "ru": "Багровый Колпак по имени Крайм устраивает поединки один на один и три на три. Проигрывает тот, кто первым теряет половину очков здоровья. Поединки один на один проходят против (d3): 1. Лунного Рыцаря 2. Дубового Трэнта 3. Рыцаря-Оленя. Три на три проходят против одного из каждого перечисленного выше. Когда кто-то достигает половины очков здоровья или меньше, он выбывает из боя, но остальная команда продолжает сражаться. Смеющиеся Пикси подбадривают участников. Проигравшие отмечают Стресс. Победители получают одно из следующего:\n- Бросок 3d12 по таблице Расходников\n- Колчан Фей"
           },
           "prompt": {
             "en": "Why would you want to fight?",
@@ -2576,7 +2576,7 @@
           },
           "description": {
             "en": "Start a Dynamic Consequence Countdown (Loop d8) using Dungeon Turns. When the Countdown triggers, Dread Salamanders find the party and attack. 1 Dread Salamander per PC, led by an Elder Dread Salamander.",
-            "ru": "Начните Динамический Счётчик Последствий (Цикл 8) в Ходах Подземелья. Когда Счётчик срабатывает, Ужасные Саламандры находят группу и нападают. По одной Ужасной Саламандре на персонажа, во главе со Старшей Ужасной Саламандрой."
+            "ru": "Начните Динамический Счётчик Последствий (Цикл d8) в Ходах Подземелья. Когда Счётчик срабатывает, Ужасные Саламандры находят группу и нападают. По одной Ужасной Саламандре на персонажа, во главе со Старшей Ужасной Саламандрой."
           },
           "prompt": {
             "en": "Is the heat getting to you yet?",
@@ -3647,8 +3647,8 @@
       "tier": 1,
       "type": "event",
       "difficulty": {
-        "en": "Special (see \"Relative Strength\")",
-        "ru": "Особая (см. «Относительная сила»)"
+        "en": "Special (see “Relative Strength”)",
+        "ru": "Особая (см. «Относительная Сила»)"
       },
       "name": {
         "en": "Fighting Arena",
@@ -7428,8 +7428,8 @@
       "tier": 2,
       "type": "event",
       "difficulty": {
-        "en": "Special (see \"Relative Strength\")",
-        "ru": "Особая (см. «Относительная сила»)"
+        "en": "Special (see “Relative Strength”)",
+        "ru": "Особая (см. «Относительная Сила»)"
       },
       "name": {
         "en": "Duel",
@@ -15678,7 +15678,7 @@
       "type": "event",
       "difficulty": {
         "en": "Special (see “Relative Strength”)",
-        "ru": "Особая (см. “Относительная Сила”)"
+        "ru": "Особая (см. «Относительная Сила»)"
       },
       "name": {
         "en": "Ambushed",
@@ -15860,7 +15860,7 @@
       "type": "event",
       "difficulty": {
         "en": "Special (see “Relative Strength”)",
-        "ru": "Особая (см. “Относительная Сила”)"
+        "ru": "Особая (см. «Относительная Сила»)"
       },
       "name": {
         "en": "Ambushers",
@@ -17574,11 +17574,11 @@
             "ru": "Странствующий Скиталец"
           },
           "description": {
-            "en": "Introduce an NPC that knows something about the area and can potentially direct the party. Choose from the options below, or make one of your own. If a PC can provide something that satisfies the NPC’s request, all PCs in the party gain a Hope.\n• An ancient troll who has become exhausted while searching for a way out\n• A small faerie with batlike wings whose home is riddled by woodpeckers\n• An animal that has the ability to speak and would like help obtaining food",
+            "en": "Introduce an NPC that knows something about the area and can potentially direct the party. Choose from the options below, or make one of your own. If a PC can provide something that satisfies the NPC’s request, all PCs in the party gain a Hope.\n• An ancient troll who has become exhausted while searching for a way out\n• A small faerie with batlike wings whose home is riddled by woodpeckers\n• An animal that has the ability to speak and would like help obtaining food\n• A tree that has somehow retained its consciousness who wishes to be rid of their curse",
             "ru": "Введите НПС, который знает нечто об этой местности и потенциально может направить группу. Выберите один из вариантов ниже или придумайте свой. Если персонаж может предоставить то, что удовлетворит просьбу НПС, вся группа получает Надежду.\n• Древний тролль, изнемогший в поисках выхода.\n• Маленькая фея с крыльями как у летучей мыши, чей дом донимают дятлы.\n• Животное, способное говорить, которое хотело бы получить помощь в добыче еды.\n• Дерево, каким-то образом сохранившее сознание, которое желает избавиться от своего проклятия."
           },
           "prompt": {
-            "en": "• A tree that has somehow retained its consciousness who wishes to be rid of their curse Who is the NPC and what do they know about this location? Do some of these NPCs want the forest to stay?",
+            "en": "Who is the NPC and what do they know about this location? Do some of these NPCs want the forest to stay?",
             "ru": "Кто этот НПС и что он знает об этом месте? Хотят ли некоторые из этих НПС, чтобы лес остался таким, какой он есть?"
           }
         }

@@ -165,11 +165,20 @@ a:hover { text-decoration: underline; text-underline-offset: 2px; }
   padding-inline: max(var(--s-5), env(safe-area-inset-left)) max(var(--s-5), env(safe-area-inset-right));
   display: flex; align-items: center; justify-content: space-between; gap: var(--s-6); flex-wrap: wrap;
 }
+/* The logo and both lines of type go home when clicked, but the tab stop and
+ * the accessible name sit on one real button inside the h1 — a button may not
+ * contain a heading, and the heading is the page's only h1. Same arrangement
+ * as .card-title / .card-open below. */
 .brand {
+  position: relative;
   display: flex; align-items: center; gap: var(--s-3);
-  background: none; border: none; padding: 0; margin: 0;
-  color: inherit; text-align: left; cursor: pointer; font: inherit;
   border-radius: var(--r-sm);
+}
+#brand-home { all: unset; cursor: pointer; display: inline; }
+#brand-home::after { content: ""; position: absolute; inset: 0; z-index: 1; }
+#brand-home:focus-visible { outline: none; }
+.brand:has(#brand-home:focus-visible) {
+  outline: var(--focus-ring); outline-offset: var(--focus-offset);
 }
 .brand-mark {
   width: auto; height: 42px; flex: none;
@@ -358,6 +367,10 @@ a:hover { text-decoration: underline; text-underline-offset: 2px; }
 .rank-pills { display: flex; gap: var(--s-2); flex-wrap: wrap; align-items: center; }
 .rank-icon {
   --ri-size: 36px;
+  /* Space between the button's edge and the hexagon drawn inside it. Zero on a
+   * mouse, where the silhouette is the target; widened for a finger so the pill
+   * can carry a full-size touch target without being redrawn any larger. */
+  --ri-pad: 0px;
   --ri-clip: polygon(50% 0%, 100% 38%, 81% 100%, 19% 100%, 0% 38%);
   --ri-rim-lo: #201a15; --ri-rim-hi: #7a6a52;
   --ri-face-hi: #5b4f3f; --ri-face-mid: #3a3226; --ri-face-lo: #211b15;
@@ -374,14 +387,14 @@ a:hover { text-decoration: underline; text-underline-offset: 2px; }
               color var(--t-base) var(--ease-out);
 }
 .rank-icon::before, .rank-icon::after {
-  content: ""; position: absolute; inset: 0; z-index: 0;
+  content: ""; position: absolute; inset: var(--ri-pad); z-index: 0;
   clip-path: var(--ri-clip);
 }
 .rank-icon::before {
   background: linear-gradient(155deg, var(--ri-rim-hi) 0%, var(--ri-rim-lo) 75%);
 }
 .rank-icon::after {
-  inset: 2px; z-index: 1;
+  inset: calc(var(--ri-pad) + 2px); z-index: 1;
   background:
     linear-gradient(200deg, transparent 45%, var(--ri-umbra) 100%),
     radial-gradient(circle at 32% 22%, var(--ri-glint), transparent 55%),
@@ -405,7 +418,17 @@ button.rank-icon:focus-visible { outline: var(--focus-ring); outline-offset: 1px
 }
 .rank-icon.active > span { text-shadow: 0 1px 0 rgba(255,255,255,0.35); }
 .rank-icon.rank-icon-sm { --ri-size: 26px; font-size: var(--fs-micro); }
-.rank-icon.rank-icon-sm::after { inset: 1.5px; }
+.rank-icon.rank-icon-sm::after { inset: calc(var(--ri-pad) + 1.5px); }
+
+/* The close and add-to-list buttons in the card header already spread their hit
+ * area under the space around them, but the tier pills sit shoulder to
+ * shoulder, so theirs stops dead at the neighbour — 38px on a phone. Growing
+ * the button and insetting the hexagon by the difference buys the finger a full
+ * target and leaves the row looking exactly as drawn. */
+@media (pointer: coarse) {
+  .detail-tier-pills { gap: var(--s-1); }
+  .detail-tier-pills .rank-icon.rank-icon-sm { --ri-size: 44px; --ri-pad: 9px; }
+}
 
 .result-count {
   font-size: var(--fs-xs); color: var(--muted); margin: 0 0 var(--s-4);

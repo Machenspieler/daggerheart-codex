@@ -15,11 +15,23 @@ const LS_KEYS = {
 };
 
 const BIOMES = ['underground', 'aquatic', 'wetland', 'grassland', 'tropical', 'forest', 'drylands', 'rolling', 'mountain', 'frozen', 'badlands', 'settlement', 'universal'];
+const TYPES = ['traversal', 'social', 'event', 'exploration'];
 
 function normalizeLang(v) { return v === 'en' ? 'en' : 'ru'; }
 
+/* The language is written through persist(), so what comes back out is JSON —
+ * `"en"`, quote marks and all, which never equals `en`. Parsing it here keeps
+ * the write side symmetric with every other key; the fallback covers a value
+ * left in storage by a build that wrote the bare string. */
+function storedLang() {
+  const raw = localStorage.getItem(LS_KEYS.lang);
+  if (!raw) return 'ru';
+  try { return normalizeLang(JSON.parse(raw)); }
+  catch { return normalizeLang(raw); }
+}
+
 const state = {
-  lang: normalizeLang(localStorage.getItem(LS_KEYS.lang)),
+  lang: storedLang(),
   i18n: null,
   builtinEnvs: [],
   regions: [],
@@ -37,19 +49,51 @@ const state = {
   route: parseRoute(),
 };
 
+/* An open environment card is a "/env/<id>" suffix on whichever route is
+ * behind it, rather than a route of its own: the card is an overlay, and the
+ * catalog or list underneath it keeps its own address. That gives the card a
+ * link worth sharing and, on a phone, makes the Back gesture close the sheet
+ * instead of leaving the site. */
 function parseRoute() {
-  const m = location.hash.match(/^#\/lists\/(.+)$/);
-  if (m) return { name: 'list', id: decodeURIComponent(m[1]) };
-  if (location.hash === '#/lists') return { name: 'lists' };
-  return { name: 'catalog' };
+  let hash = location.hash;
+  let env = null;
+  const em = hash.match(/\/env\/([^/]+)$/);
+  if (em) { env = decodeURIComponent(em[1]); hash = hash.slice(0, em.index) || '#'; }
+  const m = hash.match(/^#\/lists\/(.+)$/);
+  if (m) return { name: 'list', id: decodeURIComponent(m[1]), env };
+  if (hash === '#/lists') return { name: 'lists', env };
+  return { name: 'catalog', env };
 }
+
+/** The address of the route behind the card, without any card on it. */
+function baseHash(route = state.route) {
+  if (route.name === 'list') return '#/lists/' + encodeURIComponent(route.id);
+  if (route.name === 'lists') return '#/lists';
+  return '';
+}
+
+function envHash(envId, route = state.route) {
+  return (baseHash(route) || '#') + '/env/' + encodeURIComponent(envId);
+}
+
+function sameBase(a, b) { return a.name === b.name && a.id === b.id; }
 
 function navigate(hash) {
   if (location.hash === hash) { state.route = parseRoute(); render(); }
   else { location.hash = hash; }
 }
 
-window.addEventListener('hashchange', () => { state.route = parseRoute(); render(); });
+/* Opening or closing a card only moves the overlay. Re-rendering the page
+ * underneath would rebuild the grid and destroy the button the card was opened
+ * from, which is the element focus has to return to when it closes. */
+window.addEventListener('hashchange', () => {
+  const next = parseRoute();
+  const onlyCardChanged = sameBase(next, state.route);
+  state.route = next;
+  if (!next.env) cardEntryPushed = false;
+  if (onlyCardChanged) { syncDetail(); document.title = routeTitle(); }
+  else render();
+});
 
 function persist(key, value) { localStorage.setItem(key, JSON.stringify(value)); }
 
@@ -168,7 +212,7 @@ function hasDifficulty(env) {
 /* Cache buster for the JSON under data/. index.html versions the stylesheet and
    this script the same way; the data files are fetched from here instead, so
    bump this whenever anything in data/ changes or browsers serve stale copies. */
-const DATA_VERSION = 8;
+const DATA_VERSION = 10;
 
 function getJSON(path) {
   return fetch(path).then(r => {
@@ -462,11 +506,35 @@ function render() {
     renderGrid();
   }
   renderFooter();
+  syncDetail();
+}
+
+/** Brings the open card into line with the address — opening one that the URL
+ * names, closing one it no longer does. The only place a detail card is
+ * created or destroyed, so the two can never disagree. */
+function syncDetail() {
+  const wanted = state.route.env;
+  if (wanted === openDetailId) return;
+  if (openDetailId) closeDetailOverlay();
+  if (!wanted) return;
+  if (!allEnvs().some(e => e.id === wanted)) {
+    // A link to an environment that is not in the catalog: drop the suffix
+    // rather than leave the address pointing at nothing.
+    history.replaceState(null, '', baseHash() || location.pathname + location.search);
+    state.route = parseRoute();
+    document.title = routeTitle();
+    return;
+  }
+  openDetailOverlay(wanted);
 }
 
 /** An open list names itself in the tab, so several of them are tellable apart
  * in a tab strip or a history list. */
 function routeTitle() {
+  // An open card names itself, so a shared link and a history entry both say
+  // which environment they lead to.
+  const env = state.route.env && allEnvs().find(e => e.id === state.route.env);
+  if (env) return `${envName(env)} — ${t('app_title')}`;
   if (state.route.name === 'catalog') return t('app_title');
   if (state.route.name === 'list') {
     const list = state.lists.find(l => l.id === state.route.id);
@@ -481,13 +549,13 @@ function renderHeader() {
   el.innerHTML = `
     <a class="skip-link" href="#grid-wrap">${t('skip_to_content')}</a>
     <div class="header-inner">
-      <button type="button" class="brand" id="brand-home">
+      <div class="brand">
         <img class="brand-mark" src="img/brand-logo.png?v=2" alt="" aria-hidden="true">
         <span class="brand-text">
-          <h1>${t('app_title')}</h1>
+          <h1><button type="button" id="brand-home">${t('app_title')}</button></h1>
           <p>${t('app_subtitle')}</p>
         </span>
-      </button>
+      </div>
       <div class="header-actions">
         <div class="lang-switch">
           <button type="button" data-lang="ru" aria-pressed="${state.lang === 'ru'}" class="${state.lang === 'ru' ? 'active' : ''}">RU</button>
@@ -529,8 +597,25 @@ const SEARCH_DEBOUNCE_MS = 120;
 function renderToolbar() {
   const el = document.getElementById('toolbar');
   const envs = currentEnvs();
-  const usedTiers = [...new Set(envs.map(e => e.tier))].sort();
-  const types = ['traversal', 'social', 'event', 'exploration'];
+  /* Every group offers only what the environments in front of you actually
+   * carry. On the catalog that is the full set, so nothing changes there; on a
+   * list it stops the toolbar promising ranks, types and biomes the list has
+   * none of, and an empty list drops the groups altogether. Canonical order is
+   * kept by filtering the reference arrays rather than collecting a Set. */
+  const has = { tiers: new Set(), types: new Set(), biomes: new Set() };
+  envs.forEach(e => {
+    has.tiers.add(e.tier);
+    has.types.add(e.type);
+    (e.biomes || []).forEach(b => has.biomes.add(b));
+  });
+  const usedTiers = [1, 2, 3, 4].filter(tier => has.tiers.has(tier));
+  const types = TYPES.filter(type => has.types.has(type));
+  const usedBiomes = BIOMES.filter(biome => has.biomes.has(biome));
+  /* A filter left pointing at something the current route cannot show would
+   * empty the grid with no control still on screen to undo it. */
+  state.filters.tiers.forEach(v => { if (!has.tiers.has(v)) state.filters.tiers.delete(v); });
+  state.filters.types.forEach(v => { if (!has.types.has(v)) state.filters.types.delete(v); });
+  state.filters.biomes.forEach(v => { if (!has.biomes.has(v)) state.filters.biomes.delete(v); });
   // The region pill sits alongside the type pills but filters on region
   // membership, not env.type. Regions only make sense on the full catalog, so
   // the pill — and any filter left over from it — is dropped elsewhere.
@@ -569,26 +654,29 @@ function renderToolbar() {
         ${activeGroups ? `<span class="filter-count" aria-label="${t('filters_active').replace('{n}', activeGroups)}">${activeGroups}</span>` : ''}
       </button>
       <div class="toolbar-filters" id="toolbar-filters">
+        ${usedTiers.length ? `
         <div class="field">
           <span class="field-label" id="f-tiers-label">${t('filter_tier')}</span>
           <div class="rank-pills field-control" id="f-tiers" role="group" aria-labelledby="f-tiers-label">
             ${usedTiers.map(tier => `<button type="button" class="rank-icon ${state.filters.tiers.has(tier) ? 'active' : ''}" data-tier="${tier}" aria-pressed="${state.filters.tiers.has(tier)}" aria-label="${t('tier_label')} ${tier}"><span>${tier}</span></button>`).join('')}
           </div>
-        </div>
+        </div>` : ''}
+        ${types.length || showRegionPill ? `
         <div class="field">
           <span class="field-label" id="f-types-label">${t('filter_type')}</span>
           <div class="type-pills field-control" id="f-types" role="group" aria-labelledby="f-types-label">
             ${types.map(type => `<button type="button" class="pill ${state.filters.types.has(type) ? 'active' : ''}" data-type="${type}" aria-pressed="${state.filters.types.has(type)}">${t('type_' + type)}</button>`).join('')}
             ${showRegionPill ? `<button type="button" class="pill ${state.filters.regionOnly ? 'active' : ''}" data-type="region" id="f-region" aria-pressed="${state.filters.regionOnly}">${t('region_label')}</button>` : ''}
           </div>
-        </div>
+        </div>` : ''}
+        ${usedBiomes.length ? `
         <div class="field">
           <label class="field-label" for="f-biome">${t('filter_biome')}</label>
           <select id="f-biome">
             <option value="">${t('all')}</option>
-            ${BIOMES.map(biome => `<option value="${biome}" ${state.filters.biomes.has(biome) ? 'selected' : ''}>${t('biome_' + biome)}</option>`).join('')}
+            ${usedBiomes.map(biome => `<option value="${biome}" ${state.filters.biomes.has(biome) ? 'selected' : ''}>${t('biome_' + biome)}</option>`).join('')}
           </select>
-        </div>
+        </div>` : ''}
       </div>
     </div>`;
 
@@ -631,7 +719,8 @@ function renderToolbar() {
     state.filters.regionOnly = !state.filters.regionOnly;
     renderToolbar(); renderGrid();
   });
-  document.getElementById('f-biome').addEventListener('change', e => {
+  const biomeSelect = document.getElementById('f-biome');
+  if (biomeSelect) biomeSelect.addEventListener('change', e => {
     state.filters.biomes = new Set(e.target.value ? [e.target.value] : []);
     renderGrid();
   });
@@ -788,7 +877,7 @@ function bindGridDelegation(el) {
     const add = e.target.closest('[data-add-to-list]');
     if (add) { e.preventDefault(); openAddToListPopup(add.dataset.addToList); return; }
     const open = e.target.closest('[data-open-env]');
-    if (open) { e.preventDefault(); openDetail(open.dataset.openEnv); return; }
+    if (open) { e.preventDefault(); showEnv(open.dataset.openEnv); return; }
     const clear = e.target.closest('[data-clear-filters]');
     if (clear) clearAllFilters();
   });
@@ -904,6 +993,14 @@ function renderFooter() {
 
 /* ---------------- lists ---------------- */
 
+/* An environment that belongs to no list leaves no key behind. An empty array
+ * is a membership record that records nothing, and it would sit in storage for
+ * good once the list that put it there is gone. Callers persist. */
+function setEnvLists(envId, listIds) {
+  if (listIds.length) state.envLists[envId] = listIds;
+  else delete state.envLists[envId];
+}
+
 function listEnvCount(listId) {
   return Object.values(state.envLists).filter(ids => (ids || []).includes(listId)).length;
 }
@@ -985,7 +1082,7 @@ function renderListsHome() {
       if (!confirm(t('delete_list_confirm'))) return;
       state.lists = state.lists.filter(l => l.id !== id);
       Object.keys(state.envLists).forEach(envId => {
-        state.envLists[envId] = (state.envLists[envId] || []).filter(lid => lid !== id);
+        setEnvLists(envId, (state.envLists[envId] || []).filter(lid => lid !== id));
       });
       persist(LS_KEYS.lists, state.lists);
       persist(LS_KEYS.envLists, state.envLists);
@@ -1051,7 +1148,7 @@ function openAddToListPopup(envId) {
       const list = state.lists.find(l => l.id === listId);
       const set = new Set(state.envLists[envId] || []);
       if (cb.checked) set.add(listId); else set.delete(listId);
-      state.envLists[envId] = [...set];
+      setEnvLists(envId, [...set]);
       persist(LS_KEYS.envLists, state.envLists);
       // Membership is otherwise a silent toggle with nothing to confirm it.
       showToast((cb.checked ? t('added_to_list') : t('removed_from_list')).replace('{n}', list ? list.name : ''));
@@ -1086,7 +1183,7 @@ function openAddToListPopup(envId) {
     persist(LS_KEYS.lists, state.lists);
     const set = new Set(state.envLists[envId] || []);
     set.add(list.id);
-    state.envLists[envId] = [...set];
+    setEnvLists(envId, [...set]);
     persist(LS_KEYS.envLists, state.envLists);
     newInput.value = '';
     const container = overlay.querySelector('#atl-list');
@@ -1236,7 +1333,48 @@ function formatDamage(roll) {
 
 /* ---------------- detail modal ---------------- */
 
-function openDetail(envId) {
+/* Which card is on screen, and how to take it away again. syncDetail() owns
+ * both: nothing else opens or closes a detail card. */
+let openDetailId = null;
+let closeDetailOverlay = () => {};
+
+/* Whether the card on screen was opened from this page, and so has a history
+ * entry of its own to step back through, or arrived with the address — in
+ * which case going back would walk off the site rather than close the card. */
+let cardEntryPushed = false;
+
+/** Opens a card by address. Everything that opens one — a grid click, a shared
+ * link, the Forward button — arrives through the hash, so the card on screen
+ * and the URL can never disagree. */
+function showEnv(envId) {
+  const target = envHash(envId);
+  if (location.hash === target) return;
+  cardEntryPushed = true;
+  location.hash = target;
+}
+
+/** Closes the card the way the × and Escape mean it: back out of the entry
+ * that opened it, or, for a card that arrived with the address, rewrite the
+ * address to the route behind it without adding to the history. */
+function dismissDetail() {
+  if (cardEntryPushed) { cardEntryPushed = false; history.back(); return; }
+  history.replaceState(null, '', baseHash() || location.pathname + location.search);
+  state.route = parseRoute();
+  syncDetail();
+  document.title = routeTitle();
+}
+
+/** A neighbour opened from the region block takes the place of the card that
+ * offered it, so Escape still means "back to the grid" rather than walking
+ * back through every card visited along the way. */
+function replaceEnv(envId) {
+  history.replaceState(null, '', envHash(envId));
+  state.route = parseRoute();
+  syncDetail();
+  document.title = routeTitle();
+}
+
+function openDetailOverlay(envId) {
   const env = allEnvs().find(e => e.id === envId);
   if (!env) return;
   const impulses = envField(env, 'impulses');
@@ -1411,21 +1549,25 @@ function openDetail(envId) {
   }));
   applyViewTier();
 
-  const teardown = registerOverlay(overlay, closeDetail);
+  const teardown = registerOverlay(overlay, dismissDetail);
 
-  function closeDetail() {
+  openDetailId = envId;
+  /* The raw teardown, with no opinion about history. syncDetail() calls it once
+   * the address stops naming this card — which is the only way a card ever
+   * comes off the screen. */
+  closeDetailOverlay = () => {
     (overlay._countdownOverlays || []).slice().forEach(p => p.remove());
     overlay.remove();
     teardown();
-  }
+    openDetailId = null;
+    closeDetailOverlay = () => {};
+  };
 
-  overlay.querySelector('.modal-close').addEventListener('click', closeDetail);
-  overlay.addEventListener('click', e => { if (e.target === overlay) closeDetail(); });
+  overlay.querySelector('.modal-close').addEventListener('click', dismissDetail);
+  overlay.addEventListener('click', e => { if (e.target === overlay) dismissDetail(); });
 
   overlay.querySelectorAll('[data-region-env]').forEach(btn => btn.addEventListener('click', () => {
-    const nextId = btn.dataset.regionEnv;
-    closeDetail();
-    openDetail(nextId);
+    replaceEnv(btn.dataset.regionEnv);
   }));
 
   overlay.querySelector('#detail-add-to-list').addEventListener('click', () => openAddToListPopup(env.id));
@@ -1529,18 +1671,27 @@ function openItemDetail(itemId) {
 
 /* Matches "2d6", "d20" and an optional flat modifier ("1d6+2", "3d6 - 1"). The
  * lookahead keeps the modifier from swallowing the first die of a following
- * roll, so "2d6 + 1d8" stays two separate buttons. */
-const DICE_RE = /\b(\d{0,2})d(3|4|6|8|10|12|20|100)\b(?:\s*([+-])\s*(\d+)\b(?!\s*d\s*\d))?/gi;
+ * roll, so "2d6 + 1d8" stays two separate buttons. English pluralises the
+ * notation — "roll a number of d12s" — so a trailing "s" is allowed to end the
+ * die but left out of the match, which keeps the button reading "d12" and the
+ * "s" as the prose it belongs to. */
+const DICE_RE = /\b(\d{0,2})d(3|4|6|8|10|12|20|100)(?=s?\b)(?:\s*([+-])\s*(\d+)\b(?!\s*d\s*\d))?/gi;
 const COUNTDOWN_KEYWORD_RE = /(Countdown|Отсчёт\w*|Отсчет\w*|Счётчик\w*|Счетчик\w*)/gi;
-const COUNTDOWN_PAREN_RE = /\(\s*(?:(?:Loop|Цикл)\s+)?(?:\d*d)?(\d+)\s*\)/gi;
+const COUNTDOWN_PAREN_RE = /\(\s*(?:(?:Loop|Цикл)\s+)?(?:(\d*)d)?(\d+)\s*\)/gi;
+
+/* A difficulty in parentheses is not a countdown. "…stop the countdown with a
+ * successful Finesse Roll (20)" names a check the party makes against the
+ * tracker, and the keyword sitting earlier in the same sentence is the only
+ * reason it looks like one, so a roll word between the two disqualifies it. */
+const COUNTDOWN_ROLL_WORD_RE = /\b(?:roll|check|DC)\b|Брос\w*|Провер\w*|Сложност\w*/i;
 
 /** Finds "<...Countdown/Отсчёт...> (6)"-style spans in free text: scans for a
  * plain integer, optionally prefixed by a "Loop"/"Цикл" qualifier and/or dice
  * notation (e.g. "(6)", "(Loop 1d6)", "(Цикл d20)"), then walks back to the
  * nearest sentence boundary and takes the text from the closest preceding
  * countdown keyword up to the parens. A "Loop XdY" countdown starts at the
- * die's max (Y), not a dice roll, so this is matched ahead of the plain
- * dice-roll regex to keep it out of a roll button. */
+ * highest the dice can show (X times Y), not a roll, so this is matched ahead
+ * of the plain dice-roll regex to keep it out of a roll button. */
 function findCountdownMatches(text) {
   const matches = [];
   COUNTDOWN_PAREN_RE.lastIndex = 0;
@@ -1559,8 +1710,13 @@ function findCountdownMatches(text) {
     COUNTDOWN_KEYWORD_RE.lastIndex = 0;
     while ((mm = COUNTDOWN_KEYWORD_RE.exec(segment))) kwMatch = mm;
     if (!kwMatch) continue;
+    if (COUNTDOWN_ROLL_WORD_RE.test(segment.slice(kwMatch.index + kwMatch[0].length))) continue;
+    // m[1] is the die count: absent for a plain "(6)", empty for "(d20)".
+    const sides = parseInt(m[2], 10);
+    const dieCount = m[1] === undefined ? 0 : (m[1] === '' ? 1 : parseInt(m[1], 10));
+    const value = dieCount ? dieCount * sides : sides;
     const labelStart = segmentStart + kwMatch.index;
-    matches.push({ start: labelStart, end: parenEnd, type: 'countdown', value: parseInt(m[1], 10), label: text.slice(labelStart, parenEnd) });
+    matches.push({ start: labelStart, end: parenEnd, type: 'countdown', value, label: text.slice(labelStart, parenEnd) });
   }
   return matches;
 }
