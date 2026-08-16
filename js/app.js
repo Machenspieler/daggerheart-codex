@@ -2240,7 +2240,19 @@ function rollDice(btn, count, sides, mod, label) {
   showDiceResultPop(btn, label, rolls, mod, total);
 }
 
+let activeDicePop = null;
+
+function dismissDiceResultPop() {
+  if (!activeDicePop) return;
+  clearTimeout(activeDicePop._timer);
+  activeDicePop.remove();
+  activeDicePop = null;
+}
+
 function showDiceResultPop(btn, label, rolls, mod, total) {
+  /* Only one result at a time — a lingering wider bubble would show its edges
+     behind a narrower new one rolled at the same spot. */
+  dismissDiceResultPop();
   const rect = btn.getBoundingClientRect();
   const pop = document.createElement('div');
   pop.className = 'dice-result-pop';
@@ -2256,8 +2268,9 @@ function showDiceResultPop(btn, label, rolls, mod, total) {
     pop.appendChild(bd);
   }
   document.body.appendChild(pop);
-  pop.addEventListener('click', () => pop.remove());
-  setTimeout(() => pop.remove(), 2600);
+  activeDicePop = pop;
+  pop.addEventListener('click', dismissDiceResultPop);
+  pop._timer = setTimeout(dismissDiceResultPop, 2600);
 }
 
 /* ---------------- utils ---------------- */
