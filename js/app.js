@@ -217,7 +217,7 @@ function difficultyScales(env) { return typeof env.difficulty === 'number'; }
 /* Cache buster for the JSON under data/. index.html versions the stylesheet and
    this script the same way; the data files are fetched from here instead, so
    bump this whenever anything in data/ changes or browsers serve stale copies. */
-const DATA_VERSION = 14;
+const DATA_VERSION = 15;
 
 function getJSON(path) {
   return fetch(path).then(r => {
@@ -1969,12 +1969,59 @@ function hasDamageRoll(text) {
   return findDiceMatches(text).some(m => m.isDamage);
 }
 
+/* Spending Fear is the GM's cost to pay, and the book sets it in bold wherever
+ * it appears in a feature ("you can **spend a Fear** to summon…"), so it is
+ * found in the text the same way dice and countdowns are, rather than being
+ * marked up in the data. Only Fear — Hope is the players' currency and stays
+ * plain. An amount named by a phrase rather than a number ("spend an amount of
+ * Fear equal to…") is left alone — the bold would run past the cost. */
+const FEAR_AMOUNT_EN = '(?:(?:an?|that|the|\\d+|X|additional|second)\\s+)?';
+const FEAR_AMOUNT_RU = '(?:(?:этот|второй|дополнительн\\p{L}+|\\d+|X)\\s+)?';
+const FEAR_COST_RE = new RegExp(
+  '(?<!\\p{L})(?:spend(?:s|ing)?\\s+' + FEAR_AMOUNT_EN + FEAR_AMOUNT_EN + 'Fear'
+  + '|(?:по)?трат(?:ьте|ить|ите|ив|ит|ят|я|ы|ь)\\s+' + FEAR_AMOUNT_RU + 'Страх\\p{L}*'
+  + ')(?!\\p{L})',
+  'giu',
+);
+
+function findFearCostMatches(text) {
+  const matches = [];
+  FEAR_COST_RE.lastIndex = 0;
+  let m;
+  while ((m = FEAR_COST_RE.exec(text))) {
+    matches.push({ start: m.index, end: m.index + m[0].length, type: 'emphasis', label: m[0] });
+  }
+  return matches;
+}
+
+/* Text the data sets in bold itself: the label a bullet opens with, and any
+ * other phrase the printed card emphasises. Rendered around the spans below, so
+ * a roll inside bold text still gets its button. */
+const BOLD_RE = /\*\*([\s\S]+?)\*\*/g;
+
 /** `retier` is `{ from, to }` while the card is being read at another tier, or
  * null at the environment's own tier. Only damage rolls follow it; countdowns
  * and every other roll in the text are left exactly as written. */
 function renderRichText(container, text, retier) {
   container.textContent = '';
-  const matches = [...findDiceMatches(text), ...findCountdownMatches(text)].sort((a, b) => a.start - b.start);
+  let lastIndex = 0;
+  BOLD_RE.lastIndex = 0;
+  let bold;
+  while ((bold = BOLD_RE.exec(text))) {
+    if (bold.index > lastIndex) renderSpans(container, text.slice(lastIndex, bold.index), retier);
+    const strong = document.createElement('strong');
+    renderSpans(strong, bold[1], retier);
+    container.appendChild(strong);
+    lastIndex = bold.index + bold[0].length;
+  }
+  renderSpans(container, text.slice(lastIndex), retier);
+}
+
+/** Everything the app finds in the text itself — rolls, countdowns, die names,
+ * the cost of a Fear — turned into buttons and bold runs. */
+function renderSpans(container, text, retier) {
+  const matches = [...findDiceMatches(text), ...findCountdownMatches(text), ...findFearCostMatches(text)]
+    .sort((a, b) => a.start - b.start);
 
   let lastIndex = 0;
   for (const match of matches) {
@@ -1985,7 +2032,7 @@ function renderRichText(container, text, retier) {
       container.appendChild(scaled && scaled.changed
         ? makeDiceButton(scaled.count, scaled.sides, scaled.mod, formatDamage(scaled), match.label)
         : makeDiceButton(match.count, match.sides, match.mod, match.label));
-    } else if (match.type === 'die-name') {
+    } else if (match.type === 'die-name' || match.type === 'emphasis') {
       const strong = document.createElement('strong');
       strong.textContent = match.label;
       container.appendChild(strong);
@@ -2039,6 +2086,9 @@ function renderFeatureBody(container, text, retier) {
  * either as the whole bullet, or as the label before a colon or dash — so a
  * bullet that merely mentions an item in passing stays prose. */
 const BULLET_LABEL_RE = /^([^:—–]+?)\s*([:—–])\s*(.+)$/;
+/* The same label, set in bold by the data. Tried first so the asterisks never
+ * reach the item lookup or the button's text. */
+const BOLD_LABEL_RE = /^\*\*([^*]+?)\s*([:—–])\*\*\s*([\s\S]+)$/;
 
 function renderBulletBody(li, text, retier) {
   let id = itemIdFor(text);
@@ -2046,7 +2096,7 @@ function renderBulletBody(li, text, retier) {
   let sep = '';
   let rest = '';
   if (!id) {
-    const m = text.match(BULLET_LABEL_RE);
+    const m = text.match(BOLD_LABEL_RE) || text.match(BULLET_LABEL_RE);
     const headId = m && itemIdFor(m[1]);
     if (headId) { id = headId; label = m[1]; sep = m[2]; rest = m[3]; }
   }
