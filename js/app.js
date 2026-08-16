@@ -217,7 +217,7 @@ function difficultyScales(env) { return typeof env.difficulty === 'number'; }
 /* Cache buster for the JSON under data/. index.html versions the stylesheet and
    this script the same way; the data files are fetched from here instead, so
    bump this whenever anything in data/ changes or browsers serve stale copies. */
-const DATA_VERSION = 15;
+const DATA_VERSION = 16;
 
 function getJSON(path) {
   return fetch(path).then(r => {
@@ -1761,7 +1761,15 @@ function openDetailOverlay(envId, carry = null) {
  * theirs. The artwork is served from there too, so a picture that will not load
  * simply drops out of the card. */
 const ITEM_CRAFT_ICON = `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 11h11.2l-3.6-3.6L13 6l6 6-6 6-1.4-1.4 3.6-3.6H4v-2z"/></svg>`;
+/* The generator's own icons, so a reader who knows that card recognises these
+ * controls as the same ones. The chain means "the link to this entry" there and
+ * here; the arrow out of the box is ours, and keeps the button that leaves the
+ * site from wearing the same icon as the button that copies its address. */
 const ITEM_LINK_ICON = `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.9 12a5.1 5.1 0 0 1 5.1-5.1h4V5H9a7 7 0 0 0 0 14h4v-1.9H9A5.1 5.1 0 0 1 3.9 12zM8 13h8v-2H8v2zm7-8v1.9h4a5.1 5.1 0 0 1 0 10.2h-4V19h4a7 7 0 0 0 0-14h-4z"/></svg>`;
+const ITEM_EXT_ICON = `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 3v2h3.6l-9.8 9.8 1.4 1.4L19 6.4V10h2V3h-7zM5 5h5V3H3v18h18v-7h-2v5H5V5z"/></svg>`;
+const ITEM_SHARE_ICON = `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 16.1c-.8 0-1.5.3-2 .8l-7.1-4.2c.1-.2.1-.5.1-.7s0-.5-.1-.7L16 7.1c.5.5 1.2.8 2 .8a3 3 0 1 0-3-3c0 .3 0 .5.1.7L8 9.9a3 3 0 1 0 0 4.2l7.1 4.2c-.1.2-.1.4-.1.6a2.9 2.9 0 1 0 3-2.8z"/></svg>`;
+const ITEM_IMAGE_ICON = `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2zM8.5 13.5l2.5 3 3.5-4.5 4.5 6H5l3.5-4.5z"/></svg>`;
+const ITEM_COPY_ICON = `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12V1zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm0 16H8V7h11v14z"/></svg>`;
 
 /* The quoted card is set in Inter, which is not one of the atlas's three
  * faces. Requesting it up front would put a fourth family on every page load
@@ -1816,11 +1824,23 @@ function openItemDetail(itemId, { quiet = false } = {}) {
             <span class="loot-badge ${kind === 'consumable' ? 'cons' : 'thing'}">${t('item_kind_' + kind)}</span>
             <span class="loot-badge src">${t('item_src_' + item.src)}</span>
           </div>
-          <h2 class="loot-name"><span>${escapeHtml(name)}</span></h2>
+          <h2 class="loot-name">
+            <span>${escapeHtml(name)}</span>
+            <button type="button" class="loot-name-act" data-copy-link
+                    data-tip="${escapeAttr(t('copy_link'))}" aria-label="${escapeAttr(t('copy_link'))}">${ITEM_LINK_ICON}</button>
+          </h2>
           <div class="loot-desc" data-item-desc></div>
           ${craftHtml ? `<div class="loot-craft">${craftHtml}</div>` : ''}
           <div class="loot-acts">
-            <a class="loot-btn" href="${escapeAttr(itemUrl(itemId))}" target="_blank" rel="noopener">${ITEM_LINK_ICON}${t('open_in_loot')}</a>
+            <button type="button" class="loot-btn" data-share-item
+                    aria-label="${escapeAttr(t('share_item'))}">${ITEM_SHARE_ICON}<span>${escapeHtml(t('share_item'))}</span></button>
+            ${art ? `<button type="button" class="loot-btn" data-copy-image
+                    data-tip="${escapeAttr(t('copy_image'))}" aria-label="${escapeAttr(t('copy_image'))}">${ITEM_IMAGE_ICON}<span>${escapeHtml(t('copy_image_label'))}</span></button>` : ''}
+            <button type="button" class="loot-btn" data-copy-text
+                    data-tip="${escapeAttr(t('copy_text'))}" aria-label="${escapeAttr(t('copy_text'))}">${ITEM_COPY_ICON}<span>${escapeHtml(t('copy_text_label'))}</span></button>
+          </div>
+          <div class="loot-acts">
+            <a class="loot-btn" href="${escapeAttr(itemUrl(itemId))}" target="_blank" rel="noopener">${ITEM_EXT_ICON}${t('open_in_loot')}</a>
           </div>
           <p class="loot-src-note">${t('loot_src_note')}</p>
         </div>
@@ -1834,7 +1854,12 @@ function openItemDetail(itemId, { quiet = false } = {}) {
   renderFeatureBody(overlay.querySelector('[data-item-desc]'), itemField(item, 'description'), null);
 
   const media = overlay.querySelector('.loot-media');
-  if (media) media.querySelector('img').addEventListener('error', () => media.remove());
+  // A picture that will not load takes its copy button with it: there is
+  // nothing left for the button to put on the clipboard.
+  if (media) media.querySelector('img').addEventListener('error', () => {
+    media.remove();
+    overlay.querySelector('[data-copy-image]')?.remove();
+  });
 
   const teardown = registerOverlay(overlay, closeItem);
 
@@ -1861,6 +1886,166 @@ function openItemDetail(itemId, { quiet = false } = {}) {
     closeItem();
     openItemDetail(nextId);
   }));
+
+  /* The three take the card somewhere else — a chat window, a document, another
+   * app — so what they hand over is built from the card as rendered, not from
+   * the raw entry: bullets, bold and the dice notation have already been
+   * resolved by the time they are read back out. */
+  const shareName = itemShareName(item);
+  const link = itemUrl(itemId);
+
+  overlay.querySelector('[data-copy-link]').addEventListener('click', () => copyPlainText(link, t('link_copied')));
+
+  overlay.querySelector('[data-share-item]').addEventListener('click', () => {
+    const body = itemBodyForCopy(overlay.querySelector('[data-item-desc]'));
+    shareItemCard({ title: shareName, text: shareName + (body.text ? `\n\n${body.text}` : ''), url: link, art });
+  });
+
+  overlay.querySelector('[data-copy-image]')?.addEventListener('click', () => copyItemImage(art, shareName));
+
+  overlay.querySelector('[data-copy-text]').addEventListener('click', () => {
+    const body = itemBodyForCopy(overlay.querySelector('[data-item-desc]'));
+    copyRichText(
+      `<p><b>${escapeHtml(shareName)}</b></p>${body.html}`,
+      shareName + (body.text ? `\n\n${body.text}` : ''),
+      t('text_copied'));
+  });
+}
+
+/* ---------------- item card: copying and sharing ---------------- */
+
+/** The name a card travels under. A consumable says so, the way the generator's
+ * own share text does — pasted into a chat, the card has lost the badge row
+ * that carried that on screen. */
+function itemShareName(item) {
+  const name = itemField(item, 'name');
+  return item.kind === 'consumable' ? `${name} (${t('item_kind_consumable').toLowerCase()})` : name;
+}
+
+/** Reads the rendered description back out in both clipboard flavours. The roll
+ * and item buttons come out as the text they show: a die is worth pasting as
+ * "1d4", but not as a control nobody on the other end can press. */
+function itemBodyForCopy(descEl) {
+  const clone = descEl.cloneNode(true);
+  clone.querySelectorAll('button').forEach(btn => btn.replaceWith(document.createTextNode(btn.textContent)));
+  const html = [];
+  const text = [];
+  [...clone.children].forEach(node => {
+    if (node.tagName === 'UL') {
+      const rows = [...node.children];
+      html.push(`<ul>${rows.map(li => `<li>${li.innerHTML}</li>`).join('')}</ul>`);
+      text.push(rows.map(li => `• ${li.textContent.trim()}`).join('\n'));
+    } else {
+      html.push(`<p>${node.innerHTML}</p>`);
+      text.push(node.textContent.trim());
+    }
+  });
+  return { html: html.join(''), text: text.filter(Boolean).join('\n\n') };
+}
+
+/* Writing anything richer than a string needs the async clipboard, which needs
+ * a secure context. Every path below falls back rather than failing: a browser
+ * that cannot take rich text gets the plain flavour, and one with no clipboard
+ * API at all gets the old selection trick. */
+function clipboardCanWriteBlobs() {
+  return typeof ClipboardItem !== 'undefined' &&
+         !!(navigator.clipboard && navigator.clipboard.write) && window.isSecureContext;
+}
+
+function copyPlainText(text, message) {
+  const done = () => showToast(message);
+  const failed = () => showToast(t('copy_failed'), 'error');
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(done, () => legacyCopy(text, done, failed));
+  } else legacyCopy(text, done, failed);
+}
+
+function legacyCopy(text, done, failed) {
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.setAttribute('readonly', '');
+  ta.style.cssText = 'position:fixed;top:-1000px';
+  document.body.appendChild(ta);
+  ta.select();
+  let ok = false;
+  try { ok = document.execCommand('copy'); } catch { ok = false; }
+  ta.remove();
+  ok ? done() : failed();
+}
+
+/** Bold travels in the text/html flavour. The plain flavour stays clean, so an
+ * app that cannot take rich text gets readable text rather than stray asterisks. */
+function copyRichText(html, plain, message) {
+  if (!clipboardCanWriteBlobs()) { copyPlainText(plain, message); return; }
+  navigator.clipboard.write([new ClipboardItem({
+    'text/html': new Blob([html], { type: 'text/html' }),
+    'text/plain': new Blob([plain], { type: 'text/plain' }),
+  })]).then(() => showToast(message), () => copyPlainText(plain, message));
+}
+
+/* The artwork is served by the loot generator, which sends
+ * Access-Control-Allow-Origin: *, so an anonymous request can be drawn onto a
+ * canvas without tainting it. It goes through the canvas because the files are
+ * WebP, which is not a format any browser will put on the clipboard. */
+function itemImageBlob(src) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.crossOrigin = 'anonymous';
+    img.onload = () => {
+      const canvas = document.createElement('canvas');
+      canvas.width = img.naturalWidth;
+      canvas.height = img.naturalHeight;
+      canvas.getContext('2d').drawImage(img, 0, 0);
+      canvas.toBlob(blob => (blob ? resolve(blob) : reject(new Error('toBlob failed'))), 'image/png');
+    };
+    img.onerror = () => reject(new Error('image load failed'));
+    img.src = src;
+  });
+}
+
+function itemImageFileName(name) {
+  return `${String(name).replace(/[\\/:*?"<>|]/g, '').trim() || 'item'}.png`;
+}
+
+function downloadItemImage(src, name) {
+  itemImageBlob(src).then(blob => {
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = itemImageFileName(name);
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+    showToast(t('image_saved'));
+  }, () => showToast(t('image_failed'), 'error'));
+}
+
+function copyItemImage(src, name) {
+  if (!clipboardCanWriteBlobs()) { downloadItemImage(src, name); return; }
+  // Safari drops the user gesture unless the pending blob is handed straight to
+  // ClipboardItem instead of being awaited first.
+  navigator.clipboard.write([new ClipboardItem({ 'image/png': itemImageBlob(src) })])
+    .then(() => showToast(t('image_copied')), () => downloadItemImage(src, name));
+}
+
+/* One button, three levels of browser support — the same three the generator
+ * offers, for the same reason: on a phone the share sheet puts the picture and
+ * the text into a chat in one step, a desktop browser with the Share API can
+ * still pass the link along, and everything else copies it. The link carries
+ * its own Open Graph tags either way, so Telegram and Discord unfurl it into
+ * picture, name and text on the far end. */
+function shareItemCard({ title, text, url, art }) {
+  if (!navigator.share) { copyPlainText(url, t('link_copied')); return; }
+  const withoutFile = () => navigator.share({ title, text, url });
+  if (!art || !(navigator.canShare && window.File)) { withoutFile().catch(() => {}); return; }
+  itemImageBlob(art).then(
+    blob => {
+      const file = new File([blob], itemImageFileName(title), { type: 'image/png' });
+      return navigator.canShare({ files: [file] }) ? navigator.share({ files: [file], text }) : withoutFile();
+    },
+    // Only the picture failed; the card is still worth passing on.
+    () => withoutFile()
+  ).catch(() => {}); // dismissing the sheet is not an error
 }
 
 /* ---------------- dice parsing + rolling ---------------- */

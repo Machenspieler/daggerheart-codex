@@ -910,6 +910,20 @@ button.rank-icon:focus-visible { outline: var(--focus-ring); outline-offset: 1px
   display: flex; align-items: baseline; gap: 7px; font-family: var(--lt-ui); color: var(--lt-txt);
 }
 .loot-name > span { min-width: 0; overflow-wrap: break-word; }
+/* Sits on the name's line rather than under it: it copies the address of this
+ * entry, and the name is what it is the address of. Pinned to the top of the
+ * row rather than to the baseline the row is aligned on — a 19px cap height
+ * would hang the icon off the bottom of the text, and against a name long
+ * enough to wrap, centring would leave it floating between the two lines. */
+.loot-name-act {
+  flex: none; align-self: flex-start; margin-top: -1px;
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 26px; height: 26px; padding: 0; border: 0; border-radius: 7px;
+  background: none; color: var(--lt-muted); cursor: pointer; font: inherit;
+  transition: color var(--t-fast) var(--ease-out), background var(--t-fast) var(--ease-out);
+}
+.loot-name-act:hover { color: var(--lt-gold); background: rgba(216,171,94,0.12); }
+.loot-name-act svg { width: 15px; height: 15px; fill: currentColor; }
 .loot-desc { margin: 0; color: #cfc8e0; font-size: 14px; line-height: 1.62; }
 .loot-desc p { margin: 0 0 7px; }
 .loot-desc p:last-child { margin-bottom: 0; }
@@ -939,6 +953,11 @@ button.rank-icon:focus-visible { outline: var(--focus-ring); outline-offset: 1px
 .loot-craft-a:hover { border-bottom-style: solid; }
 
 .loot-acts { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; margin-top: auto; padding-top: 3px; }
+/* The three short buttons and the way out of the site are two rows, not one
+ * wrapping line: sharing a row, the long "open in the generator" label is what
+ * would decide where the short three break. The first row has already taken up
+ * the slack, so the second asks for no space of its own. */
+.loot-acts + .loot-acts { margin-top: 0; padding-top: 0; }
 .loot-btn {
   display: inline-flex; align-items: center; gap: 6px; text-decoration: none;
   border: 1px solid var(--lt-line2); background: var(--lt-surface); color: var(--lt-txt);
@@ -948,6 +967,8 @@ button.rank-icon:focus-visible { outline: var(--focus-ring); outline-offset: 1px
 }
 .loot-btn:hover { border-color: var(--lt-gold); background: var(--lt-surface2); text-decoration: none; }
 .loot-btn svg { width: 15px; height: 15px; flex: none; fill: currentColor; }
+/* A button does not inherit the card's face the way the anchor beside it does. */
+button.loot-btn { font-family: var(--lt-ui); line-height: 1; cursor: pointer; }
 /* The attribution says out loud what the borrowed styling only implies. */
 .loot-src-note {
   margin: 0; font-family: var(--lt-ui); font-size: 11px; line-height: 1.4;
