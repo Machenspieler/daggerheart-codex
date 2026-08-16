@@ -2011,6 +2011,57 @@ function findFearCostMatches(text) {
   return matches;
 }
 
+/* Conditions are the states the rules name — the book sets them in italics
+ * every time a feature hands one out or clears one ("become Restrained",
+ * "While Restrained, …", "стать Обездвиженными") — so they are found in the
+ * text the way dice and the Fear cost are, rather than being marked up in the
+ * data. The Russian names decline, so each is matched by its stem, and the
+ * "(а)" the translation appends for a feminine reading is taken with it. */
+const CONDITION_NAMES = [
+  // The three the rules name, then the ones single cards hand out.
+  'Hidden', 'Restrained', 'Vulnerable',
+  'Blinded', 'Frightened', 'Marked', 'Silenced', 'Demoralized', 'Engulfed', 'Younger', 'Older',
+  'Скрыт\\p{L}*', 'Обездвижен\\p{L}*', 'Уязвим\\p{L}*',
+  'Ослепл[ёе]нн?\\p{L}*', '(?:На|Ис)пуган\\p{L}*', 'Отмечен\\p{L}*', 'Заглуш[ёе]нн?\\p{L}*',
+  'Деморализован\\p{L}*', 'Поглощ[ёе]нн?\\p{L}*', 'Моложе', 'Старше',
+];
+const CONDITION_RE = new RegExp(
+  '(?<!\\p{L})(?:' + CONDITION_NAMES.join('|') + ')(?:\\(а\\))?(?!\\p{L})',
+  'gu',
+);
+
+/* A condition name in front of another capitalised word is part of a proper
+ * name instead — the Hidden Guardian of the standing stones, Скрытый Страж —
+ * unless what follows is whoever the condition landed on, which the Russian
+ * text capitalises ("Деморализованных Игроков"). */
+const CONDITION_BEARERS = 'PCs?|Игрок\\p{L}*|Персонаж\\p{L}*|Существ\\p{L}*';
+const PROPER_NAME_AFTER_RE = new RegExp('^\\s(?!(?:' + CONDITION_BEARERS + ')(?!\\p{L}))\\p{Lu}', 'u');
+const SENTENCE_END_CHARS = '.!?:•';
+
+/* "Hidden" is the one condition that is also an everyday word, and where the
+ * data uses it as one it opens the sentence ("Hidden about are 1 Crimson Cap",
+ * "Hidden is a Fey Cat"). The condition never does: it is always applied to
+ * someone named earlier in the sentence. */
+const SENTENCE_START_EXCLUDED = new Set(['Hidden']);
+
+function isSentenceStart(text, index) {
+  const before = text.slice(0, index).trimEnd();
+  return !before || SENTENCE_END_CHARS.includes(before[before.length - 1]);
+}
+
+function findConditionMatches(text) {
+  const matches = [];
+  CONDITION_RE.lastIndex = 0;
+  let m;
+  while ((m = CONDITION_RE.exec(text))) {
+    const end = m.index + m[0].length;
+    if (PROPER_NAME_AFTER_RE.test(text.slice(end, end + 14))) continue;
+    if (SENTENCE_START_EXCLUDED.has(m[0]) && isSentenceStart(text, m.index)) continue;
+    matches.push({ start: m.index, end, type: 'condition', label: m[0] });
+  }
+  return matches;
+}
+
 /* Text the data sets in bold itself: the label a bullet opens with, and any
  * other phrase the printed card emphasises. Rendered around the spans below, so
  * a roll inside bold text still gets its button. */
@@ -2035,10 +2086,12 @@ function renderRichText(container, text, retier) {
 }
 
 /** Everything the app finds in the text itself — rolls, countdowns, die names,
- * the cost of a Fear — turned into buttons and bold runs. */
+ * the cost of a Fear, the conditions — turned into buttons, bold and italics. */
 function renderSpans(container, text, retier) {
-  const matches = [...findDiceMatches(text), ...findCountdownMatches(text), ...findFearCostMatches(text)]
-    .sort((a, b) => a.start - b.start);
+  const matches = [
+    ...findDiceMatches(text), ...findCountdownMatches(text),
+    ...findFearCostMatches(text), ...findConditionMatches(text),
+  ].sort((a, b) => a.start - b.start);
 
   let lastIndex = 0;
   for (const match of matches) {
@@ -2053,6 +2106,10 @@ function renderSpans(container, text, retier) {
       const strong = document.createElement('strong');
       strong.textContent = match.label;
       container.appendChild(strong);
+    } else if (match.type === 'condition') {
+      const em = document.createElement('em');
+      em.textContent = match.label;
+      container.appendChild(em);
     } else {
       container.appendChild(makeCountdownButton(match.value, match.label));
     }
