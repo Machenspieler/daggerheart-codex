@@ -198,14 +198,27 @@ function envDifficulty(env) {
   if (d && typeof d === 'object') return d[state.lang] || d.en || d.ru || '';
   return d;
 }
-/** Whether there is a difficulty to print at all. A descriptive one points back
- * at a feature that spells the rule out ("Relative Strength"), but it is still
- * what the stat block says the difficulty is, and a card that shows no
- * difficulty line reads as though the number were simply missing. */
+/** A descriptive difficulty that only points at one of the environment's own
+ * features — "Special (see “Relative Strength”)" — carries no value of its own;
+ * the Features block below prints the rule in full. One that names a value
+ * instead ("Adversary Duelist’s Difficulty") still says something. */
+function difficultyDefersToFeature(env) {
+  const d = env.difficulty;
+  if (!d || typeof d !== 'object') return false;
+  const pointsAt = Object.values(d)
+    .map(text => String(text).match(/[“«"]([^”»"]+)[”»"]/))
+    .filter(Boolean)
+    .map(m => m[1].trim().toLowerCase());
+  if (!pointsAt.length) return false;
+  return (env.features || []).some(f => Object.values(f.name || {})
+    .some(n => pointsAt.includes(String(n).trim().toLowerCase())));
+}
+
+/** Whether there is a difficulty to print at all. */
 function hasDifficulty(env) {
   const d = env.difficulty;
   if (d === null || d === undefined || d === '') return false;
-  if (typeof d === 'object') return Boolean(envDifficulty(env));
+  if (typeof d === 'object') return Boolean(envDifficulty(env)) && !difficultyDefersToFeature(env);
   return true;
 }
 
