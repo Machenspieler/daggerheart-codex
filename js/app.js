@@ -212,7 +212,7 @@ function hasDifficulty(env) {
 /* Cache buster for the JSON under data/. index.html versions the stylesheet and
    this script the same way; the data files are fetched from here instead, so
    bump this whenever anything in data/ changes or browsers serve stale copies. */
-const DATA_VERSION = 10;
+const DATA_VERSION = 11;
 
 function getJSON(path) {
   return fetch(path).then(r => {
@@ -514,7 +514,18 @@ function render() {
  * created or destroyed, so the two can never disagree. */
 function syncDetail() {
   const wanted = state.route.env;
-  if (wanted === openDetailId) return;
+  // A language switch leaves the same card at the same address holding the old
+  // language's text. Rebuilding is the only way to change it, since the card is
+  // written out in one piece.
+  const stale = openDetailId !== null && openDetailLang !== state.lang;
+  if (wanted === openDetailId && !stale) return;
+  /* Rebuilt for the language alone, the card should come back the way the
+   * reader left it rather than as a freshly opened one. */
+  const carry = stale && wanted === openDetailId ? detailViewState() : null;
+  // Taken down before the card it stands on and put back after it, so it keeps
+  // its place at the top of the stack.
+  const restackItem = carry ? openItemId : null;
+  if (restackItem) closeOpenItemDetail();
   if (openDetailId) closeDetailOverlay();
   if (!wanted) return;
   if (!allEnvs().some(e => e.id === wanted)) {
@@ -525,7 +536,21 @@ function syncDetail() {
     document.title = routeTitle();
     return;
   }
-  openDetailOverlay(wanted);
+  openDetailOverlay(wanted, carry);
+  if (restackItem) openItemDetail(restackItem);
+}
+
+/** What the reader has done to the open card that its address does not record:
+ * the tier they are reading it at, and how far down they have scrolled. Read
+ * off the DOM, so it costs nothing while no card needs rebuilding. */
+function detailViewState() {
+  const overlay = document.getElementById('detail-modal')?.closest('.modal-overlay');
+  if (!overlay) return null;
+  const activeTier = overlay.querySelector('[data-view-tier].active');
+  return {
+    viewTier: activeTier ? Number(activeTier.dataset.viewTier) : null,
+    scrollTop: overlay.scrollTop,
+  };
 }
 
 /** An open list names itself in the tab, so several of them are tellable apart
@@ -1336,6 +1361,10 @@ function formatDamage(roll) {
 /* Which card is on screen, and how to take it away again. syncDetail() owns
  * both: nothing else opens or closes a detail card. */
 let openDetailId = null;
+/* A card's text is baked into its markup at open time, so the address alone no
+ * longer says whether what is on screen is current — the language it was built
+ * in has to be remembered alongside it. */
+let openDetailLang = null;
 let closeDetailOverlay = () => {};
 
 /* Whether the card on screen was opened from this page, and so has a history
@@ -1374,7 +1403,7 @@ function replaceEnv(envId) {
   document.title = routeTitle();
 }
 
-function openDetailOverlay(envId) {
+function openDetailOverlay(envId, carry = null) {
   const env = allEnvs().find(e => e.id === envId);
   if (!env) return;
   const impulses = envField(env, 'impulses');
@@ -1383,8 +1412,9 @@ function openDetailOverlay(envId) {
   /* The tier the card is currently being read at. Deliberately modal-local: it
    * lives while this card is open and is gone the moment it closes, so nothing
    * outside — cards, filters, region badges, storage — ever sees an override.
-   * Opening a neighbour from the region block opens it at its own tier. */
-  let viewTier = env.tier;
+   * Opening a neighbour from the region block opens it at its own tier; only a
+   * card being rebuilt in place, for the language, carries its override over. */
+  let viewTier = carry?.viewTier ?? env.tier;
 
   const featureHtml = f => {
     const fname = f.name[state.lang] || f.name.en || f.name.ru;
@@ -1551,7 +1581,12 @@ function openDetailOverlay(envId) {
 
   const teardown = registerOverlay(overlay, dismissDetail);
 
+  // After registerOverlay, which focuses the card: focusing it scrolls the
+  // overlay back to the top, so restoring the position has to come last.
+  if (carry?.scrollTop) overlay.scrollTop = carry.scrollTop;
+
   openDetailId = envId;
+  openDetailLang = state.lang;
   /* The raw teardown, with no opinion about history. syncDetail() calls it once
    * the address stops naming this card — which is the only way a card ever
    * comes off the screen. */
@@ -1560,6 +1595,7 @@ function openDetailOverlay(envId) {
     overlay.remove();
     teardown();
     openDetailId = null;
+    openDetailLang = null;
     closeDetailOverlay = () => {};
   };
 
@@ -1591,6 +1627,13 @@ const ITEM_LINK_ICON = `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden
  * — as it was — meant the quotation silently fell through to the system sans
  * on almost every machine. So it is fetched the first time an item card is
  * actually opened, and never otherwise. */
+/* The quoted card is only ever opened from a link inside an environment card,
+ * so it sits on top of one — and bakes its text in the same way. Rebuilding the
+ * card underneath has to take this one with it, or the language switch would
+ * leave a stale item card stranded beneath the card it was opened from. */
+let openItemId = null;
+let closeOpenItemDetail = () => {};
+
 let lootFontRequested = false;
 function ensureLootFont() {
   if (lootFontRequested) return;
@@ -1653,7 +1696,14 @@ function openItemDetail(itemId) {
     (overlay._countdownOverlays || []).slice().forEach(p => p.remove());
     overlay.remove();
     teardown();
+    if (closeOpenItemDetail === closeItem) {
+      openItemId = null;
+      closeOpenItemDetail = () => {};
+    }
   }
+
+  openItemId = itemId;
+  closeOpenItemDetail = closeItem;
 
   overlay.querySelector('.loot-x').addEventListener('click', closeItem);
   overlay.addEventListener('click', e => { if (e.target === overlay) closeItem(); });
