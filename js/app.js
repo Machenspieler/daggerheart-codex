@@ -198,14 +198,19 @@ function envDifficulty(env) {
   if (d && typeof d === 'object') return d[state.lang] || d.en || d.ru || '';
   return d;
 }
-/** A descriptive difficulty only ever points back at a feature that already
- * spells the rule out ("Relative Strength"), so cards and the detail overlay
- * drop the difficulty line for those environments instead of repeating it. */
+/** Whether there is a difficulty to print at all. A descriptive one points back
+ * at a feature that spells the rule out ("Relative Strength"), but it is still
+ * what the stat block says the difficulty is, and a card that shows no
+ * difficulty line reads as though the number were simply missing. */
 function hasDifficulty(env) {
   const d = env.difficulty;
   if (d === null || d === undefined || d === '') return false;
-  return typeof d !== 'object';
+  if (typeof d === 'object') return Boolean(envDifficulty(env));
+  return true;
 }
+
+/** Only a numeric difficulty follows the card to another tier. */
+function difficultyScales(env) { return typeof env.difficulty === 'number'; }
 
 /* ---------------- init ---------------- */
 
@@ -1551,14 +1556,16 @@ function openDetailOverlay(envId, carry = null) {
     // around the whole card, and the environment's own difficulty spelled out
     // next to the scaled one.
     modalEl.classList.toggle('retiered', overridden);
-    // An environment with a descriptive difficulty has no difficulty line to
-    // update — the rest of the tier switch still applies to it.
+    // A descriptive difficulty reads the same at every tier, so it is printed
+    // but never annotated: there is no original to set it against, and
+    // "(orig. Special (see …))" would only repeat the line above it.
     if (difficultyValueEl) {
+      const annotate = overridden && difficultyScales(env);
       difficultyValueEl.textContent = String(retierDifficulty(env, viewTier));
-      difficultyOrigEl.textContent = overridden
+      difficultyOrigEl.textContent = annotate
         ? t('retier_original_short').replace('{v}', String(envDifficulty(env)))
         : '';
-      if (overridden) {
+      if (annotate) {
         difficultyValueEl.dataset.tip =
           t('retier_original').replace('{v}', `${t('tier_label')} ${env.tier}, ${t('difficulty_label')} ${envDifficulty(env)}`);
       } else {
