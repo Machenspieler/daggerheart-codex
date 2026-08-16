@@ -767,22 +767,30 @@ function toggleSetValue(set, value) { set.has(value) ? set.delete(value) : set.a
 // (лавк → лавка, лавке). Keep them long and unambiguous: a stem also fires
 // inside longer words, so "порт" would drag in Город Порталов and "бар" every
 // барьер. Verify a new term against the data before adding it.
-// Name a place, not the person standing in it — "торгов"/"merchant" used to sit
-// in the first group and matched 21 of 188 environments, nearly every one of
-// them a feast or a casino that merely lists a Merchant among its adversaries.
+//
+// A group holds names for one and the same place, nothing looser. Everything a
+// wider reading used to sweep in has been taken back out:
+// - the person standing in the place ("торгов"/"merchant" matched 21 of 188
+//   environments, nearly all of them a feast or a casino that merely lists a
+//   Merchant among its adversaries; likewise innkeeper, bartender, barkeep),
+// - the thing kept inside it ("книг"/"book" put Лаборатория, Магическая буря
+//   and Оживлённый рынок under "библиотека"; "алтар"/"altar" put Туманная
+//   Пустошь under "храм"),
+// - a neighbouring but different place — a market is not a shop, a cave is not
+//   a dungeon, a crypt is not a graveyard, so those now sit in groups of their
+//   own,
+// - a word the data only ever uses in another sense ("store" appears solely as
+//   the verb, "store that roll"),
+// - a synonym the data never uses at all, which only lengthens the table.
 const SEARCH_ALIASES = [
-  ['магазин', 'лавк', 'рынок', 'базар', 'ярмарк',
-   'shop', 'store', 'market', 'wares', 'stall'],
-  ['таверн', 'трактир', 'кабак', 'харчевн', 'пивн', 'постоял',
-   'tavern', 'innkeeper', 'alehouse', 'saloon', 'bartender', 'barkeep'],
-  ['кладбищ', 'погост', 'склеп', 'гробниц', 'усыпальн',
-   'graveyard', 'cemetery', 'tomb', 'crypt', 'mausoleum', 'ossuary'],
-  ['храм', 'святилищ', 'церк', 'алтар', 'монастыр', 'часовн',
-   'temple', 'shrine', 'altar', 'sanctuary', 'cathedral', 'chapel', 'monastery'],
-  ['подземель', 'катакомб', 'пещер', 'грот',
-   'dungeon', 'catacomb', 'cave', 'cavern', 'grotto'],
-  ['библиотек', 'архив', 'книг', 'фолиант',
-   'library', 'archive', 'book', 'tome', 'scriptorium'],
+  ['магазин', 'лавк', 'shop'],
+  ['рынок', 'базар', 'market'],
+  ['таверн', 'трактир', 'кабак', 'tavern'],
+  ['кладбищ', 'погост', 'graveyard', 'cemetery'],
+  ['склеп', 'гробниц', 'tomb', 'crypt'],
+  ['храм', 'церк', 'temple', 'church'],
+  ['пещер', 'cave', 'cavern'],
+  ['библиотек', 'library'],
 ];
 
 // Below this length a query is too generic to expand — "ба" would otherwise
