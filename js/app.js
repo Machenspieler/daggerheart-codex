@@ -434,6 +434,19 @@ function focusableIn(root) {
   return [...root.querySelectorAll(FOCUSABLE)].filter(el => el.offsetParent !== null);
 }
 
+/** What Tab may reach while `overlay` is on top. The floating language switch
+ * sits outside every overlay but has to stay reachable, so it joins the ring —
+ * at the end, matching its place as the last thing in the document. */
+function trapItems(overlay) {
+  const float = document.getElementById('lang-float');
+  return float ? [...focusableIn(overlay), ...focusableIn(float)] : focusableIn(overlay);
+}
+
+function trapHolds(overlay, node) {
+  const float = document.getElementById('lang-float');
+  return overlay.contains(node) || !!(float && float.contains(node));
+}
+
 /* position:fixed rather than overflow:hidden — iOS Safari ignores the latter on
  * body once a nested element is scrolling. The offset is restored on unlock so
  * the catalog is exactly where it was left. */
@@ -464,11 +477,11 @@ function registerOverlay(overlay, closeFn) {
     if (overlayStack[overlayStack.length - 1] !== overlay) return;
     if (e.key === 'Escape') { e.preventDefault(); closeFn(); return; }
     if (e.key !== 'Tab') return;
-    const items = focusableIn(overlay);
+    const items = trapItems(overlay);
     if (!items.length) { e.preventDefault(); return; }
     const first = items[0];
     const last = items[items.length - 1];
-    const inside = overlay.contains(document.activeElement);
+    const inside = trapHolds(overlay, document.activeElement);
     if (e.shiftKey && (!inside || document.activeElement === first)) {
       e.preventDefault(); last.focus();
     } else if (!e.shiftKey && (!inside || document.activeElement === last)) {
@@ -482,6 +495,7 @@ function registerOverlay(overlay, closeFn) {
     card.setAttribute('tabindex', '-1');
     card.focus({ preventScroll: true });
   }
+  syncLangFloat();
 
   return function teardown() {
     document.removeEventListener('keydown', onKeyDown);
@@ -491,7 +505,76 @@ function registerOverlay(overlay, closeFn) {
     if (previouslyFocused && document.contains(previouslyFocused)) {
       previouslyFocused.focus({ preventScroll: true });
     }
+    syncLangFloat();
   };
+}
+
+/* ---------------- language ---------------- */
+
+function langButtonsHtml() {
+  return ['ru', 'en'].map(l => `
+    <button type="button" data-lang="${l}" aria-pressed="${state.lang === l}"
+            class="${state.lang === l ? 'active' : ''}">${l.toUpperCase()}</button>`).join('');
+}
+
+function bindLangSwitch(root) {
+  root.querySelectorAll('[data-lang]').forEach(btn => {
+    btn.addEventListener('click', () => setLang(btn.dataset.lang));
+  });
+}
+
+function markLangSwitch(root) {
+  root.querySelectorAll('[data-lang]').forEach(btn => {
+    const on = btn.dataset.lang === state.lang;
+    btn.classList.toggle('active', on);
+    btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+  });
+}
+
+function setLang(lang) {
+  if (state.lang === lang) return;
+  /* The card is rebuilt in the new language and takes the focus with it, so a
+   * switch made from the floating control would otherwise cost the reader
+   * their place on it — and the first thing they want next is usually the way
+   * back. */
+  const fromFloat = document.getElementById('lang-float')?.contains(document.activeElement);
+  state.lang = lang;
+  persist(LS_KEYS.lang, state.lang);
+  render();
+  if (fromFloat) {
+    document.getElementById('lang-float')?.querySelector(`[data-lang="${lang}"]`)?.focus();
+  }
+}
+
+/** A second language switch, pinned to the top-right corner, for as long as a
+ * stat block is open: the header's own switch is behind the backdrop, and
+ * checking the English wording of a feature is something readers do mid-card,
+ * not before they open one.
+ *
+ * It stands down while a popup over the card owns the screen — a switch
+ * rebuilds the card underneath, which would leave the popup stranded above a
+ * card that is no longer the one it was opened from. */
+function syncLangFloat() {
+  const blocked = overlayStack.some(o => o.dataset.overlayKind === 'popup');
+  let el = document.getElementById('lang-float');
+  if (openDetailId === null || blocked) {
+    el?.remove();
+    document.body.classList.remove('has-lang-float');
+    return;
+  }
+  if (!el) {
+    el = document.createElement('div');
+    el.id = 'lang-float';
+    el.className = 'lang-switch lang-float';
+    el.innerHTML = langButtonsHtml();
+    bindLangSwitch(el);
+    document.body.appendChild(el);
+    document.body.classList.add('has-lang-float');
+  }
+  markLangSwitch(el);
+  // Kept last in the document — an overlay opened on top of the card is
+  // appended after it, and the focus ring in trapItems() follows DOM order.
+  if (el.nextSibling) document.body.appendChild(el);
 }
 
 /* ---------------- rendering ---------------- */
@@ -514,10 +597,18 @@ function render() {
   syncDetail();
 }
 
-/** Brings the open card into line with the address — opening one that the URL
- * names, closing one it no longer does. The only place a detail card is
- * created or destroyed, so the two can never disagree. */
+/** Brings the open card into line with the address, and the floating language
+ * switch into line with the card. Every open and close runs through here, so
+ * this is the one place either has to be kept in step. */
 function syncDetail() {
+  applyDetailRoute();
+  syncLangFloat();
+}
+
+/** Opens the card the URL names and closes one it no longer does. The only
+ * place a detail card is created or destroyed, so the two can never
+ * disagree. */
+function applyDetailRoute() {
   const wanted = state.route.env;
   // A language switch leaves the same card at the same address holding the old
   // language's text. Rebuilding is the only way to change it, since the card is
@@ -542,7 +633,7 @@ function syncDetail() {
     return;
   }
   openDetailOverlay(wanted, carry);
-  if (restackItem) openItemDetail(restackItem);
+  if (restackItem) openItemDetail(restackItem, { quiet: true });
 }
 
 /** What the reader has done to the open card that its address does not record:
@@ -555,6 +646,14 @@ function detailViewState() {
   return {
     viewTier: activeTier ? Number(activeTier.dataset.viewTier) : null,
     scrollTop: overlay.scrollTop,
+    /* A tracker part-way through a scene is play state, not text: the same
+     * countdowns stand in both languages, so their values — and any panel left
+     * open on screen — ride across the rebuild rather than resetting under a
+     * reader who only wanted to check the wording. */
+    countdowns: [...overlay.querySelectorAll('.countdown-btn')].map(btn => ({
+      count: btn.dataset.count,
+      open: !!(btn._countdownOverlay && document.body.contains(btn._countdownOverlay)),
+    })),
   };
 }
 
@@ -587,23 +686,14 @@ function renderHeader() {
         </span>
       </div>
       <div class="header-actions">
-        <div class="lang-switch">
-          <button type="button" data-lang="ru" aria-pressed="${state.lang === 'ru'}" class="${state.lang === 'ru' ? 'active' : ''}">RU</button>
-          <button type="button" data-lang="en" aria-pressed="${state.lang === 'en'}" class="${state.lang === 'en' ? 'active' : ''}">EN</button>
-        </div>
+        <div class="lang-switch">${langButtonsHtml()}</div>
         <nav class="header-nav" aria-label="${t('main_nav')}">
           <button type="button" class="btn ${onLists ? 'active' : ''}" id="btn-lists"
                   ${onLists ? 'aria-current="page"' : ''}>${t('nav_lists')}</button>
         </nav>
       </div>
     </div>`;
-  el.querySelectorAll('[data-lang]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      state.lang = btn.dataset.lang;
-      persist(LS_KEYS.lang, state.lang);
-      render();
-    });
-  });
+  bindLangSwitch(el);
   document.getElementById('btn-lists').addEventListener('click', () => navigate('#/lists'));
   // A real <button> now, so Enter and Space come for free — the old div carried
   // role="button" and tabindex but no key handler, and did nothing when focused.
@@ -1147,6 +1237,9 @@ function listCardHtml(list) {
 function openAddToListPopup(envId) {
   const overlay = document.createElement('div');
   overlay.className = 'modal-overlay';
+  // Named so syncLangFloat() knows to stand the floating switch down while this
+  // is up: a language switch rebuilds the card this popup was opened from.
+  overlay.dataset.overlayKind = 'popup';
 
   function listRowsHtml() {
     const membership = new Set(state.envLists[envId] || []);
@@ -1487,7 +1580,12 @@ function openDetailOverlay(envId, carry = null) {
     </div>` : '<span></span>';
 
   const overlay = document.createElement('div');
-  overlay.className = 'modal-overlay';
+  /* A card rebuilt in the other language is the same card with different words
+   * on it, so it skips the entrance animation: replaying the fade would read as
+   * the card blinking out and back rather than as the text changing. Removal
+   * and insertion happen in one task, so nothing is painted in between. */
+  overlay.className = carry ? 'modal-overlay is-rebuild' : 'modal-overlay';
+  overlay.dataset.overlayKind = 'detail';
   overlay.innerHTML = `
     <div class="modal" id="detail-modal" data-overlay-card
          role="dialog" aria-modal="true" aria-labelledby="detail-title">
@@ -1594,6 +1692,18 @@ function openDetailOverlay(envId, carry = null) {
   }));
   applyViewTier();
 
+  /* Trackers from the card this one replaces, matched by position — and only
+   * when both languages produced the same run of countdowns, since anything
+   * else would land a count on the wrong feature. */
+  const carriedCounts = carry?.countdowns || [];
+  const countdownBtns = [...overlay.querySelectorAll('.countdown-btn')];
+  if (carriedCounts.length && carriedCounts.length === countdownBtns.length) {
+    countdownBtns.forEach((btn, i) => {
+      btn.dataset.count = carriedCounts[i].count;
+      if (carriedCounts[i].open) openCountdownOverlay(btn);
+    });
+  }
+
   const teardown = registerOverlay(overlay, dismissDetail);
 
   // After registerOverlay, which focuses the card: focusing it scrolls the
@@ -1659,7 +1769,10 @@ function ensureLootFont() {
   document.head.appendChild(link);
 }
 
-function openItemDetail(itemId) {
+/* `quiet` is set when this card is being put back on top of a stat block that
+ * was rebuilt for the language: the pop-in belongs to opening a card, not to
+ * the same card coming back with translated text. */
+function openItemDetail(itemId, { quiet = false } = {}) {
   const item = itemById(itemId);
   if (!item) return;
   ensureLootFont();
@@ -1673,7 +1786,8 @@ function openItemDetail(itemId) {
        <button type="button" class="loot-craft-a" data-craft-item="${escapeAttr(row.id)}">${escapeHtml(itemField(itemById(row.id), 'name'))}</button></p>`).join('');
 
   const overlay = document.createElement('div');
-  overlay.className = 'modal-overlay loot-overlay';
+  overlay.className = quiet ? 'modal-overlay loot-overlay is-rebuild' : 'modal-overlay loot-overlay';
+  overlay.dataset.overlayKind = 'item';
   overlay.innerHTML = `
     <div class="loot-modal-card" data-overlay-card role="dialog" aria-modal="true" aria-label="${escapeAttr(name)}">
       <button type="button" class="loot-x" aria-label="${t('close')}">&times;</button>

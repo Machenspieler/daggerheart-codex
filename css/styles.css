@@ -215,6 +215,20 @@ a:hover { text-decoration: underline; text-underline-offset: 2px; }
 .lang-switch button:not(.active):hover { color: var(--parchment); background: var(--ink-raised); }
 .lang-switch button:focus-visible { outline-offset: -2px; border-radius: 0; }
 
+/* The same control, pinned to the corner while a stat block is open — the one
+ * in the header is behind the backdrop by then. Above the overlays it rides
+ * over (z-index 100), below the panels that anchor to something inside a card:
+ * the tooltip, the dice pop and the countdown trackers. It carries a surface
+ * and a shadow the header's flat switch does not need, since it sits on the
+ * card rather than on the header's own band. */
+.lang-float {
+  position: fixed; z-index: 150;
+  top: max(var(--s-3), env(safe-area-inset-top));
+  right: max(var(--s-3), env(safe-area-inset-right));
+  background: var(--ink-raised); border-color: var(--line-strong);
+  box-shadow: var(--e-3);
+}
+
 /* ---------- buttons ---------- */
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: var(--s-2);
@@ -657,6 +671,11 @@ button.rank-icon:focus-visible { outline: var(--focus-ring); outline-offset: 1px
 .modal:focus { outline: none; }
 .modal-sm { max-width: 400px; }
 @keyframes modal-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+/* A card taken down and put straight back up in the other language. It never
+ * left the screen, so it does not arrive again: the entrance animation here
+ * would read as a blink over what is really a change of text. */
+.modal-overlay.is-rebuild .modal,
+.modal-overlay.is-rebuild .loot-modal-card { animation: none; }
 .modal-header {
   display: flex; align-items: center; flex-wrap: wrap; gap: var(--s-4);
   padding: var(--s-5) var(--s-6) var(--s-4); border-bottom: 1px solid var(--line);
@@ -1179,6 +1198,17 @@ button.rank-icon:focus-visible { outline: var(--focus-ring); outline-offset: 1px
     padding-inline: max(var(--s-4), env(safe-area-inset-left)) max(var(--s-4), env(safe-area-inset-right));
   }
   .modal-body { padding-block: var(--s-4) calc(var(--s-6) + env(safe-area-inset-bottom)); }
+  /* The sheet fills the screen and pins its header to the top — the same corner
+   * the floating switch occupies. The header gives up the width rather than
+   * letting the switch land on the close button, which is the only way out of
+   * a sheet on a phone. */
+  body.has-lang-float .modal-header {
+    padding-inline-end: calc(max(var(--s-4), env(safe-area-inset-right)) + 100px);
+  }
+  /* The quoted item card keeps its own size and centres, so on a short screen
+   * its round × can reach up under the switch. Push the card down clear of it. */
+  body.has-lang-float .loot-overlay { padding-top: var(--s-9); }
+
   /* Name and close on the first line, the tier row on its own below: a 32-char
    * name plus four pills plus the close button never fit a phone. The basis has
    * to be small — a wrapping flex line is filled at base size, so `auto` would
