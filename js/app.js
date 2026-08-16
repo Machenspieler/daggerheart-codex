@@ -1802,6 +1802,37 @@ function isDamageRoll(text, from) {
   return DAMAGE_WORD_RE.test(clause);
 }
 
+/* A die size next to a die noun names a die instead of calling for a roll:
+ * "Demoralized PCs replace their Hope Die with a d8" resizes a die the player
+ * already owns, and "you gain a d6 Judgment Die" hands them a new one. Both are
+ * prose to read out — there is nothing to roll now — so they are set in bold
+ * instead of getting a roll button.
+ * Two things override that reading: a roll word between the notation and the
+ * noun, or just past it, means the dice do get rolled ("a 1d4 penalty to their
+ * Duality Dice rolls"), and an explicit "roll a d8" keeps its button whatever
+ * noun follows ("roll a d8 as your disadvantage die"). */
+const DIE_NOUN = '(?:^|[^\\p{L}])(?:dic?e|кост(?:ь|и|ью|ей|ями)|кубик(?:ов|ами|[аиове])?)(?![\\p{L}])';
+const DIE_NOUN_BEFORE_RE = new RegExp(DIE_NOUN + '[^.!?;:]{0,40}$', 'iu');
+const DIE_NOUN_AFTER_RE = new RegExp('^[^.!?;:]{0,25}?' + DIE_NOUN, 'iu');
+const DIE_ROLL_WORD_RE = /roll|брос|кид/iu;
+const ROLL_VERB_RE = /(?:roll|брос(?:ьте|айте|ай|ь)|кинь(?:те)?)\s+(?:a|an|one|the)?\s*$/iu;
+const DIE_NOUN_TAIL_CHARS = 12;
+
+function namesADie(text, start, end) {
+  const before = text.slice(0, start);
+  if (ROLL_VERB_RE.test(before)) return false;
+  const nounBefore = before.match(DIE_NOUN_BEFORE_RE);
+  if (nounBefore) {
+    return !DIE_ROLL_WORD_RE.test(before.slice(nounBefore.index + nounBefore[0].length));
+  }
+  const after = text.slice(end, end + 60);
+  const nounAfter = after.match(DIE_NOUN_AFTER_RE);
+  if (nounAfter) {
+    return !DIE_ROLL_WORD_RE.test(after.slice(0, nounAfter[0].length + DIE_NOUN_TAIL_CHARS).split(/[.!?;:]/)[0]);
+  }
+  return false;
+}
+
 function findDiceMatches(text) {
   const matches = [];
   DICE_RE.lastIndex = 0;
@@ -1811,7 +1842,11 @@ function findDiceMatches(text) {
     const sides = parseInt(m[2], 10);
     const mod = m[4] ? (m[3] === '-' ? -1 : 1) * parseInt(m[4], 10) : 0;
     const end = m.index + m[0].length;
-    matches.push({ start: m.index, end, type: 'dice', count, sides, mod, label: m[0], isDamage: isDamageRoll(text, end) });
+    const type = namesADie(text, m.index, end) ? 'die-name' : 'dice';
+    matches.push({
+      start: m.index, end, type, count, sides, mod, label: m[0],
+      isDamage: type === 'dice' && isDamageRoll(text, end),
+    });
   }
   return matches;
 }
@@ -1836,6 +1871,10 @@ function renderRichText(container, text, retier) {
       container.appendChild(scaled && scaled.changed
         ? makeDiceButton(scaled.count, scaled.sides, scaled.mod, formatDamage(scaled), match.label)
         : makeDiceButton(match.count, match.sides, match.mod, match.label));
+    } else if (match.type === 'die-name') {
+      const strong = document.createElement('strong');
+      strong.textContent = match.label;
+      container.appendChild(strong);
     } else {
       container.appendChild(makeCountdownButton(match.value, match.label));
     }
