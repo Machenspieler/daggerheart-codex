@@ -3648,7 +3648,7 @@
       "type": "event",
       "difficulty": {
         "en": "Special (see “Relative Strength”)",
-        "ru": "Особая (см. «Относительная Сила»)"
+        "ru": "Особая (см. «Соотношение сил»)"
       },
       "name": {
         "en": "Fighting Arena",
@@ -3685,7 +3685,7 @@
           "type": "passive",
           "name": {
             "en": "Relative Strength",
-            "ru": "Относительная Сила"
+            "ru": "Соотношение сил"
           },
           "description": {
             "en": "The Difficulty of the Environment equals that of the adversary.",
@@ -7429,7 +7429,7 @@
       "type": "event",
       "difficulty": {
         "en": "Special (see “Relative Strength”)",
-        "ru": "Особая (см. «Относительная Сила»)"
+        "ru": "Особая (см. «Соотношение сил»)"
       },
       "name": {
         "en": "Duel",
@@ -7477,7 +7477,7 @@
           "type": "passive",
           "name": {
             "en": "Relative Strength",
-            "ru": "Относительная Сила"
+            "ru": "Соотношение сил"
           },
           "description": {
             "en": "The Difficulty of this environment equals that of the adversary who issued the challenge.",
@@ -15678,7 +15678,7 @@
       "type": "event",
       "difficulty": {
         "en": "Special (see “Relative Strength”)",
-        "ru": "Особая (см. «Относительная Сила»)"
+        "ru": "Особая (см. «Соотношение сил»)"
       },
       "name": {
         "en": "Ambushed",
@@ -15860,7 +15860,7 @@
       "type": "event",
       "difficulty": {
         "en": "Special (see “Relative Strength”)",
-        "ru": "Особая (см. «Относительная Сила»)"
+        "ru": "Особая (см. «Соотношение сил»)"
       },
       "name": {
         "en": "Ambushers",
