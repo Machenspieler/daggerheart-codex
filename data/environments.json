@@ -21365,6 +21365,2553 @@
       "biomes": [
         "universal"
       ]
+    },
+    {
+      "id": "asteroid-chase",
+      "tier": 1,
+      "type": "event",
+      "difficulty": 12,
+      "name": {
+        "en": "Asteroid Chase",
+        "ru": "Погоня в Астероидах"
+      },
+      "impulses": {
+        "en": [
+          "Present hazards",
+          "smash into obstacles",
+          "block shots"
+        ],
+        "ru": [
+          "Создавать опасности",
+          "врезаться в препятствия",
+          "закрывать линию огня"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Customs Patrol",
+          "Sky Bomber",
+          "Sky Dominator",
+          "SKY Fighter",
+          "SKY Interceptor"
+        ],
+        "ru": [
+          "Таможенный Патруль",
+          "Небесный Бомбардировщик",
+          "Небесный Доминатор",
+          "Небесный Истребитель",
+          "Небесный Перехватчик"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Cat and…",
+            "ru": "Кошки-мышки…"
+          },
+          "description": {
+            "en": "If the PCs are the Cat, their attacks against the Mouse are at disadvantage and the Mouse has resistance to their attacks. The PCs can try to catch the Mouse Dead to Rights by making an Action Roll against the Environment’s Difficulty at disadvantage. On a success, they have the Mouse Dead to Rights and the next attack by the PCs against the Mouse has advantage will be an automatic critical hit if it succeeds. The Mouse does not have resistance to this attack. If the Mouse survives this attack, the PCs no longer have it Dead to Rights.",
+            "ru": "Если персонажи в роли Кота, их атаки против Мыши совершаются с помехой, а Мышь имеет сопротивление к их атакам. Персонажи могут попытаться поймать Мышь на прицел, совершив бросок действия против Сложности окружения с помехой. При успехе Мышь оказывается у них на прицеле, и следующая атака персонажей против Мыши с преимуществом станет автоматическим критическим попаданием при успехе. Мышь не имеет сопротивления к этой атаке. Если Мышь переживает эту атаку, персонажи больше не держат её на прицеле."
+          },
+          "prompt": {
+            "en": "What are the stakes of this chase?",
+            "ru": "Какова ставка в этой погоне?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "…Mouse",
+            "ru": "…и Мышка"
+          },
+          "description": {
+            "en": "If the PCs are the Mouse, whenever they make an action roll to evade pursuit, they choose to fly safely, or fly dangerously. If the PCs fly safely, every successful action roll to evade the Cat(s), forces all Cats to mark a Stress. If a Cat marks its last Stress, it breaks off and gives up pursuit. If the PCs fly dangerously, action rolls to evade pursuit are made at disadvantage, but every successful action roll to evade the Cat(s), forces all Cats to suffer severe damage.",
+            "ru": "Если персонажи в роли Мыши, всякий раз, когда они совершают бросок действия, чтобы уйти от погони, они выбирают: лететь безопасно или лететь рискованно. Если персонажи летят безопасно, каждый успешный бросок действия, чтобы уйти от Кота(ов), заставляет всех Котов отметить Стресс. Если Кот отмечает свой последний Стресс, он прекращает погоню. Если персонажи летят рискованно, броски действия, чтобы уйти от погони, совершаются с помехой, но каждый успешный такой бросок заставляет всех Котов получить тяжёлый урон."
+          },
+          "prompt": {
+            "en": "What could switch the roles?",
+            "ru": "Что могло бы поменять роли местами?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Watch Out!",
+            "ru": "Берегись!"
+          },
+          "description": {
+            "en": "When a PC rolls with Fear the vehicle’s pilot makes an Agility Reaction Roll. On a failure, the vehicle suffers 1d8 damage.",
+            "ru": "Когда персонаж выбрасывает результат со Страхом, пилот транспорта совершает Бросок Реакции на Проворность. При неудаче транспорт получает 1d8 урона."
+          },
+          "prompt": {
+            "en": "What kind of hazards clutter this area?",
+            "ru": "Какие опасности загромождают эту область?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "The Odds Don’t Matter",
+            "ru": "Расклад Не Важен"
+          },
+          "description": {
+            "en": "Spend a Fear to increase the Asteroid Chase Difficulty by 2 for the rest of the scene. This can only be done once per scene.",
+            "ru": "Потратьте Страх, чтобы увеличить Сложность Погони в Астероидах на 2 до конца сцены. Это можно сделать только один раз за сцену."
+          },
+          "prompt": {
+            "en": "What new threat or environmental change is making the chase more difficult?",
+            "ru": "Какая новая угроза или изменение обстановки усложняет погоню?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "universal"
+      ]
+    },
+    {
+      "id": "den-of-vice-and-violence",
+      "tier": 1,
+      "type": "traversal",
+      "difficulty": 12,
+      "name": {
+        "en": "Den of Vice and Violence",
+        "ru": "Логово Порока и Насилия"
+      },
+      "impulses": {
+        "en": [
+          "Introduce colorful characters",
+          "cause complications",
+          "instigate violence"
+        ],
+        "ru": [
+          "Вводить colorful персонажей",
+          "создавать осложнения",
+          "провоцировать насилие"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Deadlight Syndicate members",
+          "Surge Trooper",
+          "Surge Gunner",
+          "Merchant"
+        ],
+        "ru": [
+          "члены Синдиката «Мёртвый Свет»",
+          "Штурмовик Прорыва",
+          "Стрелок Прорыва",
+          "Торговец"
+        ]
+      },
+      "features": [
+        {
+          "type": "action",
+          "name": {
+            "en": "He Doesn’t Like You",
+            "ru": "Ты Ему Не Нравишься"
+          },
+          "description": {
+            "en": "Spend a Fear to have an uninvolved patron pick a fight with a PC. The PC has disadvantage on attempts to calm the situation.",
+            "ru": "Потратьте Страх, чтобы посторонний посетитель затеял драку с персонажем. Персонаж совершает броски с помехой, пытаясь утихомирить ситуацию."
+          },
+          "prompt": {
+            "en": "Is this patron connected to any factions related to the PCs?",
+            "ru": "Связан ли этот посетитель с какими-либо фракциями, имеющими отношение к персонажам?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "I Don’t Like You",
+            "ru": "Ты Мне Не Нравишься"
+          },
+          "description": {
+            "en": "Spend a Fear to swap a PC’s Hope and Fear dice results after they make a social Action Roll.",
+            "ru": "Потратьте Страх, чтобы поменять местами результаты Костей Надежды и Страха персонажа после того, как он совершит социальный бросок действия."
+          },
+          "prompt": {
+            "en": "What unfortunate circumstance turned the situation against the PCs?",
+            "ru": "Какое досадное обстоятельство обернуло ситуацию против персонажей?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Death Sentence in Multiple Systems",
+            "ru": "Смертный Приговор в Нескольких Системах"
+          },
+          "description": {
+            "en": "Spend a Fear to make an adversary in the scene more dangerous, giving them +2 Difficulty and causing their attacks to deal +1d6 damage. These effects are permanent on that particular adversary.",
+            "ru": "Потратьте Страх, чтобы сделать противника в сцене более опасным, дав ему +2 к Сложности и увеличив урон его атак на 1d6. Эти эффекты постоянны для данного противника."
+          },
+          "prompt": {
+            "en": "Is this the same patron that picked a fight with the PC? Is this adversary connected to the PCs or the larger story?",
+            "ru": "Это тот же посетитель, что затеял драку с персонажем? Связан ли этот противник с персонажами или с общим сюжетом?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Bar Fight!",
+            "ru": "Драка в Баре!"
+          },
+          "description": {
+            "en": "Spend a Fear to start a bar fight. All PCs must make an Agility or Presence Reaction Roll. On a failure, they suffer 1d8+2 damage and must mark a Stress. The Bar Fight! lasts for a Countdown (4). It ticks down every time a PC makes an Action Roll. While the Bar Fight! is active, a PC must make an Agility or Presence Action Roll to move to a new location within the Den. While the Bar Fight! is active, anytime a PC rolls with Fear they suffer 1d8+2 damage.",
+            "ru": "Потратьте Страх, чтобы началась драка в баре. Все персонажи должны совершить Бросок Реакции на Проворность или Влияние. При неудаче они получают 1d8+2 урона и должны отметить Стресс. Драка в Баре! длится Отсчёт (4). Он уменьшается каждый раз, когда персонаж совершает бросок действия. Пока Драка в Баре! активна, персонаж должен совершить бросок действия на Проворность или Влияние, чтобы переместиться в новое место в пределах Логова. Пока Драка в Баре! активна, всякий раз, когда персонаж выбрасывает результат со Страхом, он получает 1d8+2 урона."
+          },
+          "prompt": {
+            "en": "Are lethal weapons being pulled, or is this a simple fist fight?",
+            "ru": "Пускают ли в ход смертоносное оружие, или это простая кулачная потасовка?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Blast Off This Rock",
+            "ru": "Улететь с Этой Скалы"
+          },
+          "description": {
+            "en": "Finding a way off world uses a Progress Countdown (6). It ticks down according to the following criteria when the PCs make an Action Roll to escape:\n- **Critical Success:** Tick down 3\n- **Success with Hope:** Tick down 2\n- **Success with Fear:** Tick down 1\n- **Failure with Hope:** No advancement\n- **Failure with Fear:** Tick up 1\n\nWhen the countdown triggers, the party has a way off world. Now they just need to get to it.",
+            "ru": "Найти способ покинуть планету требует Отсчёта Прогресса (6). Он уменьшается по следующим критериям, когда персонажи совершают бросок действия, чтобы сбежать:\n- **Критический успех:** Уменьшить на 3\n- **Успех с Надеждой:** Уменьшить на 2\n- **Успех со Страхом:** Уменьшить на 1\n- **Неудача с Надеждой:** Без изменений\n- **Неудача со Страхом:** Увеличить на 1\n\nКогда отсчёт срабатывает, у группы появляется способ покинуть планету. Теперь им нужно лишь до него добраться."
+          },
+          "prompt": {
+            "en": "What are the PC’s options for getting off world? Are some easier, harder, better or worse? What, if anything, stands between the PCs and leaving when they finish the countdown?",
+            "ru": "Какие у персонажей есть варианты, чтобы покинуть планету? Одни легче, другие труднее, лучше или хуже? Что, если вообще что-то, стоит между персонажами и отбытием, когда они завершат отсчёт?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "settlement"
+      ]
+    },
+    {
+      "id": "planetary-blockade",
+      "tier": 1,
+      "type": "traversal",
+      "difficulty": 12,
+      "name": {
+        "en": "Planetary Blockade",
+        "ru": "Планетарная Блокада"
+      },
+      "impulses": {
+        "en": [
+          "Impede",
+          "frighten",
+          "capture",
+          "extort"
+        ],
+        "ru": [
+          "Препятствовать",
+          "запугивать",
+          "захватывать",
+          "вымогать"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Customs Patrol",
+          "Sky Bomber",
+          "Sky Dominator",
+          "SKY Fighter",
+          "SKY Interceptor"
+        ],
+        "ru": [
+          "Таможенный Патруль",
+          "Небесный Бомбардировщик",
+          "Небесный Доминатор",
+          "Небесный Истребитель",
+          "Небесный Перехватчик"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Trust Me, This Will Work",
+            "ru": "Поверь, Это Сработает"
+          },
+          "description": {
+            "en": "When the PCs enter this environment, start a Bypass Blockade Dynamic Countdown (2d4). When the initial ticks are set, for each stack of Denarii the PCs spend, they can re-roll one of the d4s, taking the lower value. The countdown ticks when the PCs make an Action Roll to bypass the blockade:\n- **Critical Success:** Tick down 3\n- **Success with Hope:** Tick down 2\n- **Success with Fear:** Tick down 1; all PCs Mark a Stress\n- **Failure with Hope:** No advancement\n- **Failure with Fear:** Tick up 1; all PCs Mark a Stress\n\nWhen the PCs make an Action Roll to bypass the blockade, they can cause the clock to tick down one additional tick per stack of Denarii spent. If the countdown triggers, the PCs slip through the blockade and all PCs gain a Hope. If the countdown ticks without triggering, roll a d8. If the result is equal to or greater than the current number of ticks, the PCs slip through the blockade. If the result is less, a complication occurs.",
+            "ru": "Когда персонажи входят в это окружение, начните Динамический Отсчёт Прорыва Блокады (2d4). Когда начальные деления установлены, за каждую пачку денариев, которую персонажи тратят, они могут перебросить одну из костей d4, взяв меньшее значение. Отсчёт уменьшается, когда персонажи совершают бросок действия, чтобы прорвать блокаду:\n- **Критический успех:** Уменьшить на 3\n- **Успех с Надеждой:** Уменьшить на 2\n- **Успех со Страхом:** Уменьшить на 1; все персонажи отмечают Стресс\n- **Неудача с Надеждой:** Без изменений\n- **Неудача со Страхом:** Увеличить на 1; все персонажи отмечают Стресс\n\nКогда персонажи совершают бросок действия, чтобы прорвать блокаду, они могут заставить счётчик уменьшиться на одно дополнительное деление за каждую потраченную пачку денариев. Если отсчёт срабатывает, персонажи проскальзывают сквозь блокаду, и все персонажи получают Надежду. Если отсчёт уменьшается, но не срабатывает, бросьте d8. Если результат равен текущему числу делений или превышает его, персонажи проскальзывают сквозь блокаду. Если результат меньше, происходит осложнение."
+          },
+          "prompt": {
+            "en": "How could the PCs bypass the blockade? Could they get forged (or valid) identification codes? Could they spoof or jam sensors? Is it possible to just fly through, dodging attacks and tractor beams?",
+            "ru": "Как персонажи могли бы обойти блокаду? Могли бы они получить поддельные (или настоящие) идентификационные коды? Могли бы они обмануть или заглушить сенсоры? Возможно ли просто пролететь напролом, уворачиваясь от атак и тяговых лучей?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Shake Down",
+            "ru": "Поборы"
+          },
+          "description": {
+            "en": "Spend a Fear to have the authorities demand the PCs pay 1d3 stacks of Denarii. If the PCs don’t pay, the Bypass Blockade countdown ticks up a number of times equal to the unpaid stacks. PCs can attempt to talk their way out, but roll with disadvantage unless they pay at least one stack of Denarii. If they roll with Fear, the GM gains an additional 1d4 Fear.",
+            "ru": "Потратьте Страх, чтобы власти потребовали от персонажей заплатить 1d3 пачки денариев. Если персонажи не платят, отсчёт Прорыва Блокады увеличивается число раз, равное числу неоплаченных пачек. Персонажи могут попытаться уболтать стражу, но бросок совершается с помехой, если они не заплатят хотя бы одну пачку денариев. Если они выбрасывают результат со Страхом, Мастер получает дополнительный 1d4 Страха."
+          },
+          "prompt": {
+            "en": "Who is in charge of the blockade? What is the blockade’s purpose? What is the penalty for attempting to bypass it?",
+            "ru": "Кто отвечает за блокаду? В чём цель блокады? Какое наказание грозит за попытку её прорвать?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Nonchalant Flight",
+            "ru": "Беспечный Полёт"
+          },
+          "description": {
+            "en": "The first PC in the scene who makes a clever or funny quip (in character) gains advantage on one Action or Reaction Roll.",
+            "ru": "Первый персонаж в сцене, который отпустит остроумную или смешную шутку (от лица персонажа), получает преимущество на один бросок действия или реакции."
+          },
+          "prompt": {
+            "en": "What could you say that might spark inspiration for a player’s quip?",
+            "ru": "Что персонаж мог бы сказать, чтобы вдохновить игрока на шутку?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "universal"
+      ]
+    },
+    {
+      "id": "sand-sea",
+      "tier": 1,
+      "type": "traversal",
+      "difficulty": 12,
+      "name": {
+        "en": "Sand Sea",
+        "ru": "Песчаное Море"
+      },
+      "impulses": {
+        "en": [
+          "Dehydrate",
+          "burn",
+          "lead astray"
+        ],
+        "ru": [
+          "Обезвоживать",
+          "обжигать",
+          "сбивать с пути"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Acid Burrower",
+          "Giant Scorpion",
+          "Glass Snake",
+          "Harrier",
+          "Archer Guard"
+        ],
+        "ru": [
+          "Кислотный Землерой",
+          "Гигантский Скорпион",
+          "Стеклянная Змея",
+          "Лунь",
+          "Страж-Лучник"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Dehydrating Trek",
+            "ru": "Обезвоживающий Переход"
+          },
+          "description": {
+            "en": "When the PCs enter this environment, start a Countdown (8). The countdown ticks when the PCs make an Action Roll to reach their destination:\n- **Critical Success:** Tick down 3\n- **Success with Hope:** Tick down 2\n- **Success with Fear:** Tick down 1; all PCs Mark a Stress\n- **Failure with Hope:** No advancement\n- **Failure with Fear:** Tick up 1; all PCs Mark a Stress\n\nThe party reaches their destination when the countdown triggers.",
+            "ru": "Когда персонажи входят в это окружение, начните Отсчёт (8). Отсчёт уменьшается, когда персонажи совершают бросок действия, чтобы достичь пункта назначения:\n- **Критический успех:** Уменьшить на 3\n- **Успех с Надеждой:** Уменьшить на 2\n- **Успех со Страхом:** Уменьшить на 1; все персонажи отмечают Стресс\n- **Неудача с Надеждой:** Без изменений\n- **Неудача со Страхом:** Увеличить на 1; все персонажи отмечают Стресс\n\nГруппа достигает пункта назначения, когда отсчёт срабатывает."
+          },
+          "prompt": {
+            "en": "Why must the PCs make this trek, and why don’t they have tech that makes it short and easy?",
+            "ru": "Почему персонажи вынуждены совершать этот переход, и почему у них нет технологий, которые сделали бы его коротким и лёгким?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Silt Swamp",
+            "ru": "Илистая Трясина"
+          },
+          "description": {
+            "en": "Spend a Fear to have the PCs enter a silt swamp—thick, viscous sand that clings and drags with every step. All PCs Mark a Stress and must make a Strength Reaction Roll or Mark a second Stress. While under pressure or in danger in the silt swamp, PCs must make an Agility Action Roll to move further than Very Close range during their action.",
+            "ru": "Потратьте Страх, чтобы персонажи попали в илистую трясину — густой, вязкий песок, который цепляется и тянет с каждым шагом. Все персонажи отмечают Стресс и должны совершить Бросок Реакции на Силу, иначе отмечают второй Стресс. Находясь под давлением или в опасности в илистой трясине, персонажи должны совершить бросок действия на Проворность, чтобы переместиться дальше Очень Близкой дистанции за своё действие."
+          },
+          "prompt": {
+            "en": "Do the denizens of this world have any special technology to help survival in the desert?",
+            "ru": "Есть ли у обитателей этого мира какие-то особые технологии для выживания в пустыне?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Echo Sand",
+            "ru": "Эхо-Песок"
+          },
+          "description": {
+            "en": "An acid burrower’s tunneling leaves behind honeycombed, acid-hardened caverns. Over time, these regions become echo sand, where footsteps reverberate through the ground. Giant scorpions and glass snakes hunt near these zones, scavenging the burrowers’ kills. Spend a Fear to have the PCs find themselves on echo sand. The PCs must make a group Action Roll with disadvantage to cross safely. On a failure, one Acid Burrower, one Giant Scorpion, and one Glass Snake emerge. The Acid Burrower is immediately spotlighted. On a success, the PCs escape the echo sand undetected.",
+            "ru": "Тоннели кислотных землероев оставляют после себя сотовые, закалённые кислотой пещеры. Со временем эти области превращаются в эхо-песок, где шаги отдаются эхом сквозь землю. Гигантские скорпионы и стеклянные змеи охотятся возле этих зон, подбирая объедки за землероями. Потратьте Страх, чтобы персонажи оказались на эхо-песке. Персонажи должны совершить групповой бросок действия с помехой, чтобы пересечь его безопасно. При неудаче появляются один Кислотный Землерой, один Гигантский Скорпион и одна Стеклянная Змея. Кислотный Землерой сразу же получает Активацию. При успехе персонажи пересекают эхо-песок незамеченными."
+          },
+          "prompt": {
+            "en": "How common are patches of echo sand? Is this phenomenon well known, or would only experienced guides know about it?",
+            "ru": "Насколько распространены участки эхо-песка? Это явление хорошо известно, или только опытные проводники знают о нём?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Oasis",
+            "ru": "Оазис"
+          },
+          "description": {
+            "en": "If a PC rolls a Critical Success while trying to reach their destination, they notice an oasis in the desert. If they reach it, all PCs clear a Stress and find food and water.",
+            "ru": "Если персонаж выбрасывает Критический успех, пытаясь достичь пункта назначения, он замечает оазис в пустыне. Если они его достигают, все персонажи снимают Стресс и находят еду и воду."
+          },
+          "prompt": {
+            "en": "Who, or what, else is also at the oasis? Are its occupants friendly, neutral, or hostile?",
+            "ru": "Кто или что ещё находится в оазисе? Его обитатели дружелюбны, нейтральны или враждебны?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Mirage",
+            "ru": "Мираж"
+          },
+          "description": {
+            "en": "Spend a Fear to reveal that something is not what it seems.",
+            "ru": "Потратьте Страх, чтобы раскрыть, что нечто не то, чем кажется."
+          },
+          "prompt": {
+            "en": "What fooled the PCs? Was it something natural such as the heat and dehydration, a feature of the terrain, or something technological?",
+            "ru": "Что обмануло персонажей? Это было нечто естественное, вроде жары и обезвоживания, особенность местности, или что-то технологическое?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "drylands"
+      ]
+    },
+    {
+      "id": "stream-fold",
+      "tier": 1,
+      "type": "traversal",
+      "difficulty": 12,
+      "name": {
+        "en": "Stream Fold",
+        "ru": "Складка Потока"
+      },
+      "impulses": {
+        "en": [
+          "Send off course",
+          "fry circuits",
+          "delay"
+        ],
+        "ru": [
+          "Сбивать с курса",
+          "выжигать электронику",
+          "задерживать"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Customs Patrol",
+          "Sky Bomber",
+          "Sky Dominator",
+          "SKY Fighter",
+          "SKY Interceptor"
+        ],
+        "ru": [
+          "Таможенный Патруль",
+          "Небесный Бомбардировщик",
+          "Небесный Доминатор",
+          "Небесный Истребитель",
+          "Небесный Перехватчик"
+        ]
+      },
+      "features": [
+        {
+          "type": "action",
+          "name": {
+            "en": "I Told You I Had a Bad Feeling",
+            "ru": "У Меня Было Плохое Предчувствие"
+          },
+          "description": {
+            "en": "Spend 2 Fear to add the Sovereignty Entanglements Event to the scene.",
+            "ru": "Потратьте 2 Страха, чтобы добавить в сцену Событие «Столкновение с Суверенитетом»."
+          },
+          "prompt": {
+            "en": "Did these ships just exit a Stream Fold? Are they after the PCs specifically, or is this just bad luck?",
+            "ru": "Эти корабли только что вышли из Складки Потока? Они охотятся именно за персонажами, или это просто невезение?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Into the Fold",
+            "ru": "Вход в Складку"
+          },
+          "description": {
+            "en": "Entering the Stream Fold requires a Progress Countdown (6). It ticks down according to the following criteria when the PCs make an Action Roll to program the drive and/or reach a launch point:\n- **Critical Success:** Tick down 3\n- **Success with Hope:** Tick down 2\n- **Success with Fear:** Tick down 1\n- **Failure with Hope:** No advancement\n- **Failure with Fear:** Tick up 1\n\nWhen the countdown triggers, the ship successfully enters the Stream Fold.",
+            "ru": "Вход в Складку Потока требует Отсчёта Прогресса (6). Он уменьшается по следующим критериям, когда персонажи совершают бросок действия, чтобы запрограммировать двигатель и/или достичь точки старта:\n- **Критический успех:** Уменьшить на 3\n- **Успех с Надеждой:** Уменьшить на 2\n- **Успех со Страхом:** Уменьшить на 1\n- **Неудача с Надеждой:** Без изменений\n- **Неудача со Страхом:** Увеличить на 1\n\nКогда отсчёт срабатывает, корабль успешно входит в Складку Потока."
+          },
+          "prompt": {
+            "en": "What is difficult about entering this Stream Fold? Is the stream hard to program? Is the anchor point far away? Is something blocking or herding the PCs?",
+            "ru": "Что затрудняет вход в эту Складку Потока? Поток трудно запрограммировать? Точка старта далеко? Что-то блокирует или теснит персонажей?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Errors in the Code",
+            "ru": "Сбои в Коде"
+          },
+          "description": {
+            "en": "Determining how well the trip through the Stream Fold goes requires a Progress Countdown (6). It ticks down according to the following criteria when the PCs make an Action Roll to program the drive and/or reach a launch point:\n- **Critical Success:** Tick up 1, and the countdown cannot tick down for the rest of the scene\n- **Success with Hope:** No advancement\n- **Success with Fear:** Tick down 1\n- **Failure with Hope:** Tick down 2\n- **Failure with Fear:** Tick down 3\n\nWhen the ship enters the Stream Fold:\n- If the countdown is 6, the trip goes exceedingly well. It takes half as long as expected, and each PC chooses to take a free short rest downtime move or work on a long-term project.\n- If the countdown is 5 or lower, roll a d6; if the result is equal to or less than the current countdown, the PCs choose one: the trip takes half as long as expected; one PC takes a free short rest downtime move; one PC works on a long-term project; if the result exceeds the current countdown, the GM chooses one: the trip takes twice as long as expected; 1d3 weapons or systems on the ship glitch and are non-operational until fixed; gain 1d4 + Tier Fear",
+            "ru": "Определение того, насколько удачно пройдёт путешествие сквозь Складку Потока, требует Отсчёта Прогресса (6). Он уменьшается по следующим критериям, когда персонажи совершают бросок действия, чтобы запрограммировать двигатель и/или достичь точки старта:\n- **Критический успех:** Увеличить на 1, и до конца сцены отсчёт не может уменьшаться\n- **Успех с Надеждой:** Без изменений\n- **Успех со Страхом:** Уменьшить на 1\n- **Неудача с Надеждой:** Уменьшить на 2\n- **Неудача со Страхом:** Уменьшить на 3\n\nКогда корабль входит в Складку Потока:\n- Если отсчёт равен 6, путешествие проходит исключительно хорошо. Оно занимает вдвое меньше ожидаемого времени, и каждый персонаж выбирает бесплатный ход короткого отдыха или работу над долгосрочным проектом.\n- Если отсчёт 5 или ниже, бросьте d6.\n- Если результат равен текущему значению отсчёта или меньше, персонажи выбирают один вариант: путешествие занимает вдвое меньше ожидаемого времени; один персонаж получает бесплатный ход короткого отдыха; один персонаж работает над долгосрочным проектом.\n- Если результат превышает текущее значение отсчёта, Мастер выбирает один вариант: путешествие занимает вдвое больше ожидаемого времени; 1d3 оружия или систем корабля выходят из строя и не работают, пока их не починят; получите 1d4 + Ранг Страха."
+          },
+          "prompt": {
+            "en": "What is unique about the Stream Fold the PCs are attempting to enter?",
+            "ru": "Что уникального в этой Складке Потока, в которую пытаются войти персонажи?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "universal"
+      ]
+    },
+    {
+      "id": "sovereignty-entanglements",
+      "tier": 1,
+      "type": "event",
+      "difficulty": 12,
+      "name": {
+        "en": "Sovereignty Entanglements",
+        "ru": "Столкновение с Суверенитетом"
+      },
+      "impulses": {
+        "en": [
+          "Capture",
+          "kill",
+          "chase"
+        ],
+        "ru": [
+          "Захватывать",
+          "убивать",
+          "преследовать"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Customs Patrol",
+          "Sky Bomber",
+          "Sky Dominator",
+          "SKY Fighter",
+          "SKY Interceptor"
+        ],
+        "ru": [
+          "Таможенный Патруль",
+          "Небесный Бомбардировщик",
+          "Небесный Доминатор",
+          "Небесный Истребитель",
+          "Небесный Перехватчик"
+        ]
+      },
+      "features": [
+        {
+          "type": "action",
+          "name": {
+            "en": "Scramble Fighters!",
+            "ru": "Поднять Истребители!"
+          },
+          "description": {
+            "en": "Summon 3 SKY Fighters that appear within Close Range of a PC vehicle. Spotlight one of them.",
+            "ru": "Призовите 3 Небесных Истребителя, которые появляются в пределах Близкой дистанции от транспорта персонажа. Дайте Активацию одному из них."
+          },
+          "prompt": {
+            "en": "Where did these fighters come from?",
+            "ru": "Откуда взялись эти истребители?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Withering Fire",
+            "ru": "Испепеляющий Огонь"
+          },
+          "description": {
+            "en": "The PCs’ vehicle must make a Reaction Roll or suffer 1d10+4 energy damage. If the PC succeeds on the Reaction Roll, the GM may Spend a Fear to cause the vehicle to suffer half damage instead.",
+            "ru": "Транспорт персонажей должен совершить Бросок Реакции, иначе получает 1d10+4 урона энергией. Если персонаж преуспевает в Броске Реакции, Мастер может потратить Страх, чтобы транспорт вместо этого получил половину урона."
+          },
+          "prompt": {
+            "en": "What is firing at the PCs? Is it trying to destroy or disable them?",
+            "ru": "Что стреляет по персонажам? Пытается ли это уничтожить их или обездвижить?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Out of Here",
+            "ru": "Пора Отсюда"
+          },
+          "description": {
+            "en": "Reaching a stable anchor point to enter the Stream Fold and programming the drive uses a Progress Countdown (4d4). It ticks down according to the following criteria when the PCs make an Action Roll to enter the Stream Fold:\n- **Critical Success:** Tick down 3\n- **Success with Hope:** Tick down 2\n- **Success with Fear:** Tick down 1\n- **Failure with Hope:** No advancement\n- **Failure with Fear:** Tick up 1\n\nOnce the countdown is 6 or less, the PCs may choose to enter the Stream Fold as a Reaction. When they do, roll a d6. If the result is equal to or greater than the current number of ticks, the ship enters the Stream Fold and emerges safely at the intended destination.\n\nIf the result is less than the number of ticks, the ship enters the Stream Fold and emerges near the intended destination, but later than expected. Also, in this case, as the ship exits the Stream Fold, roll a d6 to determine additional effects:\n- **1 – Reactor Meltdown:** The ship’s reactor enters cascade. If it is not shut down, it explodes, destroying the ship and forcing all PCs to make a Death Move.\n- **2–5 – System Damage:** One of the ship’s systems is heavily damaged. It can be repaired with a downtime action during the next long rest.\n- **6 – Glitching:** The vehicle’s systems are unstable, causing disadvantage on the next Action Roll using the vehicle.",
+            "ru": "Достижение устойчивой точки старта для входа в Складку Потока и программирование двигателя требует Отсчёта Прогресса (4d4). Он уменьшается по следующим критериям, когда персонажи совершают бросок действия, чтобы войти в Складку Потока:\n- **Критический успех:** Уменьшить на 3\n- **Успех с Надеждой:** Уменьшить на 2\n- **Успех со Страхом:** Уменьшить на 1\n- **Неудача с Надеждой:** Без изменений\n- **Неудача со Страхом:** Увеличить на 1\n\nКогда отсчёт равен 6 или меньше, персонажи могут выбрать войти в Складку Потока как Реакцию. Когда они это делают, бросьте d6. Если результат равен текущему числу делений или превышает его, корабль входит в Складку Потока и благополучно выходит в пункте назначения.\n\nЕсли результат меньше числа делений, корабль входит в Складку Потока и выходит вблизи пункта назначения, но позже, чем ожидалось. Также в этом случае, когда корабль покидает Складку Потока, бросьте d6, чтобы определить дополнительные эффекты:\n- **1 – Расплавление реактора:** Реактор корабля переходит в каскадный режим. Если его не заглушить, он взрывается, уничтожая корабль и вынуждая всех персонажей совершить Предсмертный ход.\n- **2–5 – Повреждение систем:** Одна из систем корабля серьёзно повреждена. Её можно починить ходом отдыха во время следующего продолжительного отдыха.\n- **6 – Сбои:** Системы транспорта нестабильны, что даёт помеху на следующий бросок действия с использованием этого транспорта."
+          },
+          "prompt": {
+            "en": "What is making the PCs’ escape difficult? Is the stream hard to program? Is the anchor point far away? Is something blocking or herding the PCs?",
+            "ru": "Что затрудняет побег персонажей? Поток трудно запрограммировать? Точка старта далеко? Что-то блокирует или теснит персонажей?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "universal"
+      ]
+    },
+    {
+      "id": "canyon-dogfight",
+      "tier": 2,
+      "type": "event",
+      "difficulty": 14,
+      "name": {
+        "en": "Canyon Dogfight",
+        "ru": "Воздушный Бой в Каньоне"
+      },
+      "impulses": {
+        "en": [
+          "Present sudden turns",
+          "show narrow tunnels",
+          "blast with high winds"
+        ],
+        "ru": [
+          "Устраивать внезапные повороты",
+          "показывать узкие тоннели",
+          "обрушивать сильные ветра"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "SKY Fighter Minion",
+          "SKY Dominator",
+          "SKY Interceptor",
+          "Flamewave Patrol Ship"
+        ],
+        "ru": [
+          "Штурмовик-Небесный Истребитель",
+          "Небесный Доминатор",
+          "Небесный Перехватчик",
+          "Патрульный Корабль «Огненная Волна»"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "On My Six!",
+            "ru": "Сижу у Тебя на Хвосте!"
+          },
+          "description": {
+            "en": "When the event begins, each PC vehicle makes a Reaction Roll against the highest adversary Difficulty. For each PC that succeeds, choose one adversary to become permanently Vulnerable. Each PC vehicle that fails becomes permanently Vulnerable.",
+            "ru": "Когда событие начинается, каждый транспорт персонажа совершает Бросок Реакции против наивысшей Сложности противника. За каждого преуспевшего персонажа выберите одного противника, который становится постоянно Уязвимым. Каждый транспорт персонажа, провалившего бросок, становится постоянно Уязвимым."
+          },
+          "prompt": {
+            "en": "What vehicle pair-ups result from this feature? Is there anything in the environment or circumstances that make a particular Trait most suitable for the Reaction Roll?",
+            "ru": "Какие пары транспортов складываются из этой особенности? Есть ли в окружении или обстоятельствах что-то, что делает какую-то определённую Черту наиболее подходящей для Броска Реакции?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Twisting Canyons",
+            "ru": "Извилистые Каньоны"
+          },
+          "description": {
+            "en": "Vehicles can only attack another vehicle if the target is Vulnerable and within Very Close Range.",
+            "ru": "Транспорты могут атаковать другой транспорт, только если цель Уязвима и находится в пределах Очень Близкой дистанции."
+          },
+          "prompt": {
+            "en": "How can the PCs or their adversaries use these canyons to outmaneuver their foes?",
+            "ru": "Как персонажи или их противники могут использовать эти каньоны, чтобы перехитрить врагов?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Hi Yo-Yo",
+            "ru": "Высший Пилотаж"
+          },
+          "description": {
+            "en": "After being attacked, the target may Mark a Stress to make a Reaction Roll (14). On a success, they immediately gain the spotlight and can attack any vehicle in the scene on their next attack.",
+            "ru": "После атаки цель может отметить Стресс, чтобы совершить Бросок Реакции (14). При успехе она немедленно получает Активацию и может атаковать любой транспорт в сцене своей следующей атакой."
+          },
+          "prompt": {
+            "en": "What did the vehicle do to cheat the canyon’s narrow confines?",
+            "ru": "Что сделал транспорт, чтобы обмануть узкие пределы каньона?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Low Yo-Yo",
+            "ru": "Низкий Пилотаж"
+          },
+          "description": {
+            "en": "A vehicle with the Vulnerable condition may Mark a Stress to make an Action Roll (14). On a success, the vehicle removes the Vulnerable condition. If the vehicle chooses to roll with disadvantage, it can also make another vehicle temporarily Vulnerable.",
+            "ru": "Транспорт с состоянием Уязвим может отметить Стресс, чтобы совершить бросок действия (14). При успехе транспорт снимает состояние Уязвим. Если транспорт выбирает совершить бросок с помехой, он также может сделать другой транспорт временно Уязвимым."
+          },
+          "prompt": {
+            "en": "What opportunity allows the vehicle to attempt to turn the tables?",
+            "ru": "Какая возможность позволяет транспорту попытаться переломить ход боя?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Whistling Canyons",
+            "ru": "Свистящие Каньоны"
+          },
+          "description": {
+            "en": "Spend a Fear to change all PCs’ Fear die to a d20 for the rest of the scene.",
+            "ru": "Потратьте Страх, чтобы изменить Кость Страха всех персонажей на d20 до конца сцены."
+          },
+          "prompt": {
+            "en": "What hazards make these canyons particularly terrifying?",
+            "ru": "Что делает эти каньоны особенно пугающими?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "badlands"
+      ]
+    },
+    {
+      "id": "deadly-jungle",
+      "tier": 2,
+      "type": "traversal",
+      "difficulty": 15,
+      "name": {
+        "en": "Deadly Jungle",
+        "ru": "Смертоносные Джунгли"
+      },
+      "impulses": {
+        "en": [
+          "Consume outsiders",
+          "confuse location"
+        ],
+        "ru": [
+          "Пожирать чужаков",
+          "путать местоположение"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Giant Eagle",
+          "Juvenile Flickerfly",
+          "Stonewraith",
+          "Surge Adversaries",
+          "Reaper Operator"
+        ],
+        "ru": [
+          "Огромный Орёл",
+          "Молодая Мерцекрылка",
+          "Каменный Дух",
+          "противники Прорыва",
+          "Оператор-Жнец"
+        ]
+      },
+      "features": [
+        {
+          "type": "action",
+          "name": {
+            "en": "Quicksand",
+            "ru": "Зыбучий Песок"
+          },
+          "description": {
+            "en": "Spend a Fear to have a PC step in quicksand. The PC must make a Strength or Agility Reaction Roll or become Vulnerable and Restrained. Start a Countdown (6) that ticks down whenever a PC or adversary gains the spotlight. When the countdown triggers, the PC makes a Death Move. The countdown can be ended by any PC who makes a successful Strength or Agility Action Roll to escape the quicksand. If the trapped PC makes the roll, they do so with disadvantage.",
+            "ru": "Потратьте Страх, чтобы персонаж ступил в зыбучий песок. Персонаж должен совершить Бросок Реакции на Силу или Проворность, иначе становится Уязвим и Обездвижен. Начните Отсчёт (6), который уменьшается всякий раз, когда персонаж или противник получает Активацию. Когда отсчёт срабатывает, персонаж совершает Предсмертный ход. Отсчёт можно остановить, если любой персонаж успешно совершит бросок действия на Силу или Проворность, чтобы выбраться из зыбучего песка. Если застрявший персонаж совершает этот бросок сам, он делает это с помехой."
+          },
+          "prompt": {
+            "en": "Is quicksand common here? What signs unique to this jungle should alert PCs to the hazard?",
+            "ru": "Часто ли здесь встречается зыбучий песок? Какие уникальные для этих джунглей признаки должны предупредить персонажей об опасности?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Predatory Plants",
+            "ru": "Хищные Растения"
+          },
+          "description": {
+            "en": "Spend a Fear to force all PCs to make an Agility or Presence Reaction Roll. Each PC that fails suffers 2d8+4 physical damage.",
+            "ru": "Потратьте Страх, чтобы заставить всех персонажей совершить Бросок Реакции на Проворность или Влияние. Каждый провалившийся персонаж получает 2d8+4 физического урона."
+          },
+          "prompt": {
+            "en": "How do these plants eat? Do they have jaws, thorny vines, sticky tendrils, caustic secretions, or all four? Are they sentient? What signs should alert the PCs of their presence?",
+            "ru": "Как эти растения едят? У них есть челюсти, шипастые лозы, липкие усики, едкие выделения, или всё сразу? Разумны ли они? Какие признаки должны предупредить персонажей об их присутствии?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Cut a Path",
+            "ru": "Прорубить Путь"
+          },
+          "description": {
+            "en": "Forcing a way through the dense jungle uses a Progress Countdown (12). It ticks down according to the following criteria when the PCs make an Action Roll to move through the jungle:\n- **Critical Success:** Tick down 3\n- **Success with Hope:** Tick down 2\n- **Success with Fear:** Tick down 1\n- **Failure with Hope:** No advancement\n- **Failure with Fear:** Tick up 1\n\nWhen the countdown triggers, the party reaches their destination.",
+            "ru": "Прокладывание пути сквозь густые джунгли требует Отсчёта Прогресса (12). Он уменьшается по следующим критериям, когда персонажи совершают бросок действия, чтобы двигаться сквозь джунгли:\n- **Критический успех:** Уменьшить на 3\n- **Успех с Надеждой:** Уменьшить на 2\n- **Успех со Страхом:** Уменьшить на 1\n- **Неудача с Надеждой:** Без изменений\n- **Неудача со Страхом:** Увеличить на 1\n\nКогда отсчёт срабатывает, группа достигает пункта назначения."
+          },
+          "prompt": {
+            "en": "Why can’t they just fly above the canopy? Do the PCs have tech that can help them get through the jungle? Might they find a shortcut?",
+            "ru": "Почему они просто не могут пролететь над пологом леса? Есть ли у персонажей технологии, которые помогли бы им пройти сквозь джунгли? Могли бы они найти короткий путь?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "What Now?",
+            "ru": "Что Теперь?"
+          },
+          "description": {
+            "en": "Spend a Fear to introduce a Traversal Environment as an obstacle the PCs must overcome before continuing through the jungle. The Raging River or Cliffside Ascent are good choices. This Traversal Environment uses the same Difficulty as the Deadly Jungle. Overcoming this obstacle ticks down the Cut a Path Countdown by 2 ticks.",
+            "ru": "Потратьте Страх, чтобы ввести окружение типа Путешествие как препятствие, которое персонажи должны преодолеть, прежде чем продолжить путь через джунгли. Бушующая Река или Восхождение по Склону — хорошие варианты. Это окружение типа Путешествие использует ту же Сложность, что и Смертоносные Джунгли. Преодоление этого препятствия уменьшает Отсчёт «Прорубить Путь» на 2 деления."
+          },
+          "prompt": {
+            "en": "Did the PCs know about this obstacle? Were they prepared for it?",
+            "ru": "Знали ли персонажи об этом препятствии? Были ли они к нему готовы?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Something’s Out There",
+            "ru": "Там Кто-то Есть"
+          },
+          "description": {
+            "en": "Spend a Fear to show signs that something is stalking the PCs. While under its shadow, PCs’ checks against the environment have disadvantage. If the PCs rest without taking appropriate precautions, the threat ambushes them using the Ambushed Event environment.",
+            "ru": "Потратьте Страх, чтобы показать признаки того, что нечто выслеживает персонажей. Пока над ними висит эта тень, проверки персонажей против окружения совершаются с помехой. Если персонажи отдыхают, не приняв должных мер предосторожности, угроза устраивает засаду, используя окружение «Засада»."
+          },
+          "prompt": {
+            "en": "What creature or creatures are stalking the PCs? Are they prepared for this threat, or is it something they have never encountered before?",
+            "ru": "Какое существо или существа выслеживают персонажей? Готовы ли они к этой угрозе, или это нечто, с чем они никогда прежде не сталкивались?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Hunting Ground",
+            "ru": "Охотничьи Угодья"
+          },
+          "description": {
+            "en": "Spend a Fear when you spotlight an adversary for the first time to reveal the PCs are in its hunting ground. This adversary treats all PCs as Vulnerable until the PCs do something to change the situation.",
+            "ru": "Потратьте Страх, когда даёте Активацию противнику впервые, чтобы раскрыть, что персонажи находятся в его охотничьих угодьях. Этот противник считает всех персонажей Уязвимыми, пока персонажи не сделают что-то, чтобы изменить ситуацию."
+          },
+          "prompt": {
+            "en": "What makes this area particularly well-suited to the creature that hunts here? What could the PCs do to turn themselves into the hunters?",
+            "ru": "Что делает эту область особенно подходящей для существа, которое здесь охотится? Что могли бы сделать персонажи, чтобы самим стать охотниками?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "If It Bleeds…",
+            "ru": "Если Оно Истекает Кровью…"
+          },
+          "description": {
+            "en": "The first time in the scene when the PCs roll with Hope, reveal a weakness of a threat facing them. When they capitalize on this weakness, their Action and Reaction Rolls have Advantage.",
+            "ru": "В первый раз за сцену, когда персонажи выбрасывают результат с Надеждой, раскройте слабость угрозы, с которой они столкнулись. Когда они используют эту слабость, их броски действия и реакции получают Преимущество."
+          },
+          "prompt": {
+            "en": "What threat did they learn about? What weakness was revealed?",
+            "ru": "О какой угрозе они узнали? Какая слабость была раскрыта?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "tropical"
+      ]
+    },
+    {
+      "id": "endless-forest",
+      "tier": 2,
+      "type": "exploration",
+      "difficulty": 14,
+      "name": {
+        "en": "Endless Forest",
+        "ru": "Бескрайний Лес"
+      },
+      "impulses": {
+        "en": [
+          "Shade",
+          "impress with natural beauty and grandeur",
+          "hunt"
+        ],
+        "ru": [
+          "Укрывать тенью",
+          "поражать природной красотой и величием",
+          "охотиться"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Giant Eagle",
+          "Juvenile Flickerfly",
+          "Stonewraith"
+        ],
+        "ru": [
+          "Огромный Орёл",
+          "Молодая Мерцекрылка",
+          "Каменный Дух"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Verticality",
+            "ru": "Многоярусность"
+          },
+          "description": {
+            "en": "Characters are Hidden from those on different levels of the canopy.",
+            "ru": "Персонажи Скрыты от тех, кто находится на других ярусах полога."
+          },
+          "prompt": {
+            "en": "How high are these trees—hundreds of meters or thousands? What kind of foliage separates the levels of the canopy?",
+            "ru": "Насколько высоки эти деревья — сотни метров или тысячи? Какая листва разделяет ярусы полога?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Over the Edge",
+            "ru": "За Край"
+          },
+          "description": {
+            "en": "When a character (PC or adversary) makes a successful attack, they may Mark a Stress to force the target to make a Reaction Roll (14) or fall. Roll 1d3 to determine the result: the target suffers 2d8, 3d8, or 4d8 additional damage respectively, falling a corresponding distance (Very Close, Close, or Far).",
+            "ru": "Когда персонаж (игровой или противник) совершает успешную атаку, он может отметить Стресс, чтобы заставить цель совершить Бросок Реакции (14), иначе упасть. Бросьте 1d3, чтобы определить результат: цель получает дополнительно 2d8, 3d8 или 4d8 урона соответственно, падая на соответствующее расстояние (Очень Близкое, Близкое или Дальнее)."
+          },
+          "prompt": {
+            "en": "What stops their fall? Does the change in level help them—or put them in a compromised position?",
+            "ru": "Что останавливает их падение? Помогает ли им смена яруса — или ставит в невыгодное положение?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Trails",
+            "ru": "Тропы"
+          },
+          "description": {
+            "en": "The PCs can follow trails through the canopy created by the forest’s natural denizens. This grants them advantage on rolls to navigate or traverse the terrain and allows them to change canopy levels without rolling. When they first use these trails, start a Dynamic Countdown (d6). It ticks down whenever the PCs use the trails. Each time it ticks, roll 1d4. If the number rolled is higher than the current ticks remaining, the PCs encounter forest predators. If the countdown triggers, they are instead ambushed by these predators.",
+            "ru": "Персонажи могут следовать тропами сквозь полог, проложенными местными обитателями леса. Это даёт им преимущество на броски, чтобы ориентироваться или передвигаться по местности, и позволяет менять ярусы полога без броска. Когда они впервые используют эти тропы, начните Динамический Отсчёт (d6). Он уменьшается всякий раз, когда персонажи используют тропы. Каждый раз, когда он уменьшается, бросьте 1d4. Если выпавшее число больше текущего числа оставшихся делений, персонажи встречают лесных хищников. Если отсчёт срабатывает, на них вместо этого нападают из засады эти хищники."
+          },
+          "prompt": {
+            "en": "What kind of predators stalk these trails? Are the trails intentionally constructed by forest denizens, or the result of their natural movements?",
+            "ru": "Какие хищники выслеживают эти тропы? Тропы намеренно проложены обитателями леса, или это результат их естественных передвижений?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Tarzan’s Envy",
+            "ru": "Зависть Тарзана"
+          },
+          "description": {
+            "en": "A PC may spend a Hope, or the GM may Spend a Fear, to have a character swing anywhere within Very Far Range on the same or a lower canopy level. If used in response to an attack, the attack is made with disadvantage.",
+            "ru": "Персонаж может потратить Надежду, или Мастер может потратить Страх, чтобы существо перемахнуло куда угодно в пределах Очень Дальней дистанции на том же или более низком ярусе полога. Если это используется в ответ на атаку, атака совершается с помехой."
+          },
+          "prompt": {
+            "en": "What features of the environment allow for this rapid movement? Are they swinging on vines, bouncing across elastic fungi, sliding down giant leaves, or something else entirely?",
+            "ru": "Какие особенности окружения позволяют такое стремительное передвижение? Они качаются на лианах, прыгают по упругим грибам, скользят по гигантским листьям, или что-то совсем иное?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "All the Way Down",
+            "ru": "До Самого Низа"
+          },
+          "description": {
+            "en": "The GM may Spend 2 Fear to force a Vulnerable PC to make a Reaction Roll (14). The PCs may collectively Spend 2 Hope to do the same to a Vulnerable adversary. If the PC succeeds, they gain a Hope. On a failure, they plummet to the forest floor and must make a Death Move. If the adversary succeeds, they clear a Stress. On a failure, they are defeated or killed (as fictionally appropriate).",
+            "ru": "Мастер может потратить 2 Страха, чтобы заставить Уязвимого персонажа совершить Бросок Реакции (14). Персонажи могут совместно потратить 2 Надежды, чтобы сделать то же самое с Уязвимым противником. Если персонаж преуспевает, он получает Надежду. При неудаче он падает на дно леса и должен совершить Предсмертный ход. Если противник преуспевает, он снимает Стресс. При неудаче он побеждён или убит (как уместно по сюжету)."
+          },
+          "prompt": {
+            "en": "What conditions must be set to send someone falling all the way to the forest floor?",
+            "ru": "Какие условия должны сложиться, чтобы кто-то полетел вниз до самого дна леса?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "forest"
+      ]
+    },
+    {
+      "id": "floating-mountains",
+      "tier": 2,
+      "type": "traversal",
+      "difficulty": 15,
+      "name": {
+        "en": "Floating Mountains",
+        "ru": "Парящие Горы"
+      },
+      "impulses": {
+        "en": [
+          "Present majestic landscapes",
+          "buffet with strong winds",
+          "shift gravitation"
+        ],
+        "ru": [
+          "Показывать величественные пейзажи",
+          "обрушивать сильные ветра",
+          "смещать гравитацию"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Giant Eagle",
+          "Juvenile Flickerfly",
+          "Stonewraith",
+          "Surge Adversaries",
+          "Reaper Operator"
+        ],
+        "ru": [
+          "Огромный Орёл",
+          "Молодая Мерцекрылка",
+          "Каменный Дух",
+          "противники Прорыва",
+          "Оператор-Жнец"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Vine Highways",
+            "ru": "Лиановые Магистрали"
+          },
+          "description": {
+            "en": "Massive vines allow travel between the floating mountains. When in danger or under pressure while on the vines, moving beyond Very Close Range requires an Agility Action Roll.",
+            "ru": "Массивные лианы позволяют перемещаться между парящими горами. В опасности или под давлением, находясь на лианах, перемещение дальше Очень Близкой дистанции требует броска действия на Проворность."
+          },
+          "prompt": {
+            "en": "Does the layout of these vine highways change often, or are they persistent? Do the vines help hold or position the mountains?",
+            "ru": "Часто ли меняется расположение этих лиановых магистралей, или оно постоянно? Помогают ли лианы удерживать или позиционировать горы?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Watch Your Step!",
+            "ru": "Смотри Под Ноги!"
+          },
+          "description": {
+            "en": "Spend a Fear to cause a PC to fall from a vine or off the edge of a mountain. The PC must make an Agility Reaction Roll to grab a handhold. On a success, they are left dangling precariously but otherwise unharmed. On a failure, they suffer 2d8+4 physical damage and are caught by a wayward vine or narrow ledge. In any case, returning to safety will not be easy.",
+            "ru": "Потратьте Страх, чтобы персонаж упал с лианы или с края горы. Персонаж должен совершить Бросок Реакции на Проворность, чтобы ухватиться за опору. При успехе он повисает в шатком положении, но иначе невредим. При неудаче он получает 2d8+4 физического урона и его подхватывает случайная лиана или узкий уступ. В любом случае вернуться в безопасное место будет непросто."
+          },
+          "prompt": {
+            "en": "What caused the PC to fall? Are they in a particularly unstable area? Does this reveal further danger—or an opportunity to use the environment against their foes?",
+            "ru": "Что заставило персонажа упасть? Находятся ли они в особенно нестабильной зоне? Раскрывает ли это дальнейшую опасность — или возможность обратить окружение против врагов?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Gusts",
+            "ru": "Порывы Ветра"
+          },
+          "description": {
+            "en": "Spend a Fear to unleash powerful wind gusts that buffet the floating mountains, giving all actions against the Floating Mountains environment disadvantage for the rest of the scene.",
+            "ru": "Потратьте Страх, чтобы обрушить мощные порывы ветра, которые обрушиваются на парящие горы, давая всем действиям против окружения «Парящие Горы» помеху до конца сцены."
+          },
+          "prompt": {
+            "en": "Were these gusts anticipated, or a sudden shift in weather? Do they cause an immediate change in the situation?",
+            "ru": "Были ли эти порывы предсказуемы, или это внезапная перемена погоды? Вызывают ли они немедленное изменение ситуации?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Gravity Shift",
+            "ru": "Смена Гравитации"
+          },
+          "description": {
+            "en": "Spend a Fear to cause the mountains to realign or drift, snapping vines or rendering previous routes impassable.",
+            "ru": "Потратьте Страх, чтобы горы сместились или сдрейфовали, порвав лианы или сделав прежние пути непроходимыми."
+          },
+          "prompt": {
+            "en": "The gravitational anomalies that levitate the mountains are famously fickle. Is there any way to predict or mitigate these shifts?",
+            "ru": "Гравитационные аномалии, удерживающие горы в воздухе, славятся своей непредсказуемостью. Есть ли способ предсказать или смягчить эти смещения?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "mountain"
+      ]
+    },
+    {
+      "id": "epic-duel",
+      "tier": 2,
+      "type": "event",
+      "difficulty": {
+        "en": "Adversary Duelist’s Difficulty",
+        "ru": "Как у противника-Дуэлянта"
+      },
+      "name": {
+        "en": "Epic Duel",
+        "ru": "Эпическая Дуэль"
+      },
+      "impulses": {
+        "en": [
+          "Display epic stakes",
+          "play orchestral music",
+          "highlight emotional conflict",
+          "remove a limb",
+          "blind in one eye",
+          "inflict distinctive scars"
+        ],
+        "ru": [
+          "Демонстрировать эпические ставки",
+          "играть оркестровую музыку",
+          "подчёркивать эмоциональный конфликт",
+          "лишать конечности",
+          "ослеплять на один глаз",
+          "оставлять характерные шрамы"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Dra’Kor Adept",
+          "Dunarian Soldier",
+          "Reaper Operator",
+          "Var’Kor Shadow"
+        ],
+        "ru": [
+          "Адепт Дра'Кор",
+          "Дунарианский Солдат",
+          "Оператор-Жнец",
+          "Тень Вар'Кор"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Duel",
+            "ru": "Дуэль"
+          },
+          "description": {
+            "en": "When dramatically appropriate, the GM may activate the Duel Event, and start the Duel Dynamic Countdown (6). The GM chooses one adversary and one or two PCs. The chosen PC(s) and the adversary become Duelists. Whenever a Duelist is spotlighted, the Duel Countdown ticks down 1.\n\nWhen a PC Duelist damages the adversary Duelist, the PC may choose to reduce the damage severity by one or more thresholds. For each such reduction, the PC chooses one of the following:\n- Temporarily inactivate one of the adversary Duelist’s features they are aware of.\n- Tick the Duel Countdown down one.\n- Tick the Duel Countdown up one.\n\nA PC Duelist can make an Action Roll to directly influence the Duel Countdown, causing it to tick according to the following criteria:\n- **Critical Success:** PC ticks the countdown up or down 3\n- **Success with Hope:** PC ticks the countdown up or down 2\n- **Success with Fear:** PC ticks the countdown down 1\n- **Failure with Hope:** GM ticks the countdown up or down 1\n- **Failure with Fear:** GM ticks the countdown up or down 2\n\nWhen the countdown completes, whichever Duelist has the spotlight may immediately make a Finishing Strike. The GM cannot “steal” a Finishing Strike opportunity from the PC by spending Fear.\n\nA Finishing Strike is an attack made with Advantage. If the attack hits, it deals normal damage, then roll 6d6. For each result of 5 or 6, the target suffers 1 additional Hit Point beyond the normal damage.\n\nIf both opponents still have unmarked Hit Points after the Finishing Strike, add 2d3 ticks back to the Duel Countdown and continue play.\n\nWhen a Duelist marks their last Hit Point during a Duel, the attacking Duelist chooses one of the following outcomes:\n- **Lethal Strike:** The struck Duelist is killed. If this Duelist is a PC, they immediately make a Death Move. If the Duelist is an adversary, the GM gains a Fear.\n- **Nonlethal Strike:** The struck Duelist is defeated but not killed. If a PC, they are treated as if they selected the Avoid Death Death Move but do not roll to gain a scar. Instead, the GM gains 1d4 Fear. If the Duelist is an adversary, the PC gains a Hope.\n- **Demonstrate Superiority:** The attacking Duelist decisively threatens or disables the opponent, indicating total victory; if a Duelist retreats or yields, they clear 1d3 HP. If the loser is an adversary, each PC Duelist gains 2 Hope and clears a Stress or Hit Point. If the loser is a PC, the GM gains a Fear; if the losing Duelist continues fighting, the attacker may immediately deliver a Lethal or Nonlethal Strike as described above",
+            "ru": "Когда это уместно по драматическим соображениям, Мастер может активировать Событие «Дуэль» и начать Динамический Отсчёт Дуэли (6). Мастер выбирает одного противника и одного или двух персонажей. Выбранные персонаж(и) и противник становятся Дуэлянтами. Всякий раз, когда Дуэлянт получает Активацию, Отсчёт Дуэли уменьшается на 1.\n\nКогда Дуэлянт-персонаж наносит урон Дуэлянту-противнику, персонаж может выбрать снизить степень тяжести урона на одну или более ступеней. За каждое такое снижение персонаж выбирает один из следующих вариантов:\n- Временно отключить одну из известных им особенностей Дуэлянта-противника.\n- Уменьшить Отсчёт Дуэли на одно деление.\n- Увеличить Отсчёт Дуэли на одно деление.\n\nДуэлянт-персонаж может совершить бросок действия, чтобы напрямую повлиять на Отсчёт Дуэли, заставляя его изменяться по следующим критериям:\n- **Критический успех:** персонаж изменяет отсчёт на 3 в любую сторону\n- **Успех с Надеждой:** персонаж изменяет отсчёт на 2 в любую сторону\n- **Успех со Страхом:** персонаж уменьшает отсчёт на 1\n- **Неудача с Надеждой:** Мастер изменяет отсчёт на 1 в любую сторону\n- **Неудача со Страхом:** Мастер изменяет отсчёт на 2 в любую сторону\n\nКогда отсчёт завершается, тот Дуэлянт, у которого сейчас Активация, может немедленно совершить Завершающий Удар. Мастер не может «украсть» возможность Завершающего Удара у персонажа, потратив Страх.\n\nЗавершающий Удар — это атака, совершаемая с Преимуществом. Если атака попадает, она наносит обычный урон, затем бросьте 6d6. За каждый результат 5 или 6 цель получает 1 дополнительную Рану сверх обычного урона.\n\nЕсли у обоих противников остаются неотмеченные Раны после Завершающего Удара, добавьте 2d3 деления обратно в Отсчёт Дуэли и продолжайте игру.\n\nКогда Дуэлянт отмечает свою последнюю Рану во время Дуэли, атакующий Дуэлянт выбирает один из следующих исходов:\n- **Смертельный удар:** поражённый Дуэлянт погибает. Если это персонаж, он немедленно совершает Предсмертный ход. Если это противник, Мастер получает Страх.\n- **Несмертельный удар:** поражённый Дуэлянт побеждён, но не убит. Если это персонаж, с ним обращаются так, будто он выбрал Предсмертный ход «Избежать Смерти», но не бросает кость на шрам. Вместо этого Мастер получает 1d4 Страха. Если это противник, персонаж получает Надежду.\n- **Продемонстрировать превосходство:** атакующий Дуэлянт решительно запугивает или обезоруживает противника, демонстрируя полную победу; если Дуэлянт отступает или сдаётся, он снимает 1d3 Ран. Если проигравший — противник, каждый Дуэлянт-персонаж получает 2 Надежды и снимает Стресс или Рану. Если проигравший — персонаж, Мастер получает Страх; если проигравший Дуэлянт продолжает сражаться, атакующий может немедленно нанести Смертельный или Несмертельный удар, как описано выше."
+          },
+          "prompt": {
+            "en": "What are the weapons used in the duel? Should we expect fusion blades sparking as they clash, slashing rip blades, savage fisticuffs, elegant martial arts, a single-shot quick draw, or balletic gun-fu?",
+            "ru": "Какое оружие используется в дуэли? Стоит ли ожидать искрящихся при столкновении термоклинков, режущих рип-клинков, свирепого рукопашного боя, изящных боевых искусств, молниеносной дуэли на выхватывание оружия, или балетного боя на бластерах?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "You Only Need One",
+            "ru": "Тебе Нужен Только Один"
+          },
+          "description": {
+            "en": "When a PC Duelist chooses a Nonlethal Strike, they may Spend a Hope to inflict a disfiguring injury, removing a limb, an eye, or leaving a distinctive scar. The PC permanently treats the adversary’s Difficulty as 2 lower.\n\nWhen an adversary Duelist chooses a Nonlethal Strike, the GM may Spend a Fear to do the same. The adversary permanently treats the PC’s Evasion as 1 lower, and whenever the adversary enters the same scene as the PC, the GM gains 1d4 Fear.",
+            "ru": "Когда Дуэлянт-персонаж выбирает Несмертельный удар, он может потратить Надежду, чтобы нанести уродующее увечье, лишив конечности, глаза, или оставив характерный шрам. Персонаж навсегда считает Сложность противника на 2 ниже.\n\nКогда Дуэлянт-противник выбирает Несмертельный удар, Мастер может потратить Страх, чтобы сделать то же самое. Противник навсегда считает Уклонение персонажа на 1 ниже, и всякий раз, когда противник появляется в одной сцене с этим персонажем, Мастер получает 1d4 Страха."
+          },
+          "prompt": {
+            "en": "What wound is suffered? Is the injury delivered out of malice, disdain, or mercy?",
+            "ru": "Какая рана получена? Нанесено ли увечье из злобы, презрения или милосердия?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Dynamic Environment",
+            "ru": "Динамичное Окружение"
+          },
+          "description": {
+            "en": "When the Duel Countdown ticks, whichever Duelist caused the ticks moves the Duel to a new location within the environment.",
+            "ru": "Когда Отсчёт Дуэли уменьшается, тот Дуэлянт, что вызвал изменение, переносит Дуэль в новое место в пределах окружения."
+          },
+          "prompt": {
+            "en": "What new threat or opportunity is revealed by the duel shifting terrain?",
+            "ru": "Какую новую угрозу или возможность раскрывает смена местности во время дуэли?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Dynamic Opportunity",
+            "ru": "Динамическая Возможность"
+          },
+          "description": {
+            "en": "A PC may place one of their Domain Cards in their vault to do one of the following:\n- When a PC Duelist deals damage to the adversary Duelist, they may mark a HP to increase the damage severity by one threshold.\n- The PC may spend a Hope to cancel the effect of a GM Fear spend. The GM loses any Fear spent.\n- Mark 2 Armor Slots to prevent the Duel Countdown from triggering by adding a tick back to the countdown.\n\nThis reduces the PC’s available loadout slots until they complete a long rest.",
+            "ru": "Персонаж может поместить одну из своих Карт Домена в хранилище, чтобы сделать одно из следующего:\n- Когда Дуэлянт-персонаж наносит урон Дуэлянту-противнику, он может отметить Рану, чтобы увеличить степень тяжести урона на одну ступень.\n- Персонаж может потратить Надежду, чтобы отменить эффект траты Страха Мастером. Мастер теряет весь потраченный Страх.\n- Отметить 2 Ячейки Брони, чтобы предотвратить срабатывание Отсчёта Дуэли, добавив деление обратно в отсчёт.\n\nЭто уменьшает доступные ячейки снаряжения персонажа, пока он не завершит продолжительный отдых."
+          },
+          "prompt": {
+            "en": "What does this opportunity look like? What sacrifice did the PC make to seize it?",
+            "ru": "Как выглядит эта возможность? Чем персонаж пожертвовал, чтобы её использовать?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Not So Fast",
+            "ru": "Не Так Быстро"
+          },
+          "description": {
+            "en": "The GM may Spend 2 Fear to add a tick back to the Duel Countdown.",
+            "ru": "Мастер может потратить 2 Страха, чтобы добавить деление обратно в Отсчёт Дуэли."
+          },
+          "prompt": {
+            "en": "What tactic or technique does the adversary employ to prevent the PC from landing a decisive blow?",
+            "ru": "Какую тактику или технику применяет противник, чтобы помешать персонажу нанести решающий удар?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "What We Fight For",
+            "ru": "За Что Мы Сражаемся"
+          },
+          "description": {
+            "en": "Once per scene, when the Duel Countdown ticks, a PC may spend a Hope to reveal something new and important about how their motivations connect to the Duel. When they do, they may tick the Duel Countdown up or down one.",
+            "ru": "Раз за сцену, когда Отсчёт Дуэли уменьшается, персонаж может потратить Надежду, чтобы раскрыть нечто новое и важное о том, как его мотивы связаны с Дуэлью. Когда он это делает, он может изменить Отсчёт Дуэли на одно деление в любую сторону."
+          },
+          "prompt": {
+            "en": "What are the stakes of this duel? Have the Duelists faced each other before? Did their relationship once mean something different?",
+            "ru": "Какова ставка в этой дуэли? Сталкивались ли Дуэлянты прежде? Значили ли их отношения когда-то что-то иное?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Bind and Wind",
+            "ru": "Схватка Клинков"
+          },
+          "description": {
+            "en": "When a Duelist’s duality die shows either 1 or 12, the Duelists clash in a dangerous, cinematic moment where fortune favors the bold. All Duelists secretly wager a d3, d4, or d6, then reveal their chosen die simultaneously. If any Duelists wagered the same die, discard those dice with no effect.\n- The Duelist who wagered the lowest die rolls it and ticks the Duel Countdown up or down equal to the number rolled.\n- If this does not trigger the Duel countdown, the Duelist who wagered the highest die rolls it and forces another Duelist to mark that many HP or Stress in any combination chosen by the Duelist who wagered the lowest die.",
+            "ru": "Когда Кость Дуальности Дуэлянта выпадает 1 или 12, Дуэлянты сталкиваются в опасный, кинематографичный момент, где удача благоволит смелым. Все Дуэлянты тайно ставят d3, d4 или d6, затем одновременно раскрывают выбранную кость. Если несколько Дуэлянтов поставили одинаковую кость, эти кости отбрасываются без эффекта.\n- Дуэлянт, поставивший наименьшую кость, бросает её и изменяет Отсчёт Дуэли на выпавшее число в любую сторону.\n- Если это не вызывает срабатывание Отсчёта Дуэли, Дуэлянт, поставивший наибольшую кость, бросает её и заставляет другого Дуэлянта отметить столько же Ран или Стресса в любом сочетании по выбору Дуэлянта, поставившего наименьшую кость."
+          },
+          "prompt": {
+            "en": "What does this clash look like? Are the Duelists’ weapons locked together? Are they staring each other down? Do their weapons threaten each other at point-blank range?",
+            "ru": "Как выглядит это столкновение? Оружие Дуэлянтов сцепилось друг с другом? Они смотрят друг другу в глаза? Их оружие угрожает друг другу в упор?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "universal"
+      ]
+    },
+    {
+      "id": "sovereignty-outpost",
+      "tier": 2,
+      "type": "traversal",
+      "difficulty": 14,
+      "name": {
+        "en": "Sovereignty Outpost",
+        "ru": "Форпост Суверенитета"
+      },
+      "impulses": {
+        "en": [
+          "Keep out",
+          "discover",
+          "capture"
+        ],
+        "ru": [
+          "Не впускать",
+          "обнаруживать",
+          "захватывать"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Surge Trooper Minion",
+          "Surge Medic",
+          "Surge Suppressor",
+          "Surge Gunner",
+          "Surge Trooper Sergeant"
+        ],
+        "ru": [
+          "Рядовой Штурмовик Прорыва",
+          "Медик Прорыва",
+          "Подавитель Прорыва",
+          "Стрелок Прорыва",
+          "Сержант Штурмовиков Прорыва"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Guard Towers",
+            "ru": "Сторожевые Башни"
+          },
+          "description": {
+            "en": "Approaching the outpost surreptitiously requires a successful group Action Roll made at disadvantage. On a failure, the PCs are spotted.",
+            "ru": "Скрытное приближение к форпосту требует успешного группового броска действия с помехой. При неудаче персонажей замечают."
+          },
+          "prompt": {
+            "en": "What makes the approach to the outpost so fraught? Are there sensors, spotlights, drones, or just open ground?",
+            "ru": "Что делает подход к форпосту столь опасным? Есть ли сенсоры, прожекторы, дроны, или просто открытая местность?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Hole in the Fence",
+            "ru": "Дыра в Заборе"
+          },
+          "description": {
+            "en": "If the PCs reach the outpost undetected, they can enter without making an Action Roll, but the GM gains 1d3 Fear.",
+            "ru": "Если персонажи достигают форпоста незамеченными, они могут войти без броска действия, но Мастер получает 1d3 Страха."
+          },
+          "prompt": {
+            "en": "Do the PCs enter through a literal hole in the fence, or by some other means? Why is using this entrance risky?",
+            "ru": "Персонажи входят через буквальную дыру в заборе, или каким-то другим способом? Почему использование этого прохода рискованно?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Complacency",
+            "ru": "Беспечность"
+          },
+          "description": {
+            "en": "Once inside the outpost, PCs attempting to sneak past or influence the guards have advantage. The first time the PCs use this feature, start a Dynamic Countdown (1d6). It ticks down 1 whenever the PCs use this feature. When it ticks down, roll 1d4. If the result is higher than the current ticks, this feature becomes inactive for the rest of the scene.",
+            "ru": "Оказавшись внутри форпоста, персонажи, пытающиеся прокрасться мимо стражи или повлиять на неё, получают преимущество. В первый раз, когда персонажи используют эту особенность, начните Динамический Отсчёт (1d6). Он уменьшается на 1 всякий раз, когда персонажи используют эту особенность. Когда он уменьшается, бросьте 1d4. Если результат больше текущего числа делений, эта особенность становится неактивной до конца сцены."
+          },
+          "prompt": {
+            "en": "Why are the guards complacent? Are their officers just as lax, or are they oblivious to the danger?",
+            "ru": "Почему стража так беспечна? Их офицеры так же расслаблены, или они просто не замечают опасности?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Roving Guards",
+            "ru": "Патрулирующая Стража"
+          },
+          "description": {
+            "en": "If the PCs roll with Fear while inside the outpost, a guard patrol appears. The GM may spend a Fear for the patrol to immediately notice the PCs or evidence of their presence.",
+            "ru": "Если персонажи выбрасывают результат со Страхом, находясь внутри форпоста, появляется патруль стражи. Мастер может потратить Страх, чтобы патруль немедленно заметил персонажей или следы их присутствия."
+          },
+          "prompt": {
+            "en": "Is this patrol as complacent as the others? Are they simply routine, or do they have their own agenda?",
+            "ru": "Этот патруль так же беспечен, как остальные? Они просто выполняют рутину, или у них своя повестка?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Checkpoint",
+            "ru": "Контрольно-пропускной пункт"
+          },
+          "description": {
+            "en": "If the PCs talk their way through the main entrance, add 1d4 ticks to the Complacency Countdown.",
+            "ru": "Если персонажи уболтали стражу и прошли через главный вход, добавьте 1d4 деления к Отсчёту Беспечности."
+          },
+          "prompt": {
+            "en": "What could get the PCs through the main gate—disguises, credentials, Denarii, or sheer confidence?",
+            "ru": "Что могло бы провести персонажей через главные ворота — маскировка, документы, денарии, или просто уверенность в себе?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "settlement"
+      ]
+    },
+    {
+      "id": "capital-ship-assault",
+      "tier": 3,
+      "type": "event",
+      "difficulty": 18,
+      "name": {
+        "en": "Capital Ship Assault",
+        "ru": "Штурм Линкора"
+      },
+      "impulses": {
+        "en": [
+          "Restrict movement",
+          "capture",
+          "kill",
+          "chase"
+        ],
+        "ru": [
+          "Ограничивать передвижение",
+          "захватывать",
+          "убивать",
+          "преследовать"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Staff Officer",
+          "Surge Adversaries",
+          "Storm Operator"
+        ],
+        "ru": [
+          "Штабной Офицер",
+          "противники Прорыва",
+          "Штормовой Оператор"
+        ]
+      },
+      "features": [
+        {
+          "type": "reaction",
+          "name": {
+            "en": "This Was The Plan?!",
+            "ru": "Это Был План?!"
+          },
+          "description": {
+            "en": "When the Event begins, the PCs make a group Action Roll to determine how close they are to their objective.\n- **Critical Success:** They reached their objective with momentum. The group gains Advantage on their next Action Roll.\n- **Success with Hope:** They’re on target.\n- **Success with Fear:** They’re close, but a final obstacle still stands in their way.\n- **Failure with Hope:** They’re held up and still some distance away.\n- **Failure with Fear:** They’re nowhere near the objective. The GM gains 1 Fear and describes what kind of mess the PCs are in.",
+            "ru": "Когда Событие начинается, персонажи совершают групповой бросок действия, чтобы определить, насколько близко они к своей цели.\n- **Критический успех:** Они достигли цели с разгоном. Группа получает Преимущество на следующий бросок действия.\n- **Успех с Надеждой:** Они на верном пути.\n- **Успех со Страхом:** Они близко, но последнее препятствие всё ещё стоит на их пути.\n- **Неудача с Надеждой:** Их задержали, и они всё ещё на некотором расстоянии от цели.\n- **Неудача со Страхом:** Они совершенно не рядом с целью. Мастер получает 1 Страх и описывает, в какую переделку попали персонажи."
+          },
+          "prompt": {
+            "en": "What is the PC’s objective? Are they fighting their way through, or trying to reach it by another means?",
+            "ru": "Какова цель персонажей? Они пробиваются с боем, или пытаются достичь её иным способом?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Wreck House",
+            "ru": "Разнести Всё"
+          },
+          "description": {
+            "en": "By making an appropriate Action Roll, the PCs can disrupt or destroy the flagship’s systems.\n- **Critical Success:** The system is shut down or destroyed permanently (or will be soon, such as by a virus or explosive charges).\n- **Success with Hope:** The system is disabled temporarily. A PC may spend a Hope to make it permanent.\n- **Success with Fear:** The system is disabled temporarily.\n- **Failure with Hope:** The system marks a HP or a Stress (PC’s choice). A PC may spend a Hope to cause it to mark both.\n- **Failure with Fear:** The PCs’ efforts backfire. The system clears a Stress. If it had none, the GM gains a Fear.",
+            "ru": "Совершив подходящий бросок действия, персонажи могут нарушить работу или уничтожить системы флагмана.\n- **Критический успех:** Система отключена или уничтожена навсегда (или скоро будет, например, вирусом или взрывными зарядами).\n- **Успех с Надеждой:** Система временно отключена. Персонаж может потратить Надежду, чтобы сделать это постоянным.\n- **Успех со Страхом:** Система временно отключена.\n- **Неудача с Надеждой:** Система отмечает Рану или Стресс (на выбор персонажа). Персонаж может потратить Надежду, чтобы она отметила и то, и другое.\n- **Неудача со Страхом:** Усилия персонажей дают обратный эффект. Система снимает Стресс. Если у неё не было отмеченного Стресса, Мастер получает Страх."
+          },
+          "prompt": {
+            "en": "How are the PCs sabotaging the system? Are they coordinating with the attacking fleet?",
+            "ru": "Как персонажи саботируют систему? Координируют ли они действия с атакующим флотом?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "What Does This Do?",
+            "ru": "Это Ещё Что Такое?"
+          },
+          "description": {
+            "en": "Spend a Fear when a PC takes the Wreck House action to make that PC’s Fear die a d20 for the roll.",
+            "ru": "Потратьте Страх, когда персонаж совершает действие «Разнести Всё», чтобы сделать Кость Страха этого персонажа d20 для этого броска."
+          },
+          "prompt": {
+            "en": "What unforeseen consequence or hidden danger accompanies their sabotage attempt?",
+            "ru": "Какое непредвиденное последствие или скрытая опасность сопровождает их попытку саботажа?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Automated Defenses",
+            "ru": "Автоматическая Оборона"
+          },
+          "description": {
+            "en": "Spend a Fear to target a PC and all PCs within Very Close Range. Each target makes a Reaction Roll. On a failure, they suffer 3d10 energy damage and become Restrained. A PC can end the Restrained condition by succeeding on another Reaction Roll (taking the same damage on a failure). The condition also ends if the PCs disable or destroy the defenses.",
+            "ru": "Потратьте Страх, чтобы выбрать персонажа и всех персонажей в пределах Очень Близкой дистанции от него в качестве целей. Каждая цель совершает Бросок Реакции. При неудаче она получает 3d10 урона энергией и становится Обездвиженной. Персонаж может снять состояние Обездвижен, преуспев в другом Броске Реакции (получая тот же урон при неудаче). Состояние также снимается, если персонажи отключают или уничтожают оборонительные системы."
+          },
+          "prompt": {
+            "en": "What type of automated defenses does the ship use? Can they be shut down—or turned against the enemy?",
+            "ru": "Какой тип автоматической обороны использует корабль? Можно ли её отключить — или обратить против врага?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Reinforcements!",
+            "ru": "Подкрепление!"
+          },
+          "description": {
+            "en": "Spend a Fear to summon a Surge Commander, a Surge Trooper Squad, and two additional adversaries of the GM’s choice. They appear within Far Range of a chosen PC. The Surge Commander immediately gains the spotlight.",
+            "ru": "Потратьте Страх, чтобы призвать Командира Прорыва, Отряд Штурмовиков Прорыва и двух дополнительных противников по выбору Мастера. Они появляются в пределах Дальней дистанции от выбранного персонажа. Командир Прорыва немедленно получает Активацию."
+          },
+          "prompt": {
+            "en": "What other forces are stationed aboard the ship? Are these reinforcements hunting the PCs—or simply converging by chance?",
+            "ru": "Какие ещё силы размещены на борту корабля? Это подкрепление охотится за персонажами — или просто стягивается сюда случайно?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "The Cavalry",
+            "ru": "Кавалерия"
+          },
+          "description": {
+            "en": "The PCs may make a group Action Roll. On a success, the leader may spend a Hope and mark a Stress to call in allied support. These allies accomplish a meaningful objective for the PCs at the GM’s discretion, such as holding off enemies, securing an exit, seizing an objective, or creating a diversion.",
+            "ru": "Персонажи могут совершить групповой бросок действия. При успехе лидер может потратить Надежду и отметить Стресс, чтобы призвать помощь союзников. Эти союзники выполняют значимую для персонажей задачу по усмотрению Мастера, например, сдерживают врагов, обеспечивают путь отхода, захватывают цель или создают отвлекающий манёвр."
+          },
+          "prompt": {
+            "en": "Who comes to their aid? Was this support planned, or an act of desperate improvisation?",
+            "ru": "Кто приходит им на помощь? Эта поддержка была спланирована, или это акт отчаянной импровизации?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Massive Damage",
+            "ru": "Массированные Повреждения"
+          },
+          "description": {
+            "en": "Spend a Fear to trigger catastrophic damage to the ship. The Superstructure marks a HP as a section of the hull rips open or apart. By spending a second Fear, the Superstructure marks an second HP, and the ship ruptures— exposing the PCs to vacuum and zero gravity.",
+            "ru": "Потратьте Страх, чтобы вызвать катастрофические повреждения корабля. Суперструктура отмечает Рану, поскольку часть корпуса разрывается или отходит. Потратив второй Страх, Суперструктура отмечает вторую Рану, и корабль разрывается — подвергая персонажей воздействию вакуума и невесомости."
+          },
+          "prompt": {
+            "en": "What caused the destruction—an internal explosion, a missile strike, or collateral damage from the battle?",
+            "ru": "Что вызвало разрушение — внутренний взрыв, ракетный удар, или сопутствующий урон от боя?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "universal"
+      ]
+    },
+    {
+      "id": "capital-ship-high-alert",
+      "tier": 3,
+      "type": "event",
+      "difficulty": 18,
+      "name": {
+        "en": "Capital Ship High Alert",
+        "ru": "Линкор на Боевой Тревоге"
+      },
+      "impulses": {
+        "en": [
+          "Restrict movement",
+          "capture",
+          "kill",
+          "chase"
+        ],
+        "ru": [
+          "Ограничивать передвижение",
+          "захватывать",
+          "убивать",
+          "преследовать"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Staff Officer",
+          "Surge Adversaries",
+          "Storm Operator"
+        ],
+        "ru": [
+          "Штабной Офицер",
+          "противники Прорыва",
+          "Штормовой Оператор"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Lockdown",
+            "ru": "Блокировка"
+          },
+          "description": {
+            "en": "The ship is sealed under full security protocols. All doors are locked, blast doors closed, and automated systems are on high alert.",
+            "ru": "Корабль опечатан под полными протоколами безопасности. Все двери заперты, бронедвери закрыты, а автоматические системы находятся в состоянии повышенной готовности."
+          },
+          "prompt": {
+            "en": "Why is the ship on lockdown? Was there a breach, an assassination attempt, or a paranoid commander sealing the ship for inspection?",
+            "ru": "Почему корабль на блокировке? Была утечка, попытка покушения, или параноидальный командир опечатал корабль для проверки?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Reinforcements!",
+            "ru": "Подкрепление!"
+          },
+          "description": {
+            "en": "Spend a Fear to summon a Surge Commander, a Surge Trooper Squad, and two additional adversaries of the GM’s choice within Far Range of a chosen PC. The Surge Commander immediately gains the spotlight.",
+            "ru": "Потратьте Страх, чтобы призвать Командира Прорыва, Отряд Штурмовиков Прорыва и двух дополнительных противников по выбору Мастера в пределах Дальней дистанции от выбранного персонажа. Командир Прорыва немедленно получает Активацию."
+          },
+          "prompt": {
+            "en": "What other adversaries are stationed aboard the ship? Are these reinforcements closing in on the PCs—or simply responding to chaos elsewhere?",
+            "ru": "Какие ещё противники размещены на борту корабля? Это подкрепление стягивается к персонажам — или просто реагирует на хаос в другом месте?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Garbage Chute",
+            "ru": "Мусорный Жёлоб"
+          },
+          "description": {
+            "en": "When a PC rolls with Hope, reveal an escape route. It’s dark, narrow, and reeks of danger. If the PCs use it, the GM gains a Fear.",
+            "ru": "Когда персонаж выбрасывает результат с Надеждой, раскройте путь к отступлению. Он тёмный, узкий и источает опасность. Если персонажи им воспользуются, Мастер получает Страх."
+          },
+          "prompt": {
+            "en": "Where does this escape route lead? What hidden dangers or surprises wait at its end?",
+            "ru": "Куда ведёт этот путь отступления? Какие скрытые опасности или сюрпризы ждут в его конце?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Sovereign March",
+            "ru": "Марш Суверенитета"
+          },
+          "description": {
+            "en": "The true danger is drawing closer. When this Event begins, activate a Progress Countdown (8). It ticks down according to the following criteria whenever the PCs make an Action Roll aboard the ship:\n- **Critical Success:** Tick up 1\n- **Success with Hope:** No advancement\n- **Success with Fear:** Tick down 1\n- **Failure with Hope:** Tick down 2\n- **Failure with Fear:** Tick down 3\n\nWhen the countdown reaches 4 ticks, reveal this approaching threat and immediately trigger the Garbage Chute Reaction. When the countdown completes, the threat arrives (use the Ambushed! Event).",
+            "ru": "Истинная опасность приближается. Когда это Событие начинается, активируйте Отсчёт Прогресса (8). Он уменьшается по следующим критериям всякий раз, когда персонажи совершают бросок действия на борту корабля:\n- **Критический успех:** Увеличить на 1\n- **Успех с Надеждой:** Без изменений\n- **Успех со Страхом:** Уменьшить на 1\n- **Неудача с Надеждой:** Уменьшить на 2\n- **Неудача со Страхом:** Уменьшить на 3\n\nКогда отсчёт достигает 4 делений, раскройте эту приближающуюся угрозу и немедленно активируйте Реакцию «Мусорный Жёлоб». Когда отсчёт завершается, угроза прибывает (используйте Событие «Засада!»)."
+          },
+          "prompt": {
+            "en": "What is the true threat? Can the PCs possibly stand against it—or is survival the only victory?",
+            "ru": "В чём заключается истинная угроза? Могут ли персонажи вообще ей противостоять — или единственная победа это выживание?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Automated Defenses",
+            "ru": "Автоматическая Оборона"
+          },
+          "description": {
+            "en": "Spend a Fear to activate the ship’s internal defenses. Choose a target and all characters within Very Close Range of the target must make a Reaction Roll. On a failure, they suffer 3d10 energy damage and become Restrained. A PC may end the Restrained condition by succeeding on another Reaction Roll (taking the damage again on a failure). The condition also ends if the PCs disable or destroy the defenses.",
+            "ru": "Потратьте Страх, чтобы активировать внутреннюю оборону корабля. Выберите цель — все персонажи в пределах Очень Близкой дистанции от цели должны совершить Бросок Реакции. При неудаче они получают 3d10 урона энергией и становятся Обездвиженными. Персонаж может снять состояние Обездвижен, преуспев в другом Броске Реакции (получая урон снова при неудаче). Состояние также снимается, если персонажи отключают или уничтожают оборонительные системы."
+          },
+          "prompt": {
+            "en": "What kind of defenses are active—turret drones, electric grids, security fields? Can the PCs hack, jam, or override them before it’s too late?",
+            "ru": "Какая оборона активна — турели-дроны, электросети, силовые поля? Могут ли персонажи взломать, заглушить или обойти их, пока не стало слишком поздно?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "universal"
+      ]
+    },
+    {
+      "id": "capital-ship-infiltration",
+      "tier": 3,
+      "type": "event",
+      "difficulty": 18,
+      "name": {
+        "en": "Capital Ship Infiltration",
+        "ru": "Проникновение на Линкор"
+      },
+      "impulses": {
+        "en": [
+          "Restrict movement",
+          "investigate suspicions",
+          "imprison"
+        ],
+        "ru": [
+          "Ограничивать передвижение",
+          "расследовать подозрения",
+          "заключать в тюрьму"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Staff Officer",
+          "Surge Adversaries",
+          "Storm Operator"
+        ],
+        "ru": [
+          "Штабной Офицер",
+          "противники Прорыва",
+          "Штормовой Оператор"
+        ]
+      },
+      "features": [
+        {
+          "type": "action",
+          "name": {
+            "en": "New Protocols",
+            "ru": "Новые Протоколы"
+          },
+          "description": {
+            "en": "Spend a Fear to reveal that the ship’s security protocols have changed, giving disadvantage to further attempts to ghost systems, sneak, or hide.",
+            "ru": "Потратьте Страх, чтобы раскрыть, что протоколы безопасности корабля изменились, дав помеху дальнейшим попыткам обмануть системы, прокрасться или спрятаться."
+          },
+          "prompt": {
+            "en": "What changed? New access codes, enhanced monitoring, AI analysis, or something stranger?",
+            "ru": "Что изменилось? Новые коды доступа, усиленный мониторинг, анализ ИИ, или что-то более странное?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Objective",
+            "ru": "Цель"
+          },
+          "description": {
+            "en": "The PCs achieve their goal by advancing a Progress Countdown (12). It ticks down according to the following criteria when the PCs make Action Rolls to move through the ship:\n- **Critical Success:** Tick down 3\n- **Success with Hope:** Tick down 2\n- **Success with Fear:** Tick down 1\n- **Failure with Hope:** No advancement\n- **Failure with Fear:** Tick up 1\n\nWhen the countdown triggers, the PCs reach or complete their objective.",
+            "ru": "Персонажи достигают своей цели, продвигая Отсчёт Прогресса (12). Он уменьшается по следующим критериям, когда персонажи совершают броски действия, чтобы передвигаться по кораблю:\n- **Критический успех:** Уменьшить на 3\n- **Успех с Надеждой:** Уменьшить на 2\n- **Успех со Страхом:** Уменьшить на 1\n- **Неудача с Надеждой:** Без изменений\n- **Неудача со Страхом:** Увеличить на 1\n\nКогда отсчёт срабатывает, персонажи достигают или завершают свою цель."
+          },
+          "prompt": {
+            "en": "What is the PCs’ objective? How are they staying concealed as they progress through the ship?",
+            "ru": "Какова цель персонажей? Как они остаются незамеченными, продвигаясь по кораблю?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Discovered",
+            "ru": "Обнаружены"
+          },
+          "description": {
+            "en": "Every action aboard risks exposure. Start a Progress Countdown (12). It ticks down according to the following criteria when the PCs make an Action Roll aboard the ship:\n- **Critical Success:** No advancement\n- **Success with Hope:** Tick down 1\n- **Success with Fear:** Tick down 2\n- **Failure with Hope:** Tick down 3\n- **Failure with Fear:** Tick down 4\n\nWhen the countdown ticks down, roll 1d12. If the result equals or exceeds the current ticks, the PCs are noticed. The consequences depend on the countdown’s current range:\n- **Countdown 9–12:** A small slip — a sound, anomaly, or visual cue. The PCs can still lower suspicion. “We’re all good. Just fine here. How about you?”\n- **Countdown 5–8:** Definite detection. The GM gains the spotlight and may use Patrol! or They’re in the System! for only 1 Fear.\n- **Countdown 1–4:** This event escalates immediately into Capital Ship High Alert.",
+            "ru": "Каждое действие на борту рискует раскрытием. Начните Отсчёт Прогресса (12). Он уменьшается по следующим критериям, когда персонажи совершают бросок действия на борту корабля:\n- **Критический успех:** Без изменений\n- **Успех с Надеждой:** Уменьшить на 1\n- **Успех со Страхом:** Уменьшить на 2\n- **Неудача с Надеждой:** Уменьшить на 3\n- **Неудача со Страхом:** Уменьшить на 4\n\nКогда отсчёт уменьшается, бросьте 1d12. Если результат равен текущему числу делений или превышает его, персонажей замечают. Последствия зависят от текущего диапазона отсчёта:\n- **Отсчёт 9–12:** Небольшая оплошность — звук, аномалия или визуальный сигнал. Персонажи всё ещё могут снизить подозрения. «У нас всё хорошо. Просто отлично. А у вас?»\n- **Отсчёт 5–8:** Точное обнаружение. Мастер получает Активацию и может использовать «Патруль!» или «Они в Системе!» всего за 1 Страх.\n- **Отсчёт 1–4:** Это событие немедленно перерастает в «Линкор на Боевой Тревоге»."
+          },
+          "prompt": {
+            "en": "What evidence do the PCs leave behind? How does the ship’s command react as the signs build?",
+            "ru": "Какие улики оставляют после себя персонажи? Как командование корабля реагирует по мере накопления признаков?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Patrol!",
+            "ru": "Патруль!"
+          },
+          "description": {
+            "en": "Spend 2 Fear to have a patrol encounter the PCs. If the PCs’ last roll was made with Fear, resolve the encounter using the Ambushed! Event.",
+            "ru": "Потратьте 2 Страха, чтобы патруль встретил персонажей. Если последний бросок персонажей был со Страхом, разрешите встречу, используя Событие «Засада!»."
+          },
+          "prompt": {
+            "en": "Is the patrol aware of the PCs? Can the PCs avoid or escape before being discovered?",
+            "ru": "Патруль знает о персонажах? Могут ли персонажи избежать обнаружения или сбежать до того, как их найдут?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "They’re in the System!",
+            "ru": "Они в Системе!"
+          },
+          "description": {
+            "en": "Spend 2 Fear to reveal that security forces detect infiltration or tampering in the ship’s systems and begin an active search for the PCs.",
+            "ru": "Потратьте 2 Страха, чтобы раскрыть, что силы безопасности обнаружили проникновение или вмешательство в системы корабля и начинают активный поиск персонажей."
+          },
+          "prompt": {
+            "en": "What tipped off security? Are they searching physically, digitally, or both?",
+            "ru": "Что навело безопасность на след? Они ищут физически, цифровым способом, или и так, и так?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "universal"
+      ]
+    },
+    {
+      "id": "conclave-hall",
+      "tier": 3,
+      "type": "event",
+      "difficulty": 17,
+      "name": {
+        "en": "Conclave Hall",
+        "ru": "Зал Конклава"
+      },
+      "impulses": {
+        "en": [
+          "Betray",
+          "influence",
+          "trap",
+          "mire in process",
+          "capture",
+          "kill",
+          "chase"
+        ],
+        "ru": [
+          "Предавать",
+          "влиять",
+          "заманивать в ловушку",
+          "увязать в процедурах",
+          "захватывать",
+          "убивать",
+          "преследовать"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Staff Officer",
+          "Planetary Governor",
+          "Sovereignty Bureaucrat",
+          "Cardinal of the Conclave"
+        ],
+        "ru": [
+          "Штабной Офицер",
+          "Планетарный Губернатор",
+          "Бюрократ Суверенитета",
+          "Кардинал Конклава"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Galactic Dominion",
+            "ru": "Галактическое Господство"
+          },
+          "description": {
+            "en": "While in the Conclave Hall, PCs have disadvantage on Presence rolls opposing the Sovereignty’s policies or authority.",
+            "ru": "Находясь в Зале Конклава, персонажи совершают броски на Влияние с помехой, если те направлены против политики или власти Суверенитета."
+          },
+          "prompt": {
+            "en": "Do any present secretly support the PCs? Who could they sway— and what dangers do they invite by speaking out?",
+            "ru": "Есть ли среди присутствующих тайные сторонники персонажей? Кого они могли бы склонить на свою сторону — и какими опасностями они рискуют, высказавшись?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "The Right to Speak",
+            "ru": "Право Голоса"
+          },
+          "description": {
+            "en": "A PC must mark a Stress to address the Conclave as a whole.",
+            "ru": "Персонаж должен отметить Стресс, чтобы обратиться к Конклаву в целом."
+          },
+          "prompt": {
+            "en": "What procedures control who may speak and about what topics?",
+            "ru": "Какие процедуры определяют, кто может говорить и на какие темы?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Viper’s Venom",
+            "ru": "Яд Гадюки"
+          },
+          "description": {
+            "en": "Any failed social roll in the Conclave Hall causes the PC to mark a Stress.",
+            "ru": "Любой провальный социальный бросок в Зале Конклава заставляет персонажа отметить Стресс."
+          },
+          "prompt": {
+            "en": "What misstep or insult led to failure? What political consequences follow?",
+            "ru": "Какой промах или оскорбление привели к неудаче? Какие политические последствия за этим следуют?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Force a Vote",
+            "ru": "Продавить Голосование"
+          },
+          "description": {
+            "en": "Spend a Fear to tick down a long-term countdown tied to the Sovereignty’s agenda by 1d4. If this triggers the countdown, the Cardinals vote to enact the agenda during the Conclave.",
+            "ru": "Потратьте Страх, чтобы уменьшить долгосрочный отсчёт, связанный с повесткой Суверенитета, на 1d4. Если это вызывает срабатывание отсчёта, Кардиналы голосуют за принятие повестки во время Конклава."
+          },
+          "prompt": {
+            "en": "What is the agenda? What display of power or favor expedited the decision? Whose fortunes were ruined in the process?",
+            "ru": "В чём заключается повестка? Какая демонстрация силы или благосклонности ускорила решение? Чьи судьбы были разрушены в процессе?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Snoopers",
+            "ru": "Соглядатаи"
+          },
+          "description": {
+            "en": "On any roll with Fear, spend a Fear to have a loyalist overhear or fabricate evidence of sedition. A PC must succeed on an Instinct Reaction Roll to notice and intervene.",
+            "ru": "При любом броске со Страхом потратьте Страх, чтобы лоялист подслушал или сфабриковал улики измены. Персонаж должен преуспеть в Броске Реакции на Инстинкт, чтобы заметить это и вмешаться."
+          },
+          "prompt": {
+            "en": "What hidden opportunity lies in this crisis? Why are the loyalists devoted to a regime that exploits them?",
+            "ru": "Какая скрытая возможность кроется в этом кризисе? Почему лоялисты преданы режиму, который их же эксплуатирует?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Treacherous Nest",
+            "ru": "Змеиное Гнездо"
+          },
+          "description": {
+            "en": "When the PCs discover a rivalry between Cardinals, start a Countdown (2d4). The PCs may exploit this rivalry to gain Advantage on a roll and ignore Galactic Dominion and The Right to Speak. After exploiting the rivalry, tick the countdown down 1. Then, roll 1d4. If the result is higher than the current ticks, another faction exploits the same rift and the countdown ticks again. Continue this process until the roll fails to cause a tick. If the countdown triggers, the PCs’ manipulation backfires spectacularly.",
+            "ru": "Когда персонажи обнаруживают соперничество между Кардиналами, начните Отсчёт (2d4). Персонажи могут использовать это соперничество, чтобы получить Преимущество на бросок и проигнорировать «Галактическое Господство» и «Право Голоса». Использовав соперничество, уменьшите отсчёт на 1. Затем бросьте 1d4. Если результат больше текущего числа делений, другая фракция использует тот же раскол, и отсчёт уменьшается снова. Продолжайте этот процесс, пока бросок не перестанет вызывать уменьшение. Если отсчёт срабатывает, манипуляции персонажей эффектно проваливаются."
+          },
+          "prompt": {
+            "en": "Who are the rivals? What drives their feud? How could this intrigue turn on the PCs?",
+            "ru": "Кто эти соперники? Что движет их враждой? Как эта интрига могла бы обернуться против персонажей?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Red Tape",
+            "ru": "Бюрократическая Волокита"
+          },
+          "description": {
+            "en": "On any roll with Fear, spend a Fear to tick any countdown in this scene up or down 1.",
+            "ru": "При любом броске со Страхом потратьте Страх, чтобы изменить любой отсчёт в этой сцене на 1 в любую сторону."
+          },
+          "prompt": {
+            "en": "What bureaucratic obstruction or antique rule changes the balance? Who benefits from it?",
+            "ru": "Какое бюрократическое препятствие или устаревшее правило меняет расстановку сил? Кому это выгодно?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Getting to Yes",
+            "ru": "Добиться Согласия"
+          },
+          "description": {
+            "en": "When the PCs push their agenda, start two countdowns: Yes (2d3) and No (2d3). If the PCs have leverage on their audience, their Hope die becomes a d20. If the opposition holds leverage, or the PCs commit a faux pas, their Hope die becomes a d8. Tick the countdowns as follows:\n- **Critical Success: **Yes ticks down 2, No remains the same.\n- **Success with Hope: **Yes ticks down 1, No remains the same.\n- **Success with Fear: **Yes ticks down 1, No ticks down 1.\n- **Failure with Hope: **Yes ticks down 1, No ticks down 2.\n- **Failure with Fear: **Yes remains the same, No ticks down 2.\n\nIf either countdown triggers, the result depends on the PC’s final roll:\n- **Critical Success: **Their agenda is accepted, along with a bonus.\n- **Success with Hope: **Their agenda is accepted.\n- **Success with Fear: **Their agenda is accepted, but with minor caveats.\n- **Failure with Hope: **Their agenda is rejected, but they are given something they want or another opportunity to achieve their goals.\n- **Failure with Fear: **Their agenda is rejected with no hope to change the minds of those rejecting it.\n\nAdjust this result based on which countdown(s) triggered:\n- If only the Yes countdown triggered, improve the result by one category.\n- If only the No countdown triggered, worsen the result by one category.\n- If both countdowns triggered, the result stands.",
+            "ru": "Когда персонажи продвигают свою повестку, начните два отсчёта: «Да» (2d3) и «Нет» (2d3). Если у персонажей есть рычаг влияния на аудиторию, их Кость Надежды становится d20. Если рычагом владеет оппозиция, или персонажи допускают faux pas, их Кость Надежды становится d8. Изменяйте отсчёты следующим образом:\n- **Критический успех:** «Да» уменьшается на 2, «Нет» остаётся прежним.\n- **Успех с Надеждой:** «Да» уменьшается на 1, «Нет» остаётся прежним.\n- **Успех со Страхом:** «Да» уменьшается на 1, «Нет» уменьшается на 1.\n- **Неудача с Надеждой:** «Да» уменьшается на 1, «Нет» уменьшается на 2.\n- **Неудача со Страхом:** «Да» остаётся прежним, «Нет» уменьшается на 2.\n\nЕсли один из отсчётов срабатывает, результат зависит от финального броска персонажа:\n- Критический успех: их повестка принята, вместе с бонусом.\n- Успех с Надеждой: их повестка принята.\n- Успех со Страхом: их повестка принята, но с незначительными оговорками.\n- Неудача с Надеждой: их повестка отклонена, но им дают то, чего они хотели, или ещё одну возможность достичь своей цели.\n- Неудача со Страхом: их повестка отклонена без надежды переубедить тех, кто её отклонил.\n\nСкорректируйте этот результат в зависимости от того, какой отсчёт(ы) сработал:\n- Если сработал только отсчёт «Да», улучшите результат на одну категорию.\n- Если сработал только отсчёт «Нет», ухудшите результат на одну категорию.\n- Если сработали оба отсчёта, результат остаётся как есть."
+          },
+          "prompt": {
+            "en": "What leverage could the PCs bring to bear? What rhetoric or values might strengthen—or undermine—their case? How might the opposition counter?",
+            "ru": "Какой рычаг влияния могли бы использовать персонажи? Какая риторика или ценности могли бы усилить — или подорвать — их позицию? Как оппозиция могла бы возразить?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "settlement"
+      ]
+    },
+    {
+      "id": "operations-center",
+      "tier": 3,
+      "type": "event",
+      "difficulty": 17,
+      "name": {
+        "en": "Operations Center",
+        "ru": "Оперативный Центр"
+      },
+      "impulses": {
+        "en": [
+          "Plan",
+          "visualize",
+          "coordinate",
+          "intrude",
+          "demand updates"
+        ],
+        "ru": [
+          "Планировать",
+          "визуализировать",
+          "координировать",
+          "вторгаться",
+          "требовать отчётов"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Staff Officer",
+          "Surge Commander",
+          "Surge Trooper Squad",
+          "Surge Eye"
+        ],
+        "ru": [
+          "Штабной Офицер",
+          "Командир Прорыва",
+          "Отряд Штурмовиков Прорыва",
+          "Око Прорыва"
+        ]
+      },
+      "features": [
+        {
+          "type": "action",
+          "name": {
+            "en": "Micromanage",
+            "ru": "Микроменеджмент"
+          },
+          "description": {
+            "en": "Spend a Fear to activate this Event while the PCs are in any other environment, including another Event. That environment’s difficulty decreases by 1. This allows this Event to affect the PCs with any of its Features.",
+            "ru": "Потратьте Страх, чтобы активировать это Событие, пока персонажи находятся в любом другом окружении, включая другое Событие. Сложность этого окружения уменьшается на 1. Это позволяет данному Событию влиять на персонажей любой из своих Особенностей."
+          },
+          "prompt": {
+            "en": "What caused the Operations Center to involve itself?",
+            "ru": "Что заставило Оперативный Центр вмешаться?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Command and Control",
+            "ru": "Командование и Управление"
+          },
+          "description": {
+            "en": "If there are any Staff Officers in the scene, they can make a d20 roll adding their Planning Experience. On a result of 10 or higher tick any clock up or down once. On a result of 20 or higher, tick any clock up or down twice. On a natural 20, tick any clock up or down three times. The GM must spend a Fear to tick any one clock more than once with this ability in a scene. If the PCs destroy or disrupt the Operations Center, they can add or subtract up to a total of two ticks from any clock (or clocks) they are aware of.",
+            "ru": "Если в сцене присутствуют Штабные Офицеры, они могут совершить бросок d20, добавляя свой Опыт Планирования. При результате 10 или выше измените любой счётчик на одно деление в любую сторону. При результате 20 или выше измените любой счётчик на два деления. При натуральной 20 измените любой счётчик на три деления. Мастер должен потратить Страх, чтобы изменить один и тот же счётчик более одного раза этой способностью за сцену. Если персонажи уничтожают или выводят из строя Оперативный Центр, они могут прибавить или отнять до двух делений в сумме от любого известного им счётчика (или счётчиков)."
+          },
+          "prompt": {
+            "en": "Who is in charge of the Operations Center? What is the Operations Center’s goal?",
+            "ru": "Кто отвечает за Оперативный Центр? Какова цель Оперативного Центра?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Planned for That",
+            "ru": "Заранее Предусмотрено"
+          },
+          "description": {
+            "en": "When the PCs make an action roll to tick a clock, spend a Fear to make the Hope die a d8.",
+            "ru": "Когда персонажи совершают бросок действия, чтобы изменить счётчик, потратьте Страх, чтобы Кость Надежды стала d8."
+          },
+          "prompt": {
+            "en": "What intel allowed the enemy to anticipate the PCs’ actions? What did the enemy do to disrupt the PCs?",
+            "ru": "Какие разведданные позволили противнику предугадать действия персонажей? Что сделал враг, чтобы помешать персонажам?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Too Busy",
+            "ru": "Слишком Заняты"
+          },
+          "description": {
+            "en": "Staff in the Operations Center don’t prioritize physical training or range time. Adversaries inside the Operations Center reduce their Difficulty by 1 and suffer disadvantage on attack rolls.",
+            "ru": "Персонал Оперативного Центра не уделяет приоритета физической подготовке или стрельбе. Противники внутри Оперативного Центра уменьшают свою Сложность на 1 и получают помеху на броски атаки."
+          },
+          "prompt": {
+            "en": "Are there any exceptions amongst the staff? Are the staff arrogant about their relative lack of training, or do they recognize the shortcoming?",
+            "ru": "Есть ли исключения среди персонала? Персонал высокомерен из-за своей относительной неподготовленности, или осознаёт этот недостаток?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Lock Down",
+            "ru": "Блокировка"
+          },
+          "description": {
+            "en": "If open conflict erupts in the Operations Center, summon a number of Tier 3 adversaries equal to the number of PCs. These adversaries are not subject to the Too Busy Feature.",
+            "ru": "Если в Оперативном Центре вспыхивает открытый конфликт, призовите число противников Ранга 3, равное числу персонажей. Эти противники не подчиняются особенности «Слишком Заняты»."
+          },
+          "prompt": {
+            "en": "What kind of adversaries respond to conflict in the Operations Center? Is there a planned quick reaction force, or is it whoever is available? Has the plan been rehearsed lately? Could the PCs exploit this plan?",
+            "ru": "Какие противники реагируют на конфликт в Оперативном Центре? Есть ли спланированная группа быстрого реагирования, или это те, кто оказался под рукой? Репетировался ли план в последнее время? Могли бы персонажи использовать этот план в своих интересах?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "settlement"
+      ]
+    },
+    {
+      "id": "sovereignty-base",
+      "tier": 3,
+      "type": "event",
+      "difficulty": 18,
+      "name": {
+        "en": "Sovereignty Base",
+        "ru": "База Суверенитета"
+      },
+      "impulses": {
+        "en": [
+          "Restrict movement",
+          "investigate suspicions",
+          "imprison"
+        ],
+        "ru": [
+          "Ограничивать передвижение",
+          "расследовать подозрения",
+          "заключать в тюрьму"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Staff Officer",
+          "Surge Adversaries",
+          "Storm Operator"
+        ],
+        "ru": [
+          "Штабной Офицер",
+          "противники Прорыва",
+          "Штормовой Оператор"
+        ]
+      },
+      "features": [
+        {
+          "type": "action",
+          "name": {
+            "en": "Weapons Towers",
+            "ru": "Оружейные Башни"
+          },
+          "description": {
+            "en": "Approaching the base surreptitiously requires succeeding on a group Action Roll at disadvantage. On a failure, the PCs are spotted and each PC has to make a Reaction Roll or suffer 3d10+3 energy damage.",
+            "ru": "Скрытное приближение к базе требует успешного группового броска действия с помехой. При неудаче персонажей замечают, и каждый персонаж должен совершить Бросок Реакции, иначе получает 3d10+3 урона энергией."
+          },
+          "prompt": {
+            "en": "What weapons threaten the PCs’ approach? How might they get past these weapons?",
+            "ru": "Какое оружие угрожает подходу персонажей? Как они могли бы обойти это оружие?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Endless Corridors",
+            "ru": "Бесконечные Коридоры"
+          },
+          "description": {
+            "en": "The base is a tight maze, unless inside the Armor Depot, characters cannot see each other (except on a camera) at farther than Close Range. Unless the PCs have a map or schematic, the GM can spend a Fear when the PCs move through the base to have them arrive at an inconvenient location.",
+            "ru": "База — это тесный лабиринт: за исключением Оружейного Склада, персонажи не видят друг друга (кроме как по камере) дальше Близкой дистанции. Если у персонажей нет карты или схемы, Мастер может потратить Страх, когда персонажи перемещаются по базе, чтобы они оказались в неудобном месте."
+          },
+          "prompt": {
+            "en": "How might the PCs acquire a map or schematic? What kinds of inconvenient locations might the PCs find themselves in?",
+            "ru": "Как персонажи могли бы раздобыть карту или схему? В каких неудобных местах могли бы оказаться персонажи?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Armor Depot",
+            "ru": "Оружейный Склад"
+          },
+          "description": {
+            "en": "The depot is filled with Sovereignty war machines and the staff maintaining them. Commandeering one of the war machine’s weapons allows making an attack using Agility to deal d10+3 energy damage using proficiency. Make an attack against a target and all creatures within Very Close Range of the target.",
+            "ru": "Склад заполнен боевыми машинами Суверенитета и персоналом, который их обслуживает. Захватив оружие одной из боевых машин, можно совершить атаку, используя Проворность, нанося d10+3 урона энергией с использованием профессионализма. Атакуйте цель и всех существ в пределах Очень Близкой дистанции от цели."
+          },
+          "prompt": {
+            "en": "What types of war machines fill the depot? Are there other vehicles, weapons, gear or cargo present? Is the depot heavily guarded?",
+            "ru": "Какие типы боевых машин заполняют склад? Присутствуют ли другие транспортные средства, оружие, снаряжение или груз? Склад тщательно охраняется?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "High Alert",
+            "ru": "Повышенная Готовность"
+          },
+          "description": {
+            "en": "When a PC takes damage from an attack, the base enters High Alert. Immediately summon a number of Tier 3 adversaries equal to the number of PCs in the scene and spotlight one of them. While this environment is on High Alert, all adversaries gain a +1 bonus to their Difficulty.",
+            "ru": "Когда персонаж получает урон от атаки, база переходит в состояние Повышенной Готовности. Немедленно призовите число противников Ранга 3, равное числу персонажей в сцене, и дайте Активацию одному из них. Пока это окружение находится в состоянии Повышенной Готовности, все противники получают бонус +1 к своей Сложности."
+          },
+          "prompt": {
+            "en": "What makes these adversaries uniquely suited to guard this location? What do they know about this place that gives them an edge?",
+            "ru": "Что делает этих противников особо подходящими для охраны этого места? Что они знают об этом месте, что даёт им преимущество?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Reinforcements!",
+            "ru": "Подкрепление!"
+          },
+          "description": {
+            "en": "If the base is on High Alert, summon a Surge Commander, a Surge Trooper Squad, and two adversaries of your choice within Far range of a chosen PC as reinforcements. The Surge Commander immediately gains the spotlight.",
+            "ru": "Если база находится в состоянии Повышенной Готовности, призовите Командира Прорыва, Отряд Штурмовиков Прорыва и двух противников по вашему выбору в пределах Дальней дистанции от выбранного персонажа в качестве подкрепления. Командир Прорыва немедленно получает Активацию."
+          },
+          "prompt": {
+            "en": "Do these reinforcements know who the PCs are? Do the reinforcements intend to capture or kill the PCs?",
+            "ru": "Знает ли это подкрепление, кто такие персонажи? Намерено ли подкрепление захватить или убить персонажей?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "universal"
+      ]
+    },
+    {
+      "id": "archons-throne-room",
+      "tier": 4,
+      "type": "social",
+      "difficulty": 20,
+      "name": {
+        "en": "Archon’s Throne Room",
+        "ru": "Тронный Зал Архонта"
+      },
+      "impulses": {
+        "en": [
+          "Dominate",
+          "impress",
+          "frighten",
+          "surprise"
+        ],
+        "ru": [
+          "Подчинять",
+          "впечатлять",
+          "пугать",
+          "удивлять"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "The Archon",
+          "Dra’Kor Ascendant",
+          "Archon’s Shield"
+        ],
+        "ru": [
+          "Архонт",
+          "Восходящий Дра'Кор",
+          "Щит Архонта"
+        ]
+      },
+      "features": [
+        {
+          "type": "action",
+          "name": {
+            "en": "Kneel Before the Throne",
+            "ru": "Преклонись Перед Троном"
+          },
+          "description": {
+            "en": "Spend a Fear to present a PC with a golden opportunity or offer to satisfy a major goal in exchange for obeying or supporting the Sovereignty. The target must make a Presence Reaction Roll. On a failure, they must mark all their Stress or accept the offer. If they have already marked all their Stress, they must accept the offer or gain a scar. On a success, if they deny the offer they must mark 1d4 Stress as they’re taxed by temptation.",
+            "ru": "Потратьте Страх, чтобы предложить персонажу золотую возможность или сделку, удовлетворяющую крупную цель, в обмен на подчинение или поддержку Суверенитета. Цель должна совершить Бросок Реакции на Влияние. При неудаче она должна отметить весь свой Стресс или принять предложение. Если у неё уже отмечен весь Стресс, она должна принять предложение или получить шрам. При успехе, если она отклоняет предложение, она должна отметить 1d4 Стресса, изнемогая от соблазна."
+          },
+          "prompt": {
+            "en": "What do the PCs want so desperately they might consider throwing in with this ruthless power? How did the Archon learn the PC’s greatest desires?",
+            "ru": "Чего персонажи желают настолько отчаянно, что могли бы задуматься о союзе с этой безжалостной силой? Как Архонт узнал о величайших желаниях персонажа?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "It’s a Trap",
+            "ru": "Это Ловушка"
+          },
+          "description": {
+            "en": "Spend a Fear to set any Countdown to any value. If a die roll is associated with ticking the Countdown, choose any size die from 1d3 to 1d20 and roll it.",
+            "ru": "Потратьте Страх, чтобы установить любой Отсчёт на любое значение. Если с изменением Отсчёта связан бросок кости, выберите кость любого размера от 1d3 до 1d20 и бросьте её."
+          },
+          "prompt": {
+            "en": "How did the Archon set this trap? What is the Archon’s goal?",
+            "ru": "Как Архонт устроил эту ловушку? Какова цель Архонта?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Puppet of the Throne",
+            "ru": "Марионетка Трона"
+          },
+          "description": {
+            "en": "Spend 2 Fear to reveal an ally or allied faction was working for the Archon all along, wittingly or unwittingly. All PCs lose a Hope.",
+            "ru": "Потратьте 2 Страха, чтобы раскрыть, что союзник или союзная фракция всё это время работали на Архонта, сознательно или нет. Все персонажи теряют Надежду."
+          },
+          "prompt": {
+            "en": "Who is the traitor? Is this traitor a true believer, or another victim of the Archon’s manipulation?",
+            "ru": "Кто предатель? Этот предатель истинный приверженец, или ещё одна жертва манипуляций Архонта?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Summon Shields",
+            "ru": "Призвать Щиты"
+          },
+          "description": {
+            "en": "Three of the Archon’s Shields appear wherever the GM chooses and are all immediately spotlighted.",
+            "ru": "Три Щита Архонта появляются там, где выберет Мастер, и все они немедленно получают Активацию."
+          },
+          "prompt": {
+            "en": "Are these Shields known to the Archon personally? Or simply faceless masks chosen to die for the Archon?",
+            "ru": "Известны ли эти Щиты Архонту лично? Или это просто безликие маски, выбранные умереть за Архонта?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Shadow’s Embrace",
+            "ru": "Объятия Тени"
+          },
+          "description": {
+            "en": "While in the Throne Room all PCs use a d10 for their Hope die unless another feature changes their Hope die size. In this case, that other Feature takes precedence.",
+            "ru": "Находясь в Тронном Зале, все персонажи используют d10 в качестве Кости Надежды, если только другая особенность не меняет размер их Кости Надежды. В этом случае приоритет имеет та другая особенность."
+          },
+          "prompt": {
+            "en": "Can the PCs tell this effect is present? Are there physical manifestations of the shadow here?",
+            "ru": "Могут ли персонажи заметить присутствие этого эффекта? Есть ли у тени физические проявления здесь?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Endless Chasm",
+            "ru": "Бескрайняя Пропасть"
+          },
+          "description": {
+            "en": "The Archon’s Throne Room is inexplicably built high above a reactor of unlimited power. Chasms scattered throughout the Throne Room lead directly to the reactor. A PC or adversary that has marked all its Stress can be thrown into a chasm, a fate from which there is no return. If an adversary is thrown into a chasm, they are killed even if they have not marked all of their HP. If a PC is thrown in the chasm, they make a Death Move, but cannot choose Avoid Death.",
+            "ru": "Тронный Зал Архонта необъяснимым образом построен высоко над реактором неограниченной мощности. Расщелины, разбросанные по Тронному Залу, ведут прямо к реактору. Персонажа или противника, отметившего весь свой Стресс, можно сбросить в расщелину — судьба, из которой нет возврата. Если в расщелину сбрасывают противника, он погибает, даже если не отметил все свои Раны. Если в расщелину сбрасывают персонажа, он совершает Предсмертный ход, но не может выбрать «Избежать Смерти»."
+          },
+          "prompt": {
+            "en": "Are there guardrails at the chasm’s edge? What does the reactor power? Is anyone trying to shut down or destroy the reactor?",
+            "ru": "Есть ли ограждения на краю расщелины? Что питает реактор? Пытается ли кто-нибудь заглушить или уничтожить реактор?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "settlement"
+      ]
+    },
+    {
+      "id": "korathi-temple",
+      "tier": 4,
+      "type": "exploration",
+      "difficulty": 20,
+      "name": {
+        "en": "Korathi Temple",
+        "ru": "Кoратский Храм"
+      },
+      "impulses": {
+        "en": [
+          "Awe",
+          "tempt",
+          "make uneasy",
+          "keep out"
+        ],
+        "ru": [
+          "Внушать трепет",
+          "искушать",
+          "тревожить",
+          "не впускать"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Var’Kor Manipulator",
+          "Dra’Kor Ascendant",
+          "Korath Sorcerer",
+          "Mark IV Battle Bot",
+          "Interdiction Bot",
+          "Shot-Bot"
+        ],
+        "ru": [
+          "Манипулятор Вар'Кор",
+          "Восходящий Дра'Кор",
+          "Чародей Корат",
+          "Боевой Бот Марк IV",
+          "Бот-Перехватчик",
+          "Бот-Стрелок"
+        ]
+      },
+      "features": [
+        {
+          "type": "action",
+          "name": {
+            "en": "Dark Aura",
+            "ru": "Тёмная Аура"
+          },
+          "description": {
+            "en": "Once per scene, roll a d4. Each Korath in the scene clears a total amount of HP and/or Stress equal to the result rolled, distributing it as they choose.",
+            "ru": "Раз за сцену бросьте d4. Каждый Корат в сцене снимает суммарное количество Ран и/или Стресса, равное выпавшему результату, распределяя это по своему усмотрению."
+          },
+          "prompt": {
+            "en": "How does their renewed vigor manifest? Does the rejuvenating darkness manifest in physical signs of corruption?",
+            "ru": "Как проявляется их обновлённая сила? Проявляется ли эта омолаживающая тьма физическими признаками порчи?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Ancient Defenses",
+            "ru": "Древняя Оборона"
+          },
+          "description": {
+            "en": "Traps manifest and turrets emerge. All PCs must succeed on an Agility Reaction Roll or take 4d8+8 physical damage.",
+            "ru": "Появляются ловушки, выдвигаются турели. Все персонажи должны преуспеть в Броске Реакции на Проворность, иначе получают 4d8+8 физического урона."
+          },
+          "prompt": {
+            "en": "Do these traps and turrets appear alien and strange, or familiar and technological? Are they in good working order? Could the PCs shut them all down, or gain control of them?",
+            "ru": "Эти ловушки и турели выглядят чужеродно и странно, или знакомо и технологично? Они в исправном состоянии? Могли бы персонажи полностью их отключить или получить над ними контроль?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Eternal Defenders",
+            "ru": "Вечные Защитники"
+          },
+          "description": {
+            "en": "Spend a Fear to summon a number of Mark IV Battle Bots equal to the number of PCs, a Tac-Bot, a Shot- Bot, and an Interdiction Bot. These appear at Close range of a chosen PC. The Tac-Bot immediately gains the spotlight.",
+            "ru": "Потратьте Страх, чтобы призвать число Боевых Ботов Марк IV, равное числу персонажей, а также Так-Бота, Бот-Стрелка и Бот-Перехватчика. Они появляются в пределах Близкой дистанции от выбранного персонажа. Так-Бот немедленно получает Активацию."
+          },
+          "prompt": {
+            "en": "Do these bots appear in familiar form, or is their design, ancient, alien, or both? How do the bots arrive? Do trap doors open around the PCs? Do secret doors open in the walls? Are the PCs dropped into a battle arena?",
+            "ru": "Эти боты выглядят знакомо, или их конструкция древняя, чужеродная, или и то, и другое? Как боты прибывают? Открываются ли вокруг персонажей люки-ловушки? Открываются ли потайные двери в стенах? Персонажей сбрасывают на боевую арену?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "A Place of Darkness",
+            "ru": "Обитель Тьмы"
+          },
+          "description": {
+            "en": "A feature or action that clears HP requires spending a Hope to use. If it already costs Hope, a PC must spend an additional Hope.",
+            "ru": "Особенность или действие, снимающее Раны, требует траты Надежды для использования. Если это уже стоит Надежды, персонаж должен потратить дополнительную Надежду."
+          },
+          "prompt": {
+            "en": "Does this sapping of strength have a physical or visual manifestation? Is there any way to counteract it?",
+            "ru": "Есть ли у этого истощения сил физическое или визуальное проявление? Есть ли способ ему противодействовать?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Relicore",
+            "ru": "Реликор"
+          },
+          "description": {
+            "en": "An ancient Relicore is lies in the Temple’s center. It holds millennia old Korath secrets. Imbibing its secrets can bring great power, but at what cost? A PC can study the Relicore as a long term project. When a PC does this, start a Dynamic Countdown (2d6). When the Countdown triggers, the PC can choose a single unmarked level up advancement option. This can only ever be done once with this Relicore and only twice ever (if another Relicore is found). After a PC gains the advancement, the PC rolls for a scar, as with the Avoid Death Death Move.",
+            "ru": "Древний Реликор лежит в центре Храма. Он хранит тысячелетние тайны Коратов. Впитывание его тайн может дать великую силу, но какой ценой? Персонаж может изучать Реликор как долгосрочный проект. Когда персонаж делает это, начните Динамический Отсчёт (2d6). Когда Отсчёт срабатывает, персонаж может выбрать один неотмеченный вариант повышения уровня. Это можно сделать только один раз с этим Реликором и лишь дважды за всю игру (если найден другой Реликор). После того как персонаж получает это повышение, он бросает кость на шрам, как при Предсмертном ходе «Избежать Смерти»."
+          },
+          "prompt": {
+            "en": "Is the Relicore guarded? If so, by what or who? Who else searching for the Relicore? What would they sacrifice or do to acquire it?",
+            "ru": "Реликор охраняется? Если да, то чем или кем? Кто ещё ищет Реликор? Чем они пожертвовали бы или что сделали бы, чтобы его заполучить?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "settlement"
+      ]
+    },
+    {
+      "id": "planetary-invasion",
+      "tier": 4,
+      "type": "event",
+      "difficulty": 21,
+      "name": {
+        "en": "Planetary Invasion",
+        "ru": "Планетарное Вторжение"
+      },
+      "impulses": {
+        "en": [
+          "Obliterate",
+          "conquer",
+          "capture",
+          "cause collateral damage"
+        ],
+        "ru": [
+          "Уничтожать",
+          "покорять",
+          "захватывать",
+          "причинять сопутствующий ущерб"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Var’Kor Manipulator",
+          "Dra’Kor Ascendant",
+          "Korath Sorcerer",
+          "Surge Trooper Platoon",
+          "Surge Eye Team",
+          "Vanguard Operator",
+          "Operator Commander"
+        ],
+        "ru": [
+          "Манипулятор Вар'Кор",
+          "Восходящий Дра'Кор",
+          "Чародей Корат",
+          "Взвод Штурмовиков Прорыва",
+          "Отряд Ока Прорыва",
+          "Оператор-Авангард",
+          "Командующий Операторами"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "That We Hold Dear",
+            "ru": "То, Что Нам Дорого"
+          },
+          "description": {
+            "en": "When the scene begins start three Dynamic Countdowns, Defenders (4), Populace (4), and Infrastructure (4). Each tick represents progressive destruction of the countdown asset.",
+            "ru": "Когда сцена начинается, начните три Динамических Отсчёта: Защитники (4), Население (4) и Инфраструктура (4). Каждое деление представляет постепенное разрушение соответствующего актива."
+          },
+          "prompt": {
+            "en": "Who are the defenders? Does the populace have special meaning to the PCs? What components of the infrastructure are most critical and why?",
+            "ru": "Кто эти защитники? Имеет ли население особое значение для персонажей? Какие компоненты инфраструктуры наиболее критичны и почему?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Overwhelmed",
+            "ru": "Подавлены"
+          },
+          "description": {
+            "en": "The invasion force is too large and powerful to defeat. The PCs will have only a limited time before they are overwhelmed and must flee, or face capture or death. When the scene begins, start a Dynamic Countdown (6). The countdown ticks down 1 whenever the PCs roll with Fear. When the countdown is reduced to 0, activate the Escape or Die! Feature.",
+            "ru": "Силы вторжения слишком велики и могущественны, чтобы их победить. У персонажей будет лишь ограниченное время, прежде чем их подавят и им придётся бежать, или столкнуться с захватом или смертью. Когда сцена начинается, начните Динамический Отсчёт (6). Отсчёт уменьшается на 1 всякий раз, когда персонажи выбрасывают результат со Страхом. Когда отсчёт достигает 0, активируйте особенность «Сбежать или Погибнуть!»."
+          },
+          "prompt": {
+            "en": "Are there ways the PCs can impede the invasion, thereby slowing or reversing the countdown? Is there any hope of help arriving?",
+            "ru": "Есть ли способы, которыми персонажи могут помешать вторжению, тем самым замедлив или обратив вспять отсчёт? Есть ли надежда на прибытие помощи?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Escape or Die!",
+            "ru": "Сбежать или Погибнуть!"
+          },
+          "description": {
+            "en": "When this feature activates, start a Standard Loop Countdown (2d4). When it triggers, each PC must either mark all their Stress and become captured, or make a Death Move. If a PC chooses to Avoid Death they wake up having avoided capture (for now). If a PC chooses to Risk it All and succeeds, the PC can choose to escape, or remain. This countdown only loops if any PC remains alive and not captured when this countdown triggers.",
+            "ru": "Когда эта особенность активируется, начните Стандартный Циклический Отсчёт (2d4). Когда он срабатывает, каждый персонаж должен либо отметить весь свой Стресс и оказаться захваченным, либо совершить Предсмертный ход. Если персонаж выбирает «Избежать Смерти», он приходит в себя, избежав захвата (пока что). Если персонаж выбирает «Рискнуть Всем» и преуспевает, он может выбрать сбежать или остаться. Этот отсчёт зацикливается заново, только если хоть один персонаж остаётся в живых и не захваченным, когда он срабатывает."
+          },
+          "prompt": {
+            "en": "How can the PCs escape or avoid capture? Can the PCs do anything to prolong their ability to influence the invasion?",
+            "ru": "Как персонажи могут сбежать или избежать захвата? Могут ли персонажи сделать что-нибудь, чтобы продлить свою способность влиять на вторжение?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Orbital Bombardment",
+            "ru": "Орбитальный Обстрел"
+          },
+          "description": {
+            "en": "Spend a Fear to bombard the PCs with orbital fire. All PCs must make an Agility Reaction Roll or suffer 4d10+12 physical damage. PCs suffer half damage on a success. All PCs mark a Stress. Start an Orbital Bombardment Dynamic Countdown (2d4). A PC that attempts to move anywhere must make an Agility Reaction Roll or suffer 4d10+12 physical damage. Tick the countdown down twice on a success, and once on a failure. When the countdown triggers, the Orbital Bombardment Feature ends.",
+            "ru": "Потратьте Страх, чтобы обстрелять персонажей орбитальным огнём. Все персонажи должны совершить Бросок Реакции на Проворность, иначе получают 4d10+12 физического урона. При успехе персонажи получают половину урона. Все персонажи отмечают Стресс. Начните Динамический Отсчёт Орбитального Обстрела (2d4). Персонаж, пытающийся куда-либо переместиться, должен совершить Бросок Реакции на Проворность, иначе получает 4d10+12 физического урона. При успехе уменьшите отсчёт на 2, при неудаче — на 1. Когда отсчёт срабатывает, особенность «Орбитальный Обстрел» заканчивается."
+          },
+          "prompt": {
+            "en": "What kind of orbital fire is this? Is it precision, or causing a lot of collateral damage? Are the PCs the target, or are they the collateral damage? How could they stop or redirect the orbital fire?",
+            "ru": "Что это за орбитальный огонь? Это точный удар, или он причиняет много сопутствующего ущерба? Персонажи — цель, или они сопутствующий ущерб? Как они могли бы остановить или перенаправить орбитальный огонь?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Invasion Force",
+            "ru": "Силы Вторжения"
+          },
+          "description": {
+            "en": "Summon a Surge Trooper Platoon, a Surge Eye Team, and a number of Veteran Surge Troopers equal to the number of PCs. The Surge Trooper Platoon immediately gains the spotlight.",
+            "ru": "Призовите Взвод Штурмовиков Прорыва, Отряд Ока Прорыва и число Штурмовиков-Ветеранов Прорыва, равное числу персонажей. Взвод Штурмовиков Прорыва немедленно получает Активацию."
+          },
+          "prompt": {
+            "en": "Is the invasion force targeting the PCs? If the PCs don’t engage these adversaries which Countdown will suffer, Defenders, Populace or Infrastructure?",
+            "ru": "Силы вторжения нацелены на персонажей? Если персонажи не вступят в бой с этими противниками, какой отсчёт пострадает — Защитники, Население или Инфраструктура?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Machines of War",
+            "ru": "Машины Войны"
+          },
+          "description": {
+            "en": "Tick down the Defenders, Populace or Infrastructure countdowns once. The GM can spend a Fear to instead tick the countdowns 1d3+1 times.",
+            "ru": "Уменьшите отсчёт Защитников, Населения или Инфраструктуры на одно деление. Мастер может потратить Страх, чтобы вместо этого уменьшить отсчёты на 1d3+1 делений."
+          },
+          "prompt": {
+            "en": "Which countdowns are affected? Is this targeted, or happenstance? Is the damage permanent, or could the PCs still rally the Defenders, save threatened Populace, or prevent full destruction of the Infrastructure?",
+            "ru": "На какие отсчёты это влияет? Это целенаправленно, или случайно? Ущерб необратим, или персонажи всё ещё могут сплотить Защитников, спасти население под угрозой, или предотвратить полное уничтожение Инфраструктуры?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "universal"
+      ]
     }
   ]
 }
