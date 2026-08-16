@@ -19945,6 +19945,1426 @@
       "biomes": [
         "universal"
       ]
+    },
+    {
+      "id": "death-butterfly-grove",
+      "tier": 2,
+      "type": "traversal",
+      "difficulty": 12,
+      "name": {
+        "en": "Death Butterfly Grove",
+        "ru": "Роща Бабочек Смерти"
+      },
+      "impulses": {
+        "en": [
+          "Consume Intruders",
+          "Maintain Habitat"
+        ],
+        "ru": [
+          "Пожирать чужаков",
+          "поддерживать среду обитания"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Death butterfly swarm",
+          "fey hunters"
+        ],
+        "ru": [
+          "Рой бабочек смерти",
+          "фейские охотники"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Eerie Silence",
+            "ru": "Жуткая Тишина"
+          },
+          "description": {
+            "en": "Death butterflies make no sound, even in flight, and the entire grove responds with perpetual silence. Any characters attempting to move stealthily in the grove roll at disadvantage.",
+            "ru": "Бабочки смерти не издают ни звука, даже в полёте, и вся роща отвечает неизменной тишиной. Персонажи, пытающиеся передвигаться в роще скрытно, совершают бросок с помехой."
+          },
+          "prompt": {
+            "en": "Do the butterflies twitch as the characters enter the grove? Is there any sound among the party the characters are used to that is suddenly muffled?",
+            "ru": "Вздрагивают ли бабочки, когда персонажи входят в рощу? Приглушается ли внезапно какой-то привычный для группы звук?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Swarm Tactics",
+            "ru": "Тактика Роя"
+          },
+          "description": {
+            "en": "If threatened or startled, the death butterflies launch from the firs and attack as a swarm.",
+            "ru": "Если их потревожить или напугать, бабочки смерти взлетают с пихт и атакуют роем."
+          },
+          "prompt": {
+            "en": "",
+            "ru": ""
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Sandalwood Logs",
+            "ru": "Сандаловые Брёвна"
+          },
+          "description": {
+            "en": "The characters might find a cache of 1d6 sandalwood logs on the edge of the grove, which the butterflies do not touch. The swarm doesn’t enter Melee range with a character holding or standing next to a burning log.",
+            "ru": "Персонажи могут найти на краю рощи тайник из 1d6 сандаловых брёвен, которых бабочки не касаются. Рой не входит в Дистанцию Ближнего Боя с персонажем, держащим горящее бревно или стоящим рядом с ним."
+          },
+          "prompt": {
+            "en": "How hidden is this cache? Are any fey hunters in the area who might come to the characters’ aid or witness them harming the butterflies?",
+            "ru": "Насколько хорошо спрятан этот тайник? Есть ли поблизости фейские охотники, которые могут прийти персонажам на помощь или застать их за вредом бабочкам?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "forest"
+      ]
+    },
+    {
+      "id": "tower-of-the-moon",
+      "tier": 3,
+      "type": "social",
+      "difficulty": 15,
+      "name": {
+        "en": "Tower of the Moon",
+        "ru": "Башня Луны"
+      },
+      "impulses": {
+        "en": [
+          "Creature Summoning",
+          "Keep Out Intruders",
+          "Whispers of Despair"
+        ],
+        "ru": [
+          "Призыв Существ",
+          "Не Впускать Чужаков",
+          "Шёпот Отчаяния"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "The Moonlit King",
+          "Lunar Devils",
+          "Shadow Beasts"
+        ],
+        "ru": [
+          "Лунный Король",
+          "Лунные Бесы",
+          "Теневые Звери"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Glass Wall",
+            "ru": "Стеклянная Стена"
+          },
+          "description": {
+            "en": "A translucent green wall bars entrance to the Tower grounds, guarded by illusory (harmless) floating eyes. The only way through is by sacrificing an eye golem’s largest eye or each character marks 2 Stress.",
+            "ru": "Полупрозрачная зелёная стена преграждает вход на территорию Башни, охраняемая иллюзорными (безобидными) парящими глазами. Единственный способ пройти — пожертвовать самым большим глазом голема-глаза, либо каждый персонаж отмечает 2 Стресса."
+          },
+          "prompt": {
+            "en": "",
+            "ru": ""
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Blue Smoke Stairs",
+            "ru": "Лестница из Синего Дыма"
+          },
+          "description": {
+            "en": "The stairs between levels are made from translucent blue smoke given solid shape. On a failure or success with fear, the Moonlit King can use the Orb of Rule to dispel or restore these stairs using a swift action.",
+            "ru": "Лестницы между уровнями сделаны из полупрозрачного синего дыма, обретшего твёрдую форму. При неудаче или успехе со страхом Лунный Король может использовать Сферу Власти, чтобы быстрым действием развеять или восстановить эти лестницы."
+          },
+          "prompt": {
+            "en": "",
+            "ru": ""
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Revich’s Warning",
+            "ru": "Предупреждение Ревича"
+          },
+          "description": {
+            "en": "If the characters are on friendly terms with Revich, he appears to them in the courtyard with a cryptic warning.",
+            "ru": "Если персонажи в дружеских отношениях с Ревичем, он появляется перед ними во дворе с загадочным предупреждением."
+          },
+          "prompt": {
+            "en": "What does Revich hope the characters will accomplish? Can he be convinced to be more straightforward?",
+            "ru": "Чего Ревич надеется достичь с помощью персонажей? Можно ли убедить его говорить более прямо?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "The King’s Pets",
+            "ru": "Питомцы Короля"
+          },
+          "description": {
+            "en": "The audience chamber is crisscrossed with scattered moonbeams where lunar devils lurk.",
+            "ru": "Тронный зал пересечён рассеянными лунными лучами, где таятся лунные бесы."
+          },
+          "prompt": {
+            "en": "",
+            "ru": ""
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Treating with the King",
+            "ru": "Переговоры с Королём"
+          },
+          "description": {
+            "en": "Countdown (X) – A social conflict with the King has a countdown timer equal to the number of player characters present, plus one. On a failure or success with fear, the King asks a pointed question about happenings in the Court. If a character is unable to answer accurately, advance the countdown by 1 tick. When the countdown reaches 0, the King unleashes his pets.",
+            "ru": "Отсчёт (X) – Социальный конфликт с Королём имеет таймер отсчёта, равный числу присутствующих игровых персонажей плюс один. При неудаче или успехе со страхом Король задаёт колкий вопрос о происходящем при Дворе. Если персонаж не может ответить точно, продвиньте отсчёт на 1. Когда отсчёт достигает 0, Король спускает на них своих питомцев."
+          },
+          "prompt": {
+            "en": "What do the characters already know? What questions might they be able to puzzle out, based on previous clues? What answers will further enrage the King?",
+            "ru": "Что персонажи уже знают? Какие вопросы они могут разгадать, основываясь на предыдущих подсказках? Какие ответы ещё больше разъярят Короля?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "settlement"
+      ]
+    },
+    {
+      "id": "rifle-canyon-run",
+      "tier": 2,
+      "type": "traversal",
+      "difficulty": 14,
+      "name": {
+        "en": "Rifle Canyon Run",
+        "ru": "Пробег по Ружейному Каньону"
+      },
+      "impulses": {
+        "en": [
+          "Pin down",
+          "riddle ‘em with bullets",
+          "don’t let them escape"
+        ],
+        "ru": [
+          "Прижать огнём",
+          "изрешетить пулями",
+          "не дать сбежать"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Outlaws (Bandits, Pirates, Skeletons)",
+          "Minor Fire Elemental",
+          "Merchant",
+          "Swarm of Rats"
+        ],
+        "ru": [
+          "Разбойники (Бандиты, Пираты, Скелеты)",
+          "Малый Огненный Элементаль",
+          "Торговец",
+          "Стая Крыс"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Canyon Run",
+            "ru": "Пробег по Каньону"
+          },
+          "description": {
+            "en": "As the PCs make their way out of the canyon, they must help one another get from one point of cover to another. When this environment is introduced, start a Canyon Run Countdown equal to the number of PCs+1. The die ticks down every time the PCs succeed on an action roll to get their party through the canyon, while avoiding a hail of sniper fire. When the countdown triggers, the PCs escape the canyon.",
+            "ru": "Пробираясь из каньона, персонажи должны помогать друг другу перебегать от одного укрытия к другому. Когда это окружение вводится в игру, начните Отсчёт Пробега по Каньону, равный числу персонажей+1. Кость уменьшается каждый раз, когда персонажи преуспевают в броске действия, чтобы провести группу через каньон, избегая града снайперского огня. Когда отсчёт срабатывает, персонажи выбираются из каньона."
+          },
+          "prompt": {
+            "en": "What stone forms the winding canyon? What sounds echo through its narrow walls?",
+            "ru": "Из какого камня состоит извилистый каньон? Какие звуки эхом отражаются от его узких стен?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Get to Cover!",
+            "ru": "В Укрытие!"
+          },
+          "description": {
+            "en": "When a PC makes an action roll to move the party through the canyon, all PCs lose Cover. If a PC succeeds with Hope on their roll, they and their allies gain Cover from sniper fire. If a PC succeeds with Fear, they roll 1d4 and can give Cover to that number of PCs. If a PC fails with Hope, they can choose one ally to gain Cover. If a PC fails a roll with Fear, no one has Cover.",
+            "ru": "Когда персонаж совершает бросок действия, чтобы провести группу через каньон, все персонажи теряют Укрытие. Если персонаж преуспевает с Надеждой в своём броске, он и его союзники получают Укрытие от снайперского огня. Если персонаж преуспевает со Страхом, он бросает 1d4 и может дать Укрытие этому числу персонажей. Если персонаж проваливает бросок с Надеждой, он может выбрать одного союзника, который получит Укрытие. Если персонаж проваливает бросок со Страхом, никто не получает Укрытие."
+          },
+          "prompt": {
+            "en": "What tips off the PCs to the danger above? What cover do the PCs find on the canyon floor?",
+            "ru": "Что выдаёт персонажам опасность сверху? Какое укрытие персонажи находят на дне каньона?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Shoot ’em Dead!",
+            "ru": "Мочи Их!"
+          },
+          "description": {
+            "en": "Spend a Fear to cause each PC without Cover to mark a Hit Point.",
+            "ru": "Потратьте Страх, чтобы каждый персонаж без Укрытия отметил Рану."
+          },
+          "prompt": {
+            "en": "What goes through your mind as you’re riddled with bullets? Is their hail of bullets magical or mundane?",
+            "ru": "Что проносится у вас в голове, пока вас изрешечивают пулями? Этот град пуль магический или обычный?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Reposition!",
+            "ru": "Смена Позиции!"
+          },
+          "description": {
+            "en": "The gunners on the ridge reposition themselves. Roll 1d4 and choose that many PCs to lose Cover.",
+            "ru": "Стрелки на хребте меняют позицию. Бросьте 1d4 и выберите столько персонажей, которые теряют Укрытие."
+          },
+          "prompt": {
+            "en": "Who do the snipers focus their fire on? Who do they seem to ignore?",
+            "ru": "На ком снайперы сосредотачивают огонь? Кого они, похоже, игнорируют?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Bulletstorm",
+            "ru": "Шквал Пуль"
+          },
+          "description": {
+            "en": "Whenever you take the spotlight, each PC who does not have Cover marks a Stress.",
+            "ru": "Всякий раз, когда вы получаете Активацию, каждый персонаж без Укрытия отмечает Стресс."
+          },
+          "prompt": {
+            "en": "What hazards are there for the shooters above? Are there weak spots or rock clusters that could be used to turn the tables on the snipers?",
+            "ru": "Какие опасности подстерегают стрелков наверху? Есть ли слабые места или скопления камней, которые можно использовать, чтобы обратить ситуацию против снайперов?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "badlands"
+      ]
+    },
+    {
+      "id": "mounted-train-chase",
+      "tier": 2,
+      "type": "event",
+      "difficulty": 14,
+      "name": {
+        "en": "Mounted Train Chase",
+        "ru": "Погоня за Поездом Верхом"
+      },
+      "impulses": {
+        "en": [
+          "Keep them busy",
+          "stoke the engine",
+          "outgun the heroes"
+        ],
+        "ru": [
+          "Держать их занятыми",
+          "разжигать топку",
+          "перестрелять героев"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Outlaws (Bandits, Archer Squadron, Assassins, Giants, Minotaur Wrecker, Merchant Baron, Masked Thief)"
+        ],
+        "ru": [
+          "Разбойники (Бандиты, Отряд Лучников, Убийцы, Великаны, Минотавр Крушитель, Торговый Барон, Вор в Маске)"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Getaway Train",
+            "ru": "Поезд Беглецов"
+          },
+          "description": {
+            "en": "When this environment is introduced, start a Getaway Train Countdown (10). The die ticks down every time the GM takes the spotlight. If it triggers before the PCs have boarded the train, it escapes across a bridge, which the bandits detonate behind them, cutting off pursuit.",
+            "ru": "Когда это окружение вводится в игру, начните Отсчёт Поезда Беглецов (10). Кость уменьшается каждый раз, когда Мастер получает Активацию. Если он срабатывает до того, как персонажи сядут на поезд, тот пересекает мост, который бандиты взрывают позади себя, отрезая погоню."
+          },
+          "prompt": {
+            "en": "What fuel does the train run on? Coal? Something more exotic? What state of repair is the train in?",
+            "ru": "На каком топливе работает поезд? Уголь? Что-то более экзотическое? В каком состоянии находится поезд?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Mounted Pursuit",
+            "ru": "Погоня Верхом"
+          },
+          "description": {
+            "en": "Start a Mounted Pursuit Countdown (6). This die ticks down whenever a PC succeeds on an action roll to catch the train. When the countdown is above 3, the PCs are considered to be at Very Far range for the purposes of attack and spellcast rolls. When the countdown is 3 or lower, the PCs can choose to be anywhere from Far to Close range of the train. If this countdown triggers before the Getaway Train Countdown, the PCs must succeed on a Strength Reaction Roll or they mark a Stress, as they leap onto the train… and likely into a gunfight with these outlaws.",
+            "ru": "Начните Отсчёт Погони Верхом (6). Эта кость уменьшается каждый раз, когда персонаж преуспевает в броске действия, чтобы догнать поезд. Пока отсчёт выше 3, персонажи считаются находящимися на Очень Дальней дистанции для целей бросков атаки и заклинания. Когда отсчёт равен 3 или ниже, персонажи могут выбрать любую дистанцию от Дальней до Близкой от поезда. Если этот отсчёт срабатывает раньше Отсчёта Поезда Беглецов, персонажи должны совершить успешный Бросок Реакции на Силу или отметить Стресс, запрыгивая на поезд… и, вероятно, попадая в перестрелку с этими разбойниками."
+          },
+          "prompt": {
+            "en": "What landscape surrounds the train tracks? What environmental tools might the PCs employ along the way to get an edge on the outlaws?",
+            "ru": "Какой ландшафт окружает железнодорожные пути? Какие природные средства персонажи могут использовать по пути, чтобы получить преимущество над разбойниками?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Rooftop Gunners",
+            "ru": "Стрелки на Крыше"
+          },
+          "description": {
+            "en": "Gunners are firing from the roof! Place 4 tokens on this stat block when the PCs enter this environment. Spend a Fear to choose a number of targets equal to the number of the tokens to make an Agility Reaction Roll. PCs that fail mark a Hit Point. PCs who succeed mark a Stress. Instead of making an action roll to lower the Mounted Pursuit Countdown, a PC can make an attack roll against the gunners. On a success, remove a token. On a critical success, remove 2 tokens.",
+            "ru": "Стрелки открывают огонь с крыши! Поместите 4 жетона на этот статблок, когда персонажи входят в это окружение. Потратьте Страх, чтобы выбрать число целей, равное числу жетонов, для совершения Броска Реакции на Проворность. Персонажи, провалившие бросок, отмечают Рану. Персонажи, преуспевшие, отмечают Стресс. Вместо броска действия, чтобы уменьшить Отсчёт Погони Верхом, персонаж может совершить бросок атаки против стрелков. При успехе уберите жетон. При критическом успехе уберите 2 жетона."
+          },
+          "prompt": {
+            "en": "Are the outlaws disciplined and effective, or rowdy and unpredictable? What firearms are they wielding?",
+            "ru": "Разбойники дисциплинированы и эффективны, или буйны и непредсказуемы? Каким огнестрельным оружием они вооружены?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Train Robbers",
+            "ru": "Налётчики на Поезд"
+          },
+          "description": {
+            "en": "Roll a d6 and introduce the obstacle matching the result on the list below, then ask the PCs what they do in response. You can spend a Fear to choose an option instead of rolling.\n- 1. The outlaws fire a mounted machine gun, dealing 2d8+6 physical damage to one of the PCs. That PC rolls with disadvantage until they succeed on an action roll with Hope.\n- 2. The outlaws fill the engine with fuel, giving them a boost. Each PC must make a reaction roll. If the majority of the PCs succeed, tick the Mounted Pursuit Countdown down. If the majority fail, tick down the Getaway Train Countdown. If all of them fail, tick down the Getaway Train Countdown and tick up the Mounted Pursuit Countdown.\n- 3. The outlaws release the caboose! Each PC must succeed on an Agility Reaction Roll or mark a Hit Point. If all PCs fail, tick the Mounted Pursuit Countdown up 1. If you roll this result again, add a Gunner token to this statblock.\n- 4. A Gunner climbs on the roof. Add a Gunner token to this stat block.\n- 5. A bandit leaps onto a PC, trying to dismount them. The PC must succeed on a Strength or Agility reaction roll or they take a −2 penalty to all rolls until they mark a Stress to knock the bandit off them.\n- 6. The bandits start throwing firebottles, erupting in a wall of flame between the PCs and the train. Each PC must succeed on a Strength or Presence Reaction Roll to control their mount and leap through the flames, or they mark a Stress. If the majority of PCs fail this roll, tick the Mounted Pursuit Countdown up 1.",
+            "ru": "Бросьте d6 и введите препятствие, соответствующее результату из списка ниже, затем спросите персонажей, как они на это отреагируют. Вы можете потратить Страх, чтобы выбрать вариант вместо броска.\n- **1.** Разбойники открывают огонь из установленного пулемёта, нанося 2d8+6 физического урона одному из персонажей. Этот персонаж совершает броски с помехой, пока не преуспеет в броске действия с Надеждой.\n- **2.** Разбойники заправляют двигатель топливом, придавая ему ускорение. Каждый персонаж должен совершить бросок реакции. Если большинство персонажей преуспевает, уменьшите Отсчёт Погони Верхом. Если большинство проваливает, уменьшите Отсчёт Поезда Беглецов. Если все проваливают, уменьшите Отсчёт Поезда Беглецов и увеличьте Отсчёт Погони Верхом.\n- **3.** Разбойники отцепляют последний вагон! Каждый персонаж должен совершить успешный Бросок Реакции на Проворность или отметить Рану. Если все персонажи проваливают, увеличьте Отсчёт Погони Верхом на 1. Если этот результат выпадет снова, добавьте жетон Стрелка к этому статблоку.\n- **4.** Стрелок забирается на крышу. Добавьте жетон Стрелка к этому статблоку.\n- **5.** Бандит запрыгивает на персонажа, пытаясь сбросить его с седла. Персонаж должен совершить успешный бросок реакции на Силу или Проворность, иначе получает штраф −2 ко всем броскам, пока не отметит Стресс, чтобы сбросить с себя бандита.\n- **6.** Бандиты начинают бросать бутылки с огнём, создавая стену пламени между персонажами и поездом. Каждый персонаж должен совершить успешный Бросок Реакции на Силу или Влияние, чтобы удержать своего коня и перепрыгнуть через пламя, иначе отмечает Стресс. Если большинство персонажей проваливает этот бросок, увеличьте Отсчёт Погони Верхом на 1."
+          },
+          "prompt": {
+            "en": "What other hazards or obstacles stymie the PCs? How can those hazards be used to play up the strengths of the heroes? What happens to the PCs’mounts after the PCs leap onto the train?",
+            "ru": "Какие ещё опасности или препятствия мешают персонажам? Как эти опасности можно использовать, чтобы подчеркнуть сильные стороны героев? Что происходит с конями персонажей после того, как они запрыгивают на поезд?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "rolling"
+      ]
+    },
+    {
+      "id": "drakkenheim-outer-city",
+      "tier": 1,
+      "type": "exploration",
+      "difficulty": 12,
+      "name": {
+        "en": "Drakkenheim: Outer City",
+        "ru": "Драккенхайм: Внешний Город"
+      },
+      "impulses": {
+        "en": [
+          "Entice the unready",
+          "conceal danger",
+          "confound interlopers"
+        ],
+        "ru": [
+          "Заманивать неготовых",
+          "скрывать опасность",
+          "сбивать с толку чужаков"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Delerium Dregs",
+          "Ratlings (any)"
+        ],
+        "ru": [
+          "Отребье Делирия",
+          "Крысюки (любые)"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "The Haze",
+            "ru": "Дымка"
+          },
+          "description": {
+            "en": "Whenever the party enters the Haze for an expedition into the city, the GM should set an Expedition Countdown (5 – Decreasing Loop) that advances each time the party takes a short rest, spends a meaningful time in a location, or travels between two areas in the city. Traveling between the Outer City and Inner City always advances the countdown, and longer journeys within the city may advance the countdown more than once.\n\nWhen the countdown triggers, the characters must make a Strength Reaction Roll or gain 1 Contamination Level. Once the Loop resets to zero, the PCs must make a Strength Reaction Roll (15) every time the countdown would advance. On a failure, they gain 1 Contamination Level.\n\nClear the Expedition Countdown when the PCs take a long rest outside the Haze.",
+            "ru": "Всякий раз, когда группа входит в Дымку ради вылазки в город, Мастер должен установить Отсчёт Экспедиции (5 – Убывающий Цикл), который продвигается каждый раз, когда группа совершает короткий отдых, проводит значимое время в одном месте или перемещается между двумя районами города. Путешествие между Внешним и Внутренним Городом всегда продвигает отсчёт, а более длинные переходы внутри города могут продвинуть отсчёт более одного раза.\n\nКогда отсчёт срабатывает, персонажи должны совершить Бросок Реакции на Силу или получить 1 Уровень Заражения. Как только Цикл сбрасывается до нуля, персонажи должны совершать Бросок Реакции на Силу (15) каждый раз, когда отсчёт должен продвинуться. При неудаче они получают 1 Уровень Заражения.\n\nСнимите Отсчёт Экспедиции, когда персонажи совершают долгий отдых за пределами Дымки."
+          },
+          "prompt": {
+            "en": "What does the Haze smell like? Does it obscure some items or beings more than others? What is the nearest landmark you can see above the Haze?",
+            "ru": "Чем пахнет Дымка? Скрывает ли она одни предметы или существа сильнее, чем другие? Какой ближайший ориентир виден над Дымкой?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Search the Ruins",
+            "ru": "Обыскать Руины"
+          },
+          "description": {
+            "en": "If the party conducts a thorough search of an area (looking for scavenged supplies, lost treasures, unknown locations, a hidden foe, or a safe place to rest), call for a Group Action Roll. Each such roll takes at least an hour (advance the Expedition Countdown).\n- **Critical Success:** The party finds what they were looking for and something extra (loot, a clue related to another location, or something of value to a faction).\n- **Success with Hope:** The party finds what they were looking for without additional complications.\n- **Success with Fear:** The party finds what they were looking for, but must each mark a Stress.\n- **Failure with Hope:** The party doesn’t find what they were looking for, but they do find something else useful.\n- **Failure with Fear:** The party fails to find what they were looking for and run afoul of adversaries or a major complication.",
+            "ru": "Если группа проводит тщательный поиск в области (в поисках добытых припасов, потерянных сокровищ, неизвестных мест, скрытого врага или безопасного места для отдыха), потребуйте Групповой Бросок. Каждый такой бросок занимает не менее часа (продвиньте Отсчёт Экспедиции).\n- **Критический успех:** группа находит то, что искала, и что-то ещё (добычу, улику, связанную с другим местом, или нечто ценное для фракции).\n- **Успех с Надеждой:** группа находит то, что искала, без дополнительных осложнений.\n- **Успех со Страхом:** группа находит то, что искала, но каждый должен отметить Стресс.\n- **Неудача с Надеждой:** группа не находит то, что искала, но находит что-то другое полезное.\n- **Неудача со Страхом:** группа не находит то, что искала, и натыкается на противников или серьёзное осложнение."
+          },
+          "prompt": {
+            "en": "What are they looking for? What kind of neighborhood is this? What signs of the factions or adversary groups can be found here?",
+            "ru": "Что они ищут? Что это за район? Какие следы фракций или групп противников здесь можно найти?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Endangered Pilgrims",
+            "ru": "Паломники в Опасности"
+          },
+          "description": {
+            "en": "Reveal a group of pilgrims being attacked by Delerium Dregs or Ratlings. Set a Countdown (10) representing the pilgrims, which advances when a pilgrim is killed. If the PCs defeat or scare off the attackers, ask a player to roll their Fear die. If the result is under the current value of the countdown, the PCs each gain a Hope and a minor favor from the Followers of the Falling Fire.",
+            "ru": "Раскройте группу паломников, на которых напали Отребье Делирия или Крысюки. Установите Отсчёт (10), представляющий паломников, который продвигается, когда паломник погибает. Если персонажи побеждают или прогоняют нападающих, попросите одного игрока бросить свою кость Страха. Если результат меньше текущего значения отсчёта, каждый персонаж получает Надежду и небольшую услугу от Последователей Павшего Огня."
+          },
+          "prompt": {
+            "en": "Missionary, which of these pilgrims recognizes you as a person of faith, and what do you say to bolster their spirits?",
+            "ru": "Миссионер, кто из этих паломников узнаёт в вас человека веры и что вы говорите, чтобы поддержать их дух?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Wrong Turn",
+            "ru": "Не Туда Свернули"
+          },
+          "description": {
+            "en": "On any failed roll to navigate or search the ruins, advance the Expedition Countdown as the party gets turned around, traveling in circles and wasting time. You may additionally spend a Fear to introduce a new obstacle, threat, or group of adversaries.",
+            "ru": "При любом провальном броске на навигацию или поиск в руинах продвиньте Отсчёт Экспедиции, поскольку группа сбивается с пути, кружит на месте и теряет время. Вы также можете потратить Страх, чтобы ввести новое препятствие, угрозу или группу противников."
+          },
+          "prompt": {
+            "en": "What distracted or misled the PCs so that they didn’t notice the problem right away? What creatures or faction agents are watching as the party travels in circles?",
+            "ru": "Что отвлекло или сбило персонажей с толку, из-за чего они не сразу заметили проблему? Какие существа или агенты фракций наблюдают, пока группа кружит на месте?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Patch of Deep Haze",
+            "ru": "Участок Глубокой Дымки"
+          },
+          "description": {
+            "en": "When the PCs move through the city or fail a navigation roll, spend a Fear to have the PCs stumble into a patch of Deep Haze a Very Far distance across. The PCs must make a Group Action to find their way out of the Deep Haze or be forced to make a Strength Reaction Roll (15) to avoid gaining 1 Contamination Level.",
+            "ru": "Когда персонажи перемещаются по городу или проваливают бросок на навигацию, потратьте Страх, чтобы они наткнулись на участок Глубокой Дымки шириной в Очень Дальнюю дистанцию. Персонажи должны совершить Групповое Действие, чтобы найти выход из Глубокой Дымки, иначе вынуждены совершить Бросок Реакции на Силу (15), чтобы избежать получения 1 Уровня Заражения."
+          },
+          "prompt": {
+            "en": "What is your first impulse when you realize you’ve been surrounded by Deep Haze? What feels different about being here than in the normal haze?",
+            "ru": "Каков ваш первый порыв, когда вы понимаете, что окружены Глубокой Дымкой? Чем это ощущается иначе, чем в обычной дымке?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "settlement"
+      ]
+    },
+    {
+      "id": "city-streets",
+      "tier": 1,
+      "type": "exploration",
+      "difficulty": 11,
+      "name": {
+        "en": "City Streets",
+        "ru": "Городские Улицы"
+      },
+      "impulses": {
+        "en": [
+          "Stifle the hero's efforts",
+          "keep everyone on sidewalks",
+          "trade gold for illicit goods"
+        ],
+        "ru": [
+          "Мешать усилиям героев",
+          "держать всех на тротуарах",
+          "менять золото на запрещённый товар"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Criminals (any Jagged Knife)",
+          "living pollution (Green or Red Ooze)",
+          "Mavros Police Officer",
+          "Swarm of Rats"
+        ],
+        "ru": [
+          "Преступники (любые из «Зазубренного ножа»)",
+          "живое загрязнение (Зелёная или Красная Слизь)",
+          "Полицейский Мавроса",
+          "Стая Крыс"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Heavy Foot Traffic",
+            "ru": "Плотное Пешее Движение"
+          },
+          "description": {
+            "en": "Rolls to follow a target through the city streets are made with disadvantage.",
+            "ru": "Броски, чтобы проследить за целью по городским улицам, совершаются с помехой."
+          },
+          "prompt": {
+            "en": "",
+            "ru": ""
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Choking Smog",
+            "ru": "Удушающий Смог"
+          },
+          "description": {
+            "en": "Spend a Fear to make each PC make an Instinct Reaction Roll. On a failure they add +2 to their Fear dice until they roll with Hope or leave this environment.",
+            "ru": "Потратьте Страх, чтобы каждый персонаж совершил Бросок Реакции на Инстинкт. При неудаче он добавляет +2 к своей кости Страха, пока не выбросит результат с Надеждой или не покинет это окружение."
+          },
+          "prompt": {
+            "en": "",
+            "ru": ""
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Street Dealer",
+            "ru": "Уличный Торговец"
+          },
+          "description": {
+            "en": "Once per scene, gain a Fear to make a dubious peddler approach the party with a coat full of Mysterious Vials. PCs can purchase a Mysterious Vial consumable for 1 handful gold. A PC can drink the Mysterious Vial to roll a d6. On a result of 1 they mark a Stress. On a result of 2–5 they clear 1 HP and 1 Stress. On a result of 6, they gain advantage on attack rolls until the end of the scene.",
+            "ru": "Раз за сцену получите Страх, чтобы к группе подошёл сомнительный торговец с плащом, полным Загадочных Флаконов. Персонажи могут купить расходник Загадочный Флакон за 1 горсть золота. Персонаж может выпить Загадочный Флакон, бросив d6. При результате 1 он отмечает Стресс. При результате 2–5 он снимает 1 Рану и 1 Стресс. При результате 6 он получает преимущество на броски атаки до конца сцены."
+          },
+          "prompt": {
+            "en": "",
+            "ru": ""
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Crowd Stampede",
+            "ru": "Паническая Давка"
+          },
+          "description": {
+            "en": "Spend a Fear during a police raid, gang violence or other event that affects citizens to create a riot. Have the PCs make an Agility Reaction Roll as a crowd charges towards them. On a success they mark a Stress. On a failure they mark a HP as they are injured by the stampede.",
+            "ru": "Потратьте Страх во время полицейского рейда, бандитской разборки или другого события, затрагивающего горожан, чтобы вызвать беспорядки. Пусть персонажи совершат Бросок Реакции на Проворность, пока толпа несётся на них. При успехе они отмечают Стресс. При неудаче они отмечают Рану, получив травму от давки."
+          },
+          "prompt": {
+            "en": "",
+            "ru": ""
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "settlement"
+      ]
+    },
+    {
+      "id": "jazz-speakeasy",
+      "tier": 1,
+      "type": "social",
+      "difficulty": 11,
+      "name": {
+        "en": "Jazz Speakeasy",
+        "ru": "Джазовый Спикизи"
+      },
+      "impulses": {
+        "en": [
+          "Give the heroes somewhere to relax",
+          "make information hidden but valuable"
+        ],
+        "ru": [
+          "Дать героям место для отдыха",
+          "делать сведения скрытыми, но ценными"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Hired goons (any Jagged Knife Bandit)",
+          "Merchant",
+          "Petty Noble"
+        ],
+        "ru": [
+          "Наёмные головорезы (любой Бандит из «Зазубренного ножа»)",
+          "Торговец",
+          "Мелкий Аристократ"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "House Band",
+            "ru": "Домашний Оркестр"
+          },
+          "description": {
+            "en": "If the PCs take a rest in the lounge or rooms of the speakeasy, they add +1 to the results of any downtime moves.",
+            "ru": "Если персонажи отдыхают в зале или комнатах спикизи, они добавляют +1 к результатам любых ходов простоя."
+          },
+          "prompt": {
+            "en": "",
+            "ru": ""
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Criminal Clientele",
+            "ru": "Преступная Клиентура"
+          },
+          "description": {
+            "en": "PCs investigating a crime have -1 on Instinct and Presence Rolls to find clues until they roll with Hope. On a success, they find information about one of the current clientele. On a failure, they learn a piece of information about one of the current clientele but lose a handful of gold.",
+            "ru": "Персонажи, расследующие преступление, получают -1 к броскам Инстинкта и Влияния для поиска улик, пока не выбросят результат с Надеждой. При успехе они находят сведения об одном из нынешних посетителей. При неудаче они узнают сведения об одном из нынешних посетителей, но теряют горсть золота."
+          },
+          "prompt": {
+            "en": "",
+            "ru": ""
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Drinking Contest",
+            "ru": "Питейное Состязание"
+          },
+          "description": {
+            "en": "Spend a Fear to initiate a drinking contest. Each PC that enters must make a Presence Roll to keep drinking and not throw up. Whoever rolls highest wins, and gains advantage on Presence Rolls until the end of the scene. PCs not taking part can bet gold on who the winner will be, and double the gold they bet if they're correct.",
+            "ru": "Потратьте Страх, чтобы устроить питейное состязание. Каждый вступивший персонаж должен совершить бросок Влияния, чтобы продолжать пить и не стошнить. Победитель — тот, кто выбросил наибольший результат, получает преимущество на броски Влияния до конца сцены. Персонажи, не участвующие в состязании, могут поставить золото на победителя и удвоить ставку, если угадают верно."
+          },
+          "prompt": {
+            "en": "",
+            "ru": ""
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "settlement"
+      ]
+    },
+    {
+      "id": "spooky-forest",
+      "tier": 1,
+      "type": "traversal",
+      "difficulty": 11,
+      "name": {
+        "en": "Spooky Forest",
+        "ru": "Жуткий Лес"
+      },
+      "impulses": {
+        "en": [
+          "Keep the heroes wandering",
+          "strike from hidden places",
+          "give bad directions"
+        ],
+        "ru": [
+          "Водить героев кругами",
+          "бить из укрытий",
+          "давать неверные указания"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Deeproot Defender",
+          "Young Dryad",
+          "Minor Treant",
+          "Tangle Bramble Swarm"
+        ],
+        "ru": [
+          "Защитник Корней",
+          "Юная Дриада",
+          "Молодой Древень",
+          "Рой Спутанного Терновника"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Hopelessly Lost",
+            "ru": "Безнадёжно Заблудились"
+          },
+          "description": {
+            "en": "Start a Lost Countdown (6) that ticks down every time a PC succeeds on a roll to navigate the woods. When the countdown triggers, the PCs escape the woods. While the countdown is active, the PCs must mark a Stress to spend Hope.",
+            "ru": "Начните Отсчёт Заблудившихся (6), который уменьшается каждый раз, когда персонаж преуспевает в броске на навигацию по лесу. Когда отсчёт срабатывает, персонажи выбираются из леса. Пока отсчёт активен, персонажи должны отметить Стресс, чтобы потратить Надежду."
+          },
+          "prompt": {
+            "en": "",
+            "ru": ""
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Unpleasant Wildlife",
+            "ru": "Неприятная Живность"
+          },
+          "description": {
+            "en": "If a PC attempts to communicate with an animal to ask for directions, spend a Fear to make the animal give them bad directions and tick the Lost Countdown die up by 2.",
+            "ru": "Если персонаж пытается пообщаться с животным, чтобы спросить дорогу, потратьте Страх, чтобы животное дало неверные указания, и увеличьте кость Отсчёта Заблудившихся на 2."
+          },
+          "prompt": {
+            "en": "",
+            "ru": ""
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "forest"
+      ]
+    },
+    {
+      "id": "abandoned-building",
+      "tier": 2,
+      "type": "exploration",
+      "difficulty": 14,
+      "name": {
+        "en": "Abandoned Building",
+        "ru": "Заброшенное Здание"
+      },
+      "impulses": {
+        "en": [
+          "Keep the heroes scared",
+          "reveal its hidden story slowly",
+          "explore the different floors"
+        ],
+        "ru": [
+          "Держать героев напуганными",
+          "медленно раскрывать скрытую историю",
+          "исследовать разные этажи"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Chaos Skull",
+          "any Cult member",
+          "Failed Experiment"
+        ],
+        "ru": [
+          "Череп Хаоса",
+          "любой член культа",
+          "Неудачный Эксперимент"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Rotten Structure",
+            "ru": "Прогнившая Конструкция"
+          },
+          "description": {
+            "en": "If a PC fails a Strength or Agility Roll with Fear, a floor or wall collapses and they take 2d6+1 physical damage. All creatures have advantage on rolls to break down doors or walls.",
+            "ru": "Если персонаж проваливает бросок Силы или Проворности со Страхом, пол или стена обрушивается, и он получает 2d6+1 физического урона. Все существа получают преимущество на броски, чтобы выбить двери или стены."
+          },
+          "prompt": {
+            "en": "",
+            "ru": ""
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Are We Alone?",
+            "ru": "Мы Одни?"
+          },
+          "description": {
+            "en": "Spend a Fear to cause the building to creak or shudder. Each PC must make an Instinct Reaction Roll, on a failure they mark a Stress and lose a Hope.",
+            "ru": "Потратьте Страх, чтобы здание заскрипело или содрогнулось. Каждый персонаж должен совершить Бросок Реакции на Инстинкт, при неудаче отмечает Стресс и теряет Надежду."
+          },
+          "prompt": {
+            "en": "",
+            "ru": ""
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "settlement"
+      ]
+    },
+    {
+      "id": "fighting-pit",
+      "tier": 2,
+      "type": "event",
+      "difficulty": 14,
+      "name": {
+        "en": "Fighting Pit",
+        "ru": "Бойцовская Яма"
+      },
+      "impulses": {
+        "en": [
+          "Give citizens a chance to fight",
+          "turn the crowd against the fighters",
+          "gain favour and reputation"
+        ],
+        "ru": [
+          "Дать горожанам шанс подраться",
+          "настроить толпу против бойцов",
+          "заслужить расположение и репутацию"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Boogeyman",
+          "Giant Brawler",
+          "Gorgon",
+          "Masked Thief",
+          "Minotaur Wrecker",
+          "Vigilante",
+          "War Wizard"
+        ],
+        "ru": [
+          "Бугимен",
+          "Великан Боец",
+          "Горгона",
+          "Вор в Маске",
+          "Минотавр Крушитель",
+          "Мститель",
+          "Боевой Маг"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "You Want In?",
+            "ru": "Хочешь Участвовать?"
+          },
+          "description": {
+            "en": "PCs pay a handful of gold to fight adversaries. When PCs roll with Hope, they take a Favour token. When PCs roll with Fear, place a Favour token on this stat block. Adversaries have a bonus to damage thresholds equal to the number of Favour tokens on this stat block. If victorious, the PCs gain handfuls of gold equal to their entrance fee times the amount of Favour tokens they have.",
+            "ru": "Персонажи платят горсть золота, чтобы сразиться с противниками. Когда персонажи выбрасывают результат с Надеждой, они забирают жетон Расположения. Когда персонажи выбрасывают результат со Страхом, поместите жетон Расположения на этот статблок. Противники получают бонус к порогам урона, равный числу жетонов Расположения на этом статблоке. В случае победы персонажи получают золото в горстях, равное их вступительному взносу, умноженному на число имеющихся у них жетонов Расположения."
+          },
+          "prompt": {
+            "en": "",
+            "ru": ""
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Booing Crowd",
+            "ru": "Освистывающая Толпа"
+          },
+          "description": {
+            "en": "Spend a Fear to turn the crowd against the PCs. Every PC fighting in the pit make a Presence Roll to get the crowd back on their side. If any PCs fail, they lose a Favour token.",
+            "ru": "Потратьте Страх, чтобы настроить толпу против персонажей. Каждый персонаж, сражающийся в яме, совершает бросок Влияния, чтобы вернуть толпу на свою сторону. Если кто-то из персонажей проваливает бросок, они теряют жетон Расположения."
+          },
+          "prompt": {
+            "en": "",
+            "ru": ""
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "settlement"
+      ]
+    },
+    {
+      "id": "catacomb-tunnels",
+      "tier": 2,
+      "type": "event",
+      "difficulty": 14,
+      "name": {
+        "en": "Catacomb Tunnels",
+        "ru": "Туннели Катакомб"
+      },
+      "impulses": {
+        "en": [
+          "Lose the heroes in the dark",
+          "punish the heroes for disrespecting the dead"
+        ],
+        "ru": [
+          "Заставить героев заблудиться во тьме",
+          "наказывать героев за неуважение к мёртвым"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Failed Experiment",
+          "necromancers (any Cult member)",
+          "Spectral Guardian"
+        ],
+        "ru": [
+          "Неудачный Эксперимент",
+          "некроманты (любой член культа)",
+          "Призрачный Страж"
+        ]
+      },
+      "features": [
+        {
+          "type": "action",
+          "name": {
+            "en": "Unsettling Scene",
+            "ru": "Тревожная Сцена"
+          },
+          "description": {
+            "en": "Spend a Fear make each PC mark 2 Stress as they encounter a horrifying gravesite that makes their skin crawl. Spend an additional Fear to add a mysterious supernatural presence to the gravesite, forcing all PCs to lose a Hope.",
+            "ru": "Потратьте Страх, чтобы каждый персонаж отметил 2 Стресса, наткнувшись на жуткое место захоронения, от которого мурашки бегут по коже. Потратьте дополнительный Страх, чтобы добавить к месту захоронения таинственное сверхъестественное присутствие, заставив всех персонажей потерять Надежду."
+          },
+          "prompt": {
+            "en": "",
+            "ru": ""
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Bone Pile",
+            "ru": "Груда Костей"
+          },
+          "description": {
+            "en": "Spend a Fear if a PC touches the bones that line the walls to make the wall collapse. The PC must make an Agility Reaction Roll as the wall falls on them. On a failure they mark 1 Hit Point and 1 Stress, and are Restrained until they or another PC succeed on a Strength or Finesse Roll to dig them out.",
+            "ru": "Потратьте Страх, если персонаж касается костей, выстилающих стены, чтобы стена обрушилась. Персонаж должен совершить Бросок Реакции на Проворность, пока на него падает стена. При неудаче он отмечает 1 Рану и 1 Стресс и становится Обездвиженным, пока он или другой персонаж не преуспеет в броске Силы или Искусности, чтобы его откопать."
+          },
+          "prompt": {
+            "en": "",
+            "ru": ""
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "underground"
+      ]
+    },
+    {
+      "id": "industrial-mine",
+      "tier": 3,
+      "type": "exploration",
+      "difficulty": 17,
+      "name": {
+        "en": "Industrial Mine",
+        "ru": "Промышленный Рудник"
+      },
+      "impulses": {
+        "en": [
+          "Give the heroes a chance at riches",
+          "make magical ore available",
+          "keep security a present threat"
+        ],
+        "ru": [
+          "Дать героям шанс на богатство",
+          "сделать магическую руду доступной",
+          "держать охрану постоянной угрозой"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Bladed Guard",
+          "Greater Earth Elemental",
+          "Mutated Rat",
+          "any Vault Guardian"
+        ],
+        "ru": [
+          "Стражник-Мечник",
+          "Великий Земляной Элементаль",
+          "Мутировавшая Крыса",
+          "любой Страж Хранилища"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Radiating Ore",
+            "ru": "Излучающая Руда"
+          },
+          "description": {
+            "en": "Once per scene, a PC can make a Knowledge Roll to find a vein to mine and roll 1d6. Place that number of tokens on this stat block. After a vein is located, a PC can make a Strength or Finesse Roll to mine it. On a success, remove a token, and they gain a Radiating Ore worth two handfuls of gold. PCs mark a Stress for each Radiating Ore they carry, which cannot be cleared until they remove the Radiating Ore from their inventory.",
+            "ru": "Раз за сцену персонаж может совершить бросок Знания, чтобы найти жилу для разработки, и бросить 1d6. Поместите на этот статблок столько жетонов. После того как жила найдена, персонаж может совершить бросок Силы или Искусности, чтобы её разработать. При успехе уберите жетон, и персонаж получает Излучающую Руду стоимостью в две горсти золота. Персонажи отмечают Стресс за каждую Излучающую Руду, которую несут; он не снимается, пока они не избавятся от Излучающей Руды в своём инвентаре."
+          },
+          "prompt": {
+            "en": "",
+            "ru": ""
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Security!",
+            "ru": "Охрана!"
+          },
+          "description": {
+            "en": "The Security Countdown (6) ticks down whenever a PC rolls to mine an ore vein, on a failure the die ticks down 2. When the countdown triggers, security forces descend on the heroes and demand they give up any ore mined.",
+            "ru": "Отсчёт Охраны (6) уменьшается каждый раз, когда персонаж совершает бросок, чтобы разработать жилу руды; при неудаче кость уменьшается на 2. Когда отсчёт срабатывает, силы охраны спускаются на героев и требуют отдать всю добытую руду."
+          },
+          "prompt": {
+            "en": "",
+            "ru": ""
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Unstable Magical Energy",
+            "ru": "Нестабильная Магическая Энергия"
+          },
+          "description": {
+            "en": "Spend a Fear to make all PCs with a Spellcast trait make a Reaction Roll using that trait. On a failure, they roll a d4 and trigger one of these effects depending on their result:\n- **1.** They take 3d6+3 magic damage.\n- **2.** They cannot use any spells until they leave this environment.\n- **3.** A Minor Chaos Elemental appears and attacks.\n- **4.** They become a conduit, and every creature within Close range takes 3d6+3 magic damage.",
+            "ru": "Потратьте Страх, чтобы все персонажи с чертой Заклинателя совершили Бросок Реакции этой чертой. При неудаче они бросают d4 и запускают один из следующих эффектов в зависимости от результата:\n- **1.** Они получают 3d6+3 магического урона.\n- **2.** Они не могут использовать никакие заклинания, пока не покинут это окружение.\n- **3.** Появляется Малый Элементаль Хаоса и атакует.\n- **4.** Они становятся проводником, и каждое существо в пределах Близкой дистанции получает 3d6+3 магического урона."
+          },
+          "prompt": {
+            "en": "",
+            "ru": ""
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Faulty Equipment",
+            "ru": "Неисправное Оборудование"
+          },
+          "description": {
+            "en": "When a PC fails a roll to mine a vein, spend a Fear to make them mark a HP.",
+            "ru": "Когда персонаж проваливает бросок, чтобы разработать жилу, потратьте Страх, чтобы он отметил Рану."
+          },
+          "prompt": {
+            "en": "",
+            "ru": ""
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Explosive Greed",
+            "ru": "Взрывная Жадность"
+          },
+          "description": {
+            "en": "If a PC holding at least one Radiating Ore takes Major or Severe damage, spend 2 Fear to remove all Radiating Ore from their inventory as they detonate. Each PC affected in this way marks a HP for each Radiating Ore lost, as does any creature within Very Close range of them.",
+            "ru": "Если персонаж, держащий хотя бы одну Излучающую Руду, получает Ощутимый или Тяжёлый урон, потратьте 2 Страха, чтобы убрать всю Излучающую Руду из его инвентаря, пока она детонирует. Каждый затронутый таким образом персонаж отмечает Рану за каждую потерянную Излучающую Руду, как и любое существо в пределах Очень Близкой дистанции от него."
+          },
+          "prompt": {
+            "en": "",
+            "ru": ""
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "underground"
+      ]
+    },
+    {
+      "id": "arcane-laboratory",
+      "tier": 3,
+      "type": "exploration",
+      "difficulty": 16,
+      "name": {
+        "en": "Arcane Laboratory",
+        "ru": "Тайная Лаборатория"
+      },
+      "impulses": {
+        "en": [
+          "Tempt the heroes to take things",
+          "make the power source a focal point"
+        ],
+        "ru": [
+          "Искушать героев взять вещи",
+          "сделать источник питания центром внимания"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Arcanist",
+          "Demon of Hubris",
+          "Huge Green Ooze",
+          "powered constructs (any Vault Guardians)"
+        ],
+        "ru": [
+          "Чародей",
+          "Демон Гордыни",
+          "Огромная Зелёная Слизь",
+          "запитанные конструкты (любые Стражи Хранилища)"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Mystery Alchemicals",
+            "ru": "Загадочные Реагенты"
+          },
+          "description": {
+            "en": "There are four flasks of different liquids on the counter. If a PC decides to drink one they describe the look and taste of the liquid and roll a d4. The following results occur:\n- **1.** Their highest and lowest ability score swap until they rest.\n- **2.** They gain a +2 bonus to their highest ability score until they rest.\n- **3.** They are Petrified. They become immune to physical damage, mark 1 Stress, and are Restrained until the end of the scene.\n- **4.** They are Vulnerable, with advantage on attack rolls until they rest.",
+            "ru": "На столе стоят четыре колбы с разными жидкостями. Если персонаж решает выпить одну из них, он описывает вид и вкус жидкости и бросает d4. Происходит следующее:\n- **1.** Его наивысшая и наинизшая характеристики меняются местами до следующего отдыха.\n- **2.** Он получает бонус +2 к своей наивысшей характеристике до следующего отдыха.\n- **3.** Он становится Окаменевшим. Он получает иммунитет к физическому урону, отмечает 1 Стресс и становится Обездвиженным до конца сцены.\n- **4.** Он становится Уязвимым, с преимуществом на броски атаки до следующего отдыха."
+          },
+          "prompt": {
+            "en": "",
+            "ru": ""
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Busted Power Source",
+            "ru": "Сломанный Источник Питания"
+          },
+          "description": {
+            "en": "A PC can attempt to repair the power source by making a Knowledge Roll. On a success, place a token on this stat block as one of six lights power up. If there are at least three tokens on this stat block the power switch lights up and PCs can power up the construct. If there are six tokens on this stat block the construct automatically powers up.",
+            "ru": "Персонаж может попытаться починить источник питания, совершив бросок Знания. При успехе поместите жетон на этот статблок, когда загорается один из шести огней. Если на этом статблоке есть хотя бы три жетона, включатель питания загорается, и персонажи могут запитать конструкт. Если на этом статблоке шесть жетонов, конструкт запитывается автоматически."
+          },
+          "prompt": {
+            "en": "",
+            "ru": ""
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Faulty Wiring",
+            "ru": "Неисправная Проводка"
+          },
+          "description": {
+            "en": "Spend a Fear to make each PC make an Agility Reaction Roll. On a failure they take 3d8+6 magic damage.",
+            "ru": "Потратьте Страх, чтобы каждый персонаж совершил Бросок Реакции на Проворность. При неудаче он получает 3d8+6 магического урона."
+          },
+          "prompt": {
+            "en": "",
+            "ru": ""
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Mysterious Construct",
+            "ru": "Загадочный Конструкт"
+          },
+          "description": {
+            "en": "When the construct powers up, spend all tokens on this stat block and gain an equal number of Fear. The construct awakens and answers a number of questions about its creator or the lab equal to the number of tokens spent. Then, the power source fails and the construct goes haywire.",
+            "ru": "Когда конструкт запитывается, потратьте все жетоны на этом статблоке и получите равное им число Страха. Конструкт пробуждается и отвечает на число вопросов о своём создателе или лаборатории, равное числу потраченных жетонов. Затем источник питания выходит из строя, и конструкт выходит из-под контроля."
+          },
+          "prompt": {
+            "en": "",
+            "ru": ""
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Self-Destruct",
+            "ru": "Самоуничтожение"
+          },
+          "description": {
+            "en": "When the power source fails, start a Self Destruct Countdown (6) that ticks down every time a PC rolls with Fear as they attempt to escape the lab. Each PC must make an action roll to escape the environment. On a failure they may make another attempt at +1 Difficulty. When the countdown triggers, the lab detonates, and any PCs still inside take 4d10+4 damage.",
+            "ru": "Когда источник питания выходит из строя, начните Отсчёт Самоуничтожения (6), который уменьшается каждый раз, когда персонаж выбрасывает результат со Страхом, пытаясь сбежать из лаборатории. Каждый персонаж должен совершить бросок действия, чтобы покинуть окружение. При неудаче он может совершить ещё одну попытку с +1 к Сложности. Когда отсчёт срабатывает, лаборатория взрывается, и все персонажи, оставшиеся внутри, получают 4d10+4 урона."
+          },
+          "prompt": {
+            "en": "",
+            "ru": ""
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "settlement"
+      ]
+    },
+    {
+      "id": "city-travel",
+      "tier": 3,
+      "type": "traversal",
+      "difficulty": 17,
+      "name": {
+        "en": "City Travel",
+        "ru": "Городское Передвижение"
+      },
+      "impulses": {
+        "en": [
+          "Make the heroes think travel is easy",
+          "put up roadblocks",
+          "catch the heroes breaking the highway code"
+        ],
+        "ru": [
+          "Заставить героев думать, что путешествие лёгкое",
+          "выставлять заграждения",
+          "ловить героев на нарушении правил дорожного движения"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Elemental Spark",
+          "Juvenile Flickerfly",
+          "Masked Thief",
+          "Mavros Police Officer",
+          "Merchant"
+        ],
+        "ru": [
+          "Стихийная Искра",
+          "Молодая Мерцекрылка",
+          "Вор в Маске",
+          "Полицейский Мавроса",
+          "Торговец"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Vehicle of Choice",
+            "ru": "Транспорт на Выбор"
+          },
+          "description": {
+            "en": "PCs hoping to traverse the roads or skies will need a vehicle. There are many available, which fall into three categories: Speed, Storage, Sturdy. The vehicle takes 1 HP damage if any of its passengers takes Major or Severe damage, or if a PC fails with Fear. If the vehicle marks its last HP, it crashes and each passenger takes Severe damage.\n- Speed. 7 HP. You can bypass Hazardous Journey without paying the Hope cost twice per session.\n- Storage. 9 HP. You can store a large object, but the cost to bypass Hazardous Journey is 2 Hope each.\n- Sturdy. 11 HP. Sturdy vehicles only take damage if its passengers take Severe damage or fail with Fear.",
+            "ru": "Персонажам, надеющимся передвигаться по дорогам или небу, понадобится транспорт. Их много в наличии, они делятся на три категории: Скорость, Вместимость, Прочность. Транспорт получает 1 Рану, если кто-то из пассажиров получает Ощутимый или Тяжёлый урон, либо если персонаж проваливает бросок со Страхом. Если транспорт отмечает свою последнюю Рану, он разбивается, и каждый пассажир получает Тяжёлый урон.\n- Скорость. 7 Ран. Вы можете дважды за сессию миновать Опасное Путешествие, не платя стоимость Надеждой.\n- Вместимость. 9 Ран. Вы можете хранить крупный предмет, но стоимость минования Опасного Путешествия составляет 2 Надежды каждый раз.\n- Прочность. 11 Ран. Прочный транспорт получает урон, только если пассажиры получают Тяжёлый урон или проваливают бросок со Страхом."
+          },
+          "prompt": {
+            "en": "",
+            "ru": ""
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "A Quick Trip",
+            "ru": "Быстрая Поездка"
+          },
+          "description": {
+            "en": "Start a Trip Countdown (4) that ticks down every time the PCs succeed on a roll to overcome the Hazardous Journey. If the destination is far away, make the countdown (6). When the countdown triggers, the PCs have reached their destination.",
+            "ru": "Начните Отсчёт Поездки (4), который уменьшается каждый раз, когда персонажи преуспевают в броске, чтобы преодолеть Опасное Путешествие. Если пункт назначения далеко, сделайте отсчёт (6). Когда отсчёт срабатывает, персонажи достигают пункта назначения."
+          },
+          "prompt": {
+            "en": "",
+            "ru": ""
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Hazardous Journey",
+            "ru": "Опасное Путешествие"
+          },
+          "description": {
+            "en": "Roll a d4 to choose an option below. Ask the PCs how they’d like to overcome the issue and make a group action roll. PCs may spend 1 Hope each to bypass the group action roll.\n- **1.** Upcoming Traffic. On a failure, tick the countdown up 1 as the PCs get caught in a traffic jam.\n- **2.** Factory Smog. On a failure, each PC marks a Stress as they breathe in toxic gasses. Mark a Vehicle HP.\n- **3.** Wild Ride. On a failure, each PC takes 3d6+4 physical damage as they swerve to dodge something, throwing them into obstacles. If over half the PCs fail the group action roll, tick the countdown up 1.\n- **4.** Grinding Sound. On a failure, mark 2 Vehicle HP as something goes wrong with the vehicle. If more than half the PCs fail the group action roll, tick the countdown up 1 as they pull over to investigate.",
+            "ru": "Бросьте d4, чтобы выбрать один из вариантов ниже. Спросите персонажей, как они хотели бы преодолеть эту проблему, и совершите групповой бросок действия. Персонажи могут потратить по 1 Надежде каждый, чтобы миновать групповой бросок действия.\n- **1.** Затор Впереди. При неудаче увеличьте отсчёт на 1, поскольку персонажи попадают в пробку.\n- **2.** Заводской Смог. При неудаче каждый персонаж отмечает Стресс, вдыхая токсичные газы. Отметьте Рану Транспорта.\n- **3.** Дикая Езда. При неудаче каждый персонаж получает 3d6+4 физического урона, уворачиваясь от чего-то и врезаясь в препятствия. Если больше половины персонажей проваливают групповой бросок действия, увеличьте отсчёт на 1.\n- **4.** Скрежещущий Звук. При неудаче отметьте 2 Раны Транспорта, поскольку с ним что-то не так. Если больше половины персонажей проваливают групповой бросок действия, увеличьте отсчёт на 1, поскольку они останавливаются, чтобы проверить."
+          },
+          "prompt": {
+            "en": "",
+            "ru": ""
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Speed Trap",
+            "ru": "Ловушка для Скорости"
+          },
+          "description": {
+            "en": "If the PCs bypass Hazardous Journey, spend a Fear to have the cops pull them over. Each passenger loses a bag of gold and marks a HP. PCs can choose instead to tick up the countdown by 2 to lose cops in the city.",
+            "ru": "Если персонажи минуют Опасное Путешествие, потратьте Страх, чтобы полиция их остановила. Каждый пассажир теряет мешочек золота и отмечает Рану. Персонажи могут вместо этого увеличить отсчёт на 2, чтобы оторваться от полиции в городе."
+          },
+          "prompt": {
+            "en": "",
+            "ru": ""
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "settlement"
+      ]
+    },
+    {
+      "id": "interdimensional-building",
+      "tier": 4,
+      "type": "exploration",
+      "difficulty": 20,
+      "name": {
+        "en": "Interdimensional Building",
+        "ru": "Межпространственное Здание"
+      },
+      "impulses": {
+        "en": [
+          "Make travel unpredictable and dangerous",
+          "lure the heroes into portals",
+          "trap the heroes"
+        ],
+        "ru": [
+          "Сделать путешествие непредсказуемым и опасным",
+          "заманивать героев в порталы",
+          "ловить героев в ловушку"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Demon of Wrath",
+          "Fallen Sorcerer",
+          "planar entity (any Outer Realms being)",
+          "Unspeakable Horror",
+          "Zombie Legion"
+        ],
+        "ru": [
+          "Демон Гнева",
+          "Падший Чародей",
+          "планарная сущность (любое существо из Внешних Миров)",
+          "Несказанный Ужас",
+          "Легион Зомби"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Warp Threshold",
+            "ru": "Искривляющий Порог"
+          },
+          "description": {
+            "en": "Moving through this space is mentally taxing. Creatures cannot clear Stress while inside this environment.",
+            "ru": "Передвижение через это пространство изматывает разум. Существа не могут снимать Стресс, пока находятся внутри этого окружения."
+          },
+          "prompt": {
+            "en": "",
+            "ru": ""
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Doors to Anywhere",
+            "ru": "Двери Куда Угодно"
+          },
+          "description": {
+            "en": "When a PC opens an interdimensional door, roll a d8 to choose an option below and narrate what they find inside. A PC must succeed on three action rolls to escape a room.\n- **1.** PCs leave this scene and enter a Pitched Battle environment in a medieval fantasy world.\n- **2.** Each time a PC fails a roll to escape this realm of agony, they mark 1 HP.\n- **3.** PCs leave this scene and enter a Chaos Realm environment in a bizarre astral plane.\n- **4.** The door leads to a nonmagical room in the Interdimensional Building.\n- **5.** PCs leave this scene and enter a Necromancer's Ossuary environment elsewhere in the city.\n- **6.** Each time a PC rolls with Fear to escape this nightmarish shadow plane, take an extra Fear.\n- **7.** PCs can make action rolls to harvest strange fruit from this garden of plenty. On a success, they clear 3 HP. On a failure, they mark 1 HP.\n- **8.** PCs find themselves trapped in a wicker prison, about to be burned alive by a cult (any Cult members) along with d4 other prisoners.",
+            "ru": "Когда персонаж открывает межпространственную дверь, бросьте d8, чтобы выбрать один из вариантов ниже, и опишите, что он находит внутри. Персонаж должен преуспеть в трёх бросках действия, чтобы выбраться из комнаты.\n- **1.** Персонажи покидают эту сцену и попадают в окружение «Решающая Битва» в средневековом фэнтезийном мире.\n- **2.** Каждый раз, когда персонаж проваливает бросок, чтобы сбежать из этого царства мучений, он отмечает 1 Рану.\n- **3.** Персонажи покидают эту сцену и попадают в окружение «Царство Хаоса» в причудливом астральном плане.\n- **4.** Дверь ведёт в немагическую комнату в Межпространственном Здании.\n- **5.** Персонажи покидают эту сцену и попадают в окружение «Склеп Некроманта» где-то ещё в городе.\n- **6.** Каждый раз, когда персонаж выбрасывает результат со Страхом, пытаясь сбежать из этого кошмарного теневого плана, вы получаете дополнительный Страх.\n- **7.** Персонажи могут совершать броски действия, чтобы собрать странные плоды в этом саду изобилия. При успехе они снимают 3 Раны. При неудаче они отмечают 1 Рану.\n- **8.** Персонажи оказываются в плетёной тюрьме, готовые быть сожжёнными заживо культом (любые члены культа) вместе с d4 другими пленниками."
+          },
+          "prompt": {
+            "en": "",
+            "ru": ""
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Lost Forever",
+            "ru": "Потерян Навсегда"
+          },
+          "description": {
+            "en": "If a PC enters a room, begin a Lost Forever Countdown (4) that ticks down every time a PC rolls with Fear that environment. When the countdown triggers, the door closes and the PC is stuck between dimensions until they can be rescued or find a way out themselves.",
+            "ru": "Если персонаж входит в комнату, начните Отсчёт Потерянных Навсегда (4), который уменьшается каждый раз, когда персонаж выбрасывает результат со Страхом в этом окружении. Когда отсчёт срабатывает, дверь закрывается, и персонаж застревает между измерениями, пока его не спасут или он сам не найдёт выход."
+          },
+          "prompt": {
+            "en": "",
+            "ru": ""
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "universal"
+      ]
     }
   ]
 }
