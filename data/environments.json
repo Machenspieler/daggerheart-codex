@@ -1099,7 +1099,8 @@
       "builtin": true,
       "biomes": [
         "settlement",
-        "wetland"
+        "wetland",
+        "tropical"
       ]
     },
     {
@@ -2427,7 +2428,8 @@
       ],
       "builtin": true,
       "biomes": [
-        "mountain"
+        "mountain",
+        "forest"
       ]
     },
     {
@@ -2721,8 +2723,7 @@
       ],
       "builtin": true,
       "biomes": [
-        "underground",
-        "badlands"
+        "underground"
       ]
     },
     {
@@ -4740,7 +4741,7 @@
       ],
       "builtin": true,
       "biomes": [
-        "settlement"
+        "universal"
       ]
     },
     {
@@ -7221,7 +7222,8 @@
       ],
       "builtin": true,
       "biomes": [
-        "settlement"
+        "settlement",
+        "aquatic"
       ]
     },
     {
@@ -8486,7 +8488,8 @@
       ],
       "builtin": true,
       "biomes": [
-        "mountain"
+        "mountain",
+        "underground"
       ]
     },
     {
@@ -9444,7 +9447,8 @@
       ],
       "builtin": true,
       "biomes": [
-        "mountain"
+        "mountain",
+        "underground"
       ]
     },
     {
@@ -10075,7 +10079,8 @@
       ],
       "builtin": true,
       "biomes": [
-        "settlement"
+        "settlement",
+        "aquatic"
       ]
     },
     {
