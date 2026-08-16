@@ -19600,7 +19600,7 @@
           },
           "description": {
             "en": "The area within Far range of the portal is fluctuating in time. When a PC takes the spotlight, they roll their duality dice. If their Hope die is higher, they can take two actions before passing the spotlight. If their Fear die is higher, they must mark a Stress before proceeding with their spotlight. If the numbers are equal, their spotlight proceeds as normal. No Hope or Fear are gained with this roll.",
-            "ru": "Область в пределах Дальней дистанции от портала колеблется во времени. Когда персонаж получает Активацию, он бросает свои кости двойственности. Если его кость Надежды выше, он может совершить два действия, прежде чем передать Активацию. Если его кость Страха выше, он должен отметить Стресс, прежде чем продолжить свою Активацию. Если числа равны, его Активация проходит как обычно. Надежда или Страх за этот бросок не начисляются."
+            "ru": "Область в пределах Дальней дистанции от портала колеблется во времени. Когда персонаж получает Активацию, он бросает свои Кости Дуальности. Если его Кость Надежды выше, он может совершить два действия, прежде чем передать Активацию. Если его Кость Страха выше, он должен отметить Стресс, прежде чем продолжить свою Активацию. Если числа равны, его Активация проходит как обычно. Надежда или Страх за этот бросок не начисляются."
           },
           "prompt": {
             "en": "How does time warp around the PC after they make their roll?",
