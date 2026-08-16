@@ -1040,7 +1040,9 @@ button.loot-btn { font-family: var(--lt-ui); line-height: 1; cursor: pointer; }
   font-size: var(--fs-xl); line-height: var(--lh-xl); letter-spacing: var(--tracking-display);
   color: var(--parchment); margin: 0 0 var(--s-5);
 }
-.list-context-bar { display: flex; align-items: center; gap: var(--s-4); margin: 0 0 var(--s-5); flex-wrap: wrap; }
+/* The bar is the first thing under the sticky header on a list route, so it
+ * carries the same top margin the toolbar does when it leads instead. */
+.list-context-bar { display: flex; align-items: center; gap: var(--s-4); margin: var(--s-6) 0 var(--s-5); flex-wrap: wrap; }
 .list-context-title {
   font-family: var(--font-display); font-weight: 400;
   font-size: var(--fs-lg); line-height: var(--lh-lg); color: var(--parchment); margin: 0;
