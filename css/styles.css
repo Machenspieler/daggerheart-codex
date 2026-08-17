@@ -207,6 +207,9 @@ a:hover { text-decoration: underline; text-underline-offset: 2px; }
 /* The header cluster runs one size down from the page controls: a 40px button
  * beside the 32px language switch read as two unrelated control sizes. */
 .header-actions .btn { height: var(--h-sm); }
+/* The icon is what survives on a narrow phone, where the labels come off to keep
+ * the header on one row — see the 400px query at the end of the stylesheet. */
+.nav-btn svg { width: var(--icon-md); height: var(--icon-md); flex: none; }
 
 .lang-switch {
   display: flex; height: var(--h-sm);
@@ -1232,6 +1235,140 @@ button.loot-btn { font-family: var(--lt-ui); line-height: 1; cursor: pointer; }
   border: solid var(--hope-ink); border-width: 0 2px 2px 0; transform: rotate(45deg);
 }
 
+/* ---------- Journey to Horizon ---------- */
+
+/* #grid-wrap is a CSS grid on every route, so a page that is prose and panels
+ * rather than a card grid has to claim the full track. The top margin matches
+ * the one the toolbar carries when it leads instead. */
+.journey-wrap { grid-column: 1 / -1; margin-top: var(--s-6); }
+.journey-intro {
+  margin: 0 0 var(--s-6); max-width: var(--measure);
+  font-size: var(--fs-sm); line-height: var(--lh-sm); color: var(--muted);
+}
+
+/* The two generators sit side by side, and each grows downwards on its own as
+ * entries are kept — so the tracks are independent and aligned to the top
+ * rather than stretched to the taller one. */
+.journey-cols {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--s-6); align-items: start;
+}
+.journey-panel { min-width: 0; display: flex; flex-direction: column; gap: var(--s-3); }
+.journey-panel-title {
+  display: flex; align-items: center; gap: var(--s-2); margin: 0;
+  font-family: var(--font-display); font-weight: 400;
+  font-size: var(--fs-lg); line-height: var(--lh-lg); letter-spacing: var(--tracking-display);
+  color: var(--parchment);
+}
+.journey-panel-title svg { width: var(--s-5); height: var(--s-5); flex: none; color: var(--hope); }
+.journey-panel-hint { max-width: 54ch; }
+.journey-roll { align-self: flex-start; }
+.journey-roll svg { width: var(--icon-md); height: var(--icon-md); flex: none; }
+
+.journey-saved { display: flex; flex-direction: column; gap: var(--s-3); margin-top: var(--s-2); }
+.journey-saved-title {
+  display: flex; align-items: center; gap: var(--s-2); margin: 0;
+  padding-top: var(--s-3); border-top: 1px solid var(--line-faint);
+  font-size: var(--fs-xs); line-height: var(--lh-xs);
+  letter-spacing: var(--tracking-caps); text-transform: uppercase; color: var(--muted);
+}
+.journey-count {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 22px; height: 18px; padding: 0 5px;
+  border: 1px solid var(--line); border-radius: var(--r-pill);
+  font-family: var(--font-mono); font-size: var(--fs-micro); letter-spacing: 0;
+  color: var(--parchment-dim);
+}
+.journey-empty { margin: 0; font-size: var(--fs-sm); line-height: var(--lh-sm); color: var(--muted); }
+
+/* One rolled region or sanctuary. The unsaved one is ringed in gold: it is what
+ * just happened, and the only one still carrying a decision. */
+.journey-entry {
+  background: var(--ink-card); border: 1px solid var(--line); border-radius: var(--r-md);
+  padding: var(--s-4); display: flex; flex-direction: column; gap: var(--s-3);
+  box-shadow: var(--e-1);
+}
+.journey-draft .journey-entry { border-color: var(--hope); box-shadow: var(--e-2); }
+
+.jr-name-row { display: flex; align-items: center; gap: var(--s-2); }
+.jr-name {
+  flex: 1; min-width: 0; background: transparent; border: none;
+  border-bottom: 1px solid var(--line-faint); color: var(--parchment);
+  font-family: var(--font-display); font-size: var(--fs-lg); line-height: var(--lh-lg);
+  letter-spacing: var(--tracking-display); padding: var(--s-1) 0;
+  transition: border-color var(--t-fast) var(--ease-out);
+}
+/* The placeholder is a prompt, not a name, so it steps out of the display face
+ * the field itself is set in. */
+.jr-name::placeholder {
+  font-family: var(--font-body); font-size: var(--fs-base); letter-spacing: 0; color: var(--muted);
+}
+.jr-name:hover { border-bottom-color: var(--line-strong); }
+.jr-name:focus { border-bottom-color: var(--hope); }
+
+.jr-icon-btn {
+  flex: none; display: inline-flex; align-items: center; justify-content: center;
+  width: 28px; height: 28px; padding: 0;
+  background: transparent; border: 1px solid var(--line); border-radius: var(--r-sm);
+  color: var(--muted); cursor: pointer;
+  transition: border-color var(--t-fast) var(--ease-out), color var(--t-fast) var(--ease-out),
+              background var(--t-fast) var(--ease-out);
+}
+.jr-icon-btn svg { width: var(--icon-sm); height: var(--icon-sm); }
+.jr-icon-btn:hover { border-color: var(--hope); color: var(--hope-soft); background: rgba(217,164,65,0.1); }
+.jr-icon-btn:active { transform: scale(0.92); }
+
+.jr-rows { margin: 0; display: flex; flex-direction: column; }
+.jr-row { padding: var(--s-2) 0; border-top: 1px solid var(--line-faint); }
+.jr-row:first-child { border-top: none; padding-top: 0; }
+.jr-k {
+  display: flex; align-items: baseline; gap: var(--s-2); margin: 0 0 var(--s-1);
+  font-size: var(--fs-xs); line-height: var(--lh-xs);
+  letter-spacing: var(--tracking-caps); text-transform: uppercase; color: var(--muted);
+}
+/* Opting out of the label row's caps: dice notation is written lowercase
+ * everywhere else on the site, and "D8+D6" is not how the books set it. */
+.jr-die {
+  font-family: var(--font-mono); font-size: var(--fs-micro);
+  letter-spacing: 0; text-transform: none; color: var(--teal-soft);
+}
+
+/* The roll is pinned left so the numbers line up down the card, and the button
+ * that throws it again pinned right, clear of the text between them. */
+.jr-v { display: flex; align-items: flex-start; gap: var(--s-3); margin: 0; }
+.jr-roll {
+  flex: none; min-width: 4.5em; padding-top: 2px; white-space: nowrap;
+  font-family: var(--font-mono); font-size: var(--fs-sm); color: var(--hope);
+}
+.jr-body { flex: 1; min-width: 0; display: flex; flex-direction: column; align-items: flex-start; gap: var(--s-1); }
+.jr-reroll { margin-left: auto; }
+
+.jr-strong { font-size: var(--fs-base); line-height: var(--lh-base); color: var(--parchment); }
+.jr-text { font-size: var(--fs-sm); line-height: var(--lh-sm); color: var(--parchment-dim); }
+.jr-examples { font-size: var(--fs-xs); line-height: var(--lh-xs); color: var(--muted); }
+.jr-days { font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--hope-soft); }
+.jr-note { font-size: var(--fs-xs); line-height: var(--lh-xs); color: var(--teal-soft); }
+/* The roll behind one of several combined results, hung off the result itself
+ * rather than crowded into the roll column. */
+.jr-subroll {
+  display: inline-block; min-width: 1.6em; margin-right: var(--s-2);
+  font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--hope);
+}
+.jr-blight {
+  display: inline-flex; align-items: center; height: var(--h-xs); padding: 0 var(--s-2);
+  border: 1px solid var(--fear); border-radius: var(--r-xs);
+  font-family: var(--font-mono); font-size: var(--fs-micro); line-height: 1;
+  letter-spacing: 0.05em; text-transform: uppercase; color: var(--fear-soft);
+}
+
+/* The habitat chip is the one thing on this page that goes somewhere, so unlike
+ * the chips on a stat block card it takes a pointer and a hover. A bare button
+ * would otherwise draw the platform's own grey fill through the border. */
+button.jr-biome { background: transparent; cursor: pointer; }
+button.jr-biome:hover { border-color: var(--hope); color: var(--hope-soft); }
+
+.jr-foot { display: flex; gap: var(--s-2); flex-wrap: wrap; }
+
 /* ---------- footer ---------- */
 .site-footer {
   max-width: 1180px; margin: var(--s-8) auto 0; padding: var(--s-5) var(--s-5) 0;
@@ -1386,6 +1523,13 @@ button.loot-btn { font-family: var(--lt-ui); line-height: 1; cursor: pointer; }
   @keyframes toast-in-top { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: none; } }
 }
 
+/* Two panels of prose side by side stop being readable once each track is
+ * narrower than a catalog card. Below that they stack, and the sanctuary
+ * generator sits under the wilderness one. */
+@media (max-width: 760px) {
+  .journey-cols { grid-template-columns: 1fr; gap: var(--s-7); }
+}
+
 /* Below this the wordmark wraps to two lines and pushes the header past the
  * single row it exists to hold. The mark carries the brand on its own; the h1
  * stays in the accessibility tree as the page heading. */
@@ -1395,6 +1539,15 @@ button.loot-btn { font-family: var(--lt-ui); line-height: 1; cursor: pointer; }
     overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
   }
   .brand-mark { height: 32px; }
+}
+
+/* Two nav labels plus the language switch no longer fit beside the logo here —
+ * the Russian pair alone is ~180px. The labels come off and the icons carry the
+ * two sections, which keeps the header on the one row it is built for. The
+ * accessible name stays on the button either way. */
+@media (max-width: 400px) {
+  .nav-btn { padding: 0 var(--s-2); }
+  .nav-btn > span { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
