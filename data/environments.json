@@ -5338,7 +5338,7 @@
       ],
       "builtin": true,
       "biomes": [
-        "universal"
+        "settlement"
       ]
     },
     {
@@ -9022,7 +9022,7 @@
       ],
       "builtin": true,
       "biomes": [
-        "universal"
+        "settlement"
       ]
     },
     {
@@ -9122,7 +9122,7 @@
       ],
       "builtin": true,
       "biomes": [
-        "universal"
+        "settlement"
       ]
     },
     {
@@ -9233,7 +9233,7 @@
       ],
       "builtin": true,
       "biomes": [
-        "universal"
+        "aquatic"
       ]
     },
     {
@@ -10514,7 +10514,7 @@
       ],
       "builtin": true,
       "biomes": [
-        "universal"
+        "settlement"
       ]
     },
     {
@@ -10878,7 +10878,7 @@
       ],
       "builtin": true,
       "biomes": [
-        "universal"
+        "settlement"
       ]
     },
     {
@@ -11103,7 +11103,7 @@
       ],
       "builtin": true,
       "biomes": [
-        "universal"
+        "settlement"
       ]
     },
     {
@@ -11411,7 +11411,7 @@
       ],
       "builtin": true,
       "biomes": [
-        "universal"
+        "settlement"
       ]
     },
     {
@@ -19742,7 +19742,8 @@
       ],
       "builtin": true,
       "biomes": [
-        "universal"
+        "settlement",
+        "badlands"
       ]
     },
     {
