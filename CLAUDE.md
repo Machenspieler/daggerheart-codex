@@ -20,6 +20,38 @@ This includes any real-name or work-address form of them. The repo-local git con
 already sets the correct `user.name` and `user.email`; do not override it, and do not
 fall back to a globally configured or auto-detected identity.
 
+## Biome tagging
+
+Every environment in `data/environments.json` carries a `biomes` array. Eleven biomes
+describe real terrain and always take priority — check these first, in this order, and
+tag any that the card's own text supports:
+
+| id | covers |
+| --- | --- |
+| `underground` | caves, mines, fungal forests |
+| `aquatic` | lake, sea, reef, delta |
+| `wetland` | swamp, marsh, bog, fen |
+| `grassland` | plains, veldt, savannah |
+| `tropical` | jungle, rainforest, mangrove |
+| `forest` | deciduous, evergreen, coniferous |
+| `drylands` | desert, canyon, prairie, salt flat |
+| `rolling` | hills, chaparral, moor, heath |
+| `mountain` | plateau, montane, alpine |
+| `frozen` | tundra, taiga, glacier |
+| `badlands` | volcano, crystalline, barren |
+
+Only when none of the eleven fits does an environment fall back to `settlement` (a
+built, inhabited place: city, town, village, market, castle, temple, base) or
+`universal`, shown as "Other" (no terrain at all: planar realms, space, dreams,
+abstract scenes, and events that could happen anywhere).
+
+Do not add new biome ids. Anything that isn't one of the eleven belongs in
+`settlement` or `universal`.
+
+An environment may carry more than one biome. List them most to least characteristic —
+the first is the primary, the rest are secondary, tertiary, quaternary. Tag only what
+the card's text actually supports; don't guess a terrain from the name alone.
+
 ## Cache busting
 
 `index.html` references the stylesheet and script with a `?v=` query string. Bump the
