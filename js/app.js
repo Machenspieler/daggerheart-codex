@@ -528,6 +528,31 @@ function registerOverlay(overlay, closeFn) {
   };
 }
 
+/* Belt to the animationend braces: a browser that fires no event at all must
+ * still not leave the overlay stuck mid-exit. Comfortably longer than --t-base. */
+const OVERLAY_EXIT_MAX_MS = 400;
+
+/** Plays the exit animation, then hands over to the overlay's own `closeFn`.
+ * For a close the user did not ask for — one they have to see happening.
+ * animationend rather than a duration copied out of the stylesheet, so the two
+ * cannot drift apart, and so prefers-reduced-motion (which squashes every
+ * animation to nothing) lands the event at once instead of pausing on a card
+ * already faded out. */
+function closeOverlayAnimated(overlay, closeFn) {
+  overlay.classList.add('is-closing');
+  const card = overlay.querySelector('[data-overlay-card]');
+  if (card) {
+    card.addEventListener('animationend', function onEnd(e) {
+      // animationend bubbles — anything inside the card that happens to be
+      // animating must not be taken for the card's own exit finishing.
+      if (e.target !== card) return;
+      card.removeEventListener('animationend', onEnd);
+      closeFn();
+    });
+  }
+  setTimeout(closeFn, OVERLAY_EXIT_MAX_MS);
+}
+
 /* ---------------- language ---------------- */
 
 function langButtonsHtml() {
@@ -1342,6 +1367,11 @@ function listCardHtml(list) {
     </div>`;
 }
 
+/* How long the popup stands there having done its job. Long enough that the
+ * ticked checkbox and the new row are read as the answer, short enough that the
+ * card leaving still feels like a consequence of the click. */
+const ATL_CLOSE_DELAY_MS = 450;
+
 function openAddToListPopup(envId) {
   const overlay = document.createElement('div');
   overlay.className = 'modal-overlay';
@@ -1381,6 +1411,20 @@ function openAddToListPopup(envId) {
 
   const teardown = registerOverlay(overlay, close);
 
+  // close() is reachable twice over — the Escape key, the backdrop, the close
+  // button and the self-close race, and closeOverlayAnimated deliberately fires
+  // its callback from both the animation and its fallback timer.
+  let closed = false;
+  let closeTimer = null;
+
+  /* The popup's whole job is done the moment the environment lands in a list,
+   * so it gets out of the way rather than waiting to be dismissed. The pause is
+   * for the checkbox to be seen ticking and the toast to arrive under it. */
+  function closeAfterAdd() {
+    clearTimeout(closeTimer);
+    closeTimer = setTimeout(() => closeOverlayAnimated(overlay, close), ATL_CLOSE_DELAY_MS);
+  }
+
   function bindToggle(cb) {
     cb.addEventListener('change', () => {
       const listId = cb.dataset.listToggle;
@@ -1391,11 +1435,17 @@ function openAddToListPopup(envId) {
       persist(LS_KEYS.envLists, state.envLists);
       // Membership is otherwise a silent toggle with nothing to confirm it.
       showToast((cb.checked ? t('added_to_list') : t('removed_from_list')).replace('{n}', list ? list.name : ''));
+      // Unticking is not the job finishing, and it also undoes a tick that has
+      // a close already pending — either way the popup stays up.
+      if (cb.checked) closeAfterAdd(); else clearTimeout(closeTimer);
     });
   }
   overlay.querySelectorAll('[data-list-toggle]').forEach(bindToggle);
 
   function close() {
+    if (closed) return;
+    closed = true;
+    clearTimeout(closeTimer);
     overlay.remove();
     teardown();
     // Only the list routes show anything that membership changes; re-rendering
@@ -1430,6 +1480,7 @@ function openAddToListPopup(envId) {
     container.querySelectorAll('[data-list-toggle]').forEach(bindToggle);
     showToast(t('added_to_list').replace('{n}', name));
     newInput.focus();
+    closeAfterAdd();
   }
 
   newInput.addEventListener('input', () => {

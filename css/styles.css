@@ -719,6 +719,18 @@ button.rank-icon:focus-visible { outline: var(--focus-ring); outline-offset: 1px
  * would read as a blink over what is really a change of text. */
 .modal-overlay.is-rebuild .modal,
 .modal-overlay.is-rebuild .loot-modal-card { animation: none; }
+/* An overlay that closes itself rather than being dismissed. A click has
+ * already answered for itself, so nothing else in the app animates on the way
+ * out; this one would just vanish unexplained. Mirror of modal-in, leaving:
+ * --ease-out because it is going away, not arriving. */
+ * The card goes deaf rather than the overlay: the backdrop has to keep
+ * swallowing clicks, or a stray one lands on the catalog behind mid-exit. */
+.modal-overlay.is-closing { animation: overlay-out var(--t-base) var(--ease-out) both; }
+.modal-overlay.is-closing .modal {
+  animation: modal-out var(--t-base) var(--ease-out) both; pointer-events: none;
+}
+@keyframes overlay-out { to { opacity: 0; } }
+@keyframes modal-out { to { transform: translateY(6px) scale(0.98); } }
 .modal-header {
   display: flex; align-items: center; flex-wrap: wrap; gap: var(--s-4);
   padding: var(--s-5) var(--s-6) var(--s-4); border-bottom: 1px solid var(--line);
