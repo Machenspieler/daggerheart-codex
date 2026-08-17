@@ -664,7 +664,11 @@ window.addEventListener('resize', updateLangFloatOffset);
  * id, so a new one is a line here and a file in img/env. Listed rather than
  * probed: the environments without a picture are the majority, and none of them
  * should spend a 404 finding that out. */
-const ENV_ART = new Set(['ouroborean-pass']);
+const ENV_ART = new Set([
+  'cauldera-valley',
+  'field-of-dreams',
+  'ouroborean-pass',
+]);
 
 /* Below this the stat block stops being a card in a margin and becomes a sheet
  * filling the screen — there is no ground left behind it to show a picture on,
