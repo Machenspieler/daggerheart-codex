@@ -230,7 +230,7 @@ function difficultyScales(env) { return typeof env.difficulty === 'number'; }
 /* Cache buster for the JSON under data/. index.html versions the stylesheet and
    this script the same way; the data files are fetched from here instead, so
    bump this whenever anything in data/ changes or browsers serve stale copies. */
-const DATA_VERSION = 18;
+const DATA_VERSION = 19;
 
 function getJSON(path) {
   return fetch(path).then(r => {
@@ -1055,7 +1055,7 @@ function hasActiveFilters() {
 }
 
 /* Biomes that only get to supply a card picture when nothing else is on offer.
- * "universal" ("Другое") says nothing about the place, and "settlement" is worn
+ * "universal" ("Other") says nothing about the place, and "settlement" is worn
  * by a quarter of the catalog, so a more specific biome always outranks them.
  * Ordered least specific first, since each one is dropped in turn. */
 const GENERIC_BIOMES = ['universal', 'settlement'];
