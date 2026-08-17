@@ -251,7 +251,7 @@ function difficultyScales(env) { return typeof env.difficulty === 'number'; }
 /* Cache buster for the JSON under data/. index.html versions the stylesheet and
    this script the same way; the data files are fetched from here instead, so
    bump this whenever anything in data/ changes or browsers serve stale copies. */
-const DATA_VERSION = 26;
+const DATA_VERSION = 27;
 
 function getJSON(path) {
   return fetch(path).then(r => {
@@ -342,7 +342,8 @@ const ICON_CHECK = `<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><cir
 const ICON_CHEVRON_UP = `<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m6 15 6-6 6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 const ICON_SEARCH_EMPTY = `<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" stroke-width="1.6"/><path d="m15.5 15.5 4.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M8 10.5h5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>`;
 const ICON_BOOKMARK = `<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.5 3.5h11a1 1 0 0 1 1 1v16l-6.5-4-6.5 4v-16a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>`;
-const ICON_COMPASS = `<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="m15 9-2.1 4.9L8 16l2.1-4.9L15 9z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>`;
+const ICON_TRASH = `<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4.5 6.5h15M9.8 6.5V4.9a1 1 0 0 1 1-1h2.4a1 1 0 0 1 1 1v1.6M6.8 6.5l.8 12.3a1 1 0 0 0 1 .9h6.8a1 1 0 0 0 1-.9l.8-12.3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M10.4 10.2v6M13.6 10.2v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>`;
+const ICON_COMPASS =`<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="m15 9-2.1 4.9L8 16l2.1-4.9L15 9z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>`;
 const ICON_HEX = `<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2.6 20.1 7v10L12 21.4 3.9 17V7L12 2.6z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>`;
 const ICON_REROLL = `<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.6-5.9M20 4v4h-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 
@@ -1486,12 +1487,12 @@ function listCoverHtml(list) {
             <img src="${base}-400.webp" alt="" loading="lazy" decoding="async">
           </picture>`;
   }).join('');
-  /* data-open-list is already bound to a click on this page, so the pictures
-   * become a second way in for nothing. The cover stays out of the tab order and
-   * out of the accessibility tree: the Open button below is the real control, and
-   * a screen reader has no use for a decorative crop of a painting. */
+  /* No click handler of its own: the Open button's stretched ::after covers the
+   * whole card, cover included. Out of the tab order and out of the
+   * accessibility tree too — that button is the real control, and a screen
+   * reader has no use for a decorative crop of a painting. */
   return `
-      <div class="list-card-cover" data-open-list="${list.id}" aria-hidden="true">${tiles}</div>`;
+      <div class="list-card-cover" aria-hidden="true">${tiles}</div>`;
 }
 
 /* Lists with a cover first. A cover makes a card 90px taller than a plain one,
@@ -1506,14 +1507,22 @@ function listsCoveredFirst() {
 
 function listCardHtml(list) {
   const cover = listCoverHtml(list);
+  const count = listEnvCount(list.id);
+  /* A list with nothing in it read as "Окружений: 0" — a count of a thing rather
+   * than an empty shelf, and easy to skim straight past next to a card wearing
+   * three paintings. It says so in words instead. */
+  const countLine = count
+    ? `<div class="list-card-count">${t('list_env_count').replace('{n}', count)}</div>`
+    : `<div class="list-card-count empty">${t('list_card_empty')}</div>`;
   return `
     <div class="list-card${cover ? ' has-cover' : ''}" data-list="${list.id}">${cover}
       <div class="list-card-top">
         <input type="text" value="${escapeAttr(list.name)}" class="list-rename" aria-label="${t('new_list_name')}">
-        <button type="button" class="btn btn-sm btn-danger" data-del-list="${list.id}">${t('delete')}</button>
+        <button type="button" class="list-card-del" data-del-list="${list.id}"
+                aria-label="${t('delete')}" data-tip="${t('delete')}">${ICON_TRASH}</button>
       </div>
-      <div class="list-card-count">${t('list_env_count').replace('{n}', listEnvCount(list.id))}</div>
-      <button type="button" class="btn btn-sm" data-open-list="${list.id}">${t('open_list')}</button>
+      ${countLine}
+      <button type="button" class="btn btn-sm list-card-open" data-open-list="${list.id}">${t('open_list')}</button>
     </div>`;
 }
 
