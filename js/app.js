@@ -122,10 +122,16 @@ function allEnvs() {
   return [...builtin, ...state.customEnvs];
 }
 
+/* The members of a list, in catalog order. Taken off the catalog rather than off
+ * state.envLists because that record is keyed by environment and grows in the
+ * order things were first bookmarked anywhere — walking it would order one
+ * list's members by what happened in the others. */
+function envsInList(listId) {
+  return allEnvs().filter(e => (state.envLists[e.id] || []).includes(listId));
+}
+
 function currentEnvs() {
-  if (state.route.name === 'list') {
-    return allEnvs().filter(e => (state.envLists[e.id] || []).includes(state.route.id));
-  }
+  if (state.route.name === 'list') return envsInList(state.route.id);
   return allEnvs();
 }
 
@@ -660,10 +666,11 @@ window.addEventListener('resize', updateLangFloatOffset);
 
 /* ---------------- environment backdrop ---------------- */
 
-/* Environments with a painting to be read against. The file is named after the
- * id, so a new one is a line here and a file in img/env. Listed rather than
- * probed: the environments without a picture are the majority, and none of them
- * should spend a 404 finding that out. */
+/* Environments with a painting to be read against. Every file is named after the
+ * id, so a new one is a line here, img/env/<id>.jpg for the backdrop, and the
+ * img/env/thumb/<id>-{200,400,800}.avif plus -400.webp that a list cover is
+ * served from. Listed rather than probed: the environments without a picture are
+ * the majority, and none of them should spend a 404 finding that out. */
 const ENV_ART = new Set([
   'cauldera-valley',
   'field-of-dreams',
@@ -1354,6 +1361,7 @@ function listEnvCount(listId) {
   return Object.values(state.envLists).filter(ids => (ids || []).includes(listId)).length;
 }
 
+
 function renderListsHome() {
   document.getElementById('toolbar').innerHTML = '';
   document.getElementById('result-count').innerHTML = '';
@@ -1443,15 +1451,59 @@ function renderListsHome() {
   });
 }
 
-function listCardHtml(list) {
+/* A cover shows at most three pictures. Beyond that the tiles are too narrow to
+ * be a painting rather than a stripe, and the count line under them already says
+ * how much is in the list. */
+const COVER_MAX = 3;
+
+/* What a cover tile is asked to draw. The tiles split the card between them, so
+ * the slot depends on how many there are: one is the card wide, three are a
+ * third of it each. Desktop figures are the 320px cap on .list-cards-grid
+ * columns divided down — keep them in step with it. */
+const COVER_SIZES = {
+  1: '(max-width: 640px) 100vw, 320px',
+  2: '(max-width: 640px) 50vw, 160px',
+  3: '(max-width: 640px) 33vw, 107px',
+};
+const ENV_THUMB_WIDTHS = [200, 400, 800];
+
+/* The env pictures a list's members own, hung across the top of its card. Only
+ * env pictures: biome art is not used to pad a row of two out to three, because
+ * a cover says "these paintings are in here" and a stand-in would say something
+ * else. Most lists hold none of the three and get no cover at all. */
+function listCoverHtml(list) {
+  const ids = envsInList(list.id).map(e => e.id).filter(id => ENV_ART.has(id)).slice(0, COVER_MAX);
+  if (!ids.length) return '';
+  const sizes = COVER_SIZES[ids.length];
+  // The full-size env picture is a backdrop for a whole window — three of them
+  // behind a 112px strip would be the heaviest page on the site, so the cover
+  // is served from the thumbnails cut for it.
+  const tiles = ids.map(id => {
+    const base = 'img/env/thumb/' + id;
+    const avif = ENV_THUMB_WIDTHS.map(w => `${base}-${w}.avif ${w}w`).join(', ');
+    return `<picture>
+            <source type="image/avif" sizes="${sizes}" srcset="${avif}">
+            <img src="${base}-400.webp" alt="" loading="lazy" decoding="async">
+          </picture>`;
+  }).join('');
+  /* data-open-list is already bound to a click on this page, so the pictures
+   * become a second way in for nothing. The cover stays out of the tab order and
+   * out of the accessibility tree: the Open button below is the real control, and
+   * a screen reader has no use for a decorative crop of a painting. */
   return `
-    <div class="list-card" data-list="${list.id}">
+      <div class="list-card-cover" data-open-list="${list.id}" aria-hidden="true">${tiles}</div>`;
+}
+
+function listCardHtml(list) {
+  const cover = listCoverHtml(list);
+  return `
+    <div class="list-card${cover ? ' has-cover' : ''}" data-list="${list.id}">${cover}
       <div class="list-card-top">
         <input type="text" value="${escapeAttr(list.name)}" class="list-rename" aria-label="${t('new_list_name')}">
         <button type="button" class="btn btn-sm btn-danger" data-del-list="${list.id}">${t('delete')}</button>
       </div>
       <div class="list-card-count">${t('list_env_count').replace('{n}', listEnvCount(list.id))}</div>
-      <button type="button" class="btn btn-sm" data-open-list="${list.id}">${t('open_list')}</button>
+      <button type="button" class="btn btn-sm list-card-open" data-open-list="${list.id}">${t('open_list')}</button>
     </div>`;
 }
 
