@@ -730,6 +730,11 @@ button.rank-icon:focus-visible { outline: var(--focus-ring); outline-offset: 1px
   letter-spacing: var(--tracking-display);
   margin: 0; color: var(--parchment); overflow-wrap: anywhere; text-wrap: balance;
 }
+/* The small cards put their title straight in the header, with nothing between
+ * it and the close button to hold the two apart — so the title claims the free
+ * space itself and the × keeps the far corner. The detail card wraps its title
+ * in .modal-title-row instead and leans on the tier row below for the same job. */
+.modal-header > h2 { margin-right: auto; }
 .modal-title-row .card-add-btn { flex: none; width: 26px; height: 26px; font-size: var(--fs-md); }
 /* margin-right:auto keeps the tier row next to the name and the close button
  * pinned to the far edge, well clear of the tier 4 pill. */
