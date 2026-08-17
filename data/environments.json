@@ -3981,7 +3981,8 @@
       ],
       "builtin": true,
       "biomes": [
-        "settlement"
+        "settlement",
+        "rolling"
       ]
     },
     {
@@ -4667,7 +4668,7 @@
       ],
       "builtin": true,
       "biomes": [
-        "settlement"
+        "universal"
       ]
     },
     {
