@@ -230,7 +230,7 @@ function difficultyScales(env) { return typeof env.difficulty === 'number'; }
 /* Cache buster for the JSON under data/. index.html versions the stylesheet and
    this script the same way; the data files are fetched from here instead, so
    bump this whenever anything in data/ changes or browsers serve stale copies. */
-const DATA_VERSION = 23;
+const DATA_VERSION = 24;
 
 function getJSON(path) {
   return fetch(path).then(r => {
@@ -253,6 +253,7 @@ async function init() {
   }
   renderHeader();
   renderFooter();
+  mountToTop();
   renderLoadingState();
   try {
     const [envs, regions, items] = await Promise.all([
@@ -315,6 +316,7 @@ function renderFatalError(err) {
 
 const ICON_ALERT = `<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3.5 22 20H2L12 3.5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M12 10v4.5M12 17.2v.1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>`;
 const ICON_CHECK = `<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="m8 12.2 2.7 2.6L16 9.4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+const ICON_CHEVRON_UP = `<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m6 15 6-6 6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 const ICON_SEARCH_EMPTY = `<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" stroke-width="1.6"/><path d="m15.5 15.5 4.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M8 10.5h5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>`;
 const ICON_BOOKMARK = `<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.5 3.5h11a1 1 0 0 1 1 1v16l-6.5-4-6.5 4v-16a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>`;
 
@@ -485,6 +487,7 @@ function registerOverlay(overlay, closeFn) {
   const previouslyFocused = document.activeElement;
   overlayStack.push(overlay);
   lockScroll();
+  syncToTop();
 
   function onKeyDown(e) {
     if (overlayStack[overlayStack.length - 1] !== overlay) return;
@@ -518,6 +521,9 @@ function registerOverlay(overlay, closeFn) {
     if (previouslyFocused && document.contains(previouslyFocused)) {
       previouslyFocused.focus({ preventScroll: true });
     }
+    // After unlockScroll, which puts the catalog back where it was — the
+    // button's threshold is read off the restored offset, not off zero.
+    syncToTop();
     syncLangFloat();
   };
 }
@@ -607,6 +613,54 @@ function updateLangFloatOffset() {
 // that. Cheap: it does nothing at all unless a card is open.
 window.addEventListener('resize', updateLangFloatOffset);
 
+/* ---------------- back to top ---------------- */
+
+/* The catalog and a saved list are both long enough to lose the header in, and
+ * the search field is up there. One full screen of scrolling is the threshold:
+ * any less and the header is a flick away, so the button would be covering
+ * cards for nothing.
+ *
+ * It stands down while any overlay is open. The page behind one is scroll
+ * locked, so there would be nothing for it to scroll, and the card is what the
+ * reader is looking at. */
+function toTopShown() {
+  return !overlayStack.length && window.scrollY > window.innerHeight;
+}
+
+/** Visibility and label in one pass, so a scroll, an overlay and a language
+ * switch can all just call this. */
+function syncToTop() {
+  const el = document.getElementById('to-top');
+  if (!el) return;
+  const shown = toTopShown();
+  el.classList.toggle('is-on', shown);
+  // The toast stack shares this corner and has to know to step over it.
+  document.body.classList.toggle('has-to-top', shown);
+  el.setAttribute('aria-label', t('back_to_top'));
+  el.dataset.tip = t('back_to_top');
+}
+
+function mountToTop() {
+  const el = document.createElement('button');
+  el.type = 'button';
+  el.id = 'to-top';
+  el.className = 'to-top';
+  el.innerHTML = ICON_CHEVRON_UP;
+  el.addEventListener('click', () => {
+    /* The reduced-motion rule in the stylesheet cannot reach this: an explicit
+     * `behavior` in the options beats the computed scroll-behavior. */
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+    // Sending focus back to the top of the page as well, so a keyboard user
+    // carries on from where the button took them rather than from the corner.
+    document.getElementById('main')?.focus({ preventScroll: true });
+  });
+  document.body.appendChild(el);
+  window.addEventListener('scroll', syncToTop, { passive: true });
+  window.addEventListener('resize', syncToTop);
+  syncToTop();
+}
+
 /* ---------------- rendering ---------------- */
 
 function render() {
@@ -624,6 +678,7 @@ function render() {
     renderGrid();
   }
   renderFooter();
+  syncToTop();
   syncDetail();
 }
 

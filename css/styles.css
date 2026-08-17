@@ -618,6 +618,35 @@ button.rank-icon:focus-visible { outline: var(--focus-ring); outline-offset: 1px
 .sk-card { height: 200px; border-radius: var(--r-md); border: 1px solid var(--line); }
 @keyframes sk-pulse { from { background-position: 200% 0; } to { background-position: -200% 0; } }
 
+/* ---------- back to top ---------- */
+/* The catalog runs to hundreds of cards, and a reader a few screens down has no
+ * quick way back to the search field. Circular and icon-only, like the other
+ * controls that float over the page rather than sitting in a row: this is the
+ * page's own furniture, not one of the catalog's buttons.
+ *
+ * `display:none` rather than a fade out — the same appear/disappear the pinned
+ * language switch does, and it keeps the button out of the tab order and out of
+ * the overlay focus trap, which filters on offsetParent. */
+.to-top {
+  position: fixed; z-index: 150;
+  left: calc(var(--s-5) + env(safe-area-inset-left));
+  bottom: calc(var(--s-5) + env(safe-area-inset-bottom));
+  display: none; align-items: center; justify-content: center;
+  width: var(--h-md); height: var(--h-md); padding: 0;
+  background: var(--ink-raised); color: var(--hope);
+  border: 1px solid var(--line-strong); border-radius: var(--r-pill);
+  box-shadow: var(--e-3); cursor: pointer;
+  transition: background var(--t-fast) var(--ease-out),
+              border-color var(--t-fast) var(--ease-out),
+              color var(--t-fast) var(--ease-out),
+              transform var(--t-fast) var(--ease-out);
+}
+.to-top.is-on { display: flex; animation: to-top-in var(--t-base) var(--ease-enter); }
+.to-top:hover { background: var(--ink-hover); border-color: var(--hope); color: var(--hope-soft); }
+.to-top:active { transform: translateY(1px); }
+.to-top svg { width: var(--s-5); height: var(--s-5); }
+@keyframes to-top-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
 /* ---------- toast ---------- */
 .toast-stack {
   position: fixed; z-index: 240;
@@ -639,6 +668,15 @@ button.rank-icon:focus-visible { outline: var(--focus-ring); outline-offset: 1px
 .toast svg { width: var(--icon-md); height: var(--icon-md); flex: none; color: var(--hope); }
 .toast.is-error svg { color: var(--fear-soft); }
 @keyframes toast-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+/* Toasts stack out of the same corner the back-to-top button claims, and they
+ * outrank it, so while the button is up they start above it instead of landing
+ * on it. Scoped to the wide layout: below 640px the stack moves to the top of
+ * the screen and sets `bottom: auto`, which this would otherwise override. */
+@media (min-width: 641px) {
+  body.has-to-top .toast-stack {
+    bottom: calc(var(--s-5) + var(--h-md) + var(--s-3) + env(safe-area-inset-bottom));
+  }
+}
 
 /* ---------- tooltip ---------- */
 /* Replaces the native title attribute, which waits ~700ms, cannot be styled
