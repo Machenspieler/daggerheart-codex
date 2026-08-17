@@ -230,7 +230,7 @@ function difficultyScales(env) { return typeof env.difficulty === 'number'; }
 /* Cache buster for the JSON under data/. index.html versions the stylesheet and
    this script the same way; the data files are fetched from here instead, so
    bump this whenever anything in data/ changes or browsers serve stale copies. */
-const DATA_VERSION = 19;
+const DATA_VERSION = 20;
 
 function getJSON(path) {
   return fetch(path).then(r => {
@@ -1060,15 +1060,16 @@ function hasActiveFilters() {
  * Ordered least specific first, since each one is dropped in turn. */
 const GENERIC_BIOMES = ['universal', 'settlement'];
 
-/* Which biome's picture a card shows. Ties break on the biome id rather than the
- * translated name so the picture stays put when the language changes. */
+/* Which biome's picture a card shows. A stat block lists its biomes most to least
+ * characteristic, so the survivor closest to the front wins — position, not the
+ * translated name, which keeps the picture put when the language changes. */
 function artBiome(env) {
   let pool = (env.biomes || []).filter(b => BIOMES.includes(b));
   for (const generic of GENERIC_BIOMES) {
     if (pool.length < 2) break;
     pool = pool.filter(b => b !== generic);
   }
-  return pool.sort()[0] || null;
+  return pool[0] || null;
 }
 
 /* The picture panel is a fixed width, so the browser can be told exactly how
