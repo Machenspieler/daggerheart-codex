@@ -638,6 +638,56 @@ function updateLangFloatOffset() {
 // that. Cheap: it does nothing at all unless a card is open.
 window.addEventListener('resize', updateLangFloatOffset);
 
+/* ---------------- environment backdrop ---------------- */
+
+/* Environments with a painting to be read against. The file is named after the
+ * id, so a new one is a line here and a file in img/env. Listed rather than
+ * probed: the environments without a picture are the majority, and none of them
+ * should spend a 404 finding that out. */
+const ENV_ART = new Set(['ouroborean-pass']);
+
+/* Below this the stat block stops being a card in a margin and becomes a sheet
+ * filling the screen — there is no ground left behind it to show a picture on,
+ * so a phone is not asked to fetch one. Same breakpoint as that rule. */
+const ENV_ART_ROOM = window.matchMedia('(min-width: 641px)');
+
+/** Hangs the open card's painting behind it, and takes it down with the card.
+ * Driven by the card that is open rather than by the one being opened, so a card
+ * rebuilt in the other language keeps the same picture on screen the whole way
+ * through: the layer is reused and never arrives twice. */
+function syncEnvBackdrop() {
+  const wanted = openDetailId !== null && ENV_ART.has(openDetailId) && ENV_ART_ROOM.matches
+    ? `img/env/${openDetailId}.jpg`
+    : null;
+  let el = document.getElementById('env-backdrop');
+  if (!wanted) {
+    el?.remove();
+    document.body.classList.remove('has-env-backdrop');
+    return;
+  }
+  if (!el) {
+    el = document.createElement('div');
+    el.id = 'env-backdrop';
+    el.className = 'env-backdrop';
+    el.setAttribute('aria-hidden', 'true');
+    el.innerHTML = '<img alt="" decoding="async">';
+    /* Before the floating switch, which has to stay the last thing in the
+     * document — insertBefore against a switch that is not there yet appends,
+     * which is where this belongs anyway. */
+    document.body.insertBefore(el, document.getElementById('lang-float'));
+    document.body.classList.add('has-env-backdrop');
+  }
+  const img = el.firstElementChild;
+  if (img.getAttribute('src') === wanted) return;
+  img.classList.remove('is-on');
+  img.addEventListener('load', () => img.classList.add('is-on'), { once: true });
+  img.src = wanted;
+}
+
+// A window widened past the sheet breakpoint uncovers ground the picture should
+// be on; narrowed back, the sheet covers it again and the layer stands down.
+ENV_ART_ROOM.addEventListener('change', syncEnvBackdrop);
+
 /* ---------------- back to top ---------------- */
 
 /* The catalog and a saved list are both long enough to lose the header in, and
@@ -707,11 +757,13 @@ function render() {
   syncDetail();
 }
 
-/** Brings the open card into line with the address, and the floating language
- * switch into line with the card. Every open and close runs through here, so
- * this is the one place either has to be kept in step. */
+/** Brings the open card into line with the address, and the two layers that
+ * belong to a card — its painting and the floating language switch — into line
+ * with the card. Every open and close runs through here, so this is the one
+ * place any of the three has to be kept in step. */
 function syncDetail() {
   applyDetailRoute();
+  syncEnvBackdrop();
   syncLangFloat();
 }
 

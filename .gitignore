@@ -2,6 +2,11 @@
 # work on the biome-pictures branch. Nothing on main serves them.
 img/biomes/src/
 
+# Environment backdrop masters — the PNG renders that img/env/<id>.jpg is
+# encoded from. The site serves the JPEG at the master's own pixel width: the
+# blur behind a card is only 2px, so there is nothing to hide an upscale behind.
+img/env/src/
+
 # Header mark master — the 2 MB transparent render that img/brand-logo.png is
 # cropped and downscaled from. Kept locally in case the mark is ever needed
 # larger; the site only ever serves the 206x168 copy.

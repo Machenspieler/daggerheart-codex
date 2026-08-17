@@ -17,6 +17,13 @@
   --ink-hover: #241d17;    /* --ink-raised lifted one step, for button hover */
   --ink-card: #211c18;
   --ink-overlay: rgba(10,8,7,0.80);
+  /* The same backdrop over a painting rather than over the catalog. There it has
+   * to blank a grid of cards out; here there is nothing to blank — the picture is
+   * the point — so it barely touches it. Every surface that carries text over
+   * this is opaque (the card, the pinned switch, the dice pop, the countdown
+   * trackers, the toasts, the tooltip), so no contrast ratio in this file is
+   * measured against it and it is free to go this light. */
+  --ink-overlay-art: rgba(10,8,7,0.15);
 
   /* ---- borders ----
    * Three weights, not one. The old single #3a322b sat at 1.34:1 against a
@@ -694,6 +701,44 @@ button.rank-icon:focus-visible { outline: var(--focus-ring); outline-offset: 1px
 }
 .tooltip.is-open { opacity: 1; transform: none; }
 
+/* ---------- environment backdrop ---------- */
+/* The painting a stat block is read against: full screen, blurred, and pinned to
+ * the layer directly under the overlays (z-index 100), so everything the reader
+ * can act on stays in front of it — the card, the pinned language switch, the
+ * dice pop, the countdown trackers, the toasts, the add-to-list popup.
+ *
+ * Opaque ink of its own under the picture, so the catalog is gone the moment the
+ * layer mounts rather than showing through for as long as the file takes to
+ * arrive. Nothing here is focusable or announced: it is ground, and the card
+ * above it carries every word. */
+.env-backdrop {
+  /* Just enough to settle the picture behind the text, and no more: the scene
+   * has to stay legible as a place — figures on a road, a serpent over the pass
+   * — or it stops being the environment and becomes wallpaper. At this strength
+   * the blur no longer hides anything in the file itself, which is why the
+   * picture is cut at the master's own width rather than upscaled from smaller. */
+  --bd-blur: 2px;
+  /* Blur mixes each pixel with the ones around it, and past the edge of the
+   * picture there are none — laid out to the screen exactly, it would fade to
+   * transparent along all four sides. It is laid out larger instead, by enough
+   * that the fade falls off-screen: a little over two blur radii. */
+  --bd-bleed: 8px;
+  position: fixed; inset: 0; z-index: 90;
+  overflow: hidden; pointer-events: none;
+  background: var(--ink);
+}
+.env-backdrop img {
+  position: absolute; inset: calc(-1 * var(--bd-bleed));
+  width: calc(100% + var(--bd-bleed) * 2);
+  height: calc(100% + var(--bd-bleed) * 2);
+  object-fit: cover;
+  filter: blur(var(--bd-blur));
+  /* Faded in on load rather than on insert: a picture still on its way would
+   * otherwise spend its entrance invisible and then land all at once. */
+  opacity: 0; transition: opacity var(--t-slow) var(--ease-out);
+}
+.env-backdrop img.is-on { opacity: 1; }
+
 /* ---------- modal ---------- */
 .modal-overlay {
   position: fixed; inset: 0; background: var(--ink-overlay); z-index: 100;
@@ -710,6 +755,14 @@ button.rank-icon:focus-visible { outline: var(--focus-ring); outline-offset: 1px
   background: var(--ink-card); border: 1px solid var(--line); border-radius: var(--r-lg);
   max-width: 720px; width: 100%; margin: auto; box-shadow: var(--e-4);
   animation: modal-in var(--t-base) var(--ease-enter);
+}
+/* With a painting behind it the card's own backdrop is no longer blanking
+ * anything out, and at 0.80 it would leave the picture a rumour. Only the stat
+ * block's overlay steps back: a popup or an item card opened on top is meant to
+ * dim everything under it, the picture included, the same way it already dims
+ * the card it was opened from. */
+body.has-env-backdrop .modal-overlay[data-overlay-kind="detail"] {
+  background: var(--ink-overlay-art);
 }
 .modal:focus { outline: none; }
 .modal-sm { max-width: 400px; }
