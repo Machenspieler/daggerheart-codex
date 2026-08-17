@@ -1191,9 +1191,14 @@ button.loot-btn { font-family: var(--lt-ui); line-height: 1; cursor: pointer; }
 }
 .field-error svg { width: var(--icon-sm); height: var(--icon-sm); flex: none; }
 
+/* align-items: start, because a cover makes cards in a row different heights and
+ * the default stretch would pass that height to the pictureless ones — a card
+ * with nothing to show would carry a cover's worth of blank between its count
+ * and its button. Each card is its own height instead, and a row of covers ends
+ * lower than the plain cards beside it. */
 .list-cards-grid {
   display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 320px)); gap: var(--s-4);
-  margin-top: var(--s-6);
+  align-items: start; margin-top: var(--s-6);
 }
 .list-card {
   background: var(--ink-card); border: 1px solid var(--line); border-radius: var(--r-md);
@@ -1202,11 +1207,6 @@ button.loot-btn { font-family: var(--lt-ui); line-height: 1; cursor: pointer; }
   transition: border-color var(--t-base) var(--ease-out), box-shadow var(--t-base) var(--ease-out);
 }
 .list-card:hover { border-color: var(--line-strong); box-shadow: var(--e-2); }
-/* Covers make the cards in a row different heights, and the grid stretches them
- * all to the tallest. Pushing the button down means the extra room lands in the
- * card rather than under its last control, and every Open in a row lines up
- * whether the card above it carries pictures or not. */
-.list-card-open { margin-top: auto; }
 /* Full bleed: the negative margins spend the card's own padding, and the card
  * clips the corners. One row of equal columns however many tiles there are —
  * one picture the card wide, or three a third of it each. The 2px gap is the

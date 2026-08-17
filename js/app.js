@@ -1503,7 +1503,7 @@ function listCardHtml(list) {
         <button type="button" class="btn btn-sm btn-danger" data-del-list="${list.id}">${t('delete')}</button>
       </div>
       <div class="list-card-count">${t('list_env_count').replace('{n}', listEnvCount(list.id))}</div>
-      <button type="button" class="btn btn-sm list-card-open" data-open-list="${list.id}">${t('open_list')}</button>
+      <button type="button" class="btn btn-sm" data-open-list="${list.id}">${t('open_list')}</button>
     </div>`;
 }
 
