@@ -1132,6 +1132,25 @@ button.loot-btn { font-family: var(--lt-ui); line-height: 1; cursor: pointer; }
   display: flex; justify-content: space-between; align-items: flex-start; gap: var(--s-4); flex-wrap: wrap;
 }
 .site-footer span { max-width: 90ch; }
+/* A button, not an anchor — the source list is an overlay, and an <a href="#">
+ * would put a junk entry in the history the hash router then has to sweep up.
+ * It still has to read as a link inside the sentence it sits in. */
+.link-btn {
+  background: none; border: none; padding: 0; cursor: pointer;
+  font-family: inherit; font-size: inherit; line-height: inherit;
+  color: var(--hope-soft); text-decoration: underline; text-underline-offset: 2px;
+}
+.link-btn:hover { color: var(--parchment); }
+
+.sources-list {
+  margin: 0; padding: 0; list-style: none;
+  display: flex; flex-direction: column; gap: var(--s-2);
+  font-size: var(--fs-sm); line-height: var(--lh-sm); color: var(--parchment);
+}
+.sources-list li { padding-left: var(--s-4); position: relative; }
+.sources-list li::before {
+  content: "—"; position: absolute; left: 0; color: var(--muted);
+}
 
 /* ============================================================
    Responsive

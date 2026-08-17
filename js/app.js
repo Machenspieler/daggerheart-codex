@@ -230,7 +230,7 @@ function difficultyScales(env) { return typeof env.difficulty === 'number'; }
 /* Cache buster for the JSON under data/. index.html versions the stylesheet and
    this script the same way; the data files are fetched from here instead, so
    bump this whenever anything in data/ changes or browsers serve stale copies. */
-const DATA_VERSION = 22;
+const DATA_VERSION = 23;
 
 function getJSON(path) {
   return fetch(path).then(r => {
@@ -1132,12 +1132,34 @@ function cardHtml(env) {
     </article>`;
 }
 
+/* Every book the catalog draws on. Titles are proper names, so they are the
+ * same in both languages and live here rather than twice in i18n.json. */
+const SOURCES = [
+  'Daggerheart SRD',
+  'Daggerheart Core Set',
+  'Daggerheart: Hope & Fear',
+  'Shalassa Desert',
+  'Dread GM Toolbox',
+  'Incredible Creatures',
+  'Archibald’s Almanac of Adversaries',
+  'Wondrous Environments',
+  'Dungeons of Drakkenheim Campaign Frame Beta',
+  'City of the Black Rose',
+  'Court & Shadow',
+  'Pistol Heart',
+  'StarHeart',
+];
+
 function renderFooter() {
   const el = document.getElementById('footer');
   const showReset = state.route.name === 'lists';
+  // The note carries a {sources} slot rather than a finished sentence, so each
+  // language can put the link wherever its own grammar wants it.
+  const [before, after = ''] = t('footer_note').split('{sources}');
   el.innerHTML = `
-    <span>${t('footer_note')}</span>
+    <span>${before}<button type="button" class="link-btn" id="btn-sources">${t('sources_link')}</button>${after}</span>
     ${showReset ? `<button type="button" class="btn btn-sm btn-ghost" id="btn-reset">${t('reset_data')}</button>` : ''}`;
+  document.getElementById('btn-sources').addEventListener('click', openSourcesPopup);
   if (showReset) {
     document.getElementById('btn-reset').addEventListener('click', () => {
       if (confirm(t('reset_confirm'))) {
@@ -1363,6 +1385,41 @@ function openAddToListPopup(envId) {
     if (e.key === 'Enter') { e.preventDefault(); createAndAdd(); }
   });
   overlay.querySelector('#atl-new-btn').addEventListener('click', createAndAdd);
+}
+
+/* ---------------- sources ---------------- */
+
+function openSourcesPopup() {
+  const overlay = document.createElement('div');
+  overlay.className = 'modal-overlay';
+  // 'popup' rather than 'detail': like the add-to-list popup, this one stands
+  // the floating language switch down while it is up.
+  overlay.dataset.overlayKind = 'popup';
+
+  overlay.innerHTML = `
+    <div class="modal modal-sm" data-overlay-card
+         role="dialog" aria-modal="true" aria-labelledby="sources-title">
+      <div class="modal-header">
+        <h2 id="sources-title">${t('sources_title')}</h2>
+        <button type="button" class="modal-close" aria-label="${t('close')}">&times;</button>
+      </div>
+      <div class="modal-body">
+        <ul class="sources-list">
+          ${SOURCES.map(s => `<li>${escapeHtml(s)}</li>`).join('')}
+        </ul>
+      </div>
+    </div>`;
+  document.body.appendChild(overlay);
+
+  const teardown = registerOverlay(overlay, close);
+
+  function close() {
+    overlay.remove();
+    teardown();
+  }
+
+  overlay.querySelector('.modal-close').addEventListener('click', close);
+  overlay.addEventListener('click', e => { if (e.target === overlay) close(); });
 }
 
 /* ---------------- reading a stat block at another tier ---------------- */
