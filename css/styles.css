@@ -775,7 +775,7 @@ body.has-env-backdrop .modal-overlay[data-overlay-kind="detail"] {
 /* An overlay that closes itself rather than being dismissed. A click has
  * already answered for itself, so nothing else in the app animates on the way
  * out; this one would just vanish unexplained. Mirror of modal-in, leaving:
- * --ease-out because it is going away, not arriving. */
+ * --ease-out because it is going away, not arriving.
  * The card goes deaf rather than the overlay: the backdrop has to keep
  * swallowing clicks, or a stray one lands on the catalog behind mid-exit. */
 .modal-overlay.is-closing { animation: overlay-out var(--t-base) var(--ease-out) both; }
