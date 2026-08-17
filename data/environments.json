@@ -23910,6 +23910,551 @@
       "biomes": [
         "universal"
       ]
+    },
+    {
+      "id": "root-rush-rescue",
+      "tier": 1,
+      "type": "event",
+      "difficulty": 12,
+      "name": {
+        "en": "Root Rush Rescue",
+        "ru": "Спасательный Бросок Наперегонки"
+      },
+      "impulses": {
+        "en": [
+          "Slow the party down",
+          "throw obstacles in their path",
+          "race against the clock"
+        ],
+        "ru": [
+          "Замедлять группу",
+          "забрасывать препятствиями",
+          "гнаться наперегонки со временем"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "None"
+        ],
+        "ru": [
+          "Нет"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Race Against Time",
+            "ru": "Гонка со Временем"
+          },
+          "description": {
+            "en": "Start two countdowns: Distance (3) and Time (3). If Distance reaches zero, the party reaches Luna in time. If Time reaches zero first, Luna dies before the party gets there.\n\nPCs can make action rolls to get to the destination:\n- **Success:** Distance ticks down by 1 (or 2 on a crit!)\n- **Failure:** Time ticks down by 1",
+            "ru": "Начните два отсчёта: Расстояние (3) и Время (3). Если Расстояние достигает нуля, группа успевает добраться до Луны вовремя. Если Время достигает нуля раньше, Луна умирает, не дождавшись группы.\n\nПерсонажи могут совершать броски действия, чтобы добраться до места назначения:\n- **Успех:** Расстояние уменьшается на 1 (или на 2 при критическом успехе!)\n- **Неудача:** Время уменьшается на 1"
+          },
+          "prompt": {
+            "en": "",
+            "ru": ""
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Obstacles",
+            "ru": "Препятствия"
+          },
+          "description": {
+            "en": "The forest features several obstacles that players might be able to overcome with an action roll:\n- A pool of mud\n- Giant 20-foot tall roots\n- A patch of slippery moss\n- Overgrown ferns\n- A swarm of mouse-flies\n- Giant spider-cat web",
+            "ru": "В лесу есть несколько препятствий, которые персонажи могут попытаться преодолеть с помощью броска действия:\n- Лужа грязи\n- Гигантские двадцатифутовые корни\n- Участок скользкого мха\n- Разросшийся папоротник\n- Рой мышей-мух\n- Паутина гигантского паука-кота"
+          },
+          "prompt": {
+            "en": "",
+            "ru": ""
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Complications",
+            "ru": "Осложнения"
+          },
+          "description": {
+            "en": "Spend a Fear to give the next action roll made by the PCs disadvantage, because of one of the following complications:\n- Magically-animated vines grab a PC's leg\n- A tree shouts in pain when a PC jumps on it, surprising the PC\n- A cloud of glitterspore from giant mushrooms rise from the forest ground, blinding the party",
+            "ru": "Потратьте Страх, чтобы дать следующему броску действия персонажей помеху из-за одного из следующих осложнений:\n- Магически оживлённые лозы хватают персонажа за ногу\n- Дерево вскрикивает от боли, когда персонаж запрыгивает на него, пугая его\n- Облако блеск-спор от гигантских грибов поднимается с лесной почвы, ослепляя группу"
+          },
+          "prompt": {
+            "en": "",
+            "ru": ""
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "forest"
+      ]
+    },
+    {
+      "id": "orphanmaker-river",
+      "tier": 1,
+      "type": "traversal",
+      "difficulty": 13,
+      "name": {
+        "en": "Orphanmaker River",
+        "ru": "Река Сирот"
+      },
+      "impulses": {
+        "en": [
+          "Sweep away the unprepared",
+          "hide treasures beneath the current",
+          "punish hesitation"
+        ],
+        "ru": [
+          "Уносить неосторожных течением",
+          "прятать сокровища под водой",
+          "наказывать за промедление"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "None"
+        ],
+        "ru": [
+          "Нет"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Crossing the River",
+            "ru": "Переправа через Реку"
+          },
+          "description": {
+            "en": "Start a Traversal Countdown (4). This countdown cannot reach zero while at least one PC is Drowning. If it reaches zero, the party successfully crosses the river.\n\nPCs can make action rolls to cross the river:\n- **Success:** Traversal ticks down by 1.\n- **Failure:** take the Drown action",
+            "ru": "Начните Отсчёт Переправы (4). Этот отсчёт не может достичь нуля, пока хотя бы один персонаж Тонет. Если он достигает нуля, группа успешно пересекает реку.\n\nПерсонажи могут совершать броски действия, чтобы пересечь реку:\n- **Успех:** Отсчёт Переправы уменьшается на 1.\n- **Неудача:** совершите действие «Тонуть»"
+          },
+          "prompt": {
+            "en": "",
+            "ru": ""
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Details",
+            "ru": "Особенности"
+          },
+          "description": {
+            "en": "**Details.** The river features several elements that might help players traverse part of the river with a successful action roll, on top of the ones they named:\n- Broken rope bridge\n- Shallow part\n- A small island\n- Hanging vines\n\n**Sunken Treasures.** A Drowning PC can make a Strength Roll to try to retrieve one item that has sunk at the bottom of the river. The following items can be found at the bottom by default:\n- Lakestrider Boots (you can walk on water like it was soft ground)\n- Glamour Stone (spend 1 Hope to magically disguise yourself as someone you have seen before)\n- Suspended Rod (while activated, it cannot be moved, and doesn't abide by the laws of gravity)",
+            "ru": "**Особенности.** У реки есть несколько элементов, которые могут помочь персонажам пересечь часть реки при успешном броске действия, в дополнение к тем, что они сами придумают:\n- Сломанный верёвочный мост\n- Мелководье\n- Маленький остров\n- Свисающие лианы\n\n**Затонувшие сокровища.** Тонущий персонаж может совершить бросок на Силу, чтобы попытаться достать один предмет, затонувший на дне реки. По умолчанию на дне можно найти следующие предметы:\n- Сапоги Озёрного Странника (вы можете ходить по воде как по твёрдой земле)\n- Камень Иллюзии (потратьте 1 Надежду, чтобы магически замаскироваться под кого-то, кого вы видели раньше)\n- Подвешенный Жезл (пока активирован, его нельзя сдвинуть, и он не подчиняется законам гравитации)"
+          },
+          "prompt": {
+            "en": "",
+            "ru": ""
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Drown",
+            "ru": "Тонуть"
+          },
+          "description": {
+            "en": "One PC must make an Agility Reaction Roll, or starts temporarily Drowning.\n\nWhenever a PC makes an action roll, all Drowning PCs mark 1 Stress.",
+            "ru": "Один персонаж должен совершить Бросок Реакции на Проворность, иначе временно становится Тонущим.\n\nВсякий раз, когда персонаж совершает бросок действия, все Тонущие персонажи отмечают 1 Стресс."
+          },
+          "prompt": {
+            "en": "",
+            "ru": ""
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Undertow",
+            "ru": "Подводное Течение"
+          },
+          "description": {
+            "en": "Spend a Fear to have a Drowning PC hit a rock underwater. Roll 1d4:\n- **1.** The PC must mark 1 Stress\n- **2.** The PC takes 2d6+3 physical damage\n- **3.** The PC must vault one domain card of their choice (reroll if they have none left)\n- **4.** An item the PC is carrying sinks to the bottom of the river (reroll if they have none left)",
+            "ru": "Потратьте Страх, чтобы Тонущий персонаж ударился о подводный камень. Бросьте 1d4:\n- **1.** Персонаж должен отметить 1 Стресс\n- **2.** Персонаж получает 2d6+3 физического урона\n- **3.** Персонаж должен поместить в хранилище одну карту домена по своему выбору (перебросьте, если у него их не осталось)\n- **4.** Предмет, который несёт персонаж, тонет на дне реки (перебросьте, если у него не осталось предметов)"
+          },
+          "prompt": {
+            "en": "",
+            "ru": ""
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "aquatic"
+      ]
+    },
+    {
+      "id": "the-ritual-of-renewal",
+      "tier": 1,
+      "type": "event",
+      "difficulty": 11,
+      "name": {
+        "en": "The Ritual of Renewal",
+        "ru": "Ритуал Обновления"
+      },
+      "impulses": {
+        "en": [
+          "Test the party's resolve",
+          "empower the arcanist",
+          "summon the restless dead"
+        ],
+        "ru": [
+          "Испытывать решимость группы",
+          "придавать силы чародейке",
+          "призывать неупокоенных мертвецов"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Ancient Skeleton",
+          "Whitefire Arcanist"
+        ],
+        "ru": [
+          "Древний Скелет",
+          "Белопламенная Чародейка"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "The Ritual",
+            "ru": "Ритуал"
+          },
+          "description": {
+            "en": "Start a Ritual Countdown (8). If it reaches zero, the ritual is successful.\n\nWhenever the players defeat an enemy, the Ritual ticks down by 1.\n\nWhenever the Whitefire Arcanist is hit (difficulty 11), the Ritual ticks up by 1 (do not track hit points for her, any damage she takes is purely narrative).",
+            "ru": "Начните Отсчёт Ритуала (8). Если он достигает нуля, ритуал завершается успешно.\n\nВсякий раз, когда игроки побеждают врага, Ритуал уменьшается на 1.\n\nВсякий раз, когда Белопламенная Чародейка получает попадание (сложность 11), Ритуал увеличивается на 1 (не отслеживайте её Раны — любой урон, который она получает, чисто повествовательный)."
+          },
+          "prompt": {
+            "en": "",
+            "ru": ""
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Vengeance of the Old Gods",
+            "ru": "Месть Древних Богов"
+          },
+          "description": {
+            "en": "Spend a Fear to summon two additional Ancient Skeletons from the ground within very close range of a PC.",
+            "ru": "Потратьте Страх, чтобы призвать двух дополнительных Древних Скелетов из земли в пределах очень близкой дистанции от персонажа."
+          },
+          "prompt": {
+            "en": "",
+            "ru": ""
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "universal"
+      ]
+    },
+    {
+      "id": "the-skyship-windfall",
+      "tier": 1,
+      "type": "exploration",
+      "difficulty": 14,
+      "name": {
+        "en": "The Skyship Windfall",
+        "ru": "Небесный Корабль «Внезапная Удача»"
+      },
+      "impulses": {
+        "en": [
+          "Show off naval might",
+          "keep the crew on edge",
+          "offer vertical battlefields"
+        ],
+        "ru": [
+          "Демонстрировать военно-морскую мощь",
+          "держать команду на нервах",
+          "предлагать вертикальные поля боя"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "None"
+        ],
+        "ru": [
+          "Нет"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Mast and Rigging",
+            "ru": "Мачты и Такелаж"
+          },
+          "description": {
+            "en": "There are many ways that characters can gain a height advantage or reposition during a battle on the ship. Any character can escape to a Close distance vertically with an Agility (14) roll. All attacks made from the rigging or from height gained by climbing around the ship are made with advantage.",
+            "ru": "Есть много способов, которыми персонажи могут получить преимущество по высоте или сменить позицию во время боя на корабле. Любой персонаж может подняться на Близкую дистанцию по вертикали броском на Проворность (14). Все атаки, совершённые с такелажа или с высоты, набранной при лазании по кораблю, совершаются с преимуществом."
+          },
+          "prompt": {
+            "en": "What are the sailors in the tops doing during the fight? What is there to climb on and swing from?",
+            "ru": "Что делают матросы на мачтах во время боя? На что можно взобраться и с чего раскачаться?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "universal"
+      ]
+    },
+    {
+      "id": "the-commanders-dinner",
+      "tier": 1,
+      "type": "exploration",
+      "difficulty": 14,
+      "name": {
+        "en": "The Commander's Dinner",
+        "ru": "Ужин у Командора"
+      },
+      "impulses": {
+        "en": [
+          "Test the party's manners",
+          "probe their intentions",
+          "dangle a magical mystery"
+        ],
+        "ru": [
+          "Испытывать манеры персонажей",
+          "прощупывать их намерения",
+          "дразнить магической загадкой"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "None"
+        ],
+        "ru": [
+          "Нет"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "You Can Hear a Fork Drop",
+            "ru": "Слышно, Как Падает Вилка"
+          },
+          "description": {
+            "en": "Everyone at the dinner is paying close attention and is on their best behavior. All attempts to conceal action or speak without being heard are made with disadvantage.",
+            "ru": "Все на ужине пристально внимательны и ведут себя безупречно. Все попытки скрытно действовать или говорить, не будучи услышанным, совершаются с помехой."
+          },
+          "prompt": {
+            "en": "What are the traditions of a formal navy dinner? What dishes are being served?",
+            "ru": "Каковы традиции формального морского ужина? Какие блюда подаются?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Getting to Know You",
+            "ru": "Узнать Друг Друга Поближе"
+          },
+          "description": {
+            "en": "Characters may make a Presence (14) roll to learn about the officers or other guests (difficulty 16 for Commander Kaine). Characters may make an Instinct (14) roll to interpret the words and actions of the officers or other guests (Difficulty 16 for Commander Kaine).",
+            "ru": "Персонажи могут совершить бросок на Влияние (14), чтобы узнать больше об офицерах или других гостях (сложность 16 для Командора Кейна). Персонажи могут совершить бросок на Инстинкт (14), чтобы истолковать слова и поступки офицеров или других гостей (Сложность 16 для Командора Кейна)."
+          },
+          "prompt": {
+            "en": "What stories of valor does the commander share to boast? What do the other guests let slip that hints at their motivations?",
+            "ru": "Какими историями доблести хвастается командор? Что случайно выдают другие гости, намекая на свои мотивы?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "I Don't Care For Your Tone",
+            "ru": "Мне Не Нравится Твой Тон"
+          },
+          "description": {
+            "en": "Spend a Fear when one of the PCs asks a question that is too probing or too disrespectful (About the ship, the crew, the engine, or the commander directly). The commander rebukes the party in front of the entire room, causing every PC to mark Stress. The PCs have disadvantage on any Presence rolls for the rest of the scene.",
+            "ru": "Потратьте Страх, когда один из персонажей задаёт слишком настойчивый или неуважительный вопрос (о корабле, команде, двигателе или лично о командоре). Командор отчитывает группу перед всей комнатой, заставляя каждого персонажа отметить Стресс. Персонажи получают помеху на все броски Влияния до конца сцены."
+          },
+          "prompt": {
+            "en": "How far is too far? Does the commander excuse them from dinner or do they get to stay and wallow in their discomfort?",
+            "ru": "Где проходит грань дозволенного? Отпускает ли их командор с ужина, или им приходится остаться и терпеть неловкость?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "A Magical Puzzle",
+            "ru": "Магическая Головоломка"
+          },
+          "description": {
+            "en": "Once Mellandra has introduced the astrolabe, a character may make a Finesse or Knowledge (14) roll to investigate the device. On a success, they find way to begin activating the artifact, which briefly creates a magical illusory map before flickering out.",
+            "ru": "После того как Мелландра представит астролябию, персонаж может совершить бросок на Искусность или Знание (14), чтобы исследовать устройство. При успехе он находит способ начать активацию артефакта, который на миг создаёт волшебную иллюзорную карту, прежде чем погаснуть."
+          },
+          "prompt": {
+            "en": "What landmark stands out on the map to orient the PCs as to the territory shown?",
+            "ru": "Какой ориентир выделяется на карте, чтобы сориентировать персонажей насчёт изображённой территории?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "settlement"
+      ]
+    },
+    {
+      "id": "bankburgh-chase",
+      "tier": 1,
+      "type": "event",
+      "difficulty": 12,
+      "name": {
+        "en": "Bankburgh Chase",
+        "ru": "Погоня по Банкбургу"
+      },
+      "impulses": {
+        "en": [
+          "Disorient and distract",
+          "put distance between pursuer and prey",
+          "turn the party around"
+        ],
+        "ru": [
+          "Сбивать с толку и отвлекать",
+          "увеличивать дистанцию между преследователем и добычей",
+          "разворачивать группу не в ту сторону"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "City Watch (Archer Guard, Bladed Guard)",
+          "Petty Crooks (Jagged Knife Bandit, Jagged Knife Lackey)",
+          "Revelers (Courtesan, Courtier, Masked Thief, Merchant Baron, Petty Noble)"
+        ],
+        "ru": [
+          "Городская Стража (Стражник-Лучник, Стражник-Мечник)",
+          "Мелкие Жулики (Бандит из «Зазубренного ножа», Шестёрка из «Зазубренного ножа»)",
+          "Гуляки (Куртизанка, Придворный, Вор в Маске, Торговый Барон, Мелкий Аристократ)"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "The Game Is Afoot",
+            "ru": "Игра Началась"
+          },
+          "description": {
+            "en": "At the start of the scene, activate two dynamic countdowns: a Progress Countdown (8) and a Consequence Countdown (5). If the PCs identified the thief before the previous scene's Investigation Countdown triggered, tick down the Progress Countdown by 2. See “Ending the Chase” for what happens when the countdowns trigger.",
+            "ru": "В начале сцены активируйте два динамических отсчёта: Отсчёт Прогресса (8) и Отсчёт Последствий (5). Если персонажи опознали воровку до того, как сработал Отсчёт Расследования из предыдущей сцены, уменьшите Отсчёт Прогресса на 2. См. «Завершение Погони», чтобы узнать, что происходит, когда отсчёты срабатывают."
+          },
+          "prompt": {
+            "en": "Does the thief rely more on stealth, speed, or acrobatics to escape? What part of town does she seem to be headed for?",
+            "ru": "Полагается ли воровка больше на скрытность, скорость или акробатику, чтобы сбежать? В какую часть города она, похоже, направляется?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Crowd Surge",
+            "ru": "Натиск Толпы"
+          },
+          "description": {
+            "en": "Spend a Fear to have the tide of festivalgoers split a PC off from the party.",
+            "ru": "Потратьте Страх, чтобы волна гуляк отделила персонажа от группы."
+          },
+          "prompt": {
+            "en": "Where are the revelers heading? How does the lost PC try to regain their bearings and reconnect with the party?",
+            "ru": "Куда направляются гуляки? Как потерявшийся персонаж пытается сориентироваться и воссоединиться с группой?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Hide in Plain Sight",
+            "ru": "Спрятаться у Всех на Виду"
+          },
+          "description": {
+            "en": "Spend a Fear to have the thief disguise herself as a random bystander and fade into the sea of faces. The closest PC must succeed on an Instinct Reaction Roll to spot her or the Consequence Countdown ticks down by 1.",
+            "ru": "Потратьте Страх, чтобы воровка переоделась случайным прохожим и растворилась в море лиц. Ближайший персонаж должен преуспеть в Броске Реакции на Инстинкт, чтобы заметить её, иначе Отсчёт Последствий уменьшается на 1."
+          },
+          "prompt": {
+            "en": "Who does the thief disguise herself as? In her haste, how does she give herself away?",
+            "ru": "Кем воровка притворяется? Как она в спешке выдаёт себя?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "settlement"
+      ]
+    },
+    {
+      "id": "keep-away",
+      "tier": 1,
+      "type": "event",
+      "difficulty": 12,
+      "name": {
+        "en": "Keep-Away",
+        "ru": "Не Отдам"
+      },
+      "impulses": {
+        "en": [
+          "Misdirect attention",
+          "move the tiara around",
+          "spread the party thin"
+        ],
+        "ru": [
+          "Отвлекать внимание",
+          "перемещать тиару",
+          "рассредоточивать группу"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Stabitha Darkfeather (Wish Thief, Vespid)",
+          "Accomplices (Darkfeather Assassin, Darkfeather Arcanist)"
+        ],
+        "ru": [
+          "Стабита Тёмное Перо (Похитительница Желаний, Веспид)",
+          "Сообщники (Убийца из Тёмного Пера, Чародейка из Тёмного Пера)"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Crown-Bearer",
+            "ru": "Носитель Короны"
+          },
+          "description": {
+            "en": "At the start of the scene, the tiara begins to glow with starlight. The person holding Gerdi's tiara is Favored by fortune. While Favored, they have advantage on action rolls and can't become Hidden. A combatant can take the tiara with a successful action roll against the bearer. The bearer drops the tiara if they take Severe or greater damage.",
+            "ru": "В начале сцены тиара начинает светиться звёздным светом. Тот, кто держит тиару Герди, Благословен удачей. Пока персонаж Благословен, он получает преимущество на броски действия и не может стать Скрытым. Противник может забрать тиару успешным броском действия против её обладателя. Обладатель роняет тиару, если получает Тяжёлый или более серьёзный урон."
+          },
+          "prompt": {
+            "en": "How does the starlight alter the appearance of the tiara? How does the tiara alter the appearance of its bearer?",
+            "ru": "Как звёздный свет меняет облик тиары? Как тиара меняет облик своего обладателя?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Pass the Tiara",
+            "ru": "Передать Тиару"
+          },
+          "description": {
+            "en": "An adversary throws the tiara to an ally within Far range. Each PC the tiara passes within Very Close range of can make a Finesse Reaction Roll against the thrower to intercept it.",
+            "ru": "Противник бросает тиару союзнику в пределах Дальней дистанции. Каждый персонаж, мимо которого пролетает тиара в пределах Очень Близкой дистанции, может совершить Бросок Реакции на Искусность против бросающего, чтобы перехватить её."
+          },
+          "prompt": {
+            "en": "How do the adversaries communicate with one another without tipping off the PCs to their intentions? How do the adversaries use their skill in stealth and acrobatics to trade the tiara between themselves?",
+            "ru": "Как противники общаются друг с другом, не выдавая своих намерений персонажам? Как противники используют своё мастерство в скрытности и акробатике, чтобы передавать тиару между собой?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "settlement"
+      ]
     }
   ]
 }
