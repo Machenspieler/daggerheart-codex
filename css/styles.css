@@ -1190,6 +1190,12 @@ button.loot-btn { font-family: var(--lt-ui); line-height: 1; cursor: pointer; }
   margin: var(--s-2) 0 0; font-size: var(--fs-xs); line-height: var(--lh-xs); color: var(--fear-soft);
 }
 .field-error svg { width: var(--icon-sm); height: var(--icon-sm); flex: none; }
+/* Both field errors are rendered with the hidden attribute and shown by removing
+ * it, and display: flex above was quietly beating it — an author rule outranks
+ * the browser's own [hidden] whatever its specificity. So "Введите название
+ * списка" stood under the create box from the moment the page loaded, telling
+ * everyone off for a mistake they had not made yet. */
+.field-error[hidden] { display: none; }
 
 /* align-items: start, because a cover makes cards in a row different heights and
  * the default stretch would pass that height to the pictureless ones — a card
