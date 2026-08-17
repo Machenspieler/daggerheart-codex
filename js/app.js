@@ -1385,7 +1385,7 @@ function renderListsHome() {
         <p class="field-error" id="new-list-error" hidden>${ICON_ALERT}<span>${t('list_name_required')}</span></p>
       </div>
       ${state.lists.length
-        ? `<div class="list-cards-grid">${state.lists.map(listCardHtml).join('')}</div>`
+        ? `<div class="list-cards-grid">${listsCoveredFirst().map(listCardHtml).join('')}</div>`
         : emptyStateHtml({ icon: ICON_BOOKMARK, title: t('no_lists_yet'), hint: t('no_lists_hint') })}
     </div>`;
 
@@ -1492,6 +1492,16 @@ function listCoverHtml(list) {
    * a screen reader has no use for a decorative crop of a painting. */
   return `
       <div class="list-card-cover" data-open-list="${list.id}" aria-hidden="true">${tiles}</div>`;
+}
+
+/* Lists with a cover first. A cover makes a card 90px taller than a plain one,
+ * and the two shapes interleaved leave the grid ragged wherever they meet — in
+ * this order the seam happens once instead of in every row. Stable within each
+ * group, and for the rendering only: state.lists keeps the order the lists were
+ * made in, which is the order a rename or a delete is written against. */
+function listsCoveredFirst() {
+  const covered = list => envsInList(list.id).some(e => ENV_ART.has(e.id));
+  return [...state.lists.filter(covered), ...state.lists.filter(l => !covered(l))];
 }
 
 function listCardHtml(list) {
