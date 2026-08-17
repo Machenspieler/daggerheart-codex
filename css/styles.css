@@ -1235,10 +1235,10 @@ button.loot-btn { font-family: var(--lt-ui); line-height: 1; cursor: pointer; }
   height: 90px; display: grid; grid-auto-flow: column; grid-auto-columns: 1fr;
   gap: 1px; background: var(--line);
 }
-/* Alone, a tile is the card wide, and 90px of a 3:2 painting is a letterbox with
- * three quarters of the picture outside it. Nothing has to be square here — the
- * height is only holding tiles apart when there are tiles to hold apart. */
-.list-card-cover:has(> picture:only-child) { height: 120px; }
+/* One height for every cover, letterbox and all: a taller strip for the single
+ * picture bought back some of the painting at the price of a card standing
+ * 30px above the ones beside it, which is the raggedness the grid was ordered
+ * to avoid in the first place. */
 .list-card-cover picture { display: block; overflow: hidden; min-width: 0; }
 /* Env pictures are 3:2 landscapes and a tile is nearer a square, so the crop
  * takes the middle — unlike the card rail, where a 1:3 painting is anchored to
