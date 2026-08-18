@@ -886,7 +886,8 @@ body.has-env-backdrop .modal-overlay[data-overlay-kind="detail"] {
 .feature-prompt {
   margin: var(--s-2) 0 0; max-width: var(--measure);
   padding-left: 1.15em; text-indent: -1.15em;
-  font-size: var(--fs-sm); line-height: var(--lh-sm); color: var(--muted); font-style: italic;
+  /* A step up from --fs-sm: italic grey at 13px is hard to read on a desktop monitor. */
+  font-size: 14px; line-height: var(--lh-sm); color: var(--muted); font-style: italic;
 }
 .feature-prompt::before { content: "❖ "; color: var(--hope); font-style: normal; }
 /* No rule between passive / reaction / action — the gap does the grouping. */
