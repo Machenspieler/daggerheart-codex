@@ -2882,7 +2882,7 @@ function shareItemCard({ title, text, url, art }) {
  * notation — "roll a number of d12s" — so a trailing "s" is allowed to end the
  * die but left out of the match, which keeps the button reading "d12" and the
  * "s" as the prose it belongs to. */
-const DICE_RE = /\b(\d{0,2})d(3|4|6|8|10|12|20|100)(?=s?\b)(?:\s*([+-])\s*(\d+)\b(?!\s*d\s*\d))?/gi;
+const DICE_RE = /\b(\d{0,2})d(2|3|4|6|8|10|12|20|100)(?=s?\b)(?:\s*([+-])\s*(\d+)\b(?!\s*d\s*\d))?/gi;
 const COUNTDOWN_KEYWORD_RE = /(Countdown|Отсчёт\w*|Отсчет\w*|Счётчик\w*|Счетчик\w*)/gi;
 const COUNTDOWN_PAREN_RE = /\(\s*(?:(?:Loop|Цикл)\s+)?(?:(\d*)d)?(\d+)\s*\)/gi;
 
@@ -2934,7 +2934,7 @@ function findCountdownMatches(text) {
  * "1d3 prisoners". The scan stops at the next roll, so in "1d3+2 guards … doing
  * 1d8 physical damage" only the 1d8 is damage. */
 const DAMAGE_WORD_RE = /(damage|уро[нм])/i;
-const NEXT_DICE_RE = /\b\d{0,2}d(?:3|4|6|8|10|12|20|100)\b/i;
+const NEXT_DICE_RE = /\b\d{0,2}d(?:2|3|4|6|8|10|12|20|100)\b/i;
 const DAMAGE_SCAN_CHARS = 70;
 
 function isDamageRoll(text, from) {
