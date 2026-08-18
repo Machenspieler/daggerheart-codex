@@ -1519,6 +1519,10 @@ button.jr-biome:hover { border-color: var(--hope); color: var(--hope-soft); }
     gap: var(--s-3); padding: var(--s-2) var(--s-4);
   }
   .brand { gap: var(--s-2); min-width: 0; }
+  /* With the subtitle gone the brand is barely taller than the mark itself,
+   * short of the 44px a thumb expects. Grow the tap target past the artwork
+   * rather than the artwork past the header. */
+  #brand-home::after { inset: -8px -6px; }
   .brand-mark { height: 28px; }
   .brand-text h1 { font-size: var(--fs-md); letter-spacing: 0.04em; }
   .brand-text p { display: none; }
@@ -1607,11 +1611,18 @@ button.jr-biome:hover { border-color: var(--hope); color: var(--hope-soft); }
 
 /* Below this the wordmark wraps to two lines and pushes the header past the
  * single row it exists to hold. The mark carries the brand on its own; the h1
- * stays in the accessibility tree as the page heading. */
+ * stays in the accessibility tree as the page heading.
+ *
+ * It is hidden without position: absolute on purpose. #brand-home::after is the
+ * tap target for the whole brand, and it sizes against the nearest positioned
+ * ancestor — an absolute h1 became that ancestor and shrank the target into its
+ * own clipped 1px box, which left the logo untappable on a phone. Kept static,
+ * the target resolves against .brand again, and the h1's overflow cannot clip a
+ * box whose containing block sits outside it. */
 @media (max-width: 520px) {
   .brand-text h1 {
-    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
-    overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
+    width: 1px; height: 1px; padding: 0; margin: 0;
+    overflow: hidden; white-space: nowrap;
   }
   .brand-mark { height: 32px; }
 }
