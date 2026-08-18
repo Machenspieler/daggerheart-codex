@@ -24455,6 +24455,401 @@
       "biomes": [
         "settlement"
       ]
+    },
+    {
+      "id": "the-fortress",
+      "tier": 4,
+      "type": "social",
+      "difficulty": 20,
+      "name": {
+        "en": "The Fortress",
+        "ru": "Дорожная Крепость"
+      },
+      "impulses": {
+        "en": [
+          "Guard the Roadwarden jealously",
+          "reward the faithful",
+          "punish trespassers"
+        ],
+        "ru": [
+          "Ревностно охранять Дорожного Владыку",
+          "вознаграждать преданных",
+          "карать нарушителей"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Highwaymen",
+          "Ramrodicus' Offspring"
+        ],
+        "ru": [
+          "Дорожные Разбойники",
+          "Отпрыски Рамродикуса"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "The Private Stash",
+            "ru": "Тайный Схрон"
+          },
+          "description": {
+            "en": "A warehouse filled with a private stock of Deadrigs under lock and key. Guarded by a gang of Highwaymen who consist entirely of Ramrodicus' meathead offspring (1 per player); they use the same stats as the Highwaymen with the following changes:\n- They add their Speed Die to all rolls, even when not piloting their rigs, as they wield an array of strange gadgets made by Killjoy at the request of their prodigious dad.\n- They each start with a different-sized Speed Die to represent their variety in ability, shape, size, and luck.\n\nIf the guards are defeated or evaded, the players can break into the private garage. Each player can describe something strange about a vehicle they find — and steal it.\n\nThese rigs come equipped with 2 Boosts and 2 Cans of Ichor.\n\n**Note:** before attempting this, you may want to warn the players that stealing these vehicles makes them enemies of the state and that the fallout would result in a chase.",
+            "ru": "Склад, забитый частным запасом Мертворигов под замком. Охраняется бандой Дорожных Разбойников, полностью состоящей из тупоголовых отпрысков Рамродикуса (по одному на каждого игрока); они используют те же характеристики, что и Дорожные Разбойники, со следующими изменениями:\n- Они добавляют свою Кость Скорости ко всем броскам, даже когда не пилотируют свои риги, поскольку владеют набором странных гаджетов, сделанных Килджоем по заказу их выдающегося папаши.\n- Каждый из них начинает с Костью Скорости разного размера, отражающей их разнообразие в способностях, форме, размере и удаче.\n\nЕсли стражи побеждены или их удалось избежать, персонажи могут вломиться в частный гараж. Каждый игрок может описать что-то странное в найденном транспортном средстве — и украсть его.\n\nЭти риги оснащены 2 Ускорителями и 2 Канистрами Ихора.\n\n**Примечание:** прежде чем пытаться сделать это, вы можете предупредить игроков, что кража этих транспортных средств делает их врагами государства, и что последствия обернутся погоней."
+          },
+          "prompt": {
+            "en": "",
+            "ru": ""
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "An Audience with the Roadwarden",
+            "ru": "Аудиенция у Дорожного Владыки"
+          },
+          "description": {
+            "en": "When the players finally meet the (self-proclaimed) God-King, they are shocked. He's a sickly, dying old man. His driver's seat isn't a throne — it's a torturous life-support chamber, his flesh welded to a machine that drains the Umbra-taint from his necrosis-ridden body and replaces it with the blood of hapless, missing hitchers.\n\nHe feebly greets you. He is so tired. He rambles about his victories and the evidence for him being the first in a new age of a single god — him. **He coughs up blood as he speaks.**\n\nAt the end of his speech, he offers the players a choice: join or die. Now that they have seen who he is, he must know he can trust them to uphold the \"dogma.\"\n\n**Players can choose to answer truthfully or attempt to lie by making a successful Presence roll.**",
+            "ru": "Когда персонажи наконец встречают (самопровозглашённого) Бога-Короля, они потрясены. Он — болезненный, умирающий старик. Его водительское кресло — не трон, а мучительная камера жизнеобеспечения, его плоть вплавлена в машину, которая вытягивает Скверну Умбры из его поражённого некрозом тела и заменяет её кровью незадачливых пропавших странников.\n\nОн слабо приветствует вас. Он так устал. Он бормочет о своих победах и доказательствах того, что он первый в новую эпоху единого бога — самого себя. **Он кашляет кровью, пока говорит.**\n\nВ конце своей речи он предлагает персонажам выбор: присоединиться или умереть. Теперь, когда они увидели, кто он такой, он должен быть уверен, что может доверить им соблюдение «догмы».\n\n**Персонажи могут выбрать ответить честно или попытаться солгать, совершив успешный бросок на Влияние.**"
+          },
+          "prompt": {
+            "en": "",
+            "ru": ""
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "settlement"
+      ]
+    },
+    {
+      "id": "the-garden",
+      "tier": 2,
+      "type": "social",
+      "difficulty": 13,
+      "name": {
+        "en": "The Garden",
+        "ru": "Сад"
+      },
+      "impulses": {
+        "en": [
+          "Keep the peace by force",
+          "offer refuge from the Umbra",
+          "price everything in gold"
+        ],
+        "ru": [
+          "Поддерживать порядок силой",
+          "давать убежище от Умбры",
+          "оценивать всё в золоте"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Highwaymen"
+        ],
+        "ru": [
+          "Дорожные Разбойники"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Bizarre Bazaar",
+            "ru": "Диковинный Базар"
+          },
+          "description": {
+            "en": "The city draws in many different types, both while traveling and parked. As such, it has one of the most interesting and diverse groups of merchants and traders in the Sallowlands.\n- Most weapons and armor in core rules are available for 1 Bag of Gold.\n- Roll on the Loot and Consumables tables in the core rulebook at the cost of 1 Bag of Gold per d12 rolled. (e.g. 4 Bags + 4d12)\n- Once per tier, for the price of 3 Chests of Gold, you can search the market for a specific magic weapon (with a tier level equal to your current tier or less).",
+            "ru": "Город привлекает самых разных путников, как во время движения, так и на стоянке. Поэтому здесь одна из самых интересных и разнообразных групп торговцев во всех Блёклых Землях.\n- Большинство оружия и брони из основных правил доступны за 1 Мешок Золота.\n- Бросайте по таблицам Добычи и Расходников из основной книги правил за 1 Мешок Золота за каждый брошенный d12. (например, 4 Мешка + 4d12)\n- Раз за ранг, за цену в 3 Сундука Золота, вы можете найти на рынке конкретное магическое оружие (с рангом не выше вашего текущего)."
+          },
+          "prompt": {
+            "en": "",
+            "ru": ""
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Day Labor",
+            "ru": "Подённая Работа"
+          },
+          "description": {
+            "en": "A local farmer offers to hire the players for some labor on her \"island farm\" — a small plot of land in a wheeled cart tethered via Mechanus Chain to a network of other trailer farms. Her rig is in the shop, so she needs strong backs to carry supplies on foot, hopping from cart to cart — and no one else has been dumb enough to take her up on the offer.\n\nPlayers can attempt this semi-perilous task manually by making Strength or Agility rolls. Start a countdown (3), ticking it down with each successful roll:\n- When you fail, describe your misstep and how you avoided becoming roadkill, and take 2 Stress.\n- When you succeed, describe your feats of ability and strength as you show off and mark a Stress (no Stress on a critical success).\n\nFor your reward, you receive the following:\n- **A Sore Back** — Next time you clear Stress, clear half as many instead.\n- **A Day's Pay** — Everyone receives 2 Handfuls of Gold & a pat on the back.\n- **A Warm Meal** — and a cold drink.\n- **A Piece of Junk** — Each player rolls on the Equipment table. All gear has the Broken condition.\n\n**Note:** Day Labor can be used as a framework. Reskin with different odd jobs and NPCs as you flesh out your version of Nowhere.",
+            "ru": "Местная фермерша предлагает нанять персонажей на работу на своей «островной ферме» — небольшом участке земли в колёсной повозке, привязанной Механус-Цепью к сети других повозок-ферм. Её риг в ремонте, так что ей нужны крепкие спины, чтобы носить припасы пешком, перепрыгивая с повозки на повозку — а больше никто не был настолько глуп, чтобы согласиться на её предложение.\n\nПерсонажи могут попытаться выполнить эту полуопасную задачу вручную, совершая броски на Силу или Проворность. Начните отсчёт (3), уменьшая его с каждым успешным броском:\n- Когда вы проваливаете бросок, опишите свой промах и то, как вы избежали превращения в придорожное месиво, и получите 2 Стресса.\n- Когда вы преуспеваете, опишите свои проявления ловкости и силы, красуясь, и отметьте Стресс (без Стресса при критическом успехе).\n\nЗа вашу награду вы получаете следующее:\n- **Больная спина** — В следующий раз, когда вы снимаете Стресс, снимите вдвое меньше.\n- **Дневная плата** — Каждый получает 2 Горсти Золота и похлопывание по спине.\n- **Тёплая еда** — и холодный напиток.\n- **Кусок хлама** — Каждый игрок бросает по таблице Снаряжения. Всё снаряжение получает состояние Сломано.\n\n**Примечание:** «Подённую Работу» можно использовать как шаблон. Переосмыслите её с другими случайными работами и NPC, развивая свою версию Нигде."
+          },
+          "prompt": {
+            "en": "",
+            "ru": ""
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "settlement"
+      ]
+    },
+    {
+      "id": "the-garage",
+      "tier": 3,
+      "type": "social",
+      "difficulty": 17,
+      "name": {
+        "en": "The Garage",
+        "ru": "Гараж"
+      },
+      "impulses": {
+        "en": [
+          "Extort payment for repairs",
+          "guard forbidden machinery",
+          "feed the Wurm's hunger"
+        ],
+        "ru": [
+          "Вымогать плату за ремонт",
+          "охранять запретные механизмы",
+          "кормить голод Червя"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "None"
+        ],
+        "ru": [
+          "Нет"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Racing Signups",
+            "ru": "Запись на Гонки"
+          },
+          "description": {
+            "en": "Deadrig racing is the easiest way to gain clout and notoriety in Nowhere. While the city is parked (and the Wurm hibernates), players can enter the races if they meet the requirements:\n- Have a working Deadrig\n- Pay the registration fee — either a Bag of Gold or a Can of Ichor\n- Have a member of the Rival Racers vouch for your group",
+            "ru": "Гонки на Мертворигах — самый простой способ заслужить славу и известность в Нигде. Пока город на стоянке (и Червь спит), персонажи могут поучаствовать в гонках, если они соответствуют требованиям:\n- Иметь исправный Мертвориг\n- Оплатить регистрационный взнос — либо Мешок Золота, либо Канистру Ихора\n- Заручиться поручительством одного из Соперничающих Гонщиков за вашу группу"
+          },
+          "prompt": {
+            "en": "",
+            "ru": ""
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Rig Wreckage",
+            "ru": "Обломки Ригов"
+          },
+          "description": {
+            "en": "A section of the workshop is devoted to salvaging scrap. A PC can mark a Stress as they pull apart the twisted metal and warped flesh to find functional parts of a Deadrig:\n- **A Set of Wheels** — Describe a strange sensory effect they produce.\n- **A Chassis** — Describe its unique shape and material.\n- **An Engine** — What internal organ is fused with it.\n\nOnce all the parts have been collected and you acquired a set of Mechanus Chains, construct the vehicle by either paying a Road Priest 2 Bags of Gold or starting a downtime project (6) to build it yourself.",
+            "ru": "Часть мастерской отведена под разборку металлолома. Персонаж может отметить Стресс, разбирая искорёженный металл и искажённую плоть в поисках рабочих частей Мертворига:\n- **Комплект колёс** — Опишите странный сенсорный эффект, который они производят.\n- **Шасси** — Опишите его уникальную форму и материал.\n- **Двигатель** — Какой внутренний орган сплавлен с ним.\n\nКогда все части собраны и вы приобрели набор Механус-Цепей, соберите транспортное средство, либо заплатив Дорожному Жрецу 2 Мешка Золота, либо начав ход отдыха (6), чтобы построить его самостоятельно."
+          },
+          "prompt": {
+            "en": "",
+            "ru": ""
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "The Pit",
+            "ru": "Яма"
+          },
+          "description": {
+            "en": "At the center of the mega-rig sits the Pit — a device that fuses meat and metal into just about anything you can imagine. Dr. Killjoy uses it to fabricate the machines that keep Nowhere running. The process requires 10 times the raw materials of the intended object and a Knowledge action roll (22) to produce an infernal item (such as Mechanus Chains). Use of the machine is strictly prohibited without Dr. Killjoy's explicit permission — violators are punished. Players may attempt to sneak in after lights out with a Finesse action roll (12) to use the machine undetected.",
+            "ru": "В центре мега-рига находится Яма — устройство, которое сплавляет плоть и металл в почти что угодно, что вы можете представить. Доктор Килджой использует её, чтобы изготавливать машины, которые держат Нигде на ходу. Процесс требует в 10 раз больше сырья, чем предполагаемый объект, и успешного броска на Знание (22), чтобы произвести адский предмет (например, Механус-Цепи). Использование машины строго запрещено без явного разрешения Доктора Килджоя — нарушители наказываются. Персонажи могут попытаться прокрасться внутрь после отбоя, совершив бросок на Искусность (12), чтобы использовать машину незамеченными."
+          },
+          "prompt": {
+            "en": "",
+            "ru": ""
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "The Joy of the Kill",
+            "ru": "Радость Убийства"
+          },
+          "description": {
+            "en": "While exploring the Garage, spend a Fear to have the PCs stumble upon one of Dr. Killjoy's private workshops and witness him operating a strange machine with humanoid subjects and Umbra-tainted specimens. He appears to be transfusing blood between them in some experiment. As they listen, they hear him mutter: \"This might solve both our fuel and overpopulation problem, but I need healthy test subjects.\"\n\nPlayers must succeed on a Finesse Reaction Roll to avoid detection. On a failure, Dr. Killjoy addresses them and his Foe Countdown decreases by the number of failures.",
+            "ru": "Исследуя Гараж, потратьте Страх, чтобы персонажи наткнулись на одну из личных мастерских Доктора Килджоя и стали свидетелями того, как он оперирует странной машиной с гуманоидными подопытными и заражёнными Умброй образцами. Похоже, он переливает кровь между ними в каком-то эксперименте. Пока они слушают, они слышат, как он бормочет: «Это может решить и нашу проблему с топливом, и проблему перенаселения, но мне нужны здоровые подопытные».\n\nПерсонажи должны преуспеть в Броске Реакции на Искусность, чтобы избежать обнаружения. При неудаче Доктор Килджой обращается к ним, и его Отсчёт Противника уменьшается на число неудач."
+          },
+          "prompt": {
+            "en": "",
+            "ru": ""
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "settlement"
+      ]
+    },
+    {
+      "id": "deathrace",
+      "tier": 2,
+      "type": "event",
+      "difficulty": {
+        "en": "Use Checkpoints",
+        "ru": "Используйте Контрольные Точки"
+      },
+      "name": {
+        "en": "Deathrace",
+        "ru": "Гонка Смерти"
+      },
+      "impulses": {
+        "en": [
+          "Force dangerous choices",
+          "escalate the danger",
+          "reward reckless drivers"
+        ],
+        "ru": [
+          "Вынуждать к опасным решениям",
+          "нагнетать опасность",
+          "вознаграждать безрассудных водителей"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Rival (any die size)"
+        ],
+        "ru": [
+          "Соперник (любого размера кости)"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Rival Racers",
+            "ru": "Соперничающие Гонщики"
+          },
+          "description": {
+            "en": "Rivals are tracked abstractly using their Speed Dice as tokens on the racetrack. Each race typically has a Rival of each die size (d4, d6, d8, d10, d12), but they can be any combination of die sizes depending on the circumstances of the fiction.",
+            "ru": "Соперники отслеживаются абстрактно с помощью их Костей Скорости, выступающих в роли фишек на Трассе. Обычно в каждой гонке участвует по одному Сопернику каждого размера кости (d4, d6, d8, d10, d12), но это может быть любое сочетание размеров костей в зависимости от обстоятельств истории."
+          },
+          "prompt": {
+            "en": "",
+            "ru": ""
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Crash & Burn",
+            "ru": "Авария"
+          },
+          "description": {
+            "en": "When the players successfully attack a Rival (or use an ability that would deal damage or otherwise impede the target), roll the lowest Speed Die among the Rivals. On a 1–2, the player describes how they crash and burn. On a 3+, their Speed Die decreases by 1 size step.",
+            "ru": "Когда персонажи успешно атакуют Соперника (или используют способность, наносящую урон или иначе мешающую цели), бросьте наименьшую Кость Скорости среди Соперников. При результате 1–2 игрок описывает, как он разбивается и сгорает. При результате 3+ его Кость Скорости уменьшается на один шаг размера."
+          },
+          "prompt": {
+            "en": "",
+            "ru": ""
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Speed Boost",
+            "ru": "Ускорение"
+          },
+          "description": {
+            "en": "The Rival uses their rig's special gimmick to antagonize the players. Spend 1 Fear and choose one:\n- Force a player to make a Reaction roll (12) as the rival steals something from the PC. On a failure, they lose a Hope. Ask the PC: What memento did they take? What made it special?\n- They target the PC's rig, hitting vital mechanisms. Until the end of the race, gain a Fear when their Speed Die rolls a 1–2. Ask the PC: What damage was caused? How did you compensate?\n- They create a hazard, making the track more dangerous. You must mark a Stress each time you make a checkpoint roll. Spend 3 Hope to neutralize the obstacle. Ask the PC: How were you impeded? How did you overcome it?",
+            "ru": "Соперник использует особую фишку своего рига, чтобы досадить персонажам. Потратьте 1 Страх и выберите один вариант:\n- Заставьте игрока совершить Бросок Реакции (12), пока соперник крадёт что-то у персонажа. При неудаче он теряет Надежду. Спросите игрока: Какую памятную вещь у него забрали? Чем она была особенна?\n- Соперник целится в риг персонажа, поражая жизненно важные механизмы. До конца гонки получайте Страх, когда его Кость Скорости выпадает 1–2. Спросите игрока: Какой урон был нанесён? Как вы это компенсировали?\n- Соперник создаёт опасность, делая трассу более опасной. Вы должны отмечать Стресс каждый раз, когда совершаете Бросок на Контрольной Точке. Потратьте 3 Надежды, чтобы обезвредить препятствие. Спросите игрока: Как вас задержали? Как вы это преодолели?"
+          },
+          "prompt": {
+            "en": "",
+            "ru": ""
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Return the Favor",
+            "ru": "Ответная Услуга"
+          },
+          "description": {
+            "en": "After a player makes an attack against a Rival, you may spend 1 Fear to make a retaliatory attack. Roll 1d20 + its Speed Die. On a successful hit, they deal Minor damage.",
+            "ru": "После того как игрок совершает атаку против Соперника, вы можете потратить 1 Страх, чтобы совершить ответную атаку. Бросьте 1d20 + его Кость Скорости. При успешном попадании он наносит Незначительный урон."
+          },
+          "prompt": {
+            "en": "",
+            "ru": ""
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "drylands"
+      ]
+    },
+    {
+      "id": "digestive-tract",
+      "tier": 4,
+      "type": "event",
+      "difficulty": 14,
+      "name": {
+        "en": "Digestive Tract",
+        "ru": "Пищеварительный Тракт"
+      },
+      "impulses": {
+        "en": [
+          "Digest the trapped",
+          "reanimate old meals",
+          "offer no easy way out"
+        ],
+        "ru": [
+          "Переваривать пойманных",
+          "оживлять старую добычу",
+          "не давать лёгкого выхода"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Half-Digested Horror"
+        ],
+        "ru": [
+          "Полупереваренный Ужас"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Asphalt Acid",
+            "ru": "Асфальтовая Кислота"
+          },
+          "description": {
+            "en": "When a player becomes trapped inside the Wurm, start a Progress Countdown (10) as they struggle to find an escape. Each time they make an action roll, they must mark a Stress. If a PC falls to 0 HP while inside the Wurm, they cannot choose Avoid Death when they select a Death Move.",
+            "ru": "Когда персонаж оказывается в ловушке внутри Червя, начните Отсчёт Прогресса (10), пока он пытается найти выход. Каждый раз, когда он совершает бросок действия, он должен отметить Стресс. Если персонаж падает до 0 Ран, находясь внутри Червя, он не может выбрать «Избежать Смерти» при выборе Предсмертного хода."
+          },
+          "prompt": {
+            "en": "",
+            "ru": ""
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Half-Digested Horrors",
+            "ru": "Полупереваренные Ужасы"
+          },
+          "description": {
+            "en": "Spend X Fear as one of the Wurm's meals seemingly springs back to life and attacks the nearest living thing in sight. X is equal to the creature's tier. These horrors have the features they had in life, use the Digestive Tract's difficulty, but only 3 HP and 1 Stress.",
+            "ru": "Потратьте X Страха, когда одна из добыч Червя словно оживает и атакует ближайшее живое существо в поле зрения. X равен Рангу существа. Эти ужасы сохраняют особенности, которые имели при жизни, используют Сложность окружения «Пищеварительный Тракт», но имеют только 3 Раны и 1 Стресс."
+          },
+          "prompt": {
+            "en": "",
+            "ru": ""
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "universal"
+      ]
     }
   ]
 }
