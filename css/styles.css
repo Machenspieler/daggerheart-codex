@@ -734,7 +734,7 @@ button.rank-icon:focus-visible { outline: var(--focus-ring); outline-offset: 1px
   position: absolute; inset: calc(-1 * var(--bd-bleed));
   width: calc(100% + var(--bd-bleed) * 2);
   height: calc(100% + var(--bd-bleed) * 2);
-  object-fit: cover;
+  object-fit: cover; object-position: center var(--focus, 50%);
   filter: blur(var(--bd-blur));
   /* Faded in on load rather than on insert: a picture still on its way would
    * otherwise spend its entrance invisible and then land all at once. */
@@ -1245,7 +1245,9 @@ button.loot-btn { font-family: var(--lt-ui); line-height: 1; cursor: pointer; }
  * its top. */
 .list-card-cover img {
   display: block; width: 100%; height: 100%;
-  object-fit: cover; object-position: center;
+  /* Centre unless the painting says otherwise — ENV_ART_FOCUS sets --focus for
+   * the ones whose subject does not sit in the middle. */
+  object-fit: cover; object-position: center var(--focus, 50%);
   transition: filter var(--t-base) var(--ease-out);
 }
 .list-card:hover .list-card-cover img { filter: brightness(1.12); }

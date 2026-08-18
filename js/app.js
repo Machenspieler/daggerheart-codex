@@ -678,6 +678,18 @@ const ENV_ART = new Set([
   'ouroborean-pass',
 ]);
 
+/* Which band of a painting to keep when its frame is wider than it is. A cover
+ * tile the card wide shows the whole width and about two fifths of the height,
+ * and the middle two fifths is a mechanical choice rather than a composed one:
+ * the pass wants its coiling road, so it sits a little high, and the field
+ * wants its stones and flowers rather than more sky, so it sits a little low.
+ * Cauldera Valley reads from the middle and is not listed. The backdrop takes
+ * the same figure, so a painting is cut the same way wherever it is shown. */
+const ENV_ART_FOCUS = {
+  'field-of-dreams': '58%',
+  'ouroborean-pass': '42%',
+};
+
 /* Below this the stat block stops being a card in a margin and becomes a sheet
  * filling the screen — there is no ground left behind it to show a picture on,
  * so a phone is not asked to fetch one. Same breakpoint as that rule. */
@@ -713,6 +725,7 @@ function syncEnvBackdrop() {
   if (img.getAttribute('src') === wanted) return;
   img.classList.remove('is-on');
   img.addEventListener('load', () => img.classList.add('is-on'), { once: true });
+  img.style.setProperty('--focus', ENV_ART_FOCUS[openDetailId] || '50%');
   img.src = wanted;
 }
 
@@ -1482,9 +1495,10 @@ function listCoverHtml(list) {
   const tiles = ids.map(id => {
     const base = 'img/env/thumb/' + id;
     const avif = ENV_THUMB_WIDTHS.map(w => `${base}-${w}.avif ${w}w`).join(', ');
+    const focus = ENV_ART_FOCUS[id] ? ` style="--focus:${ENV_ART_FOCUS[id]}"` : '';
     return `<picture>
             <source type="image/avif" sizes="${sizes}" srcset="${avif}">
-            <img src="${base}-400.webp" alt="" loading="lazy" decoding="async">
+            <img src="${base}-400.webp" alt="" loading="lazy" decoding="async"${focus}>
           </picture>`;
   }).join('');
   /* No click handler of its own: the Open button's stretched ::after covers the
