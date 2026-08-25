@@ -24850,6 +24850,115 @@
       "biomes": [
         "universal"
       ]
+    },
+    {
+      "id": "bastion",
+      "tier": 1,
+      "type": "social",
+      "difficulty": 11,
+      "name": {
+        "en": "Bastion",
+        "ru": "Бастион"
+      },
+      "impulses": {
+        "en": [
+          "Offer shelter to those willing to help",
+          "Hold the Wall at any cost",
+          "Foreshadow the inevitable fall"
+        ],
+        "ru": [
+          "Давать убежище тем, кто готов помочь",
+          "Удерживать Стену любой ценой",
+          "Предвещать неизбежное падение"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "The Wallwarden",
+          "The Doomsinger",
+          "The Wallwatchers",
+          "Traveling Alchemist",
+          "Traveling Beastmaster",
+          "Traveling Smith",
+          "Traveling Ale Master"
+        ],
+        "ru": [
+          "Хранитель Стены",
+          "Певец Рока",
+          "Стражи Стены",
+          "Странствующий Алхимик",
+          "Странствующий Укротитель зверей",
+          "Странствующий Кузнец",
+          "Странствующий Пивовар"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "The Quest Board",
+            "ru": "Доска Заданий"
+          },
+          "description": {
+            "en": "The Quest Board always has these two open quests:\n- **Search and Rescue** — Countdown (1d6): Search the forest for clues to find the lost Wallwatchers. Each time you find a Resource, the party can opt for it to be a Clue (rather than a more tangible boon) and reduce the Countdown by 1. At 0, you find 1d4 Wallwatchers in dire straits.\n- **Dagger in the Heart** — Countdown (20): You must hunt for the forest's Dark Heart and cleave it out. Each time you successfully travel from one Hex to the next, reduce the Countdown by 1. At 0, you locate it.\n\nYou can track multiple quests while in the forest, but once you retreat or return to Bastion, any incomplete quests are lost, and any progress made searching for the Dark Heart is undone. Its Countdown resets to 20.",
+            "ru": "Доска Заданий всегда содержит эти два открытых задания:\n- **Поиск и спасение** — Отсчёт (1d6): Обыщите лес в поисках следов пропавших Стражей Стены. Каждый раз, когда вы находите Ресурс, отряд может решить, что это Улика (вместо более осязаемого блага), и уменьшить Отсчёт на 1. При 0 вы находите 1d4 Стражей Стены в бедственном положении.\n- **Кинжал в сердце** — Отсчёт (20): Вам предстоит выследить Тёмное Сердце леса и вырвать его. Каждый раз, когда вы успешно перемещаетесь из одного Гекса в другой, уменьшайте Отсчёт на 1. При 0 вы находите его.\n\nВ лесу вы можете отслеживать сразу несколько заданий, но стоит отступить или вернуться в Бастион — все незавершённые задания теряются, а весь прогресс в поисках Тёмного Сердца обнуляется. Его Отсчёт возвращается к 20."
+          },
+          "prompt": {
+            "en": "",
+            "ru": ""
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "The Wallwarden",
+            "ru": "Хранитель Стены"
+          },
+          "description": {
+            "en": "A weathered but kind individual who reluctantly holds his station out of a sense of deep responsibility. Beloved by locals and travelers alike, he opens Bastion to all who arrive—offering free room, board, and safety, so long as you are willing to pitch in.\n\nPassive Quest: Each time you bring a lost Wallwatcher back to Bastion, he rewards the party with a unique item to aid them in their quest. Each time 5 Watchers are rescued, the tier of the loot increases by 1.",
+            "ru": "Потрёпанный, но добрый человек, который несёт свою службу неохотно, но по чувству глубокого долга. Любимый и местными жителями, и странниками, он открывает Бастион для всех прибывших — предлагая бесплатный кров, стол и защиту, если вы готовы приложить руку к общему делу.\n\nПассивное задание: Каждый раз, когда вы возвращаете в Бастион пропавшего Стража Стены, он награждает отряд уникальным предметом, который поможет им в дальнейшем пути. Каждый раз, когда спасено 5 Стражей, ранг награды повышается на 1."
+          },
+          "prompt": {
+            "en": "",
+            "ru": ""
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "The Doomsinger",
+            "ru": "Певец Рока"
+          },
+          "description": {
+            "en": "A slender, snake-like individual who speaks a prophecy of the Wallfall, an event that will see the Dark Forest's corruption spread to every corner of the kingdom. Sent by the King as an official liaison to relieve the Wallwarden and the Watchers from their station.\nThe Warden rejects this, claiming it is a self-fulfilling prophecy. The contempt the Doomsinger has for the Warden is palpable.\n\nPassive Quest: If you bring back evidence of the death of a Watcher or an Omen of the Forest, he will give each party member a unique gift as a reward. Once you have returned with such proof 5 times, the Wallwarden will leave his post—to find the Dark Heart himself and stop this once and for all… and most likely die in the process.",
+            "ru": "Худощавый, похожий на змею человек, вещающий пророчество о Падении Стены — событии, после которого порча Тёмного Леса расползётся по всем уголкам королевства. Послан Королём как официальный представитель, чтобы освободить Хранителя Стены и Стражей от их службы.\nХранитель отвергает это, утверждая, что это самосбывающееся пророчество. Презрение, которое Певец Рока питает к Хранителю, невозможно не заметить.\n\nПассивное задание: Если вы принесёте доказательство гибели Стража или Знамение Леса, он вручит каждому члену отряда уникальный дар в награду. Как только вы вернётесь с таким доказательством 5 раз, Хранитель Стены покинет свой пост — чтобы найти Тёмное Сердце самому и покончить с этим раз и навсегда… и, скорее всего, погибнуть при этом."
+          },
+          "prompt": {
+            "en": "",
+            "ru": ""
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Traveling Merchants",
+            "ru": "Странствующие торговцы"
+          },
+          "description": {
+            "en": "Other Rotating Services\nEach time you arrive at Bastion, roll 1d4. Then have the players choose a number of traveling merchants currently at the keep equal to the result.\n- **Alchemist** — Bag of Coin: Gain 1 minor health or stamina potion. Chest: Roll on the Consumable Table twice and choose between the two results.\n- **Beastmaster** — Bag of Coin: Gain the service of a scouting falcon (advantage on Wayfinder rolls). Chest: Gain the service of a dire wolf. The GM controls the beast, but you may mark 1 Stress to have it follow a command: Stay, Search, Attack, Defend.\n- **Smithy** — Bag of Coin: Reinforce armor. Gain 2 temporary additional armor points. Chest: Reinforce a weapon. A weapon of your choice gains 2 tokens. When you hit on an attack, you may spend a token to increase the damage severity by one step.\n- **Ale Master** — Bag of Coin: Gain a flask of Wildermead. When consumed during a Rest, take 1 additional Downtime move. Chest: Gain a barrel of Stonemead. When consumed by the party during a Rest, increase Evasion by 1 until the next Rest.",
+            "ru": "Прочие сменные услуги\nКаждый раз, когда вы прибываете в Бастион, бросьте 1d4. Затем пусть игроки выберут число странствующих торговцев, находящихся в крепости в этот момент, равное результату.\n- **Алхимик** — Мешочек монет: Получите 1 малое зелье здоровья или стойкости. Сундук: Дважды бросьте по Таблице расходников и выберите один из двух результатов.\n- **Укротитель зверей** — Мешочек монет: Получите услугу разведывательного сокола (преимущество на броски Следопыта). Сундук: Получите услугу лютого волка. Волком управляет Мастер игры, но вы можете отметить 1 Стресс, чтобы он выполнил команду: Оставаться, Искать, Атаковать, Защищать.\n- **Кузнец** — Мешочек монет: Укрепите доспех. Получите 2 временных дополнительных очка брони. Сундук: Укрепите оружие. Выбранное оружие получает 2 жетона. Когда вы попадаете атакой, можете потратить жетон, чтобы повысить степень тяжести урона на одну ступень.\n- **Пивовар** — Мешочек монет: Получите флягу Дикомёда. При употреблении во время Отдыха получите 1 дополнительный Ход Отдыха. Сундук: Получите бочонок Каменномёда. При употреблении отрядом во время Отдыха Уклонение повышается на 1 до следующего Отдыха."
+          },
+          "prompt": {
+            "en": "",
+            "ru": ""
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "settlement",
+        "forest"
+      ]
     }
   ]
 }
