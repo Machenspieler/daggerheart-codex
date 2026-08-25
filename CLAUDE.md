@@ -12,9 +12,9 @@ This project is published under one identity only:
 Never write the following anywhere in this project — not in code, comments, commit
 messages, commit author/committer fields, documentation, or generated output:
 
-- the name `Maksym Malyshev`
-- `maksym.malyshev@dataart.com`
-- `maksym.malyshev@ocado.com`
+- the name `obfuscated`
+- `obfuscated`
+- `obfuscated`
 
 This includes any real-name or work-address form of them. The repo-local git config
 already sets the correct `user.name` and `user.email`; do not override it, and do not
