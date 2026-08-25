@@ -30,6 +30,48 @@
     "Анемона Мрачноцвет": "w80"
   },
   "items": {
+    "cc7": {
+      "kind": "consumable",
+      "src": "core",
+      "roll": 7,
+      "img": "cc7.webp",
+      "en": {
+        "name": "Minor Health Potion",
+        "description": "Clear 1d4 HP."
+      },
+      "ru": {
+        "name": "Малое Зелье Лечения",
+        "description": "Излечите 1d4 Ран."
+      }
+    },
+    "cc8": {
+      "kind": "consumable",
+      "src": "core",
+      "roll": 8,
+      "img": "cc8.webp",
+      "en": {
+        "name": "Minor Stamina Potion",
+        "description": "Clear 1d4 Stress."
+      },
+      "ru": {
+        "name": "Малое Зелье Выносливости",
+        "description": "Очистите 1d4 Стресса."
+      }
+    },
+    "cc13": {
+      "kind": "consumable",
+      "src": "core",
+      "roll": 13,
+      "img": "cc13.webp",
+      "en": {
+        "name": "Potion of Stability",
+        "description": "You can drink this potion to choose one additional downtime move."
+      },
+      "ru": {
+        "name": "Зелье Стойкости",
+        "description": "Вы можете выпить это зелье, чтобы выбрать одно дополнительное действие привала."
+      }
+    },
     "di15": {
       "kind": "item",
       "src": "dread",

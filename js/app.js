@@ -181,9 +181,10 @@ function setItemCatalog(data) {
   const items = data.items || {};
   state.itemCatalog = { items, itemUrl: data.item_url || '', imageUrl: data.image_url || '' };
   const index = new Map();
+  const names = [];
   const add = (text, id) => {
     const key = normalizeItemKey(text);
-    if (key && !index.has(key)) index.set(key, id);
+    if (key && !index.has(key)) { index.set(key, id); names.push({ name: String(text), id }); }
   };
   // Aliases win over catalogue names: they are the deliberate mapping, and a
   // stat block's wording is what the reader is actually clicking on.
@@ -192,6 +193,9 @@ function setItemCatalog(data) {
     ['en', 'ru'].forEach(lang => add(item[lang]?.name, id));
   });
   state.itemIndex = index;
+  // Longest names first so e.g. "Minor Health Potion" wins over a shorter
+  // substring before a shorter catalogue entry gets a chance to claim it.
+  state.itemNames = names.sort((a, b) => b.name.length - a.name.length);
 }
 
 function itemById(id) { return state.itemCatalog.items[id] || null; }
@@ -251,7 +255,7 @@ function difficultyScales(env) { return typeof env.difficulty === 'number'; }
 /* Cache buster for the JSON under data/. index.html versions the stylesheet and
    this script the same way; the data files are fetched from here instead, so
    bump this whenever anything in data/ changes or browsers serve stale copies. */
-const DATA_VERSION = 33;
+const DATA_VERSION = 34;
 
 function getJSON(path) {
   return fetch(path).then(r => {
@@ -3060,6 +3064,34 @@ function isSentenceStart(text, index) {
   return !before || SENTENCE_END_CHARS.includes(before[before.length - 1]);
 }
 
+function escapeRegExp(str) { return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+
+/** Catalogue item names named outright in a feature's prose (not just a bullet
+ * head) become links too, e.g. "Gain a Minor Health Potion". Longest names are
+ * tried first (see setItemCatalog) and a unicode-aware boundary check keeps a
+ * Cyrillic name from matching as a substring of a longer word. */
+function findItemMatches(text) {
+  const matches = [];
+  if (!state.itemNames || !state.itemNames.length) return matches;
+  const used = new Array(text.length).fill(false);
+  for (const { name, id } of state.itemNames) {
+    if (!name) continue;
+    const re = new RegExp(`(?<![\\p{L}\\p{N}])${escapeRegExp(name)}(?![\\p{L}\\p{N}])`, 'giu');
+    let m;
+    while ((m = re.exec(text))) {
+      const start = m.index, end = start + m[0].length;
+      let overlap = false;
+      for (let i = start; i < end; i++) if (used[i]) { overlap = true; break; }
+      if (!overlap) {
+        matches.push({ start, end, type: 'item', id, label: m[0] });
+        for (let i = start; i < end; i++) used[i] = true;
+      }
+      if (m.index === re.lastIndex) re.lastIndex++;
+    }
+  }
+  return matches;
+}
+
 function findConditionMatches(text) {
   const matches = [];
   CONDITION_RE.lastIndex = 0;
@@ -3101,7 +3133,7 @@ function renderRichText(container, text, retier) {
 function renderSpans(container, text, retier) {
   const matches = [
     ...findDiceMatches(text), ...findCountdownMatches(text),
-    ...findFearCostMatches(text), ...findConditionMatches(text),
+    ...findFearCostMatches(text), ...findConditionMatches(text), ...findItemMatches(text),
   ].sort((a, b) => a.start - b.start);
 
   let lastIndex = 0;
@@ -3121,6 +3153,8 @@ function renderSpans(container, text, retier) {
       const em = document.createElement('em');
       em.textContent = match.label;
       container.appendChild(em);
+    } else if (match.type === 'item') {
+      container.appendChild(makeItemButton(match.id, match.label));
     } else {
       container.appendChild(makeCountdownButton(match.value, match.label));
     }
