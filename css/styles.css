@@ -848,7 +848,7 @@ body.has-env-backdrop .modal-overlay[data-overlay-kind="detail"] {
 .detail-footer-biomes { display: flex; align-items: center; gap: var(--s-2); flex-wrap: wrap; }
 .detail-footer-source {
   grid-column: 2; justify-self: center; text-align: center;
-  font-family: var(--font-mono); font-size: 13px; color: var(--muted); font-style: italic;
+  font-family: var(--font-mono); font-size: var(--fs-micro); color: var(--muted);
 }
 .detail-footer #detail-add-to-list-bottom { grid-column: 3; justify-self: end; }
 @media (max-width: 480px) {
