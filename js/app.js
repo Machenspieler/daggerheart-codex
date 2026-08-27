@@ -255,7 +255,7 @@ function difficultyScales(env) { return typeof env.difficulty === 'number'; }
 /* Cache buster for the JSON under data/. index.html versions the stylesheet and
    this script the same way; the data files are fetched from here instead, so
    bump this whenever anything in data/ changes or browsers serve stale copies. */
-const DATA_VERSION = 34;
+const DATA_VERSION = 35;
 
 function getJSON(path) {
   return fetch(path).then(r => {
@@ -2426,6 +2426,8 @@ function openDetailOverlay(envId, carry = null) {
       ${env.biomes.map(b => `<span class="biome-chip">${t('biome_' + b)}</span>`).join('')}
     </div>` : '<span></span>';
 
+  const sourceHtml = `<span class="detail-footer-source">${env.source ? `${t('source_label')} ${escapeHtml(env.source)}` : ''}</span>`;
+
   const overlay = document.createElement('div');
   /* A card rebuilt in the other language is the same card with different words
    * on it, so it skips the entrance animation: replaying the fade would read as
@@ -2467,6 +2469,7 @@ function openDetailOverlay(envId, carry = null) {
 
         <div class="detail-footer">
           ${biomesHtml}
+          ${sourceHtml}
           <button type="button" class="btn" id="detail-add-to-list-bottom">${t('add_to_list')}</button>
         </div>
       </div>

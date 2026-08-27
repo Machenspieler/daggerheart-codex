@@ -24959,6 +24959,320 @@
         "settlement",
         "forest"
       ]
+    },
+    {
+      "id": "bandit-hideout",
+      "tier": 1,
+      "type": "exploration",
+      "difficulty": 12,
+      "name": {
+        "en": "Bandit Hideout",
+        "ru": "Логово Бандитов"
+      },
+      "impulses": {
+        "en": [
+          "Keep Out Intruders",
+          "Take Watch",
+          "Maintain Readiness to Fight"
+        ],
+        "ru": [
+          "Не пускать чужаков",
+          "Нести дозор",
+          "Быть готовыми к бою"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Jagged Knife Bandits (Bandit, Shadow, Hexer, Sniper, Lieutenant, Lackey, Kneebreaker)"
+        ],
+        "ru": [
+          "Бандиты из «Зазубренного ножа» (Бандит, Тень, Колдун, Снайпер, Лейтенант, Шестёрка, Коленолом)"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Thorn Fence",
+            "ru": "Терновая изгородь"
+          },
+          "description": {
+            "en": "Make an attack against a target within Close range. On a success, deal 1d8+4 phy damage and pull the target into melee.",
+            "ru": "Совершите атаку по цели в Ближней дистанции. При успехе нанесите 1d8+4 физ. урона и притяните цель в ближний бой."
+          },
+          "prompt": {
+            "en": "How would the bandits notice the brambles have been disturbed? How did the wall get there—do they have a druid or ranger among their number?",
+            "ru": "Как бандиты заметят, что заросли потревожены? Откуда взялась эта стена — есть ли среди них друид или следопыт?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Patrols",
+            "ru": "Патрули"
+          },
+          "description": {
+            "en": "The bandits post a constant watch, mostly directed outside the camp. Entrance will require stealth (Finesse), deception (Presence), or special information (Knowledge).",
+            "ru": "Бандиты держат постоянный дозор, в основном направленный за пределы лагеря. Чтобы проникнуть внутрь, потребуется скрытность (Искусность), обман (Влияние) или особые сведения (Знание)."
+          },
+          "prompt": {
+            "en": "When do they change the watch? What weapons do they have prepared in case of attack?",
+            "ru": "Когда у них смена караула? Какое оружие они держат наготове на случай нападения?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Fight Your Way Through",
+            "ru": "Пробиться силой"
+          },
+          "description": {
+            "en": "If the party decides to fight their way through but you want to abstract the battle to save time, call for a Group Action, asking each member of the party how they contribute to the fight, with one PC making the main roll for the group. On a success with Fear, each PC must mark Stress and 1 HP or 1 armor slot. On a failure, each PC must mark 2 Stress and some combination of 2 HP and/or armor slots.",
+            "ru": "Если отряд решает пробиваться силой, но вы хотите ускорить бой, назначьте Групповой бросок, спросив каждого участника отряда, как он участвует в схватке, при этом один персонаж совершает основной бросок за группу. При успехе со Страхом каждый персонаж должен отметить Стресс и 1 Рану или 1 ячейку брони. При провале каждый персонаж должен отметить 2 Стресса и любое сочетание из 2 Ран и/или ячеек брони."
+          },
+          "prompt": {
+            "en": "What defenses do the bandits have to bring to bear? Does anyone notice the combat or is it over before other bandits take notice?",
+            "ru": "Какую защиту могут применить бандиты? Заметит ли кто-нибудь бой, или он закончится раньше, чем остальные бандиты спохватятся?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "On The Hunt",
+            "ru": "На охоте"
+          },
+          "description": {
+            "en": "Spend a Fear to have a pack of 1d4+2 hungry Strixwolves infiltrate the hideout, desperate for food.",
+            "ru": "Потратьте Страх, чтобы стая из 1d4+2 голодных стрикс-волков проникла в логово в отчаянных поисках еды."
+          },
+          "prompt": {
+            "en": "Do the PCs avoid the animals? Do they try to use them as a distraction or backup? Do the PCs have food on them that would draw the animals' attention?",
+            "ru": "Избегают ли персонажи зверей? Пытаются ли использовать их как отвлечение или подмогу? Есть ли у персонажей еда, которая привлечёт внимание животных?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Alarm",
+            "ru": "Тревога"
+          },
+          "description": {
+            "en": "On a failure or success with fear, some of the bandits grow suspicious and more actively patrol. Attempts to pass through the hideout using stealth have disadvantage for the rest of the scene or until the actively patrolling bandits are defeated or distracted by something else.",
+            "ru": "При провале или успехе со Страхом часть бандитов начинает подозревать неладное и усиливает патрулирование. Попытки пройти через логово скрытно совершаются с помехой до конца сцены или пока активно патрулирующие бандиты не будут побеждены или отвлечены чем-то ещё."
+          },
+          "prompt": {
+            "en": "How is it clear the bandits are on higher alert? What additional defense tactics are they preparing?",
+            "ru": "Как становится понятно, что бандиты насторожились? Какие дополнительные меры защиты они готовят?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "forest"
+      ],
+      "source": "Sablewood Location"
+    },
+    {
+      "id": "underroot-tunnels",
+      "tier": 1,
+      "type": "traversal",
+      "difficulty": 11,
+      "name": {
+        "en": "Underroot Tunnels",
+        "ru": "Подкоренные Туннели"
+      },
+      "impulses": {
+        "en": [
+          "Confound Travelers",
+          "Bar Passage",
+          "Connect Communities"
+        ],
+        "ru": [
+          "Сбивать с толку путников",
+          "Преграждать путь",
+          "Соединять поселения"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Acid Burrower",
+          "Stonewraith",
+          "Jagged Knife Bandits"
+        ],
+        "ru": [
+          "Кислотный Землекоп",
+          "Каменный Призрак",
+          "Бандиты из «Зазубренного ножа»"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Hidden Entrance",
+            "ru": "Скрытый вход"
+          },
+          "description": {
+            "en": "The first challenge of the Underroot Tunnels is finding them. PCs must complete a Progress Countdown (3) to find a viable entrance to the tunnels (Instinct and Knowledge are most applicable, though Finesse could be used to search manually for a seam or switch and Presence could be used to gain information from a denizen of the Sablewood).",
+            "ru": "Первая трудность Подкоренных Туннелей — их найти. Персонажи должны выполнить Отсчёт Прогресса (3), чтобы отыскать подходящий вход в туннели (лучше всего подходят Инстинкт и Знание, хотя Искусность можно применить для ручного поиска щели или рычага, а Влияние — чтобы получить сведения от обитателя Соболиного Леса)."
+          },
+          "prompt": {
+            "en": "How do they camouflage the tunnels so well? What traps might they leave in the way?",
+            "ru": "Как они так хорошо маскируют туннели? Какие ловушки они могли оставить на пути?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "A Series of Passageways, All Alike",
+            "ru": "Череда одинаковых проходов"
+          },
+          "description": {
+            "en": "Navigating to a particular location in the tunnels requires a Progress Countdown (4 for most known settlements, 6 for less well-known or more-remote destinations).\n\nPotential Challenges include identical passageways, damaged stairwells leading to a lower level, root blockage, flooded tunnel.",
+            "ru": "Чтобы добраться до конкретного места в туннелях, требуется Отсчёт Прогресса (4 для большинства известных поселений, 6 для менее известных или более отдалённых пунктов).\n\nВозможные трудности: одинаковые проходы, повреждённые лестницы, ведущие на нижний уровень, завал из корней, затопленный туннель."
+          },
+          "prompt": {
+            "en": "How was this place built to purposefully confuse outsiders? How are patrols run within the tunnels?",
+            "ru": "Как это место было построено так, чтобы намеренно сбивать с толку чужаков? Как организовано патрулирование внутри туннелей?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Root Blockage",
+            "ru": "Завал из корней"
+          },
+          "description": {
+            "en": "Reveal that the path ahead has been blocked by the shifting of a great Sablewood tree. The party can dig around the root (Finesse), try to cut through it (Strength), or double back to find another path (Instinct).",
+            "ru": "Сообщите, что путь впереди перекрыт сдвинувшимся огромным деревом Соболиного Леса. Отряд может прокопать обход корня (Искусность), попытаться прорубить его (Сила) или вернуться назад в поисках другого пути (Инстинкт)."
+          },
+          "prompt": {
+            "en": "What other obstacles did the Underroot community build their passages around? What unique approach have they taken to dealing with them?",
+            "ru": "Какие ещё препятствия обходили строители туннелей подземной общины? Какой уникальный подход они выбрали, чтобы с ними справляться?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Toll-Keepers",
+            "ru": "Сборщики пошлины"
+          },
+          "description": {
+            "en": "Spend a Fear to introduce a number of Jagged Knife Lackeys equal to the size of the party plus two Jagged Knife Bandits and a Jagged Knife Lieutenant seeking a 'toll' of two handfuls of gold per character for passing through their \"protected territory.\"",
+            "ru": "Потратьте Страх, чтобы ввести в сцену число Шестёрок из «Зазубренного ножа», равное размеру отряда, плюс двух Бандитов из «Зазубренного ножа» и одного Лейтенанта из «Зазубренного ножа», требующих «пошлину» в две горсти золота с каждого персонажа за проход через их «охраняемую территорию»."
+          },
+          "prompt": {
+            "en": "How do the Underroot folk feel about these toll-keepers? What else might they be guarding?",
+            "ru": "Как жители подземной общины относятся к этим сборщикам пошлины? Что ещё они могут охранять?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "underground",
+        "forest"
+      ],
+      "source": "Sablewood Location"
+    },
+    {
+      "id": "the-village-of-hush",
+      "tier": 1,
+      "type": "social",
+      "difficulty": 10,
+      "name": {
+        "en": "The Village of Hush",
+        "ru": "Деревня Тишины"
+      },
+      "impulses": {
+        "en": [
+          "Display Hospitality",
+          "Provide Respite from Danger"
+        ],
+        "ru": [
+          "Проявлять гостеприимство",
+          "Давать передышку от опасностей"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Merchant",
+          "Bladed Guards",
+          "Strixwolves"
+        ],
+        "ru": [
+          "Торговец",
+          "Стражники-Мечники",
+          "Стрикс-волки"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Guest Privileges",
+            "ru": "Права гостя"
+          },
+          "description": {
+            "en": "Any overnight visitor is taken in by a family and given shelter for three nights. During this time, the guest's needs have priority and they can use anything that belongs to their hosts. After three nights, the visitors must trade families or leave the town.",
+            "ru": "Любого гостя, остающегося на ночь, принимает к себе одна из семей и даёт ему кров на три ночи. Всё это время нужды гостя стоят на первом месте, и он может пользоваться всем, что принадлежит хозяевам. По истечении трёх ночей гости должны сменить семью или покинуть город."
+          },
+          "prompt": {
+            "en": "Which family takes in the PCs? What visitor has been abusing guest privileges and what do they want here?",
+            "ru": "Какая семья принимает персонажей? Какой гость злоупотребляет гостеприимством и чего он добивается?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Clover's Tavern",
+            "ru": "Таверна «Клевер»"
+          },
+          "description": {
+            "en": "At the center of the town is a massive six-story tavern built around the trunk of an ancient tree. The tavern is where most of the village gathers in the evening. Here, PCs can learn rumors, meet the villagers, and relax. When they leave, the shoes they put up on the clothing line have minor trinkets inside that reflect how the villagers see them or that provide some minor portent of challenges to come.",
+            "ru": "В центре деревни стоит огромная шестиэтажная таверна, построенная вокруг ствола древнего дерева. Именно здесь по вечерам собирается большая часть деревни. Тут персонажи могут узнать слухи, познакомиться с жителями и отдохнуть. Когда они уходят, в обуви, которую они оставляют на бельевой верёвке, обнаруживаются маленькие безделушки — они отражают то, как жители видят персонажей, или дают небольшое предвестие грядущих испытаний."
+          },
+          "prompt": {
+            "en": "What's the talk of the tavern? What clues do the trinkets left in the PC's shoes/boots provide?",
+            "ru": "О чём судачат в таверне? Какие подсказки дают безделушки, оставленные в обуви персонажей?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Preparations",
+            "ru": "Приготовления"
+          },
+          "description": {
+            "en": "A prominent member of the community approaches the PCs asking for help with unique preparations for the arrival of the town's leaders, the Faceless Six.",
+            "ru": "Видный житель общины обращается к персонажам с просьбой помочь в необычных приготовлениях к прибытию правителей города — Безликой Шестёрки."
+          },
+          "prompt": {
+            "en": "Why are the Faceless Six coming to town? What preparations must be done that the party is particularly equipped to help with?",
+            "ru": "Зачем Безликая Шестёрка прибывает в город? Какие приготовления нужно сделать, и чем отряд особенно полезен в этом деле?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Leave it to the Trees",
+            "ru": "Оставить деревьям"
+          },
+          "description": {
+            "en": "Spend a Fear when someone abuses guest privileges to summon twelve Young Dryads. They kidnap the culprit and drag them off to face the justice of the Sablewoods.",
+            "ru": "Потратьте Страх, когда кто-то злоупотребляет гостеприимством, чтобы призвать двенадцать Юных Дриад. Они похищают виновного и утаскивают его на суд Соболиного Леса."
+          },
+          "prompt": {
+            "en": "Do the villagers notice when this happens? How do they alert the guardians to these abuses, or do the dryads just know? What is the origin of the guest privilege custom?",
+            "ru": "Замечают ли жители, когда это происходит? Как они оповещают защитников об этих злоупотреблениях, или дриады узнают сами? Откуда взялся обычай гостеприимства?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "settlement",
+        "forest"
+      ],
+      "source": "Sablewood Location"
     }
   ]
 }
