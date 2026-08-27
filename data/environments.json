@@ -25273,6 +25273,118 @@
         "forest"
       ],
       "source": "Sablewood Location"
+    },
+    {
+      "id": "the-wandering-tavern",
+      "tier": 1,
+      "type": "social",
+      "difficulty": 11,
+      "name": {
+        "en": "The Wandering Tavern",
+        "ru": "Бродячая таверна"
+      },
+      "impulses": {
+        "en": [
+          "Tempt patrons with gifts from the World Before",
+          "turn hospitality into an inescapable debt",
+          "ruthlessly punish those who break the tavern's rules"
+        ],
+        "ru": [
+          "Искушать посетителей дарами Старого Мира",
+          "превращать гостеприимство в неизбежный долг",
+          "безжалостно карать нарушителей правил таверны"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Barbara Yaga, Barkeep (Tier 4 Solo)"
+        ],
+        "ru": [
+          "Барбара Яга, Трактирщица (Ранг 4, Соло)"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Daily Specials",
+            "ru": "Особые предложения дня"
+          },
+          "description": {
+            "en": "The Tavern holds the last morsels of the World Before. These strange wares can temporarily alter mortals who consume them, for better or worse. Each time the party visits the bar, they may open a Party Tab, and each character may choose one item from the list below:\n- **The Crypt Sleeper:** This icy liquid, when consumed, causes a mist to appear within Close range. All undead who enter this mist temporarily fall asleep until freed. This effect lasts until the drinker takes a Downtime Move.\n- **The Rusty Blade:** This primordial stew, when consumed, causes all non-magical blades that strike the drinker to become Rusty (2). While Rusty, each subsequent attack with that blade causes the countdown to decrease. At 0, the blade is useless until repaired.\n- **The Lucky Bastard:** This golden liquid, when consumed, grants the drinker an additional Hope Feature: Spend 3 Hope to turn a failed roll into a success. However, the next roll made by the party is made with Disadvantage. You retain this feature until the GM says, \"Drinks on Me.\"\n- **The Triple Threat:** This trio of appetizers can be shared among up to three characters. When consumed, those players grant each other a +1 bonus to Action Rolls and Evasion while in Very Close range of one another. This boon lasts until any of the consumers takes a Downtime Move.",
+            "ru": "Таверна хранит последние крохи Старого Мира. Эти странные яства способны временно изменять смертных, которые их отведают, — как в лучшую, так и в худшую сторону. Каждый раз, когда отряд посещает бар, участники могут открыть Общий счёт, и каждый персонаж может выбрать один пункт из списка ниже:\n- **Спящий в склепе:** Этот ледяной напиток при употреблении вызывает туман в Ближней дистанции. Вся нежить, вошедшая в этот туман, временно «засыпает», пока её не освободят. Эффект длится, пока пьющий не совершит Ход Отдыха.\n- **Ржавый клинок:** Это первобытное рагу при употреблении делает так, что немагическое оружие, поразившее пьющего, становится Ржавым (2). Пока клинок Ржавый, каждая последующая атака им уменьшает отсчёт. При 0 клинок бесполезен, пока его не отремонтируют.\n- **Везучий ублюдок:** Этот золотистый напиток при употреблении даёт пьющему дополнительную способность Надежды: потратьте 3 Надежды, чтобы превратить провальный бросок в успешный. Однако следующий бросок отряда совершается с помехой. Способность сохраняется, пока Мастер не скажет: «Всем налито за мой счёт».\n- **Тройная угроза:** Это трио закусок можно разделить между тремя персонажами. Употребив их, эти игроки дают друг другу бонус +1 к броскам действия и Уклонению, пока находятся в Очень близкой дистанции друг от друга. Этот эффект длится, пока кто-то из них не совершит Ход Отдыха."
+          },
+          "prompt": {
+            "en": "What strange delicacy catches the party's eye tonight? What do they give up to indulge?",
+            "ru": "Какое странное лакомство сегодня привлекает внимание отряда? Чем персонажи готовы поступиться ради него?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Drinks on Me",
+            "ru": "Всем налито за мой счёт"
+          },
+          "description": {
+            "en": "The GM may end all active effects from Daily Specials by saying \"Drinks on Me\" and spending a number of Fear equal to the number of active effects.\n**Doing so clears any debt the players currently have on their Tab with Barbara.**",
+            "ru": "Мастер может завершить все активные эффекты Особых предложений дня, сказав «Всем налито за мой счёт» и потратив количество Страха, равное числу активных эффектов.\n**Это также списывает весь долг игроков по Общему счёту перед Барбарой.**"
+          },
+          "prompt": {
+            "en": "How does it look when Barbara calls last call? Does she seem pleased or resentful to wipe the slate clean?",
+            "ru": "Как выглядит момент, когда Барбара объявляет «последний заказ»? Довольна она или сожалеет, списывая долг?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Encountering the Tavern",
+            "ru": "Встреча с таверной"
+          },
+          "description": {
+            "en": "While traveling off-road or through the Wildlands, the party may collectively spend Hope for a chance for the Tavern to appear. The GM then rolls a d20 with an X-in-20 chance of success, where X is equal to the amount of Hope spent.\n**The Tavern can only be summoned if the party's Tab is paid up, or if they spend an additional amount of Hope equal to the party's Tab Tokens.**",
+            "ru": "Путешествуя без дороги или через Дикие земли, отряд может сообща потратить Надежду ради шанса, что появится Таверна. Мастер бросает d20 с шансом успеха X из 20, где X равен потраченной Надежде.\n**Таверну можно призвать, только если Общий счёт отряда оплачен, либо если они тратят дополнительную Надежду, равную числу жетонов Общего счёта отряда.**"
+          },
+          "prompt": {
+            "en": "How does the Tavern announce its arrival — lantern light through the trees, a smell of roasting meat, a tune carried on the wind?",
+            "ru": "Как таверна объявляет о своём появлении — светом фонаря среди деревьев, запахом жаркого, мелодией на ветру?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Tavern Rules",
+            "ru": "Правила таверны"
+          },
+          "description": {
+            "en": "The Tavern always has three rules, and Barbara always knows when a rule is broken:\n- **No Murder**\n- **No Magic**\n- **The Third Rule:** Each time the players enter the Tavern, a new player creates a third rule that stays in effect until they exit the Tavern (ex: No Lying, No Stealing, No Singing, etc.).",
+            "ru": "В таверне всегда действуют три правила, и Барбара всегда знает, когда правило нарушено:\n- **Никаких убийств**\n- **Никакой магии**\n- **Третье правило:** Каждый раз, когда игроки входят в таверну, один из игроков придумывает третье правило, которое действует, пока они не покинут таверну (например: «Никакой лжи», «Никакого воровства», «Никакого пения» и т. д.)."
+          },
+          "prompt": {
+            "en": "What happens the moment someone breaks a rule? Does Barbara intervene herself, or does the Tavern itself react?",
+            "ru": "Что происходит в момент, когда кто-то нарушает правило? Вмешивается ли сама Барбара, или реагирует сама таверна?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Forms of Payment",
+            "ru": "Формы оплаты"
+          },
+          "description": {
+            "en": "Each time a player chooses a Special, Barbara gains a Tab Token (maximum 20). A party can reduce the number of Tab Tokens in one of two ways:\n- **Barbara Needs Something (d4):** 1 – Slain, 2 – Delivered, 3 – Protected, 4 – Stolen. Once the objective is completed, she eliminates half of the party's Tab Tokens (round down).\n- **Memories:** She consumes memories to temporarily experience them. Once she takes a memory, it is gone forever. The players gain a special Downtime Move called Create Memory: **Describe a memorable experience — delicious food, great beauty, intense adrenaline, etc. — that happens during downtime. Then make an Action Roll with a difficulty equal to 5 + the party's total Tab Tokens. On a success, clear 1 Tab Token.**",
+            "ru": "Каждый раз, когда игрок выбирает Особое предложение, Барбара получает жетон Общего счёта (максимум 20). Отряд может уменьшить число жетонов одним из двух способов:\n- **Барбаре что-то нужно (d4):** 1 — Убить, 2 — Доставить, 3 — Защитить, 4 — Украсть. Как только цель выполнена, она снимает половину жетонов Общего счёта отряда (округляя вниз).\n- **Воспоминания:** Она поглощает воспоминания, чтобы ненадолго пережить их заново. Забрав воспоминание, она стирает его навсегда. Игроки получают особый Ход Отдыха под названием «Создать воспоминание»: **Опишите памятное событие — вкусную еду, невероятную красоту, всплеск адреналина и т. д., — которое произошло во время отдыха. Затем совершите Бросок Действия со Сложностью 5 + суммарное число жетонов Общего счёта отряда. При успехе снимите 1 жетон Общего счёта.**"
+          },
+          "prompt": {
+            "en": "What does Barbara ask of the party this time? What memory might a character be tempted to give up?",
+            "ru": "Чего на этот раз просит Барбара у отряда? Каким воспоминанием персонаж может поддаться искушению пожертвовать?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "settlement"
+      ],
+      "source": "The Wandering Tavern"
     }
   ]
 }
