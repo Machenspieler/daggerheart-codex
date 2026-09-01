@@ -55,7 +55,7 @@ const state = {
   lists: JSON.parse(localStorage.getItem(LS_KEYS.lists) || '[]'),
   envLists: JSON.parse(localStorage.getItem(LS_KEYS.envLists) || '{}'),
   storageNoticeDismissed: localStorage.getItem(LS_KEYS.storageNoticeDismissed) === '1',
-  filters: { search: '', tiers: new Set(), types: new Set(), biomes: new Set(), regionOnly: false },
+  filters: { search: '', tiers: new Set(), types: new Set(), sources: new Set(), biomes: new Set(), regionOnly: false },
   // Whether the phone-width filter disclosure is open. Purely presentational,
   // so it lives here rather than in localStorage and survives a re-render only.
   filtersOpen: false,
@@ -255,7 +255,7 @@ function difficultyScales(env) { return typeof env.difficulty === 'number'; }
 /* Cache buster for the JSON under data/. index.html versions the stylesheet and
    this script the same way; the data files are fetched from here instead, so
    bump this whenever anything in data/ changes or browsers serve stale copies. */
-const DATA_VERSION = 37;
+const DATA_VERSION = 38;
 
 function getJSON(path) {
   return fetch(path).then(r => {
@@ -950,6 +950,11 @@ function biomesTriggerLabel(biomes) {
   return count ? `${t('filter_biome')} (${count})` : t('filter_biome');
 }
 
+function sourcesTriggerLabel(sources) {
+  const count = sources.filter(source => state.filters.sources.has(source)).length;
+  return count ? `${t('filter_source')} (${count})` : t('filter_source');
+}
+
 function renderToolbar() {
   const el = document.getElementById('toolbar');
   const envs = currentEnvs();
@@ -958,19 +963,23 @@ function renderToolbar() {
    * list it stops the toolbar promising ranks, types and biomes the list has
    * none of, and an empty list drops the groups altogether. Canonical order is
    * kept by filtering the reference arrays rather than collecting a Set. */
-  const has = { tiers: new Set(), types: new Set(), biomes: new Set() };
+  const has = { tiers: new Set(), types: new Set(), sources: new Set(), biomes: new Set() };
   envs.forEach(e => {
     has.tiers.add(e.tier);
     has.types.add(e.type);
+    if (e.source) has.sources.add(e.source);
     (e.biomes || []).forEach(b => has.biomes.add(b));
   });
   const usedTiers = [1, 2, 3, 4].filter(tier => has.tiers.has(tier));
   const types = TYPES.filter(type => has.types.has(type));
+  const collator = new Intl.Collator(state.lang, { sensitivity: 'base', numeric: true });
+  const usedSources = [...has.sources].sort(collator.compare);
   const usedBiomes = BIOMES.filter(biome => has.biomes.has(biome));
   /* A filter left pointing at something the current route cannot show would
    * empty the grid with no control still on screen to undo it. */
   state.filters.tiers.forEach(v => { if (!has.tiers.has(v)) state.filters.tiers.delete(v); });
   state.filters.types.forEach(v => { if (!has.types.has(v)) state.filters.types.delete(v); });
+  state.filters.sources.forEach(v => { if (!has.sources.has(v)) state.filters.sources.delete(v); });
   state.filters.biomes.forEach(v => { if (!has.biomes.has(v)) state.filters.biomes.delete(v); });
   // The region pill sits alongside the type pills but filters on region
   // membership, not env.type. Regions only make sense on the full catalog, so
@@ -989,7 +998,7 @@ function renderToolbar() {
   // How many filter groups are narrowing the list right now. Only shown next to
   // the phone-width disclosure, where the filters themselves are out of sight.
   const activeGroups = (state.filters.tiers.size ? 1 : 0) + (state.filters.types.size ? 1 : 0)
-    + (state.filters.biomes.size ? 1 : 0) + (state.filters.regionOnly ? 1 : 0);
+    + (state.filters.sources.size ? 1 : 0) + (state.filters.biomes.size ? 1 : 0) + (state.filters.regionOnly ? 1 : 0);
 
   el.innerHTML = listBar + `
     <div class="toolbar" data-filters-open="${state.filtersOpen}">
@@ -1041,6 +1050,18 @@ function renderToolbar() {
           <div class="ms-panel" id="f-biomes-panel" role="listbox" aria-multiselectable="true" hidden>
             ${usedBiomes.map(biome => `<div class="ms-row ${state.filters.biomes.has(biome) ? 'selected' : ''}"
                  role="option" aria-selected="${state.filters.biomes.has(biome)}" data-biome="${biome}">${t('biome_' + biome)}</div>`).join('')}
+          </div>
+        </div>` : ''}
+        ${usedSources.length ? `
+        <div class="field ms-field" id="f-sources-field">
+          <span class="field-label" aria-hidden="true"></span>
+          <button type="button" class="ms-trigger field-control" id="f-sources-btn"
+                  aria-haspopup="listbox" aria-expanded="false">
+            <span class="ms-trigger-label">${sourcesTriggerLabel(usedSources)}</span>
+          </button>
+          <div class="ms-panel" id="f-sources-panel" role="listbox" aria-multiselectable="true" hidden>
+            ${usedSources.map(source => `<div class="ms-row ${state.filters.sources.has(source) ? 'selected' : ''}"
+                 role="option" aria-selected="${state.filters.sources.has(source)}" data-source="${escapeAttr(source)}">${escapeHtml(source)}</div>`).join('')}
           </div>
         </div>` : ''}
       </div>
@@ -1106,6 +1127,35 @@ function renderToolbar() {
       // Picking something is a complete action and closes the panel;
       // unpicking is refinement, so the panel stays open for the next pick.
       if (selected) closePanel();
+    }));
+  }
+  const sourcesField = document.getElementById('f-sources-field');
+  if (sourcesField) {
+    const sourcesBtn = document.getElementById('f-sources-btn');
+    const sourcesPanel = document.getElementById('f-sources-panel');
+    function outsideCloseSources(e) {
+      if (!sourcesField.contains(e.target)) closeSourcesPanel();
+    }
+    function closeSourcesPanel() {
+      sourcesPanel.hidden = true;
+      sourcesBtn.setAttribute('aria-expanded', 'false');
+      document.removeEventListener('click', outsideCloseSources);
+    }
+    sourcesBtn.addEventListener('click', () => {
+      const open = sourcesPanel.hidden;
+      sourcesPanel.hidden = !open;
+      sourcesBtn.setAttribute('aria-expanded', String(open));
+      if (open) document.addEventListener('click', outsideCloseSources);
+      else document.removeEventListener('click', outsideCloseSources);
+    });
+    sourcesPanel.querySelectorAll('.ms-row').forEach(row => row.addEventListener('click', () => {
+      toggleSetValue(state.filters.sources, row.dataset.source);
+      const selected = state.filters.sources.has(row.dataset.source);
+      row.classList.toggle('selected', selected);
+      row.setAttribute('aria-selected', String(selected));
+      sourcesBtn.querySelector('.ms-trigger-label').textContent = sourcesTriggerLabel(usedSources);
+      renderGrid();
+      if (selected) closeSourcesPanel();
     }));
   }
   const biomesField = document.getElementById('f-biomes-field');
@@ -1239,6 +1289,7 @@ function envMatchesFilters(env) {
   }
   if (f.tiers.size && !f.tiers.has(env.tier)) return false;
   if (f.types.size && !f.types.has(env.type)) return false;
+  if (f.sources.size && !f.sources.has(env.source)) return false;
   if (f.regionOnly && !regionOfEnv(env.id)) return false;
   if (f.biomes.size) {
     const envBiomeSet = new Set(env.biomes || []);
@@ -1305,7 +1356,7 @@ function bindGridDelegation(el) {
 }
 
 function clearAllFilters() {
-  state.filters = { search: '', tiers: new Set(), types: new Set(), biomes: new Set(), regionOnly: false };
+  state.filters = { search: '', tiers: new Set(), types: new Set(), sources: new Set(), biomes: new Set(), regionOnly: false };
   renderToolbar();
   renderGrid();
   const search = document.getElementById('f-search');
@@ -1314,7 +1365,7 @@ function clearAllFilters() {
 
 function hasActiveFilters() {
   const f = state.filters;
-  return f.search || f.tiers.size || f.types.size || f.biomes.size || f.regionOnly;
+  return f.search || f.tiers.size || f.types.size || f.sources.size || f.biomes.size || f.regionOnly;
 }
 
 /* Biomes that only get to supply a card picture when nothing else is on offer.
