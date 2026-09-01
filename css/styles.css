@@ -1518,6 +1518,13 @@ button.jr-biome:hover { border-color: var(--hope); color: var(--hope-soft); }
   .grid { max-width: calc(420px * 2 + var(--s-4)); margin-inline: auto; }
 }
 
+/* .shell's 1180px cap holds exactly three 340px cards; four 340px cards plus
+ * their three 16px gaps need 1408px of grid width, i.e. a 1448px shell once
+ * its 20px side padding is subtracted, so 1480px clears a fourth column. */
+@media (min-width: 1480px) {
+  .shell { max-width: 1480px; }
+}
+
 @media (max-width: 640px) {
   body { font-size: 15px; }
   .shell { padding: 0 var(--s-4) var(--s-9); }
