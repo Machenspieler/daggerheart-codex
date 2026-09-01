@@ -945,6 +945,11 @@ function typesTriggerLabel(types) {
   return count ? `${t('filter_type')} (${count})` : t('filter_type');
 }
 
+function biomesTriggerLabel(biomes) {
+  const count = biomes.filter(biome => state.filters.biomes.has(biome)).length;
+  return count ? `${t('filter_biome')} (${count})` : t('filter_biome');
+}
+
 function renderToolbar() {
   const el = document.getElementById('toolbar');
   const envs = currentEnvs();
@@ -1027,12 +1032,16 @@ function renderToolbar() {
           </div>
         </div>` : ''}
         ${usedBiomes.length ? `
-        <div class="field">
-          <label class="field-label" for="f-biome">${t('filter_biome')}</label>
-          <select id="f-biome">
-            <option value="">${t('all')}</option>
-            ${usedBiomes.map(biome => `<option value="${biome}" ${state.filters.biomes.has(biome) ? 'selected' : ''}>${t('biome_' + biome)}</option>`).join('')}
-          </select>
+        <div class="field ms-field" id="f-biomes-field">
+          <span class="field-label" aria-hidden="true"></span>
+          <button type="button" class="ms-trigger field-control" id="f-biomes-btn"
+                  aria-haspopup="listbox" aria-expanded="false">
+            <span class="ms-trigger-label">${biomesTriggerLabel(usedBiomes)}</span>
+          </button>
+          <div class="ms-panel" id="f-biomes-panel" role="listbox" aria-multiselectable="true" hidden>
+            ${usedBiomes.map(biome => `<div class="ms-row ${state.filters.biomes.has(biome) ? 'selected' : ''}"
+                 role="option" aria-selected="${state.filters.biomes.has(biome)}" data-biome="${biome}">${t('biome_' + biome)}</div>`).join('')}
+          </div>
         </div>` : ''}
       </div>
     </div>`;
@@ -1099,11 +1108,35 @@ function renderToolbar() {
       if (selected) closePanel();
     }));
   }
-  const biomeSelect = document.getElementById('f-biome');
-  if (biomeSelect) biomeSelect.addEventListener('change', e => {
-    state.filters.biomes = new Set(e.target.value ? [e.target.value] : []);
-    renderGrid();
-  });
+  const biomesField = document.getElementById('f-biomes-field');
+  if (biomesField) {
+    const biomesBtn = document.getElementById('f-biomes-btn');
+    const biomesPanel = document.getElementById('f-biomes-panel');
+    function outsideCloseBiomes(e) {
+      if (!biomesField.contains(e.target)) closeBiomesPanel();
+    }
+    function closeBiomesPanel() {
+      biomesPanel.hidden = true;
+      biomesBtn.setAttribute('aria-expanded', 'false');
+      document.removeEventListener('click', outsideCloseBiomes);
+    }
+    biomesBtn.addEventListener('click', () => {
+      const open = biomesPanel.hidden;
+      biomesPanel.hidden = !open;
+      biomesBtn.setAttribute('aria-expanded', String(open));
+      if (open) document.addEventListener('click', outsideCloseBiomes);
+      else document.removeEventListener('click', outsideCloseBiomes);
+    });
+    biomesPanel.querySelectorAll('.ms-row').forEach(row => row.addEventListener('click', () => {
+      toggleSetValue(state.filters.biomes, row.dataset.biome);
+      const selected = state.filters.biomes.has(row.dataset.biome);
+      row.classList.toggle('selected', selected);
+      row.setAttribute('aria-selected', String(selected));
+      biomesBtn.querySelector('.ms-trigger-label').textContent = biomesTriggerLabel(usedBiomes);
+      renderGrid();
+      if (selected) closeBiomesPanel();
+    }));
+  }
   const backBtn = document.getElementById('btn-back-to-lists');
   if (backBtn) backBtn.addEventListener('click', () => navigate('#/lists'));
 }
