@@ -936,6 +936,15 @@ function renderHeader() {
 // feels like it is following the keyboard.
 const SEARCH_DEBOUNCE_MS = 120;
 
+// The trigger always reads as the group's own name, with a running count
+// beside it once something is picked — never the picks themselves, so the
+// button doesn't reflow every time a selection changes.
+function typesTriggerLabel(types) {
+  const count = types.filter(type => state.filters.types.has(type)).length
+    + (state.filters.regionOnly ? 1 : 0);
+  return count ? `${t('filter_type')} (${count})` : t('filter_type');
+}
+
 function renderToolbar() {
   const el = document.getElementById('toolbar');
   const envs = currentEnvs();
@@ -1004,11 +1013,17 @@ function renderToolbar() {
           </div>
         </div>` : ''}
         ${types.length || showRegionPill ? `
-        <div class="field">
-          <span class="field-label" id="f-types-label">${t('filter_type')}</span>
-          <div class="type-pills field-control" id="f-types" role="group" aria-labelledby="f-types-label">
-            ${types.map(type => `<button type="button" class="pill ${state.filters.types.has(type) ? 'active' : ''}" data-type="${type}" aria-pressed="${state.filters.types.has(type)}">${t('type_' + type)}</button>`).join('')}
-            ${showRegionPill ? `<button type="button" class="pill ${state.filters.regionOnly ? 'active' : ''}" data-type="region" id="f-region" aria-pressed="${state.filters.regionOnly}">${t('region_label')}</button>` : ''}
+        <div class="field ms-field" id="f-types-field">
+          <span class="field-label" aria-hidden="true"></span>
+          <button type="button" class="ms-trigger field-control" id="f-types-btn"
+                  aria-haspopup="listbox" aria-expanded="false">
+            <span class="ms-trigger-label">${typesTriggerLabel(types)}</span>
+          </button>
+          <div class="ms-panel" id="f-types-panel" role="listbox" aria-multiselectable="true" hidden>
+            ${types.map(type => `<div class="ms-row ${state.filters.types.has(type) ? 'selected' : ''}"
+                 role="option" aria-selected="${state.filters.types.has(type)}" data-type="${type}">${t('type_' + type)}</div>`).join('')}
+            ${showRegionPill ? `<div class="ms-row ${state.filters.regionOnly ? 'selected' : ''}"
+                 role="option" aria-selected="${state.filters.regionOnly}" id="f-region" data-type="region">${t('region_label')}</div>` : ''}
           </div>
         </div>` : ''}
         ${usedBiomes.length ? `
@@ -1052,15 +1067,38 @@ function renderToolbar() {
     toggleSetValue(state.filters.tiers, tier);
     renderToolbar(); renderGrid();
   }));
-  el.querySelectorAll('#f-types .pill:not(#f-region)').forEach(btn => btn.addEventListener('click', () => {
-    toggleSetValue(state.filters.types, btn.dataset.type);
-    renderToolbar(); renderGrid();
-  }));
-  const regionBtn = document.getElementById('f-region');
-  if (regionBtn) regionBtn.addEventListener('click', () => {
-    state.filters.regionOnly = !state.filters.regionOnly;
-    renderToolbar(); renderGrid();
-  });
+  const typesField = document.getElementById('f-types-field');
+  if (typesField) {
+    const typesBtn = document.getElementById('f-types-btn');
+    const typesPanel = document.getElementById('f-types-panel');
+    function outsideClose(e) {
+      if (!typesField.contains(e.target)) closePanel();
+    }
+    function closePanel() {
+      typesPanel.hidden = true;
+      typesBtn.setAttribute('aria-expanded', 'false');
+      document.removeEventListener('click', outsideClose);
+    }
+    typesBtn.addEventListener('click', () => {
+      const open = typesPanel.hidden;
+      typesPanel.hidden = !open;
+      typesBtn.setAttribute('aria-expanded', String(open));
+      if (open) document.addEventListener('click', outsideClose);
+      else document.removeEventListener('click', outsideClose);
+    });
+    typesPanel.querySelectorAll('.ms-row').forEach(row => row.addEventListener('click', () => {
+      let selected;
+      if (row.id === 'f-region') { state.filters.regionOnly = !state.filters.regionOnly; selected = state.filters.regionOnly; }
+      else { toggleSetValue(state.filters.types, row.dataset.type); selected = state.filters.types.has(row.dataset.type); }
+      row.classList.toggle('selected', selected);
+      row.setAttribute('aria-selected', String(selected));
+      typesBtn.querySelector('.ms-trigger-label').textContent = typesTriggerLabel(types);
+      renderGrid();
+      // Picking something is a complete action and closes the panel;
+      // unpicking is refinement, so the panel stays open for the next pick.
+      if (selected) closePanel();
+    }));
+  }
   const biomeSelect = document.getElementById('f-biome');
   if (biomeSelect) biomeSelect.addEventListener('change', e => {
     state.filters.biomes = new Set(e.target.value ? [e.target.value] : []);

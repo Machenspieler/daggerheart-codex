@@ -375,23 +375,44 @@ a:hover { text-decoration: underline; text-underline-offset: 2px; }
   font-family: var(--font-mono); font-size: 10px; font-weight: 700; line-height: 1;
 }
 
-.tier-pills, .type-pills { display: flex; gap: var(--s-2); flex-wrap: wrap; align-items: center; }
-.pill {
-  display: inline-flex; align-items: center; height: var(--h-sm); padding: 0 var(--s-3);
-  font-family: var(--font-mono); font-size: var(--fs-xs); border-radius: var(--r-pill);
-  border: 1px solid var(--line); background: var(--ink-raised); color: var(--muted); cursor: pointer;
-  transition: border-color var(--t-fast) var(--ease-out),
-              background var(--t-fast) var(--ease-out),
-              color var(--t-fast) var(--ease-out);
+.tier-pills { display: flex; gap: var(--s-2); flex-wrap: wrap; align-items: center; }
+
+/* ---------- multiselect dropdown (toolbar "type" filter) ---------- */
+.ms-field { position: relative; }
+.ms-trigger {
+  height: var(--h-md); padding: 0 var(--s-7) 0 var(--s-3);
+  font-family: var(--font-body); font-size: var(--fs-base); text-align: left;
+  background-color: var(--ink-raised);
+  border: 1px solid var(--line); color: var(--parchment); border-radius: var(--r-sm);
+  min-width: 150px; cursor: pointer;
+  appearance: none; -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5 6 6.5l5-5' fill='none' stroke='%239a8f7d' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right var(--s-3) center; background-size: 12px 8px;
+  transition: border-color var(--t-fast) var(--ease-out), background-color var(--t-fast) var(--ease-out);
 }
-.pill.active { border-color: var(--teal-soft); color: var(--parchment); background: rgba(63,123,116,0.22); }
-.pill.active[data-type="traversal"] { border-color: var(--teal-soft); background: rgba(63,123,116,0.22); }
-.pill.active[data-type="social"] { border-color: var(--hope-soft); background: rgba(217,164,65,0.18); }
-.pill.active[data-type="event"] { border-color: var(--fear-soft); background: rgba(156,43,59,0.22); }
-.pill.active[data-type="exploration"] { border-color: var(--parchment-dim); background: rgba(185,173,145,0.18); }
-.pill.active[data-type="region"] { border-color: var(--hope); background: rgba(217,164,65,0.24); }
-.pill:hover { color: var(--parchment); border-color: var(--line-strong); }
-.pill.active:hover { border-color: var(--hope-soft); }
+.ms-trigger-label { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ms-trigger:hover, .ms-trigger[aria-expanded="true"] {
+  border-color: var(--line-strong);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5 6 6.5l5-5' fill='none' stroke='%23e9dfc7' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+.ms-trigger[aria-expanded="true"] { border-color: var(--hope); }
+.ms-panel {
+  position: absolute; top: calc(100% + var(--s-2)); left: 0; z-index: 20;
+  min-width: 190px; padding: var(--s-2); flex-direction: column; gap: 1px;
+  background: var(--ink-raised); border: 1px solid var(--line-strong); border-radius: var(--r-sm);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+/* An author rule beats the UA stylesheet's [hidden] no matter the specificity,
+ * so the panel's own display has to be scoped to :not([hidden]) explicitly. */
+.ms-panel:not([hidden]) { display: flex; }
+.ms-row {
+  padding: var(--s-2) var(--s-3); border-radius: var(--r-xs); cursor: pointer;
+  font-size: var(--fs-base); color: var(--parchment);
+  transition: background var(--t-fast) var(--ease-out), color var(--t-fast) var(--ease-out);
+}
+.ms-row:hover { background: rgba(255,255,255,0.06); color: var(--hope-soft); }
+.ms-row.selected { background: rgba(217,164,65,0.16); color: var(--hope-soft); }
+.ms-row.selected:hover { background: rgba(217,164,65,0.24); }
 
 .rank-pills { display: flex; gap: var(--s-2); flex-wrap: wrap; align-items: center; }
 .rank-icon {
@@ -1551,6 +1572,7 @@ button.jr-biome:hover { border-color: var(--hope); color: var(--hope-soft); }
   .toolbar { margin: var(--s-4) 0; }
   .field select, .toolbar-filters .field { width: 100%; }
   .field select { min-width: 0; }
+  .ms-trigger { width: 100%; min-width: 0; }
 
   /* One column at this width, and the panel narrows so the name keeps a full
    * line. Keep the width in step with ART_SIZES in app.js. 88px is 27% of the
