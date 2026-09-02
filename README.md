@@ -98,6 +98,7 @@ pending» — перевод уже встроен.
   "type": "traversal",
   "difficulty": 14,
   "name": { "en": "Harsh Desert", "ru": "Суровая пустыня" },
+  "lore": { "en": "...", "ru": "..." },
   "impulses": { "en": [...], "ru": [...] },
   "potential_adversaries": { "en": [...], "ru": [...] },
   "features": [
@@ -115,6 +116,9 @@ pending» — перевод уже встроен.
 
 `type` — один из `traversal | social | event | exploration`.
 `features[].type` — один из `passive | action | reaction`.
+`lore` — необязательная фраза-подводка из первоисточника (одно-два предложения
+под названием окружения на карточке), не механика. У многих старых записей
+её нет — поле не обязательно.
 
 ## Ключевые противники (data/adversaries.json)
 

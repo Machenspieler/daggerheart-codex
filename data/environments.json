@@ -15504,6 +15504,10 @@
         "en": "Raging River",
         "ru": "Бушующая река"
       },
+      "lore": {
+        "en": "A swift-moving river without a bridge crossing, deep enough to sweep away most people.",
+        "ru": "Быстрая река без моста, достаточно глубокая, чтобы унести течением большинство людей."
+      },
       "impulses": {
         "en": [
           "Bar crossing",
@@ -15576,7 +15580,8 @@
       "builtin": true,
       "biomes": [
         "aquatic"
-      ]
+      ],
+    "source": "Daggerheart Core Rulebook"
     },
     {
       "id": "abandoned-grove",
@@ -15586,6 +15591,10 @@
       "name": {
         "en": "Abandoned Grove",
         "ru": "Заброшенная роща"
+      },
+      "lore": {
+        "en": "A former druidic grove lying fallow and fully reclaimed by nature.",
+        "ru": "Бывшая друидическая роща, заброшенная и полностью отвоёванная природой."
       },
       "impulses": {
         "en": [
@@ -15672,7 +15681,8 @@
       "builtin": true,
       "biomes": [
         "forest"
-      ]
+      ],
+    "source": "Daggerheart Core Rulebook"
     },
     {
       "id": "ambushed",
@@ -15685,6 +15695,10 @@
       "name": {
         "en": "Ambushed",
         "ru": "Засада"
+      },
+      "lore": {
+        "en": "An ambush is set to catch an unsuspecting party off-guard.",
+        "ru": "Кто-то устраивает засаду, чтобы застать ничего не подозревающий отряд врасплох."
       },
       "impulses": {
         "en": [
@@ -15741,7 +15755,8 @@
       "builtin": true,
       "biomes": [
         "universal"
-      ]
+      ],
+    "source": "Daggerheart Core Rulebook"
     },
     {
       "id": "local-tavern",
@@ -15751,6 +15766,10 @@
       "name": {
         "en": "Local Tavern",
         "ru": "Местная таверна"
+      },
+      "lore": {
+        "en": "A lively tavern that serves as the social hub for its town.",
+        "ru": "Оживлённая таверна, служащая центром общественной жизни города."
       },
       "impulses": {
         "en": [
@@ -15854,7 +15873,8 @@
       "builtin": true,
       "biomes": [
         "settlement"
-      ]
+      ],
+    "source": "Daggerheart Core Rulebook"
     },
     {
       "id": "ambushers",
@@ -15867,6 +15887,10 @@
       "name": {
         "en": "Ambushers",
         "ru": "Мы в засаде"
+      },
+      "lore": {
+        "en": "An ambush is set by the PCs to catch unsuspecting adversaries off-guard.",
+        "ru": "Персонажи устраивают засаду, чтобы застать ничего не подозревающих противников врасплох."
       },
       "impulses": {
         "en": [
@@ -15923,7 +15947,8 @@
       "builtin": true,
       "biomes": [
         "universal"
-      ]
+      ],
+    "source": "Daggerheart Core Rulebook"
     },
     {
       "id": "bustling-marketplace",
@@ -15933,6 +15958,10 @@
       "name": {
         "en": "Bustling Marketplace",
         "ru": "Оживлённый рынок"
+      },
+      "lore": {
+        "en": "The economic heart of the settlement, with local artisans, traveling merchants, and patrons across social classes.",
+        "ru": "Экономическое сердце поселения — местные ремесленники, странствующие торговцы и посетители всех сословий."
       },
       "impulses": {
         "en": [
@@ -16021,7 +16050,8 @@
       "builtin": true,
       "biomes": [
         "settlement"
-      ]
+      ],
+    "source": "Daggerheart Core Rulebook"
     },
     {
       "id": "outpost-town",
@@ -16031,6 +16061,10 @@
       "name": {
         "en": "Outpost Town",
         "ru": "Пограничный городок"
+      },
+      "lore": {
+        "en": "A small town on the outskirts of a nation or region, close to a dungeon, tombs, or other adventuring destinations.",
+        "ru": "Небольшой городок на окраине державы или региона, неподалёку от подземелья, гробниц или иной цели для приключений."
       },
       "impulses": {
         "en": [
@@ -16134,7 +16168,8 @@
       "builtin": true,
       "biomes": [
         "settlement"
-      ]
+      ],
+    "source": "Daggerheart Core Rulebook"
     },
     {
       "id": "cliffside-ascent",
@@ -16144,6 +16179,10 @@
       "name": {
         "en": "Cliffside Ascent",
         "ru": "Подъём по утёсу"
+      },
+      "lore": {
+        "en": "A steep, rocky cliffside tall enough to make traversal dangerous.",
+        "ru": "Крутой каменистый утёс, достаточно высокий, чтобы подъём по нему был опасен."
       },
       "impulses": {
         "en": [
@@ -16219,7 +16258,8 @@
       "builtin": true,
       "biomes": [
         "mountain"
-      ]
+      ],
+    "source": "Daggerheart Core Rulebook"
     },
     {
       "id": "mountain-pass",
@@ -16229,6 +16269,10 @@
       "name": {
         "en": "Mountain Pass",
         "ru": "Горный перевал"
+      },
+      "lore": {
+        "en": "Stony peaks that pierce the clouds, with a twisting path winding its way up and over through many switchbacks.",
+        "ru": "Каменные пики, пронзающие облака, и извилистая тропа, петляющая вверх и вниз через бесчисленные повороты."
       },
       "impulses": {
         "en": [
@@ -16321,7 +16365,8 @@
       "builtin": true,
       "biomes": [
         "mountain"
-      ]
+      ],
+    "source": "Daggerheart Core Rulebook"
     },
     {
       "id": "haunted-city",
@@ -16331,6 +16376,10 @@
       "name": {
         "en": "Haunted City",
         "ru": "Город-призрак"
+      },
+      "lore": {
+        "en": "An abandoned city populated by the restless spirits of eras past.",
+        "ru": "Покинутый город, населённый неупокоенными духами минувших эпох."
       },
       "impulses": {
         "en": [
@@ -16417,7 +16466,8 @@
       "builtin": true,
       "biomes": [
         "settlement"
-      ]
+      ],
+    "source": "Daggerheart Core Rulebook"
     },
     {
       "id": "cult-ritual",
@@ -16427,6 +16477,10 @@
       "name": {
         "en": "Cult Ritual",
         "ru": "Ритуал Культа"
+      },
+      "lore": {
+        "en": "A Fallen cult assembles around a sigil of the defeated gods and a bonfire that burns a sickly shade of green.",
+        "ru": "Культ Падших собирается вокруг символа поверженных богов и костра, горящего болезненно-зелёным пламенем."
       },
       "impulses": {
         "en": [
@@ -16511,7 +16565,8 @@
       "builtin": true,
       "biomes": [
         "universal"
-      ]
+      ],
+    "source": "Daggerheart Core Rulebook"
     },
     {
       "id": "hallowed-temple",
@@ -16521,6 +16576,10 @@
       "name": {
         "en": "Hallowed Temple",
         "ru": "Священный Храм"
+      },
+      "lore": {
+        "en": "A bustling but well-kept temple that provides healing and hosts regular services, overseen by a priest or seraph.",
+        "ru": "Оживлённый, но ухоженный храм, дающий исцеление и проводящий регулярные службы под присмотром жреца или серафима."
       },
       "impulses": {
         "en": [
@@ -16607,7 +16666,8 @@
       "builtin": true,
       "biomes": [
         "settlement"
-      ]
+      ],
+    "source": "Daggerheart Core Rulebook"
     },
     {
       "id": "castle-siege",
@@ -16617,6 +16677,10 @@
       "name": {
         "en": "Castle Siege",
         "ru": "Осада замка"
+      },
+      "lore": {
+        "en": "An active siege with an attacking force fighting to gain entry to a fortified castle.",
+        "ru": "Активная осада: штурмующие силы пытаются прорваться в укреплённый замок."
       },
       "impulses": {
         "en": [
@@ -16705,7 +16769,8 @@
       "builtin": true,
       "biomes": [
         "settlement"
-      ]
+      ],
+    "source": "Daggerheart Core Rulebook"
     },
     {
       "id": "burning-heart-of-the-woods",
@@ -16715,6 +16780,10 @@
       "name": {
         "en": "Burning Heart of the Woods",
         "ru": "Пылающее сердце леса"
+      },
+      "lore": {
+        "en": "Thick indigo ash fills the air around a towering moss-covered tree that burns eternally with flames a sickly shade of blue.",
+        "ru": "Густой тёмно-синий пепел клубится в воздухе вокруг исполинского замшелого дерева, вечно горящего болезненно-голубым пламенем."
       },
       "impulses": {
         "en": [
@@ -16818,7 +16887,8 @@
       "builtin": true,
       "biomes": [
         "forest"
-      ]
+      ],
+    "source": "Daggerheart Core Rulebook"
     },
     {
       "id": "pitched-battle",
@@ -16828,6 +16898,10 @@
       "name": {
         "en": "Pitched Battle",
         "ru": "Решающая битва"
+      },
+      "lore": {
+        "en": "A massive combat between two large groups of armed combatants.",
+        "ru": "Масштабное сражение двух больших групп вооружённых бойцов."
       },
       "impulses": {
         "en": [
@@ -16914,7 +16988,8 @@
       "builtin": true,
       "biomes": [
         "universal"
-      ]
+      ],
+    "source": "Daggerheart Core Rulebook"
     },
     {
       "id": "divine-usurpation",
@@ -16924,6 +16999,10 @@
       "name": {
         "en": "Divine Usurpation",
         "ru": "Божественное свержение"
+      },
+      "lore": {
+        "en": "A massive ritual designed to breach the gates of the Hallows Above and unseat the New Gods themselves.",
+        "ru": "Масштабный ритуал, призванный проломить врата Горних Святынь и низложить самих Новых Богов."
       },
       "impulses": {
         "en": [
@@ -17033,7 +17112,8 @@
       "builtin": true,
       "biomes": [
         "universal"
-      ]
+      ],
+    "source": "Daggerheart Core Rulebook"
     },
     {
       "id": "imperial-court",
@@ -17043,6 +17123,10 @@
       "name": {
         "en": "Imperial Court",
         "ru": "Императорский двор"
+      },
+      "lore": {
+        "en": "The majestic domain of a powerful empire, lavishly appointed with stolen treasures.",
+        "ru": "Величественные владения могущественной империи, пышно убранные украденными сокровищами."
       },
       "impulses": {
         "en": [
@@ -17150,7 +17234,8 @@
       "builtin": true,
       "biomes": [
         "settlement"
-      ]
+      ],
+    "source": "Daggerheart Core Rulebook"
     },
     {
       "id": "necromancers-ossuary",
@@ -17160,6 +17245,10 @@
       "name": {
         "en": "Necromancer’s Ossuary",
         "ru": "Склеп некроманта"
+      },
+      "lore": {
+        "en": "A dusty crypt with a library, twisting corridors, and abundant sarcophagi, spattered with the blood of ill-fated invaders.",
+        "ru": "Пыльный склеп с библиотекой, извилистыми коридорами и множеством саркофагов, забрызганных кровью незадачливых захватчиков."
       },
       "impulses": {
         "en": [
@@ -17263,7 +17352,8 @@
       "builtin": true,
       "biomes": [
         "underground"
-      ]
+      ],
+    "source": "Daggerheart Core Rulebook"
     },
     {
       "id": "chaos-realm",
@@ -17273,6 +17363,10 @@
       "name": {
         "en": "Chaos Realm",
         "ru": "Царство Хаоса"
+      },
+      "lore": {
+        "en": "An otherworldly space where the laws of reality are unstable and dangerous.",
+        "ru": "Потустороннее пространство, где законы реальности нестабильны и опасны."
       },
       "impulses": {
         "en": [
@@ -17374,7 +17468,8 @@
       "builtin": true,
       "biomes": [
         "universal"
-      ]
+      ],
+    "source": "Daggerheart Core Rulebook"
     },
     {
       "id": "laboratory",

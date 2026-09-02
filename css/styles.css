@@ -844,6 +844,12 @@ body.has-env-backdrop .modal-overlay[data-overlay-kind="detail"] {
 .modal-close::after { content: ""; position: absolute; inset: -10px; }
 .modal-body { padding: var(--s-5) var(--s-6) var(--s-6); }
 
+/* ---------- detail card: flavor text ---------- */
+.env-lore {
+  font-style: italic; color: var(--parchment-dim); max-width: var(--measure);
+  margin: 0 0 var(--s-4);
+}
+
 /* ---------- detail card: difficulty / type line ---------- */
 .detail-meta { display: flex; align-items: baseline; flex-wrap: wrap; gap: var(--s-2) var(--s-3); }
 .dm-item { display: inline-flex; align-items: baseline; gap: var(--s-2); }

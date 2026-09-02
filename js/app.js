@@ -273,7 +273,7 @@ function bilingual(field) { return field?.[state.lang] || field?.en || field?.ru
 /* Cache buster for the JSON under data/. index.html versions the stylesheet and
    this script the same way; the data files are fetched from here instead, so
    bump this whenever anything in data/ changes or browsers serve stale copies. */
-const DATA_VERSION = 39;
+const DATA_VERSION = 40;
 
 function getJSON(path) {
   return fetch(path).then(r => {
@@ -1294,13 +1294,14 @@ function envMatchesFilters(env) {
       feat.name?.en, feat.name?.ru, feat.description?.en, feat.description?.ru, feat.prompt?.en, feat.prompt?.ru,
     ]);
     const rawText = env.rawText ? [env.rawText.en, env.rawText.ru] : [];
+    const loreText = env.lore ? [env.lore.en, env.lore.ru] : [];
     const adversaries = env.potential_adversaries
       ? [...(env.potential_adversaries.en || []), ...(env.potential_adversaries.ru || [])]
       : [];
     const aliasHay = [
       env.name.en, env.name.ru,
       ...(env.impulses ? [...(env.impulses.en || []), ...(env.impulses.ru || [])] : []),
-      ...featureText, ...rawText,
+      ...featureText, ...rawText, ...loreText,
     ].filter(Boolean).join(' ').toLowerCase();
     const hay = adversaries.length
       ? aliasHay + ' ' + adversaries.join(' ').toLowerCase()
@@ -2634,6 +2635,9 @@ function openDetailOverlay(envId, carry = null) {
     </details>
   ` : '';
 
+  const loreText = bilingual(env.lore);
+  const loreHtml = loreText ? `<p class="env-lore">${escapeHtml(loreText)}</p>` : '';
+
   const region = regionOfEnv(env.id);
   const members = region ? regionMembers(region) : [];
   const regionHtml = members.length > 1 ? `
@@ -2683,6 +2687,7 @@ function openDetailOverlay(envId, carry = null) {
         <button type="button" class="modal-close" aria-label="${t('close')}">&times;</button>
       </div>
       <div class="modal-body">
+        ${loreHtml}
         <div class="detail-meta">
           ${hasDifficulty(env) ? `
           <span class="dm-item">
