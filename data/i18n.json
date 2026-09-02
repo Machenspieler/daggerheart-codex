@@ -149,7 +149,21 @@
     "journey_shadowblighted": "Shadowblighted",
     "journey_overtaken": "The entire region has been completely overtaken and is nigh impossible to traverse.",
     "journey_encounter_combined": "Rolled 2 — the results below are combined",
-    "journey_politics_combined": "Rolled 8 — the systems below are combined"
+    "journey_politics_combined": "Rolled 8 — the systems below are combined",
+    "featured_adversary_label": "Featured Adversary",
+    "role_solo": "Solo",
+    "thresholds_label": "Thresholds",
+    "hp_label": "HP",
+    "stress_label": "Stress",
+    "atk_label": "ATK",
+    "attacks_label": "Attacks",
+    "experience_label": "Experience",
+    "range_close": "Close",
+    "range_far": "Far",
+    "damage_physical": "Physical",
+    "damage_magic": "Magic",
+    "adversary_features_label": "Features",
+    "story_seeds_label": "Story Seeds"
   },
   "ru": {
     "app_title": "Атлас Daggerheart",
@@ -301,6 +315,20 @@
     "journey_shadowblighted": "Теневая порча",
     "journey_overtaken": "Регион полностью захвачен порчей, и пройти через него практически невозможно.",
     "journey_encounter_combined": "Выпало 2 — результаты ниже объединяются",
-    "journey_politics_combined": "Выпало 8 — системы ниже объединяются"
+    "journey_politics_combined": "Выпало 8 — системы ниже объединяются",
+    "featured_adversary_label": "Ключевой противник",
+    "role_solo": "Соло",
+    "thresholds_label": "Пороги",
+    "hp_label": "Ячейки Ран",
+    "stress_label": "Стресс",
+    "atk_label": "Атака",
+    "attacks_label": "Атаки",
+    "experience_label": "Опыт",
+    "range_close": "Близко",
+    "range_far": "Далеко",
+    "damage_physical": "Физический",
+    "damage_magic": "Магический",
+    "adversary_features_label": "Свойства",
+    "story_seeds_label": "Завязки сюжетов"
   }
 }

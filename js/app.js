@@ -43,6 +43,7 @@ const state = {
   regions: [],
   itemCatalog: { items: {}, itemUrl: '', imageUrl: '' },
   itemIndex: new Map(),
+  adversaryCatalog: new Map(),
   journey: JOURNEY_EMPTY,
   journeyRegions: JSON.parse(localStorage.getItem(LS_KEYS.journeyRegions) || '[]'),
   journeySanctuaries: JSON.parse(localStorage.getItem(LS_KEYS.journeySanctuaries) || '[]'),
@@ -250,12 +251,29 @@ function hasDifficulty(env) {
 /** Only a numeric difficulty follows the card to another tier. */
 function difficultyScales(env) { return typeof env.difficulty === 'number'; }
 
+/* ---------------- adversaries (data/adversaries.json) ---------------- */
+
+/* A reusable stat block for a "featured adversary" embedded inline in an
+ * Environment card — a monster the environment cannot be run without (e.g. the
+ * Progenitor Mind in its lair). Kept in its own file rather than duplicated
+ * into environments.json, and looked up by id through env.featured_adversaries;
+ * an id with no matching entry here is simply skipped, never an error. */
+function setAdversaryCatalog(data) {
+  const map = new Map();
+  (data.adversaries || []).forEach(a => { if (a && a.id) map.set(a.id, a); });
+  state.adversaryCatalog = map;
+}
+
+function adversaryById(id) { return state.adversaryCatalog.get(id) || null; }
+function adversaryName(adv) { return adv.name?.[state.lang] || adv.name?.en || adv.name?.ru || adv.id; }
+function bilingual(field) { return field?.[state.lang] || field?.en || field?.ru || ''; }
+
 /* ---------------- init ---------------- */
 
 /* Cache buster for the JSON under data/. index.html versions the stylesheet and
    this script the same way; the data files are fetched from here instead, so
    bump this whenever anything in data/ changes or browsers serve stale copies. */
-const DATA_VERSION = 38;
+const DATA_VERSION = 39;
 
 function getJSON(path) {
   return fetch(path).then(r => {
@@ -281,16 +299,18 @@ async function init() {
   mountToTop();
   renderLoadingState();
   try {
-    const [envs, regions, items, journey] = await Promise.all([
+    const [envs, regions, items, journey, adversaries] = await Promise.all([
       getJSON(`data/environments.json${v}`),
       getJSON(`data/regions.json${v}`).catch(() => ({ regions: [] })),
       getJSON(`data/items.json${v}`).catch(() => ({ items: {}, aliases: {} })),
       getJSON(`data/journey.json${v}`).catch(() => JOURNEY_EMPTY),
+      getJSON(`data/adversaries.json${v}`).catch(() => ({ adversaries: [] })),
     ]);
     state.builtinEnvs = envs.environments;
     state.regions = regions.regions || [];
     setItemCatalog(items);
     state.journey = { ...JOURNEY_EMPTY, ...journey };
+    setAdversaryCatalog(adversaries);
   } catch (err) {
     renderLoadError(err);
     return;
@@ -2520,6 +2540,100 @@ function openDetailOverlay(envId, carry = null) {
     <div class="feature-desc" data-rich-block="${encodeURIComponent(env.rawText[state.lang] || env.rawText.en || env.rawText.ru || '')}"></div>
   ` : '';
 
+  /* A name in potential_adversaries becomes a button when it names an adversary
+   * embedded in THIS environment (env.featured_adversaries) — clicking it opens
+   * and scrolls to that stat block below rather than to a catalogue that does
+   * not exist. A name with no featured entry stays plain text, same as before. */
+  const featuredEntries = (env.featured_adversaries || []).filter(e => e && adversaryById(e.id));
+  const potentialAdvNameToId = new Map();
+  featuredEntries.forEach(e => {
+    const adv = adversaryById(e.id);
+    ['en', 'ru'].forEach(l => { if (adv.name?.[l]) potentialAdvNameToId.set(adv.name[l].trim().toLowerCase(), e.id); });
+  });
+  const adversariesHtml = adversaries.map(name => {
+    const id = potentialAdvNameToId.get(name.trim().toLowerCase());
+    return id
+      ? `<button type="button" class="adversary-link-btn" data-adversary-link="${escapeAttr(id)}">${escapeHtml(name)}</button>`
+      : escapeHtml(name);
+  }).join('; ');
+
+  const adversaryAttackHtml = atk => `
+    <div class="adversary-attack-row">
+      <span class="adversary-attack-name">${escapeHtml(bilingual(atk.name))}</span>
+      <span class="adversary-range-badge">${t('range_' + atk.range)}</span>
+      <span class="adversary-attack-damage" data-adv-dice="${encodeURIComponent(atk.damage)}"></span>
+      <span class="adversary-damage-type-badge">${t('damage_' + atk.damage_type)}</span>
+    </div>`;
+
+  const adversaryExperienceHtml = exp => `
+    <div class="adversary-experience-row">
+      <span class="adversary-experience-name">${escapeHtml(bilingual(exp.name))}</span>
+      <span class="adversary-experience-mod">${exp.modifier >= 0 ? '+' : ''}${exp.modifier}</span>
+    </div>`;
+
+  const adversaryFeatureHtml = f => `
+    <div class="feature">
+      <div class="feature-head">
+        <span class="feature-name">${escapeHtml(bilingual(f.name))}</span>
+        <span class="feature-type ${f.type}">${t('feature_' + f.type)}</span>
+      </div>
+      <div class="feature-desc" data-adv-rich="${encodeURIComponent(bilingual(f.description))}"></div>
+    </div>`;
+
+  /* One <details> per featured adversary, so an environment can embed more than
+   * one. `expanded: true` is the only way in — an environment the party cannot
+   * run without its adversary sets it, everything else starts collapsed. */
+  const adversaryBlockHtml = entry => {
+    const adv = adversaryById(entry.id);
+    const attacksHtml = (adv.attacks || []).map(adversaryAttackHtml).join('');
+    const expHtml = (adv.experiences || []).map(adversaryExperienceHtml).join('');
+    const advFeaturesHtml = (adv.features || []).map(adversaryFeatureHtml).join('');
+    return `
+      <details class="adversary-block" data-adversary-id="${escapeAttr(adv.id)}" ${entry.expanded === true ? 'open' : ''}>
+        <summary class="adversary-summary">
+          <span class="adversary-name">${escapeHtml(adversaryName(adv))}</span>
+          <span class="adversary-subtitle">${escapeHtml(t('role_' + adv.role) || adv.role)} — ${t('tier_label')} ${adv.tier}</span>
+        </summary>
+        <div class="adversary-body">
+          <div class="adversary-stats">
+            <div class="adversary-stat"><span class="dm-k">${t('difficulty_label')}</span><span class="dm-v">${adv.difficulty}</span></div>
+            <div class="adversary-stat"><span class="dm-k">${t('thresholds_label')}</span><span class="dm-v">${adv.thresholds.major} / ${adv.thresholds.severe}</span></div>
+            <div class="adversary-stat"><span class="dm-k">${t('hp_label')}</span><span class="dm-v">${adv.hp}</span></div>
+            <div class="adversary-stat"><span class="dm-k">${t('stress_label')}</span><span class="dm-v">${adv.stress}</span></div>
+            <div class="adversary-stat"><span class="dm-k">${t('atk_label')}</span><span class="dm-v">+${adv.attack_modifier}</span></div>
+          </div>
+          ${attacksHtml ? `<span class="section-label">${t('attacks_label')}</span><div class="adversary-attacks">${attacksHtml}</div>` : ''}
+          ${expHtml ? `<span class="section-label">${t('experience_label')}</span><div class="adversary-experience">${expHtml}</div>` : ''}
+          ${advFeaturesHtml ? `<span class="section-label">${t('adversary_features_label')}</span>${advFeaturesHtml}` : ''}
+        </div>
+      </details>`;
+  };
+
+  const featuredAdversaryHtml = featuredEntries.length ? `
+    <span class="section-label">${t('featured_adversary_label')}</span>
+    <div class="adversary-blocks">${featuredEntries.map(adversaryBlockHtml).join('')}</div>
+  ` : '';
+
+  /* Supplementary GM material, never mechanics: kept out of env.features and
+   * out of the catalogue entirely, and collapsed by default behind one summary
+   * that says how many are inside. */
+  const storySeeds = (env.story_seeds || []).filter(s => s && s.title && s.body);
+  const storySeedHtml = seed => {
+    const prompt = bilingual(seed.prompt);
+    return `
+      <div class="story-seed">
+        <p class="story-seed-title">${escapeHtml(bilingual(seed.title))}</p>
+        <div class="story-seed-body" data-adv-rich="${encodeURIComponent(bilingual(seed.body))}"></div>
+        ${prompt ? `<p class="feature-prompt story-seed-prompt">${escapeHtml(prompt)}</p>` : ''}
+      </div>`;
+  };
+  const storySeedsHtml = storySeeds.length ? `
+    <details class="story-seeds">
+      <summary class="story-seeds-summary section-label">${t('story_seeds_label')} (${storySeeds.length})</summary>
+      <div class="story-seeds-body">${storySeeds.map(storySeedHtml).join('')}</div>
+    </details>
+  ` : '';
+
   const region = regionOfEnv(env.id);
   const members = region ? regionMembers(region) : [];
   const regionHtml = members.length > 1 ? `
@@ -2584,8 +2698,10 @@ function openDetailOverlay(envId, carry = null) {
         </div>
 
         ${impulses.length ? `<span class="section-label">${t('impulses_label')}</span><p class="impulse-list">${escapeHtml(impulses.join(', '))}</p>` : ''}
-        ${adversaries.length ? `<span class="section-label">${t('adversaries_label')}</span><p class="adversary-list">${escapeHtml(adversaries.join('; '))}</p>` : ''}
+        ${adversaries.length ? `<span class="section-label">${t('adversaries_label')}</span><p class="adversary-list">${adversariesHtml}</p>` : ''}
         ${featuresHtml ? `<span class="section-label">${t('features_label')}</span>${featuresHtml}` : ''}
+        ${featuredAdversaryHtml}
+        ${storySeedsHtml}
         ${rawHtml}
         ${regionHtml}
 
@@ -2597,6 +2713,23 @@ function openDetailOverlay(envId, carry = null) {
       </div>
     </div>`;
   document.body.appendChild(overlay);
+
+  /* The featured adversary's own stat block, and any story seeds: rendered once,
+   * outside the environment's tier-scaling system — a monster's stats are fixed,
+   * not something "view as tier" should rescale. */
+  overlay.querySelectorAll('[data-adv-rich]').forEach(node => {
+    renderFeatureBody(node, decodeURIComponent(node.getAttribute('data-adv-rich')), null);
+  });
+  overlay.querySelectorAll('[data-adv-dice]').forEach(node => {
+    renderRichText(node, decodeURIComponent(node.getAttribute('data-adv-dice')), null);
+  });
+  overlay.querySelectorAll('[data-adversary-link]').forEach(btn => btn.addEventListener('click', () => {
+    const block = overlay.querySelector(`.adversary-block[data-adversary-id="${CSS.escape(btn.dataset.adversaryLink)}"]`);
+    if (!block) return;
+    block.open = true;
+    block.scrollIntoView({ block: 'center', behavior: 'smooth' });
+    block.querySelector('.adversary-summary')?.focus();
+  }));
 
   const modalEl = overlay.querySelector('#detail-modal');
   const difficultyValueEl = overlay.querySelector('#detail-difficulty-value');

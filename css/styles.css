@@ -982,6 +982,108 @@ body.has-env-backdrop .modal-overlay[data-overlay-kind="detail"] {
 .item-btn:hover { background: rgba(63,123,116,0.18); color: var(--parchment); }
 .item-btn:active { transform: scale(0.97); }
 
+/* A name in "Potential Adversaries" that has a featured stat block below —
+ * fear-red rather than the teal of an item link, so the two kinds of inline
+ * reference stay visually distinct from each other. */
+.adversary-link-btn {
+  display: inline; font: inherit;
+  background: var(--ink-raised); border: 1px solid var(--fear); color: var(--fear-soft);
+  padding: 1px 8px; border-radius: var(--r-pill); cursor: pointer;
+  transition: background var(--t-fast) var(--ease-out), color var(--t-fast) var(--ease-out);
+}
+.adversary-link-btn:hover { background: rgba(156,43,59,0.18); color: var(--parchment); }
+.adversary-link-btn:active { transform: scale(0.97); }
+
+/* ---------- featured adversary (stat block embedded in an Environment card) ----------
+ * A panel, not a rule: the featured adversary's attacks, stats and features are
+ * mechanically the adversary's own, not the environment's, so the block gets a
+ * background and a border of its own rather than joining the plain feature list
+ * above it — while staying inside the same parchment card, never the loot
+ * overlay's separate plum theme. */
+.adversary-blocks { display: flex; flex-direction: column; gap: var(--s-4); }
+.adversary-block {
+  border: 1px solid var(--line); border-radius: var(--r-md);
+  background: rgba(0,0,0,0.16); padding: var(--s-4);
+}
+.adversary-summary {
+  cursor: pointer; list-style: none;
+  display: flex; align-items: baseline; gap: var(--s-3); flex-wrap: wrap;
+}
+.adversary-summary::-webkit-details-marker { display: none; }
+.adversary-summary::before {
+  content: "▸"; color: var(--fear-soft); font-size: var(--fs-xs);
+  transition: transform var(--t-fast) var(--ease-out);
+}
+.adversary-block[open] > .adversary-summary::before { transform: rotate(90deg); }
+.adversary-summary:focus-visible { outline: var(--focus-ring); outline-offset: var(--focus-offset); }
+.adversary-name {
+  font-family: var(--font-display); font-weight: 400;
+  font-size: var(--fs-lg); line-height: var(--lh-lg); color: var(--parchment);
+}
+.adversary-subtitle {
+  font-family: var(--font-mono); font-size: var(--fs-micro); text-transform: uppercase;
+  letter-spacing: var(--tracking-caps); color: var(--muted);
+}
+.adversary-body { margin-top: var(--s-4); }
+.adversary-stats {
+  display: flex; flex-wrap: wrap; gap: var(--s-5);
+  padding-bottom: var(--s-3); border-bottom: 1px solid var(--line-faint);
+}
+.adversary-stat { display: flex; flex-direction: column; gap: 2px; }
+.adversary-stat .dm-k {
+  font-family: var(--font-mono); font-size: var(--fs-micro); text-transform: uppercase;
+  letter-spacing: var(--tracking-caps); color: var(--teal-soft);
+}
+.adversary-stat .dm-v { font-family: var(--font-mono); font-size: var(--fs-md); color: var(--parchment); }
+.adversary-attacks, .adversary-experience { display: flex; flex-direction: column; }
+.adversary-attack-row, .adversary-experience-row {
+  display: flex; align-items: center; flex-wrap: wrap; gap: var(--s-2);
+  padding: var(--s-2) 0; border-bottom: 1px solid var(--line-faint);
+}
+.adversary-attacks .adversary-attack-row:last-child,
+.adversary-experience .adversary-experience-row:last-child { border-bottom: none; }
+.adversary-attack-name, .adversary-experience-name { font-family: var(--font-body); color: var(--parchment); }
+.adversary-experience-mod {
+  font-family: var(--font-mono); font-weight: 700; color: var(--hope-soft); margin-left: auto;
+}
+.adversary-range-badge, .adversary-damage-type-badge {
+  font-family: var(--font-mono); font-size: var(--fs-micro); text-transform: uppercase;
+  letter-spacing: 0.06em; padding: 2px var(--s-2); border-radius: var(--r-xs);
+  color: var(--parchment-dim); border: 1px solid var(--line);
+}
+.adversary-block .feature { margin: var(--s-3) 0 0; }
+.adversary-block .feature-group + .feature-group { margin-top: var(--s-4); }
+
+@media (max-width: 640px) {
+  .adversary-stats { flex-direction: column; gap: var(--s-2); }
+  .adversary-attack-row, .adversary-experience-row { flex-direction: column; align-items: flex-start; gap: var(--s-1); }
+  .adversary-experience-mod { margin-left: 0; }
+}
+
+/* ---------- story seeds ---------- */
+.story-seeds { margin-top: var(--s-7); }
+.story-seeds-summary {
+  cursor: pointer; list-style: none;
+  display: flex; align-items: center; gap: var(--s-2);
+}
+.story-seeds-summary::-webkit-details-marker { display: none; }
+.story-seeds-summary::before {
+  content: "▸"; color: var(--teal-soft); font-size: var(--fs-xs);
+  transition: transform var(--t-fast) var(--ease-out);
+}
+.story-seeds[open] > .story-seeds-summary::before { transform: rotate(90deg); }
+.story-seeds-summary:focus-visible { outline: var(--focus-ring); outline-offset: var(--focus-offset); }
+.story-seeds-body { margin-top: var(--s-4); }
+.story-seed + .story-seed { margin-top: var(--s-4); padding-top: var(--s-4); border-top: 1px solid var(--line-faint); }
+.story-seed-title {
+  font-family: var(--font-body); font-weight: 700; font-size: var(--fs-base);
+  color: var(--parchment); margin: 0 0 var(--s-2);
+}
+.story-seed-body { max-width: var(--measure); font-size: var(--fs-base); line-height: var(--lh-base); }
+.story-seed-body p { margin: 0 0 var(--s-2); }
+.story-seed-body p:last-child { margin-bottom: 0; }
+.story-seed-prompt { margin-top: var(--s-2); }
+
 /* The item card is a copy of the loot generator's, tokens and all. Its palette
  * is scoped to .loot-overlay rather than :root so the plum surface, the Inter
  * stack and the 14px corners stay inside this one card and never leak into the

@@ -25385,6 +25385,79 @@
         "settlement"
       ],
       "source": "The Wandering Tavern"
+    },
+    {
+      "id": "progenitor-minds-lair",
+      "tier": 3,
+      "type": "event",
+      "difficulty": 16,
+      "name": {
+        "en": "Progenitor Mind’s Lair",
+        "ru": "Логово Разума-Прародителя"
+      },
+      "impulses": {
+        "en": ["Perceive", "analyze", "consume"],
+        "ru": ["Воспринимать", "анализировать", "поглощать"]
+      },
+      "potential_adversaries": {
+        "en": ["Progenitor Mind"],
+        "ru": ["Разум-Прародитель"]
+      },
+      "features": [
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Mental Miasma",
+            "ru": "Миазмы Разума"
+          },
+          "description": {
+            "en": "When the Progenitor Mind causes an enemy to mark Stress, you may spend a Fear to force them to mark another Stress.",
+            "ru": "Когда Разум-Прародитель заставляет персонажа отметить Стресс, вы можете потратить Страх, чтобы заставить его отметить ещё один Стресс."
+          },
+          "prompt": {
+            "en": "What mental effect is the Progenitor Mind having on the PC? What is its source?",
+            "ru": "Какой ментальный эффект испытывает персонаж от воздействия Разума-Прародителя? Каков его источник?"
+          }
+        }
+      ],
+      "featured_adversaries": [
+        { "id": "progenitor-mind", "display": "inline", "expanded": true }
+      ],
+      "story_seeds": [
+        {
+          "title": {
+            "en": "A Missing Memory",
+            "ru": "Пропавшее воспоминание"
+          },
+          "body": {
+            "en": "One of the PCs’ contacts has no recollection of an important task they undertook for them—all signs point to a cave beneath a mysterious crater...",
+            "ru": "Один из контактов персонажей не помнит важное задание, которое он для них выполнял, — все следы ведут к пещере под таинственным кратером..."
+          },
+          "prompt": {
+            "en": "Does the Progenitor Mind hail from the stars beyond? Can the memory be retrieved?",
+            "ru": "Не явился ли Разум-Прародитель со звёзд? Можно ли вернуть это воспоминание?"
+          }
+        },
+        {
+          "title": {
+            "en": "Web of Death",
+            "ru": "Паутина Смерти"
+          },
+          "body": {
+            "en": "Rumors swirl of bodies found with their brains removed, and strange cults that seem to worship no known deity. The trail leads to a cave with an otherworldly glow...",
+            "ru": "Ходят слухи о телах, найденных без мозга, и о странных культах, которые, похоже, не поклоняются никакому известному божеству. След ведёт к пещере с потусторонним свечением..."
+          },
+          "prompt": {
+            "en": "What are the brains for? How is the Progenitor Mind recruiting the cultists?",
+            "ru": "Для чего нужны мозги? Как Разум-Прародитель вербует культистов?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "underground"
+      ],
+      "source": "Resting Dagger"
     }
   ]
 }

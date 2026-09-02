@@ -1,0 +1,66 @@
+{
+  "adversaries": [
+    {
+      "id": "progenitor-mind",
+      "name": { "en": "Progenitor Mind", "ru": "Разум-Прародитель" },
+      "tier": 3,
+      "role": "solo",
+      "difficulty": 18,
+      "thresholds": { "major": 18, "severe": 36 },
+      "hp": 12,
+      "stress": 6,
+      "attack_modifier": 4,
+      "attacks": [
+        {
+          "name": { "en": "Brutal Tendril", "ru": "Жестокое Щупальце" },
+          "range": "close",
+          "damage": "3d10",
+          "damage_type": "physical"
+        },
+        {
+          "name": { "en": "Mind Probe", "ru": "Зондирование Разума" },
+          "range": "far",
+          "damage": "2d12",
+          "damage_type": "magic"
+        }
+      ],
+      "experiences": [
+        { "name": { "en": "Telepathy", "ru": "Телепатия" }, "modifier": 2 }
+      ],
+      "features": [
+        {
+          "type": "passive",
+          "name": { "en": "Relentless (4)", "ru": "Неутомимый (4)" },
+          "description": {
+            "en": "The Progenitor Mind can be spotlighted up to four times per GM turn. Spend Fear as usual to spotlight them.",
+            "ru": "Разум-Прародитель можно активировать до четырёх раз за ход Мастера. Тратьте Страх как обычно, чтобы его активировать."
+          }
+        },
+        {
+          "type": "passive",
+          "name": { "en": "Cruel Calculus", "ru": "Жестокий Расчёт" },
+          "description": {
+            "en": "Spotlight always returns to the Progenitor Mind after a PC acts—the Progenitor Mind has already considered any effort to outmaneuver it. PCs may spend 1 Hope to take the spotlight.",
+            "ru": "Инициатива всегда возвращается к Разуму-Прародителю после хода персонажа — Разум-Прародитель уже просчитал любую попытку перехитрить его. Персонажи могут потратить 1 Надежды, чтобы перехватить инициативу."
+          }
+        },
+        {
+          "type": "reaction",
+          "name": { "en": "Unthinkable Strike", "ru": "Немыслимый Удар" },
+          "description": {
+            "en": "Spend a Fear any time a PC targets the Progenitor Mind to impose Disadvantage on the attack.",
+            "ru": "Потратьте Страх в любой момент, когда персонаж атакует Разума-Прародителя, чтобы эта атака совершалась с помехой."
+          }
+        },
+        {
+          "type": "action",
+          "name": { "en": "Mind Blast", "ru": "Ментальный Взрыв" },
+          "description": {
+            "en": "Spend a Fear and make an attack with Advantage against all enemies in Far. This attack deals 3d10 magic damage. On a miss, the target marks Stress.",
+            "ru": "Потратьте Страх и совершите атаку с Преимуществом против всех противников на Дальней дистанции. Эта атака наносит 3d10 магического урона. При провале цель отмечает Стресс."
+          }
+        }
+      ]
+    }
+  ]
+}
