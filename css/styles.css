@@ -514,11 +514,24 @@ button.rank-icon:focus-visible { outline: var(--focus-ring); outline-offset: 1px
  * catalogue costs more than the skipped paint is worth. The per-interaction
  * cost that actually mattered is already gone: search is debounced and the
  * grid's click handling is delegated rather than rebound per card. */
-/* The type colour sits on the right: the picture holds the left edge. */
-.card::before {
-  content: ""; position: absolute; right: 0; top: var(--s-4); bottom: var(--s-4); width: 3px;
-  background: var(--teal); z-index: 2;
+/* The environment type is an unlocalized English tag flush against the
+ * card's own top and right borders, like a corner ribbon — a small badge,
+ * not a translated word, since Daggerheart's four environment types
+ * (traversal/social/event/exploration) are terms of art quoted verbatim from
+ * the rulebook. Pinned to .card itself (which clips overflow) rather than
+ * flowing in .card-top, so it can sit flush in the corner; .card-top gets a
+ * matching top margin so the tier badge below it stays clear of the tag. */
+.card-type-tag {
+  position: absolute; top: 0; right: 0; z-index: 2;
+  font-family: var(--font-mono); font-size: var(--fs-micro); line-height: 1;
+  letter-spacing: var(--tracking-caps); text-transform: uppercase;
+  padding: 3px var(--s-2);
+  border-radius: 0 var(--r-md) 0 var(--r-sm);
+  background: var(--teal); color: var(--parchment);
 }
+.card[data-type="social"] .card-type-tag { background: var(--hope); color: var(--ink); }
+.card[data-type="event"] .card-type-tag { background: var(--fear); }
+.card[data-type="exploration"] .card-type-tag { background: var(--parchment-dim); color: var(--ink); }
 
 /* The panel is a window onto a taller picture. Negative margins cancel the
  * card's padding so it reaches the card's own top, bottom and left edges, and
@@ -540,10 +553,6 @@ button.rank-icon:focus-visible { outline: var(--focus-ring); outline-offset: 1px
   object-fit: cover; object-position: top center;
 }
 .card-body { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: var(--s-3); }
-.card[data-type="traversal"]::before { background: var(--teal); }
-.card[data-type="social"]::before { background: var(--hope); }
-.card[data-type="event"]::before { background: var(--fear); }
-.card[data-type="exploration"]::before { background: var(--parchment-dim); }
 
 .card:hover { border-color: var(--line-strong); transform: translateY(-2px); box-shadow: var(--e-2); }
 .card:has(.card-open:focus-visible) {
@@ -551,7 +560,7 @@ button.rank-icon:focus-visible { outline: var(--focus-ring); outline-offset: 1px
   outline: var(--focus-ring); outline-offset: var(--focus-offset);
 }
 
-.card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: var(--s-3); }
+.card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: var(--s-3); margin-top: var(--s-3); }
 /* flex-start, not baseline: a two-line name would otherwise put the + on the
  * last baseline, leaving it stranded halfway down the card away from the row
  * of controls it belongs to. The negative margin optically centres it on the
@@ -584,14 +593,17 @@ button.rank-icon:focus-visible { outline: var(--focus-ring); outline-offset: 1px
 /* Keeps the 24px visual size the card wants while giving the finger 44px. */
 .card-add-btn::after { content: ""; position: absolute; inset: -10px; }
 
-.card-meta {
-  font-size: var(--fs-xs); line-height: var(--lh-xs); color: var(--muted);
-  display: flex; gap: var(--s-3); flex-wrap: wrap;
+.card-lore {
+  font-size: var(--fs-sm); line-height: var(--lh-sm);
+  color: var(--parchment-dim); font-style: italic; margin: 0;
 }
-.card-meta .diff { font-family: var(--font-mono); color: var(--fear-soft); }
 .card-impulses {
   font-size: var(--fs-sm); line-height: var(--lh-sm);
   color: var(--parchment-dim); font-style: italic;
+}
+.card-impulses-label {
+  font-family: var(--font-display); font-style: normal; font-weight: 400;
+  color: var(--parchment);
 }
 .card-biomes { display: flex; gap: var(--s-2); flex-wrap: wrap; margin-top: auto; }
 .biome-chip, .region-chip, .badge {

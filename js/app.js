@@ -1426,6 +1426,7 @@ function biomeArtHtml(env) {
 
 function cardHtml(env) {
   const impulses = envField(env, 'impulses');
+  const loreText = bilingual(env.lore);
   const biomeChips = (env.biomes || []).map(b => `<span class="biome-chip">${t('biome_' + b)}</span>`).join('');
   // Environments that belong to a region carry its name alongside the biomes.
   // Regions are optional, so most cards show biome chips only.
@@ -1442,6 +1443,7 @@ function cardHtml(env) {
   // one real button, so the catalog is reachable from the keyboard.
   return `
     <article class="card" data-id="${env.id}" data-type="${env.type}">
+      <span class="card-type-tag" aria-hidden="true">${escapeHtml(env.type)}</span>
       ${biomeArtHtml(env)}
       <div class="card-body">
         <div class="card-top">
@@ -1451,11 +1453,8 @@ function cardHtml(env) {
           </div>
           <span class="rank-icon rank-icon-sm active" role="img" aria-label="${t('tier_label')} ${env.tier}" data-tip="${t('tier_label')} ${env.tier}"><span aria-hidden="true">${env.tier}</span></span>
         </div>
-        <div class="card-meta">
-          <span>${t('type_' + env.type)}</span>
-          ${hasDifficulty(env) ? `<span class="diff">${t('difficulty_label')} ${escapeHtml(String(envDifficulty(env)))}</span>` : ''}
-        </div>
-        ${impulses.length ? `<div class="card-impulses">${escapeHtml(impulses.join(', '))}</div>` : ''}
+        ${loreText ? `<p class="card-lore">${escapeHtml(loreText)}</p>` : ''}
+        ${impulses.length ? `<div class="card-impulses"><span class="card-impulses-label">${t('impulses_label')}:</span> ${escapeHtml(impulses.join(', '))}</div>` : ''}
         ${biomeChips || regionChip ? `<div class="card-biomes">${biomeChips}${regionChip}</div>` : ''}
         ${badges}
       </div>
