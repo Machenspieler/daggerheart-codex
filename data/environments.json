@@ -1112,6 +1112,10 @@
         "en": "The Civic Library",
         "ru": "Городская Библиотека"
       },
+      "lore": {
+        "en": "An impressive two-story building with an intricately patterned brick exterior. Inside grand stone stairways lead up to a main hall with a high ceiling and glass dome. The floor is inlaid tile depicting scenes from fantastical myths. The walls are lined with shelves of books, many lying open invitingly.",
+        "ru": "Впечатляющее двухэтажное здание с замысловато украшенным кирпичным фасадом. Внутри массивные каменные лестницы ведут в главный зал с высоким потолком и стеклянным куполом. Пол выстлан инкрустированной плиткой со сценами из фантастических мифов. Стены уставлены книжными полками, и многие книги на них лежат раскрытыми, словно маня заглянуть внутрь."
+      },
       "impulses": {
         "en": [
           "Secrets everywhere",
@@ -1172,8 +1176,8 @@
             "ru": "Королева Сахарина"
           },
           "description": {
-            "en": "A trail of silvery dust leads to a Dire Silverfish. The bookshelves next to the library fountain provide an ideal home for her 42 offspring. She will plead her case to be left alone and will not attack first. If the players let the silverfish be or help it relocate to the nearby forest, they will be given a vial of Carbo-Grow, highly valued by local farmers and foresters. If players attack, the docents will assist them, but the vial will be broken during the fight.",
-            "ru": "Дорожка серебристой пыли ведёт к Ужасной Чешуйнице. Книжные полки рядом с библиотечным фонтаном служат идеальным домом для её 42 отпрысков. Она будет умолять оставить её в покое и не нападёт первой. Если игроки оставят чешуйницу в покое или помогут ей перебраться в ближайший лес, им дадут флакон Карбо-Роста, высоко ценимого местными фермерами и лесниками. Если игроки нападут, смотрители помогут им, но флакон разобьётся во время боя."
+            "en": "A trail of silvery dust leads to a Dire Silverfish. The bookshelves next to the library fountain provide an ideal home for her 42 offspring. She will plead her case to be left alone and will not attack first. If the players let the silverfish be or help it relocate to the nearby forest, they will be given a vial of Growing Potion, highly valued by local farmers and foresters. If players attack, the docents will assist them, but the vial will be broken during the fight.",
+            "ru": "Дорожка серебристой пыли ведёт к Ужасной Чешуйнице. Книжные полки рядом с библиотечным фонтаном служат идеальным домом для её 42 отпрысков. Она будет умолять оставить её в покое и не нападёт первой. Если игроки оставят чешуйницу в покое или помогут ей перебраться в ближайший лес, им дадут флакон Зелья Увеличения, высоко ценимого местными фермерами и лесниками. Если игроки нападут, смотрители помогут им, но флакон разобьётся во время боя."
           },
           "prompt": {
             "en": "Is Queen Sacchrina to be trusted?",
@@ -1188,7 +1192,7 @@
           },
           "description": {
             "en": "If the PCs make a diligent search, one can spend a Hope to find the Art History Booklet.",
-            "ru": "Если персонажи проведут тщательный поиск, один из них может потратить Надежду, чтобы найти Буклет по Истории Искусства."
+            "ru": "Если персонажи проведут тщательный поиск, один из них может потратить Надежду, чтобы найти Брошюру по Истории Искусства."
           },
           "prompt": {
             "en": "What did they do to find this hidden booklet?",
@@ -1203,7 +1207,7 @@
           },
           "description": {
             "en": "If the PCs harm or criticize the library, two docents appear. The young Ms. Williams and the elder Mr. Grey share tales of the region's history and describe how civic investment helps keep the library open for all. They will not take bribes from PCs. If PCs express a genuine, good-hearted interest in deeper secrets about power and corruption in the city, they'll reveal book recommendations that help PCs deduce a few personal family scandals. This information is already widely known and of little import today. Neither docent has the motivation or intelligence to realize the floor has real clues. They see the art as foolish, fantastical, and out of style, but insist it represents an important chapter in art history. The corrupt and powerful in the city know there's no better money spent than a donation to the library, where docents have been leading meddling adventurers astray for decades. If the docents sense too much nosiness, they'll recommend a specific book (see Cursed Booklet).",
-            "ru": "Если персонажи причиняют вред библиотеке или критикуют её, появляются два смотрителя. Молодая мисс Уильямс и пожилой мистер Грей рассказывают истории региона и объясняют, как городские вложения помогают библиотеке оставаться открытой для всех. Они не берут взяток у персонажей. Если персонажи проявляют искренний, доброжелательный интерес к более глубоким тайнам власти и коррупции в городе, они порекомендуют книги, которые помогут персонажам вывести несколько личных семейных скандалов. Эти сведения уже широко известны и сегодня не имеют большого значения. Ни у одного из смотрителей нет ни мотивации, ни ума, чтобы понять, что на полу есть настоящие улики. Они считают искусство глупым, фантастическим и старомодным, но настаивают, что оно представляет собой важную главу в истории искусства. Коррумпированные и влиятельные люди города знают, что нет лучшего вложения денег, чем пожертвование библиотеке, где смотрители десятилетиями сбивают назойливых искателей приключений с верного следа. Если смотрители почувствуют слишком много любопытства, они порекомендуют конкретную книгу (см. «Проклятый Буклет»)."
+            "ru": "Если персонажи причиняют вред библиотеке или критикуют её, появляются два смотрителя. Молодая мисс Уильямс и пожилой мистер Грей рассказывают истории региона и объясняют, как городские вложения помогают библиотеке оставаться открытой для всех. Они не берут взяток у персонажей. Если персонажи проявляют искренний, доброжелательный интерес к более глубоким тайнам власти и коррупции в городе, они порекомендуют книги, которые помогут персонажам вывести несколько личных семейных скандалов. Эти сведения уже широко известны и сегодня не имеют большого значения. Ни у одного из смотрителей нет ни мотивации, ни ума, чтобы понять, что на полу есть настоящие улики. Они считают искусство глупым, фантастическим и старомодным, но настаивают, что оно представляет собой важную главу в истории искусства. Коррумпированные и влиятельные люди города знают, что нет лучшего вложения денег, чем пожертвование библиотеке, где смотрители десятилетиями сбивают назойливых искателей приключений с верного следа. Если смотрители почувствуют слишком много любопытства, они порекомендуют конкретную книгу (см. Проклятая Брошюра)."
           },
           "prompt": {
             "en": "How can the PCs tell the Docents seem unnaturally protective of the library's reputation?",
@@ -1214,7 +1218,8 @@
       "builtin": true,
       "biomes": [
         "settlement"
-      ]
+      ],
+    "source": "Dread GM Toolbox"
     },
     {
       "id": "devouring-green",

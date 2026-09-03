@@ -27,7 +27,9 @@
     "Witherroot": "w114",
     "Вянущий Корень": "w114",
     "Gloomblossom Anemone": "w80",
-    "Анемона Мрачноцвет": "w80"
+    "Анемона Мрачноцвет": "w80",
+    "Зелья Увеличения": "cc54",
+    "Брошюру по Истории Искусства": "di11"
   },
   "items": {
     "cc7": {
@@ -70,6 +72,48 @@
       "ru": {
         "name": "Зелье Стойкости",
         "description": "Вы можете выпить это зелье, чтобы выбрать одно дополнительное действие привала."
+      }
+    },
+    "cc54": {
+      "kind": "consumable",
+      "src": "core",
+      "roll": 54,
+      "img": "cc54.webp",
+      "en": {
+        "name": "Growing Potion",
+        "description": "You can drink this potion to double your size until you choose to drop this form or your next rest. While in this form, you have a +2 bonus to Strength and a +1 bonus to your Proficiency."
+      },
+      "ru": {
+        "name": "Зелье Увеличения",
+        "description": "Вы можете выпить это зелье, чтобы удвоить свой размер, пока не решите отказаться от этой формы или не наступит следующий отдых. В этой форме вы получаете бонус +2 к Силе и +1 к Мастерству."
+      }
+    },
+    "di11": {
+      "kind": "item",
+      "src": "dread",
+      "roll": 11,
+      "img": "di11.webp",
+      "en": {
+        "name": "Art History Booklet",
+        "description": "This is a finely illustrated booklet (donation requested) that highlights a library wing as a foundational work in art history. In reality, the pages show a motley collection of derivative images from elsewhere around the region. However, the booklet includes detailed illustrations of useful maps and clues. After a full reading as a long rest downtime move, the reader gains advantage on understanding the context of local lore and on detecting corruption. Local is local to where the booklet is found."
+      },
+      "ru": {
+        "name": "Брошюра по Истории Искусства",
+        "description": "Это прекрасно иллюстрированная брошюра (пожертвование приветствуется), которая представляет крыло библиотеки как основополагающую работу по истории искусства. На самом деле на страницах представлена пёстрая коллекция производных изображений из других мест региона. Однако брошюра содержит подробные иллюстрации полезных карт и подсказок. Если прочитать её целиком, потратив Ход Отдыха во время продолжительного отдыха, читатель получает преимущество на понимание контекста местных преданий и на обнаружение скверны. «Местное» относится к месту, где была найдена брошюра."
+      }
+    },
+    "di12": {
+      "kind": "item",
+      "src": "dread",
+      "roll": 12,
+      "img": "di12.webp",
+      "en": {
+        "name": "Cursed Booklet",
+        "description": "This free booklet, 'The Moral Call to Promote Thriving Commerce,' shifts its aesthetics and writing style to match those the reader associates with trustworthiness and moral good. Upon reading the title and touching the book, the reader has disadvantage on actions that threaten the established order of imbalanced power and wealth. Readers feel compelled to justify their actions, proselytize commerce as a moral good, and encourage others to read the book."
+      },
+      "ru": {
+        "name": "Проклятая Брошюра",
+        "description": "Эта бесплатная брошюра, «Моральный призыв содействовать процветанию торговли», меняет свою эстетику и стиль письма, чтобы соответствовать тому, что читатель ассоциирует с надёжностью и моральным благом. Прочитав название и прикоснувшись к книге, читатель получает помеху на действия, которые угрожают установленному порядку неравного распределения власти и богатства. Читатели чувствуют себя обязанными оправдывать свои действия, пропагандировать торговлю как моральное благо и побуждать других читать эту книгу."
       }
     },
     "di15": {
