@@ -299,17 +299,9 @@ a:hover { text-decoration: underline; text-underline-offset: 2px; }
 /* ---------- toolbar ---------- */
 .toolbar {
   margin: var(--s-6) 0 var(--s-5);
-  display: flex; flex-wrap: wrap; gap: var(--s-4); align-items: flex-start;
+  display: flex; flex-wrap: wrap; gap: var(--s-4); align-items: center; justify-content: center;
 }
-/* Every field is label row + gap + control row, all three the same height, so
- * the labels share one baseline across the toolbar instead of stepping down it. */
 .field { display: flex; flex-direction: column; gap: var(--s-2); }
-.field-label {
-  height: var(--h-label); display: flex; align-items: center;
-  font-family: var(--font-mono); font-size: var(--fs-micro); line-height: 1;
-  letter-spacing: var(--tracking-caps); text-transform: uppercase;
-  color: var(--muted);
-}
 .field-control { min-height: var(--h-md); display: flex; align-items: center; }
 
 .field input[type="text"], .field select, .new-list-row input {
@@ -340,7 +332,7 @@ a:hover { text-decoration: underline; text-underline-offset: 2px; }
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5 6 6.5l5-5' fill='none' stroke='%23e9dfc7' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
 }
 
-.search-field { flex: 1 1 260px; min-width: 220px; }
+.search-field { flex: 0 1 260px; min-width: 220px; }
 .search-field input { width: 100%; }
 .search-input-wrap { position: relative; display: flex; }
 .search-input-wrap input[type="text"] { padding-left: var(--s-8); padding-right: var(--s-7); }
@@ -362,12 +354,11 @@ a:hover { text-decoration: underline; text-underline-offset: 2px; }
 .search-clear-btn::after { content: ""; position: absolute; inset: -10px; }
 
 .toolbar-filters {
-  display: flex; flex-wrap: wrap; gap: var(--s-4); align-items: flex-start;
-  flex: 1 1 auto;
+  display: flex; flex-wrap: wrap; gap: var(--s-4); align-items: center; justify-content: center;
 }
 /* The disclosure only exists on a phone, where three filter groups cost more
  * screen than the cards they filter. */
-.filter-toggle { display: none; margin-top: calc(var(--h-label) + var(--s-2)); }
+.filter-toggle { display: none; }
 .filter-count {
   display: inline-flex; align-items: center; justify-content: center;
   min-width: 18px; height: 18px; padding: 0 5px; border-radius: var(--r-pill);
@@ -637,15 +628,15 @@ button.rank-icon:focus-visible { outline: var(--focus-ring); outline-offset: 1px
 .empty-state.is-error svg { color: var(--fear-soft); }
 .empty-state.is-error p:first-of-type { color: var(--fear-soft); }
 
-.skeleton-toolbar { display: flex; gap: var(--s-4); flex-wrap: wrap; margin: var(--s-6) 0 var(--s-5); }
+.skeleton-toolbar { display: flex; gap: var(--s-4); flex-wrap: wrap; justify-content: center; margin: var(--s-6) 0 var(--s-5); }
 .sk {
   background: linear-gradient(90deg, var(--ink-raised), var(--ink-card), var(--ink-raised));
   background-size: 200% 100%;
   border-radius: var(--r-sm);
   animation: sk-pulse 1.4s var(--ease-out) infinite;
 }
-.sk-field { width: 160px; height: calc(var(--h-label) + var(--s-2) + var(--h-md)); }
-.sk-field.wide { flex: 1 1 260px; }
+.sk-field { width: 160px; height: var(--h-md); }
+.sk-field.wide { flex: 0 1 260px; }
 .sk-card { height: 200px; border-radius: var(--r-md); border: 1px solid var(--line); }
 @keyframes sk-pulse { from { background-position: 200% 0; } to { background-position: -200% 0; } }
 
@@ -1623,14 +1614,13 @@ button.jr-biome:hover { border-color: var(--hope); color: var(--hope-soft); }
  * cleared; an auto basis measures the placeholder and pushes the toggle onto a
  * line of its own. */
 @media (max-width: 900px) {
-  .toolbar { align-items: flex-end; gap: var(--s-3); }
+  .toolbar { align-items: center; gap: var(--s-3); }
   /* Grows to fill a phone, but stops well short of the ~600px box a tablet
    * would otherwise hand a field that holds two or three words. */
   .search-field { flex: 1 1 120px; min-width: 0; max-width: 420px; }
   .search-input-wrap { min-width: 0; }
   .search-field input[type="text"] { min-width: 0; }
-  .search-field .field-label { display: none; }
-  .filter-toggle { display: inline-flex; flex: none; margin-top: 0; }
+  .filter-toggle { display: inline-flex; flex: none; }
   .toolbar-filters { display: none; flex-basis: 100%; gap: var(--s-3) var(--s-4); }
   .toolbar[data-filters-open="true"] .toolbar-filters { display: flex; }
 

@@ -1023,13 +1023,12 @@ function renderToolbar() {
   el.innerHTML = listBar + `
     <div class="toolbar" data-filters-open="${state.filtersOpen}">
       <div class="field search-field">
-        <label class="field-label" for="f-search">${t('search_label')}</label>
         <div class="search-input-wrap">
           <svg class="search-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
             <circle cx="9" cy="9" r="6.5" stroke="currentColor" stroke-width="1.6"/>
             <line x1="13.6" y1="13.6" x2="18" y2="18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
           </svg>
-          <input type="text" id="f-search" placeholder="${t('search_placeholder')}" value="${escapeAttr(state.filters.search)}">
+          <input type="text" id="f-search" aria-label="${t('search_label')}" placeholder="${t('search_placeholder')}" value="${escapeAttr(state.filters.search)}">
           <button type="button" class="search-clear-btn" id="f-search-clear" aria-label="${t('clear_filters')}" style="${state.filters.search ? '' : 'display:none;'}">×</button>
         </div>
       </div>
@@ -1041,14 +1040,12 @@ function renderToolbar() {
       <div class="toolbar-filters" id="toolbar-filters">
         ${usedTiers.length ? `
         <div class="field">
-          <span class="field-label" id="f-tiers-label">${t('filter_tier')}</span>
-          <div class="rank-pills field-control" id="f-tiers" role="group" aria-labelledby="f-tiers-label">
+          <div class="rank-pills field-control" id="f-tiers" role="group" aria-label="${t('filter_tier')}">
             ${usedTiers.map(tier => `<button type="button" class="rank-icon ${state.filters.tiers.has(tier) ? 'active' : ''}" data-tier="${tier}" aria-pressed="${state.filters.tiers.has(tier)}" aria-label="${t('tier_label')} ${tier}"><span>${tier}</span></button>`).join('')}
           </div>
         </div>` : ''}
         ${types.length || showRegionPill ? `
         <div class="field ms-field" id="f-types-field">
-          <span class="field-label" aria-hidden="true"></span>
           <button type="button" class="ms-trigger field-control" id="f-types-btn"
                   aria-haspopup="listbox" aria-expanded="false">
             <span class="ms-trigger-label">${typesTriggerLabel(types)}</span>
@@ -1062,7 +1059,6 @@ function renderToolbar() {
         </div>` : ''}
         ${usedBiomes.length ? `
         <div class="field ms-field" id="f-biomes-field">
-          <span class="field-label" aria-hidden="true"></span>
           <button type="button" class="ms-trigger field-control" id="f-biomes-btn"
                   aria-haspopup="listbox" aria-expanded="false">
             <span class="ms-trigger-label">${biomesTriggerLabel(usedBiomes)}</span>
@@ -1074,7 +1070,6 @@ function renderToolbar() {
         </div>` : ''}
         ${usedSources.length ? `
         <div class="field ms-field" id="f-sources-field">
-          <span class="field-label" aria-hidden="true"></span>
           <button type="button" class="ms-trigger field-control" id="f-sources-btn"
                   aria-haspopup="listbox" aria-expanded="false">
             <span class="ms-trigger-label">${sourcesTriggerLabel(usedSources)}</span>
