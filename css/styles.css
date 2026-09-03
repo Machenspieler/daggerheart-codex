@@ -1649,9 +1649,20 @@ button.jr-biome:hover { border-color: var(--hope); color: var(--hope-soft); }
 
 /* .shell's 1180px cap holds exactly three 340px cards; four 340px cards plus
  * their three 16px gaps need 1408px of grid width, i.e. a 1448px shell once
- * its 20px side padding is subtracted, so 1480px clears a fourth column. */
+ * its 20px side padding is subtracted, so 1480px clears a fourth column. Each
+ * further step adds one more 340px card plus its 16px gap (356px) so wide
+ * monitors gain columns instead of sitting on empty side margins. */
 @media (min-width: 1480px) {
   .shell { max-width: 1480px; }
+}
+@media (min-width: 1836px) {
+  .shell { max-width: 1836px; }
+}
+@media (min-width: 2192px) {
+  .shell { max-width: 2192px; }
+}
+@media (min-width: 2548px) {
+  .shell { max-width: 2548px; }
 }
 
 @media (max-width: 640px) {
