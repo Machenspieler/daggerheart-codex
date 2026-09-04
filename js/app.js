@@ -2702,6 +2702,12 @@ function openDetailOverlay(envId, carry = null) {
   });
   const englishAdversaryEntries = env.potential_adversaries?.en || [];
   const canLinkAdversaryEncounters = envSupportsEncounterBuilder(env);
+  /* "Any" ("Любой") means the GM picks whatever fits — it names nothing, so
+   * the whole Potential Adversaries block is noise rather than information.
+   * Checked against the English text (or the localized text when English is
+   * unavailable) so the block hides regardless of the card's display language. */
+  const adversaryCanonical = englishAdversaryEntries.length ? englishAdversaryEntries : adversaries;
+  const hasRealAdversaries = adversaryCanonical.some(name => !/^any$/i.test(parsePotentialAdversaryEntry(name).label));
   const adversariesHtml = adversaries.map((name, i) => {
     const id = potentialAdvNameToId.get(name.trim().toLowerCase());
     if (id) return `<button type="button" class="adversary-link-btn" data-adversary-link="${escapeAttr(id)}">${escapeHtml(name)}</button>`;
@@ -2854,7 +2860,7 @@ function openDetailOverlay(envId, carry = null) {
         </div>
 
         ${impulses.length ? `<span class="section-label">${t('impulses_label')}</span><p class="impulse-list">${escapeHtml(impulses.join(', '))}</p>` : ''}
-        ${adversaries.length ? `
+        ${hasRealAdversaries ? `
         <div class="section-label-row">
           <span class="section-label">${t('adversaries_label')}</span>
           ${encounterUrl ? (() => {
