@@ -343,14 +343,19 @@ function envEncounterUrl(env) {
 
 /** One inline link for a name in "Potential Adversaries" — a group such as
  * "Beasts" or a single adversary — that opens that name's own FreshCutGrass
- * encounter. The visible text stays in the page's own language; the encounter
- * itself is always built from the English counterpart, the same way
- * envAdversaryNames() only ever reads .en — a name a third-party service has
- * to recognize is not something the UI language should get to change. */
+ * encounter. An ordinary link, not a button: it reads as part of the sentence,
+ * the same as any other link on the page. The visible text stays in the
+ * page's own language; the encounter itself is always built from the English
+ * counterpart, the same way envAdversaryNames() only ever reads .en — a name a
+ * third-party service has to recognize is not something the UI language
+ * should get to change. The tooltip names this specific link's target rather
+ * than saying "this encounter", so hovering "Bear" and hovering "Beasts" don't
+ * read the same. */
 function potentialAdversaryLinkHtml(visibleLabel, encounterName, adversaryNames) {
   const url = buildFreshCutGrassEncounterUrl(encounterName, adversaryNames);
+  const tip = t('open_encounter_builder_tip').replace('{n}', visibleLabel);
   return `<a class="adversary-encounter-link" href="${escapeAttr(url)}" target="_blank" rel="noopener noreferrer"
-            data-tip="${escapeAttr(t('open_encounter_builder_tip'))}">${ITEM_EXT_ICON}${escapeHtml(visibleLabel)}</a>`;
+            data-tip="${escapeAttr(tip)}">${escapeHtml(visibleLabel)}</a>`;
 }
 
 /** Renders one full potential_adversaries entry — "Beasts (Bear, Dire Wolf,
@@ -378,7 +383,7 @@ function potentialAdversaryEntryHtml(localizedText, englishText) {
 /* Cache buster for the JSON under data/. index.html versions the stylesheet and
    this script the same way; the data files are fetched from here instead, so
    bump this whenever anything in data/ changes or browsers serve stale copies. */
-const DATA_VERSION = 43;
+const DATA_VERSION = 44;
 
 function getJSON(path) {
   return fetch(path).then(r => {
@@ -2817,8 +2822,11 @@ function openDetailOverlay(envId, carry = null) {
         ${adversaries.length ? `
         <div class="section-label-row">
           <span class="section-label">${t('adversaries_label')}</span>
-          ${encounterUrl ? `<a class="encounter-builder-link" href="${escapeAttr(encounterUrl)}" target="_blank" rel="noopener noreferrer"
-                data-tip="${escapeAttr(t('open_encounter_builder_tip'))}">${ITEM_EXT_ICON}<span>${t('open_encounter_builder')}</span><span class="sr-only"> — ${t('open_encounter_builder_tip')}</span></a>` : ''}
+          ${encounterUrl ? (() => {
+            const tip = t('open_encounter_builder_tip').replace('{n}', envName(env));
+            return `<a class="encounter-builder-link" href="${escapeAttr(encounterUrl)}" target="_blank" rel="noopener noreferrer"
+                data-tip="${escapeAttr(tip)}">${ITEM_EXT_ICON}<span>${t('open_encounter_builder')}</span><span class="sr-only"> — ${tip}</span></a>`;
+          })() : ''}
         </div>
         <p class="adversary-list">${adversariesHtml}</p>` : ''}
         ${featuresHtml ? `<span class="section-label">${t('features_label')}</span>${featuresHtml}` : ''}
