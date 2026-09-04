@@ -903,14 +903,18 @@ body.has-env-backdrop .modal-overlay[data-overlay-kind="detail"] {
 .adversary-encounter-link {
   color: var(--hope-soft); cursor: pointer;
   text-decoration: underline; text-decoration-color: rgba(240,207,140,0.35);
-  text-underline-offset: 2px;
+  text-decoration-thickness: 1px; text-decoration-skip-ink: auto;
+  text-underline-offset: 3px;
   transition: color var(--t-fast) var(--ease-out), text-decoration-color var(--t-fast) var(--ease-out);
 }
 .adversary-encounter-link:hover, .adversary-encounter-link:focus-visible {
   color: var(--hope-hover); text-decoration-color: currentColor;
 }
+/* Its own box, not underlined text: a plain "\00a0↗" reads as an underlined
+ * arrow glued to the name with no room to breathe before the next comma. */
 .adversary-encounter-link::after {
-  content: "\00a0↗"; opacity: 0; transition: opacity var(--t-fast) var(--ease-out);
+  content: "↗"; display: inline-block; margin-left: 0.3em;
+  text-decoration: none; opacity: 0; transition: opacity var(--t-fast) var(--ease-out);
 }
 .adversary-encounter-link:hover::after, .adversary-encounter-link:focus-visible::after { opacity: 1; }
 
