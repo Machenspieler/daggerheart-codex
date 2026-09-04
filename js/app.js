@@ -337,21 +337,6 @@ function envAdversaryNames(env) {
   return [...seen];
 }
 
-/* Environments whose Potential Adversaries can open an encounter in
- * FreshCutGrass: every environment sourced from the Daggerheart Core
- * Rulebook, the ruleset FreshCutGrass's own bestiary is built from. Reading
- * env.source rather than hand-listing ids is what lets this extend to another
- * source, or to every environment, later as a one-line change — and it can
- * never drift out of sync with which environments actually carry that source,
- * the way a maintained id list would. buildFreshCutGrassEncounterUrl() below
- * already works for any name and any adversary list — one adversary, one
- * group such as "Beasts", or a whole environment's roster — so widening this
- * gate never means rewriting the URL logic itself. */
-const FRESHCUTGRASS_SOURCES = new Set(['Daggerheart Core Rulebook']);
-function envSupportsEncounterBuilder(env) {
-  return FRESHCUTGRASS_SOURCES.has(env.source);
-}
-
 /** UTF-16 JS string -> Unicode-safe base64. atob/btoa only round-trip Latin1,
  * so the string is routed through its UTF-8 bytes first — an accented or
  * non-Latin encounter/adversary name added later still encodes correctly
@@ -383,12 +368,11 @@ function buildFreshCutGrassEncounterUrl(encounterName, adversaryNames) {
   return `https://freshcutgrass.app/encounter?data=${encodeURIComponent(base64)}`;
 }
 
-/** The whole-environment encounter URL for an environment whose source opts
- * it into the encounter builder, or null for one that doesn't (or whose
- * Potential Adversaries names nothing buildFreshCutGrassEncounterUrl() could
- * use — e.g. "Any"). */
+/** The whole-environment encounter URL for an environment, or null for one
+ * whose Potential Adversaries names nothing buildFreshCutGrassEncounterUrl()
+ * could use — e.g. "Any". Every environment is eligible, current or future:
+ * nothing here reads env.source or any other opt-in list. */
 function envEncounterUrl(env) {
-  if (!envSupportsEncounterBuilder(env)) return null;
   const names = envAdversaryNames(env);
   return names.length ? buildFreshCutGrassEncounterUrl(env.name?.en || envName(env), names) : null;
 }
@@ -2716,10 +2700,8 @@ function openDetailOverlay(envId, carry = null) {
    * and scrolls to that stat block below rather than to a catalogue that does
    * not exist. That takes priority over the FreshCutGrass links below: a stat
    * block already on this card is more useful than sending the reader away.
-   * Everywhere else, an environment that supports the encounter builder gets
-   * its group names and adversary names linked to their own encounter;
-   * anywhere not yet opted in, the name stays plain text, same as before this
-   * feature existed. */
+   * Everywhere else, every environment's group names and adversary names get
+   * linked to their own encounter. */
   const featuredEntries = (env.featured_adversaries || []).filter(e => e && adversaryById(e.id));
   const potentialAdvNameToId = new Map();
   featuredEntries.forEach(e => {
@@ -2727,7 +2709,6 @@ function openDetailOverlay(envId, carry = null) {
     ['en', 'ru'].forEach(l => { if (adv.name?.[l]) potentialAdvNameToId.set(adv.name[l].trim().toLowerCase(), e.id); });
   });
   const englishAdversaryEntries = env.potential_adversaries?.en || [];
-  const canLinkAdversaryEncounters = envSupportsEncounterBuilder(env);
   /* "Any" ("Любой") means the GM picks whatever fits — it names nothing, so
    * the whole Potential Adversaries block is noise rather than information.
    * Checked against the English text (or the localized text when English is
@@ -2737,8 +2718,7 @@ function openDetailOverlay(envId, carry = null) {
   const adversariesHtml = adversaries.map((name, i) => {
     const id = potentialAdvNameToId.get(name.trim().toLowerCase());
     if (id) return `<button type="button" class="adversary-link-btn" data-adversary-link="${escapeAttr(id)}">${escapeHtml(name)}</button>`;
-    if (canLinkAdversaryEncounters) return potentialAdversaryEntryHtml(name, englishAdversaryEntries[i]);
-    return escapeHtml(name);
+    return potentialAdversaryEntryHtml(name, englishAdversaryEntries[i]);
   }).join('; ');
 
   const adversaryAttackHtml = atk => `
