@@ -300,15 +300,40 @@ function looksLikeAdversaryName(name) {
   return true;
 }
 
+/** A handful of Potential Adversaries groups list their members as bare role
+ * suffixes rather than full names — "Jagged Knife Bandits (Hexer, ...)" means
+ * the FreshCutGrass bestiary entry "Jagged Knife Hexer", not "Hexer" on its
+ * own — so the name FreshCutGrass needs is the group's own prefix plus the
+ * member, not the member text as written. That prefix isn't always the full
+ * group label either: "Outer Realms Monstrosities" names its members "Outer
+ * Realms Abomination" etc., dropping "Monstrosities". A label absent here is
+ * assumed to already list complete adversary names, e.g. "Beasts (Bear,
+ * Glass Snake)", so it's passed through unchanged. */
+const ADVERSARY_GROUP_NAME_PREFIXES = {
+  'Jagged Knife Bandits': 'Jagged Knife',
+  'Outer Realms Monstrosities': 'Outer Realms',
+  'Outer Realms': 'Outer Realms',
+};
+
+/** The FreshCutGrass-recognizable name for one member of a Potential
+ * Adversaries group — see ADVERSARY_GROUP_NAME_PREFIXES above. */
+function fullAdversaryName(groupLabel, memberName) {
+  const prefix = ADVERSARY_GROUP_NAME_PREFIXES[groupLabel];
+  return prefix ? `${prefix} ${memberName}` : memberName;
+}
+
 /** Every adversary named anywhere in an environment's Potential Adversaries
  * text, in English — FreshCutGrass has no notion of the site's other
  * languages — deduplicated but kept in the order they first appear. */
 function envAdversaryNames(env) {
   const entries = env.potential_adversaries?.en || [];
   const seen = new Set();
-  entries.forEach(entry => parsePotentialAdversaryEntry(entry).members
-    .filter(looksLikeAdversaryName)
-    .forEach(name => seen.add(name)));
+  entries.forEach(entry => {
+    const parsed = parsePotentialAdversaryEntry(entry);
+    parsed.members.filter(looksLikeAdversaryName).forEach(name => {
+      seen.add(parsed.isGroup ? fullAdversaryName(parsed.label, name) : name);
+    });
+  });
   return [...seen];
 }
 
@@ -404,9 +429,10 @@ function potentialAdversaryEntryHtml(localizedText, englishText) {
   if (!shown.isGroup) {
     return potentialAdversaryLinkHtml(shown.label, canonical.label, [canonical.label]);
   }
-  const groupLink = potentialAdversaryLinkHtml(shown.label, canonical.label, canonical.members);
+  const fullMemberNames = canonical.members.map(name => fullAdversaryName(canonical.label, name));
+  const groupLink = potentialAdversaryLinkHtml(shown.label, canonical.label, fullMemberNames);
   const memberLinks = shown.members.map((memberLabel, i) => {
-    const englishName = canonical.members[i] || memberLabel;
+    const englishName = fullMemberNames[i] || memberLabel;
     return potentialAdversaryLinkHtml(memberLabel, englishName, [englishName]);
   }).join(', ');
   return `${groupLink} (${memberLinks})`;
