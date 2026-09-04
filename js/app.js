@@ -2680,7 +2680,7 @@ function openDetailOverlay(envId, carry = null) {
       <div class="modal-header">
         <div class="modal-title-row">
           <h2 id="detail-title">${escapeHtml(envName(env))}</h2>
-          <button type="button" class="card-add-btn" id="detail-add-to-list" aria-label="${t('add_to_list')}" data-tip="${t('add_to_list')}">+</button>
+          <button type="button" class="card-add-btn" id="detail-add-to-list" aria-label="${t('add_to_list')}" data-tip="${t('add_to_list')}">${ICON_BOOKMARK}</button>
         </div>
         <div class="rank-pills detail-tier-pills" id="detail-tier-pills" role="group" aria-label="${t('view_as_tier')}">${tierPillsHtml}</div>
         <button type="button" class="modal-close" aria-label="${t('close')}">&times;</button>
