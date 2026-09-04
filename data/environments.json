@@ -6057,7 +6057,7 @@
         "en": [
           "Ghostly Legion",
           "Lycans (Weredragon, Weretiger)",
-          "Outer Realms (Abomination, Corruptor, Thrall)",
+          "Outer Realms (Abomination, Corrupter, Thrall)",
           "Psiders (Brood Mother, Spawn)",
           "Worms (Elder, Great)",
           "Xenn (Astral Raider, Hexer, Neurocrat)"
@@ -15528,11 +15528,11 @@
       "potential_adversaries": {
         "en": [
           "Beasts (Bear, Glass Snake)",
-          "Jagged Knife Bandits (Hexer, Kneebreaker, Lackey, Lieutenant, Shadow, Sniper)"
+          "Jagged Knife Bandits (Bandit, Hexer, Kneebreaker, Lackey, Lieutenant, Shadow, Sniper)"
         ],
         "ru": [
           "Звери (Медведь, Стеклянная змея)",
-          "Бандиты «Зазубренного Ножа» (Колдун, Коленолом, Шестёрка, Лейтенант, Тень, Снайпер)"
+          "Бандиты «Зазубренного Ножа» (Бандит, Колдун, Коленолом, Шестёрка, Лейтенант, Тень, Снайпер)"
         ]
       },
       "features": [
@@ -16083,12 +16083,12 @@
       },
       "potential_adversaries": {
         "en": [
-          "Jagged Knife Bandits (Hexer, Kneebreaker, Lackey, Lieutenant, Shadow, Sniper)",
+          "Jagged Knife Bandits (Bandit, Hexer, Kneebreaker, Lackey, Lieutenant, Shadow, Sniper)",
           "Masked Thief",
           "Merchant"
         ],
         "ru": [
-          "Бандиты «Зазубренного Ножа» (Колдун, Коленолом, Шестёрка, Лейтенант, Тень, Снайпер)",
+          "Бандиты «Зазубренного Ножа» (Бандит, Колдун, Коленолом, Шестёрка, Лейтенант, Тень, Снайпер)",
           "Маскированный Вор",
           "Торговец"
         ]
@@ -17024,14 +17024,14 @@
       "potential_adversaries": {
         "en": [
           "Arch-Necromancer",
-          "Fallen Shock Troops",
+          "Fallen Shock Troop",
           "Mortal Hunter",
           "Oracle of Doom",
           "Perfected Zombie"
         ],
         "ru": [
           "Архинекромант",
-          "Штурмовой Отряд Падшего",
+          "Падший Штурмовой Отряд",
           "Охотник за Смертными",
           "Оракул Погибели",
           "Совершенный Зомби"
@@ -17076,7 +17076,7 @@
           },
           "description": {
             "en": "Spend 2 Fear to summon 1d4+2 Fallen Shock Troops that appear within Close range of the Usurper to assist their divine siege. Immediately spotlight the Shock Troops to use a “Group Attack” action.",
-            "ru": "Потратьте 2 Страха, чтобы вызвать 1d4+2 штурмовых отрядов Падшего, которые появляются в пределах Средней дистанции от Узурпатора, чтобы помочь ему в божественной осаде. Немедленно активируйте Штурмовиков, чтобы использовать действие «Групповая атака»."
+            "ru": "Потратьте 2 Страха, чтобы вызвать 1d4+2 Падших Штурмовых Отрядов, которые появляются в пределах Средней дистанции от Узурпатора, чтобы помочь ему в божественной осаде. Немедленно активируйте Штурмовиков, чтобы использовать действие «Групповая атака»."
           },
           "prompt": {
             "en": "Which High Fallen do these troops serve? Which god’s flesh do they wish to feast upon?",
@@ -17390,7 +17390,7 @@
           "Outer Realms Monstrosities (Abomination, Corrupter, Thrall)"
         ],
         "ru": [
-          "Чудовища Иного мира (Мерзость, Искуситель, Прислужник)"
+          "Чудовища из Внешних Миров (Мерзость, Растлитель, Прислужник)"
         ]
       },
       "features": [
@@ -17447,7 +17447,7 @@
           },
           "description": {
             "en": "Spend a Fear to summon an Outer Realms Abomination, an Outer Realms Corrupter, and 2d6 Outer Realms Thralls, who appear at Close range of a chosen PC in defiance of logic and causality. Immediately spotlight one of these adversaries, and you can spend an additional Fear to automatically succeed on that adversary’s standard attack.",
-            "ru": "Потратьте Страх, чтобы вызвать Мерзости из Внешних Миров, Искусителя из Внешних Миров и 2d6 Прислужников из Внешних Миров, которые появятся на Средней дистанции от выбранного персонажа, вопреки логике и причинно-следственной связи. Немедленно активируйте одного из этих противников, и вы можете потратить дополнительный Страх, чтобы автоматически преуспеть в стандартной атаке этого противника."
+            "ru": "Потратьте Страх, чтобы вызвать Мерзости из Внешних Миров, Растлителя из Внешних Миров и 2d6 Прислужников из Внешних Миров, которые появятся на Средней дистанции от выбранного персонажа, вопреки логике и причинно-следственной связи. Немедленно активируйте одного из этих противников, и вы можете потратить дополнительный Страх, чтобы автоматически преуспеть в стандартной атаке этого противника."
           },
           "prompt": {
             "en": "What half-consumed remnants of the shattered world do these monstrosities cast aside in pursuit of living flesh? What jagged reflections of former personhood do you catch between moments of unquestioning malice?",
