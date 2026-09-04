@@ -391,7 +391,7 @@ function potentialAdversaryLinkHtml(visibleLabel, encounterName, adversaryNames)
   const url = buildFreshCutGrassEncounterUrl(encounterName, adversaryNames);
   const tip = t('open_encounter_builder_tip').replace('{n}', visibleLabel);
   return `<a class="adversary-encounter-link" href="${escapeAttr(url)}" target="_blank" rel="noopener noreferrer"
-            data-tip="${escapeAttr(tip)}">${escapeHtml(visibleLabel)}</a>`;
+            data-tip="${escapeAttr(tip)}" aria-label="${escapeAttr(tip)}">${escapeHtml(visibleLabel)}</a>`;
 }
 
 /** Renders one full potential_adversaries entry — "Beasts (Bear, Dire Wolf,
@@ -427,7 +427,7 @@ function potentialAdversaryEntryHtml(localizedText, englishText) {
 /* Cache buster for the JSON under data/. index.html versions the stylesheet and
    this script the same way; the data files are fetched from here instead, so
    bump this whenever anything in data/ changes or browsers serve stale copies. */
-const DATA_VERSION = 48;
+const DATA_VERSION = 49;
 
 function getJSON(path) {
   return fetch(path).then(r => {
@@ -2875,6 +2875,7 @@ function openDetailOverlay(envId, carry = null) {
                 data-tip="${escapeAttr(tip)}">${ITEM_EXT_ICON}<span>${t('open_encounter_builder')}</span><span class="sr-only"> — ${tip}</span></a>`;
           })() : ''}
         </div>
+        <p class="adversary-hint">${escapeHtml(t('adversaries_hint'))}</p>
         <p class="adversary-list">${adversariesHtml}</p>` : ''}
         ${featuresHtml ? `<span class="section-label">${t('features_label')}</span>${featuresHtml}` : ''}
         ${featuredAdversaryHtml}

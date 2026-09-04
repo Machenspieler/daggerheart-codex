@@ -886,6 +886,34 @@ body.has-env-backdrop .modal-overlay[data-overlay-kind="detail"] {
 .impulse-list { font-style: italic; color: var(--parchment-dim); }
 .adversary-list { color: var(--parchment-dim); font-size: var(--fs-base); }
 
+/* Sits between the label and the names themselves, small enough to stay out of
+ * the way — its only job is telling a first-time reader the gold names below
+ * are links, not emphasis. */
+.adversary-hint {
+  margin: 0 0 var(--s-2); max-width: var(--measure);
+  font-size: var(--fs-xs); line-height: var(--lh-xs); color: var(--muted);
+}
+
+/* Gold like every other link, but a link first: a faint underline at rest
+ * says "clickable" without competing with the adversary text, brightens and
+ * gains a full underline on hover/focus, and only then reveals the external-
+ * link arrow — with a dozen names in one paragraph, a permanently visible
+ * arrow on each would be pure noise. aria-label carries the full "opens in a
+ * new tab" meaning, so the decorative arrow glyph never needs its own. */
+.adversary-encounter-link {
+  color: var(--hope-soft); cursor: pointer;
+  text-decoration: underline; text-decoration-color: rgba(240,207,140,0.35);
+  text-underline-offset: 2px;
+  transition: color var(--t-fast) var(--ease-out), text-decoration-color var(--t-fast) var(--ease-out);
+}
+.adversary-encounter-link:hover, .adversary-encounter-link:focus-visible {
+  color: var(--hope-hover); text-decoration-color: currentColor;
+}
+.adversary-encounter-link::after {
+  content: "\00a0↗"; opacity: 0; transition: opacity var(--t-fast) var(--ease-out);
+}
+.adversary-encounter-link:hover::after, .adversary-encounter-link:focus-visible::after { opacity: 1; }
+
 /* Carries the section-label's own spacing so the label sits flush against the
  * link beside it; wraps to its own line on a narrow card rather than crowding
  * the label. */
