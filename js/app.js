@@ -283,23 +283,49 @@ function parsePotentialAdversaryEntry(entry) {
   return { label: match[1].trim(), members: match[2].split(',').map(s => s.trim()).filter(Boolean), isGroup: true };
 }
 
+/* A handful of Potential Adversaries entries don't name an adversary at all:
+ * "Any" (the GM picks whatever fits) or a citation like
+ * 'ghostly versions of other adversaries (see "Ghostly Form")' pointing at a
+ * feature instead of naming a creature. Neither is something FreshCutGrass's
+ * bestiary can look up, so both are filtered out here rather than becoming a
+ * broken link or a fake entry in the whole-environment payload. Checked only
+ * on the section's own text ("see …", quote marks, the bare word "any"), so
+ * it holds for any environment's data rather than one hand-picked id. */
+function looksLikeAdversaryName(name) {
+  const text = String(name || '').trim();
+  if (!text) return false;
+  if (/^any$/i.test(text)) return false;
+  if (/[“”"]/.test(text)) return false;
+  if (/\bsee\b/i.test(text)) return false;
+  return true;
+}
+
 /** Every adversary named anywhere in an environment's Potential Adversaries
  * text, in English — FreshCutGrass has no notion of the site's other
  * languages — deduplicated but kept in the order they first appear. */
 function envAdversaryNames(env) {
   const entries = env.potential_adversaries?.en || [];
   const seen = new Set();
-  entries.forEach(entry => parsePotentialAdversaryEntry(entry).members.forEach(name => seen.add(name)));
+  entries.forEach(entry => parsePotentialAdversaryEntry(entry).members
+    .filter(looksLikeAdversaryName)
+    .forEach(name => seen.add(name)));
   return [...seen];
 }
 
 /* Environments whose Potential Adversaries can open an encounter in
- * FreshCutGrass. buildFreshCutGrassEncounterUrl() below already works for any
- * name and any adversary list — one adversary, one group such as "Beasts", or
- * a whole environment's roster — so enabling another environment, or a group,
- * or a single adversary, later is just adding to this gate (or dropping it
- * entirely), never rewriting the URL logic itself. */
-const FRESHCUTGRASS_ENV_IDS = new Set(['abandoned-grove']);
+ * FreshCutGrass: every environment sourced from the Daggerheart Core
+ * Rulebook, the ruleset FreshCutGrass's own bestiary is built from. Reading
+ * env.source rather than hand-listing ids is what lets this extend to another
+ * source, or to every environment, later as a one-line change — and it can
+ * never drift out of sync with which environments actually carry that source,
+ * the way a maintained id list would. buildFreshCutGrassEncounterUrl() below
+ * already works for any name and any adversary list — one adversary, one
+ * group such as "Beasts", or a whole environment's roster — so widening this
+ * gate never means rewriting the URL logic itself. */
+const FRESHCUTGRASS_SOURCES = new Set(['Daggerheart Core Rulebook']);
+function envSupportsEncounterBuilder(env) {
+  return FRESHCUTGRASS_SOURCES.has(env.source);
+}
 
 /** UTF-16 JS string -> Unicode-safe base64. atob/btoa only round-trip Latin1,
  * so the string is routed through its UTF-8 bytes first — an accented or
@@ -332,11 +358,12 @@ function buildFreshCutGrassEncounterUrl(encounterName, adversaryNames) {
   return `https://freshcutgrass.app/encounter?data=${encodeURIComponent(base64)}`;
 }
 
-/** The whole-environment encounter URL for an environment that has opted into
- * FRESHCUTGRASS_ENV_IDS, or null for one that hasn't (or has no adversaries to
- * build an encounter from). */
+/** The whole-environment encounter URL for an environment whose source opts
+ * it into the encounter builder, or null for one that doesn't (or whose
+ * Potential Adversaries names nothing buildFreshCutGrassEncounterUrl() could
+ * use — e.g. "Any"). */
 function envEncounterUrl(env) {
-  if (!FRESHCUTGRASS_ENV_IDS.has(env.id)) return null;
+  if (!envSupportsEncounterBuilder(env)) return null;
   const names = envAdversaryNames(env);
   return names.length ? buildFreshCutGrassEncounterUrl(env.name?.en || envName(env), names) : null;
 }
@@ -363,10 +390,17 @@ function potentialAdversaryLinkHtml(visibleLabel, encounterName, adversaryNames)
  * own encounter. localizedText is what the reader sees; englishText is the
  * same entry's English form, read at the same index, used only to look up the
  * names FreshCutGrass needs. A bare name with no group (e.g. "Sellsword")
- * renders as a single link rather than a label plus a one-item group. */
+ * renders as a single link rather than a label plus a one-item group. An
+ * entry that doesn't actually name an adversary — "Any", or a citation such as
+ * 'ghostly versions of other adversaries (see "Ghostly Form")' — falls back to
+ * the plain text it would have been without this feature, same as an
+ * environment that hasn't opted in at all: a name FreshCutGrass can't use is
+ * not worth a link, whole or half. */
 function potentialAdversaryEntryHtml(localizedText, englishText) {
   const shown = parsePotentialAdversaryEntry(localizedText);
   const canonical = parsePotentialAdversaryEntry(englishText);
+  const canonicalNames = canonical.isGroup ? [canonical.label, ...canonical.members] : [canonical.label];
+  if (!canonicalNames.every(looksLikeAdversaryName)) return escapeHtml(localizedText);
   if (!shown.isGroup) {
     return potentialAdversaryLinkHtml(shown.label, canonical.label, [canonical.label]);
   }
@@ -2656,9 +2690,10 @@ function openDetailOverlay(envId, carry = null) {
    * and scrolls to that stat block below rather than to a catalogue that does
    * not exist. That takes priority over the FreshCutGrass links below: a stat
    * block already on this card is more useful than sending the reader away.
-   * Everywhere else, an environment in FRESHCUTGRASS_ENV_IDS gets its group
-   * names and adversary names linked to their own encounter; anywhere not yet
-   * opted in, the name stays plain text, same as before this feature existed. */
+   * Everywhere else, an environment that supports the encounter builder gets
+   * its group names and adversary names linked to their own encounter;
+   * anywhere not yet opted in, the name stays plain text, same as before this
+   * feature existed. */
   const featuredEntries = (env.featured_adversaries || []).filter(e => e && adversaryById(e.id));
   const potentialAdvNameToId = new Map();
   featuredEntries.forEach(e => {
@@ -2666,7 +2701,7 @@ function openDetailOverlay(envId, carry = null) {
     ['en', 'ru'].forEach(l => { if (adv.name?.[l]) potentialAdvNameToId.set(adv.name[l].trim().toLowerCase(), e.id); });
   });
   const englishAdversaryEntries = env.potential_adversaries?.en || [];
-  const canLinkAdversaryEncounters = FRESHCUTGRASS_ENV_IDS.has(env.id);
+  const canLinkAdversaryEncounters = envSupportsEncounterBuilder(env);
   const adversariesHtml = adversaries.map((name, i) => {
     const id = potentialAdvNameToId.get(name.trim().toLowerCase());
     if (id) return `<button type="button" class="adversary-link-btn" data-adversary-link="${escapeAttr(id)}">${escapeHtml(name)}</button>`;
