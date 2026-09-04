@@ -279,8 +279,8 @@ function bilingual(field) { return field?.[state.lang] || field?.en || field?.ru
 function parsePotentialAdversaryEntry(entry) {
   const text = String(entry || '').trim();
   const match = text.match(/^(.*?)\s*\(([^)]+)\)\s*$/);
-  if (!match) return { label: text, members: text ? [text] : [] };
-  return { label: match[1].trim(), members: match[2].split(',').map(s => s.trim()).filter(Boolean) };
+  if (!match) return { label: text, members: text ? [text] : [], isGroup: false };
+  return { label: match[1].trim(), members: match[2].split(',').map(s => s.trim()).filter(Boolean), isGroup: true };
 }
 
 /** Every adversary named anywhere in an environment's Potential Adversaries
@@ -339,6 +339,38 @@ function envEncounterUrl(env) {
   if (!FRESHCUTGRASS_ENV_IDS.has(env.id)) return null;
   const names = envAdversaryNames(env);
   return names.length ? buildFreshCutGrassEncounterUrl(env.name?.en || envName(env), names) : null;
+}
+
+/** One inline link for a name in "Potential Adversaries" — a group such as
+ * "Beasts" or a single adversary — that opens that name's own FreshCutGrass
+ * encounter. The visible text stays in the page's own language; the encounter
+ * itself is always built from the English counterpart, the same way
+ * envAdversaryNames() only ever reads .en — a name a third-party service has
+ * to recognize is not something the UI language should get to change. */
+function potentialAdversaryLinkHtml(visibleLabel, encounterName, adversaryNames) {
+  const url = buildFreshCutGrassEncounterUrl(encounterName, adversaryNames);
+  return `<a class="adversary-encounter-link" href="${escapeAttr(url)}" target="_blank" rel="noopener noreferrer"
+            data-tip="${escapeAttr(t('open_encounter_builder_tip'))}">${ITEM_EXT_ICON}${escapeHtml(visibleLabel)}</a>`;
+}
+
+/** Renders one full potential_adversaries entry — "Beasts (Bear, Dire Wolf,
+ * Glass Snake)" — with the group name and every member linked, each to its
+ * own encounter. localizedText is what the reader sees; englishText is the
+ * same entry's English form, read at the same index, used only to look up the
+ * names FreshCutGrass needs. A bare name with no group (e.g. "Sellsword")
+ * renders as a single link rather than a label plus a one-item group. */
+function potentialAdversaryEntryHtml(localizedText, englishText) {
+  const shown = parsePotentialAdversaryEntry(localizedText);
+  const canonical = parsePotentialAdversaryEntry(englishText);
+  if (!shown.isGroup) {
+    return potentialAdversaryLinkHtml(shown.label, canonical.label, [canonical.label]);
+  }
+  const groupLink = potentialAdversaryLinkHtml(shown.label, canonical.label, canonical.members);
+  const memberLinks = shown.members.map((memberLabel, i) => {
+    const englishName = canonical.members[i] || memberLabel;
+    return potentialAdversaryLinkHtml(memberLabel, englishName, [englishName]);
+  }).join(', ');
+  return `${groupLink} (${memberLinks})`;
 }
 
 /* ---------------- init ---------------- */
@@ -2617,18 +2649,24 @@ function openDetailOverlay(envId, carry = null) {
   /* A name in potential_adversaries becomes a button when it names an adversary
    * embedded in THIS environment (env.featured_adversaries) — clicking it opens
    * and scrolls to that stat block below rather than to a catalogue that does
-   * not exist. A name with no featured entry stays plain text, same as before. */
+   * not exist. That takes priority over the FreshCutGrass links below: a stat
+   * block already on this card is more useful than sending the reader away.
+   * Everywhere else, an environment in FRESHCUTGRASS_ENV_IDS gets its group
+   * names and adversary names linked to their own encounter; anywhere not yet
+   * opted in, the name stays plain text, same as before this feature existed. */
   const featuredEntries = (env.featured_adversaries || []).filter(e => e && adversaryById(e.id));
   const potentialAdvNameToId = new Map();
   featuredEntries.forEach(e => {
     const adv = adversaryById(e.id);
     ['en', 'ru'].forEach(l => { if (adv.name?.[l]) potentialAdvNameToId.set(adv.name[l].trim().toLowerCase(), e.id); });
   });
-  const adversariesHtml = adversaries.map(name => {
+  const englishAdversaryEntries = env.potential_adversaries?.en || [];
+  const canLinkAdversaryEncounters = FRESHCUTGRASS_ENV_IDS.has(env.id);
+  const adversariesHtml = adversaries.map((name, i) => {
     const id = potentialAdvNameToId.get(name.trim().toLowerCase());
-    return id
-      ? `<button type="button" class="adversary-link-btn" data-adversary-link="${escapeAttr(id)}">${escapeHtml(name)}</button>`
-      : escapeHtml(name);
+    if (id) return `<button type="button" class="adversary-link-btn" data-adversary-link="${escapeAttr(id)}">${escapeHtml(name)}</button>`;
+    if (canLinkAdversaryEncounters) return potentialAdversaryEntryHtml(name, englishAdversaryEntries[i]);
+    return escapeHtml(name);
   }).join('; ');
 
   const adversaryAttackHtml = atk => `

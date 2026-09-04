@@ -1013,6 +1013,21 @@ body.has-env-backdrop .modal-overlay[data-overlay-kind="detail"] {
 .adversary-link-btn:hover { background: rgba(156,43,59,0.18); color: var(--parchment); }
 .adversary-link-btn:active { transform: scale(0.97); }
 
+/* A name in "Potential Adversaries" — a group or a single adversary — that
+ * opens its own FreshCutGrass encounter: hope-gold, so this third kind of
+ * inline reference (an external tool, rather than an item lookup or an
+ * in-card jump) reads as its own thing next to the other two pills. */
+.adversary-encounter-link {
+  display: inline-flex; align-items: baseline; gap: 4px;
+  font: inherit; text-decoration: none;
+  background: var(--ink-raised); border: 1px solid var(--hope); color: var(--hope-soft);
+  padding: 1px 8px; border-radius: var(--r-pill); cursor: pointer; vertical-align: middle;
+  transition: background var(--t-fast) var(--ease-out), color var(--t-fast) var(--ease-out);
+}
+.adversary-encounter-link svg { width: 11px; height: 11px; flex: none; align-self: center; }
+.adversary-encounter-link:hover { background: rgba(217,164,65,0.18); color: var(--parchment); text-decoration: none; }
+.adversary-encounter-link:active { transform: scale(0.97); }
+
 /* ---------- featured adversary (stat block embedded in an Environment card) ----------
  * A panel, not a rule: the featured adversary's attacks, stats and features are
  * mechanically the adversary's own, not the environment's, so the block gets a
