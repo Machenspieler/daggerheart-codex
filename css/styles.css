@@ -886,6 +886,27 @@ body.has-env-backdrop .modal-overlay[data-overlay-kind="detail"] {
 .impulse-list { font-style: italic; color: var(--parchment-dim); }
 .adversary-list { color: var(--parchment-dim); font-size: var(--fs-base); }
 
+/* Carries the section-label's own spacing so the label sits flush against the
+ * link beside it; wraps to its own line on a narrow card rather than crowding
+ * the label. */
+.section-label-row {
+  display: flex; align-items: baseline; justify-content: space-between;
+  flex-wrap: wrap; gap: var(--s-1) var(--s-4); margin: var(--s-7) 0 var(--s-2);
+}
+.section-label-row .section-label { margin: 0; }
+
+/* A secondary utility action, not a CTA: muted at rest, brightening to the
+ * same gold every other hover in the card uses. */
+.encounter-builder-link {
+  display: inline-flex; align-items: center; gap: var(--s-1);
+  font-family: var(--font-mono); font-size: var(--fs-micro);
+  letter-spacing: var(--tracking-caps); text-transform: uppercase;
+  color: var(--muted); text-decoration: none;
+  transition: color var(--t-fast) var(--ease-out);
+}
+.encounter-builder-link:hover { color: var(--hope-soft); text-decoration: none; }
+.encounter-builder-link svg { width: var(--icon-sm); height: var(--icon-sm); flex: none; }
+
 /* The one rule left inside the card body, so it carries the interactive weight
  * rather than the default edge — at 1.73:1 a 2px stem read as nothing at all. */
 .feature {

@@ -268,12 +268,85 @@ function adversaryById(id) { return state.adversaryCatalog.get(id) || null; }
 function adversaryName(adv) { return adv.name?.[state.lang] || adv.name?.en || adv.name?.ru || adv.id; }
 function bilingual(field) { return field?.[state.lang] || field?.en || field?.ru || ''; }
 
+/* ---------------- FreshCutGrass encounter builder ---------------- */
+
+/* A potential_adversaries entry is plain text — "Beasts (Bear, Dire Wolf,
+ * Glass Snake)", a named group followed by its members in parentheses — or,
+ * with no parentheses, a single adversary named by itself (e.g. "Sellsword").
+ * Parsing that text, rather than hand-listing monster names per environment,
+ * is what lets the encounter builder below stay generic: it reads the same
+ * data the "Potential Adversaries" line already renders from. */
+function parsePotentialAdversaryEntry(entry) {
+  const text = String(entry || '').trim();
+  const match = text.match(/^(.*?)\s*\(([^)]+)\)\s*$/);
+  if (!match) return { label: text, members: text ? [text] : [] };
+  return { label: match[1].trim(), members: match[2].split(',').map(s => s.trim()).filter(Boolean) };
+}
+
+/** Every adversary named anywhere in an environment's Potential Adversaries
+ * text, in English — FreshCutGrass has no notion of the site's other
+ * languages — deduplicated but kept in the order they first appear. */
+function envAdversaryNames(env) {
+  const entries = env.potential_adversaries?.en || [];
+  const seen = new Set();
+  entries.forEach(entry => parsePotentialAdversaryEntry(entry).members.forEach(name => seen.add(name)));
+  return [...seen];
+}
+
+/* Environments whose Potential Adversaries can open an encounter in
+ * FreshCutGrass. buildFreshCutGrassEncounterUrl() below already works for any
+ * name and any adversary list — one adversary, one group such as "Beasts", or
+ * a whole environment's roster — so enabling another environment, or a group,
+ * or a single adversary, later is just adding to this gate (or dropping it
+ * entirely), never rewriting the URL logic itself. */
+const FRESHCUTGRASS_ENV_IDS = new Set(['abandoned-grove']);
+
+/** UTF-16 JS string -> Unicode-safe base64. atob/btoa only round-trip Latin1,
+ * so the string is routed through its UTF-8 bytes first — an accented or
+ * non-Latin encounter/adversary name added later still encodes correctly
+ * instead of throwing. */
+function utf8ToBase64(str) {
+  const bytes = new TextEncoder().encode(str);
+  let binary = '';
+  bytes.forEach(byte => { binary += String.fromCharCode(byte); });
+  return btoa(binary);
+}
+
+/** Builds a FreshCutGrass encounter URL at runtime from an encounter name and
+ * a flat list of adversary names. Nothing here is specific to Abandoned Grove
+ * or even to environments — the same call works for a single adversary, a
+ * named group, or an entire environment's roster, all through one payload
+ * shape and one encoder. */
+function buildFreshCutGrassEncounterUrl(encounterName, adversaryNames) {
+  const payload = {
+    n: encounterName,
+    d: adversaryNames.map(name => ({
+      n: name,
+      a: '',
+      q: 1,
+      u: 0,
+      i: [{ n: null }],
+    })),
+  };
+  const base64 = utf8ToBase64(JSON.stringify(payload));
+  return `https://freshcutgrass.app/encounter?data=${encodeURIComponent(base64)}`;
+}
+
+/** The whole-environment encounter URL for an environment that has opted into
+ * FRESHCUTGRASS_ENV_IDS, or null for one that hasn't (or has no adversaries to
+ * build an encounter from). */
+function envEncounterUrl(env) {
+  if (!FRESHCUTGRASS_ENV_IDS.has(env.id)) return null;
+  const names = envAdversaryNames(env);
+  return names.length ? buildFreshCutGrassEncounterUrl(env.name?.en || envName(env), names) : null;
+}
+
 /* ---------------- init ---------------- */
 
 /* Cache buster for the JSON under data/. index.html versions the stylesheet and
    this script the same way; the data files are fetched from here instead, so
    bump this whenever anything in data/ changes or browsers serve stale copies. */
-const DATA_VERSION = 41;
+const DATA_VERSION = 42;
 
 function getJSON(path) {
   return fetch(path).then(r => {
@@ -2503,6 +2576,7 @@ function openDetailOverlay(envId, carry = null) {
   if (!env) return;
   const impulses = envField(env, 'impulses');
   const adversaries = envField(env, 'potential_adversaries');
+  const encounterUrl = envEncounterUrl(env);
 
   /* The tier the card is currently being read at. Deliberately modal-local: it
    * lives while this card is open and is gone the moment it closes, so nothing
@@ -2702,7 +2776,13 @@ function openDetailOverlay(envId, carry = null) {
         </div>
 
         ${impulses.length ? `<span class="section-label">${t('impulses_label')}</span><p class="impulse-list">${escapeHtml(impulses.join(', '))}</p>` : ''}
-        ${adversaries.length ? `<span class="section-label">${t('adversaries_label')}</span><p class="adversary-list">${adversariesHtml}</p>` : ''}
+        ${adversaries.length ? `
+        <div class="section-label-row">
+          <span class="section-label">${t('adversaries_label')}</span>
+          ${encounterUrl ? `<a class="encounter-builder-link" href="${escapeAttr(encounterUrl)}" target="_blank" rel="noopener noreferrer"
+                data-tip="${escapeAttr(t('open_encounter_builder_tip'))}">${ITEM_EXT_ICON}<span>${t('open_encounter_builder')}</span><span class="sr-only"> — ${t('open_encounter_builder_tip')}</span></a>` : ''}
+        </div>
+        <p class="adversary-list">${adversariesHtml}</p>` : ''}
         ${featuresHtml ? `<span class="section-label">${t('features_label')}</span>${featuresHtml}` : ''}
         ${featuredAdversaryHtml}
         ${storySeedsHtml}
