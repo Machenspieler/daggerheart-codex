@@ -1427,6 +1427,7 @@ function biomeArtHtml(env) {
 function cardHtml(env) {
   const impulses = envField(env, 'impulses');
   const loreText = bilingual(env.lore);
+  const typeChip = `<span class="environment-type-chip"><span class="sr-only">${escapeHtml(t('filter_type'))}: </span>${escapeHtml(t('type_' + env.type))}</span>`;
   const biomeChips = (env.biomes || []).map(b => `<span class="biome-chip">${t('biome_' + b)}</span>`).join('');
   // Environments that belong to a region carry its name alongside the biomes.
   // Regions are optional, so most cards show biome chips only.
@@ -1442,20 +1443,24 @@ function cardHtml(env) {
   // .card-open covers it — but the tab stop and the accessible name now sit on
   // one real button, so the catalog is reachable from the keyboard.
   return `
-    <article class="card" data-id="${env.id}" data-type="${env.type}">
-      <span class="card-type-tag" aria-hidden="true">${escapeHtml(env.type)}</span>
+    <article class="card" data-id="${env.id}">
+      <span class="rank-icon rank-icon-sm active card-tier-badge" role="img" aria-label="${t('tier_label')} ${env.tier}" data-tip="${t('tier_label')} ${env.tier}"><span aria-hidden="true">${env.tier}</span></span>
       ${biomeArtHtml(env)}
       <div class="card-body">
         <div class="card-top">
-          <div class="card-title-row">
-            <h3 class="card-title"><button type="button" class="card-open" data-open-env="${env.id}">${escapeHtml(envName(env))}</button></h3>
-            <button type="button" class="card-add-btn" data-add-to-list="${env.id}" aria-label="${t('add_to_list')}" data-tip="${t('add_to_list')}">+</button>
-          </div>
-          <span class="rank-icon rank-icon-sm active" role="img" aria-label="${t('tier_label')} ${env.tier}" data-tip="${t('tier_label')} ${env.tier}"><span aria-hidden="true">${env.tier}</span></span>
+          <h3 class="card-title"><button type="button" class="card-open" data-open-env="${env.id}">${escapeHtml(envName(env))}</button></h3>
+          <button
+            type="button"
+            class="card-add-btn card-add-btn--catalog"
+            data-add-to-list="${env.id}"
+            aria-label="${escapeAttr(t('add_to_list'))}"
+            data-tip="${escapeAttr(t('add_to_list'))}"
+            aria-haspopup="dialog"
+          >${ICON_BOOKMARK}</button>
         </div>
         ${loreText ? `<p class="card-lore">${escapeHtml(loreText)}</p>` : ''}
         ${impulses.length ? `<div class="card-impulses"><span class="card-impulses-label">${t('impulses_label')}:</span> ${escapeHtml(impulses.join(', '))}</div>` : ''}
-        ${biomeChips || regionChip ? `<div class="card-biomes">${biomeChips}${regionChip}</div>` : ''}
+        <div class="card-meta">${typeChip}${biomeChips}${regionChip}</div>
         ${badges}
       </div>
     </article>`;

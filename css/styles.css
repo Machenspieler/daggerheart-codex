@@ -32,6 +32,7 @@
   --line-faint: #3a322b;   /* 1.34:1 — internal dividers only   */
   --line: #4d4238;         /* 1.73:1 — default component edge   */
   --line-strong: #6a5d4f;  /* 2.65:1 — hover / interactive edge */
+  --type-chip-border: #786b5d; /* 3.26:1 against --ink-card — visible metadata border */
 
   /* ---- text (ratios against --ink-card) ---- */
   --parchment: #e9dfc7;      /* 12.74:1 */
@@ -56,6 +57,7 @@
   --fs-micro: 11px;  --lh-micro: 1.45;
   --fs-xs: 12px;     --lh-xs: 1.45;
   --fs-sm: 13px;     --lh-sm: 1.5;
+  --fs-card-copy: 14px;
   --fs-base: 15px;   --lh-base: 1.55;
   --fs-md: 17px;     --lh-md: 1.25;
   --fs-lg: 20px;     --lh-lg: 1.22;
@@ -514,25 +516,6 @@ button.rank-icon:focus-visible { outline: var(--focus-ring); outline-offset: 1px
  * catalogue costs more than the skipped paint is worth. The per-interaction
  * cost that actually mattered is already gone: search is debounced and the
  * grid's click handling is delegated rather than rebound per card. */
-/* The environment type is an unlocalized English tag flush against the
- * card's own top and right borders, like a corner ribbon — a small badge,
- * not a translated word, since Daggerheart's four environment types
- * (traversal/social/event/exploration) are terms of art quoted verbatim from
- * the rulebook. Pinned to .card itself (which clips overflow) rather than
- * flowing in .card-top, so it can sit flush in the corner; .card-top gets a
- * matching top margin so the tier badge below it stays clear of the tag. */
-.card-type-tag {
-  position: absolute; top: 0; right: 0; z-index: 2;
-  font-family: var(--font-mono); font-size: var(--fs-micro); line-height: 1;
-  letter-spacing: var(--tracking-caps); text-transform: uppercase;
-  padding: 3px var(--s-2);
-  border-radius: 0 var(--r-md) 0 var(--r-sm);
-  background: var(--teal); color: var(--parchment);
-}
-.card[data-type="social"] .card-type-tag { background: var(--hope); color: var(--ink); }
-.card[data-type="event"] .card-type-tag { background: var(--fear); }
-.card[data-type="exploration"] .card-type-tag { background: var(--parchment-dim); color: var(--ink); }
-
 /* The panel is a window onto a taller picture. Negative margins cancel the
  * card's padding so it reaches the card's own top, bottom and left edges, and
  * `min-height` reserves it before the picture loads. */
@@ -560,13 +543,16 @@ button.rank-icon:focus-visible { outline: var(--focus-ring); outline-offset: 1px
   outline: var(--focus-ring); outline-offset: var(--focus-offset);
 }
 
-.card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: var(--s-3); margin-top: var(--s-3); }
-/* flex-start, not baseline: a two-line name would otherwise put the + on the
- * last baseline, leaving it stranded halfway down the card away from the row
- * of controls it belongs to. The negative margin optically centres it on the
- * first line, whether the name wraps or not. */
-.card-title-row { display: flex; align-items: flex-start; gap: var(--s-2); min-width: 0; }
-.card-title-row .card-add-btn { margin-top: -1px; }
+/* The tier marker pins to the card itself, not the text column, so it reads as
+ * a badge on the picture rather than part of the copy below it. */
+.card-tier-badge { position: absolute; top: var(--s-2); left: var(--s-2); z-index: 2; }
+
+/* Title and bookmark share one row — the tier badge moved onto the picture,
+ * so this space is free for copy instead of sitting empty above the title.
+ * flex-start, not baseline: a two-line name would otherwise put the bookmark
+ * on its last line instead of level with the first. */
+.card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: var(--s-3); margin-top: 0; }
+.card-top .card-title { flex: 1; }
 .card-title {
   font-family: var(--font-display); font-weight: 400;
   font-size: var(--fs-md); line-height: var(--lh-md); letter-spacing: var(--tracking-display);
@@ -592,25 +578,28 @@ button.rank-icon:focus-visible { outline: var(--focus-ring); outline-offset: 1px
 .card-add-btn:hover { border-color: var(--hope); color: var(--hope); background: rgba(217,164,65,0.1); }
 /* Keeps the 24px visual size the card wants while giving the finger 44px. */
 .card-add-btn::after { content: ""; position: absolute; inset: -10px; }
+.card-add-btn svg { display: block; width: var(--icon-md); height: var(--icon-md); pointer-events: none; }
+/* Borderless resting state, per the mockup — the circular border is a modal
+ * affordance, not a catalog one. Hover keeps the shared gold treatment. */
+.card-add-btn--catalog { border-color: transparent; }
 
-.card-lore {
-  font-size: var(--fs-sm); line-height: var(--lh-sm);
-  color: var(--parchment-dim); font-style: italic; margin: 0;
-}
+.card-lore,
 .card-impulses {
-  font-size: var(--fs-sm); line-height: var(--lh-sm);
-  color: var(--parchment-dim); font-style: italic;
+  font-size: var(--fs-card-copy); line-height: 1.5;
+  color: var(--parchment-dim); font-style: normal;
 }
+.card-lore { margin: 0; }
 .card-impulses-label {
   font-family: var(--font-display); font-style: normal; font-weight: 400;
   color: var(--parchment);
 }
-.card-biomes { display: flex; gap: var(--s-2); flex-wrap: wrap; margin-top: auto; }
-.biome-chip, .region-chip, .badge {
+.card-meta { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-2); margin-top: auto; }
+.environment-type-chip, .biome-chip, .region-chip, .badge {
   display: inline-flex; align-items: center; height: var(--h-xs);
   font-family: var(--font-mono); font-size: var(--fs-micro); line-height: 1;
   padding: 0 var(--s-2); border-radius: var(--r-xs);
 }
+.environment-type-chip { color: var(--muted); border: 1px solid var(--type-chip-border); background: transparent; }
 .biome-chip { border: 1px solid var(--teal); color: var(--teal-soft); }
 .region-chip { border: 1px solid var(--hope); color: var(--hope-soft); }
 .badge {
