@@ -1219,7 +1219,7 @@
       "biomes": [
         "settlement"
       ],
-    "source": "Dread GM Toolbox"
+      "source": "Dread GM Toolbox"
     },
     {
       "id": "devouring-green",
@@ -15586,7 +15586,7 @@
       "biomes": [
         "aquatic"
       ],
-    "source": "Daggerheart Core Rulebook"
+      "source": "Daggerheart Core Rulebook"
     },
     {
       "id": "abandoned-grove",
@@ -15687,7 +15687,7 @@
       "biomes": [
         "forest"
       ],
-    "source": "Daggerheart Core Rulebook"
+      "source": "Daggerheart Core Rulebook"
     },
     {
       "id": "ambushed",
@@ -15761,7 +15761,7 @@
       "biomes": [
         "universal"
       ],
-    "source": "Daggerheart Core Rulebook"
+      "source": "Daggerheart Core Rulebook"
     },
     {
       "id": "local-tavern",
@@ -15879,7 +15879,7 @@
       "biomes": [
         "settlement"
       ],
-    "source": "Daggerheart Core Rulebook"
+      "source": "Daggerheart Core Rulebook"
     },
     {
       "id": "ambushers",
@@ -15953,7 +15953,7 @@
       "biomes": [
         "universal"
       ],
-    "source": "Daggerheart Core Rulebook"
+      "source": "Daggerheart Core Rulebook"
     },
     {
       "id": "bustling-marketplace",
@@ -16056,7 +16056,7 @@
       "biomes": [
         "settlement"
       ],
-    "source": "Daggerheart Core Rulebook"
+      "source": "Daggerheart Core Rulebook"
     },
     {
       "id": "outpost-town",
@@ -16174,7 +16174,7 @@
       "biomes": [
         "settlement"
       ],
-    "source": "Daggerheart Core Rulebook"
+      "source": "Daggerheart Core Rulebook"
     },
     {
       "id": "cliffside-ascent",
@@ -16264,7 +16264,7 @@
       "biomes": [
         "mountain"
       ],
-    "source": "Daggerheart Core Rulebook"
+      "source": "Daggerheart Core Rulebook"
     },
     {
       "id": "mountain-pass",
@@ -16371,7 +16371,7 @@
       "biomes": [
         "mountain"
       ],
-    "source": "Daggerheart Core Rulebook"
+      "source": "Daggerheart Core Rulebook"
     },
     {
       "id": "haunted-city",
@@ -16472,7 +16472,7 @@
       "biomes": [
         "settlement"
       ],
-    "source": "Daggerheart Core Rulebook"
+      "source": "Daggerheart Core Rulebook"
     },
     {
       "id": "cult-ritual",
@@ -16571,7 +16571,7 @@
       "biomes": [
         "universal"
       ],
-    "source": "Daggerheart Core Rulebook"
+      "source": "Daggerheart Core Rulebook"
     },
     {
       "id": "hallowed-temple",
@@ -16672,7 +16672,7 @@
       "biomes": [
         "settlement"
       ],
-    "source": "Daggerheart Core Rulebook"
+      "source": "Daggerheart Core Rulebook"
     },
     {
       "id": "castle-siege",
@@ -16775,7 +16775,7 @@
       "biomes": [
         "settlement"
       ],
-    "source": "Daggerheart Core Rulebook"
+      "source": "Daggerheart Core Rulebook"
     },
     {
       "id": "burning-heart-of-the-woods",
@@ -16893,7 +16893,7 @@
       "biomes": [
         "forest"
       ],
-    "source": "Daggerheart Core Rulebook"
+      "source": "Daggerheart Core Rulebook"
     },
     {
       "id": "pitched-battle",
@@ -16994,7 +16994,7 @@
       "biomes": [
         "universal"
       ],
-    "source": "Daggerheart Core Rulebook"
+      "source": "Daggerheart Core Rulebook"
     },
     {
       "id": "divine-usurpation",
@@ -17118,7 +17118,7 @@
       "biomes": [
         "universal"
       ],
-    "source": "Daggerheart Core Rulebook"
+      "source": "Daggerheart Core Rulebook"
     },
     {
       "id": "imperial-court",
@@ -17240,7 +17240,7 @@
       "biomes": [
         "settlement"
       ],
-    "source": "Daggerheart Core Rulebook"
+      "source": "Daggerheart Core Rulebook"
     },
     {
       "id": "necromancers-ossuary",
@@ -17358,7 +17358,7 @@
       "biomes": [
         "underground"
       ],
-    "source": "Daggerheart Core Rulebook"
+      "source": "Daggerheart Core Rulebook"
     },
     {
       "id": "chaos-realm",
@@ -17474,7 +17474,7 @@
       "biomes": [
         "universal"
       ],
-    "source": "Daggerheart Core Rulebook"
+      "source": "Daggerheart Core Rulebook"
     },
     {
       "id": "laboratory",
@@ -25496,12 +25496,24 @@
         "ru": "Логово Разума-Прародителя"
       },
       "impulses": {
-        "en": ["Perceive", "analyze", "consume"],
-        "ru": ["Воспринимать", "анализировать", "поглощать"]
+        "en": [
+          "Perceive",
+          "analyze",
+          "consume"
+        ],
+        "ru": [
+          "Воспринимать",
+          "анализировать",
+          "поглощать"
+        ]
       },
       "potential_adversaries": {
-        "en": ["Progenitor Mind"],
-        "ru": ["Разум-Прародитель"]
+        "en": [
+          "Progenitor Mind"
+        ],
+        "ru": [
+          "Разум-Прародитель"
+        ]
       },
       "features": [
         {
@@ -25521,7 +25533,11 @@
         }
       ],
       "featured_adversaries": [
-        { "id": "progenitor-mind", "display": "inline", "expanded": true }
+        {
+          "id": "progenitor-mind",
+          "display": "inline",
+          "expanded": true
+        }
       ],
       "story_seeds": [
         {
@@ -25555,6 +25571,2176 @@
       ],
       "builtin": true,
       "biomes": [
+        "underground"
+      ],
+      "source": "Resting Dagger"
+    },
+    {
+      "id": "defense-of-the-river-fort",
+      "tier": 1,
+      "type": "event",
+      "difficulty": 10,
+      "name": {
+        "en": "Defense of the River-Fort",
+        "ru": "Защита Речного Форта"
+      },
+      "lore": {
+        "en": "Bandits assail the humble river-fort, hoping to use speed and numbers to overwhelm.",
+        "ru": "Бандиты атакуют скромный речной форт, надеясь сокрушить его скоростью и численностью."
+      },
+      "impulses": {
+        "en": [
+          "Hold the line",
+          "defend the land"
+        ],
+        "ru": [
+          "Держать линию",
+          "защищать землю"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Jagged Knife Bandits (Hexer, Kneebreaker, Lackey, Lieutenant, Shadow, Sniper)",
+          "Guards (Bladed, Archer, Head)"
+        ],
+        "ru": [
+          "Бандиты из «Зазубренного ножа» (Колдун, Коленолом, Шестёрка, Лейтенант, Тень, Снайпер)",
+          "Стражники (Стражник-Мечник, Стражник-Лучник, Капитан Стражи)"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Defended Crossing",
+            "ru": "Защищённая переправа"
+          },
+          "description": {
+            "en": "When someone tries to cross the river, anyone within Very Close of their arrival on the far side can make a free attack against them. If any hit, they fall into the water below instead and become *Vulnerable* until they take an action to escape.",
+            "ru": "Когда кто-то пытается переправиться через реку, любой находящийся в пределах Очень Близкой дистанции от места его высадки на другом берегу может совершить бесплатную атаку против него. Если атака попадает, он вместо урона падает в воду и становится *Уязвим*, пока не потратит действие, чтобы выбраться."
+          },
+          "prompt": {
+            "en": "Do the PCs have defenders alongside them, pushing the bandits into the water? Will they need to hop across themselves?",
+            "ru": "Есть ли у персонажей защитники рядом, толкающие бандитов в воду? Придётся ли им самим перепрыгивать через реку?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Our Old Ballista",
+            "ru": "Наша старая баллиста"
+          },
+          "description": {
+            "en": "This trusty, rusty old siege engine can be fired without assistance at Disadvantage as a ranged attack or normally with one person within Very Close assisting. On a success, it deals 1d12 physical damage to all within Very Close of the target point. Requires a Strength Action Roll to reload.",
+            "ru": "Эта надёжная, хоть и ржавая, осадная машина может стрелять без посторонней помощи с Помехой как дальняя атака, либо как обычно, если рядом (в пределах Очень Близкой дистанции) кто-то ей помогает. При успехе она наносит 1d12 физического урона всем в пределах Очень Близкой дистанции от точки попадания. Для перезарядки требуется Бросок Действия на Силу."
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Another Wave!",
+            "ru": "Ещё одна волна!"
+          },
+          "description": {
+            "en": "Spend a Fear to send 1 Jagged Knife Bandit Lieutenant against the fort, backed up by an appropriate mix of Jagged Knife Bandits. Try to vary successive waves, working in hexers and snipers, then lackeys and shadows.",
+            "ru": "Потратьте Страх, чтобы отправить в атаку на форт 1 Лейтенанта Бандитов из «Зазубренного ножа», подкреплённого подходящим набором обычных Бандитов из «Зазубренного ножа». Старайтесь разнообразить последующие волны, вводя Колдунов и Снайперов, а затем Шестёрок и Теней."
+          },
+          "prompt": {
+            "en": "Why are they desperate enough to try this?",
+            "ru": "Почему они настолько отчаялись, чтобы пойти на это?"
+          }
+        }
+      ],
+      "story_seeds": [
+        {
+          "title": {
+            "en": "Desperate Plea",
+            "ru": "Отчаянная просьба"
+          },
+          "body": {
+            "en": "The vulnerable farmlands beyond the river-fort are a peaceful place recently ravaged by war. They have few defenders and their last standing point of resistance, the river-fort, threatens to fall under the next petty warlord or bandit chief's assault. The PCs answer the call.",
+            "ru": "Уязвимые фермерские земли за речным фортом — мирное место, недавно разорённое войной. У них мало защитников, а их последний оплот сопротивления, речной форт, грозит падению под натиском очередного мелкого военачальника или бандитского главаря. Персонажи откликаются на зов."
+          },
+          "prompt": {
+            "en": "Why are the PCs so bad?",
+            "ru": "Почему персонажи настолько плохи?"
+          }
+        },
+        {
+          "title": {
+            "en": "A Merry Band",
+            "ru": "Весёлая банда"
+          },
+          "body": {
+            "en": "The party finds themselves on the far end of the conflict. Unjust rule and depredations against the innocent lead them to side with justice—in this case, the bandits. Populate the fort with Guards.",
+            "ru": "Отряд оказывается на другой стороне конфликта. Несправедливое правление и притеснения невинных подталкивают их встать на сторону справедливости — в данном случае, на сторону бандитов. Заселите форт Стражниками."
+          },
+          "prompt": {
+            "en": "Are the PCs joining a revolution, settling a score, or just here to grab some loot in the river-fort?",
+            "ru": "Присоединяются ли персонажи к революции, сводят счёты или просто пришли за добычей в речном форте?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "settlement",
+        "aquatic"
+      ],
+      "source": "Resting Dagger"
+    },
+    {
+      "id": "garden-of-the-tranquil-order",
+      "tier": 1,
+      "type": "exploration",
+      "difficulty": 11,
+      "name": {
+        "en": "Garden of the Tranquil Order",
+        "ru": "Сад Безмятежного Ордена"
+      },
+      "lore": {
+        "en": "A tranquil garden shrine hiding secrets in serenity.",
+        "ru": "Безмятежный садовый храм, скрывающий тайны в тишине."
+      },
+      "impulses": {
+        "en": [
+          "Calm the restless",
+          "reveal hidden truth"
+        ],
+        "ru": [
+          "Успокаивать неугомонных",
+          "раскрывать скрытую истину"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Construct",
+          "Jagged Knife (Shadow, Sniper)"
+        ],
+        "ru": [
+          "Конструкт",
+          "«Зазубренный нож» (Тень, Снайпер)"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Place of Reflection",
+            "ru": "Место размышлений"
+          },
+          "description": {
+            "en": "The world is well-ordered here, clear in its natural beauty and constructed aesthetics that complement it. A PC may make an Instinct or Knowledge Roll here to gain insights about their present quest or information they have come seeking. This takes the form of a meditative walk or silent reflection. On a success with Hope, they receive a significant revelation. On a success with Fear, they gain future insight but also reflect upon past oversights that may blossom into new dangers (make 1 stress). On failure, a PC may mark 1 stress to gain slight insight.\nInsights on future enemy abilities, weaknesses, and plans can be presented obliquely.\nDoubts and imagined dangers about allies and neutral parties can be presented as imminent.\nA general sense that this is a mix of their own reflections and some indescribable presence in the Garden should be maintained: this isn’t a factual view of the future, but an imagined one.",
+            "ru": "Здесь мир хорошо устроен, ясен в своей природной красоте и рукотворной эстетике, которая её дополняет. Персонаж может совершить Бросок Инстинкта или Знания, чтобы получить озарения о своём текущем задании или сведениях, которые он ищет. Это происходит в форме медитативной прогулки или тихого размышления. При успехе с Надеждой он получает значительное откровение. При успехе со Страхом он получает озарение о будущем, но также осознаёт прошлые упущения, которые могут обернуться новыми опасностями (отметьте 1 Стресс). При неудаче персонаж может отметить 1 Стресс, чтобы получить незначительное озарение.\nОзарения о будущих способностях, слабостях и планах врагов можно преподносить намёками.\nСомнения и воображаемые опасности, касающиеся союзников и нейтральных сторон, можно преподносить как неминуемые.\nСледует поддерживать общее ощущение, что это смесь собственных размышлений персонажа и некоего неописуемого присутствия в Саду: это не фактический взгляд на будущее, а лишь воображаемый."
+          },
+          "prompt": {
+            "en": "What force provides clarity here? Neutral or biased? What isn’t it showing them? Why?",
+            "ru": "Какая сила дарует здесь ясность? Нейтральна она или предвзята? Чего она им не показывает? Почему?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Calming Anchor",
+            "ru": "Успокаивающий якорь"
+          },
+          "description": {
+            "en": "Pick a point in the garden: all within Very Close clear 1 Stress and cannot move beyond Very Close until after their next Spotlight without making a Strength or Instinct Roll.",
+            "ru": "Выберите точку в саду: все находящиеся в пределах Очень Близкой дистанции снимают 1 Стресс и не могут переместиться дальше Очень Близкой дистанции до своей следующей Активации, если не совершат Бросок Действия на Силу или Инстинкт."
+          },
+          "prompt": {
+            "en": "How does this calming anchor manifest? Is it visible, or only a feeling?",
+            "ru": "Как проявляется этот успокаивающий якорь? Он видим, или это лишь ощущение?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Guardians of the Garden",
+            "ru": "Стражи сада"
+          },
+          "description": {
+            "en": "Spend a Fear to have a statue burst to life, ringed by agile warriors—1 Construct, half as many Jagged Knife Shadows as there are PCs, and half as many Jagged Knife Snipers as there are PCs, all form up. They are attacking the party for disturbing the garden.",
+            "ru": "Потратьте Страх, чтобы статуя пробудилась к жизни, окружённая ловкими воителями — 1 Конструкт, вдвое меньше Теней «Зазубренного ножа», чем персонажей в группе, и вдвое меньше Снайперов «Зазубренного ножа», чем персонажей в группе, — и все они выстраиваются в боевой порядок. Они нападают на отряд за то, что тот нарушил покой сада."
+          },
+          "prompt": {
+            "en": "What did the PCs do to disturb the Garden of the Tranquil Order?",
+            "ru": "Что сделали персонажи, чтобы нарушить покой Сада Безмятежного Ордена?"
+          }
+        }
+      ],
+      "story_seeds": [
+        {
+          "title": {
+            "en": "Memorial of the Past",
+            "ru": "Память о прошлом"
+          },
+          "body": {
+            "en": "An old soldier of a lost cause has asked the party to return the personal effects of a long-departed comrade to a place of tranquility.",
+            "ru": "Старый солдат проигранного дела попросил отряд вернуть личные вещи давно почившего товарища в место покоя."
+          },
+          "prompt": {
+            "en": "Who are they, and why not go themselves?",
+            "ru": "Кто они, и почему не отправились сами?"
+          }
+        },
+        {
+          "title": {
+            "en": "Secrets of the Tranquil Order",
+            "ru": "Тайны Безмятежного Ордена"
+          },
+          "body": {
+            "en": "Dusty scrolls and half-burned letters lead the party on a merry chase in search of enlightenment and clues.",
+            "ru": "Пыльные свитки и наполовину сгоревшие письма ведут отряд в весёлую погоню за просветлением и подсказками."
+          },
+          "prompt": {
+            "en": "Is this their own discovery, or are they being baited into coming by an unseen hand?",
+            "ru": "Это их собственное открытие, или их заманивает сюда некая невидимая рука?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "settlement"
+      ],
+      "source": "Resting Dagger"
+    },
+    {
+      "id": "divine-feast",
+      "tier": 1,
+      "type": "exploration",
+      "difficulty": 11,
+      "name": {
+        "en": "Divine Feast",
+        "ru": "Божественный пир"
+      },
+      "lore": {
+        "en": "A rich feast table set for giants.",
+        "ru": "Богатый пиршественный стол, накрытый для великанов."
+      },
+      "impulses": {
+        "en": [
+          "gluttonous consumption",
+          "polite reflection"
+        ],
+        "ru": [
+          "ненасытное чревоугодие",
+          "учтивая задумчивость"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Giant Rat",
+          "Guards (Bladed, Archer, Head)"
+        ],
+        "ru": [
+          "Гигантская Крыса",
+          "Стражники (Стражник-Мечник, Стражник-Лучник, Капитан Стражи)"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Made Much Larger",
+            "ru": "Всё стало намного больше"
+          },
+          "description": {
+            "en": "PCs need to make Agility Rolls to make significant elevation changes, as there are no stairs or handholds intended for people their size; any motion requiring an Agility Roll normally performed here suffers disadvantage unless the environment is used creatively.",
+            "ru": "Персонажам нужно совершать Броски Проворности, чтобы преодолевать значительные перепады высоты, поскольку здесь нет ни лестниц, ни опор, рассчитанных на существ их роста; любое движение, обычно требующее здесь Броска Проворности, совершается с Помехой, если только окружение не используется творчески."
+          },
+          "prompt": {
+            "en": "How do the PCs get on the table in the first place? How sturdy is the food underfoot?",
+            "ru": "Как персонажи вообще попали на стол? Насколько прочна еда под ногами?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Sea of Rats",
+            "ru": "Море крыс"
+          },
+          "description": {
+            "en": "Spend a Fear. Unleash four times as many Giant Rats as there are PCs; they descend to eat everything on offer, PCs included. This summons the Hand.",
+            "ru": "Потратьте Страх. Выпустите Гигантских Крыс в четыре раза больше, чем персонажей в группе; они набрасываются, чтобы съесть всё, что есть на столе, включая самих персонажей. Это призывает Руку."
+          },
+          "prompt": {
+            "en": "How are the Giant Rats moving around, and could the party travel via the same means? What finally set them off?",
+            "ru": "Как передвигаются Гигантские Крысы, и может ли отряд воспользоваться тем же способом? Что наконец спровоцировало их?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "The Hand",
+            "ru": "Рука"
+          },
+          "description": {
+            "en": "A giant figure, incomprehensible in nature, is sitting eating. Whenever a creature disturbs the food or a PC Rolls with Fear while out of hiding, the hand descends—dealing 1d10+2 damage to all within Very Close of the source of the disturbance.",
+            "ru": "Гигантская фигура непостижимой природы сидит и ест. Каждый раз, когда существо тревожит еду, или персонаж совершает Бросок со Страхом, находясь не в укрытии, рука опускается — нанося 1d10+2 урона всем в пределах Очень Близкой дистанции от источника беспокойства."
+          },
+          "prompt": {
+            "en": "Who, or what, is this giant? Do the PCs know? Do they want to? Can they?",
+            "ru": "Кто, или что, этот великан? Знают ли персонажи? Хотят ли они знать? Могут ли они это узнать?"
+          }
+        }
+      ],
+      "story_seeds": [
+        {
+          "title": {
+            "en": "Hall of the Mountain King",
+            "ru": "Зал Горного Короля"
+          },
+          "body": {
+            "en": "A giant who dwells within a tall mountain is known to hoard lavish wealth from across the lands—surely he wouldn’t notice a little going missing? A trip looking for a treasure vault turns to a lunge to the larder as they navigate this too-large landscape, however, and finally they find themselves on a giant’s table set for a feast.",
+            "ru": "Великан, обитающий в высокой горе, славится тем, что копит роскошные богатства со всех земель — уж конечно, он не заметит, если немного пропадёт? Поход за сокровищницей оборачивается набегом на кладовую, пока они пробираются через этот слишком большой для них ландшафт, и наконец они оказываются на столе великана, накрытом для пира."
+          },
+          "prompt": {
+            "en": "Are the PCs here to rob the giant? Confront him? Get something specific that they or a contact has a right to?",
+            "ru": "Пришли ли персонажи, чтобы обокрасть великана? Противостоять ему? Забрать что-то конкретное, на что они сами или их контакт имеют право?"
+          }
+        },
+        {
+          "title": {
+            "en": "Cruel Shade of Size",
+            "ru": "Жестокая прихоть величины"
+          },
+          "body": {
+            "en": "The party has offended, wittingly or otherwise, a goddess of vindictive justice. Passing under an awning’s shade at a crooked angle, they find themselves suddenly much shrunk. Through happenstance, they quickly find themselves on a table set for dinner. They need to figure out how to appease the goddess, regain their former size, and avoid getting squished or eaten by rats—all at once!",
+            "ru": "Отряд, вольно или невольно, обидел богиню мстительной справедливости. Пройдя под тенью навеса под неверным углом, они внезапно оказываются сильно уменьшенными. По воле случая они быстро оказываются на столе, накрытом к ужину. Им нужно понять, как умилостивить богиню, вернуть свой прежний рост и не быть раздавленными или съеденными крысами — и всё это одновременно!"
+          },
+          "prompt": {
+            "en": "Who is this deity? What did the party do to offend her? What can be done to break her curse if she can’t be convinced to do so herself? What could make amends for their transgression?",
+            "ru": "Кто это божество? Чем отряд обидел её? Что можно сделать, чтобы разрушить её проклятие, если её саму не удаётся убедить сделать это? Что могло бы искупить их проступок?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "settlement"
+      ],
+      "source": "Resting Dagger"
+    },
+    {
+      "id": "drowned-sanctum",
+      "tier": 3,
+      "type": "event",
+      "difficulty": 16,
+      "name": {
+        "en": "Drowned Sanctum",
+        "ru": "Затонувшая Святыня"
+      },
+      "lore": {
+        "en": "A stone shrine encased in saltwater, nature and chiseled slabs melding harmoniously.",
+        "ru": "Каменная святыня, скованная солёной водой, где природа и резные плиты сливаются в гармонии."
+      },
+      "impulses": {
+        "en": [
+          "drown",
+          "creep",
+          "preserve"
+        ],
+        "ru": [
+          "затоплять",
+          "подступать",
+          "сохранять"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Greater Water Elemental"
+        ],
+        "ru": [
+          "Великий Водный Элементаль"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Sunken Grandeur",
+            "ru": "Затонувшее величие"
+          },
+          "description": {
+            "en": "Any time the PCs make a Roll to learn about this place and what happened here:\nWith Hope, gain an additional insight into the civilization that built this place or the magic that preserves it.\nWith Fear, the pressure and strain of the depths start to gnaw at them—they mark 1 Stress the first time this happens.",
+            "ru": "Каждый раз, когда персонажи совершают Бросок, чтобы узнать об этом месте и о том, что здесь произошло:\nПри Надежде они получают дополнительное озарение о цивилизации, построившей это место, или о магии, которая его сохраняет.\nПри Страхе давление и напряжение глубин начинают их изматывать — в первый раз, когда это происходит, они отмечают 1 Стресс."
+          },
+          "prompt": {
+            "en": "How is the party breathing and swimming down here? Could this be imperiled by spells or accidents? What preserves the stones?",
+            "ru": "Как отряд дышит и плывёт здесь, внизу? Может ли это быть нарушено заклинаниями или случайностями? Что сохраняет эти камни?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Party Pass",
+            "ru": "Цепная передача"
+          },
+          "description": {
+            "en": "Any time a Greater Water Elemental uses High Tide while another Greater Water Elemental is within Close of it, the knockback effect can extend to any distance within Close of any Greater Water Elemental. This can chain multiple times; only 1 in the chain marks Stress.",
+            "ru": "Каждый раз, когда Великий Водный Элементаль использует «Высокий Прилив», пока другой Великий Водный Элементаль находится в пределах Близкой дистанции от него, эффект отбрасывания может распространиться на любое расстояние в пределах Близкой дистанции от любого Великого Водного Элементаля. Это может повторяться цепочкой несколько раз; только один участник цепочки отмечает Стресс."
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Enter the Typhoon",
+            "ru": "Явление тайфуна"
+          },
+          "description": {
+            "en": "The first time the party disturbs the structure or makes contact with it in any way, the latent magics holding it firm against the water’s pressures manifest. Greater Water Elementals appear, a group four times the party’s size, and attack.",
+            "ru": "В первый раз, когда отряд нарушает структуру святыни или каким-либо образом соприкасается с ней, проявляется скрытая магия, удерживающая её против давления вод. Появляются Великие Водные Элементали — группа, вчетверо превышающая размер отряда, — и атакуют."
+          },
+          "prompt": {
+            "en": "Are they guarding the stones, or awaiting something to feed upon? Do these elementals guard this place deliberately, or as a simple mechanical function of their existence?",
+            "ru": "Охраняют ли они камни, или ждут, чем бы поживиться? Стерегут ли эти элементали это место осознанно, или это просто механическая функция их существования?"
+          }
+        }
+      ],
+      "story_seeds": [
+        {
+          "title": {
+            "en": "Lost Rubric of the Deep",
+            "ru": "Утраченный Свод Глубин"
+          },
+          "body": {
+            "en": "It is said that an ancient construct of glass and encased sea flora held the secrets to constructing civilization itself; this arcane artifact has long been derided as a fairy tale or else lost permanently to some disaster. But when the party’s contact delivered them a trunk of old charts and journals, everything changed: the Lost Rubric is very real. And what’s more, they know exactly where it is.",
+            "ru": "Говорят, что древний артефакт из стекла и покрытой панцирем морской флоры хранил секреты построения самой цивилизации; этот таинственный артефакт долгое время считался сказкой или навсегда утраченным в какой-то катастрофе. Но когда контакт отряда передал им сундук со старыми картами и журналами, всё изменилось: Утраченный Свод действительно существует. И более того, они точно знают, где он находится."
+          },
+          "prompt": {
+            "en": "Who else wants the Rubric, and why? Do the PCs suspect others know? How do the PCs feel about this ancient guide to starting civilization? Could it help modern people? Does it even work?",
+            "ru": "Кто ещё хочет заполучить Свод, и почему? Подозревают ли персонажи, что о нём знают другие? Как персонажи относятся к этому древнему руководству по основанию цивилизации? Может ли оно помочь современным людям? Работает ли оно вообще?"
+          }
+        },
+        {
+          "title": {
+            "en": "Crushing in the Depths",
+            "ru": "Раздавленные в глубинах"
+          },
+          "body": {
+            "en": "Fishers disappear along a certain sea lane, torn from their boats by unseen forces. A contact of the party believes that a strange ruin could be causing elemental activity.",
+            "ru": "Рыбаки пропадают вдоль определённого морского пути, вырванные из своих лодок неведомыми силами. Контакт отряда считает, что причиной элементальной активности может быть странная руина."
+          },
+          "prompt": {
+            "en": "Are the elementals an intentional part of this ruin, or a side effect of pressurized magic?",
+            "ru": "Являются ли элементали намеренной частью этой руины, или побочным эффектом магии под давлением?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "aquatic",
+        "settlement"
+      ],
+      "source": "Resting Dagger"
+    },
+    {
+      "id": "the-proving-pyre",
+      "tier": 1,
+      "type": "event",
+      "difficulty": 11,
+      "name": {
+        "en": "The Proving Pyre",
+        "ru": "Испытующий Костёр"
+      },
+      "lore": {
+        "en": "An arena wreathed in fire, awaiting combatants.",
+        "ru": "Арена, объятая пламенем, ожидающая противников."
+      },
+      "impulses": {
+        "en": [
+          "Burn up",
+          "destroy",
+          "temper",
+          "heat up"
+        ],
+        "ru": [
+          "Сжигать",
+          "уничтожать",
+          "закалять",
+          "разжигать"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Minor Fire Elemental",
+          "Minor Chaos Elemental",
+          "Minor Demon"
+        ],
+        "ru": [
+          "Малый Огненный Элементаль",
+          "Малый Элементаль Хаоса",
+          "Малый Демон"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Fire Rises",
+            "ru": "Огонь поднимается"
+          },
+          "description": {
+            "en": "Whenever a PC takes a hit within Very Close Range of an open fire pit, they must make an Agility roll—on failure, they suffer 2d8 direct physical damage.",
+            "ru": "Каждый раз, когда персонаж получает удар в пределах Очень Близкой дистанции от открытой огненной ямы, он должен совершить Бросок Проворности — при неудаче он получает 2d8 прямого физического урона."
+          },
+          "prompt": {
+            "en": "Are there traps and triggers around the arena to bring out even more fire and remove what safe space remains? Is the fire rising?",
+            "ru": "Есть ли на арене ловушки и механизмы, высвобождающие ещё больше огня и уничтожающие оставшееся безопасное пространство? Разгорается ли огонь всё сильнее?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Enter the Flame",
+            "ru": "Явление пламени"
+          },
+          "description": {
+            "en": "Introduce a Minor Fire Elemental to the arena, which proceeds to attack the PCs.",
+            "ru": "Введите на арену Малого Огненного Элементаля, который нападает на персонажей."
+          },
+          "prompt": {
+            "en": "How many of them are there? Is this a battle to the death, or is the elemental being reformed?",
+            "ru": "Сколько их? Это бой насмерть, или элементаль воссоздаётся заново?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Burst of Flame",
+            "ru": "Вспышка пламени"
+          },
+          "description": {
+            "en": "When a Minor Fire Elemental is destroyed, spend 1 Fear to force a Fire Rises roll on every PC as fire fans up and licks around the floor and walls.",
+            "ru": "Когда Малый Огненный Элементаль уничтожен, потратьте 1 Страх, чтобы заставить каждого персонажа совершить Бросок «Огонь поднимается», поскольку пламя взметается и облизывает пол и стены."
+          },
+          "prompt": {
+            "en": "What unseen hand moves the fire? Is there a mechanical force blowing like a bellows below, or is the release of magic from the elemental’s destruction bringing the fire upwards?",
+            "ru": "Какая незримая рука управляет огнём? Есть ли механическая сила, раздувающая его подобно кузнечным мехам снизу, или высвобождение магии из уничтоженного элементаля поднимает пламя вверх?"
+          }
+        }
+      ],
+      "story_seeds": [
+        {
+          "title": {
+            "en": "Captive Audience",
+            "ru": "Пленная публика"
+          },
+          "body": {
+            "en": "The PCs found themselves on the trail of fiery mystery and intrigue—and then found themselves thrown down here. Whatever magical conspiracy is behind this, they’re going to need to survive the Proving Pyre before they can solve it.",
+            "ru": "Персонажи шли по следу огненной тайны и интриги — а затем оказались брошены сюда. Какой бы магический заговор здесь ни крылся, им нужно выжить в Испытующем Костре, прежде чем они смогут его раскрыть."
+          },
+          "prompt": {
+            "en": "How does this place relate to the PCs’ backgrounds? How were they captured, or were they led here instead? What secrets does the Proving Pyre itself hold?",
+            "ru": "Как это место связано с предысториями персонажей? Как их схватили, или их, вместо этого, привели сюда? Какие тайны хранит сам Испытующий Костёр?"
+          }
+        },
+        {
+          "title": {
+            "en": "Summoning Gone Wrong",
+            "ru": "Призыв, пошедший не так"
+          },
+          "body": {
+            "en": "The PCs needed to summon an elemental to gain important knowledge—but this spot was necessary to bring the right one forth. Now, things have gotten out of hand, and they’re going to need to douse their invitee’s fiery ambitions before they can have a chat with them.",
+            "ru": "Персонажам нужно было призвать элементаля, чтобы получить важные знания — но именно это место было необходимо, чтобы вызвать нужного. Теперь всё вышло из-под контроля, и им нужно погасить огненные амбиции своего гостя, прежде чем они смогут с ним побеседовать."
+          },
+          "prompt": {
+            "en": "How did they learn how to summon this elemental? What does it know in particular that will help them on their quest? Did anyone else know this was going to lead to a fight?",
+            "ru": "Как они узнали, как призвать этого элементаля? Что конкретно он знает, что поможет им в их задании? Знал ли кто-то ещё, что это приведёт к бою?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "settlement"
+      ],
+      "source": "Resting Dagger"
+    },
+    {
+      "id": "teal-heart-inn",
+      "tier": 1,
+      "type": "social",
+      "difficulty": 10,
+      "name": {
+        "en": "Teal-Heart Inn",
+        "ru": "Трактир «Бирюзовое Сердце»"
+      },
+      "lore": {
+        "en": "A pleasant roadside inn that offers a warm bed and a dark corner to sleep and scheme.",
+        "ru": "Приятный придорожный трактир, предлагающий тёплую постель и тёмный уголок для сна и заговоров."
+      },
+      "impulses": {
+        "en": [
+          "Bring people together for opportunity",
+          "shelter the wary"
+        ],
+        "ru": [
+          "Сводить людей ради возможностей",
+          "укрывать осторожных"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Merchant",
+          "Petty Noble",
+          "Mercenaries (Harrier, Sellsword, Spellblade, Weaponmaster)"
+        ],
+        "ru": [
+          "Торговец",
+          "Мелкий Аристократ",
+          "Наёмники (Пикинёр, Наёмный Клинок, Заклинатель-мечник, Мастер Оружия)"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Libations & Luxuriations",
+            "ru": "Возлияния и роскошества"
+          },
+          "description": {
+            "en": "A PC can choose to take a load off and have a good time. They can choose one of the following to do, and then clear a Stress:\nSpend 1 coin to have a nice drink at the bar.\nRest on the chaise lounge by the fire.\nGossip with merchants and mercenaries.",
+            "ru": "Персонаж может решить отдохнуть и хорошо провести время. Он может выбрать одно из следующего, а затем снять 1 Стресс:\n- Потратить 1 монету на приятный напиток у стойки.\n- Отдохнуть на шезлонге у камина.\n- Посплетничать с торговцами и наёмниками."
+          },
+          "prompt": {
+            "en": "What trouble do they get into relaxing?",
+            "ru": "В какие неприятности они попадают, отдыхая?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "High Stakes Game",
+            "ru": "Игра на высокие ставки"
+          },
+          "description": {
+            "en": "A PC can partake in a high-stakes game of chance with a Presence or Instinct Roll. They must put up 1 bag full of gold or a magic item to play; they earn 1d4 bags of gold on a success (2d4 if critical), and lose that 1 bag of gold or item on a failure—as well as marking 1 Stress.",
+            "ru": "Персонаж может принять участие в азартной игре с высокими ставками, совершив Бросок на Влияние или Инстинкт. Чтобы сыграть, он должен поставить 1 увесистый мешок золота или магический предмет; при успехе он выигрывает 1d4 мешка золота (2d4 при критическом успехе), а при неудаче теряет этот 1 мешок золота или предмет — а также отмечает 1 Стресс."
+          },
+          "prompt": {
+            "en": "What happens if the PC’s not really good for it and loses? Who might they meet at this table? What game are they playing?",
+            "ru": "Что происходит, если у персонажа на самом деле нет средств расплатиться, и он проигрывает? Кого он может встретить за этим столом? В какую игру они играют?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "For a Few Handfuls More",
+            "ru": "За ещё несколько горстей"
+          },
+          "description": {
+            "en": "A PC may approach some of the loitering mercenaries in the tavern (as per Potential Adversaries) and make a Presence roll to hire them on as a temporary Companion. On a critical success, it costs 1 handful of gold; on a success, 2; and on a failure with Hope, 3. They won’t take the job on a failure with Fear.",
+            "ru": "Персонаж может обратиться к кому-то из бездельничающих в трактире наёмников (согласно Потенциальным Противникам) и совершить Бросок на Влияние, чтобы временно нанять его в качестве Спутника. При критическом успехе это стоит 1 горсть золота; при успехе — 2; а при неудаче с Надеждой — 3. При неудаче со Страхом наёмник не соглашается на эту работу."
+          },
+          "prompt": {
+            "en": "What does this mercenary know? Why have they washed up here seeking employment?",
+            "ru": "Что знает этот наёмник? Почему он оказался здесь в поисках работы?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "“It’s Them!”",
+            "ru": "«Это они!»"
+          },
+          "description": {
+            "en": "Spend a Fear to have a group of Mercs move in on the party—someone has paid them to ensure the party doesn’t check out tonight.",
+            "ru": "Потратьте Страх, чтобы группа Наёмников двинулась на отряд — кто-то заплатил им, чтобы убедиться, что отряд не «съедет» из трактира живым этой ночью."
+          },
+          "prompt": {
+            "en": "Who hired the mercenaries? Do they have the right group? Are they open to counter-offers?",
+            "ru": "Кто нанял наёмников? Не ошиблись ли они с отрядом? Открыты ли они к встречным предложениям?"
+          }
+        }
+      ],
+      "story_seeds": [
+        {
+          "title": {
+            "en": "See a Man About a Bag",
+            "ru": "Разговор насчёт мешка"
+          },
+          "body": {
+            "en": "Infamous swindler Rupert Two-Tones has a magic bag, and your employers need it back. He’s at the Teal-Heart under an alias, and if you don’t grab him tonight, he’ll be gone.",
+            "ru": "У пресловутого мошенника Руперта Два-Тона есть волшебный мешок, и вашим работодателям нужно вернуть его. Он находится в «Бирюзовом Сердце» под чужим именем, и если вы не схватите его этой ночью, он исчезнет."
+          },
+          "prompt": {
+            "en": "What’s in the bag? What IS the bag?",
+            "ru": "Что в мешке? Что вообще ЕСТЬ этот мешок?"
+          }
+        },
+        {
+          "title": {
+            "en": "Shady Recruiter",
+            "ru": "Тёмный вербовщик"
+          },
+          "body": {
+            "en": "The armies of darkness have more hired muscle than normal—you hear they’re recruiting mercs at the Teal Heart.",
+            "ru": "У армий тьмы сейчас больше наёмной силы, чем обычно — вы слышали, что они набирают наёмников в «Бирюзовом Сердце»."
+          },
+          "prompt": {
+            "en": "Will the party pose as mercs? Is the recruiter in the open or concealed?",
+            "ru": "Будет ли отряд притворяться наёмниками? Вербовщик действует открыто, или скрытно?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "settlement"
+      ],
+      "source": "Resting Dagger"
+    },
+    {
+      "id": "stones-adrift",
+      "tier": 1,
+      "type": "traversal",
+      "difficulty": 12,
+      "name": {
+        "en": "Stones Adrift",
+        "ru": "Дрейфующие Камни"
+      },
+      "lore": {
+        "en": "Floating rocks high above a misty descent to the gorge impossibly far below.",
+        "ru": "Парящие скалы высоко над туманным обрывом к невероятно далёкому ущелью внизу."
+      },
+      "impulses": {
+        "en": [
+          "Lift the stone and cast off the unworthy",
+          "inspire awe and wonder as well as fear and trepidation"
+        ],
+        "ru": [
+          "Поднимать камень и отвергать недостойных",
+          "внушать трепет и восхищение, а также страх и содрогание"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Minor Demon",
+          "Minor Elementals (Fire, Chaos)",
+          "Giant Mosquitos"
+        ],
+        "ru": [
+          "Малый Демон",
+          "Малые Элементали (Огня, Хаоса)",
+          "Гигантские Москиты"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "The Laden Passage",
+            "ru": "Нагруженный переход"
+          },
+          "description": {
+            "en": "Bringing anything but oneself across these stones uses a Progress Countdown (12). It dips down according to the following criteria when the PCs make an action roll to bring it across (greasing axles, calming animals, dragging with ropes, etc):\n**Critical Success:** Tick down 3.\n**Success with Hope:** Tick down 2.\n**Success with Fear:** Tick down 1.\n**Failure with Hope:** No advancement.\n**Failure with Fear:** Tick up 1.\nWhen the countdown triggers, the party has brought whatever they were bringing with them (cart, heavy pack, animal, etc) across to the far side of the map.",
+            "ru": "Перенос через эти камни чего-либо, кроме самих персонажей, отслеживается Отсчётом Прогресса (12). Он уменьшается по следующим правилам, когда персонажи совершают Бросок Действия, чтобы перенести груз (смазывая оси, успокаивая животных, перетаскивая с помощью веревок и т. д.):\n- **Критический успех:** -3\n- **Успех с Надеждой:** -2\n- **Успех со Страхом:** -1\n- **Неудача с Надеждой:** без изменений\n- **Неудача со Страхом:** +1\nКогда Отсчёт срабатывает, отряд переносит то, что он вёз (повозку, тяжёлый рюкзак, животное и т. д.), на дальнюю сторону."
+          },
+          "prompt": {
+            "en": "What holds these stones aloft, and how much weight can they really take? Is there something deciding what will be held aloft or pushed off? How does it feel when defied?",
+            "ru": "Что удерживает эти камни в воздухе, и какой вес они действительно способны выдержать? Решает ли что-то, что будет удерживаться в воздухе, а что — сброшено? Что оно чувствует, когда ему бросают вызов?"
+          }
+        },
+        {
+          "type": "passive",
+          "name": {
+            "en": "Ridgeborne Bridges",
+            "ru": "Мосты Хребтородных"
+          },
+          "description": {
+            "en": "Ridgeborne folk have been here, laying rope bridges and heat stones. They guide and warm the way, and Ridgeborne PCs have Advantage on tests to interact with and learn about them. If a PC is going to fall off or fails on a Progress Countdown action roll, they can negate ticks up they would otherwise incur and hold themselves in exchange for taking 1 Stress.",
+            "ru": "Хребтородные проходили здесь, прокладывая веревочные мосты и тёплые камни. Они направляют и обогревают путь, и персонажи-Хребтородные получают Преимущество на проверки, связанные с взаимодействием с ними и их изучением. Если персонаж рискует упасть или проваливает Бросок Действия по Отсчёту Прогресса, он может отменить деления вверх, которые иначе получил бы, и удержаться, взамен получив 1 Стресс."
+          },
+          "prompt": {
+            "en": "Did the Ridgeborne do this in accord with whatever natural force elevates the stones, or in opposition? How much Stress can these supports take before they crack off?",
+            "ru": "Сделали ли Хребтородные это в согласии с той природной силой, что поднимает камни, или в противостоянии ей? Сколько Стресса способны выдержать эти опоры, прежде чем обломиться?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Demon of the Crossing",
+            "ru": "Демон переправы"
+          },
+          "description": {
+            "en": "Spend a Fear to have a cackling, winged Minor Demon materialize within Close of the furthest ahead PC. They make cryptic allusions to the party’s secrets, especially those kept from one another, and attempt to egg them on into conflict between one another. It keeps going until it’s clearly unsuccessful or something delectable fraught has happened between the PCs, at which point it attacks.",
+            "ru": "Потратьте Страх, чтобы хохочущий крылатый Малый Демон материализовался в пределах Близкой дистанции от персонажа, идущего дальше всех вперёд. Он делает загадочные намёки на секреты отряда, особенно те, что скрыты друг от друга, и пытается стравить их между собой. Он продолжает, пока это явно не терпит неудачи или между персонажами не произойдёт что-то воистину пикантное, после чего он нападает."
+          },
+          "prompt": {
+            "en": "What does it know about the PCs, and how? Is it here as a challenge or acting on its own?",
+            "ru": "Что он знает о персонажах, и откуда? Он здесь как испытание, или действует по собственной воле?"
+          }
+        }
+      ],
+      "story_seeds": [
+        {
+          "title": {
+            "en": "Medicine for the Mountain",
+            "ru": "Лекарство для горы"
+          },
+          "body": {
+            "en": "A community on the far side of the crossing is beset by a deathly illness, and the cart laden with the medicine they need has an issue: its yak driver is missing. The PCs are the only people in position to get this old yak and the cart it draws up there and across in time.",
+            "ru": "Общину на другой стороне переправы поразила смертельная болезнь, а с повозкой, нагруженной необходимым им лекарством, есть проблема: её погонщик яка пропал. Персонажи — единственные, кто способен доставить этого старого яка и повозку, которую он тянет, туда и через переправу вовремя."
+          },
+          "prompt": {
+            "en": "What happened to the yak driver? Is the illness in that community a natural misfortune or manufactured crisis—by whom and for what? What is the yak’s name and personality?",
+            "ru": "Что случилось с погонщиком яка? Болезнь в этой общине — естественное несчастье, или рукотворный кризис — кем и для чего вызванный? Как зовут яка, и какой у него характер?"
+          }
+        },
+        {
+          "title": {
+            "en": "Caravan Lost",
+            "ru": "Потерянный караван"
+          },
+          "body": {
+            "en": "A wealthy merchant recently lost a wagon over the rocks and wants someone to look into what happened and why. If possible, they are to retrieve a locked, lead-lined box without opening. The merchant is offering a bag of gold per PC for this information, and double that if the box is returned unopened.",
+            "ru": "Богатый торговец недавно потерял повозку, упавшую со скал, и хочет, чтобы кто-то разобрался, что произошло и почему. Если возможно, нужно вернуть запертый, свинцом обшитый ящик не открывая его. Торговец предлагает мешок золота за каждого персонажа за эти сведения, и вдвое больше, если ящик будет возвращён невскрытым."
+          },
+          "prompt": {
+            "en": "What’s the merchant’s real motivation, what’s in the box, and is the demon related to all this?",
+            "ru": "Каков истинный мотив торговца, что находится в ящике, и связан ли демон со всем этим?"
+          }
+        },
+        {
+          "title": {
+            "en": "Trial of the Mountain",
+            "ru": "Испытание горы"
+          },
+          "body": {
+            "en": "The party wants knowledge from a community’s elder who is tight-lipped—they say only those who traverse the pass laden with the traditional urn will earn the community’s trust, at which point in time they will freely inform them. The urn is the size of a large person and will not be moved easily.",
+            "ru": "Отряд хочет получить знания от старейшины общины, который держит язык за зубами — он говорит, что лишь те, кто пересечёт перевал, нагруженный традиционной урной, заслужат доверие общины, и только тогда им всё расскажут без утайки. Урна размером со взрослого человека, и её не так-то просто переместить."
+          },
+          "prompt": {
+            "en": "Is the demon a traditional part of this trial or a new problem? Why won’t they trust the party if they cannot perform this task? How did this tradition start?",
+            "ru": "Демон — традиционная часть этого испытания, или новая проблема? Почему они не станут доверять отряду, если тот не справится с этой задачей? Как началась эта традиция?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "mountain"
+      ],
+      "source": "Resting Dagger"
+    },
+    {
+      "id": "overgrown-field",
+      "tier": 1,
+      "type": "exploration",
+      "difficulty": 10,
+      "name": {
+        "en": "Overgrown Field",
+        "ru": "Заросшее поле"
+      },
+      "lore": {
+        "en": "An idyllic pasture of overgrown fields and crumbling stone fences; trees sway in an easy breeze.",
+        "ru": "Безмятежное пастбище из заросших полей и осыпающихся каменных изгородей; деревья покачиваются от лёгкого ветра."
+      },
+      "impulses": {
+        "en": [
+          "Offer shade and comfort",
+          "remind of the impermanence of peoples’ divisions"
+        ],
+        "ru": [
+          "Дарить тень и покой",
+          "напоминать о непостоянстве человеческих распрей"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Beasts (Bear, Dire Wolf, Glass Snake, Giant Rat)",
+          "Skeletons (Archer, Dredge, Knight, Warrior)"
+        ],
+        "ru": [
+          "Звери (Медведь, Лютоволк, Стеклянная Змея, Гигантская Крыса)",
+          "Скелеты (Лучник, Гниль, Рыцарь, Воин)"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Ancient Borders",
+            "ru": "Древние границы"
+          },
+          "description": {
+            "en": "Once this place was tightly regulated, well-kept, and fiercely contested. PCs can make an Instinct Roll to study the area; success with Hope learns all pieces of information, with Fear learns two; on a failure, PCs can mark 1 stress to learn 1, gaining Advantage on the next action roll in this environment. PCs with appropriate backgrounds or Experience can learn an extra detail:\nMarkings on the stone were added and scratched out.\nOld lines of stone fencing moved and shifted slowly over time—then suddenly dashed apart.\nEvidence of a fight (body-sized depressions, broken bits of metal armour and weapons, tool shards stained with ancient blood) just below the surface soil.",
+            "ru": "Когда-то это место было строго регулируемым, ухоженным и яростно оспариваемым. Персонажи могут совершить Бросок Инстинкта, чтобы изучить местность; при успехе с Надеждой они узнают все сведения, при успехе со Страхом — два; при неудаче персонаж может отметить 1 Стресс, чтобы узнать одно, получив Преимущество на следующий Бросок Действия в этом окружении. Персонажи с подходящей Предысторией или Опытом могут узнать дополнительную деталь:\nОтметки на камне были нанесены и стёрты.\nСтарые линии каменных изгородей медленно смещались со временем — а затем внезапно оказались разрушены.\nПрямо под поверхностью почвы видны следы боя (вмятины размером с тело, обломки металлических доспехов и оружия, осколки инструментов, покрытые древней кровью)."
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "A Diverting Breeze",
+            "ru": "Отвлекающий ветерок"
+          },
+          "description": {
+            "en": "A lovely breeze washes over the party, inviting them to take in the natural beauty and enjoy a brief respite—they can clear 1 Stress if they take the time to stop and enjoy it.",
+            "ru": "Приятный ветерок обдувает отряд, приглашая насладиться природной красотой и коротким отдыхом — персонажи могут снять 1 Стресс, если найдут время остановиться и насладиться им."
+          },
+          "prompt": {
+            "en": "What might happen while they’ve stopped to take in the breeze? Is this a natural occurrence, or a magical current? Who else is enjoying this breeze?",
+            "ru": "Что может произойти, пока они остановились насладиться ветерком? Это природное явление, или магическое течение? Кто ещё наслаждается этим ветерком?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Memento Mori",
+            "ru": "Memento Mori"
+          },
+          "description": {
+            "en": "Spend a Fear to have long-dead Skeletons from a skirmish fought over these lands emerge, animated by the baleful memory of conflict over the fields they died for. They appear surrounding the party within Far from the PCs—they are led by a Skeleton Knight, which immediately takes the spotlight.",
+            "ru": "Потратьте Страх, чтобы давно погибшие Скелеты, павшие в стычке за эти земли, поднялись, оживлённые злобной памятью о конфликте за поля, за которые они умерли. Они появляются, окружая отряд в пределах Далёкой дистанции от персонажей — их ведёт Скелет-Рыцарь, который немедленно берёт Активацию."
+          }
+        }
+      ],
+      "story_seeds": [
+        {
+          "title": {
+            "en": "Her Father’s Amulet",
+            "ru": "Амулет её отца"
+          },
+          "body": {
+            "en": "An old woman has a final request—to have her father’s amulet restored to her. He died when she was very young, with the promise to pass his amulet down to her unfulfilled. She knows the story of the battle that took him from her, though it is painful to recall, and hers was the vantage of a child on the events of that terrible day so very long ago.",
+            "ru": "У старой женщины есть последняя просьба — вернуть ей амулет её отца. Он умер, когда она была совсем маленькой, не успев исполнить обещание передать ей амулет. Она знает историю битвы, отнявшей его у неё, хотя ей больно вспоминать об этом, а её собственный взгляд на те события — взгляд ребёнка, наблюдавшего за тем ужасным днём так давно."
+          },
+          "prompt": {
+            "en": "What doesn’t she remember, and what isn’t she telling the party that she does? Is her father the Skeleton Warrior, and what will happen if they try to tell him why they’ve come? Are the PCs prepared to desecrate this body to keep his promise for him if he’s beyond reason?",
+            "ru": "Чего она не помнит, и о чём не рассказывает отряду, хотя знает это? Является ли её отец тем самым Скелетом-Воином, и что произойдёт, если они попытаются объяснить ему, зачем пришли? Готовы ли персонажи осквернить это тело, чтобы исполнить его обещание за него, если он уже не в состоянии рассуждать здраво?"
+          }
+        },
+        {
+          "title": {
+            "en": "A New Spring",
+            "ru": "Новая весна"
+          },
+          "body": {
+            "en": "A new generation of farmers is coming of age as an older one arrives, disenfranchised by misfortunes abroad—they pool together seeking new lands to till. Rumours of brigands, bad soil, and hauntings have them unsure of laying down new roots here. They look to the PCs to check out the area.",
+            "ru": "Новое поколение фермеров вступает во взрослую жизнь, пока прибывает и старое, обездоленное несчастьями на чужбине — они объединяются в поисках новых земель для возделывания. Слухи о разбойниках, дурной почве и призраках заставляют их не решаться пускать здесь новые корни. Они обращаются к персонажам, чтобы те осмотрели местность."
+          },
+          "prompt": {
+            "en": "Why was this place abandoned? Will new farms here revive old conflicts? Who watches from other communities with a close eye towards any developments here, and how will they react to the PCs poking around?",
+            "ru": "Почему это место было покинуто? Не возродят ли новые фермы старые конфликты? Кто из других общин внимательно наблюдает за любыми переменами здесь, и как они отреагируют на то, что персонажи здесь копаются?"
+          }
+        },
+        {
+          "title": {
+            "en": "To Remember for Awhile",
+            "ru": "Немного вспомнить"
+          },
+          "body": {
+            "en": "An antagonist the party has faced before has stopped to enjoy a diverting breeze and rest awhile in the shade of the trees here in these pleasant fields. They do not seem initially hostile.",
+            "ru": "Противник, с которым отряд уже сталкивался, остановился здесь, чтобы насладиться отвлекающим ветерком и немного отдохнуть в тени деревьев на этих приятных полях. Изначально он не выглядит враждебным."
+          },
+          "prompt": {
+            "en": "What does this place mean to them? Have they reconsidered what led to the conflict before? Are they taking a final respite before taking a final, terrible step they do not think they can come back from?",
+            "ru": "Что значит для него это место? Пересмотрел ли он то, что привело к прежнему конфликту? Не отдыхает ли он в последний раз перед тем, как сделать последний, ужасный шаг, после которого, как он думает, уже не будет пути назад?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "grassland"
+      ],
+      "source": "Resting Dagger"
+    },
+    {
+      "id": "lost-village",
+      "tier": 1,
+      "type": "exploration",
+      "difficulty": 10,
+      "name": {
+        "en": "Lost Village",
+        "ru": "Потерянная деревня"
+      },
+      "lore": {
+        "en": "A stripped set of stone foundations and rotting timbers too firmly rammed down to be worth stealing.",
+        "ru": "Оголённые каменные фундаменты и гниющие балки, вбитые слишком крепко, чтобы их стоило воровать."
+      },
+      "impulses": {
+        "en": [
+          "Regrow",
+          "forget",
+          "pass through",
+          "remember"
+        ],
+        "ru": [
+          "Возрождаться",
+          "забывать",
+          "проходить сквозь",
+          "помнить"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Deeproot Defender",
+          "Mercenaries (Harrier, Sellsword, Spellblade, Weaponmaster)",
+          "Guards (Bladed Guard, Head Guard)",
+          "Jagged Knife Bandits (Hexer, Kneebreaker, Lackey, Lieutenant, Shadow, Sniper)"
+        ],
+        "ru": [
+          "Защитник Корней",
+          "Наёмники (Пикинёр, Наёмный Клинок, Заклинатель-мечник, Мастер Оружия)",
+          "Стражники (Стражник-Мечник, Капитан Стражи)",
+          "Бандиты из «Зазубренного ножа» (Колдун, Коленолом, Шестёрка, Лейтенант, Тень, Снайпер)"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Try Not to Trip",
+            "ru": "Старайтесь не споткнуться"
+          },
+          "description": {
+            "en": "Any NPC who takes melee damage, or PC who chooses to reduce incoming melee damage by marking an armor slot, moves within Very Close of where they stood or becomes Vulnerable if they were standing anywhere in the rubble.",
+            "ru": "Любой NPC, получивший урон в ближнем бою, или персонаж, решивший снизить входящий урон в ближнем бою, отметив Ячейку Брони, перемещается в пределы Очень Близкой дистанции от места, где он стоял, либо становится *Уязвим*, если он стоял где-либо среди развалин."
+          },
+          "prompt": {
+            "en": "What’s stuck in the undergrowth here someone could trip over, either sneaking or fighting across the old town? Why was it left behind?",
+            "ru": "Что застряло здесь в зарослях, обо что можно споткнуться, пробираясь тайком или сражаясь среди старого города? Почему это было оставлено?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Hint of the Past",
+            "ru": "Намёк из прошлого"
+          },
+          "description": {
+            "en": "Reveal to the PCs a suggestion of what they came here to find or didn’t realize they sorely needed—supplies, a holy relic, a magical item, a symbol of legitimacy, or a specialized tool. But it is wrapped up in evidence of a horrible, horrible crime.",
+            "ru": "Покажите персонажам намёк на то, за чем они пришли, или то, в чём они остро нуждались, сами того не осознавая, — припасы, священную реликвию, магический предмет, символ законности или особый инструмент. Но всё это окутано свидетельствами чудовищного, чудовищного преступления."
+          },
+          "prompt": {
+            "en": "What fell deed was committed here? Why was this item never recovered despite its value? Are the PCs more related to the historical wrongs committed here than they realize?",
+            "ru": "Какое злодеяние было совершено здесь? Почему эта вещь так и не была найдена, несмотря на её ценность? Не связаны ли персонажи с историческими преступлениями, совершёнными здесь, теснее, чем они осознают?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "“We Were Expecting You”",
+            "ru": "«Мы вас ждали»"
+          },
+          "description": {
+            "en": "Ambushers reveal themselves amidst the ruins, and you gain 2 Fear; whether Deeproot Defenders, Mercenaries, Guards, or Bandits, they seem to have seen the party coming.",
+            "ru": "Засадчики появляются среди руин, и вы получаете 2 Страха; будь то Защитники Корней, Наёмники, Стражники или Бандиты, похоже, они видели, что отряд приближается."
+          }
+        }
+      ],
+      "story_seeds": [
+        {
+          "title": {
+            "en": "Reavers in the Back Country",
+            "ru": "Разорители в дальних землях"
+          },
+          "body": {
+            "en": "Servants of a rogue claimant have decided to harry the folk rather than give pitched battle against their rival. Greedy rulers clash, and the people suffer, with the party stuck in the middle. These reavers range from petty bandits to well-armed professionals, so the group needs to be ready for anything. Something very important has been left behind in a certain village they burned down, so they’re going deep into the back country alongside these bloody reavers.",
+            "ru": "Слуги самозваного претендента решили разорять простой народ, а не вступать в открытый бой со своим соперником. Жадные правители сталкиваются, а страдает народ, и отряд оказывается между ними. Эти разорители — от мелких бандитов до хорошо вооружённых профессионалов, так что группе нужно быть готовой к чему угодно. Что-то очень важное было оставлено в некой деревне, которую они сожгли, так что теперь отряду предстоит отправиться глубоко в дальние земли вместе с этими кровавыми разорителями."
+          },
+          "prompt": {
+            "en": "Are the PCs connected to either noble in this dispute, or their people suffering in the middle? Can the PCs find something to end the fighting or turn the fight in their favor?",
+            "ru": "Связаны ли персонажи с кем-то из дворян в этом споре, или с их людьми, страдающими между сторонами? Могут ли персонажи найти способ прекратить бои или обернуть их в свою пользу?"
+          }
+        },
+        {
+          "title": {
+            "en": "Echoes of the Past",
+            "ru": "Отголоски прошлого"
+          },
+          "body": {
+            "en": "Either a party member or an NPC dear to them is from this village. Conflict and banditry wash over the land, but they must go back for just one last trip... one last thing.",
+            "ru": "Кто-то из членов отряда, или NPC, дорогой их сердцу, родом из этой деревни. Конфликты и разбой захлестнули эти земли, но им нужно вернуться всего один раз... за чем-то одним."
+          },
+          "prompt": {
+            "en": "What do they need to go back for?",
+            "ru": "За чем им нужно вернуться?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "settlement"
+      ],
+      "source": "Resting Dagger"
+    },
+    {
+      "id": "lion-ascendant",
+      "tier": 1,
+      "type": "exploration",
+      "difficulty": 12,
+      "name": {
+        "en": "Lion Ascendant",
+        "ru": "Восходящий Лев"
+      },
+      "lore": {
+        "en": "A floating ruin in the sky.",
+        "ru": "Парящая руина в небе."
+      },
+      "impulses": {
+        "en": [
+          "Uplift",
+          "ascend",
+          "stand tall"
+        ],
+        "ru": [
+          "Возвышать",
+          "восходить",
+          "стоять величественно"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Minor Chaos Elemental",
+          "Jagged Knife Bandits (Lieutenant, Bandit, Hexer)"
+        ],
+        "ru": [
+          "Малый Элементаль Хаоса",
+          "Бандиты из «Зазубренного ножа» (Лейтенант, Бандит, Колдун)"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Thick Snow",
+            "ru": "Глубокий снег"
+          },
+          "description": {
+            "en": "PCs who act without fear gain advantage on Presence rolls here—The statue grants its favour to the boldest.",
+            "ru": "Персонажи, действующие без страха, получают Преимущество на Броски на Влияние здесь — статуя одаряет своей милостью самых смелых."
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Unleash Chaos",
+            "ru": "Высвобождение хаоса"
+          },
+          "description": {
+            "en": "Spend a Fear once the party has approached a ledge or disturbed the sight: a lingering aspect of chaos that destroyed the ground beneath this place emerges to rip them to shreds! **3 Minor Chaos Elementals** emerge. They are driven by a blind, wanton urge to destroy, and are easily tricked or misled.",
+            "ru": "Потратьте Страх, как только отряд приблизится к краю или нарушит покой этого места: затаившийся отголосок хаоса, уничтоживший землю под этим местом, поднимается, чтобы разорвать их на куски! Появляются **3 Малых Элементаля Хаоса**. Их движет слепая, безрассудная жажда разрушения, и их легко обмануть или сбить с толку."
+          },
+          "prompt": {
+            "en": "What brought the chaos upon this place? Why did this Lion altar remain when so much was wiped away? How much longer does this place have before it, too, crumbles?",
+            "ru": "Что навлекло хаос на это место? Почему этот алтарь Льва сохранился, когда столько всего было уничтожено? Сколько ещё осталось этому месту, прежде чем оно тоже обрушится?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Crumble",
+            "ru": "Обвал"
+          },
+          "description": {
+            "en": "Spend a Fear to have the ground crumble below a PC’s feet, sending them scattering towards the ground below and falling to the world further down shortly thereafter. If the next action does fails, they are left dangling off the edge and take 1d10 physical damage.",
+            "ru": "Потратьте Страх, чтобы земля обвалилась под ногами персонажа, отправив его лететь к земле внизу, а вскоре после этого — упасть в мир, находящийся ещё ниже. Если следующее действие всё же проваливается, он остаётся висеть на краю и получает 1d10 физического урона."
+          },
+          "prompt": {
+            "en": "How far is the ground below? How will the party be getting down?",
+            "ru": "Как далеко земля внизу? Как отряд будет спускаться?"
+          }
+        }
+      ],
+      "story_seeds": [
+        {
+          "title": {
+            "en": "An Ancient Place Asunder",
+            "ru": "Древнее место, разорванное на части"
+          },
+          "body": {
+            "en": "This Lion statue was once the pride of a noble, well-built place. Now it is all that remains. Those who seek the mysteries of the past and ways to undo great, recurrent evils find themselves coming here to learn ancient truths long thought lost.",
+            "ru": "Эта статуя Льва была когда-то гордостью благородного, хорошо построенного места. Теперь это всё, что от него осталось. Те, кто ищет тайны прошлого и способы предотвратить великие, повторяющиеся беды, оказываются здесь, чтобы познать древние истины, давно считавшиеся утраченными."
+          },
+          "prompt": {
+            "en": "Who built the ancient place, and was it always flying—or just its ruins? Are there other sites like this? How much do scholars know of them? Has it utterly faded from popular thought, or are there still stories told amongst the common folk about it?",
+            "ru": "Кто построил это древнее место, и всегда ли оно парило в воздухе — или только его руины? Есть ли другие подобные места? Много ли знают о них учёные? Полностью ли оно исчезло из народной памяти, или среди простого люда до сих пор ходят о нём легенды?"
+          }
+        },
+        {
+          "title": {
+            "en": "Filching from the Chosen Ones",
+            "ru": "Воровство у избранных"
+          },
+          "body": {
+            "en": "The lion statue may only have something interesting to say or do with the party’s heroes—but who’s to say someone couldn’t drop in? A pack of Jagged Knife Bandits (1 Lieutenant, 2 Hexers, as many Bandits as there are PCs) lie in wait within the shrubberies.",
+            "ru": "У статуи льва, возможно, найдётся что-то интересное сказать или сделать лишь для героев отряда — но кто сказал, что кто-то другой не может вмешаться? Банда Бандитов из «Зазубренного ножа» (1 Лейтенант, 2 Колдуна, столько Бандитов, сколько персонажей в группе) поджидает в зарослях."
+          },
+          "prompt": {
+            "en": "Who sent them here, and why? Is the lieutenant running this gang or just following orders? Does something older and more sinister lurk behind the gang?",
+            "ru": "Кто послал их сюда, и почему? Лейтенант руководит этой бандой, или просто выполняет приказы? Не скрывается ли за этой бандой что-то более древнее и зловещее?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "settlement",
+        "frozen"
+      ],
+      "source": "Resting Dagger"
+    },
+    {
+      "id": "jungle-river-village",
+      "tier": 1,
+      "type": "social",
+      "difficulty": 10,
+      "name": {
+        "en": "Jungle River Village",
+        "ru": "Речная деревня в джунглях"
+      },
+      "lore": {
+        "en": "A welcoming village along a gentle river, rich in fish and trade.",
+        "ru": "Радушная деревня на тихой реке, богатая рыбой и торговлей."
+      },
+      "impulses": {
+        "en": [
+          "Refresh the weary traveler",
+          "provide bounty",
+          "conduct business"
+        ],
+        "ru": [
+          "Подкреплять усталого путника",
+          "дарить изобилие",
+          "вести дела"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Guards (Bladed Guard, Head Guard)",
+          "Jagged Knife Bandits (Hexer, Kneebreaker, Lackey, Lieutenant, Shadow, Sniper)",
+          "Masked Thief",
+          "Merchant"
+        ],
+        "ru": [
+          "Стражники (Стражник-Мечник, Капитан Стражи)",
+          "Бандиты из «Зазубренного ножа» (Колдун, Коленолом, Шестёрка, Лейтенант, Тень, Снайпер)",
+          "Вор в Маске",
+          "Торговец"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Gentle River, Pleasant People",
+            "ru": "Тихая река, приятные люди"
+          },
+          "description": {
+            "en": "When a PC takes a Short Rest here and Clears Stress, they remove 1 additional Stress.",
+            "ru": "Когда персонаж совершает Короткий Отдых здесь и снимает Стресс, он снимает 1 дополнительный Стресс."
+          },
+          "prompt": {
+            "en": "What about the village is so appealing? Do they meet someone in particular who helps them blow off steam? Is there a supernatural aspect to it, or do they just enjoy the change of pace from their normal adventuring?",
+            "ru": "Что делает эту деревню такой привлекательной? Встречают ли они кого-то особенного, кто помогает им выпустить пар? Есть ли в этом сверхъестественная составляющая, или им просто нравится смена темпа по сравнению с обычными приключениями?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Nervous Merchant",
+            "ru": "Нервный торговец"
+          },
+          "description": {
+            "en": "A merchant has cautiously unpacked some of his cargo and is offering a very agreeable rate for the goods. They are not eager to explain why, but items the PCs have taken an interest in acquiring are on offer here.",
+            "ru": "Торговец осторожно распаковал часть своего груза и предлагает весьма выгодную цену за товары. Он не спешит объяснять, почему, но предметы, которыми интересовались персонажи, есть здесь в продаже."
+          },
+          "prompt": {
+            "en": "Why is the merchant so eager to unload these goods? Who were they originally bound for, and will they come looking for them if the PCs buy them? Who here knows the full story, and why aren’t they telling?",
+            "ru": "Почему торговец так спешит сбыть этот товар? Кому он изначально предназначался, и придут ли за ним, если персонажи его купят? Кто здесь знает всю историю, и почему они молчат?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "From Out of the Jungle",
+            "ru": "Из глубин джунглей"
+          },
+          "description": {
+            "en": "Introduce a significant NPC who is connected to a PC’s background or the broader quest, arriving here unexpectedly—and looking for them.",
+            "ru": "Введите значимого NPC, связанного с предысторией персонажа или общим заданием, который неожиданно прибывает сюда — и ищет их."
+          },
+          "prompt": {
+            "en": "Did they come here seeking the party, or is this a curious coincidence? Are they known to the PC whose background they are connected to, or is this their first time meeting them?",
+            "ru": "Пришёл ли он сюда искать отряд, или это любопытное совпадение? Знаком ли он персонажу, с чьей предысторией он связан, или это их первая встреча?"
+          }
+        }
+      ],
+      "story_seeds": [
+        {
+          "title": {
+            "en": "Unexpected Detour",
+            "ru": "Неожиданный крюк"
+          },
+          "body": {
+            "en": "Bridge collapses, landslides, inclement weather, or war have diverted the party’s path—they find themselves here unexpectedly by happenstance. Will they make the best of it?",
+            "ru": "Обрушившийся мост, оползень, ненастная погода или война отклонили путь отряда — они неожиданно оказываются здесь по воле случая. Смогут ли они извлечь из этого лучшее?"
+          },
+          "prompt": {
+            "en": "Is their arrival here truly an accident, or does an unseen force manipulate the path before them? Is there an important clue to their greater mission waiting for them here, or are they being kept here so they won’t interfere with someone’s plans elsewhere?",
+            "ru": "Их появление здесь — настоящая случайность, или некая невидимая сила направляет их путь? Ждёт ли их здесь важная подсказка для их большего задания, или их удерживают здесь, чтобы они не помешали чьим-то планам в другом месте?"
+          }
+        },
+        {
+          "title": {
+            "en": "A Matter of Risk",
+            "ru": "Дело о риске"
+          },
+          "body": {
+            "en": "The PCs have been hired to investigate the insurance claim for a sunken river barge—the boat certainly sank, but nobody has found the cargo.",
+            "ru": "Персонажей наняли расследовать страховое требование по поводу затонувшей речной баржи — судно определённо затонуло, но никто так и не нашёл груз."
+          },
+          "prompt": {
+            "en": "What does the nervous merchant have to do with this?",
+            "ru": "Какое отношение к этому имеет нервный торговец?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "settlement",
+        "tropical",
+        "aquatic"
+      ],
+      "source": "Resting Dagger"
+    },
+    {
+      "id": "hallow-rest",
+      "tier": 1,
+      "type": "exploration",
+      "difficulty": 11,
+      "name": {
+        "en": "Hallow Rest",
+        "ru": "Освящённый покой"
+      },
+      "lore": {
+        "en": "The crypt of fallen heroes and scions of long-dead houses.",
+        "ru": "Склеп павших героев и отпрысков давно угасших родов."
+      },
+      "impulses": {
+        "en": [
+          "Guard secrets",
+          "venerate heroes",
+          "reveal to the worthy",
+          "destroy the unworthy"
+        ],
+        "ru": [
+          "Хранить тайны",
+          "почитать героев",
+          "открываться достойным",
+          "уничтожать недостойных"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Oozes (Green Oozes, Red Oozes)",
+          "Skeletons (Skeleton Archer, Skeleton Dredge, Skeleton Knight, Skeleton Warrior)"
+        ],
+        "ru": [
+          "Слизни (Зелёные Слизи, Красные Слизи)",
+          "Скелеты (Скелет-Лучник, Скелет-Гниль, Скелет-Рыцарь, Скелет-Воин)"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Place of Reverence & Lore",
+            "ru": "Место почитания и знаний"
+          },
+          "description": {
+            "en": "PCs can gain advantage on a Knowledge Roll by showing respect to the dead.",
+            "ru": "Персонажи могут получить Преимущество на Бросок Знания, проявив уважение к мёртвым."
+          },
+          "prompt": {
+            "en": "Does respect come in the form of a symbolic gesture, or a material sacrifice? Do the PCs know that? Are there clues?",
+            "ru": "Проявляется ли уважение в виде символического жеста, или материальной жертвы? Знают ли об этом персонажи? Есть ли подсказки?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "A Timely Apparition",
+            "ru": "Своевременное явление"
+          },
+          "description": {
+            "en": "A ghostly figure appears just in time to offer key insights to the party—information about their current quest, knowledge of a pressing danger, or the riddle which can open up a magical treasure.",
+            "ru": "Призрачная фигура появляется точно вовремя, чтобы дать отряду важные сведения — информацию об их текущем задании, знание о надвигающейся опасности, или загадку, которая может открыть магическое сокровище."
+          },
+          "prompt": {
+            "en": "What is this figure expecting in exchange? Are they the spirit of someone laid to rest here, a guardian watching over them, or something else that wants the party to believe they’re the former? What is their goal?",
+            "ru": "Чего эта фигура ожидает в обмен? Это дух кого-то, упокоенного здесь, страж, наблюдающий за ними, или что-то ещё, желающее, чтобы отряд поверил в первое? Какова его цель?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Rest, Interrupted",
+            "ru": "Прерванный покой"
+          },
+          "description": {
+            "en": "Spend a Fear to awaken a troupe of skeletons (2 Skeleton Knights, 2 Skeleton Archers, as many Skeleton Dredges as there are PCs) after the party has bumped into something or shown disrespect to this hallowed place.",
+            "ru": "Потратьте Страх, чтобы пробудить отряд Скелетов (2 Скелета-Рыцаря, 2 Скелета-Лучника, столько Скелетов-Гнилей, сколько персонажей в группе) после того, как отряд что-то задел или проявил неуважение к этому святому месту."
+          },
+          "prompt": {
+            "en": "What rules offend them to rise? What force animates them? Does the chamber communicate its limits, or are they waiting, unseen, to be transgressed?",
+            "ru": "Какие правила заставляют их подняться, если их нарушить? Какая сила оживляет их? Даёт ли эта усыпальница знать о своих границах, или они просто невидимо ждут, когда их нарушат?"
+          }
+        }
+      ],
+      "story_seeds": [
+        {
+          "title": {
+            "en": "Thy Ancestor’s Blade",
+            "ru": "Клинок твоего предка"
+          },
+          "body": {
+            "en": "A party member’s distant, legendary ancestor lies in rest here. They were interred with a magical weapon to be guarded until such time as their descendant had need of it. That day has come, and now, the party goes to draw it forth.",
+            "ru": "Здесь покоится далёкий, легендарный предок одного из персонажей. Его похоронили с магическим оружием, которое должно храниться, пока не понадобится его потомку. Этот день настал, и теперь отряд отправляется, чтобы извлечь его."
+          },
+          "prompt": {
+            "en": "Does it matter if they’re descended by blood or bond? What happens if someone else takes up the blade? Will the blade accept or reject this new wielder? Does this interrupt the resting skeletons?",
+            "ru": "Имеет ли значение, происходят ли они по крови или по узам? Что произойдёт, если клинок возьмёт кто-то другой? Примет ли клинок нового владельца, или отвергнет его? Прерывает ли это покой скелетов?"
+          }
+        },
+        {
+          "title": {
+            "en": "An Oozing Affair",
+            "ru": "Слизистое дело"
+          },
+          "body": {
+            "en": "A recent alchemical explosion nearby has created drainage issues and uncovered the entrance to this long-lost site. Unlike the rest of the area, there doesn’t appear to be any residue on the crypt, leading locals to suspect that it may have leaked inside. The party confirms these fears once the Oozes appear to attack them (3 Green Ooze, 3 Red Ooze).",
+            "ru": "Недавний алхимический взрыв неподалёку вызвал проблемы с дренажом и обнажил вход в это давно потерянное место. В отличие от остальной территории, на склепе не видно никаких следов, что заставляет местных подозревать, что что-то могло просочиться внутрь. Отряд убеждается в этих опасениях, когда на них нападают Слизни (3 Зелёные Слизи, 3 Красные Слизи)."
+          },
+          "prompt": {
+            "en": "Did the alchemical accident create these oozes, or merely awaken and accelerate them? Is there something intangible about this place that led to their rise, or is this encounter at the cusp of a discovery that could make these menaces ubiquitous?",
+            "ru": "Создал ли алхимический несчастный случай этих слизней, или лишь пробудил и ускорил их? Есть ли в этом месте что-то неосязаемое, что привело к их появлению, или эта встреча — лишь порог открытия, которое может сделать эту угрозу повсеместной?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "underground"
+      ],
+      "source": "Resting Dagger"
+    },
+    {
+      "id": "gnarled-glen",
+      "tier": 1,
+      "type": "exploration",
+      "difficulty": 12,
+      "name": {
+        "en": "Gnarled Glen",
+        "ru": "Кривая Лощина"
+      },
+      "lore": {
+        "en": "A twisted wood, dark canopies heavy with shadow and memories.",
+        "ru": "Искривлённый лес, тёмные кроны, отягощённые тенью и воспоминаниями."
+      },
+      "impulses": {
+        "en": [
+          "Conceal",
+          "deceive",
+          "poison",
+          "pursue"
+        ],
+        "ru": [
+          "Скрывать",
+          "обманывать",
+          "отравлять",
+          "преследовать"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Deeproot Defender",
+          "Beasts (Bear, Dire Wolf, Glass Snake)",
+          "Skeletons (Archer, Dredge, Knight, Warrior)"
+        ],
+        "ru": [
+          "Защитник Корней",
+          "Звери (Медведь, Лютоволк, Стеклянная Змея)",
+          "Скелеты (Лучник, Гниль, Рыцарь, Воин)"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Secrets of the Dead",
+            "ru": "Тайны мёртвых"
+          },
+          "description": {
+            "en": "Souls linger, and marrow congeals in the woods here; a shadowed truth looms ever just out of reach. A PC can make an Instinct Roll to uncover parts of that truth. On a success with Hope, learn all three parts of the truth. On a success with Fear, learn two. On a failure, a PC can mark a Stress to learn one and gain advantage on the next action roll to investigate this environment. A PC with an appropriate background or experience can decide they have a connection to this hidden truth.\nWhat is the nature of the truth (evidence of atrocity, lurking entity long thought dead, region-threatening danger growing strength)?\nWhat is the nature of the truth’s obfuscation (a magic spell, the deep bramble of the wood, hidden in plain sight)?\nWhat are the PCs going to have to do to get it (reach into a dark log, burn a tree, sacrifice a living creature)?",
+            "ru": "Здесь задерживаются души, а в лесу застывает костный мозг; тень истины маячит вечно вне досягаемости. Персонаж может совершить Бросок Инстинкта, чтобы раскрыть часть этой истины. При успехе с Надеждой он узнаёт все три части истины. При успехе со Страхом — две. При неудаче персонаж может отметить Стресс, чтобы узнать одну и получить Преимущество на следующий Бросок Действия для исследования этого окружения. Персонаж с подходящей Предысторией или Опытом может решить, что у него есть связь с этой скрытой истиной.\nКакова природа этой истины (свидетельство злодеяния, скрывающаяся сущность, давно считавшаяся мёртвой, растущая угроза для региона)?\nКакова природа сокрытия этой истины (заклинание, густой подлесок леса, скрытое на самом видном месте)?\nЧто персонажам нужно сделать, чтобы получить её (сунуть руку в тёмное дупло, сжечь дерево, принести в жертву живое существо)?"
+          },
+          "prompt": {
+            "en": "What dark truth lingers here? Has it drawn them here, or is it trying to repel them? What happens if the PCs refuse the cost?",
+            "ru": "Какая тёмная истина задержалась здесь? Она привлекла их сюда, или пытается их отогнать? Что произойдёт, если персонажи откажутся платить цену?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Cursed Flow",
+            "ru": "Проклятый поток"
+          },
+          "description": {
+            "en": "Pick a point within the grove. All targets within Very Close range of that point must succeed on a Presence Reaction Roll or take 1d8+3 magical damage. Any PC result with Fear causes them to mark 1 Stress.",
+            "ru": "Выберите точку в роще. Все цели в пределах Очень Близкой дистанции от этой точки должны пройти Бросок Реакции на Влияние, иначе получат 1d8+3 магического урона. Любой результат персонажа со Страхом заставляет его отметить 1 Стресс."
+          },
+          "prompt": {
+            "en": "What is the nature of the fel energy? Who, or what, is directing it? How does it relate to the Secrets of the Dead?",
+            "ru": "Какова природа этой тёмной энергии? Кто, или что, направляет её? Как она связана с Тайнами мёртвых?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Defilers Feed the Roots",
+            "ru": "Осквернители питают корни"
+          },
+          "description": {
+            "en": "When a PC commits an affront to the woods or makes a loud noise, one fewer Deeproot Defenders than there are PCs approach to water the woods—with their blood.",
+            "ru": "Когда персонаж совершает святотатство против леса или производит громкий шум, на одного меньше Защитников Корней, чем персонажей в группе, приближаются, чтобы напоить лес — своей кровью."
+          },
+          "prompt": {
+            "en": "Are they an unthinking force of nature, or have they decided to attack the PCs? Are they driven by a set of firm rules the PCs violated, or do they mistake the PCs for some ancient enemy?",
+            "ru": "Они — бездумная сила природы, или решили напасть на персонажей осознанно? Ими движет набор чётких правил, которые нарушили персонажи, или они путают персонажей с каким-то древним врагом?"
+          }
+        }
+      ],
+      "story_seeds": [
+        {
+          "title": {
+            "en": "Her Loyal Companions",
+            "ru": "Её верные спутники"
+          },
+          "body": {
+            "en": "A questing hero was last seen disappearing into this forest with her most stalwart companions—none of them ever to be seen again. Tell-tale signs along the road, local rumours, and studious research all point to this Gnarled Glen. When the PCs arrive, evidence of the heroes will be forthcoming. Unfortunately for them, so will 1 Skeleton Knight, 2 Skeleton Archers, and 8 Skeleton Dredges—the hero and her companions not appreciating their graves’ disturbance.",
+            "ru": "Ищущую героиню последний раз видели входящей в этот лес со своими самыми стойкими спутниками — никого из них больше никто не видел. Явные знаки вдоль дороги, местные слухи и тщательные исследования — всё указывает на эту Кривую Лощину. Когда персонажи прибудут, свидетельства о героях не заставят себя ждать. К несчастью для них, как и 1 Скелет-Рыцарь, 2 Скелета-Лучника и 8 Скелетов-Гнилей — герои и её спутники не оценят нарушения покоя их могил."
+          },
+          "prompt": {
+            "en": "What, if anything, remains of the hero’s mind? Does this relate to the Secrets of the Dead, or is this yet another mystery of the Gnarled Glen? What was the object of her quest, and can the PCs yet achieve it?",
+            "ru": "Что, если хоть что-то, осталось от разума героини? Связано ли это с Тайнами мёртвых, или это ещё одна загадка Кривой Лощины? Какова была цель её похода, и могут ли персонажи всё же её достичь?"
+          }
+        },
+        {
+          "title": {
+            "en": "Nature’s Bounty",
+            "ru": "Дары природы"
+          },
+          "body": {
+            "en": "The creatures here appear animated by a force beyond anything normal; whether through selection of the fittest or fel magic, they seem to hunt harder and hide more effectively than creatures elsewhere. This has spilled out over neighbouring farmlands and woods. Locals have passed the hat and offer 3 bags of coins for a cull that can slake this menace.",
+            "ru": "Существа здесь, похоже, движимы силой, превосходящей всё обычное; будь то естественный отбор или тёмная магия, они охотятся упорнее и скрываются эффективнее, чем существа в других местах. Это распространилось на соседние фермерские земли и леса. Местные жители собрали средства и предлагают 3 мешка монет за расправу, способную усмирить эту угрозу."
+          },
+          "prompt": {
+            "en": "Will this be as simple as fighting one encounter against Beasts? Is this just the course of nature, or is there a more deliberate agenda at play?",
+            "ru": "Будет ли всё так просто, как один бой против Зверей? Это просто ход природы, или здесь действует более осознанный замысел?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "forest"
+      ],
+      "source": "Resting Dagger"
+    },
+    {
+      "id": "frozen-chalice",
+      "tier": 2,
+      "type": "event",
+      "difficulty": 12,
+      "name": {
+        "en": "Frozen Chalice",
+        "ru": "Ледяная Чаша"
+      },
+      "lore": {
+        "en": "A frozen crucible, mist rolling off the walls, and white clouds forming with every breath.",
+        "ru": "Замёрзший тигель, туман, стелющийся со стен, и белые облака, образующиеся с каждым вдохом."
+      },
+      "impulses": {
+        "en": [
+          "Challenge",
+          "defeat",
+          "overcome",
+          "triumph"
+        ],
+        "ru": [
+          "Испытывать",
+          "побеждать",
+          "преодолевать",
+          "одерживать триумф"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Gorgon",
+          "Juvenile Flickerfly",
+          "Battle Box"
+        ],
+        "ru": [
+          "Горгона",
+          "Молодая Мерцекрылка",
+          "Боевой Ящик"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Frigid Battlefield",
+            "ru": "Морозное поле битвы"
+          },
+          "description": {
+            "en": "Due to the mercurial magical frost of the battlefield, the following unique rules are in effect:\nSet aside ice-themed counters. These are Frost Tokens, and will be placed on character sheets as-needed.\nAny PC that activates without moving takes 1 Frost Token as daggers of ice form towards them.\nAny PC that makes an Agility Roll to reposition themselves (e.g., Moving Far) and rolls a result with Fear takes 1 Frost Token as they collide with snow and frigid ice on the way.\nWhen the Gorgon damages a PC with Frost Tokens, you may remove 1 Frost Token from the PC’s sheet to deal 1 extra point of damage.",
+            "ru": "Из-за переменчивого магического мороза этого поля битвы действуют следующие особые правила:\n- Отложите жетоны в виде льда. Это Жетоны Мороза, они будут размещаться на листах персонажей по необходимости.\n- Любой персонаж, совершающий Активацию без перемещения, получает 1 Жетон Мороза, поскольку к нему устремляются ледяные кинжалы.\n- Любой персонаж, совершающий Бросок Проворности, чтобы переместиться (например, на Далёкую дистанцию), и получивший результат со Страхом, получает 1 Жетон Мороза, столкнувшись со снегом и ледяной коркой на пути.\n- Когда Горгона наносит урон персонажу с Жетонами Мороза, вы можете снять 1 Жетон Мороза с листа персонажа, чтобы нанести 1 дополнительное очко урона."
+          },
+          "prompt": {
+            "en": "Was this place always so dangerous, or was it made this way? Was it designed as a challenge or a means to ward everyone away? Who decided this was a good place for a fight?",
+            "ru": "Было ли это место всегда таким опасным, или его сделали таким? Было ли оно задумано как испытание, или как способ отвадить всех? Кто решил, что это хорошее место для боя?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Throw Down the Chalice",
+            "ru": "Бросить чашу"
+          },
+          "description": {
+            "en": "An icy Gorgon emerges into the frozen arena, here to fight them until they prove their worth—or perish trying.",
+            "ru": "Ледяная Горгона появляется на замёрзшей арене, готовая сражаться с персонажами, пока они не докажут свою силу — или не погибнут, пытаясь это сделать."
+          },
+          "prompt": {
+            "en": "Does this entity exist purely to challenge the PCs? Is a new one made each time the chalice is thrown down, or does the same one reform each time to await the next challengers?",
+            "ru": "Существует ли это существо исключительно для того, чтобы испытывать персонажей? Появляется ли новое каждый раз, когда бросают чашу, или одно и то же воссоздаётся каждый раз, ожидая новых претендентов?"
+          }
+        }
+      ],
+      "story_seeds": [
+        {
+          "title": {
+            "en": "Challenge of the Chalice",
+            "ru": "Испытание чаши"
+          },
+          "body": {
+            "en": "It is said that in an age of myth, a mighty ruler threw down a crystal chalice in declaring a challenge to determine the strongest, and the glass turned to ice and swirled around that ruler’s mountaintop domain. Those who heed the legend and seek to test themselves ascend the peak to face a legendary foe and emerge stronger. But of course, not everyone’s reasons for seeking these ancient frozen halls are so grand or noble.",
+            "ru": "Говорят, что в эпоху мифов могущественный правитель бросил хрустальную чашу, объявляя испытание, чтобы определить сильнейшего, и стекло превратилось в лёд, окутавший горную вершину владений этого правителя. Те, кто внимает легенде и хочет испытать себя, восходят на вершину, чтобы сразиться с легендарным противником и стать сильнее. Но, конечно, не у всех, кто ищет эти древние ледяные залы, причины столь высоки и благородны."
+          },
+          "prompt": {
+            "en": "What is the truth behind the myth? What treasure yet remains beyond the challenge of the chalice? Has anyone ever beaten this challenge before, and if so, what will happen to the land if the PCs win?",
+            "ru": "Какова истина, скрытая за этим мифом? Какое сокровище всё ещё ждёт за испытанием чаши? Проходил ли кто-нибудь это испытание раньше, и если да, что случится с землёй, если победят персонажи?"
+          }
+        },
+        {
+          "title": {
+            "en": "The Growing Winter’s Eye",
+            "ru": "Растущее Око Зимы"
+          },
+          "body": {
+            "en": "Each season, snow and ice storms push further from the core. Myth and legend shroud what lies in the middle—but the world outside cannot survive its continued expansion.",
+            "ru": "Каждый сезон снежные и ледяные бури продвигаются всё дальше от центра. Миф и легенда скрывают то, что лежит в середине — но внешний мир не сможет выжить, если это продолжит разрастаться."
+          },
+          "prompt": {
+            "en": "What causes the storms and their growth?",
+            "ru": "Что вызывает эти бури и их разрастание?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "frozen"
+      ],
+      "source": "Resting Dagger"
+    },
+    {
+      "id": "frosted-timber",
+      "tier": 1,
+      "type": "exploration",
+      "difficulty": 11,
+      "name": {
+        "en": "Frosted Timber",
+        "ru": "Заиндевевшее Древо"
+      },
+      "lore": {
+        "en": "A lonely frozen tree, stood tall in a chilling white snowfield.",
+        "ru": "Одинокое замёрзшее дерево, стоящее высоко на леденящем белом снежном поле."
+      },
+      "impulses": {
+        "en": [
+          "Bring a final chilling sleep",
+          "highlight entropy",
+          "persevere"
+        ],
+        "ru": [
+          "Даровать последний морозный сон",
+          "подчёркивать энтропию",
+          "упорствовать"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Beasts (Bear, Dire Wolf, Glass Snake)",
+          "Grove Guardians (Minor Treant, Sylvan Soldier, Young Dryad)"
+        ],
+        "ru": [
+          "Звери (Медведь, Лютоволк, Стеклянная Змея)",
+          "Стражи Рощи (Молодой Трэнт, Лесной Солдат, Юная Дриада)"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Thick Snow",
+            "ru": "Глубокий снег"
+          },
+          "description": {
+            "en": "Disadvantage on Agility checks to move quickly, first attempt to Hide does not require marking Stress. Results with Fear may send snow cascading down around either, potentially revealing something bleak...",
+            "ru": "Помеха на проверки Проворности для быстрого перемещения, первая попытка Спрятаться не требует отметки Стресса. Результаты со Страхом могут вызвать обвал снега вокруг, потенциально раскрывая что-то мрачное..."
+          },
+          "prompt": {
+            "en": "What lies hidden beneath the soft snow?",
+            "ru": "Что скрывается под мягким снегом?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Chill Wind",
+            "ru": "Морозный ветер"
+          },
+          "description": {
+            "en": "Spend a Fear to wash the scene in chilling wind, redoubling the stress of the cool environment and blowing out open flames—all characters take 1 Stress if they cannot find a way to keep themselves warmer.",
+            "ru": "Потратьте Страх, чтобы окутать сцену морозным ветром, усиливающим напряжение от холодного окружения и задувающим открытое пламя — все персонажи получают 1 Стресс, если не могут найти способ согреться."
+          },
+          "prompt": {
+            "en": "Is this a natural freeze? Is this a temporary cold snap, or the start of a worse plummet? What won’t survive this cold without help?",
+            "ru": "Это естественный мороз? Это временное похолодание, или начало ещё худшего падения температуры? Что не переживёт этот холод без помощи?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Help or Hurt?",
+            "ru": "Помочь, или навредить?"
+          },
+          "description": {
+            "en": "When the weather has reached a particular breaking point or any character has suffered due to the cold, a Young Dryad appears on the far side of the tree—flanked by two Sylvan Soldiers and as many Minor Treants as there are PCs. Whether they are here to help or hurt will depend on how the PCs have been treating the local area.",
+            "ru": "Когда погода достигает особой критической точки, или любой персонаж пострадал от холода, на дальней стороне дерева появляется Юная Дриада — в сопровождении двух Лесных Солдат и стольких Молодых Трэнтов, сколько персонажей в группе. Пришли ли они помочь или навредить, зависит от того, как персонажи относились к этой местности."
+          },
+          "prompt": {
+            "en": "Do they serve nature, or a more particular patron? Have they stumbled upon the party by chance, or are they themselves wary of ambush? What’s so important they’re out in the heavy snow?",
+            "ru": "Служат ли они природе, или какому-то более конкретному покровителю? Наткнулись ли они на отряд случайно, или сами опасаются засады? Что настолько важно, что они вышли в такой сильный снегопад?"
+          }
+        }
+      ],
+      "story_seeds": [
+        {
+          "title": {
+            "en": "Wake of Ages",
+            "ru": "Поминки веков"
+          },
+          "body": {
+            "en": "Tragedy, desire, joy, and farce have all played out before this old tree—it stands alone now, shrouded in entropic white. Those who can commune with nature have a chance to speak with the tree, but it’s fading fast: this winter has finally been too much for it.",
+            "ru": "Трагедия, желание, радость и фарс — всё это происходило перед этим старым деревом; теперь оно стоит одиноко, окутанное энтропийной белизной. Те, кто способен общаться с природой, имеют шанс поговорить с деревом, но оно быстро угасает: эта зима наконец стала для него непосильной."
+          },
+          "prompt": {
+            "en": "What does the tree know, and how is the party going to learn it? Is this a mundane piece of nature holding lore tapped only by magic, or does some other spirit dwell within? Who else is trying to attend the tree at this final stage in its life—and who wants to make sure nobody learns what it knows?",
+            "ru": "Что знает дерево, и как отряд сможет это узнать? Это обычная часть природы, хранящая знания, доступные лишь через магию, или в нём обитает какой-то иной дух? Кто ещё пытается быть рядом с деревом на этом последнем этапе его жизни — и кто хочет, чтобы никто не узнал того, что оно знает?"
+          }
+        },
+        {
+          "title": {
+            "en": "Blood on the Snow",
+            "ru": "Кровь на снегу"
+          },
+          "body": {
+            "en": "The party passes the tree, only to hear a ghastly howl and smell an acrid waft of blood on the cold wind. The once clean snows are now coated red with sanguine blood, and a group of Dire Wolves has appeared (3 more than there are PCs).",
+            "ru": "Отряд проходит мимо дерева, но вдруг слышит жуткий вой и ощущает резкий запах крови на морозном ветру. Некогда чистый снег теперь покрыт алой кровью, и появляется стая Лютоволков (на 3 больше, чем персонажей в группе)."
+          },
+          "prompt": {
+            "en": "What do the Direwolves seek? Have they snuck upon the party naturally, or is there a supernatural force at work? What lost all that blood?",
+            "ru": "Чего ищут Лютоволки? Подобрались ли они к отряду естественным образом, или здесь действует сверхъестественная сила? Что потеряло столько крови?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "frozen"
+      ],
+      "source": "Resting Dagger"
+    },
+    {
+      "id": "blade-root-sanctum",
+      "tier": 2,
+      "type": "event",
+      "difficulty": 14,
+      "name": {
+        "en": "Blade Root Sanctum",
+        "ru": "Святилище Клинкового Корня"
+      },
+      "lore": {
+        "en": "A verdant sanctum of deep green flora and ancient stones.",
+        "ru": "Пышное святилище густой зелёной флоры и древних камней."
+      },
+      "impulses": {
+        "en": [
+          "Purify the land with death",
+          "bind together the faithful in bloodshed"
+        ],
+        "ru": [
+          "Очищать землю смертью",
+          "связывать верных кровопролитием"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Assassins (Apprentice, Poisoner, Master)"
+        ],
+        "ru": [
+          "Убийцы (Ученик, Отравитель, Мастер)"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Homefield Advantage",
+            "ru": "Преимущество своего поля"
+          },
+          "description": {
+            "en": "These zealous assassins have trained in this temple and woven its stones with the magic in the roots and their blood for generations; reduce the PC’s Hope Die to a **d10** here. This effect ends when 50% (rounded down) of enemies are defeated, or they complete a Countdown Clock (6 parts).",
+            "ru": "Эти ревностные убийцы тренировались в этом храме и вплетали его камни в магию корней и своей крови на протяжении поколений; понизьте Кость Надежды персонажей до **d10** здесь. Этот эффект прекращается, когда 50% (округляя вниз) противников побеждены, либо когда завершается Отсчёт (6 делений)."
+          },
+          "prompt": {
+            "en": "How much of this advantage is magical, and how much mundane? Are the party gaining confidence, shattering the enemy’s zeal, unweaving illusions, or simply learning the land? A mix of all?",
+            "ru": "Насколько это преимущество магическое, а насколько обычное? Обретает ли отряд уверенность, подрывает ли рвение врага, распутывает ли иллюзии, или просто изучает местность? Или всё это вместе?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Enter the Assassins",
+            "ru": "Явление убийц"
+          },
+          "description": {
+            "en": "A group of Assassins led by a Master Assassin with two Poisoners and twice as many Apprentices as there are PCs appear.",
+            "ru": "Появляется группа Убийц, возглавляемая Мастером-Убийцей с двумя Отравителями и вдвое большим числом Учеников, чем персонажей в группе."
+          },
+          "prompt": {
+            "en": "Are they here to remove the party swiftly, or was their presence here part of the group’s plans all along?",
+            "ru": "Пришли ли они, чтобы быстро устранить отряд, или их присутствие здесь всегда было частью планов группы?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "“We Knew You’d Do That”",
+            "ru": "«Мы знали, что вы это сделаете»"
+          },
+          "description": {
+            "en": "When a PC moves to a space no PC has entered before, spend 1 Fear to unleash a poisonous spike trap on them. They must pass an Agility roll or suffer 1d10 damage that armor cannot defend against.",
+            "ru": "Когда персонаж перемещается в пространство, куда ещё не заходил ни один персонаж, потратьте 1 Страх, чтобы обрушить на него ядовитый шипованный капкан. Он должен пройти Бросок Проворности, иначе получит 1d10 урона, от которого не защищает броня."
+          },
+          "prompt": {
+            "en": "What sort of poison slicks these traps? Do they have an identifiable, avoidable trigger mechanism?",
+            "ru": "Какой яд покрывает эти капканы? Есть ли у них узнаваемый, обходимый механизм срабатывания?"
+          }
+        }
+      ],
+      "story_seeds": [
+        {
+          "title": {
+            "en": "Daughters’ Requiem",
+            "ru": "Реквием Дочерей"
+          },
+          "body": {
+            "en": "They speak in hushed tones of the Daughters of the Blade Root. Once, this order of assassins struck fear in the hearts of every noble and warlord. But they have retreated, grown insular. People scoffed at their religion. But now, bodies are dropping with the hallmarks of these professionals, and their former customers are coming to a very horrible realization—their killings are personal now. And there’s no one to hold them back.",
+            "ru": "О Дочерях Клинкового Корня говорят шёпотом. Когда-то этот орден убийц вселял страх в сердца каждого дворянина и военачальника. Но они отступили, замкнулись в себе. Люди насмехались над их верой. Но теперь тела падают с характерными следами этих профессионалов, и их бывшие заказчики приходят к очень страшному осознанию — теперь эти убийства личные. И никто не может их остановить."
+          },
+          "prompt": {
+            "en": "Have the Daughters killed someone close to the PCs? Do they have the same enemies? What is the ultimate goal of this killing spree?",
+            "ru": "Убили ли Дочери кого-то близкого персонажам? Есть ли у них общие враги? Какова конечная цель этой серии убийств?"
+          }
+        },
+        {
+          "title": {
+            "en": "The Last Apprentice",
+            "ru": "Последний ученик"
+          },
+          "body": {
+            "en": "The assassin’s latest apprentice wants out—and only the party can help.",
+            "ru": "Последний ученик убийц хочет уйти — и только отряд может ему помочь."
+          },
+          "prompt": {
+            "en": "How’d they get recruited? Who hired the party? And what aren’t they telling them?",
+            "ru": "Как его вербовали? Кто нанял отряд? И о чём они не рассказывают?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "settlement",
+        "forest"
+      ],
+      "source": "Resting Dagger"
+    },
+    {
+      "id": "portal-beyond",
+      "tier": 2,
+      "type": "event",
+      "difficulty": 14,
+      "name": {
+        "en": "Portal Beyond",
+        "ru": "Портал Запределья"
+      },
+      "lore": {
+        "en": "The world cracks, and a mysterious blue light emanates from beneath the last jagged crack of stone hanging above it—a portal beyond awaits.",
+        "ru": "Мир раскалывается, и таинственный синий свет исходит из-под последней зазубренной трещины камня, зависшей над ним, — портал запределья ждёт."
+      },
+      "impulses": {
+        "en": [
+          "Pass through",
+          "bring forth what lies beyond"
+        ],
+        "ru": [
+          "Проходить сквозь",
+          "являть то, что лежит за пределами"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Battle Box",
+          "Chaos Skull",
+          "Demonic Hound Pack",
+          "Failed Experiment",
+          "Mortal Hunter",
+          "Stonewraith",
+          "Juvenile Flickerfly"
+        ],
+        "ru": [
+          "Боевой Ящик",
+          "Череп Хаоса",
+          "Свора Демонических Гончих",
+          "Неудачный Эксперимент",
+          "Охотник на Живых",
+          "Каменный Призрак",
+          "Молодая Мерцекрылка"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Otherworld Calling",
+            "ru": "Зов иного мира"
+          },
+          "description": {
+            "en": "Possibility bends here, and anything seems possible—but efforts to change the course of reality fainter. Reduce the PCs’ Fear Die to d10 while the portal is open.",
+            "ru": "Здесь реальность искажается, и кажется, что возможно всё — но попытки изменить ход реальности слабеют. Понизьте Кость Страха персонажей до d10, пока портал открыт."
+          },
+          "prompt": {
+            "en": "Do the PCs feel themselves letting go of fear? How do they feel about it somewhat reducing their capabilities?",
+            "ru": "Чувствуют ли персонажи, как отпускают свой страх? Что они чувствуют по поводу того, что это несколько ослабляет их возможности?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Arise from Beyond",
+            "ru": "Восстать из-за предела"
+          },
+          "description": {
+            "en": "Foes are summoned through the gap—an enemy from beyond (suggested: Battle Box, Juvenile Flickerfly) emerges, confused at their terrible new reality and attacking.",
+            "ru": "Враги призываются через разлом — противник из-за предела (рекомендуется: Боевой Ящик, Молодая Мерцекрылка) появляется, растерянный от своей ужасной новой реальности, и атакует."
+          },
+          "prompt": {
+            "en": "Is peace possible? Can this entity long survive here? What world awaits beyond if a PC hops in?",
+            "ru": "Возможен ли мир? Сможет ли это существо долго выжить здесь? Какой мир ждёт за пределами, если персонаж туда прыгнет?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Veil Repair",
+            "ru": "Восстановление завесы"
+          },
+          "description": {
+            "en": "*Countdown (6).* When the PCs approach the portal or the Arise from Beyond Action is taken, the rules that keep reality stable begin to kick into overdrive. Start the countdown and advance it each time an enemy is Spotlighted, or when the PCs take an action that interacts with the portal or moves within Very Close of it. Once the countdown completes, the portal slams shut.",
+            "ru": "*Отсчёт (6).* Когда персонажи приближаются к порталу, или совершается действие «Восстать из-за предела», правила, поддерживающие стабильность реальности, начинают работать с перегрузкой. Запустите Отсчёт и продвигайте его каждый раз, когда враг получает Активацию, или когда персонажи совершают действие, взаимодействующее с порталом, либо перемещаются в пределы Очень Близкой дистанции от него. Когда Отсчёт завершается, портал захлопывается."
+          },
+          "prompt": {
+            "en": "What force opened this portal, and for what purposes? Is it the universe trying to close this rip in the veil between worlds, or an entity acting against that force?",
+            "ru": "Какая сила открыла этот портал, и с какой целью? Пытается ли сама вселенная закрыть этот разрыв в завесе между мирами, или какая-то сущность действует против этой силы?"
+          }
+        }
+      ],
+      "story_seeds": [
+        {
+          "title": {
+            "en": "Far Gazer’s Notes",
+            "ru": "Записи Дальновидца"
+          },
+          "body": {
+            "en": "The party happens upon the scroll-trove of an ancient star-gazer. Fantastical predictions of strange phenomena throughout history were made in these pages. The last is soon to pass: a portal to another world will open within the ground soon. What’s beyond is not recorded.",
+            "ru": "Отряд натыкается на клад свитков древнего звёздного провидца. На этих страницах были сделаны фантастические предсказания о странных явлениях на протяжении истории. Последнее скоро исполнится: портал в другой мир скоро откроется в земле. Что лежит за ним, не записано."
+          },
+          "prompt": {
+            "en": "What sort of world is it? How did this ancient star-gazer know? What other lore can they glean from the trove before leaving?",
+            "ru": "Какой это мир? Как этот древний звёздный провидец узнал об этом? Какие ещё знания они могут извлечь из этого клада, прежде чем уйти?"
+          }
+        },
+        {
+          "title": {
+            "en": "Ancient Rites",
+            "ru": "Древние обряды"
+          },
+          "body": {
+            "en": "Stories of legend speak of riders from a blue pool below that emerged to either burn or save the lands. While some have ascribed this to deep-sea peoples, one of the PC’s contacts believes they were otherworldly—and someone is bringing them back.",
+            "ru": "Легенды повествуют о всадниках из синего омута внизу, которые появлялись, чтобы либо сжечь, либо спасти земли. Одни приписывают это глубоководным народам, но один из контактов персонажей считает, что они были потусторонними — и кто-то возвращает их назад."
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "universal"
+      ],
+      "source": "Resting Dagger"
+    },
+    {
+      "id": "the-undermarket",
+      "tier": 1,
+      "type": "social",
+      "difficulty": 11,
+      "name": {
+        "en": "The Undermarket",
+        "ru": "Подрынок"
+      },
+      "lore": {
+        "en": "An odious, secluded underground market built into the sewers.",
+        "ru": "Отвратительный, укромный подземный рынок, устроенный в канализации."
+      },
+      "impulses": {
+        "en": [
+          "Buy and sell anything without restraint",
+          "feed the underworld fresh blood",
+          "drain the coin of the desperate"
+        ],
+        "ru": [
+          "Покупать и продавать что угодно без ограничений",
+          "питать преступный мир свежей кровью",
+          "высасывать монеты из отчаявшихся"
+        ]
+      },
+      "potential_adversaries": {
+        "en": [
+          "Jagged Knife Bandits (Bandit, Hexer, Kneebreaker, Lackey, Lieutenant, Shadow, Sniper)",
+          "Guards (Head, Archer, Bladed)",
+          "Giant Mosquitos",
+          "Giant Rat",
+          "Swarm of Rats"
+        ],
+        "ru": [
+          "Бандиты из «Зазубренного ножа» (Бандит, Колдун, Коленолом, Шестёрка, Лейтенант, Тень, Снайпер)",
+          "Стражники (Капитан Стражи, Стражник-Лучник, Стражник-Мечник)",
+          "Гигантские Москиты",
+          "Гигантская Крыса",
+          "Стая Крыс"
+        ]
+      },
+      "features": [
+        {
+          "type": "passive",
+          "name": {
+            "en": "Filthy Lucre",
+            "ru": "Презренный Металл"
+          },
+          "description": {
+            "en": "Money moves everything in the Undermarket. PCs can offer a bag of gold to retain the services of a local guide, obtain illegal goods, or buy information from the criminal underworld here—but they or another party member must make a Presence Roll when they do so. When spending 2 bags of gold, this Roll is made with Advantage.\n**Critical Success:** Get what you want and then some—extra muscle, more information, detailed instructions, or maps, even finer and rarer contraband.\n**Success with Hope:** Get what you want; the character’s background helps it go smoothly and gives a desired lead of extra information.\n**Success with Fear:** An offhanded remark during the deal reveals a pending threat related to a character’s background.\n**Any Failure:** The undermarket merchant gets the money out of their hands but then puts them in front of a fake payout while trying to slip out the back.",
+            "ru": "Деньги двигают всем в Подрынке. Персонажи могут предложить мешок золота, чтобы нанять услуги местного проводника, добыть незаконные товары, или купить сведения из криминального мира здесь — но сам персонаж или другой участник отряда должен совершить Бросок на Влияние, когда делает это. При трате 2 мешков золота этот Бросок совершается с Преимуществом.\n- **Критический успех:** Получите то, что хотели, и даже больше — дополнительную силу, больше сведений, подробные инструкции, карты, или даже более редкую и качественную контрабанду.\n- **Успех с Надеждой:** Получите то, что хотели; предыстория персонажа помогает всё пройти гладко и даёт желаемую наводку с дополнительными сведениями.\n- **Успех со Страхом:** Случайное замечание во время сделки раскрывает надвигающуюся угрозу, связанную с предысторией персонажа.\n- **Любая неудача:** Торговец Подрынка забирает деньги из рук персонажа, но затем подсовывает ему фальшивую расплату, пытаясь ускользнуть через чёрный ход."
+          },
+          "prompt": {
+            "en": "Who is interested in lightening the PC’s pockets once they see the gold come out? Who else is doing business with this shady merchant?",
+            "ru": "Кто заинтересован облегчить карманы персонажа, когда видит, что появилось золото? Кто ещё ведёт дела с этим подозрительным торговцем?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Everything Has a Price",
+            "ru": "У всего есть цена"
+          },
+          "description": {
+            "en": "The PCs overhear a hit being placed on a surface-side merchant—there’s a Chest of gold in it for the killers.",
+            "ru": "Персонажи слышат, как заказывают убийство торговца с поверхности — за это убийцам обещан Сундук золота."
+          },
+          "prompt": {
+            "en": "Do the PCs care about why this is happening, and will they try to find out before intervening or stepping away?",
+            "ru": "Волнует ли персонажей, почему это происходит, и попытаются ли они узнать больше, прежде чем вмешаться или отступить?"
+          }
+        },
+        {
+          "type": "action",
+          "name": {
+            "en": "Blood in the Gold",
+            "ru": "Кровь в золоте"
+          },
+          "description": {
+            "en": "A well-dressed middleman is handling the purchase of caged Giant Mosquitos here, and is asking a lot of specific questions about how quickly they could drain someone to death.",
+            "ru": "Хорошо одетый посредник ведёт торги за покупку клеток с Гигантскими Москитами и задаёт множество конкретных вопросов о том, как быстро они могут высосать кого-то до смерти."
+          },
+          "prompt": {
+            "en": "Who is paying this middleman, and does the party care to find out more—or intervene?",
+            "ru": "Кто платит этому посреднику, и хочет ли отряд узнать больше — или вмешаться?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Oh... Rats!",
+            "ru": "О... Крысы!"
+          },
+          "description": {
+            "en": "When the party is here, or anyone in the scene takes out some food, you may spend a Fear to introduce an appropriate number of Swarms of Rats. They pour out of cracks in the walls and around the bodies of water to rip and tear at food stuffs and wounded people. If the party starts killing the rats, a Giant Rat emerges to challenge them and rampage through the stalls.",
+            "ru": "Когда отряд находится здесь, или кто-то на сцене достаёт еду, вы можете потратить Страх, чтобы ввести подходящее число Стай Крыс. Они высыпают из трещин в стенах и вокруг водоёмов, чтобы рвать и терзать продукты и раненых. Если отряд начинает убивать крыс, появляется Гигантская Крыса, чтобы вызвать их на бой и устроить погром среди прилавков."
+          },
+          "prompt": {
+            "en": "Does the party try to divert them, kill them, or take advantage of the chaos? Who here is judging their reaction, and why?",
+            "ru": "Пытается ли отряд отвлечь их, убить, или воспользоваться хаосом? Кто здесь оценивает их реакцию, и почему?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Bad Part of Town",
+            "ru": "Дурной район"
+          },
+          "description": {
+            "en": "When any party member is away from the main market tents of Undermarket, you can spend a Fear to introduce a hit squad of bandits that are trying to take them out—either kidnapping or killing one or more PCs. The killers should appear around a corner (Close range); select a mix of Jagged Knife Bandits for the encounter, and consider leaving a Sniper across a canal gap from the party’s position.",
+            "ru": "Когда кто-то из отряда отдаляется от главных торговых шатров Подрынка, вы можете потратить Страх, чтобы ввести отряд убийц, пытающихся устранить их — похитив или убив одного или нескольких персонажей. Убийцы должны появиться из-за угла (на Близкой дистанции); выберите смесь Бандитов из «Зазубренного ножа» для этой встречи, и подумайте о том, чтобы оставить Снайпера на другой стороне канала от позиции отряда."
+          },
+          "prompt": {
+            "en": "Who hired these killers, and why? And is there any way for the party to collect the reward... on themselves?",
+            "ru": "Кто нанял этих убийц, и почему? И есть ли у отряда способ получить награду... за самих себя?"
+          }
+        },
+        {
+          "type": "reaction",
+          "name": {
+            "en": "Crackdown",
+            "ru": "Зачистка"
+          },
+          "description": {
+            "en": "while something very blatantly illegal is occurring, the guards finally make their move—it’s a raid! Guards (led by a Head Guard with a mix of Bladed and Archer Guards backing them up) pour in from the stairs above.",
+            "ru": "Пока происходит что-то явно незаконное, стражники наконец решаются действовать — это рейд! Стражники (во главе с Капитаном Стражи, при поддержке смеси Стражников-Мечников и Стражников-Лучников) врываются с лестниц наверху."
+          },
+          "prompt": {
+            "en": "Does the party take a side or flee? Are they interested in why this is happening, and do they trust the authorities are doing the right thing here?",
+            "ru": "Принимает ли отряд чью-то сторону, или бежит? Интересует ли их, почему это происходит, и верят ли они, что власти поступают правильно?"
+          }
+        }
+      ],
+      "builtin": true,
+      "biomes": [
+        "settlement",
         "underground"
       ],
       "source": "Resting Dagger"
