@@ -443,7 +443,7 @@ function potentialAdversaryEntryHtml(localizedText, englishText) {
 /* Cache buster for the JSON under data/. index.html versions the stylesheet and
    this script the same way; the data files are fetched from here instead, so
    bump this whenever anything in data/ changes or browsers serve stale copies. */
-const DATA_VERSION = 51;
+const DATA_VERSION = 52;
 
 function getJSON(path) {
   return fetch(path).then(r => {
@@ -2873,7 +2873,6 @@ function openDetailOverlay(envId, carry = null) {
           <span class="dm-item">
             <span class="dm-k">${t('difficulty_label')}</span><span class="dm-dash">—</span>
             <span class="dm-v" id="detail-difficulty-value"></span>
-            <span class="dm-orig" id="detail-difficulty-orig"></span>
           </span>
           <span class="dm-sep" aria-hidden="true">·</span>` : ''}
           <span class="dm-item">
@@ -2928,7 +2927,6 @@ function openDetailOverlay(envId, carry = null) {
 
   const modalEl = overlay.querySelector('#detail-modal');
   const difficultyValueEl = overlay.querySelector('#detail-difficulty-value');
-  const difficultyOrigEl = overlay.querySelector('#detail-difficulty-orig');
 
   /** Countdown panels whose button was replaced by a re-render would otherwise
    * linger over the card with nothing behind them. */
@@ -2962,15 +2960,11 @@ function openDetailOverlay(envId, carry = null) {
     // around the whole card, and the environment's own difficulty spelled out
     // next to the scaled one.
     modalEl.classList.toggle('retiered', overridden);
-    // A descriptive difficulty reads the same at every tier, so it is printed
-    // but never annotated: there is no original to set it against, and
-    // "(orig. Special (see …))" would only repeat the line above it.
+    // A descriptive difficulty reads the same at every tier, so it is never
+    // annotated: there is no original to set it against.
     if (difficultyValueEl) {
       const annotate = overridden && difficultyScales(env);
       difficultyValueEl.textContent = String(retierDifficulty(env, viewTier));
-      difficultyOrigEl.textContent = annotate
-        ? t('retier_original_short').replace('{v}', String(envDifficulty(env)))
-        : '';
       if (annotate) {
         difficultyValueEl.dataset.tip =
           t('retier_original').replace('{v}', `${t('tier_label')} ${env.tier}, ${t('difficulty_label')} ${envDifficulty(env)}`);

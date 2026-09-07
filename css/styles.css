@@ -902,7 +902,6 @@ body.has-env-backdrop .modal-overlay[data-overlay-kind="detail"] {
 .dm-dash, .dm-sep { color: var(--muted); }
 .dm-v { font-family: var(--font-mono); font-size: var(--fs-md); color: var(--hope-soft); }
 .dm-v-text { font-family: var(--font-body); font-size: var(--fs-base); color: var(--parchment); }
-.dm-orig { font-family: var(--font-mono); font-size: var(--fs-micro); color: var(--hope); }
 
 /* ---------- detail card: read at another tier ---------- */
 .modal.retiered { border-color: rgba(217,164,65,0.5); box-shadow: var(--e-4), 0 0 0 1px rgba(217,164,65,0.28); }
