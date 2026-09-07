@@ -890,7 +890,7 @@ body.has-env-backdrop .modal-overlay[data-overlay-kind="detail"] {
  * the way — its only job is telling a first-time reader the gold names below
  * are links, not emphasis. */
 .adversary-hint {
-  margin: 0 0 var(--s-2); max-width: var(--measure);
+  margin: 0 0 var(--s-2);
   font-size: var(--fs-xs); line-height: var(--lh-xs); color: var(--muted);
 }
 
@@ -1135,7 +1135,7 @@ body.has-env-backdrop .modal-overlay[data-overlay-kind="detail"] {
   font-family: var(--font-body); font-weight: 700; font-size: var(--fs-base);
   color: var(--parchment); margin: 0 0 var(--s-2);
 }
-.story-seed-body { max-width: var(--measure); font-size: var(--fs-base); line-height: var(--lh-base); }
+.story-seed-body { font-size: var(--fs-base); line-height: var(--lh-base); }
 .story-seed-body p { margin: 0 0 var(--s-2); }
 .story-seed-body p:last-child { margin-bottom: 0; }
 .story-seed-prompt { margin-top: var(--s-2); }
