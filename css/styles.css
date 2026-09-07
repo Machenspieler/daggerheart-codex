@@ -838,7 +838,7 @@ body.has-env-backdrop .modal-overlay[data-overlay-kind="detail"] {
 
 /* ---------- detail card: flavor text ---------- */
 .env-lore {
-  font-style: italic; color: var(--parchment-dim); max-width: var(--measure);
+  font-style: italic; color: var(--parchment-dim);
   margin: 0 0 var(--s-4);
 }
 
