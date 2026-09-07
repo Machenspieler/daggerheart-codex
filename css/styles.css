@@ -1640,7 +1640,7 @@ button.jr-biome:hover { border-color: var(--hope); color: var(--hope-soft); }
   color: var(--muted); font-size: var(--fs-xs); line-height: var(--lh-xs);
   display: flex; justify-content: space-between; align-items: flex-start; gap: var(--s-4); flex-wrap: wrap;
 }
-.site-footer span { max-width: 90ch; }
+.site-footer span { flex: 1 1 0; min-width: 200px; }
 /* A button, not an anchor — the source list is an overlay, and an <a href="#">
  * would put a junk entry in the history the hash router then has to sweep up.
  * It still has to read as a link inside the sentence it sits in. */
