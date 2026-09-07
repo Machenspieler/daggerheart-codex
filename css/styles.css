@@ -124,21 +124,24 @@ body {
   min-height: 100vh;
 }
 
-/* ---------- catalog atlas watermark ---------- */
+/* ---------- atlas watermark ---------- */
 /* A single, still copy of the atlas art, fixed to the viewport behind every
  * piece of real content. `body` has no background of its own once the canvas
  * promotes it (html carries none), so this sits between that canvas paint and
  * the page: a negative z-index keeps it under .grid/.card (both positioned,
- * stack level 0 or above) without touching either rule. Scoped to the catalog
- * route via body[data-route] rather than a URL check in JS, and off entirely
- * anywhere else — including behind an open card's own env-backdrop, which
- * paints on top of it regardless since that layer already sits at z-index 90. */
-body[data-route="catalog"]::before {
-  --catalog-art-opacity: 0.12;
+ * stack level 0 or above) without touching either rule. Scoped to the main
+ * routes via body[data-route] rather than a URL check in JS — off on a card's
+ * own env-backdrop and modal overlays regardless, since those already sit at
+ * z-index 90+. */
+body[data-route="catalog"]::before,
+body[data-route="lists"]::before,
+body[data-route="list"]::before,
+body[data-route="journey"]::before {
+  --catalog-art-opacity: 0.26;
   --catalog-art-size: min(1024px, 82vw, 100vh);
-  --catalog-art-brightness: 0.54;
-  --catalog-art-saturate: 0.58;
-  --catalog-art-contrast: 0.96;
+  --catalog-art-brightness: 0.75;
+  --catalog-art-saturate: 0.75;
+  --catalog-art-contrast: 1;
   content: "";
   position: fixed;
   inset: 0;
@@ -154,15 +157,21 @@ body[data-route="catalog"]::before {
           contrast(var(--catalog-art-contrast));
 }
 @media (max-width: 641px) {
-  body[data-route="catalog"]::before {
-    --catalog-art-opacity: 0.055;
+  body[data-route="catalog"]::before,
+  body[data-route="lists"]::before,
+  body[data-route="list"]::before,
+  body[data-route="journey"]::before {
+    --catalog-art-opacity: 0.14;
     --catalog-art-size: min(140vw, 640px);
-    --catalog-art-brightness: 0.46;
-    --catalog-art-saturate: 0.48;
+    --catalog-art-brightness: 0.6;
+    --catalog-art-saturate: 0.6;
   }
 }
 @media (forced-colors: active) {
-  body[data-route="catalog"]::before { display: none; }
+  body[data-route="catalog"]::before,
+  body[data-route="lists"]::before,
+  body[data-route="list"]::before,
+  body[data-route="journey"]::before { display: none; }
 }
 
 a { color: var(--hope-soft); text-decoration: none; }
