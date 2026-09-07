@@ -932,7 +932,6 @@ body.has-env-backdrop .modal-overlay[data-overlay-kind="detail"] {
   letter-spacing: var(--tracking-caps); text-transform: uppercase;
   color: var(--teal-soft); margin: var(--s-7) 0 var(--s-2); display: block;
 }
-.impulse-list { max-width: var(--measure); }
 .impulse-list { font-style: italic; color: var(--parchment-dim); }
 .adversary-list { color: var(--parchment-dim); font-size: var(--fs-base); }
 
