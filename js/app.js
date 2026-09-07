@@ -443,7 +443,7 @@ function potentialAdversaryEntryHtml(localizedText, englishText) {
 /* Cache buster for the JSON under data/. index.html versions the stylesheet and
    this script the same way; the data files are fetched from here instead, so
    bump this whenever anything in data/ changes or browsers serve stale copies. */
-const DATA_VERSION = 52;
+const DATA_VERSION = 54;
 
 function getJSON(path) {
   return fetch(path).then(r => {
@@ -1992,8 +1992,8 @@ function openAddToListPopup(envId) {
 
 function rollDie(sides) { return 1 + Math.floor(Math.random() * sides); }
 
-/** A bilingual cell from journey.json. The `ru` side of the imported tables is
- * empty for now, so this falls through to the English the book prints. */
+/** A bilingual cell from journey.json. Falls through to whichever side is
+ * filled in if the current language's own text is missing. */
 function jText(pair) {
   if (!pair) return '';
   const own = pair[state.lang];
