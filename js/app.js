@@ -983,6 +983,7 @@ function render() {
     state.route = { name: 'lists' };
     if (location.hash !== '#/lists') location.hash = '#/lists';
   }
+  document.body.dataset.route = state.route.name;
   document.title = routeTitle();
   renderHeader();
   if (state.route.name === 'lists') {

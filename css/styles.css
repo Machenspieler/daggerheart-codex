@@ -124,6 +124,47 @@ body {
   min-height: 100vh;
 }
 
+/* ---------- catalog atlas watermark ---------- */
+/* A single, still copy of the atlas art, fixed to the viewport behind every
+ * piece of real content. `body` has no background of its own once the canvas
+ * promotes it (html carries none), so this sits between that canvas paint and
+ * the page: a negative z-index keeps it under .grid/.card (both positioned,
+ * stack level 0 or above) without touching either rule. Scoped to the catalog
+ * route via body[data-route] rather than a URL check in JS, and off entirely
+ * anywhere else — including behind an open card's own env-backdrop, which
+ * paints on top of it regardless since that layer already sits at z-index 90. */
+body[data-route="catalog"]::before {
+  --catalog-art-opacity: 0.12;
+  --catalog-art-size: min(1024px, 82vw, 100vh);
+  --catalog-art-brightness: 0.54;
+  --catalog-art-saturate: 0.58;
+  --catalog-art-contrast: 0.96;
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: url("../img/ui/catalog-atlas-background.webp");
+  background-repeat: no-repeat;
+  background-position: center 54%;
+  background-size: var(--catalog-art-size) auto;
+  opacity: var(--catalog-art-opacity);
+  filter: brightness(var(--catalog-art-brightness))
+          saturate(var(--catalog-art-saturate))
+          contrast(var(--catalog-art-contrast));
+}
+@media (max-width: 641px) {
+  body[data-route="catalog"]::before {
+    --catalog-art-opacity: 0.055;
+    --catalog-art-size: min(140vw, 640px);
+    --catalog-art-brightness: 0.46;
+    --catalog-art-saturate: 0.48;
+  }
+}
+@media (forced-colors: active) {
+  body[data-route="catalog"]::before { display: none; }
+}
+
 a { color: var(--hope-soft); text-decoration: none; }
 a:hover { text-decoration: underline; text-underline-offset: 2px; }
 
