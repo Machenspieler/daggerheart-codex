@@ -912,11 +912,11 @@ body.has-env-backdrop .modal-overlay[data-overlay-kind="detail"] {
 }
 /* Its own box, not underlined text: a plain "\00a0↗" reads as an underlined
  * arrow glued to the name with no room to breathe before the next comma. */
-.adversary-encounter-link::after {
+/*.adversary-encounter-link::after {
   content: "↗"; display: inline-block; margin-left: 0.3em;
   text-decoration: none; opacity: 0; transition: opacity var(--t-fast) var(--ease-out);
 }
-.adversary-encounter-link:hover::after, .adversary-encounter-link:focus-visible::after { opacity: 1; }
+.adversary-encounter-link:hover::after, .adversary-encounter-link:focus-visible::after { opacity: 1; }*/
 
 /* Carries the section-label's own spacing so the label sits flush against the
  * link beside it; wraps to its own line on a narrow card rather than crowding
