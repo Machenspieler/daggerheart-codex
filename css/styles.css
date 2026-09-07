@@ -965,7 +965,7 @@ body.has-env-backdrop .modal-overlay[data-overlay-kind="detail"] {
 /* Hanging indent: the lozenge sits in its own gutter so a wrapped second line
  * starts under the first line's text rather than under the glyph. */
 .feature-prompt {
-  margin: var(--s-2) 0 0; max-width: var(--measure);
+  margin: var(--s-2) 0 0;
   padding-left: 1.15em; text-indent: -1.15em;
   /* A step up from --fs-sm: italic grey at 13px is hard to read on a desktop monitor. */
   font-size: 14px; line-height: var(--lh-sm); color: var(--muted); font-style: italic;
