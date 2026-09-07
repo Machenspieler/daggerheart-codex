@@ -315,9 +315,25 @@ const ADVERSARY_GROUP_NAME_PREFIXES = {
   'Outer Realms': 'Outer Realms',
 };
 
+/** A few groups don't follow the prefix pattern above at all — "Guards (Head,
+ * Archer, Bladed)" names its members with the role first and "Guard" dropped,
+ * so neither leaving the text alone nor prepending a prefix produces the
+ * FreshCutGrass name ("Head Guard", not "Head" or "Guards Head"). Those need
+ * an explicit member-by-member alias instead of a prefix or suffix rule. */
+const ADVERSARY_GROUP_MEMBER_ALIASES = {
+  Guards: {
+    Head: 'Head Guard',
+    Archer: 'Archer Guard',
+    Bladed: 'Bladed Guard',
+  },
+};
+
 /** The FreshCutGrass-recognizable name for one member of a Potential
- * Adversaries group — see ADVERSARY_GROUP_NAME_PREFIXES above. */
+ * Adversaries group — see ADVERSARY_GROUP_MEMBER_ALIASES and
+ * ADVERSARY_GROUP_NAME_PREFIXES above. */
 function fullAdversaryName(groupLabel, memberName) {
+  const alias = ADVERSARY_GROUP_MEMBER_ALIASES[groupLabel]?.[memberName];
+  if (alias) return alias;
   const prefix = ADVERSARY_GROUP_NAME_PREFIXES[groupLabel];
   return prefix ? `${prefix} ${memberName}` : memberName;
 }
@@ -427,7 +443,7 @@ function potentialAdversaryEntryHtml(localizedText, englishText) {
 /* Cache buster for the JSON under data/. index.html versions the stylesheet and
    this script the same way; the data files are fetched from here instead, so
    bump this whenever anything in data/ changes or browsers serve stale copies. */
-const DATA_VERSION = 50;
+const DATA_VERSION = 51;
 
 function getJSON(path) {
   return fetch(path).then(r => {

@@ -26315,7 +26315,7 @@
         "en": [
           "Minor Demon",
           "Minor Elementals (Fire, Chaos)",
-          "Giant Mosquitos"
+          "Giant Mosquitoes"
         ],
         "ru": [
           "Малый Демон",
@@ -27634,7 +27634,7 @@
         "en": [
           "Jagged Knife Bandits (Bandit, Hexer, Kneebreaker, Lackey, Lieutenant, Shadow, Sniper)",
           "Guards (Head, Archer, Bladed)",
-          "Giant Mosquitos",
+          "Giant Mosquitoes",
           "Giant Rat",
           "Swarm of Rats"
         ],
@@ -27684,7 +27684,7 @@
             "ru": "Кровь в золоте"
           },
           "description": {
-            "en": "A well-dressed middleman is handling the purchase of caged Giant Mosquitos here, and is asking a lot of specific questions about how quickly they could drain someone to death.",
+            "en": "A well-dressed middleman is handling the purchase of caged Giant Mosquitoes here, and is asking a lot of specific questions about how quickly they could drain someone to death.",
             "ru": "Хорошо одетый посредник ведёт торги за покупку клеток с Гигантскими Москитами и задаёт множество конкретных вопросов о том, как быстро они могут высосать кого-то до смерти."
           },
           "prompt": {
