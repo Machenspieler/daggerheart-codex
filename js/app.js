@@ -1640,9 +1640,7 @@ function cardHtml(env) {
 /* Every book the catalog draws on. Titles are proper names, so they are the
  * same in both languages and live here rather than twice in i18n.json. */
 const SOURCES = [
-  'Daggerheart SRD',
-  'Daggerheart Core Set',
-  'Daggerheart: Hope & Fear',
+  'Daggerheart SRD 2.0',
   'Shalassa Desert',
   'Dread GM Toolbox',
   'Incredible Creatures',
@@ -1653,7 +1651,6 @@ const SOURCES = [
   'Court & Shadow',
   'Pistol Heart',
   'StarHeart',
-  'Journey to Horizon',
 ];
 
 function renderFooter() {
